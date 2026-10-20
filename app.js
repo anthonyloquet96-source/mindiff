@@ -1,6 +1,6 @@
 const VIEWS = [
+  { id: "tournois", label: "Matchs", icon: '<path d="M6 4h12v4a6 6 0 0 1-12 0V4zm6 10v4m-4 2h8M6 6H3v1a3 3 0 0 0 3 3m12-4h3v1a3 3 0 0 1-3 3"/>' },
   { id: "actus", label: "Actus", icon: '<path d="M4 5h13v14H6a2 2 0 0 1-2-2V5zm13 4h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/>' },
-  { id: "tournois", label: "Tournois", icon: '<path d="M6 4h12v4a6 6 0 0 1-12 0V4zm6 10v4m-4 2h8M6 6H3v1a3 3 0 0 0 3 3m12-4h3v1a3 3 0 0 1-3 3"/>' },
   { id: "tier", label: "Tier lists", icon: '<path d="M4 6h3m4 0h9M4 12h3m4 0h6M4 18h3m4 0h3"/>' },
   { id: "strats", label: "Stratégies", icon: '<path d="M5 19l5-5m0 0l4 4 5-5M10 14V5m0 0L7 8m3-3l3 3"/>' },
 ];
@@ -9,7 +9,7 @@ const ROLES = [["all", "Tous les rôles"], ["top", "Top"], ["jungle", "Jungle"],
 const ROLE_LABEL = Object.fromEntries(ROLES);
 
 const state = {
-  view: "actus", game: "all", type: "all", query: "", limit: 30, sort: "date",
+  view: "tournois", game: "all", expanded: null, type: "all", query: "", limit: 30, sort: "date",
   tournament: null, ttab: "resume", tstage: null, tteam: "", tfilter: "all", openMatch: null,
   metaRole: "all", metaSort: "picks",
 };
@@ -17,6 +17,8 @@ const state = {
 // ---------- Données ----------
 // Servi par le serveur : /api/data + mises à jour en direct (SSE). Ouvert en fichier : data/auto.js.
 let AUTO = null;
+// Synthèses rédigées par la rédaction Tryhard Meta (data/editorial.json) : elles priment sur le reste.
+let EDITORIAL = { topics: {}, matches: {}, tournaments: {}, briefings: {} };
 let dataLoaded = false;
 let serverStatus = null;
 const ONLINE = location.protocol.startsWith("http");
@@ -116,53 +118,76 @@ const claudeTag = `<span class="pill claude" title="Résumé et analyse rédigé
 // ---------- Actus ----------
 const IMPACT_RANK = { fort: 0, moyen: 1, faible: 2 };
 
-function briefingPanel() {
-  const b = AUTO?.briefings || {};
-  const games = (state.game === "all" ? GAMES.map(g => g.id) : [state.game]).filter(g => b[g]);
+// « L'essentiel » d'un jeu : la synthèse de la rédaction prime sur l'analyse automatique
+const briefingOf = g => EDITORIAL.briefings?.[g] || AUTO?.briefings?.[g] || null;
+
+function briefingPanel(compact = false) {
+  const games = (state.game === "all" ? GAMES.map(g => g.id) : [state.game]).filter(briefingOf);
   if (!games.length) return "";
-  return `<section class="briefings">${games.map(g => `
-    <article class="briefing" style="--c:${gameById[g].color}">
-      <div class="card-meta">${gameTag(g)}<span class="pill claude">L'essentiel</span><span>${fmtShort(b[g].at)}</span></div>
-      <p class="b-resume">${esc(b[g].resume)}</p>
-      ${state.game !== "all" ? `${points(b[g].a_retenir)}${b[g].conseils?.length ? `<div class="analysis"><strong>Pour grimper en ce moment :</strong>${points(b[g].conseils)}</div>` : ""}` : `<ul class="points">${b[g].a_retenir.slice(0, 2).map(p => `<li>${esc(p)}</li>`).join("")}</ul>`}
-    </article>`).join("")}</section>`;
+  return `<section class="briefings">${games.map(g => {
+    const b = briefingOf(g);
+    return `<article class="briefing" style="--c:${gameById[g].color}">
+      <div class="card-meta">${gameTag(g)}<span class="pill claude">L'essentiel</span>${b.at ? `<span>${fmtShort(b.at)}</span>` : ""}</div>
+      <p class="b-resume">${esc(b.resume)}</p>
+      ${state.game !== "all" && !compact ? `${points(b.a_retenir)}${b.conseils?.length ? `<div class="analysis"><strong>Pour grimper en ce moment</strong>${points(b.conseils)}</div>` : ""}` : `<ul class="points">${b.a_retenir.slice(0, 2).map(p => `<li>${esc(p)}</li>`).join("")}</ul>`}
+    </article>`;
+  }).join("")}</section>`;
 }
 
-function newsCard(i, feature = false) {
-  // Analyse Claude = objet ; les fiches vérifiées à la main ont un simple texte « ce que ça change »
-  const a = typeof i.analysis === "object" ? i.analysis : null;
+// Synthèse affichée pour une actu : rédaction > analyse Claude > fiche vérifiée à la main > texte déjà en français.
+// null = pas encore synthétisée (article en anglais) : elle n'est pas affichée.
+function editOf(i) {
+  const e = i.id && EDITORIAL.topics?.[i.id];
+  if (e) return e;
+  const a = i.analysis;
+  if (a && typeof a === "object") return { titre: a.titre, resume: a.essentiel, points: a.points_cles, article: [], analyse: a.analyse, impact: a.impact, a_surveiller: a.a_surveiller };
+  if (!i.auto) return { titre: i.title, resume: i.summary, points: i.points || [], article: [], analyse: typeof a === "string" ? a : "", impact: null };
+  if (i.lang === "fr") return { titre: i.title, resume: i.summary, points: i.points?.slice(0, 5) || [], article: [], analyse: "", impact: null };
+  return null;
+}
+const keyOf = i => i.id || i.title;
+
+function newsCard(i) {
+  const e = editOf(i);
+  const k = keyOf(i);
+  const open = state.expanded === k;
   const yesterday = new Date(Date.now() - 864e5).toISOString().slice(0, 10);
-  feature = feature && !!i.image;
+  const hasMore = e.article?.length || e.points?.length || e.analyse || i.sources?.length;
   return `
-  <article class="card ${feature ? "feature" : ""}" style="--c:${gameById[i.game].color}">
-    ${i.image ? `<div class="hero"><img src="${esc(i.image)}" alt="" loading="lazy" onerror="this.parentNode.remove()"></div>` : ""}
-    ${feature ? `<div class="feature-body">` : ""}
-    <div class="card-meta">${gameTag(i.game)}<span class="type">${TYPES[i.type] || esc(i.type)}</span><span>${fmtDate(i.date)}</span>${badge(i.status)}
-      ${i.date >= yesterday && i.date <= today() ? `<span class="pill new">Nouveau</span>` : ""}
-      ${a ? `<span class="pill impact-${a.impact}">Impact ${a.impact}</span>` : ""}
-      ${!a && i.lang === "en" ? `<span class="pill" title="Article en anglais">EN</span>` : ""}
-      ${i.auto ? "" : `<span class="pill manual">Vérifié main</span>`}</div>
-    <h3>${esc(a?.titre || i.title)}</h3>
-    ${a ? `
-      <p class="essentiel">${esc(a.essentiel)}</p>
-      ${points(a.points_cles)}
-      <div class="analysis">${claudeTag} ${esc(a.analyse)}</div>
-      ${a.a_surveiller ? `<p class="small muted">👁 À surveiller : ${esc(a.a_surveiller)}</p>` : ""}
-      <details class="small"><summary class="muted">Texte d'origine</summary><p><b>${esc(i.title)}</b></p>${i.summary ? `<p>${esc(i.summary)}</p>` : ""}${points(i.points)}</details>`
-    : `${i.summary ? `<p>${esc(i.summary)}</p>` : ""}${points(i.points)}${advice(typeof i.analysis === "string" ? i.analysis : "")}`}
-    ${warnings(i.warnings)}${sources(i.sources)}
-    ${feature ? `</div>` : ""}
+  <article class="news ${open ? "open" : ""}" style="--c:${gameById[i.game].color}">
+    <div class="n-row">
+      <div class="n-text">
+        <div class="card-meta">${gameTag(i.game)}<span class="type">${TYPES[i.type] || esc(i.type)}</span><span>${fmtShort(i.date)}</span>
+          ${i.date >= yesterday && i.date <= today() ? `<span class="pill new">Nouveau</span>` : ""}</div>
+        <h3>${esc(e.titre)}</h3>
+        ${e.resume ? `<p class="n-resume">${esc(e.resume)}</p>` : ""}
+        <div class="n-tags">${badge(i.status)}${e.impact ? `<span class="pill impact-${e.impact}">Impact ${e.impact}</span>` : ""}</div>
+      </div>
+      ${i.image ? `<div class="n-thumb"><img src="${esc(i.image)}" alt="" loading="lazy" onerror="this.parentNode.remove()"></div>` : ""}
+    </div>
+    ${hasMore ? `<button class="n-more" data-action="expand" data-id="${esc(k)}">${open ? "Réduire ▲" : "En savoir + ▼"}</button>` : ""}
+    ${open ? `<div class="n-detail">
+      ${(e.article || []).map(p => `<p>${esc(p)}</p>`).join("")}
+      ${e.points?.length ? `<h4>À retenir</h4>${points(e.points)}` : ""}
+      ${e.analyse ? `<div class="analysis"><strong>Notre analyse</strong><p>${esc(e.analyse)}</p></div>` : ""}
+      ${e.a_surveiller ? `<p class="small muted">À surveiller : ${esc(e.a_surveiller)}</p>` : ""}
+      ${warnings(i.warnings)}
+      <p class="small muted src-title">Sources vérifiées</p>${sources(i.sources)}
+    </div>` : ""}
   </article>`;
 }
 
 function viewActus() {
   const tabs = [["all", "Tout"], ...Object.entries(TYPES)];
   const q = state.query;
-  const text = i => [i.title, i.summary, ...(i.points || []), typeof i.analysis === "string" ? i.analysis : Object.values(i.analysis || {}).flat().join(" ")].join(" ").toLowerCase();
-  let all = byGame(allNews())
-    .filter(i => state.type === "all" || i.type === state.type)
-    .filter(i => !q || text(i).includes(q));
-  if (state.sort === "impact") all = all.filter(i => i.analysis?.impact).sort((a, b) => IMPACT_RANK[a.analysis.impact] - IMPACT_RANK[b.analysis.impact] || b.date.localeCompare(a.date));
+  const base = byGame(allNews()).filter(i => state.type === "all" || i.type === state.type);
+  const pending = base.filter(i => !editOf(i)).length;
+  let all = base.filter(editOf).filter(i => {
+    if (!q) return true;
+    const e = editOf(i);
+    return [e.titre, e.resume, ...(e.points || []), ...(e.article || []), e.analyse].join(" ").toLowerCase().includes(q);
+  });
+  if (state.sort === "impact") all = all.filter(i => editOf(i).impact).sort((a, b) => IMPACT_RANK[editOf(a).impact] - IMPACT_RANK[editOf(b).impact] || b.date.localeCompare(a.date));
   else if (state.sort === "confirme") all = all.filter(i => i.status === "confirme").sort((a, b) => b.date.localeCompare(a.date));
   else all.sort((a, b) => b.date.localeCompare(a.date));
   const items = all.slice(0, state.limit);
@@ -178,7 +203,8 @@ function viewActus() {
     </div>
   </div>
   <div class="layout">
-    <div class="feed">${items.length ? items.map((i, k) => newsCard(i, k === 0)).join("") : empty("Aucune info pour ce filtre pour l'instant.")}
+    <div class="feed">${pending ? `<p class="small muted pending-note">${pending} info${pending > 1 ? "s" : ""} en cours de synthèse par la rédaction.</p>` : ""}
+      ${items.length ? items.map(newsCard).join("") : empty("Aucune info pour ce filtre pour l'instant.")}
       ${all.length > items.length ? `<button class="more" data-action="more">Voir plus (${all.length - items.length})</button>` : ""}
     </div>
     <aside class="side">
@@ -227,13 +253,68 @@ function viewTournois() {
     if (!dataLoaded) return empty("Chargement du tournoi…");
     state.tournament = null;
   }
-  const list = byGame(allTournaments()).sort((a, b) => (a.status === "live" ? 0 : 1) - (b.status === "live" ? 0 : 1) || (b.lastMatch || "").localeCompare(a.lastMatch || ""));
-  // Classements saisis à la main : seulement pour les jeux sans données officielles automatiques
+  return viewHub();
+}
+
+// Résumé factuel d'un match, calculé à partir des données officielles (toujours disponible, toujours en français)
+function autoSummary(m) {
+  if (m.state !== "completed") return "";
+  const [a, b] = m.teams;
+  const w = a.outcome === "win" ? a : b;
+  const l = w === a ? b : a;
+  let s = `${w.name} bat ${l.name}${w.score != null ? ` ${w.score}–${l.score}` : ""}.`;
+  if (m.games?.length && m.verified && w.id) {
+    const k = id => m.games.reduce((n, g) => n + (g.kills ? (g.blue.teamId === id ? g.kills.blue : g.kills.red) : 0), 0);
+    s += ` ${k(w.id)} kills à ${k(l.id)} sur la série.`;
+  }
+  return s;
+}
+const matchEdit = m => EDITORIAL.matches?.[m.id] || null;
+const tAnalysis = t => EDITORIAL.tournaments?.[t.id] || t.analysis || null;
+
+function compactMatch(m, t) {
+  const [a, b] = m.teams;
+  const done = m.state === "completed";
+  const line = done ? (matchEdit(m)?.resume || autoSummary(m) || m.summary || "") : "";
+  const side = x => `<div class="team ${x.outcome === "win" ? "win" : ""}">${avatar("", { name: x.name }, "sm", x.image)}<span class="tn">${esc(x.name)}</span><span class="sc">${done ? (x.score ?? (x.outcome === "win" ? "V" : "D")) : ""}</span></div>`;
+  return `<button class="cm" data-action="open-m" data-t="${esc(t.id)}" data-id="${esc(m.id)}">
+    <span class="cm-league">${esc(t.name)}${m.block ? ` · ${esc(m.block)}` : ""}</span>
+    ${!done ? `<span class="cm-time">${m.state === "inProgress" ? `<span class="pill new">En direct</span>` : m.start ? esc(fmtTime(m.start)) : "À venir"}</span>` : ""}
+    ${side(a)}${side(b)}
+    ${line ? `<span class="cm-line">${esc(line)}</span>` : ""}
+    <span class="cm-cta">${done ? "Picks, résumé et analyse ›" : "Voir le match ›"}</span>
+  </button>`;
+}
+
+function viewHub() {
+  const ts = byGame(allTournaments());
+  const all = ts.flatMap(t => tMatches(t).map(m => ({ m, t })));
+  const known = x => x.m.teams.every(tm => tm.code !== "TBD" && tm.name !== "TBD");
+  const live = all.filter(x => x.m.state === "inProgress");
+  const next = all.filter(x => x.m.state === "unstarted" && x.m.start && known(x)).sort((a, b) => a.m.start.localeCompare(b.m.start)).slice(0, 12);
+  const recent = all.filter(x => x.m.state === "completed").sort((a, b) => (b.m.start || "").localeCompare(a.m.start || "")).slice(0, 8);
+  const list = [...ts].sort((a, b) => (a.status === "live" ? 0 : 1) - (b.status === "live" ? 0 : 1) || (b.lastMatch || "").localeCompare(a.lastMatch || ""));
   const autoGames = new Set((AUTO?.tournaments || []).map(t => t.game));
   const extra = byGame(STANDINGS).filter(s => !autoGames.has(s.game) && !list.some(t => t.tables?.includes(s)));
-  if (!list.length && !extra.length) return empty("Pas de tournoi suivi pour ce jeu pour l'instant.");
+  const news = byGame(allNews()).filter(editOf).sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
+  if (!dataLoaded) return empty("Chargement des matchs…");
+
   return `
-  <div class="t-grid">${list.map(t => {
+  ${live.length ? `<section class="hub-sec"><h2 class="sec-title"><span class="live-dot"></span>En direct</h2><div class="scroller">${live.map(x => compactMatch(x.m, x.t)).join("")}</div></section>` : ""}
+  <section class="hub-sec">
+    <h2 class="sec-title">Prochains matchs</h2>
+    ${next.length ? `<div class="scroller">${next.map(x => compactMatch(x.m, x.t)).join("")}</div>` : `<p class="muted small">Aucun match programmé pour l'instant${state.game !== "lol" && state.game !== "all" ? " : le calendrier automatique ne couvre pour l'instant que LoL" : ""}.</p>`}
+  </section>
+  ${recent.length ? `<section class="hub-sec"><h2 class="sec-title">Derniers résultats</h2><div class="m-grid">${recent.map(x => compactMatch(x.m, x.t)).join("")}</div></section>` : ""}
+  ${list.length ? `<section class="hub-sec"><h2 class="sec-title">Tournois</h2><div class="t-grid">${tournamentCards(list)}</div></section>` : ""}
+  ${briefingPanel(true)}
+  ${news.length ? `<section class="hub-sec"><h2 class="sec-title">À la une</h2><div class="feed">${news.map(newsCard).join("")}</div>
+    <button class="more" data-action="go-actus">Toutes les actus</button></section>` : ""}
+  ${extra.map(standingsTable).join("")}`;
+}
+
+function tournamentCards(list) {
+  return list.map(t => {
     const [label, cls] = T_STATUS[t.status] || ["", ""];
     const next = tMatches(t).filter(m => m.state !== "completed" && m.start && m.teams.every(x => x.code !== "TBD")).sort((a, b) => a.start.localeCompare(b.start))[0];
     return `<button class="card t-card" data-action="open-t" data-id="${esc(t.id)}" style="--c:${gameById[t.game].color}">
@@ -242,10 +323,9 @@ function viewTournois() {
       <p class="muted small">${esc(t.dates || `${fmtShort(t.startDate)} – ${fmtShort(t.endDate)}`)}${t.prize ? ` · ${esc(t.prize)}` : ""}</p>
       ${t.progress ? `<div class="progress"><span style="width:${Math.round((t.progress.done / Math.max(t.progress.total, 1)) * 100)}%"></span></div><p class="small muted">${t.progress.done}/${t.progress.total} matchs joués${t.stats?.totalGames ? ` · ${t.stats.totalGames} parties analysées` : ""}</p>` : ""}
       ${next ? `<p class="small">Prochain : <b>${esc(next.teams[0].name)} vs ${esc(next.teams[1].name)}</b> · ${fmtTime(next.start)}</p>` : ""}
-      ${t.analysis?.resume ? `<p class="small t-teaser">${esc(t.analysis.resume)}</p>` : ""}
+      ${tAnalysis(t)?.resume ? `<p class="small t-teaser">${esc(tAnalysis(t).resume)}</p>` : ""}
     </button>`;
-  }).join("")}</div>
-  ${extra.map(standingsTable).join("")}`;
+  }).join("");
 }
 
 function standingsTable(t) {
@@ -266,7 +346,7 @@ function viewTournoi(t) {
   const body = { resume: tResume, matchs: tMatchs, classement: tClassement, equipes: tEquipes, meta: tMeta }[state.ttab](t);
   return `
   <div class="t-head" style="--c:${gameById[t.game].color}">
-    <button class="back" data-action="close-t">← Tous les tournois</button>
+    <button class="back" data-action="close-t">← Retour aux matchs</button>
     <div class="card-meta">${gameTag(t.game)}<span class="${cls}"><b>● ${label}</b></span>${t.league ? `<span>${esc(t.league)}</span>` : ""}</div>
     <h2>${esc(t.name)}</h2>
     <p class="muted small">${esc(t.dates || `${fmtDate(t.startDate)} – ${fmtDate(t.endDate)}`)}${t.progress ? ` · ${t.progress.done}/${t.progress.total} matchs joués` : ""}</p>
@@ -277,19 +357,19 @@ function viewTournoi(t) {
 }
 
 function tResume(t) {
-  const a = t.analysis;
+  const a = tAnalysis(t);
   const matches = tMatches(t);
   const done = matches.filter(m => m.state === "completed").sort((x, y) => (y.start || "").localeCompare(x.start || ""));
   const next = matches.filter(m => m.state !== "completed" && m.teams.every(x => x.code !== "TBD")).sort((x, y) => (x.start || "").localeCompare(y.start || ""));
   return `
   ${a ? `<section class="card">
-    <div class="card-meta">${t.manual ? `<span class="pill manual">Vérifié main</span>` : claudeTag}</div>
+    <div class="card-meta">${t.manual ? `<span class="pill manual">Vérifié main</span>` : `<span class="pill claude">L'analyse de la rédaction</span>`}</div>
     <p class="essentiel">${esc(a.resume)}</p>
     ${a.faits_marquants?.length ? `<h4>Faits marquants</h4>${points(a.faits_marquants)}` : ""}
     ${a.equipes_en_forme?.length ? `<h4>Forme des équipes</h4>${points(a.equipes_en_forme)}` : ""}
     ${a.meta_pro ? `<h4>Méta pro</h4><p>${esc(a.meta_pro)}</p>` : ""}
     ${a.a_suivre?.length ? `<h4>À suivre</h4>${points(a.a_suivre)}` : ""}
-  </section>` : `<section class="card"><p class="muted small">L'analyse Claude de ce tournoi sera disponible après la prochaine collecte (clé API requise).</p></section>`}
+  </section>` : `<section class="card"><p class="muted small">L'analyse de ce tournoi est en cours de rédaction.</p></section>`}
   ${warnings(t.warnings)}
   <div class="two-col">
     <section class="card"><h4>Derniers résultats</h4><div class="m-list">${done.slice(0, 6).map(m => matchRow(m, t)).join("") || empty("Aucun match joué.")}</div>
@@ -316,12 +396,25 @@ function matchRow(m, t) {
   </div>`;
 }
 
+function matchStory(m) {
+  if (m.state !== "completed") return "";
+  const e = matchEdit(m);
+  const resume = e?.resume || m.summary || autoSummary(m);
+  return `<div class="m-story">
+    <h5>Résumé du match</h5><p>${esc(resume)}</p>
+    ${e?.cles?.length ? `<h5>Les moments clés</h5>${points(e.cles)}` : ""}
+    <h5>Analyse esport</h5>${e?.analyse ? `<p>${esc(e.analyse)}</p>` : `<p class="muted small">Analyse en cours de rédaction.</p>`}
+  </div>`;
+}
+
 function matchDetail(m, t) {
   if (m.maps || m.summary) {
-    return `<div class="m-detail">${m.maps ? `<div class="maps">${m.maps.map(([n, x, y]) => `<span class="map ${x > y ? "a" : "b"}">${esc(n)} <b>${x}–${y}</b></span>`).join("")}</div>` : ""}${m.summary ? `<p class="small">${esc(m.summary)}</p>` : ""}</div>`;
+    return `<div class="m-detail">${matchStory(m)}${m.maps ? `<h5>Maps</h5><div class="maps">${m.maps.map(([n, x, y]) => `<span class="map ${x > y ? "a" : "b"}">${esc(n)} <b>${x}–${y}</b></span>`).join("")}</div>` : ""}</div>`;
   }
   const name = id => m.teams.find(x => x.id === id)?.name || "?";
   return `<div class="m-detail">
+    ${matchStory(m)}
+    <h5>Picks et résultats partie par partie</h5>
     ${m.verified === false ? `<div class="warning small">⚠ Vainqueur de chaque partie non vérifié (le décompte ne correspond pas au score officiel).</div>` : ""}
     ${m.games.map(g => `<div class="game">
       <div class="g-head"><b>Partie ${g.n}</b>${g.winnerTeamId ? ` · victoire <b>${esc(name(g.winnerTeamId))}</b>` : ""}${g.kills ? ` · ${g.kills.blue}–${g.kills.red} kills` : ""}${g.patch ? ` · patch ${esc(g.patch)}` : ""}
@@ -588,8 +681,18 @@ document.addEventListener("click", e => {
   else if (el.classList.contains("nav-btn")) { state.view = el.dataset.id; state.tournament = null; window.scrollTo(0, 0); }
   else if (el.classList.contains("ti")) { el.closest(".tier-card").querySelector(".ti-detail").textContent = el.dataset.note; return; }
   else if (action === "home") { state.view = "accueil"; state.tournament = null; window.scrollTo(0, 0); }
+  else if (action === "expand") state.expanded = state.expanded === el.dataset.id ? null : el.dataset.id;
+  else if (action === "go-actus") { state.view = "actus"; window.scrollTo(0, 0); }
+  else if (action === "open-m") {
+    const t = findTournament(el.dataset.t);
+    openTournament(el.dataset.t, "matchs");
+    if (t) {
+      state.tstage = Math.max(0, t.stages.findIndex(s => s.sections.some(x => x.matches.some(m => m.id === el.dataset.id))));
+      state.openMatch = el.dataset.id;
+    }
+  }
   else if (action === "choose") {
-    Object.assign(state, { game: el.dataset.id, view: "actus", tournament: null, limit: 30 });
+    Object.assign(state, { game: el.dataset.id, view: "tournois", tournament: null, limit: 30 });
     try { localStorage.setItem("tm-game", state.game); } catch { /* stockage indisponible */ }
     window.scrollTo(0, 0);
   }
@@ -604,6 +707,7 @@ document.addEventListener("click", e => {
   else return;
   saveHash();
   render();
+  if (action === "open-m") document.querySelector(".match.open")?.scrollIntoView({ block: "start" });
 });
 
 document.addEventListener("change", e => {
@@ -640,6 +744,8 @@ async function loadData() {
         r = await fetch(`data/auto.json?t=${Date.now()}`, { cache: "no-store" });
       }
       if (r.ok) AUTO = await r.json();
+      const ed = await fetch(`data/editorial.json?t=${Date.now()}`, { cache: "no-store" }).catch(() => null);
+      if (ed?.ok) EDITORIAL = { topics: {}, matches: {}, tournaments: {}, briefings: {}, ...(await ed.json()) };
     } catch { /* indisponible : on garde les données actuelles */ }
   } else {
     await new Promise(resolve => {

@@ -78,21 +78,6 @@ const ITEMS = [
       { name: "rdy.gg", url: "https://rdy.gg/pt/lol/news/league-of-legends-lol-worlds-2026-details", kind: "media" },
     ],
   },
-  {
-    game: "lol", type: "meta", date: "2026-10-20", status: "non-confirme",
-    title: "Méta pro 26.20 : données en cours de collecte",
-    summary: "Aucune statistique pro fiable trouvée pour l'instant sur le patch 26.20. Les tier lists qui circulent sont incohérentes (dates fausses, recyclage d'anciens patchs).",
-    points: [
-      "Tendance connue (patch 26.15) : les mages en bot lane étaient très présents",
-      "Les nerfs d'Ashe et Yunara confirment que Riot surveille la bot lane",
-    ],
-    analysis: "C'est exactement ce que l'appli doit régler : brancher Oracle's Elixir / Games of Legends pour avoir les vrais taux de pick/ban des Worlds, mis à jour après chaque journée.",
-    sources: [
-      { name: "esports.gg (26.15)", url: "https://esports.gg/guides/league-of-legends/tier-list-2026/", kind: "media" },
-      { name: "altchar (rejeté : dates incohérentes)", url: "https://www.altchar.com/game-news/lol-patch-26.20-tier-list-best-champions-for-every-role-avZ5n8o9V64M", kind: "suspect" },
-    ],
-  },
-
   // ---------- Valorant ----------
   {
     game: "val", type: "esport", date: "2026-10-18", status: "confirme",

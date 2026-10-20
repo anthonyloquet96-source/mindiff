@@ -141,31 +141,31 @@ function editOf(i) {
   if (e) return e;
   const a = i.analysis;
   if (a && typeof a === "object") return { titre: a.titre, resume: a.essentiel, points: a.points_cles, article: [], analyse: a.analyse, impact: a.impact, a_surveiller: a.a_surveiller };
-  if (!i.auto) return { titre: i.title, resume: i.summary, points: i.points || [], article: [], analyse: typeof a === "string" ? a : "", impact: null };
+  if (!i.auto) return { titre: i.title, resume: i.summary, points: i.points || [], article: [], analyse: typeof a === "string" ? a : "", impact: i.impact || (i.type === "patch" ? "fort" : "moyen") };
   if (i.lang === "fr") return { titre: i.title, resume: i.summary, points: i.points?.slice(0, 5) || [], article: [], analyse: "", impact: null };
   return null;
 }
 const keyOf = i => i.id || i.title;
 
+// Fiabilité affichée seulement quand elle compte : une info confirmée n'a pas besoin d'étiquette
+const reliability = s => s && s !== "confirme" ? `<span class="rel s-${s}">${STATUS[s].label}</span>` : "";
+
 function newsCard(i) {
   const e = editOf(i);
   const k = keyOf(i);
   const open = state.expanded === k;
-  const yesterday = new Date(Date.now() - 864e5).toISOString().slice(0, 10);
   const hasMore = e.article?.length || e.points?.length || e.analyse || i.sources?.length;
   return `
-  <article class="news ${open ? "open" : ""}" style="--c:${gameById[i.game].color}">
+  <article class="news ${open ? "open" : ""}">
     <div class="n-row">
       <div class="n-text">
-        <div class="card-meta">${gameTag(i.game)}<span class="type">${TYPES[i.type] || esc(i.type)}</span><span>${fmtShort(i.date)}</span>
-          ${i.date >= yesterday && i.date <= today() ? `<span class="pill new">Nouveau</span>` : ""}</div>
+        <p class="n-meta">${state.game === "all" ? `${esc(gameById[i.game].name)} · ` : ""}${fmtShort(i.date)}${reliability(i.status)}</p>
         <h3>${esc(e.titre)}</h3>
         ${e.resume ? `<p class="n-resume">${esc(e.resume)}</p>` : ""}
-        <div class="n-tags">${badge(i.status)}${e.impact ? `<span class="pill impact-${e.impact}">Impact ${e.impact}</span>` : ""}</div>
       </div>
       ${i.image ? `<div class="n-thumb"><img src="${esc(i.image)}" alt="" loading="lazy" onerror="this.parentNode.remove()"></div>` : ""}
     </div>
-    ${hasMore ? `<button class="n-more" data-action="expand" data-id="${esc(k)}">${open ? "Réduire ▲" : "En savoir + ▼"}</button>` : ""}
+    ${hasMore ? `<button class="n-more" data-action="expand" data-id="${esc(k)}">${open ? "Réduire" : "Lire la suite"}</button>` : ""}
     ${open ? `<div class="n-detail">
       ${(e.article || []).map(p => `<p>${esc(p)}</p>`).join("")}
       ${e.points?.length ? `<h4>À retenir</h4>${points(e.points)}` : ""}
@@ -272,58 +272,111 @@ function autoSummary(m) {
 const matchEdit = m => EDITORIAL.matches?.[m.id] || null;
 const tAnalysis = t => EDITORIAL.tournaments?.[t.id] || t.analysis || null;
 
-function compactMatch(m, t) {
+// Ligne de match sobre : équipes, score ou horaire, compétition. Un clic ouvre le match dans son tournoi.
+function compactMatch(m, t, withLine = false) {
   const [a, b] = m.teams;
   const done = m.state === "completed";
-  const line = done ? (matchEdit(m)?.resume || autoSummary(m) || m.summary || "") : "";
-  const side = x => `<div class="team ${x.outcome === "win" ? "win" : ""}">${avatar("", { name: x.name }, "sm", x.image)}<span class="tn">${esc(x.name)}</span><span class="sc">${done ? (x.score ?? (x.outcome === "win" ? "V" : "D")) : ""}</span></div>`;
-  return `<button class="cm" data-action="open-m" data-t="${esc(t.id)}" data-id="${esc(m.id)}">
-    <span class="cm-league">${esc(t.name)}${m.block ? ` · ${esc(m.block)}` : ""}</span>
-    ${!done ? `<span class="cm-time">${m.state === "inProgress" ? `<span class="pill new">En direct</span>` : m.start ? esc(fmtTime(m.start)) : "À venir"}</span>` : ""}
-    ${side(a)}${side(b)}
-    ${line ? `<span class="cm-line">${esc(line)}</span>` : ""}
-    <span class="cm-cta">${done ? "Picks, résumé et analyse ›" : "Voir le match ›"}</span>
+  const line = withLine && done ? (matchEdit(m)?.resume || autoSummary(m) || m.summary || "") : "";
+  const side = x => `<span class="mr-team ${done && x.outcome === "win" ? "win" : ""}">${avatar("", { name: x.name }, "xs", x.image)}<span class="tn">${esc(x.name)}</span>${done ? `<b>${x.score ?? (x.outcome === "win" ? "V" : "D")}</b>` : ""}</span>`;
+  const when = m.state === "inProgress" ? `<span class="live">En direct</span>` : !done && m.start ? `${new Date(m.start).toLocaleDateString("fr-FR", { weekday: "short", day: "numeric" })}<br>${new Date(m.start).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })}` : done && m.start ? fmtShort(m.start) : "";
+  return `<button class="mr" data-action="open-m" data-t="${esc(t.id)}" data-id="${esc(m.id)}">
+    <span class="mr-when">${when}</span>
+    <span class="mr-body">
+      <span class="mr-teams">${side(a)}${side(b)}</span>
+      <span class="mr-comp">${esc(t.name)}${m.block ? ` · ${esc(m.block)}` : ""}</span>
+      ${line ? `<span class="mr-line">${esc(line)}</span>` : ""}
+    </span>
   </button>`;
 }
 
+// Les plus grosses actus : impact d'abord, puis fiabilité, puis fraîcheur
+const IMPACT_SCORE = { fort: 3, moyen: 2, faible: 0 };
+function topStories(list, n) {
+  const score = i => {
+    const e = editOf(i);
+    const age = (Date.now() - new Date(i.date)) / 864e5;
+    return (IMPACT_SCORE[e.impact] ?? 1) + (i.status === "confirme" ? 1 : 0) - Math.min(age, 14) / 4;
+  };
+  const ranked = list.filter(editOf).sort((a, b) => score(b) - score(a));
+  // Les sujets sans impact compétitif (clips, produits dérivés…) ne passent qu'en dernier recours
+  const strong = ranked.filter(i => editOf(i).impact !== "faible");
+  return (strong.length >= n ? strong : [...strong, ...ranked.filter(i => editOf(i).impact === "faible")]).slice(0, n);
+}
+
+// L'événement à mettre en avant : un tournoi en cours, international en priorité
+const INTL = /worlds|msi|first_stand|champions|major|world championship|global/i;
+function featuredTournament(ts) {
+  const live = ts.filter(t => t.status === "live");
+  return live.find(t => INTL.test(t.leagueSlug || t.name)) || live[0] || null;
+}
+function tournamentImage(t) {
+  const words = t.name.toLowerCase().split(/\s+/).filter(w => w.length > 3 && !/^\d+$/.test(w));
+  const hit = (AUTO?.news || []).find(n => n.game === t.game && n.image && words.some(w => n.title.toLowerCase().includes(w)));
+  return hit?.image || gameArt(t.game);
+}
+
 function viewHub() {
+  if (!dataLoaded) return empty("Chargement…");
   const ts = byGame(allTournaments());
   const all = ts.flatMap(t => tMatches(t).map(m => ({ m, t })));
   const known = x => x.m.teams.every(tm => tm.code !== "TBD" && tm.name !== "TBD");
   const live = all.filter(x => x.m.state === "inProgress");
-  const next = all.filter(x => x.m.state === "unstarted" && x.m.start && known(x)).sort((a, b) => a.m.start.localeCompare(b.m.start)).slice(0, 12);
-  const recent = all.filter(x => x.m.state === "completed").sort((a, b) => (b.m.start || "").localeCompare(a.m.start || "")).slice(0, 8);
+  const next = all.filter(x => x.m.state === "unstarted" && x.m.start && known(x)).sort((a, b) => a.m.start.localeCompare(b.m.start)).slice(0, 6);
+  const recent = all.filter(x => x.m.state === "completed").sort((a, b) => (b.m.start || "").localeCompare(a.m.start || "")).slice(0, 5);
   const list = [...ts].sort((a, b) => (a.status === "live" ? 0 : 1) - (b.status === "live" ? 0 : 1) || (b.lastMatch || "").localeCompare(a.lastMatch || ""));
   const autoGames = new Set((AUTO?.tournaments || []).map(t => t.game));
   const extra = byGame(STANDINGS).filter(s => !autoGames.has(s.game) && !list.some(t => t.tables?.includes(s)));
-  const news = byGame(allNews()).filter(editOf).sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
-  if (!dataLoaded) return empty("Chargement des matchs…");
+  const lead = featuredTournament(ts);
+  const stories = topStories(byGame(allNews()), 4);
+  const b = state.game !== "all" ? briefingOf(state.game) : null;
+
+  let leadHtml = "";
+  if (lead) {
+    const a = tAnalysis(lead);
+    const img = tournamentImage(lead);
+    const nxt = tMatches(lead).filter(m => m.state === "unstarted" && m.start && m.teams.every(x => x.code !== "TBD")).sort((x, y) => x.start.localeCompare(y.start))[0];
+    leadHtml = `<button class="lead" data-action="open-t" data-id="${esc(lead.id)}">
+      ${img ? `<span class="lead-media"><img src="${esc(img)}" alt="" onerror="this.parentNode.remove()"></span>` : ""}
+      <span class="lead-body">
+        <span class="kicker">À la une · ${lead.status === "live" ? "En cours" : "Terminé"}</span>
+        <span class="lead-title">${esc(lead.name)}</span>
+        ${a?.resume ? `<span class="lead-dek">${esc(a.resume)}</span>` : ""}
+        ${nxt ? `<span class="lead-next">Prochain match · <b>${esc(nxt.teams[0].name)} – ${esc(nxt.teams[1].name)}</b>, ${esc(fmtTime(nxt.start))}</span>` : ""}
+        <span class="link">Suivre le tournoi</span>
+      </span>
+    </button>`;
+  } else if (stories[0]) {
+    const s = stories.shift();
+    const e = editOf(s);
+    leadHtml = `<article class="lead static">
+      ${s.image ? `<span class="lead-media"><img src="${esc(s.image)}" alt="" onerror="this.parentNode.remove()"></span>` : ""}
+      <span class="lead-body"><span class="kicker">À la une</span><span class="lead-title">${esc(e.titre)}</span>${e.resume ? `<span class="lead-dek">${esc(e.resume)}</span>` : ""}
+      <button class="link" data-action="go-actus">Lire dans les actus</button></span>
+    </article>`;
+  }
 
   return `
-  ${live.length ? `<section class="hub-sec"><h2 class="sec-title"><span class="live-dot"></span>En direct</h2><div class="scroller">${live.map(x => compactMatch(x.m, x.t)).join("")}</div></section>` : ""}
-  <section class="hub-sec">
-    <h2 class="sec-title">Prochains matchs</h2>
-    ${next.length ? `<div class="scroller">${next.map(x => compactMatch(x.m, x.t)).join("")}</div>` : `<p class="muted small">Aucun match programmé pour l'instant${state.game !== "lol" && state.game !== "all" ? " : le calendrier automatique ne couvre pour l'instant que LoL" : ""}.</p>`}
-  </section>
-  ${recent.length ? `<section class="hub-sec"><h2 class="sec-title">Derniers résultats</h2><div class="m-grid">${recent.map(x => compactMatch(x.m, x.t)).join("")}</div></section>` : ""}
-  ${list.length ? `<section class="hub-sec"><h2 class="sec-title">Tournois</h2><div class="t-grid">${tournamentCards(list)}</div></section>` : ""}
-  ${briefingPanel(true)}
-  ${news.length ? `<section class="hub-sec"><h2 class="sec-title">À la une</h2><div class="feed">${news.map(newsCard).join("")}</div>
-    <button class="more" data-action="go-actus">Toutes les actus</button></section>` : ""}
+  ${leadHtml}
+  ${b ? `<section class="sec"><h2 class="sec-title">L'essentiel</h2><p class="brief">${esc(b.resume)}</p></section>` : ""}
+  ${stories.length ? `<section class="sec"><div class="sec-head"><h2 class="sec-title">Les grosses actus</h2><button class="sec-link" data-action="go-actus">Tout voir</button></div>
+    <div class="list">${stories.map(newsCard).join("")}</div></section>` : ""}
+  ${live.length ? `<section class="sec"><h2 class="sec-title"><span class="live-dot"></span>En direct</h2><div class="list">${live.map(x => compactMatch(x.m, x.t)).join("")}</div></section>` : ""}
+  ${next.length ? `<section class="sec"><h2 class="sec-title">Prochains matchs</h2><div class="list">${next.map(x => compactMatch(x.m, x.t)).join("")}</div></section>` : ""}
+  ${recent.length ? `<section class="sec"><h2 class="sec-title">Résultats</h2><div class="list">${recent.map(x => compactMatch(x.m, x.t, true)).join("")}</div></section>` : ""}
+  ${list.length ? `<section class="sec"><h2 class="sec-title">Compétitions</h2><div class="list">${tournamentCards(list)}</div></section>` : ""}
   ${extra.map(standingsTable).join("")}`;
 }
 
 function tournamentCards(list) {
   return list.map(t => {
-    const [label, cls] = T_STATUS[t.status] || ["", ""];
-    const next = tMatches(t).filter(m => m.state !== "completed" && m.start && m.teams.every(x => x.code !== "TBD")).sort((a, b) => a.start.localeCompare(b.start))[0];
-    return `<button class="card t-card" data-action="open-t" data-id="${esc(t.id)}" style="--c:${gameById[t.game].color}">
-      <div class="card-meta">${gameTag(t.game)}<span class="${cls}"><b>● ${label}</b></span>${t.manual ? `<span class="pill manual">Vérifié main</span>` : `<span class="pill">Officiel</span>`}</div>
-      <h3>${esc(t.name)}</h3>
-      <p class="muted small">${esc(t.dates || `${fmtShort(t.startDate)} – ${fmtShort(t.endDate)}`)}${t.prize ? ` · ${esc(t.prize)}` : ""}</p>
-      ${t.progress ? `<div class="progress"><span style="width:${Math.round((t.progress.done / Math.max(t.progress.total, 1)) * 100)}%"></span></div><p class="small muted">${t.progress.done}/${t.progress.total} matchs joués${t.stats?.totalGames ? ` · ${t.stats.totalGames} parties analysées` : ""}</p>` : ""}
-      ${next ? `<p class="small">Prochain : <b>${esc(next.teams[0].name)} vs ${esc(next.teams[1].name)}</b> · ${fmtTime(next.start)}</p>` : ""}
-      ${tAnalysis(t)?.resume ? `<p class="small t-teaser">${esc(tAnalysis(t).resume)}</p>` : ""}
+    const [label] = T_STATUS[t.status] || [""];
+    const pct = t.progress ? Math.round((t.progress.done / Math.max(t.progress.total, 1)) * 100) : null;
+    return `<button class="tr" data-action="open-t" data-id="${esc(t.id)}">
+      <span class="tr-main">
+        <span class="tr-name">${esc(t.name)}</span>
+        <span class="tr-meta">${state.game === "all" ? `${esc(gameById[t.game].name)} · ` : ""}${esc(t.dates || `${fmtShort(t.startDate)} – ${fmtShort(t.endDate)}`)}</span>
+      </span>
+      <span class="tr-status ${t.status}">${label}${pct != null && t.status === "live" ? ` · ${pct} %` : ""}</span>
     </button>`;
   }).join("");
 }
@@ -593,7 +646,7 @@ function gameArt(id) {
 }
 
 function viewAccueil() {
-  const live = id => allTournaments().filter(t => t.game === id && t.status === "live");
+  const live = id => { const f = featuredTournament(allTournaments().filter(t => t.game === id)); return f ? [f] : []; };
   const fresh = id => allNews().filter(n => n.game === id && (Date.now() - new Date(n.date)) / 864e5 <= 2).length;
   return `
   <section class="home">

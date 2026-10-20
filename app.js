@@ -128,12 +128,15 @@ function briefingPanel() {
     </article>`).join("")}</section>`;
 }
 
-function newsCard(i) {
-  const a = i.analysis;
+function newsCard(i, feature = false) {
+  // Analyse Claude = objet ; les fiches vérifiées à la main ont un simple texte « ce que ça change »
+  const a = typeof i.analysis === "object" ? i.analysis : null;
   const yesterday = new Date(Date.now() - 864e5).toISOString().slice(0, 10);
+  feature = feature && !!i.image;
   return `
-  <article class="card" style="--c:${gameById[i.game].color}">
+  <article class="card ${feature ? "feature" : ""}" style="--c:${gameById[i.game].color}">
     ${i.image ? `<div class="hero"><img src="${esc(i.image)}" alt="" loading="lazy" onerror="this.parentNode.remove()"></div>` : ""}
+    ${feature ? `<div class="feature-body">` : ""}
     <div class="card-meta">${gameTag(i.game)}<span class="type">${TYPES[i.type] || esc(i.type)}</span><span>${fmtDate(i.date)}</span>${badge(i.status)}
       ${i.date >= yesterday && i.date <= today() ? `<span class="pill new">Nouveau</span>` : ""}
       ${a ? `<span class="pill impact-${a.impact}">Impact ${a.impact}</span>` : ""}
@@ -146,15 +149,16 @@ function newsCard(i) {
       <div class="analysis">${claudeTag} ${esc(a.analyse)}</div>
       ${a.a_surveiller ? `<p class="small muted">👁 À surveiller : ${esc(a.a_surveiller)}</p>` : ""}
       <details class="small"><summary class="muted">Texte d'origine</summary><p><b>${esc(i.title)}</b></p>${i.summary ? `<p>${esc(i.summary)}</p>` : ""}${points(i.points)}</details>`
-    : `${i.summary ? `<p>${esc(i.summary)}</p>` : ""}${points(i.points)}${advice(i.analysis)}`}
+    : `${i.summary ? `<p>${esc(i.summary)}</p>` : ""}${points(i.points)}${advice(typeof i.analysis === "string" ? i.analysis : "")}`}
     ${warnings(i.warnings)}${sources(i.sources)}
+    ${feature ? `</div>` : ""}
   </article>`;
 }
 
 function viewActus() {
   const tabs = [["all", "Tout"], ...Object.entries(TYPES)];
   const q = state.query;
-  const text = i => [i.title, i.summary, ...(i.points || []), typeof i.analysis === "string" ? i.analysis : JSON.stringify(i.analysis || "")].join(" ").toLowerCase();
+  const text = i => [i.title, i.summary, ...(i.points || []), typeof i.analysis === "string" ? i.analysis : Object.values(i.analysis || {}).flat().join(" ")].join(" ").toLowerCase();
   let all = byGame(allNews())
     .filter(i => state.type === "all" || i.type === state.type)
     .filter(i => !q || text(i).includes(q));
@@ -174,7 +178,7 @@ function viewActus() {
     </div>
   </div>
   <div class="layout">
-    <div class="feed">${items.length ? items.map(newsCard).join("") : empty("Aucune info pour ce filtre pour l'instant.")}
+    <div class="feed">${items.length ? items.map((i, k) => newsCard(i, k === 0)).join("") : empty("Aucune info pour ce filtre pour l'instant.")}
       ${all.length > items.length ? `<button class="more" data-action="more">Voir plus (${all.length - items.length})</button>` : ""}
     </div>
     <aside class="side">
@@ -485,13 +489,55 @@ function viewStrats() {
     </section>`).join("");
 }
 
-const RENDERERS = { actus: viewActus, tournois: viewTournois, tier: viewTier, strats: viewStrats };
+// ---------- Accueil : choix du jeu ----------
+// Visuel de chaque tuile : jaquette officielle Steam quand elle existe, sinon l'image de la dernière actu officielle du jeu.
+const STEAM_ART = { cs2: 730, rl: 252950 };
+function gameArt(id) {
+  if (STEAM_ART[id]) return `https://cdn.cloudflare.steamstatic.com/steam/apps/${STEAM_ART[id]}/library_600x900_2x.jpg`;
+  // Les images des annonces Steam (clan.akamai) sont souvent des bannières de texte : on préfère le site de l'éditeur
+  const official = (AUTO?.news || []).filter(n => n.game === id && n.image && n.sources.some(s => s.kind === "officiel"));
+  return (official.find(n => !n.image.includes("clan.akamai")) || official[0])?.image || null;
+}
+
+function viewAccueil() {
+  const live = id => allTournaments().filter(t => t.game === id && t.status === "live");
+  const fresh = id => allNews().filter(n => n.game === id && (Date.now() - new Date(n.date)) / 864e5 <= 2).length;
+  return `
+  <section class="home">
+    <p class="home-kicker">Bienvenue</p>
+    <h1 class="home-title">Choisissez votre <em>jeu</em></h1>
+    <p class="muted home-sub">Patchnotes, tournois et méta du moment, vérifiés et résumés pour vous.</p>
+    <div class="game-grid">${GAMES.map(g => {
+      const art = gameArt(g.id);
+      const l = live(g.id);
+      const f = fresh(g.id);
+      return `<button class="game-tile ${state.game === g.id ? "active" : ""}" data-action="choose" data-id="${g.id}" style="--c:${g.color}">
+        ${art ? `<img src="${esc(art)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
+        <span class="gt-shade"></span>
+        <span class="gt-body">
+          ${l.length ? `<span class="gt-live">● ${esc(l[0].name)}</span>` : ""}
+          <span class="gt-name">${esc(g.name)}</span>
+          <span class="gt-info">${f ? `${f} actu${f > 1 ? "s" : ""} récente${f > 1 ? "s" : ""}` : "Voir la méta"}</span>
+        </span>
+      </button>`;
+    }).join("")}</div>
+    <button class="home-all ${state.game === "all" ? "active" : ""}" data-action="choose" data-id="all">Tous les jeux</button>
+  </section>`;
+}
+
+const RENDERERS = { accueil: viewAccueil, actus: viewActus, tournois: viewTournois, tier: viewTier, strats: viewStrats };
 
 // ---------- Rendu & navigation ----------
 function renderNav() {
-  const all = [{ id: "all", name: "Tous" }, ...GAMES];
-  document.getElementById("games").innerHTML = all.map(g =>
-    `<button class="game-btn" data-id="${g.id}" aria-pressed="${state.game === g.id}" style="--c:${g.color || "var(--accent)"}"><span class="swatch"></span>${esc(g.name)}</button>`).join("");
+  // Un seul bouton pour le jeu choisi : il ramène à l'écran de choix
+  const g = gameById[state.game];
+  const art = g && gameArt(g.id);
+  document.getElementById("games").innerHTML = state.view === "accueil" ? "" :
+    `<button class="current-game" data-action="home" style="--c:${g?.color || "var(--accent)"}">
+      <span class="cg-thumb">${art ? `<img src="${esc(art)}" alt="" onerror="this.remove()">` : ""}</span>
+      <span class="cg-name">${esc(g?.name || "Tous les jeux")}</span>
+      <span class="cg-change">Changer de jeu</span>
+    </button>`;
   const navHtml = VIEWS.map(v =>
     `<button class="nav-btn" data-id="${v.id}" aria-current="${state.view === v.id}"><svg viewBox="0 0 24 24" aria-hidden="true">${v.icon}</svg><span>${v.label}</span></button>`).join("");
   document.getElementById("views-top").innerHTML = navHtml;
@@ -541,6 +587,12 @@ document.addEventListener("click", e => {
   else if (el.classList.contains("game-btn")) { state.game = el.dataset.id; state.limit = 30; state.tournament = null; }
   else if (el.classList.contains("nav-btn")) { state.view = el.dataset.id; state.tournament = null; window.scrollTo(0, 0); }
   else if (el.classList.contains("ti")) { el.closest(".tier-card").querySelector(".ti-detail").textContent = el.dataset.note; return; }
+  else if (action === "home") { state.view = "accueil"; state.tournament = null; window.scrollTo(0, 0); }
+  else if (action === "choose") {
+    Object.assign(state, { game: el.dataset.id, view: "actus", tournament: null, limit: 30 });
+    try { localStorage.setItem("tm-game", state.game); } catch { /* stockage indisponible */ }
+    window.scrollTo(0, 0);
+  }
   else if (action === "more") state.limit += 30;
   else if (action === "open-t") openTournament(el.dataset.id, el.dataset.tab);
   else if (action === "close-t") state.tournament = null;
@@ -617,7 +669,12 @@ function connectLive() {
   es.addEventListener("update", async () => { await loadData(); safeRender(); });
 }
 
-readHash();
+// Premier lancement : écran de choix du jeu. Ensuite, on revient directement sur le jeu choisi.
+let savedGame = null;
+try { savedGame = localStorage.getItem("tm-game"); } catch { /* stockage indisponible */ }
+if (location.hash) readHash();
+else if (savedGame && (savedGame === "all" || gameById[savedGame])) state.game = savedGame;
+else state.view = "accueil";
 render();
 loadData().then(() => { render(); connectLive(); });
 loadRosters();

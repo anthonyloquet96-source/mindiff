@@ -4,7 +4,7 @@
 
 import { readFile, writeFile } from "node:fs/promises";
 
-const SITE = "https://anthonyloquet96-source.github.io/tryhard-meta/data/auto.json";
+const SITE = "https://anthonyloquet96-source.github.io/mindiff/data/auto.json";
 const arg = (name, def) => { const i = process.argv.indexOf(`--${name}`); return i > 0 ? process.argv[i + 1] : def; };
 const LIMIT_T = Number(arg("topics", 30));
 const LIMIT_M = Number(arg("matches", 20));

@@ -7,7 +7,7 @@ Le logo : un **D** et un **1** dont la silhouette commune forme un **M**. Le D p
 **Comprendre ce qui change. Savoir quoi jouer. Suivre la compétition.**
 Patchnotes, compétitions, méta et stratégies pour League of Legends et Valorant, à partir de sources vérifiées.
 
-En ligne : https://anthonyloquet96-source.github.io/tryhard-meta/ (GitHub Pages, collecte automatique toutes les 30 min via GitHub Actions).
+En ligne : https://anthonyloquet96-source.github.io/mindiff/ (GitHub Pages, collecte automatique toutes les 30 min via GitHub Actions).
 
 ## Utilisation locale
 

@@ -1,0 +1,77 @@
+# Veille du coach, toutes les 6 heures (fonctionne ordinateur éteint) :
+# découverte des nouveaux contenus, lecture des notes de patch, analyse (seulement si une clé est configurée),
+# recalcul des statuts, tests, puis enregistrement de la base dans le dépôt.
+# La publication sur GitHub Pages est faite par « Collecte et publication » (toutes les 30 min).
+name: Veille du coach
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: veille-coach
+  cancel-in-progress: false
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # Textes consultés (jamais publiés), état de la découverte et coûts : gardés d'une exécution à l'autre
+      - name: Restaurer le cache privé
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            coach/cache
+            coach/state
+          key: coach-${{ github.run_id }}
+          restore-keys: coach-
+
+      # Liste des patchs publiés par la collecte (data/auto.json n'est pas versionné)
+      - name: Récupérer les dernières données publiées
+        run: curl -fsSL "https://anthonyloquet96-source.github.io/mindiff/data/auto.json" -o data/auto.json || echo '{"news":[]}' > data/auto.json
+
+      - name: Découvrir
+        run: node coach/discover.mjs
+      - name: Lire les patchs et revalider
+        run: node coach/revalidate.mjs
+      - name: Analyser (si une clé est configurée)
+        run: node coach/analyze.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MINDIFF_COACH_MODEL: ${{ vars.MINDIFF_COACH_MODEL }}
+      - name: Publier la base
+        run: node coach/build.mjs
+      - name: Tester
+        run: node coach/tests/run.mjs
+
+      - name: Sauvegarder le cache privé
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            coach/cache
+            coach/state
+          key: coach-${{ github.run_id }}
+
+      - name: Enregistrer la base
+        run: |
+          git config user.name "MINDIFF veille"
+          git config user.email "veille@users.noreply.github.com"
+          git add coach/kb data/coach.json data/coach.js data/coach-admin.json
+          git diff --cached --quiet && echo "Base inchangée." && exit 0
+          git commit -m "Veille du coach : base mise à jour"
+          git pull --rebase --autostash && git push

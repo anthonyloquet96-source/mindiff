@@ -17,7 +17,7 @@ const NAV = [
   { id: "competitions", label: "Compétitions", icon: "trophy" },
   { id: "meta", label: "Méta", icon: "tiers" },
   { id: "actus", label: "Actus", icon: "news" },
-  { id: "strats", label: "Stratégies", icon: "compass" },
+  { id: "coach", label: "Coach", icon: "target" },
 ];
 const T_TABS = [["apercu", "Vue d'ensemble"], ["matchs", "Matchs"], ["classement", "Classement"], ["equipes", "Équipes"], ["meta", "Méta"]];
 const LOL_ROLES = [["top", "Top"], ["jungle", "Jungle"], ["mid", "Mid"], ["bottom", "ADC"], ["support", "Support"]];
@@ -96,6 +96,7 @@ async function loadData() {
       } catch { /* pas de cache */ }
     }
   }
+  await loadCoach();
   dataLoaded = true;
 }
 
@@ -273,6 +274,7 @@ const ICONS = {
   news: '<path d="M4 5h12v14H6a2 2 0 0 1-2-2V5zM16 9h4v8a2 2 0 0 1-2 2M8 9h4M8 13h4"/>',
   tiers: '<path d="M4 6h2M10 6h10M4 12h2M10 12h7M4 18h2M10 18h4"/>',
   compass: '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/>',
+  target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/>',
   calendar: '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/>',
   star: '<path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/>',
   bookmark: '<path d="M7 3.5h10a1 1 0 0 1 1 1V21l-6-4-6 4V4.5a1 1 0 0 1 1-1z"/>',
@@ -476,7 +478,7 @@ function viewHome() {
     <a class="qcell" href="${href(g, "competitions")}">${icon("trophy")}<span>Tournois</span></a>
     <a class="qcell" href="${href(g, "competitions", "matchs")}">${icon("calendar")}<span>Matchs</span></a>
     <a class="qcell" href="${href(g, "meta")}">${icon("tiers")}<span>Tier lists</span></a>
-    <a class="qcell" href="${href(g, "strats")}">${icon("compass")}<span>Stratégies</span></a>
+    <a class="qcell" href="${href(g, "coach")}">${icon("target")}<span>Coach</span></a>
   </nav>`;
 
   // 3. Prochains matchs (2 ou 3)
@@ -520,7 +522,7 @@ function viewHome() {
     }).join("")}</div></section>` : "";
 
   return `<div class="home">
-    <div class="home-main">${leadHtml || empty("Aucune compétition suivie", "Aucun tournoi n'est disponible dans les données pour ce jeu.")}${quick}</div>
+    <div class="home-main">${leadHtml || empty("Aucune compétition suivie", "Aucun tournoi n'est disponible dans les données pour ce jeu.")}${g === "lol" ? coachHomeCard() : ""}${quick}</div>
     <div class="home-side">${nextHtml}${metaHtml ? `<section class="sec">${secHead("Méta en bref", seeAll(href(g, "meta")))}${metaHtml}</section>` : ""}${briefs}</div>
   </div>`;
 }
@@ -934,6 +936,7 @@ function newsDetail(k) {
       ${e.resume ? `<p class="summary">${esc(e.resume)}</p>` : ""}
       <div class="article-actions"><button class="btn ghost sm ${saved ? "on" : ""}" data-action="save" data-id="${esc(k)}" aria-pressed="${saved}">${icon("bookmark")}${saved ? "Enregistré" : "Enregistrer"}</button>${i.type === "patch" ? `<a class="btn ghost sm" href="${href(i.game, "meta")}">${icon("tiers")}Voir la méta</a>` : ""}</div>
       ${e.points?.length ? `<section class="sec">${secHead("À retenir")}${bullets(e.points)}</section>` : ""}
+      ${i.game === "lol" && i.type === "patch" ? coachPatchBlock(patch) : ""}
       ${ents.length ? `<section class="sec">${secHead(`${i.game === "lol" ? "Champions" : "Agents"} concernés`)}${portraitRow(ents.map(x => x.id || x.name), { game: i.game, label: "Concernés par ce patch" })}</section>` : ""}
       ${e.article?.length ? `<details class="more" ${e.points?.length ? "" : "open"}><summary>Les faits en détail</summary>${e.article.map(p => `<p>${esc(p)}</p>`).join("")}</details>` : ""}
       ${e.analyse ? `<section class="reading"><p class="label">Notre lecture</p><p>${esc(e.analyse)}</p><p class="fine">Interprétation de la rédaction, fondée sur les sources ci-dessous.</p></section>` : ""}
@@ -945,8 +948,8 @@ function newsDetail(k) {
 }
 
 // --- Stratégies : cartes et fiches
-function viewStrats() {
-  if (route.rest[0]) return stratDetail(route.rest[0]);
+function viewStrats(rest = route.rest) {
+  if (rest[0]) return stratDetail(rest[0]);
   const items = forGame(STRATS);
   const kinds = [["all", "Toutes", items.length], ...[...new Set(items.map(s => s.kind))].map(k => [k, k, items.filter(s => s.kind === k).length])];
   if (!kinds.some(k => k[0] === ui.stratKind)) ui.stratKind = "all";
@@ -957,7 +960,7 @@ function viewStrats() {
 }
 function stratCard(s) {
   const lineup = s.lineup || s.maps?.[0]?.lineup || [];
-  return `<a class="scard" href="${href(s.game, "strats", s.id)}">
+  return `<a class="scard" href="${stratHref(s.game, s.id)}">
     <span class="scard-visual">${lineup.slice(0, 5).map(x => portrait(entity(s.game, entKey(x)), "sm")).join("")}</span>
     <span class="scard-body"><span class="scard-tags">${chip(s.kind)}${s.patch && !/non précisé/.test(s.patch) ? chip(`Patch ${s.patch}`, "soft") : ""}${s.status && s.status !== "confirme" ? chip(natureOf({ status: s.status }).label, natureOf({ status: s.status }).cls) : ""}</span>
       <span class="scard-title">${esc(s.title)}</span>
@@ -967,15 +970,17 @@ function stratCard(s) {
 }
 function stratDetail(id) {
   const s = STRATS.find(x => x.id === id && ENABLED_GAMES.includes(x.game));
-  if (!s) return empty("Stratégie introuvable", "", `<a class="btn" href="${href(route.game, "strats")}">Toutes les stratégies</a>`);
+  if (!s) return empty("Stratégie introuvable", "", `<a class="btn" href="${href(route.game, "coach", "strategies")}">Toutes les stratégies</a>`);
   const saved = prefs.saved.includes("st-" + s.id);
   const ctx = Object.entries(s.context || {});
-  return `<header class="t-head"><a class="back" href="${href(route.game, "strats")}">${icon("left")}Stratégies</a></header>
+  // Préparation proposée seulement si la stratégie nomme un champion couvert par le coach
+  const prepWith = s.game === "lol" ? (s.lineup || []).map(x => entity("lol", entKey(x)).name).find(coachCovered) : null;
+  return `<header class="t-head"><a class="back" href="${href(route.game, "coach", "strategies")}">${icon("left")}Stratégies</a></header>
     <article class="article">
       <p class="nrow-meta"><span class="cat">${esc(s.kind)}</span><span>${esc(s.nature || "")}</span>${s.patch ? `<span>${/non précisé/.test(s.patch) ? "patch non précisé" : `Patch ${esc(s.patch)}`}</span>` : ""}${s.status && s.status !== "confirme" ? `<span class="nat ${natureOf({ status: s.status }).cls}">${natureOf({ status: s.status }).label}</span>` : ""}</p>
       <h1 class="article-title" tabindex="-1">${esc(s.title)}</h1>
       ${ctx.length ? `<dl class="kpis compact">${ctx.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>` : ""}
-      <div class="article-actions"><button class="btn ghost sm ${saved ? "on" : ""}" data-action="save" data-id="st-${esc(s.id)}" aria-pressed="${saved}">${icon("bookmark")}${saved ? "Enregistrée" : "Enregistrer"}</button></div>
+      <div class="article-actions"><button class="btn ghost sm ${saved ? "on" : ""}" data-action="save" data-id="st-${esc(s.id)}" aria-pressed="${saved}">${icon("bookmark")}${saved ? "Enregistrée" : "Enregistrer"}</button>${prepWith ? coachPrepLink(prepWith, `Préparer ma session avec ${prepWith}`) : ""}</div>
       ${s.objectif ? `<section class="sec">${secHead("Objectif")}<p class="summary">${esc(s.objectif)}</p></section>` : ""}
       ${s.lineup ? `<section class="sec">${secHead("Composition")}${portraitRow(s.lineup, { game: s.game, label: "Composition" })}</section>` : ""}
       ${s.conditions?.length ? `<section class="sec">${secHead("Conditions")}${bullets(s.conditions)}</section>` : ""}
@@ -1022,6 +1027,7 @@ function sheetHtml(game, key) {
   return `<div class="sheet-head">${portrait(ent, "xl")}<div><p class="label">${game === "lol" ? "Champion" : "Agent"}${ent.sub ? ` · ${esc(ent.sub)}` : ""}</p><h2 class="sheet-title" id="sheet-title">${esc(ent.name)}</h2></div>
       <button class="icon-btn" data-action="close-sheet" aria-label="Fermer">${icon("close")}</button></div>
     <div class="sheet-body">
+      ${game === "lol" ? `<div class="sheet-actions">${coachPrepLink(ent.name)}</div>` : ""}
       ${places.length ? `<section class="sec">${secHead("Classements")}${places.map(({ list, group, tier, e }) => `<div class="place">${list.scope === "pro" ? `<span class="tier-letter rate">${esc(e.stat || "—")}</span>` : `<span class="tier-letter t-${tier}">${tier}</span>`}<div><p class="place-title">${list.scope === "pro" ? "Les plus joués · " + esc(list.title.replace(/^Pros*—s*/, "")) : esc(list.title)}${group && list.groups.length > 1 ? ` · ${esc(group)}` : ""}</p>
         <p class="fine">${list.patch ? `Patch ${esc(list.patch)} · ` : ""}${esc(list.context || "")}</p>
         <p class="place-why">${esc([e.stat ? `${e.stat} de victoires` : "", e.note].filter(Boolean).join(" · ") || "Classement de la source, sans justification chiffrée.")}</p>
@@ -1029,7 +1035,7 @@ function sheetHtml(game, key) {
       ${pro.length ? `<section class="sec">${secHead("Chez les pros")}${pro.map(({ t, c }) => `<a class="prostat" href="${href(game, "tournoi", t.id, "meta")}"><span class="prostat-name">${esc(t.name)}</span>
         <span class="prostat-nums"><span><b>${c.picks}</b> pick${c.picks > 1 ? "s" : ""}</span><span><b>${pct(c.presence)}</b> des parties</span><span>${c.known >= 3 && !hidden("t-" + t.id) ? `<b>${pct(c.winrate)}</b> victoires (${c.known})` : "victoires : —"}</span></span></a>`).join("")}<p class="fine">Parties officielles LoL Esports.</p></section>` : ""}
       ${patches.length ? `<section class="sec">${secHead("Cité dans les notes de patch")}${patches.map(({ i, e }) => `<a class="link-row" href="${href(game, "actus", keyOf(i))}"><span><b>${esc(e.titre)}</b><span class="fine">${fmtDay(pubDate(i))}</span></span>${icon("chevron")}</a>`).join("")}</section>` : ""}
-      ${strats.length ? `<section class="sec">${secHead("Stratégies associées")}${strats.map(s => `<a class="link-row" href="${href(game, "strats", s.id)}"><span><b>${esc(s.title)}</b><span class="fine">${esc(s.kind)}</span></span>${icon("chevron")}</a>`).join("")}</section>` : ""}
+      ${strats.length ? `<section class="sec">${secHead("Stratégies associées")}${strats.map(s => `<a class="link-row" href="${stratHref(game, s.id)}"><span><b>${esc(s.title)}</b><span class="fine">${esc(s.kind)}</span></span>${icon("chevron")}</a>`).join("")}</section>` : ""}
       ${!places.length && !pro.length && !patches.length && !strats.length ? `<p class="inline-empty">Aucune donnée vérifiée sur ${esc(ent.name)} dans les sources actuelles.</p>` : ""}
     </div>`;
 }
@@ -1074,21 +1080,23 @@ function parseRoute() {
   const fi = parts.indexOf("fiche");
   if (fi >= 0) { sheet = parts[fi + 1] || null; parts = parts.slice(0, fi); }
   // Anciennes adresses : #tournois/lol/… , #actus/val …, puis #/lol/matchs, #/lol/tier, #/lol/enregistres
-  const LEGACY_V1 = { tournois: "competitions", matchs: "competitions", classements: "competitions", actus: "actus", tier: "meta", strats: "strats", accueil: null };
+  const LEGACY_V1 = { tournois: "competitions", matchs: "competitions", classements: "competitions", actus: "actus", tier: "meta", strats: "coach", accueil: null };
   if (parts[0] in LEGACY_V1) {
     const [v, g, tid, tab] = parts;
     if (v === "accueil" || !g) return { game: null, view: "select", rest: [], sheet };
     if (v === "tournois" && tid) return { game: g, view: "tournoi", rest: [tid, { resume: "apercu", matchs: "matchs" }[tab] || tab], sheet, redirect: true };
-    return { game: g, view: LEGACY_V1[v], rest: v === "matchs" ? ["matchs"] : [], sheet, redirect: true };
+    return { game: g, view: LEGACY_V1[v], rest: v === "matchs" ? ["matchs"] : v === "strats" ? ["strategies"] : [], sheet, redirect: true };
   }
   let [g, view = "home", ...rest] = parts;
   if (!g || !(g === "all" || ENABLED_GAMES.includes(g))) return { game: null, view: "select", rest: [], sheet: null };
   const V2 = { matchs: ["competitions", ["matchs"]], tier: ["meta", []], enregistres: ["favoris", []] };
   if (V2[view]) return { game: g, view: V2[view][0], rest: V2[view][1], sheet, redirect: true };
+  // Les stratégies sont passées dans l'onglet Coach : les anciennes adresses restent valables
+  if (view === "strats") return { game: g, view: "coach", rest: ["strategies", ...rest], sheet, redirect: true };
   let redirect = false;
   const OLD_TABS = { situation: "apercu", calendrier: "matchs" };
   if (view === "tournoi" && OLD_TABS[rest[1]]) { rest = [rest[0], OLD_TABS[rest[1]], rest[2]].filter(x => x != null); redirect = true; }
-  const VIEWS_OK = ["home", "competitions", "meta", "actus", "strats", "tournoi", "favoris"];
+  const VIEWS_OK = ["home", "competitions", "meta", "actus", "coach", "tournoi", "favoris"];
   return { game: g, view: VIEWS_OK.includes(view) ? view : "home", rest, sheet, redirect };
 }
 function routeToHash(r) {
@@ -1097,14 +1105,14 @@ function routeToHash(r) {
   return href(...base) + (r.sheet ? "/fiche/" + encodeURIComponent(r.sheet) : "");
 }
 
-const VIEWS = { select: viewSelect, home: viewHome, competitions: viewCompetitions, meta: viewMeta, actus: viewNews, strats: viewStrats, tournoi: viewTournament, favoris: viewFavorites };
+const VIEWS = { select: viewSelect, home: viewHome, competitions: viewCompetitions, meta: viewMeta, actus: viewNews, coach: viewCoach, tournoi: viewTournament, favoris: viewFavorites };
 
 function renderHeader() {
   const g = route.game;
   const navView = route.view === "tournoi" ? "competitions" : route.view;
   // Changer de jeu conserve la rubrique en cours (sauf les pages propres à un tournoi ou un contenu)
   const switchTo = id => {
-    const keep = { competitions: route.rest[0] === "matchs" ? ["competitions", "matchs"] : ["competitions"], meta: ["meta"], actus: ["actus"], strats: ["strats"], favoris: ["favoris"] }[route.view];
+    const keep = { competitions: route.rest[0] === "matchs" ? ["competitions", "matchs"] : ["competitions"], meta: ["meta"], actus: ["actus"], coach: ["coach", ...(route.rest[0] === "strategies" ? ["strategies"] : [])], favoris: ["favoris"] }[route.view];
     return href(id, ...(route.view === "tournoi" ? ["competitions"] : keep || []));
   };
   const navItems = NAV.map(n => `<a class="nav-item" href="${href(g, n.id === "home" ? "" : n.id)}" ${navView === n.id ? 'aria-current="page"' : ""}>${icon(n.icon)}<span>${n.label}</span></a>`).join("");

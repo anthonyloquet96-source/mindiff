@@ -1,0 +1,1680 @@
+{
+ "units": [
+  {
+   "id": "u-lucian-2620-ad",
+   "claim": "Patch 26.20 : la croissance des dégâts d'attaque de Lucian passe de 2,5 à 2,9 par niveau. Riot présente ce buff comme une compensation : le changement du patch 26.19 s'est révélé être un nerf pour la bot lane.",
+   "champions": [
+    "Lucian"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "patch"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Lucian/base"
+   ],
+   "conditions": [
+    "Valeurs du patch 26.20 ; à revérifier au patch suivant."
+   ],
+   "limits": [
+    "L'intention de Riot est une déclaration, pas une mesure de l'effet en partie."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-riot-notes-26-20",
+     "locator": "Champions › Lucian › Stats de base",
+     "lang": "fr",
+     "passage": "Dégâts d'attaque : 60 + 2,5/niveau ⇒ 60 + 2,9/niveau"
+    },
+    {
+     "content": "c-riot-notes-26-20",
+     "locator": "Champions › Lucian",
+     "lang": "fr",
+     "passage": "s'est finalement révélé être un nerf pour la voie du bas, nous allons donc compenser cette perte de puissance avec un buff"
+    }
+   ],
+   "published": "2026-10-06",
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-lucian-2619-vigilance",
+   "claim": "Patch 26.19 : les dégâts des attaques renforcées de Lucian déclenchées par un soin, un bouclier ou une immobilisation (section « Vigilance ») passent de 15 (+20 % des dégâts d'attaque) à 5 (+15 % des dégâts d'attaque). En échange, les dégâts de base de Lumière perforante augmentent.",
+   "champions": [
+    "Lucian"
+   ],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "patch",
+    "synergie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.19"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Lucian/passive",
+    "Lucian/Q"
+   ],
+   "conditions": [
+    "Toujours en vigueur au patch 26.20 : la section Lucian du patch 26.20 ne modifie que ses statistiques de base."
+   ],
+   "limits": [
+    "« Vigilance » est le nom utilisé par les notes de patch ; dans le jeu (Data Dragon), le passif s'appelle « Pistolero » et inclut aussi le double-tir."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-riot-notes-26-19",
+     "locator": "Champions › Lucian › Compétence passive - Vigilance",
+     "lang": "fr",
+     "passage": "Dégâts à l'impact renforcés : 15 (+ 20% des dégâts d'attaque) ⇒ 5 (+ 15% des dégâts d'attaque)"
+    },
+    {
+     "content": "c-riot-notes-26-19",
+     "locator": "Champions › Lucian › A - Lumière perforante",
+     "lang": "fr",
+     "passage": "Dégâts de base : 80 / 115 / 150 / 185 / 220 (+ 100% des dégâts d'attaque bonus) ⇒ 90 / 130 / 170 / 210 / 250 (+ 100% des dégâts d'attaque bonus)"
+    }
+   ],
+   "translation": {
+    "term": "Vigilance",
+    "note": "Section des notes de patch (FR et EN « Vigilance ») ; passif officiel : Pistolero (fr), Lightslinger (en), 빛의 사수 (ko)."
+   },
+   "published": "2026-09-22",
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-lucian-vigilance-avant-2619",
+   "claim": "Avant le patch 26.19, les attaques renforcées de Lucian déclenchées par un soin, un bouclier ou une immobilisation infligeaient 15 (+20 % des dégâts d'attaque).",
+   "champions": [
+    "Lucian"
+   ],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "synergie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.18",
+    "validUntil": "26.18"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Lucian/passive"
+   ],
+   "conditions": [],
+   "limits": [
+    "Valeur remplacée au patch 26.19."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-riot-notes-26-19",
+     "locator": "Champions › Lucian › Compétence passive - Vigilance (valeur avant ⇒)",
+     "lang": "fr",
+     "passage": "Dégâts à l'impact renforcés : 15 (+ 20% des dégâts d'attaque)"
+    }
+   ],
+   "published": "2026-09-22",
+   "note": "Exemple de connaissance ancienne devenue incompatible : tout contenu antérieur au 26.19 qui chiffre ce bonus est périmé.",
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-smolder-2620",
+   "claim": "Patch 26.20 : Riot renforce Smolder pour rapprocher la puissance de ses builds coup critique de celle de ses builds bagarreur (bonus de Dragon en herbe selon les chances de coup critique), et augmente les soins de MAMAAAN ! (100 / 135 / 170 ⇒ 100 / 175 / 250).",
+   "champions": [
+    "Smolder"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "patch",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Smolder/passive",
+    "Smolder/R",
+    "item:Lame d'infini"
+   ],
+   "conditions": [
+    "Le bonus dépend des chances de coup critique et de la Lame d'infini."
+   ],
+   "limits": [
+    "Le texte ne dit pas quel build est le meilleur après le patch."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-riot-notes-26-20",
+     "locator": "Champions › Smolder",
+     "lang": "fr",
+     "passage": "Nous encourageons davantage les builds coup critique afin de rapprocher la puissance de ses builds bagarreur et full coup critique."
+    },
+    {
+     "content": "c-riot-notes-26-20",
+     "locator": "Champions › Smolder › R - MAMAAAN !",
+     "lang": "fr",
+     "passage": "Soins personnels : 100 / 135 / 170 (+ 50% des dégâts d'attaque bonus) (+ 75% de la puissance) ⇒ 100 / 175 / 250 (+ 75% des dégâts d'attaque bonus) (+ 75% de la puissance)"
+    }
+   ],
+   "published": "2026-10-06",
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-ashe-2620",
+   "claim": "Patch 26.20 : la croissance des dégâts d'attaque d'Ashe passe de 3,5 à 3 par niveau. Riot estime qu'elle inflige trop de dégâts bruts pour une tireuse utilitaire et cite son poids en jeu professionnel.",
+   "champions": [
+    "Ashe"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "patch"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Ashe/base"
+   ],
+   "conditions": [],
+   "limits": [
+    "Ashe n'a qu'une couverture partielle dans le pilote : aucun conseil de jeu analysé."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-riot-notes-26-20",
+     "locator": "Champions › Ashe › Stats de base",
+     "lang": "fr",
+     "passage": "Dégâts d'attaque par niveau : 3,5 ⇒ 3"
+    },
+    {
+     "content": "c-riot-notes-26-20",
+     "locator": "Champions › Ashe",
+     "lang": "fr",
+     "passage": "Ashe est actuellement l'un des principaux tireurs en jeu professionnel"
+    }
+   ],
+   "published": "2026-10-06",
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-runaan-2620",
+   "claim": "Patch 26.20 : l'Ouragan de Runaan revient de 65 % à 60 % des dégâts d'attaque par éclair.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "patch",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Ouragan de Runaan"
+   ],
+   "conditions": [],
+   "limits": [
+    "Aucune source analysée ne relie cet objet à un champion du pilote : il n'est donc associé à aucun."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-riot-notes-26-20",
+     "locator": "Objets › Ouragan de Runaan",
+     "lang": "fr",
+     "passage": "Dégâts d'attaque par éclair : 65% ⇒ 60%"
+    }
+   ],
+   "published": "2026-10-06",
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-lucian-enchanteur",
+   "claim": "Lucian et un support qui soigne ou protège : chaque soin ou bouclier d'un allié sur Lucian, et chaque immobilisation d'un champion ennemi proche, renforce ses deux prochaines attaques de base (dégâts magiques supplémentaires). Nami (Flux et reflux soigne, Prison aqueuse étourdit), Milio (Chaud devant ! protège, Feu de camp soigne) et Lulu (Pix à la rescousse ! protège) peuvent le déclencher.",
+   "detail": "C'est une synergie de mécanique, établie par les textes officiels. Pour en profiter, Lucian doit avoir une cible à portée au moment où l'effet arrive. Depuis le patch 26.19, le bonus de dégâts de ce déclenchement est plus faible (5 +15 % AD au lieu de 15 +20 % AD).",
+   "champions": [
+    "Lucian"
+   ],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "synergie",
+    "lane"
+   ],
+   "synergy": {
+    "with": [
+     "Nami",
+     "Milio",
+     "Lulu"
+    ],
+    "kind": "theorique",
+    "roles": [
+     "bottom",
+     "support"
+    ]
+   },
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20",
+    "basis": "descriptions Data Dragon 16.20.1 et valeurs du patch 26.19"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Lucian/passive",
+    "Nami/W",
+    "Nami/Q",
+    "Milio/E",
+    "Milio/W",
+    "Lulu/E"
+   ],
+   "conditions": [
+    "Lucian a une cible à portée d'attaque quand le soin, le bouclier ou l'immobilisation arrive.",
+    "Le support garde un sort de soin ou de bouclier pour l'échange plutôt que de le lancer hors combat."
+   ],
+   "limits": [
+    "Synergie théorique : aucune source analysée ne mesure le taux de victoire de ces duos.",
+    "Le bonus de dégâts est faible depuis le patch 26.19 : c'est un appoint, pas la raison principale du duo.",
+    "Réponse adverse documentée : ne pas combattre pendant Bénédiction de l'Aquamancienne (Nami) et harceler Lulu pour l'éloigner de sa voie."
+   ],
+   "relevance": {
+    "solo": "Utilisable sans communication si le support soigne ou protège pendant vos échanges.",
+    "duo": "Plus fiable : annoncez l'échange pour que le soin ou le bouclier tombe au bon moment.",
+    "equipe": "Même mécanique ; le coach n'a pas de source sur son usage en compétition."
+   },
+   "nature": "analyse",
+   "evidence": [
+    {
+     "content": "c-dd-16-20-1-lucian",
+     "locator": "Passif Lightslinger (en_US)",
+     "lang": "en",
+     "passage": "When Lucian is healed or shielded by an ally, or when a nearby enemy Champion is immobilized, his next 2 basic attacks will deal bonus magic damage."
+    },
+    {
+     "content": "c-dd-16-20-1-nami",
+     "locator": "W Flux et reflux (fr_FR)",
+     "lang": "fr",
+     "passage": "Projette un flux d'eau qui rebondit sur les champions alliés et ennemis, soignant les alliés et blessant les ennemis."
+    },
+    {
+     "content": "c-dd-16-20-1-milio",
+     "locator": "E Chaud devant ! (fr_FR)",
+     "lang": "fr",
+     "passage": "Milio lance un bouclier sur un allié"
+    },
+    {
+     "content": "c-dd-16-20-1-lulu",
+     "locator": "E Help, Pix! (en_US)",
+     "lang": "en",
+     "passage": "commands Pix to jump to an ally and shield them"
+    }
+   ],
+   "translation": {
+    "term": "Pix à la rescousse ! « le protéger »",
+    "note": "La version française dit « le protéger » ; l'anglaise précise « shield them » (bouclier). C'est le bouclier qui déclenche le passif de Lucian : vérifié sur la version anglaise."
+   },
+   "action": "À chaque soin, bouclier ou étourdissement de votre support, enchaînez immédiatement deux attaques de base sur le champion adverse à portée.",
+   "observe": "Dans le replay, comptez les soins ou boucliers reçus en échange et combien ont été suivis de deux attaques.",
+   "published": null,
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-lucian-portee-q",
+   "claim": "Lumière perforante ne rallonge pas la portée de Lucian : il lui faut une cible à portée pour tirer. Il profite davantage des dégâts d'attaque que de la vitesse d'attaque, grâce à Pistolero.",
+   "champions": [
+    "Lucian"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false,
+    "checkedAgainst": "16.20.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Lucian/Q",
+    "Lucian/passive"
+   ],
+   "conditions": [],
+   "limits": [
+    "Conseils officiels non datés, toujours cohérents avec la description de la version 16.20.1."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-dd-16-20-1-lucian",
+     "locator": "enemytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Lumière perforante n'augmente pas la portée d'attaque de Lucian ; il lui faut toujours une cible à portée pour tirer."
+    },
+    {
+     "content": "c-dd-16-20-1-lucian",
+     "locator": "allytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Grâce à Pistolero, Lucian profite davantage des dégâts d'attaque que de la vitesse d'attaque."
+    }
+   ],
+   "action": "Avant de lancer Lumière perforante, vérifiez qu'un sbire ou un champion est à portée d'attaque pour viser l'adversaire derrière.",
+   "observe": "Notez les Lumière perforante lancées sans cible à portée.",
+   "published": null,
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-lulu-e-tireur",
+   "claim": "Lancez Pix à la rescousse ! sur les attaquants à distance (votre tireur) et Croissance prodigieuse sur les tanks ou combattants qui engagent.",
+   "champions": [
+    "Lulu"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false,
+    "checkedAgainst": "16.20.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Lulu/E",
+    "Lulu/R"
+   ],
+   "conditions": [
+    "Le conseil officiel est général : en défense, Croissance prodigieuse sur un tireur menacé reste un usage prévu par la compétence."
+   ],
+   "limits": [
+    "Conseil officiel ancien et non daté : vérifié cohérent avec la description de la version 16.20.1."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-dd-16-20-1-lulu",
+     "locator": "allytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Lancez plutôt Pix à la rescousse ! sur les attaquants à distance pour qu'ils bénéficient de l'aide de Pix et Croissance prodigieuse sur les tanks ou les combattants pour qu'ils engagent plus facilement le combat."
+    }
+   ],
+   "action": "En phase de lane, gardez Pix sur votre tireur pendant ses échanges.",
+   "observe": "Comptez les échanges de votre tireur où Pix était sur lui.",
+   "published": null,
+   "note": "Exemple de fondamental ancien encore applicable.",
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-vs-lulu",
+   "claim": "Contre Lulu : les tirs de Pix peuvent être interceptés par les sbires, et Lulu excelle quand on s'engage trop. Restez derrière vos sbires et harcelez pour l'éloigner de sa voie plutôt que de tout engager.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "matchup",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Lulu"
+   },
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false,
+    "checkedAgainst": "16.20.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Lulu/passive",
+    "Lulu/W",
+    "Lulu/R"
+   ],
+   "conditions": [
+    "Valable pour le tireur comme pour le support adverses."
+   ],
+   "limits": [
+    "Conseil générique : il ne dit rien du duo qui accompagne Lulu."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-dd-16-20-1-lulu",
+     "locator": "enemytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Les tirs de la pixie de Lulu peuvent être interceptés, alors cachez-vous derrière vos sbires pour éviter les attaques de la pixie."
+    },
+    {
+     "content": "c-dd-16-20-1-lulu",
+     "locator": "enemytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Lulu excelle quand les adversaires s'engagent trop dans le combat. Ne lui laissez pas le temps d'en profiter ! Harcelez plutôt vos ennemis pour éloigner Lulu et son partenaire de sa voie."
+    }
+   ],
+   "action": "Restez derrière votre ligne de sbires quand Lulu et Pix attaquent.",
+   "observe": "Notez les tirs de Pix encaissés hors de vos sbires.",
+   "published": null,
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-nami-q",
+   "claim": "Prison aqueuse a un long délai de récupération : gardez-la pour le bon moment. En face, une Nami qui la rate laisse une fenêtre pour attaquer.",
+   "champions": [
+    "Nami"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false,
+    "checkedAgainst": "16.20.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Nami/Q"
+   ],
+   "conditions": [],
+   "limits": [
+    "« Le bon moment » n'est pas précisé par la source."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-dd-16-20-1-nami",
+     "locator": "allytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Prison aqueuse a un long délai de récupération, alors utilisez-la au bon moment."
+    },
+    {
+     "content": "c-dd-16-20-1-nami",
+     "locator": "enemytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Profitez de la situation si Nami rate sa cible."
+    }
+   ],
+   "action": "Ne lancez Prison aqueuse que si votre tireur peut suivre immédiatement.",
+   "observe": "Comptez les Prisons aqueuses lancées sans suivi de votre tireur.",
+   "published": null,
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-vs-nami-e",
+   "claim": "Contre Nami : évitez de combattre un adversaire sous Bénédiction de l'Aquamancienne ; l'effet est court, attendez qu'il se dissipe.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "matchup",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Nami"
+   },
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false,
+    "checkedAgainst": "16.20.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Nami/E"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-dd-16-20-1-nami",
+     "locator": "enemytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Évitez de combattre un adversaire affecté par Bénédiction de l'Aquamancienne. Cet effet ne dure pas longtemps, alors mieux vaut attendre qu'il se dissipe."
+    }
+   ],
+   "action": "Reculez d'un pas quand le tireur adverse reçoit Bénédiction de l'Aquamancienne, puis revenez échanger.",
+   "observe": "Notez les échanges acceptés pendant la bénédiction.",
+   "published": null,
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-milio-allies",
+   "claim": "Milio a besoin d'alliés proches pour profiter de ses compétences ; isolé, il est vulnérable, surtout face aux champions qui contrôlent vite.",
+   "champions": [
+    "Milio"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "survie",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false,
+    "checkedAgainst": "16.20.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Milio/passive",
+    "Milio/W",
+    "Milio/E"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-dd-16-20-1-milio",
+     "locator": "allytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Milio a besoin d'alliés proches pour profiter au maximum de ses capacités."
+    },
+    {
+     "content": "c-dd-16-20-1-milio",
+     "locator": "enemytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Surprendre Milio quand il est loin de ses alliés entrave grandement sa mobilité. Attaquez-vous à lui quand il est isolé."
+    }
+   ],
+   "action": "Ne posez pas de balise seul hors de vue de votre tireur sans savoir où sont les adversaires.",
+   "observe": "Notez vos morts survenues loin de vos alliés.",
+   "published": null,
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-jinx-minigun",
+   "claim": "Jinx : les roquettes touchent tous les ennemis de l'explosion, donc tirez-les sur les sbires pour toucher les champions proches ; passez au minigun quand un champion ennemi s'approche trop.",
+   "champions": [
+    "Jinx"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false,
+    "checkedAgainst": "16.20.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Jinx/Q"
+   ],
+   "conditions": [],
+   "limits": [
+    "Conseils officiels non datés, cohérents avec la description 16.20.1."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-dd-16-20-1-jinx",
+     "locator": "allytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Lancez-les sur des sbires pour frapper les champions ennemis proches sans attirer l'attention des sbires."
+    },
+    {
+     "content": "c-dd-16-20-1-jinx",
+     "locator": "allytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Passez au minigun quand un champion ennemi approche un peu trop."
+    }
+   ],
+   "action": "En lane, harcelez avec une roquette sur un sbire proche du champion adverse plutôt qu'en attaquant le champion directement.",
+   "observe": "Comptez vos roquettes qui touchent un champion via un sbire.",
+   "published": null,
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-jinx-teamfight",
+   "claim": "Jinx en combat d'équipe : restez en périphérie avec les roquettes et Zap !, et n'approchez avec le minigun que si c'est sans danger. Ses grenades ont un long délai de récupération et sont sa principale défense.",
+   "champions": [
+    "Jinx"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "teamfight",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false,
+    "checkedAgainst": "16.20.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Jinx/Q",
+    "Jinx/E"
+   ],
+   "conditions": [],
+   "limits": [
+    "Garder les grenades pour se défendre est une déduction de MINDIFF à partir du conseil destiné aux adversaires."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-dd-16-20-1-jinx",
+     "locator": "allytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Quand un combat éclate, restez en périphérie du combat et utilisez vos roquettes et Zap !. N'approchez et ne sortez votre minigun que si c'est sans danger."
+    },
+    {
+     "content": "c-dd-16-20-1-jinx",
+     "locator": "enemytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Les grenades immobilisantes de Jinx ont un long délai de récupération et sont sa principale défense."
+    }
+   ],
+   "action": "En combat, gardez Pyromâcheurs ! pour l'adversaire qui plonge sur vous plutôt que de les lancer en ouverture.",
+   "observe": "Dans chaque combat, notez si vos grenades étaient disponibles quand un adversaire vous a atteinte.",
+   "published": null,
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-smolder-debut",
+   "claim": "Smolder est très vulnérable en début de partie : accumulez les effets de Dragon en herbe et restez en vie, en comptant sur votre équipe pour vous protéger.",
+   "champions": [
+    "Smolder"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "survie",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false,
+    "checkedAgainst": "16.20.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Smolder/passive"
+   ],
+   "conditions": [],
+   "limits": [
+    "La source ne donne ni seuil d'effets cumulés ni durée de la phase vulnérable."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-dd-16-20-1-smolder",
+     "locator": "allytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Smolder est très vulnérable en début de partie. Faites en sorte d'accumuler des effets de votre compétence passive et de rester en vie pour devenir un puissant dragon par la suite !"
+    },
+    {
+     "content": "c-dd-16-20-1-smolder",
+     "locator": "allytips (fr_FR)",
+     "lang": "fr",
+     "passage": "Smolder compte sur son équipe pour le protéger."
+    }
+   ],
+   "action": "En phase de lane, refusez les échanges longs : touchez avec vos compétences pour cumuler, puis reculez.",
+   "observe": "Notez vos morts en phase de lane et le nombre d'effets cumulés à ce moment-là.",
+   "published": null,
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-lucian-pro-vs-ranked",
+   "claim": "Lucian est l'un des tireurs les plus choisis aux Worlds 2026 (6 parties sur 22), mais il est sous les 50 % de victoires en ranked tous rangs (47,8 %, metabot) et à 50,6 % en Émeraude+ (MOBA Trainer). Sa popularité chez les pros ne dit pas qu'il est fort en solo queue.",
+   "champions": [
+    "Lucian"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "patch"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20",
+    "competitionVersion": "16.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Lucian/base",
+    "Lucian/passive"
+   ],
+   "conditions": [
+    "Statistiques du 20/10/2026 ; à revoir à chaque patch."
+   ],
+   "limits": [
+    "Compétition et ranked sont présentés séparément : la sélection pro dépend du jeu coordonné et des drafts.",
+    "6 parties pro sur 22 : aucun taux de victoire pro n'est interprété."
+   ],
+   "nature": "statistique",
+   "byRank": {
+    "tous": "Tous rangs : 47,8 % de victoires (metabot, tier F).",
+    "emeraude+": "Émeraude+ : 50,6 % de victoires, 8,6 % de sélection (MOBA Trainer, tier C)."
+   },
+   "evidence": [
+    {
+     "content": "c-lolesports-worlds-2026",
+     "locator": "Worlds 2026, picks",
+     "lang": "fr",
+     "passage": "Lucian bottom : 6 picks sur 22 parties (27.3 %)",
+     "context": "competition",
+     "sample": 22
+    },
+    {
+     "content": "c-stats-metabot-2026-10-20",
+     "locator": "tier list, Lucian",
+     "lang": "en",
+     "passage": "Lucian is a F-tier champion with a 47.8% win rate",
+     "context": "solo-tous"
+    },
+    {
+     "content": "c-stats-mobatrainer-2026-10-20",
+     "locator": "tier list, ligne Lucian Bot",
+     "lang": "en",
+     "passage": "Lucian Bot C 50.6 % 8.6 %",
+     "context": "solo-emeraude+"
+    }
+   ],
+   "published": "2026-10-20",
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-milio-stats",
+   "claim": "Milio est classé très différemment selon la source : S chez metabot (53,5 %, tous rangs), A chez LoLValue (50,7 %, Émeraude+) et B chez MOBA Trainer (52,1 %, Émeraude+). Les trois le placent au-dessus de 50 % ; les lettres ne sont pas comparables d'un site à l'autre.",
+   "detail": "Les contextes expliquent une partie de l'écart : metabot compte tous les rangs, les deux autres seulement Émeraude et au-dessus ; LoLValue ajuste les taux pour les petits échantillons, MOBA Trainer fusionne u.gg et op.gg. Aucune source ne l'emporte par la majorité.",
+   "champions": [
+    "Milio"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "patch"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "selon la source",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Milio/base"
+   ],
+   "conditions": [
+    "Statistiques du 20/10/2026."
+   ],
+   "limits": [
+    "Une lettre de tier list résume une méthode propre au site : ne pas comparer S, A et B entre sites."
+   ],
+   "nature": "statistique",
+   "byRank": {
+    "tous": "Tous rangs : 53,5 % (metabot, tier S).",
+    "emeraude+": "Émeraude+ : 50,7 % (LoLValue, tier A) et 52,1 % (MOBA Trainer, tier B)."
+   },
+   "evidence": [
+    {
+     "content": "c-stats-metabot-2026-10-20",
+     "locator": "tier list, Milio",
+     "lang": "en",
+     "passage": "Milio is a S-tier champion with a 53.5% win rate",
+     "context": "solo-tous"
+    },
+    {
+     "content": "c-stats-lolvalue-2026-10-20",
+     "locator": "tier list, Milio",
+     "lang": "en",
+     "passage": "Milio Support A 50.7%",
+     "context": "solo-emeraude+"
+    },
+    {
+     "content": "c-stats-mobatrainer-2026-10-20",
+     "locator": "tier list, ligne Milio",
+     "lang": "en",
+     "passage": "Milio Support B 52.1 %",
+     "context": "solo-emeraude+"
+    }
+   ],
+   "published": "2026-10-20",
+   "proposedStatus": "contradictoire",
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-smolder-stats",
+   "claim": "Smolder a un taux de victoire proche chez metabot (51,8 %, tous rangs) et MOBA Trainer (51,5 %, Émeraude+), mais il est classé S chez l'un et C chez l'autre : la lettre dépend surtout de la méthode du site.",
+   "champions": [
+    "Smolder"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "patch"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "selon la source",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Smolder/passive"
+   ],
+   "conditions": [
+    "Statistiques du 20/10/2026."
+   ],
+   "limits": [],
+   "nature": "statistique",
+   "byRank": {
+    "tous": "Tous rangs : 51,8 % (metabot, tier S).",
+    "emeraude+": "Émeraude+ : 51,5 %, 5,2 % de sélection (MOBA Trainer, tier C)."
+   },
+   "evidence": [
+    {
+     "content": "c-stats-metabot-2026-10-20",
+     "locator": "tier list, Smolder",
+     "lang": "en",
+     "passage": "Smolder is a S-tier champion with a 51.8% win rate",
+     "context": "solo-tous"
+    },
+    {
+     "content": "c-stats-mobatrainer-2026-10-20",
+     "locator": "tier list, ligne Smolder Bot",
+     "lang": "en",
+     "passage": "Smolder Bot C 51.5 % 5.2 %",
+     "context": "solo-emeraude+"
+    }
+   ],
+   "published": "2026-10-20",
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-jinx-stats",
+   "claim": "Jinx est en haut des trois classements relevés : S+ chez MOBA Trainer (54,0 %, 17 % de sélection, Émeraude+), S chez LoLValue (52,1 % sur 22 661 parties, Émeraude+) et S chez metabot (51,8 %, tous rangs).",
+   "champions": [
+    "Jinx"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "patch"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "selon la source",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Jinx/base"
+   ],
+   "conditions": [
+    "Statistiques du 20/10/2026."
+   ],
+   "limits": [
+    "MOBA Trainer et LoLValue partagent peut-être des données d'origine (u.gg, op.gg) : l'accord n'équivaut pas à trois sources indépendantes."
+   ],
+   "nature": "statistique",
+   "byRank": {
+    "tous": "Tous rangs : 51,8 % (metabot, tier S).",
+    "emeraude+": "Émeraude+ : 54,0 % (MOBA Trainer, S+) et 52,1 % sur 22 661 parties (LoLValue, S)."
+   },
+   "evidence": [
+    {
+     "content": "c-stats-mobatrainer-2026-10-20",
+     "locator": "tier list, ligne Jinx Bot",
+     "lang": "en",
+     "passage": "Jinx Bot S+ 54.0 % 17.0 %",
+     "context": "solo-emeraude+"
+    },
+    {
+     "content": "c-stats-lolvalue-2026-10-20",
+     "locator": "tier list, Jinx",
+     "lang": "en",
+     "passage": "Jinx S 52.1% 15.8% 8.5% 22,661",
+     "context": "solo-emeraude+",
+     "sample": 22661
+    },
+    {
+     "content": "c-stats-metabot-2026-10-20",
+     "locator": "tier list, Jinx",
+     "lang": "en",
+     "passage": "Jinx is a S-tier champion with a 51.8% win rate",
+     "context": "solo-tous"
+    }
+   ],
+   "published": "2026-10-20",
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-methode-un-objectif",
+   "claim": "Travaillez un seul objectif à la fois : jouez un nombre de parties régulier (l'auteure cite 3 à 5 par jour), revoyez environ cinq minutes chaque partie sous l'angle de cet objectif, comparez avec des joueurs de rang supérieur, puis passez au suivant quand il devient automatique.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "tous",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false,
+    "independent": true
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Enregistrer ses parties ou utiliser le replay du client."
+   ],
+   "limits": [
+    "Avis attribué à Elena (We Teach League), mentor Émeraude en mid : témoignage personnel, sans mesure d'effet.",
+    "Article d'un site qui vend des académies de coaching."
+   ],
+   "nature": "opinion",
+   "evidence": [
+    {
+     "content": "c-wtl-3921",
+     "locator": "A step-by-step practice plan",
+     "lang": "en",
+     "passage": "I record my games and review each game for roughly 5 minutes."
+    },
+    {
+     "content": "c-wtl-3921",
+     "locator": "A step-by-step practice plan",
+     "lang": "en",
+     "passage": "During those 5 minutes, I look at one learning objective that I identified as a problem beforehand"
+    },
+    {
+     "content": "c-wtl-3601",
+     "locator": "What a process for getting better at League of Legends looks like",
+     "lang": "en",
+     "passage": "I will work on one skill at a time."
+    }
+   ],
+   "action": "Choisissez un seul point pour toute la session et revoyez-le cinq minutes après chaque partie.",
+   "observe": "Après chaque partie, une ligne : le moment où vous avez appliqué ce point, et celui où vous l'avez oublié.",
+   "published": "2026-10-15",
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-methode-morts",
+   "claim": "Partez de vos morts : pour chacune, notez la cause (mauvaise position, poursuite d'un kill, dégâts mal estimés, erreur de clic), puis transformez la cause la plus fréquente en objectif précis (par exemple : surveiller la position du jungler adverse avant de jouer agressif en lane).",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "tous",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false,
+    "independent": true
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Revoir le replay ou se souvenir précisément de chaque mort."
+   ],
+   "limits": [
+    "Avis attribué à Elena (We Teach League). Jinx est citée comme exemple : ce n'est pas un conseil propre à Jinx."
+   ],
+   "nature": "opinion",
+   "mentions": [
+    "Jinx (exemple)"
+   ],
+   "evidence": [
+    {
+     "content": "c-wtl-3921",
+     "locator": "Get specific: What do higher-Elo players actually do better?",
+     "lang": "en",
+     "passage": "Put on your detective hat and take notes on why you die. Were you out of position? Were you chasing a kill? Did you overestimate your damage or underestimate the enemy's? Did you simply misclick?"
+    },
+    {
+     "content": "c-wtl-3921",
+     "locator": "Get specific: What do higher-Elo players actually do better?",
+     "lang": "en",
+     "passage": "I need to be mindful of my jungler's location when I play aggressively in lane",
+     "mentionOnly": true
+    }
+   ],
+   "action": "Après chaque partie, classez chacune de vos morts dans une de ces quatre causes.",
+   "observe": "À la fin de la session : la cause la plus fréquente.",
+   "published": "2026-10-15",
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-methode-pool",
+   "claim": "Réduire les variables aide à progresser : un rôle, un ou deux champions, des runes et objets stables. Jouer un seul champion accélère l'apprentissage, mais l'auteure note qu'il peut aussi rendre le jeu rigide ; un petit pool de deux ou trois champions est un compromis.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "tous",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false,
+    "independent": true
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [
+    "Avis attribué à Elena (We Teach League), sans données."
+   ],
+   "nature": "opinion",
+   "evidence": [
+    {
+     "content": "c-wtl-3921",
+     "locator": "Should I one-trick or keep a small pool?",
+     "lang": "en",
+     "passage": "One-tricking is very effective because you can reduce many variables"
+    },
+    {
+     "content": "c-wtl-3921",
+     "locator": "Should I one-trick or keep a small pool?",
+     "lang": "en",
+     "passage": "OTPs can suffer from viewing the game only through one specific lens"
+    }
+   ],
+   "published": "2026-10-15",
+   "translation": {
+    "term": "OTP / one-tricking",
+    "note": "Traduit par « jouer un seul champion », sans sous-entendre une expertise."
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-methode-pause",
+   "claim": "Pour éviter d'enchaîner les défaites sous le coup de l'émotion, l'auteure arrête sa session après deux défaites quand elle sent la frustration monter, ou fait une pause.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "tous",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false,
+    "independent": true
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [
+    "Stratégie personnelle de l'auteure, pas une règle validée."
+   ],
+   "nature": "opinion",
+   "evidence": [
+    {
+     "content": "c-wtl-3921",
+     "locator": "Practical advice to survive loss streaks",
+     "lang": "en",
+     "passage": "ending your game session early after two losses once you can feel yourself getting emotional about it"
+    }
+   ],
+   "published": "2026-10-15",
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  }
+ ],
+ "updatedAt": "2026-10-20T21:09:22.974Z"
+}

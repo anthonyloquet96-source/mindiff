@@ -11,3 +11,8 @@ collector/analysis-cache.json
 collector/*.log
 editorial/pending.json
 editorial/batch.json
+
+# Coach : textes consultés (jamais republiés), état et coûts (gardés dans le cache des workflows)
+coach/cache/
+coach/state/
+coach/tests/tmp/

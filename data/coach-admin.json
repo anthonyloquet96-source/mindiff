@@ -1,0 +1,84 @@
+{
+ "generatedAt": "2026-10-20T21:15:00.678Z",
+ "rulesLock": {
+  "ok": true,
+  "changed": [],
+  "lockedAt": "2026-10-20T20:56:19.465Z",
+  "by": "Claude Code (initialisation du pilote, à relire)"
+ },
+ "discovery": {
+  "wtl-blog": {
+   "attempts": 0,
+   "lastOk": "2026-10-20T20:57:28.874Z",
+   "lastError": null,
+   "nextTry": null,
+   "lastCount": 2
+  },
+  "yt-skill-capped": {
+   "attempts": 0,
+   "lastOk": "2026-10-20T20:57:28.986Z",
+   "lastError": null,
+   "nextTry": null,
+   "lastCount": 15
+  },
+  "yt-coach-curtis": {
+   "attempts": 0,
+   "lastOk": "2026-10-20T20:57:29.061Z",
+   "lastError": null,
+   "nextTry": null,
+   "lastCount": 15
+  },
+  "yt-doublelift": {
+   "attempts": 0,
+   "lastOk": "2026-10-20T20:57:29.090Z",
+   "lastError": null,
+   "nextTry": null,
+   "lastCount": 15
+  }
+ },
+ "lastDiscovery": "2026-10-20T20:57:29.092Z",
+ "failures": [],
+ "quarantine": [],
+ "rejected": [],
+ "pending": [],
+ "review": [
+  "u-lucian-2620-ad",
+  "u-lucian-2619-vigilance",
+  "u-lucian-vigilance-avant-2619",
+  "u-smolder-2620",
+  "u-ashe-2620",
+  "u-runaan-2620",
+  "u-lucian-enchanteur",
+  "u-lucian-portee-q",
+  "u-lulu-e-tireur",
+  "u-vs-lulu",
+  "u-nami-q",
+  "u-vs-nami-e",
+  "u-milio-allies",
+  "u-jinx-minigun",
+  "u-jinx-teamfight",
+  "u-smolder-debut",
+  "u-lucian-pro-vs-ranked",
+  "u-milio-stats",
+  "u-smolder-stats",
+  "u-jinx-stats",
+  "u-methode-un-objectif",
+  "u-methode-morts",
+  "u-methode-pool",
+  "u-methode-pause"
+ ],
+ "contested": [],
+ "retired": [],
+ "corrections": [],
+ "statusLog": [],
+ "costs": {
+  "today": 0,
+  "month": 0,
+  "calls": [],
+  "budget": {
+   "day": 1,
+   "month": 15
+  },
+  "model": "claude-opus-5-5"
+ }
+}

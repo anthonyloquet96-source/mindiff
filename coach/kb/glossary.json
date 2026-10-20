@@ -1,0 +1,60 @@
+{
+ "_doc": "Termes à risque de traduction. Le contrôle critique signale une unité dont un passage étranger contient un de ces termes sans note de traduction.",
+ "terms": [
+  {
+   "id": "lucian-passive",
+   "fr": "Pistolero",
+   "en": "Lightslinger",
+   "ko": "빛의 사수",
+   "alias": [
+    "Vigilance"
+   ],
+   "note": "Les notes de patch nomment « Vigilance » la partie du passif déclenchée par un soin, un bouclier ou un ennemi proche immobilisé. Ce n'est pas un passif distinct."
+  },
+  {
+   "id": "lulu-e",
+   "fr": "Pix à la rescousse !",
+   "en": "Help, Pix!",
+   "note": "Sur un allié : « le protéger » en français, « shield them » (bouclier) en anglais. Le bouclier compte pour les effets déclenchés par les boucliers (Lucian)."
+  },
+  {
+   "id": "nami-e",
+   "fr": "Bénédiction de l'Aquamancienne",
+   "en": "Tidecaller's Blessing"
+  },
+  {
+   "id": "jinx-e",
+   "fr": "Pyromâcheurs !",
+   "en": "Flame Chompers!",
+   "note": "« grenades immobilisantes » dans les conseils officiels français."
+  },
+  {
+   "id": "immobilized",
+   "fr": "immobilisé",
+   "en": "immobilized",
+   "note": "Étourdissement, enracinement, projection… ; un ralentissement n'est pas une immobilisation."
+  },
+  {
+   "id": "shield",
+   "fr": "bouclier",
+   "en": "shield",
+   "alias": [
+    "protéger",
+    "protect"
+   ]
+  },
+  {
+   "id": "otp",
+   "fr": "joueur d'un seul champion",
+   "en": "OTP / one-trick",
+   "note": "Ne pas traduire par « spécialiste », qui suggère une expertise vérifiée."
+  },
+  {
+   "id": "tier",
+   "fr": "tier (rang de classement)",
+   "en": "tier",
+   "note": "Une lettre S/A/B propre à chaque site : non comparable d'un site à l'autre.",
+   "flag": false
+  }
+ ]
+}

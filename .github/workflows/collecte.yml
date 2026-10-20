@@ -49,8 +49,8 @@ jobs:
         run: node collector/collect.mjs
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          TRYHARD_MODEL: claude-haiku-5-5
-          TRYHARD_MAX_ANALYSES: 40
+          MINDIFF_MODEL: claude-haiku-5-5
+          MINDIFF_MAX_ANALYSES: 40
 
       - name: Sauvegarder l'état
         if: always()
@@ -64,7 +64,7 @@ jobs:
       - name: Préparer le site
         run: |
           mkdir -p _site/data
-          cp index.html app.js style.css manifest.webmanifest icon.svg _site/
+          cp index.html app.js style.css manifest.webmanifest icon.svg logo.svg *.png _site/
           cp data/news.js data/esport.js data/meta.js data/auto.json data/status.json data/editorial.json _site/data/
 
       - uses: actions/configure-pages@v5

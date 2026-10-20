@@ -1,4 +1,4 @@
-/* Tryhard Meta — application de suivi esport.
+/* MINDIFF — application de suivi esport.
    Anthracite profond, surfaces distinctes, blanc net pour l'essentiel, vermillon avec retenue.
    Une seule famille : Inter (titres compacts, chiffres tabulaires). */
 
@@ -63,8 +63,9 @@ img { max-width: 100%; display: block; }
 /* ---------- En-tête ---------- */
 .top { position: sticky; top: 0; z-index: 40; background: rgba(16, 17, 20, .94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); padding-top: env(safe-area-inset-top); }
 .top-inner { display: flex; align-items: center; gap: var(--s3); height: 56px; }
-.brand { font-weight: 800; font-size: 17px; letter-spacing: -.02em; white-space: nowrap; display: inline-flex; gap: 4px; }
-.brand span { color: var(--accent); }
+.brand { display: inline-flex; align-items: center; gap: 7px; min-height: var(--tap); white-space: nowrap; color: var(--text); }
+.brand-mark { width: 26px; height: 25px; flex: none; }
+.brand-name { font-weight: 800; font-size: 16px; letter-spacing: .02em; }
 .gswitch { display: inline-flex; background: var(--surface-2); border-radius: 999px; padding: 3px; gap: 2px; }
 .gs-btn { min-height: 34px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 999px; font-size: var(--fs-sm); font-weight: 700; color: var(--text-3); transition: background .15s var(--ease), color .15s; }
 .gs-btn:hover { color: var(--text); }
@@ -77,7 +78,7 @@ img { max-width: 100%; display: block; }
 .icon-btn.on { color: var(--accent); }
 .icon-btn.on .ic { fill: currentColor; fill-opacity: .2; }
 .icon-btn[aria-current="page"] { color: var(--text); background: var(--surface-2); }
-@media (max-width: 400px) { .brand { font-size: 15px; } .top-inner { gap: var(--s2); } .gs-btn { padding: 0 11px; } .top-actions .icon-btn { width: 40px; } }
+@media (max-width: 400px) { .brand-name { font-size: 14.5px; } .top-inner { gap: var(--s2); } .gs-btn { padding: 0 11px; } .top-actions .icon-btn { width: 40px; } }
 
 /* Navigation principale */
 .nav-top { display: none; }

@@ -1,7 +1,7 @@
 import { XMLParser } from "fast-xml-parser";
 import { createHash } from "node:crypto";
 
-const UA = "Mozilla/5.0 (compatible; TryhardMeta/0.2)";
+const UA = "Mozilla/5.0 (compatible; MINDIFF/0.3)";
 
 export async function fetchText(url, headers = {}) {
   const res = await fetch(url, { headers: { "User-Agent": UA, ...headers }, signal: AbortSignal.timeout(25000) });

@@ -1,4 +1,4 @@
-/* Tryhard Meta — application cliente (JavaScript sans dépendance, compatible GitHub Pages).
+/* MINDIFF — application cliente (JavaScript sans dépendance, compatible GitHub Pages).
 
    1. Configuration et préférences       5. Composants
    2. Données                            6. Écrans
@@ -291,6 +291,8 @@ const ICONS = {
   list: '<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>',
   bracket: '<path d="M4 5h5v6H4M4 13h5v6H4M9 8h4v8h-4M13 12h7"/>',
 };
+// Logo MINDIFF : un D et un 1 dont la silhouette commune forme un M (mêmes tracés que logo.svg)
+const BRAND_MARK = `<svg class="brand-mark" viewBox="8 8 50 48" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M12 51V13C22 13 30 26 32 51ZM19 46V24.5c4.6 4 7.1 10.5 8.1 21.5Z"/><path fill="var(--accent)" d="M32 51 47 13h7v38h-7V33.5L39 51Z"/></svg>`;
 const icon = (name, cls = "") => `<svg class="ic ${cls}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${ICONS[name]}</svg>`;
 
 function initials(name) {
@@ -1042,7 +1044,7 @@ function renderHeader() {
   };
   const navItems = NAV.map(n => `<a class="nav-item" href="${href(g, n.id === "home" ? "" : n.id)}" ${navView === n.id ? 'aria-current="page"' : ""}>${icon(n.icon)}<span>${n.label}</span></a>`).join("");
   document.getElementById("top").innerHTML = `<div class="wrap top-inner">
-      <a class="brand" href="${g ? href(g) : "#/"}" aria-label="Tryhard Meta, accueil">Tryhard<span>Meta</span></a>
+      <a class="brand" href="${g ? href(g) : "#/"}" aria-label="MINDIFF, accueil">${BRAND_MARK}<span class="brand-name">MINDIFF</span></a>
       ${g ? `<div class="gswitch" role="group" aria-label="Jeu">${GAMES_ON.map(x => `<a class="gs-btn" href="${switchTo(x.id)}" ${g === x.id ? 'aria-current="true"' : ""}>${esc(SHORT[x.id])}</a>`).join("")}</div>` : ""}
       <div class="top-actions">
         ${g ? `<button class="icon-btn ${prefs.noSpoil ? "on" : ""}" data-action="spoil" aria-pressed="${prefs.noSpoil}" aria-label="Mode sans spoilers${prefs.noSpoil ? " activé" : ""}" title="Mode sans spoilers">${icon(prefs.noSpoil ? "eyeOff" : "eye")}</button>

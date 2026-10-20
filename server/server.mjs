@@ -1,4 +1,4 @@
-// Serveur Tryhard Meta : sert l'application, expose l'API, et relance la collecte toutes les 30 min.
+// Serveur MINDIFF : sert l'application, expose l'API, et relance la collecte toutes les 30 min.
 // Lancement : npm start   (puis http://localhost:3000)
 // Accès depuis un téléphone sur le même Wi-Fi : définir HOST=0.0.0.0 dans .env
 
@@ -23,7 +23,7 @@ const TYPES = {
   ".json": "application/json; charset=utf-8", ".svg": "image/svg+xml", ".png": "image/png", ".webmanifest": "application/manifest+json",
 };
 // Seuls ces fichiers sont servis : jamais le collecteur, le cache, node_modules ou .env.
-const PUBLIC = [/^index\.html$/, /^app\.js$/, /^style\.css$/, /^manifest\.webmanifest$/, /^icon\.svg$/, /^data\/[\w-]+\.(js|json)$/];
+const PUBLIC = [/^index\.html$/, /^app\.js$/, /^style\.css$/, /^manifest\.webmanifest$/, /^(icon|logo)\.svg$/, /^(icon-\d+|icon-maskable-512|apple-touch-icon)\.png$/, /^data\/[\w-]+\.(js|json)$/];
 
 let latest = null;
 let running = false;
@@ -101,7 +101,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, HOST, async () => {
-  console.log(`Tryhard Meta : http://localhost:${PORT}`);
+  console.log(`MINDIFF : http://localhost:${PORT}`);
   if (HOST === "0.0.0.0") {
     for (const ifs of Object.values(os.networkInterfaces())) for (const i of ifs || []) {
       if (i.family === "IPv4" && !i.internal) console.log(`  Sur le téléphone (même Wi-Fi) : http://${i.address}:${PORT}`);

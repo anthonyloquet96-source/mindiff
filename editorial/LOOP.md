@@ -1,4 +1,4 @@
-# Boucle de rédaction Tryhard Meta
+# Boucle de rédaction MINDIFF
 
 À chaque passage :
 

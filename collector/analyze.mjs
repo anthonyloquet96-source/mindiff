@@ -5,15 +5,15 @@ import Anthropic from "@anthropic-ai/sdk";
 import { readFile, writeFile } from "node:fs/promises";
 import { fetchText, stripHtml, hash } from "./lib.mjs";
 
-// Claude Haiku 5.5 par défaut : très bon rapport qualité/prix pour des résumés. TRYHARD_MODEL=claude-opus-5-5 pour plus de profondeur.
-const MODEL = process.env.TRYHARD_MODEL || "claude-haiku-5-5";
+// Claude Haiku 5.5 par défaut : très bon rapport qualité/prix pour des résumés. MINDIFF_MODEL=claude-opus-5-5 pour plus de profondeur (anciens noms TRYHARD_* acceptés).
+const MODEL = process.env.MINDIFF_MODEL || process.env.TRYHARD_MODEL || "claude-haiku-5-5";
 const IS_HAIKU = MODEL.startsWith("claude-haiku");
-const MAX_PER_RUN = Number(process.env.TRYHARD_MAX_ANALYSES || 40);
+const MAX_PER_RUN = Number(process.env.MINDIFF_MAX_ANALYSES || process.env.TRYHARD_MAX_ANALYSES || 40);
 // $ par token (Haiku 5.5 : tarif des requêtes de moins de 100K tokens)
 const PRICE = IS_HAIKU ? { in: 0.10 / 1e6, out: 0.50 / 1e6 } : { in: 4 / 1e6, out: 20 / 1e6 };
 const GAME_NAMES = { lol: "League of Legends", val: "Valorant", cs2: "Counter-Strike 2", fn: "Fortnite", rl: "Rocket League", fc: "EA SPORTS FC 27" };
 
-const RULES = `Tu es l'analyste en chef de Tryhard Meta, une application pour joueurs compétitifs (League of Legends, Valorant, CS2, Fortnite, Rocket League, EA SPORTS FC).
+const RULES = `Tu es l'analyste en chef de MINDIFF, une application pour joueurs compétitifs (League of Legends, Valorant, CS2, Fortnite, Rocket League, EA SPORTS FC).
 
 Règles absolues :
 - Réponds en français, avec un ton direct et précis.

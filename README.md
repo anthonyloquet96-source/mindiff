@@ -1,4 +1,8 @@
-# Tryhard Meta
+# MINDIFF
+
+![MINDIFF](logo.svg)
+
+Le logo : un **D** et un **1** dont la silhouette commune forme un **M**. Le D pour MINDIFF, le 1 (vermillon) pour le premier, le vainqueur.
 
 **Comprendre ce qui change. Savoir quoi jouer. Suivre la compétition.**
 Patchnotes, compétitions, méta et stratégies pour League of Legends et Valorant, à partir de sources vérifiées.

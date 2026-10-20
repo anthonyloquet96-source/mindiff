@@ -1,0 +1,11 @@
+node_modules/
+.env
+_site/
+
+# Généré par la collecte (reconstruit en ligne par GitHub Actions)
+data/auto.js
+data/auto.json
+data/status.json
+collector/state.json
+collector/analysis-cache.json
+collector/*.log

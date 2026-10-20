@@ -1,0 +1,15 @@
+{
+  "name": "tryhard-meta",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Patchnotes, esport et méta compétitive — sources vérifiées",
+  "scripts": {
+    "start": "node server/server.mjs",
+    "collect": "node --env-file-if-exists=.env collector/collect.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.135.0",
+    "fast-xml-parser": "^4.5.0"
+  }
+}

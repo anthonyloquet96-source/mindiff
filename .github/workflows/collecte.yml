@@ -1,0 +1,75 @@
+# Toutes les 30 min : collecte des sources, vérification, analyses Claude, puis publication sur GitHub Pages.
+name: Collecte et publication
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Une seule collecte à la fois
+concurrency:
+  group: collecte
+  cancel-in-progress: false
+
+jobs:
+  collecte:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # État de la collecte et cache des analyses, gardés d'une exécution à l'autre
+      - name: Restaurer l'état
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            collector/state.json
+            collector/analysis-cache.json
+          key: etat-${{ github.run_id }}
+          restore-keys: etat-
+
+      - name: Collecter, vérifier, analyser
+        run: node collector/collect.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TRYHARD_MODEL: claude-haiku-5-5
+          TRYHARD_MAX_ANALYSES: 40
+
+      - name: Sauvegarder l'état
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            collector/state.json
+            collector/analysis-cache.json
+          key: etat-${{ github.run_id }}
+
+      - name: Préparer le site
+        run: |
+          mkdir -p _site/data
+          cp index.html app.js style.css manifest.webmanifest icon.svg _site/
+          cp data/news.js data/esport.js data/meta.js data/auto.json data/status.json _site/data/
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4

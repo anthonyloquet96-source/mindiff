@@ -1,0 +1,22 @@
+# GitHub coupe les tâches planifiées d'un dépôt public sans activité pendant 60 jours.
+# Ce petit commit mensuel garde la collecte automatique active.
+name: Maintien de la collecte
+
+on:
+  schedule:
+    - cron: "0 6 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  maintien:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "Maintien de la collecte automatique"
+          git push

@@ -761,6 +761,59 @@
    "analyse": "La date limite est passée.",
    "impact": "faible",
    "at": "2026-10-20T15:41:01.300Z"
+  },
+  "9f5142905144": {
+   "titre": "LoL 26.20, le patch des Worlds : Smolder, Vayne et Neeko renforcés, Ashe et Yunara affaiblies",
+   "resume": "Patch d'équilibrage ciblé pour le Mondial : une quinzaine de champions ajustés, trois objets modifiés et des compteurs d'objets masqués sur le tableau des scores.",
+   "patch": "26.20",
+   "article": [
+    "Renforcés : Smolder (soins de l'ultime 100/135/170 ⇒ 100/175/250, +75 % des dégâts d'attaque bonus ; passif plus fort), Vayne (Roulade à 30 de mana à tous les rangs, régénération de base relevée), Neeko (E 80 à 220 dégâts, immobilisation plus longue aux premiers rangs), Lucian (2,9 dégâts d'attaque par niveau au lieu de 2,5), Lillia (ultime jusqu'à 3 s), Diana (bouclier du Z 14 % des PV bonus), Kennen, Kindred, Mordekaiser, Swain et Tahm Kench.",
+    "Affaiblis : Ashe (3 dégâts d'attaque par niveau au lieu de 3,5), Yunara (dégâts du A réduits et ralentissement du Z qui ne se cumule plus), K'Santé (Z plus cher et réduction des dégâts 25-70 % au lieu de 30-75 %), Cassiopeia (PV et mana de base réduits) et Ambessa (passif réduit).",
+    "Objets : l'Hexplaque expérimentale perd en efficacité à distance (50 % de ses bonus au lieu de 70 %), l'Ouragan de Runaan passe à 60 % des dégâts d'attaque par éclair, et la Ceinture-roquette Hextech échange de l'accélération de compétence (20 ⇒ 10) contre des dégâts actifs (100 ⇒ 135). Le tableau des scores masque désormais les compteurs de nombreux objets (Danse de la mort, Tourment de Liandry, Lame enragée de Guinsoo…). En classé 5c5, les horaires s'étendent de 16 h à 4 h, heure du serveur."
+   ],
+   "points": [
+    "Smolder : soins de l'ultime presque doublés au rang 3 (170 ⇒ 250)",
+    "Ashe et Yunara affaiblies en bot lane",
+    "K'Santé : réduction des dégâts du Z abaissée de 5 points",
+    "Ceinture-roquette : moins d'accélération, plus de dégâts sur l'actif"
+   ],
+   "analyse": "C'est la version jouée au Mondial : les buffs de Smolder et Vayne et les nerfs d'Ashe et Yunara redistribuent les cartes en bot lane, en classé comme en pro. Le nerf de l'Hexplaque à distance vise les tireurs qui en profitaient. Pour la Ceinture-roquette, la perte d'accélération rend l'objet moins intéressant si vous comptez sur vos sorts plutôt que sur l'actif.",
+   "impact": "fort",
+   "at": "2026-10-20T16:20:37.491Z"
+  },
+  "cfbaa50045b0": {
+   "titre": "Valorant 13.06 : le fusil Warden, la maîtrise des agents et le score de performance",
+   "resume": "Nouvelle arme à 2 900 crédits, progression par agent et score de performance de 0 à 500 qui remplace le score de combat moyen.",
+   "patch": "13.06",
+   "article": [
+    "Le Warden est un fusil à 2 900 crédits, le même prix que le Vandal et le Phantom. Il a un zoom ×2, 18 balles par chargeur, une cadence de 6,5 et une pénétration des murs moyenne. Ses dégâts ne baissent pas avec la distance : 200 à la tête, 50 au corps, 42 aux jambes.",
+    "La maîtrise des agents est une progression propre à chaque agent : 10 niveaux par acte, des récompenses débloquées avec des Kingdom Credits, et tout le monde repart du niveau 0.",
+    "En Compétition, le score de performance (0 à 500) remplace le score de combat moyen et détermine le MVP. Les prouesses et l'héritage de rang arrivent dans la Carrière. Le mode Reprise (Retake) est retiré, et un mode temporaire en duos, Gauntlet: Glitched, fait son apparition."
+   ],
+   "points": [
+    "Warden : 2 900 crédits, 200 dégâts à la tête à toute distance",
+    "Maîtrise des agents : progression par agent, départ à zéro",
+    "Score de performance de 0 à 500 en Compétition, Non classé, Vélocité et Premier",
+    "Mode Reprise retiré"
+   ],
+   "analyse": "Avec 200 dégâts à la tête sans perte à distance, un seul tir à la tête du Warden tue un joueur à 100 PV et 50 de bouclier, quelle que soit la distance. Sa cadence et son chargeur de 18 balles en font une arme qui récompense la précision plus que le spray. Le score de performance compte désormais pour le MVP : les dégâts et les premiers duels pèsent plus lourd que les seules éliminations.",
+   "impact": "fort",
+   "at": "2026-10-20T16:20:37.491Z"
+  },
+  "bcc1e79846e5": {
+   "titre": "Valorant 13.06 : le Warden et la maîtrise des agents confirmés à la sortie",
+   "resume": "Dexerto confirme l'arrivée du fusil Warden et du système de maîtrise des agents, détaillés dans les notes officielles du même jour.",
+   "patch": "13.06",
+   "article": [
+    "La mise à jour 13.06 ajoute le fusil Warden et la maîtrise des agents. Le détail chiffré se trouve dans les notes officielles du patch, publiées le 22 septembre."
+   ],
+   "points": [
+    "Fusil Warden",
+    "Maîtrise des agents"
+   ],
+   "analyse": "Article de confirmation : référez-vous aux notes officielles pour les valeurs exactes.",
+   "impact": "moyen",
+   "at": "2026-10-20T16:20:37.491Z"
   }
  },
  "matches": {
@@ -1014,5 +1067,5 @@
    "at": "2026-10-20T15:35:36.460Z"
   }
  },
- "updatedAt": "2026-10-20T15:41:01.300Z"
+ "updatedAt": "2026-10-20T16:20:37.491Z"
 }

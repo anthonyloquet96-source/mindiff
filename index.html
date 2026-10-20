@@ -3,29 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="theme-color" content="#0c0c0d">
+  <meta name="description" content="Tryhard Meta : comprendre ce qui change, savoir quoi jouer, suivre la compétition. League of Legends et Valorant, sources vérifiées.">
   <title>Tryhard Meta</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="top">
-    <div class="wrap top-inner">
-      <span class="logo">Tryhard Meta</span>
-      <span class="updated" id="updated"></span>
-    </div>
-    <nav class="wrap games" id="games" aria-label="Jeux"></nav>
-    <nav class="wrap views views-top" id="views-top" aria-label="Rubriques"></nav>
-  </header>
-
-  <main class="wrap" id="view"></main>
-
-  <nav class="bottom-nav" id="views-bottom" aria-label="Rubriques"></nav>
+  <button class="skip" type="button" data-action="skip">Aller au contenu</button>
+  <header class="top" id="top"></header>
+  <main class="wrap main" id="view" tabindex="-1"></main>
+  <nav class="bottom-nav" id="bottom" aria-label="Rubriques" hidden></nav>
 
   <script src="data/news.js"></script>
   <script src="data/esport.js"></script>

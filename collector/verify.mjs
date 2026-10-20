@@ -26,6 +26,8 @@ const inter = (a, b) => [...a].filter(x => b.has(x)).length;
 
 function similar(a, b) {
   if (a.game !== b.game) return false;
+  // Deux articles d'une même source sont deux sujets distincts (ex. plusieurs « Counter-Strike 2 Update »)
+  if (a.source && a.source === b.source) return false;
   if (Math.abs(new Date(a.date) - new Date(b.date)) > 4 * 864e5) return false;
   const shared = inter(a._strong, b._strong);
   const jac = inter(a._tok, b._tok) / (new Set([...a._tok, ...b._tok]).size || 1);
@@ -94,6 +96,10 @@ export function verify(items, officialMatches = []) {
       game: lead.game,
       type: lead.type,
       date: group.map(i => i.date).sort()[0].slice(0, 10),
+      // Date de publication complète (la plus ancienne du groupe). Si aucune source ne donne de date,
+      // on garde la date de première détection, signalée comme estimée : elle ne doit pas passer pour une actu fraîche.
+      publishedAt: group.map(i => i.date).sort()[0],
+      dateEstimated: group.every(i => i.dateEstimated),
       firstSeen: lead.firstSeen,
       status,
       lang: lead.lang,

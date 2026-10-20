@@ -5,6 +5,7 @@
 const TIERLISTS = [
   {
     game: "lol", title: "Solo queue — patch 26.20", roster: "lol", status: "media",
+    scope: "ranked", patch: "26.20", context: "Solo queue · rang non précisé par la source", sourcesDated: "11–19 oct. 2026", updated: "2026-10-20",
     basis: "Win rate et pick rate metabot.gg, mis à jour entre le 11 et le 19 octobre. Les champions avec trop peu de parties sont exclus.",
     groups: [
       { name: "Top", tiers: {
@@ -34,6 +35,7 @@ const TIERLISTS = [
   },
   {
     game: "val", title: "Pro — Champions 2026", roster: "val", status: "confirme",
+    scope: "pro", patch: "non précisé par la source", context: "VCT Champions Shanghai · 172 maps d'équipe", sourcesDated: "24 sept. – 18 oct. 2026", updated: "2026-10-20",
     basis: "Taux de pick par map jouée sur les 172 maps d'équipe des Champions Shanghai.",
     groups: [
       { name: "Taux de pick", tiers: {
@@ -49,6 +51,7 @@ const TIERLISTS = [
   },
   {
     game: "val", title: "Ranked — patch 13.08", roster: "val", status: "contradictoire",
+    scope: "ranked", patch: "13.08", context: "Compétition · Platine et plus", sourcesDated: "18 oct. 2026 (valking.gg)", updated: "2026-10-20",
     basis: "Win rate Platine+ (valking.gg, 18 octobre), croisé avec Overgear et lfcarry.",
     groups: [
       { name: "Ranked", tiers: {
@@ -140,40 +143,61 @@ const STATIC_ROSTERS = {
 };
 
 const STRATS = [
+  // Format fiche (LoL et Valorant) : seuls les champs étayés par les sources sont remplis.
+  // « faits » = rapporté par les sources ; « lecture » = interprétation de la rédaction, affichée comme telle.
   {
-    game: "val", kind: "Compo pro", status: "confirme",
-    title: "Compo la plus jouée aux Champions (Lotus)",
+    id: "val-lotus-champions", game: "val", kind: "Composition", nature: "Données pro", status: "confirme",
+    title: "Lotus : la composition la plus jouée aux Champions",
+    patch: "non précisé par la source", updated: "2026-10-20",
+    context: { "Carte": "Lotus", "Niveau": "Pro · VCT Champions 2026" },
     lineup: ["Chamber", "Fade", "Neon", "Omen", "Viper"],
-    points: [
-      "Jouée 10 fois sur Lotus pendant les Champions 2026",
-      "Structure la plus courante : 2 duellistes, 1 initiateur, 1 contrôleur, 1 sentinelle (33 % des maps)",
+    objectif: "Reprendre la composition que les équipes pros ont le plus alignée sur Lotus pendant les Champions.",
+    conditions: ["Un duelliste : Neon", "Deux contrôleurs : Omen et Viper", "Un initiateur : Fade, et une sentinelle : Chamber"],
+    faits: [
+      "Composition jouée 10 fois sur Lotus, la plus fréquente du tournoi sur une même carte",
+      "Toutes cartes confondues, la structure la plus courante est différente : 2 duellistes, 1 initiateur, 1 contrôleur, 1 sentinelle (33,1 % des maps, 43,9 % de victoires)",
+      "Lotus n'est pas concernée par la rotation du patch 13.08 (Ascent et Split quittent le classé)",
     ],
-    analysis: "Cette structure à 2 duellistes ne gagne que 43,9 % de ses maps : très jouée mais pas magique. En ranked, une compo plus classique (1 duelliste, 2 initiateurs) est souvent plus fiable en solo queue.",
+    limites: ["10 maps seulement : échantillon réduit", "La source ne donne pas le taux de victoire de cette composition précise"],
+    lecture: "La composition la plus jouée n'est pas forcément la plus gagnante : la structure la plus répandue du tournoi ne gagne que 43,9 % de ses maps.",
     sources: [{ name: "VCT Reference", url: "https://vct-reference.com/events/vct-2026-champions-2766", kind: "communaute" }],
   },
   {
-    game: "val", kind: "Par map", status: "non-confirme",
-    title: "Agents incontournables par map (pro)",
+    id: "val-agents-par-carte", game: "val", kind: "Agents par carte", nature: "Données pro · source unique", status: "non-confirme",
+    title: "Les agents incontournables carte par carte chez les pros",
+    patch: "non précisé par la source", updated: "2026-10-20",
+    context: { "Niveau": "Pro · VCT Champions 2026" },
+    objectif: "Savoir quels agents les pros considèrent comme indispensables sur chaque carte.",
     maps: [
-      { map: "Ascent", lineup: ["Omen", "Sova"], note: "100 % de pick tous les deux" },
-      { map: "Haven", lineup: ["Omen", "Neon", "Fade", "Chamber"], note: "Omen 100 %, Neon 77 %" },
+      { map: "Haven", lineup: ["Omen", "Neon", "Fade", "Chamber"], note: "Omen 100 %, Neon 77 %, Fade 73 %, Chamber 64 %" },
       { map: "Abyss", lineup: ["Sova", "Harbor"], note: "Sova 100 %, Harbor 81 %" },
-      { map: "Summit", lineup: ["Neon", "Fade", "Chamber", "Sage"], note: "Neon et Fade 79 %" },
+      { map: "Summit", lineup: ["Neon", "Fade", "Chamber", "Sage"], note: "Neon et Fade 79 %, Chamber 61 %, Sage 54 %" },
+      { map: "Ascent", lineup: ["Omen", "Sova"], note: "100 % tous les deux · Ascent n'est plus en Compétition depuis le patch 13.08" },
     ],
-    warnings: ["Source unique dont la méthode n'est pas documentée."],
-    sources: [{ name: "valorant-spind.de", url: "https://www.valorant-spind.de/en/valorant-agenten-pickrates.html", kind: "communaute" }],
+    limites: ["Une seule source, dont la méthode de calcul n'est pas documentée", "Ascent et Split ont quitté les files Compétition au patch 13.08"],
+    sources: [
+      { name: "valorant-spind.de", url: "https://www.valorant-spind.de/en/valorant-agenten-pickrates.html", kind: "communaute" },
+      { name: "Notes de patch 13.08 (officiel)", url: "https://playvalorant.com/fr-fr/news/game-updates/valorant-patch-notes-13-08", kind: "officiel" },
+    ],
   },
   {
-    game: "lol", kind: "Conseil ranked", status: "media",
-    title: "Patch 26.20 : profitez de la bot lane",
+    id: "lol-botlane-2620", game: "lol", kind: "Bot lane", nature: "Statistiques ranked", status: "media",
+    title: "Patch 26.20 : Smolder et Milio en bot lane",
+    patch: "26.20", updated: "2026-10-20",
+    context: { "Rôles": "ADC + support", "Mode": "Solo queue · rang non précisé" },
     lineup: [{ id: "Smolder", name: "Smolder" }, { id: "Milio", name: "Milio" }],
-    points: [
-      "Smolder est buffé et dans le S tier ADC (52 % de victoires)",
-      "Milio est le support le plus gagnant (53,6 %)",
-      "Ashe et Yunara sont nerfées : moins de concurrence pour l'ADC",
+    objectif: "Profiter des changements du patch 26.20 en bot lane.",
+    faits: [
+      "Smolder fait partie des champions buffés au patch 26.20",
+      "Ashe et Yunara sont nerfées au même patch, pour leur force en bot lane",
+      "Smolder : 52,0 % de victoires en ADC ; Milio : 53,6 %, meilleur support (metabot.gg, 11–19 oct.)",
     ],
-    analysis: "Smolder + Milio est un duo de scaling cohérent : Milio protège un hypercarry qui doit survivre jusqu'à ses stacks. Pensez à jouer safe jusqu'à 2 objets.",
-    sources: [{ name: "metabot.gg", url: "https://metabot.gg/en/league/champions/tier-list", kind: "media" }],
+    limites: ["Taux de victoire mesurés séparément : la source ne donne pas celui du duo", "Rang des parties non précisé par la source"],
+    lecture: "Smolder gagne en puissance au fil de la partie grâce à ses cumuls ; un support protecteur comme Milio lui laisse le temps d'y arriver.",
+    sources: [
+      { name: "metabot.gg", url: "https://metabot.gg/en/league/champions/tier-list", kind: "media" },
+      { name: "Notes de patch 26.20 (officiel)", url: "https://www.leagueoflegends.com/fr-fr/news/game-updates/league-of-legends-patch-26-20-notes", kind: "officiel" },
+    ],
   },
   {
     game: "cs2", kind: "Économie", status: "media",

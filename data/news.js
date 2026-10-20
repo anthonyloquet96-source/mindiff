@@ -32,6 +32,7 @@ const ITEMS = [
   {
     game: "lol", type: "patch", date: "2026-10-07", status: "confirme",
     image: "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Smolder_0.jpg",
+    duplicateOf: ["9f5142905144"],
     title: "Patch 26.20 — le patch des Worlds",
     summary: "Dernier patch utilisé aux Worlds 2026. Riot se dit satisfait de la méta actuelle : changements ciblés.",
     points: [
@@ -50,6 +51,7 @@ const ITEMS = [
   },
   {
     game: "lol", type: "esport", date: "2026-10-19", status: "confirme",
+    duplicateOf: [],
     title: "Karmine Corp sort des Play-In et rejoint la phase suisse",
     summary: "Pour leur première participation aux Worlds, les Français battent MVK Esports (LCP) en finale des Play-In. C'est la seule équipe des Play-In à passer.",
     points: [
@@ -81,6 +83,7 @@ const ITEMS = [
   // ---------- Valorant ----------
   {
     game: "val", type: "esport", date: "2026-10-18", status: "confirme",
+    duplicateOf: ["00c2c9577bec"],
     title: "LOUD champion du monde : premier double vainqueur de l'histoire des Champions",
     summary: "LOUD bat Team Vitality 3–1 en finale des Champions Shanghai 2026. Après 2022, l'équipe brésilienne devient la première à remporter deux fois les Champions.",
     points: [
@@ -110,6 +113,7 @@ const ITEMS = [
   },
   {
     game: "val", type: "patch", date: "2026-09-22", status: "confirme",
+    duplicateOf: ["cfbaa50045b0","bcc1e79846e5"],
     title: "Patch 13.06 : nouveau fusil Warden et maîtrise des agents",
     summary: "Annoncé par GFinity avant les notes officielles, puis confirmé à la sortie : le fusil Warden et le système de maîtrise des agents sont bien arrivés.",
     warnings: ["GFinity annonçait une sortie les 15-16 septembre ; les notes officielles sont parues le 22 septembre."],

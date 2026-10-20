@@ -46,7 +46,8 @@ const collectors = {
         const type = tags.includes("patch_notes") ? "patch"
           : a.category?.machineName === "esports" ? "esport"
           : detectType(`${a.title} ${summary}`) || "annonce";
-        return { url: full, title: a.title, summary, date: a.publishedAt || a.analytics.publishDate, image: a.media?.url || a.imageMedia?.url, type };
+        // La langue est celle de la page Riot lue (fr-fr ou en-us), pas celle du lien (souvent YouTube)
+        return { url: full, title: a.title, summary, date: a.publishedAt || a.analytics.publishDate, image: a.media?.url || a.imageMedia?.url, type, lang: /\/fr-fr\//.test(url) ? "fr" : "en" };
       });
     });
   },
@@ -91,8 +92,9 @@ const collectors = {
       const url = `https://www.fortnite.com/news#${m.id}`;
       return {
         url, title: m.title, summary: m.body, image: m.tileImage || m.image, lang: "fr",
-        // Pas de date fournie : on garde la date à laquelle on l'a vue pour la première fois.
+        // Pas de date fournie : on garde la date à laquelle on l'a vue pour la première fois, marquée comme estimée.
         date: state.firstSeen[hash(url)] || new Date().toISOString(),
+        dateEstimated: true,
         type: detectType(`${m.title} ${m.body}`) || "annonce",
       };
     });
@@ -144,9 +146,15 @@ export async function runCollection({ log = console.log } = {}) {
   const t0 = Date.now();
   try {
     esport = await collectLolEsports(state);
+    for (const t of esport.tournaments) t.asOf = now.toISOString();
+    state.lastEsport = { at: now.toISOString(), tournaments: esport.tournaments, upcoming: esport.upcoming };
     health.push({ id: "lolesports", name: "LoL Esports (officiel)", kind: "officiel", ok: true, count: esport.tournaments.length, ms: Date.now() - t0 });
   } catch (e) {
-    health.push({ id: "lolesports", name: "LoL Esports (officiel)", kind: "officiel", ok: false, error: e.message, ms: Date.now() - t0 });
+    // Échec : on garde la dernière version valide, avec sa date, plutôt que de vider les tournois
+    if (state.lastEsport) {
+      esport = { tournaments: state.lastEsport.tournaments.map(t => ({ ...t, stale: true })), upcoming: state.lastEsport.upcoming, officialMatches: [] };
+    }
+    health.push({ id: "lolesports", name: "LoL Esports (officiel)", kind: "officiel", ok: false, error: e.message, keptFrom: state.lastEsport?.at || null, ms: Date.now() - t0 });
   }
 
   // Oublie les articles trop anciens

@@ -1,44 +1,46 @@
 # Tryhard Meta
 
-Patchnotes, esport et méta compétitive (LoL, Valorant, CS2, Fortnite, Rocket League, EA FC 27) : sources vérifiées, analyses de Claude, mode tournoi.
+**Comprendre ce qui change. Savoir quoi jouer. Suivre la compétition.**
+Patchnotes, compétitions, méta et stratégies pour League of Legends et Valorant, à partir de sources vérifiées.
 
-## Utilisation
+En ligne : https://anthonyloquet96-source.github.io/tryhard-meta/ (GitHub Pages, collecte automatique toutes les 30 min via GitHub Actions).
 
-- Ouvrir **http://localhost:3000** (le serveur démarre tout seul à l'ouverture de session Windows : tâche **TryhardMeta-Serveur**).
-- Démarrer à la main : `npm start` · collecte seule : `npm run collect`
-- Journaux : `collector/server.log` (serveur) et `collector/collect.log` (collectes)
-- Arrêter le démarrage automatique : `Disable-ScheduledTask -TaskName TryhardMeta-Serveur`
+## Utilisation locale
 
-### Activer les analyses Claude
+- `npm start` puis **http://localhost:3000** (tâche Windows **TryhardMeta-Serveur** au démarrage de session).
+- Collecte seule : `npm run collect` · journaux : `collector/server.log`, `collector/collect.log`.
 
-1. Créer une clé sur https://platform.claude.com (rubrique API Keys).
-2. Copier `.env.example` en `.env` et coller la clé après `ANTHROPIC_API_KEY=`.
-3. Redémarrer le serveur (fermer la session Windows ou `Stop-ScheduledTask` puis `Start-ScheduledTask -TaskName TryhardMeta-Serveur`).
+## L'application (`index.html`, `app.js`, `style.css`)
 
-`TRYHARD_MAX_ANALYSES` (dans `.env`) limite le nombre d'analyses par collecte pour maîtriser le coût.
+JavaScript sans framework ni étape de build, compatible GitHub Pages.
 
-### Sur le téléphone
+- **Adresses** : `#/` choix du jeu · `#/lol` accueil du jeu · `#/lol/matchs` · `#/lol/actus[/id]` · `#/lol/tier` · `#/lol/strats[/id]` · `#/lol/tournoi/<id>/<onglet>[/<match>]` · `#/lol/enregistres`. Le retour navigateur et les liens directs fonctionnent ; les anciennes adresses (`#tournois/…`) sont redirigées.
+- **Jeux affichés** : constante `ENABLED_GAMES` en tête de `app.js` (LoL et Valorant). Les autres jeux restent collectés.
+- **Préférences locales** (sans compte, clé `tm-prefs-v1`) : dernier jeu, jeux et équipes favoris, articles et stratégies enregistrés, mode sans spoilers, date de dernière visite par jeu (pour « nouveau depuis votre visite », calculé sur la date de publication réelle).
+- **Mode sans spoilers** : masque scores, vainqueurs, classements, résumés de tournoi et titres d'actus esport jusqu'à « Afficher ».
+- **Fiabilité** : chaque contenu affiche sa nature (officiel, confirmé, rapporté, non confirmé, contradictoire), sa date de publication, le patch quand il est identifiable et ses sources. Les synthèses séparent « Les faits » et « Notre lecture » (interprétation). Les dates inconnues sont signalées (« vu le … »).
+- **Données** : `data/auto.json` (collecte) + `data/editorial.json` (synthèses rédigées) + `data/*.js` (fiches vérifiées à la main, datées). En cas d'échec réseau, la dernière copie locale est affichée avec un bandeau indiquant son âge.
+- Système visuel : jetons CSS en tête de `style.css` (couleurs, espacements, rayons, typographie).
 
-Mettre `HOST=0.0.0.0` dans `.env`, redémarrer, puis ouvrir l'adresse affichée dans `collector/server.log` (même Wi-Fi). Windows demandera d'autoriser Node.js dans le pare-feu. Depuis le navigateur du téléphone : « Ajouter à l'écran d'accueil » pour l'installer comme une appli.
-
-## Fonctionnement
+## Collecte (`collector/`)
 
 | Fichier | Rôle |
 |---|---|
-| `server/server.mjs` | Sert l'appli, l'API (`/api/data`, `/api/status`, `/api/stream` en direct, `/api/collect`) et relance la collecte toutes les 30 min |
-| `collector/sources.mjs` | Sources autorisées et leur niveau de confiance |
-| `collector/collect.mjs` | Récupère chaque source |
-| `collector/lolesports.mjs` | Tournois LoL officiels : phases, matchs, classements, champions joués par les pros |
-| `collector/verify.mjs` | Regroupe les articles par sujet et attribue le statut de fiabilité |
-| `collector/analyze.mjs` | Analyses Claude : sujets, tournois, « l'essentiel » par jeu (mises en cache) |
-| `data/news.js`, `esport.js`, `meta.js` | Données vérifiées à la main |
+| `sources.mjs` | Sources autorisées et niveau de confiance |
+| `collect.mjs` | Récupère chaque source, écrit `data/auto.json` |
+| `lolesports.mjs` | Tournois LoL officiels, matchs, classements, picks des pros |
+| `verify.mjs` | Regroupe les articles par sujet (jamais deux articles d'une même source) et attribue la fiabilité |
+| `analyze.mjs` | Analyses Claude optionnelles (clé `ANTHROPIC_API_KEY`) |
+
+Si LoL Esports ne répond pas, la dernière version valide des tournois est conservée et marquée comme ancienne.
+
+## Rédaction (`editorial/`)
+
+`node editorial/pending.mjs` liste ce qui reste à synthétiser ; les synthèses sont écrites dans `editorial/batch.json` puis fusionnées avec `node editorial/merge.mjs` (format vérifié). Règles dans `editorial/LOOP.md` : uniquement des faits sourcés, interprétation signalée comme telle.
 
 Règles de fiabilité :
-- **Confirmé** : source officielle, ou au moins 2 sites indépendants
-- **Source unique fiable** : un seul média reconnu
+- **Officiel** : publié par l'éditeur ou l'organisateur
+- **Confirmé** : au moins 2 sources indépendantes
+- **Rapporté par un média** : une seule source reconnue
 - **Non confirmé** : fuite, rumeur ou source communautaire seule
 - **Contradictoire** : un score annoncé ne correspond pas au résultat officiel
-
-Méta pro LoL : le vainqueur de chaque partie est déduit de l'état final (inhibiteurs, tours) puis **vérifié contre le score officiel de la série** ; s'il ne correspond pas, le match est exclu des taux de victoire.
-
-Claude ne reçoit que les faits collectés et a pour consigne de ne rien inventer et d'écrire au conditionnel ce qui n'est pas confirmé.

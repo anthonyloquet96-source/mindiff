@@ -26,6 +26,21 @@
     "maxAttempts": 3,
     "tokensPerSecond": 90
   },
+  "riot": {
+    "_doc": "Statistiques calculées sur de vraies parties classées (API officielle de Riot). publish=false tant que le produit n'a pas de clé personnelle ou de production : une clé de développement est réservée au prototypage.",
+    "publish": false,
+    "platform": "euw1",
+    "region": "europe",
+    "queue": 420,
+    "buckets": {
+      "emeraude+": [["EMERALD", "I"], ["EMERALD", "II"], ["EMERALD", "III"], ["EMERALD", "IV"], ["DIAMOND", "I"], ["DIAMOND", "II"], ["DIAMOND", "III"], ["DIAMOND", "IV"]],
+      "sous-emeraude": [["SILVER", "I"], ["SILVER", "II"], ["GOLD", "I"], ["GOLD", "II"], ["GOLD", "III"], ["PLATINUM", "I"], ["PLATINUM", "II"], ["PLATINUM", "III"]]
+    },
+    "playersPerDivision": 4,
+    "matchesPerPlayer": 8,
+    "maxRequestsPerRun": 420,
+    "minGamesForUnit": 30
+  },
   "analysis": {
     "provider": "gemini",
     "_providerDoc": "gemini (clé GEMINI_API_KEY, offre gratuite) ou anthropic (clé ANTHROPIC_API_KEY, payant). Les étapes 1 et 2 utilisent le même modèle.",

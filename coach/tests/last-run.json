@@ -1,7 +1,7 @@
 {
- "at": "2026-10-20T21:15:01.139Z",
- "ok": 22,
- "total": 22,
+ "at": "2026-10-20T22:25:21.616Z",
+ "ok": 24,
+ "total": 24,
  "results": [
   {
    "name": "1. Source récente compatible avec le patch",
@@ -37,7 +37,7 @@
    "name": "5. Vidéo sans transcription accessible",
    "kind": "réel",
    "ok": true,
-   "detail": "c-yt-j9D4cUnQWqY (« NEW TIER LIST for PATCH 26.21 - MASSIVE CHANGES! -… ») : métadonnées seules, « Non analysée » ; une unité citant son titre est rejetée."
+   "detail": "c-yt-77pDscn16UY (« The SECRET Azir Combo EVERY Pro Abuses #leagueofle… ») : métadonnées seules, « Non analysée » ; une unité citant son titre est rejetée."
   },
   {
    "name": "6. Traduction ambiguë",
@@ -61,7 +61,7 @@
    "name": "8b. Source en panne pendant la découverte",
    "kind": "réel (réseau coupé simulé)",
    "ok": true,
-   "detail": "4 sources en échec, 60 contenus conservés, nouvel essai planifié (2026-10-20T22:15)."
+   "detail": "4 sources en échec, 60 contenus conservés, nouvel essai planifié (2026-10-20T23:25)."
   },
   {
    "name": "9. Citation qui ne soutient pas le conseil",
@@ -134,6 +134,18 @@
    "kind": "réel",
    "ok": true,
    "detail": "Empreintes des règles et des trois instructions conformes ; l'analyse s'arrête si elles changent sans validation humaine."
+  },
+  {
+   "name": "Vidéo lue par IA : au mieux provisoire, patch futur signalé",
+   "kind": "fixture",
+   "ok": true,
+   "detail": "Passage lu par Gemini → provisoire jusqu'à vérification humaine ; patch 26.21 (non sorti) → signalé comme prévision."
+  },
+  {
+   "name": "Vidéos réellement lues : durée conforme et passages retrouvés",
+   "kind": "réel",
+   "ok": true,
+   "detail": "3 vidéos lues (26:58, 17:46, 11:37), 0 unités, toutes au mieux provisoires, passages retrouvés."
   }
  ]
 }

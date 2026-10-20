@@ -386,11 +386,11 @@
    "lang": "en",
    "published": "2026-10-19",
    "retrievedAt": "2026-10-20",
-   "patch": null,
+   "patch": "26.21",
    "views": 150189,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "►𝐖𝐄𝐁𝐒𝐈𝐓𝐄: https://www.skill-capped.com/lol#tierlist2621\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUALLY WORK",
    "triage": {
     "score": 5,
@@ -400,6 +400,43 @@
     ],
     "patchMentioned": "26.21",
     "basis": "métadonnées seules (titre et description) : ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-20",
+    "sha256": "ed33d2ed3d3e7c9ef5b1262c06c4d73ea1dec8b7564d1b4e784abc5d35c52c65",
+    "segments": 41,
+    "observations": 40,
+    "duration": "26:58",
+    "videoKind": "tier-list",
+    "gameplayShown": true,
+    "tokens": 160007
+   },
+   "analyzedAt": "2026-10-20",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 1,
+   "alertes": [
+    {
+     "code": "autre",
+     "detail": "Contenu analysant les prévisions du patch 26.21 alors que le patch classé courant indiqué est le 26.20."
+    },
+    {
+     "code": "traduction",
+     "detail": "Termes d'objets en anglais traduits selon la terminologie officielle : Kaenic Rookern en Rookern kaénique, Rocketbelt en Ceinture-roquette hextech, Liandry en Tourment de Liandry."
+    },
+    {
+     "code": "acces-partiel",
+     "detail": "Contenu analysé via transcription et échantillonnage visuel par IA (Gemini 3.8 Flash à 1 image/sec) ; les connaissances restent provisoires sans relecture humaine directe."
+    }
+   ],
+   "attempts": 0,
+   "learn": "Optimiser son ordre de sélection en draft permet d'arbitrer efficacement entre Malphite (anti-AD) et Ornn (anti-AP), tandis que l'itemisation de Nunu privilégie strictement le Tourment de Liandry sur la Ceinture-roquette.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Il s'agit d'une vidéo prévisionnelle de tier-list pour un patch à venir (26.21), comportant des spéculations d'équilibrage, mais étayée par des statistiques précises d'itemisation (Nunu) et un repère technique vérifiable (temps de clear de Darius jungle)."
    }
   },
   {
@@ -485,9 +522,9 @@
    "retrievedAt": "2026-10-20",
    "patch": null,
    "views": 32061,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "►DISCOUNT: https://www.skill-capped.com/lol#badsupports26\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUALLY WORK by t",
    "triage": {
     "score": 6,
@@ -498,6 +535,35 @@
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-20",
+    "sha256": "50af875d6884aebee3333d5002bfa4fea6aa181c03c6080732fc06d23a011dae",
+    "segments": 82,
+    "observations": 40,
+    "duration": "17:46",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 106493
+   },
+   "analyzedAt": "2026-10-20",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 0,
+   "alertes": [
+    {
+     "code": "autre",
+     "detail": "Contenu analysé via transcription et échantillonnage visuel (lecture IA à 1 image/seconde). Aucun numéro de patch précis n'est mentionné dans le contenu (seule une référence générique à la 'Season 16' apparaît)."
+    }
+   ],
+   "attempts": 0,
+   "learn": "En bot lane solo queue, l'ADC doit adapter la gestion de sa vague aux besoins de son support et renoncer à contester les sbires mages risqués pour préserver ses PV et son expérience quand la lane est compromise.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Le contenu propose des règles méthodologiques claires et des applications concrètes de wave management pour la solo queue, mais contient des promotions appuyées pour un cours payant et ne précise aucun patch chiffré spécifique."
    }
   },
   {
@@ -556,11 +622,11 @@
    "lang": "en",
    "published": "2026-10-12",
    "retrievedAt": "2026-10-20",
-   "patch": null,
+   "patch": "26.20",
    "views": 170057,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "►𝐖𝐄𝐁𝐒𝐈𝐓𝐄: https://www.skill-capped.com/lol#update2620\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUALLY WORK b",
    "triage": {
     "score": 5,
@@ -570,6 +636,35 @@
     ],
     "patchMentioned": "26.20",
     "basis": "métadonnées seules (titre et description) : ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-20",
+    "sha256": "4dd901ecc77f562feebeabb1952f56a4f2120f50e15c6687f1e60256aee834a1",
+    "segments": 104,
+    "observations": 40,
+    "duration": "11:37",
+    "videoKind": "tier-list",
+    "gameplayShown": true,
+    "tokens": 72229
+   },
+   "analyzedAt": "2026-10-20",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 1,
+   "alertes": [
+    {
+     "code": "autre",
+     "detail": "La vidéo mentionne le patch 26.20, qui correspond à la numérotation de la saison en cours indiquée dans le contenu."
+    }
+   ],
+   "attempts": 0,
+   "learn": "Mordekaiser contre Malphite en toplane et l'association Sejuani avec des alliés rapides au corps-à-corps (Yasuo, Yone) constituent des choix situationnels clairs et rentables pour le patch 26.20.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Format tier list axé sur des généralités méta, mais fournissant quelques raisonnements mécaniques et statistiques d'objets précis (notamment sur Jhin et Mordekaiser)."
    }
   },
   {

@@ -1,4 +1,4 @@
-# Règles de fiabilité du coach MINDIFF — v1
+# Règles de fiabilité du coach MINDIFF — v1.1
 
 Ces règles s'appliquent à toute connaissance enregistrée, qu'elle vienne d'une personne, de l'agent Analyste LoL (Claude Code) ou du traitement automatique (`coach/analyze.mjs`).
 
@@ -13,6 +13,8 @@ Ces règles s'appliquent à toute connaissance enregistrée, qu'elle vienne d'un
 | `transcription+visuel` | Transcription et images ou séquences réellement traitées | Ce qui est dit, et ce qui est visible **sur les images examinées**. Rien entre deux images. |
 | `texte-integral` / `texte-partiel` | Article lu en entier, ou en partie (le préciser) | Uniquement les passages consultés. |
 | `inaccessible` | Rien | Aucune connaissance. |
+
+**Lecture par IA (v1.1).** Une vidéo YouTube publique peut être lue par Gemini, la voie officielle de Google. Gemini produit une transcription horodatée (« parole ») et des observations sur des images échantillonnées (« image », à la fréquence déclarée). Ces passages sont de seconde main : une connaissance qui en dépend reste au mieux `provisoire` tant qu'une personne n'a pas vérifié le passage sur la vidéo grâce à son horodatage. À 1 image par seconde, aucune conclusion sur une action rapide.
 
 Le titre et la miniature ne prouvent jamais le contenu. Quelques images isolées ne suffisent pas pour une action rapide (combo, esquive, timing) : ne rien conclure au-delà de ce qui est visible.
 

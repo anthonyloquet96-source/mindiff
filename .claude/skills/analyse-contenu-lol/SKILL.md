@@ -9,7 +9,8 @@ description: Accéder à un contenu LoL par une voie autorisée et en extraire d
 
 | Situation | Accès | Ce que tu fais |
 |---|---|---|
-| Vidéo YouTube d'un tiers | `metadonnees` | Rien sur le fond. L'API YouTube ne fournit les sous-titres qu'au propriétaire ou avec son autorisation. Laisser « Non analysée ». |
+| Vidéo YouTube publique, non lue | `metadonnees` | Rien sur le fond. Laisser « Non analysée ». |
+| Vidéo YouTube publique lue par Gemini (`node --env-file=.env coach/video.mjs`) | `transcription+visuel`, `reader.kind: "ia"` | Les lignes « (parole) » sont ce qui est dit ; les lignes « (image) » décrivent une image à 1 image/s. Lecture de seconde main : unités au mieux provisoires. Vérifier au moins un passage par unité sur la vidéo (lien `&t=`) avant de proposer une validation. Aucune conclusion sur une action rapide. |
 | Transcription fournie (SRT, VTT, texte) | `transcription` | `node coach/import-transcript.mjs <id> <fichier> --par "<nom>" --provenance "<origine et droit d'usage>"`. Analyser ce qui est **dit**. |
 | Vidéo locale autorisée (vos parties, fichier fourni par l'auteur) | `transcription+visuel` | `node coach/frames.mjs <vidéo> <dossier> <hh:mm:ss>… [--rafale 4]` (ffmpeg requis), puis lire les images. N'affirmer que ce qui est visible **sur ces images**. Pour une action rapide, une rafale ; à défaut, ne rien conclure. |
 | Article public lisible | `texte-integral` ou `texte-partiel` | Lire, enregistrer le texte consulté (cache privé), signaler un accès partiel. |

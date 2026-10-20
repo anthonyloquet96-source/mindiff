@@ -27,14 +27,16 @@ Les étapes 1 et 2 utilisent le même modèle (`config.json` → `analysis.model
 | Collecte actuelle (actus, tournois) | Oui | `collecte.yml`, inchangé |
 | Découverte des vidéos et articles | Oui | `veille.yml`, sans clé |
 | Lecture des notes de patch et revalidation | Oui | `veille.yml`, sans clé (lecture déterministe) |
-| Analyse des nouveaux articles et transcriptions | Oui, **si** le secret `ANTHROPIC_API_KEY` est configuré | Sinon les contenus restent « en attente », rien n'est supposé |
+| Lecture des vidéos (Gemini) | Oui | Secret `GEMINI_API_KEY` |
+| Analyse des nouveaux articles et vidéos | Oui | Gemini par défaut (`analysis.provider`, gratuit), ou Claude si `ANTHROPIC_API_KEY` est configuré ; sans clé, les contenus restent « en attente » |
 | Analyse par l'agent Claude Code (`.claude/agents/analyste-lol.md`) | Non | Session Claude Code ouverte sur le PC |
 | Analyse visuelle (images de vidéo) | Non | ffmpeg + fichier vidéo autorisé + relecture des images |
 
 ## Accès aux vidéos : ce qui est possible
 
 - **Métadonnées seules** : flux RSS public des chaînes. Connecté et automatique.
-- **Transcription** : aucune voie autorisée automatique pour les vidéos de tiers. L'API YouTube Data réserve le téléchargement des sous-titres au propriétaire de la vidéo, ou à une autorisation explicite de sa part. Le téléchargement par des outils non officiels contrevient aux conditions de YouTube et n'est pas utilisé. Voie possible : import administrateur d'un fichier fourni pour cet usage (`import-transcript.mjs`, avec provenance).
+- **Lecture par Gemini** (`video.mjs`, clé `GEMINI_API_KEY`) : l'API de Google accepte directement l'adresse d'une vidéo YouTube publique. Elle restitue la parole horodatée et des observations sur des images échantillonnées à 1 par seconde. C'est la voie officielle de Google ; elle est gratuite en préversion, dans la limite de 8 h de vidéo par jour, plafonnée à 6 h dans `config.json`. Les directs de plus de 40 min sont écartés. Les connaissances qui en sont tirées restent « provisoires » jusqu'à vérification humaine, et l'application propose des liens horodatés pour la faire. En offre gratuite, Google peut utiliser les contenus envoyés pour améliorer ses produits.
+- **Transcription fournie** : l'API YouTube Data réserve le téléchargement des sous-titres au propriétaire de la vidéo, et les outils non officiels ne sont pas utilisés. Import administrateur possible : `import-transcript.mjs`, avec provenance.
 - **Transcription et images** : `frames.mjs` sur un fichier vidéo que vous avez le droit d'utiliser (vos propres parties, ou une vidéo fournie par son auteur). Dépendance absente sur ce poste : ffmpeg (`winget install Gyan.FFmpeg`).
 - **Navigateur assisté** (Claude in Chrome) : non connecté à cette session. Il permettrait de lire le panneau « Transcription » affiché par YouTube dans votre navigateur, ponctuellement et à la main. Ce n'est pas une voie d'automatisation.
 

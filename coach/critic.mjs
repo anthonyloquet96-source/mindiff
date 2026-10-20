@@ -53,6 +53,8 @@ export function checkUnit(u, ctx) {
     if (!c) { flag("source-inconnue", `Contenu ${e.content} absent du registre.`, true); continue; }
     if (c.access === "metadonnees" || c.access === "inaccessible") flag("titre-pas-preuve", `${e.content} : seules les métadonnées ont été examinées, elles ne prouvent pas le contenu.`, true);
     if (c.analysis === "quarantaine") flag("injection", `${e.content} est en quarantaine.`, true);
+    // Transcription ou images lues par une IA : passage de seconde main, à vérifier sur la vidéo
+    if (c.reader?.kind === "ia" && !e.humanChecked) flag("lecture-ia", `${e.content} : lu par ${c.reader.tool} (${c.reader.fps} image/s) ; passage à vérifier sur la vidéo (${e.locator}).`, false, "provisoire");
     if ((e.passage || "").length > cfg.maxPassageChars) flag("citation-trop-longue", `Passage de plus de ${cfg.maxPassageChars} caractères : résumer plutôt que republier.`, true);
     if (detectInjection(e.passage).length) flag("injection", `Le passage cité contient une instruction : ${detectInjection(e.passage)[0]}`, true);
     const text = ctx.texts.get(e.content);
@@ -66,7 +68,9 @@ export function checkUnit(u, ctx) {
   const full = ev.filter(e => !e.mentionOnly);
   if (u.nature === "statistique" && !full.some(e => hasPercent(e.passage))) flag("citation-insuffisante", "Statistique sans chiffre dans les passages cités.", true);
   for (const ch of u.champions || []) {
-    const inPassage = full.some(e => normText(e.passage).includes(normText(ch)));
+    // Noms composés : « Nunu et Willump » est souvent dit « Nunu » (et « Nunu & Willump » en anglais)
+    const names = [ch, ch.split(/ et | & /)[0]].map(normText);
+    const inPassage = full.some(e => names.some(n => normText(e.passage).includes(n)));
     // Dans un document officiel structuré (notes de patch, Data Dragon), la section citée désigne le sujet
     const inTitle = full.some(e => { const c = ctx.contents.get(e.content); return normText(c?.title).includes(normText(ch)) || (String(c?.sourceId).startsWith("riot-") && normText(e.locator).includes(normText(ch))); });
     const onlyMention = !inPassage && !inTitle && ev.some(e => e.mentionOnly && normText(e.passage).includes(normText(ch)));
@@ -121,6 +125,7 @@ export function checkUnit(u, ctx) {
   let patchStatus = null;
   const cur = ctx.current;
   if (u.patch?.validUntil && patchCmp(cur, u.patch.validUntil) > 0) { patchStatus = "obsolete"; flag("patch-incompatible", `Valable jusqu'au patch ${u.patch.validUntil} ; patch courant ${cur}.`, false, "obsolete"); }
+  if (!patchStatus && u.patch?.known && cur && patchCmp(u.patch.value, cur) > 0) flag("patch-futur", `Porte sur le patch ${u.patch.value}, pas encore en vigueur (patch courant ${cur}) : prévision, à confirmer à sa sortie.`, false, "provisoire");
   const since = u.patch?.known ? u.patch.value : u.validity?.checkedPatch;
   if (!patchStatus && u.metaDependent && u.patch?.known) {
     const gap = patchGap(u.patch.value, cur);

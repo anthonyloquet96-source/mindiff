@@ -18,8 +18,10 @@ concurrency:
 
 jobs:
   veille:
+    # Mise en pause pendant qu'une boucle locale travaille sur la base (variable COACH_LOCAL_LOOP=1), pour éviter les conflits
+    if: github.event_name == 'workflow_dispatch' || vars.COACH_LOCAL_LOOP != '1'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
@@ -48,10 +50,16 @@ jobs:
         run: node coach/discover.mjs
       - name: Lire les patchs et revalider
         run: node coach/revalidate.mjs
+      - name: Lire les vidéos (Gemini, si la clé est configurée)
+        run: node coach/video.mjs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       - name: Analyser (si une clé est configurée)
         run: node coach/analyze.mjs
         env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MINDIFF_COACH_PROVIDER: ${{ vars.MINDIFF_COACH_PROVIDER }}
           MINDIFF_COACH_MODEL: ${{ vars.MINDIFF_COACH_MODEL }}
       - name: Publier la base
         run: node coach/build.mjs

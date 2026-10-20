@@ -75,7 +75,7 @@ await t("4b. Deux créateurs qui se contredisent", "fixture", () => {
   return "Deux avis opposés (ordre des compétences de Nami) : tous deux « contradictoire », conditions affichées, ni l'un ni l'autre retenu comme objectif.";
 });
 await t("5. Vidéo sans transcription accessible", "réel", async () => {
-  const v = L.contents.contents.find(c => c.type === "video");
+  const v = L.contents.contents.find(c => c.type === "video" && c.access === "metadonnees");
   assert(v && v.access === "metadonnees" && v.analysis === "non-analysee", "vidéo mal classée");
   const got = await acquireText(v);
   assert(got.text === null, "un texte a été obtenu");
@@ -145,7 +145,8 @@ await t("10. Contenu externe avec instruction malveillante", "fixture", async ()
   const cacheFile = join(ROOT, P.cache, `${fx.injection.id}.txt`);
   try {
     const cs = JSON.parse(await readFile(join(ROOT, P.contents), "utf8"));
-    cs.contents.push({ ...fx.injection, text: undefined, analysis: "en-attente" });
+    // Priorité maximale : le contenu piégé doit passer avant les vrais contenus en attente
+    cs.contents.push({ ...fx.injection, text: undefined, analysis: "en-attente", triage: { score: 999 } });
     await writeFile(join(ROOT, P.contents), JSON.stringify(cs));
     await mkdir(join(ROOT, P.cache), { recursive: true });
     await writeFile(cacheFile, fx.injection.text);
@@ -227,6 +228,25 @@ await t("Règles verrouillées contre toute modification automatique", "réel", 
   const s = await rulesLockStatus();
   assert(s.ok, `modifiées : ${s.changed.join(", ")}`);
   return "Empreintes des règles et des trois instructions conformes ; l'analyse s'arrête si elles changent sans validation humaine.";
+});
+
+await t("Vidéo lue par IA : au mieux provisoire, patch futur signalé", "fixture", () => {
+  const c2 = { ...fxCtx, contents: new Map([...fxCtx.contents, ["fx-video", { id: "fx-video", sourceId: "yt-skill-capped", type: "video", title: "Vidéo (fixture)", access: "transcription+visuel", analysis: "analysee", reader: { kind: "ia", tool: "gemini (fixture)", fps: 1 } }]]), texts: new Map([...fxCtx.texts, ["fx-video", "[07:00] (parole) Engage supports need space to engage."]]) };
+  const u = { id: "fx-v", claim: "Selon Skill Capped : un support d'engagement a besoin d'espace.", champions: [], roles: ["bottom"], themes: ["lane"], context: { queue: "solo" }, patch: { known: true, value: "26.21" }, nature: "opinion", translation: { term: "engage", note: "engager" }, evidence: [{ content: "fx-video", locator: "[07:00]", lang: "en", passage: "Engage supports need space to engage." }] };
+  const r = checkUnit(u, c2);
+  assert(!r.blocking && r.status === "provisoire", r.status);
+  assert(r.flags.some(f => f.code === "lecture-ia") && r.flags.some(f => f.code === "patch-futur"), r.flags.map(f => f.code).join(","));
+  const ok = checkUnit({ ...u, patch: { known: false }, evidence: [{ ...u.evidence[0], humanChecked: true }] }, c2);
+  assert(!ok.flags.some(f => f.code === "lecture-ia"), "vérification humaine ignorée");
+  return "Passage lu par Gemini → provisoire jusqu'à vérification humaine ; patch 26.21 (non sorti) → signalé comme prévision.";
+});
+await t("Vidéos réellement lues : durée conforme et passages retrouvés", "réel", async () => {
+  const vids = L.contents.contents.filter(c => c.reader?.kind === "ia");
+  if (!vids.length) throw Object.assign(new Error("ignoré : aucune vidéo lue"), { skip: true });
+  const units = L.units.units.filter(u => u.evidence.some(e => vids.some(v => v.id === e.content)));
+  for (const u of units) for (const e of u.evidence) { const txt = await need(e.content); assert(normText(txt).includes(normText(e.passage)), `${u.id} : passage absent de la transcription`); }
+  assert(units.every(u => ev(u).status !== "exploitable"), "une unité vidéo non vérifiée est exploitable");
+  return `${vids.length} vidéos lues (${vids.map(v => v.reader.duration).join(", ")}), ${units.length} unités, toutes au mieux provisoires, passages retrouvés.`;
 });
 
 // ---------- Rapport

@@ -30,8 +30,16 @@ async function loadCoach() {
 const NATURE_FR = { officiel: ["Officiel", "official"], opinion: ["Avis attribué", ""], statistique: ["Statistique", ""], analyse: ["Analyse MINDIFF", ""] };
 const STATUS_FR = { exploitable: null, provisoire: ["Provisoire", "warn"], contradictoire: ["Sources divergentes", "bad"], "a-revalider": ["À revalider", "warn"], obsolete: ["Obsolète", "bad"], retire: ["Retiré", "bad"] };
 const ACCESS_FR = { "texte-integral": "Texte lu en entier", "api-json": "Données officielles lues", metadonnees: "Métadonnées seules", transcription: "Transcription analysée", "transcription+visuel": "Transcription et images analysées", inaccessible: "Contenu inaccessible" };
+const accessLabel = c => (c.reader?.kind === "ia" ? `Vidéo lue par IA (parole et images, ${c.reader.fps}/s)` : ACCESS_FR[c.access] || c.access);
 const LANG_FR = { fr: "Français", en: "Anglais", ko: "Coréen" };
 const coachHref = (...p) => href(route.game, "coach", ...p);
+// Horodatage d'un passage vidéo (« [07:00] », « 1:02:03 ») → secondes, pour ouvrir la vidéo au bon moment
+function videoStamp(locator) {
+  const m = String(locator || "").match(/(?:(\d{1,2}):)?(\d{1,2}):(\d{2})/);
+  if (!m) return null;
+  const s = (Number(m[1] || 0) * 3600) + Number(m[2]) * 60 + Number(m[3]);
+  return { s, label: m[0] };
+}
 const stratHref = (game, id) => href(game, "coach", "strategies", id);
 const contentOf = id => COACH?.contents.find(c => c.id === id);
 const unitTags = u => `${chip(NATURE_FR[u.nature][0], NATURE_FR[u.nature][1])}${STATUS_FR[u.status] ? chip(STATUS_FR[u.status][0], STATUS_FR[u.status][1]) : ""}${u.patch?.known ? chip(`Patch ${u.patch.value}`, "soft") : chip("Patch non daté", "soft")}`;
@@ -40,8 +48,11 @@ const unitTags = u => `${chip(NATURE_FR[u.nature][0], NATURE_FR[u.nature][1])}${
 function evidenceHtml(u) {
   return `<ul class="evid">${u.evidence.map(e => {
     const c = contentOf(e.content);
-    return `<li><q lang="${esc(e.lang)}">${esc(e.passage)}</q><span class="fine">${esc(c?.author || "")} · ${esc(e.locator)}${c?.published ? ` · ${fmtDay(c.published)}` : ""}${e.lang !== "fr" ? ` · ${esc(LANG_FR[e.lang] || e.lang)}` : ""} · <a href="${esc(c?.url || "#")}" target="_blank" rel="noopener">original${icon("external", "ext")}</a></span></li>`;
+    const at = c?.type === "video" ? videoStamp(e.locator) : null;
+    const link = at ? `${c.url}${c.url.includes("?") ? "&" : "?"}t=${at.s}s` : c?.readerUrl || c?.url || "#";
+    return `<li><q lang="${esc(e.lang)}">${esc(e.passage.replace(/^\((parole|image[^)]*)\)\s*/, ""))}</q><span class="fine">${esc(c?.author || "")}${at ? "" : ` · ${esc(e.locator)}`}${c?.published ? ` · ${fmtDay(c.published)}` : ""}${e.lang !== "fr" ? ` · ${esc(LANG_FR[e.lang] || e.lang)}` : ""} · <a href="${esc(link)}" target="_blank" rel="noopener" data-action="coach-open-res">${at ? `voir à ${esc(at.label)}` : "original"}${icon("external", "ext")}</a></span></li>`;
   }).join("")}</ul>
+  ${u.evidence.some(e => contentOf(e.content)?.reader?.kind === "ia") ? `<p class="note">${icon("eye")}<span>Vidéo lue par une IA (${esc(contentOf(u.evidence[0].content)?.reader?.tool || "Gemini")}, une image par seconde) : passages à vérifier sur la vidéo, grâce aux liens horodatés.</span></p>` : ""}
   ${u.translation ? `<p class="note">${icon("info")}<span>Traduction : ${esc(u.translation.note)}</span></p>` : ""}
   ${u.nature === "analyse" ? `<p class="fine">Analyse MINDIFF : déduction à partir des passages ci-dessus, pas une citation.</p>` : u.nature === "opinion" ? `<p class="fine">Avis de l'auteur, présenté comme tel.</p>` : ""}`;
 }
@@ -165,7 +176,7 @@ function coachSession() {
 
     <section class="ccard" aria-labelledby="c-d"><p class="label" id="c-d">D · Une ressource pour comprendre</p>
       ${res ? `<div class="cres"><p class="cres-title">${esc(res.title)}</p>
-        <p class="fine">${esc(res.author)} · ${res.published ? fmtDate(res.published) : "non daté"} · ${esc(LANG_FR[res.lang] || res.lang)} · ${res.patch ? `patch ${esc(res.patch)}` : "contexte : sans patch (fondamental)"} · ${esc(ACCESS_FR[res.access] || res.access)}</p>
+        <p class="fine">${esc(res.author)} · ${res.published ? fmtDate(res.published) : "non daté"} · ${esc(LANG_FR[res.lang] || res.lang)} · ${res.patch ? `patch ${esc(res.patch)}` : "contexte : sans patch (fondamental)"} · ${esc(accessLabel(res))}</p>
         <p>${esc(res.learn)}</p>
         ${res.quality ? `<p class="fine">Qualité du contenu : ${esc(res.quality.level)} — ${esc(res.quality.why)}</p>` : ""}
         <div class="cform-actions"><a class="btn ghost sm" href="${esc(res.readerUrl || res.url)}" target="_blank" rel="noopener" data-action="coach-open-res">${icon("external")}Ouvrir l'original</a>${res.readerUrl ? `<a class="btn ghost sm" href="${esc(res.url)}" target="_blank" rel="noopener" data-action="coach-open-res">Données brutes</a>` : ""}</div>
@@ -210,7 +221,7 @@ function coachResources() {
   return `${p ? "" : `<p class="note">${icon("info")}<span>Sans profil, toutes les ressources analysées sont listées. <a href="${coachHref("profil")}">Créer mon profil</a></span></p>`}
     <section class="sec">${secHead("Analysées pour vous")}
       <div class="rlist">${analysed.map(c => `<a class="rcard" href="${esc(c.readerUrl || c.url)}" target="_blank" rel="noopener" data-action="coach-open-res">
-        <span class="rcard-meta">${chip(ACCESS_FR[c.access] || c.access, "official")}<span>${esc(LANG_FR[c.lang] || c.lang)}</span><span>${c.published ? fmtDay(c.published) : "non daté"}</span></span>
+        <span class="rcard-meta">${chip(accessLabel(c), "official")}<span>${esc(LANG_FR[c.lang] || c.lang)}</span><span>${c.published ? fmtDay(c.published) : "non daté"}</span></span>
         <span class="rcard-title">${esc(c.title)}</span><span class="fine">${esc(c.author)}${c.patch ? ` · patch ${esc(c.patch)}` : ""}</span><span class="rcard-learn">${esc(c.learn)}</span></a>`).join("") || `<p class="inline-empty">Aucune ressource analysée pour ce profil.</p>`}</div>
     </section>
     ${videos.length ? `<section class="sec">${secHead("Repérées, non analysées")}

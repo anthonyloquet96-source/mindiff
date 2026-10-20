@@ -1674,7 +1674,301 @@
    },
    "version": 1,
    "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-1",
+   "claim": "Selon Skill Capped : sur Fiora en voie du haut, la rune Déluge de lames est employée en solo queue à haut niveau avec un profil d'objets orienté sur les dégâts instantanés (Hydre vorace et Éclipse).",
+   "champions": [
+    "Fiora"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "rune:Déluge de lames",
+    "item:Hydre vorace",
+    "item:Éclipse"
+   ],
+   "conditions": [
+    "Recherche d'échanges courts et de burst en phase de voie"
+   ],
+   "limits": [
+    "Le troisième objet cité ('Endless Hunger') est une amélioration d'Ornn et constitue une incohérence du script"
+   ],
+   "nature": "opinion",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[00:19] (parole)",
+     "lang": "en",
+     "passage": "For Fiora's Keystone, Hail of Blades is extremely underrated and is something that Challenger Fiora players are taking in solo queue."
+    },
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[00:44] (parole)",
+     "lang": "en",
+     "passage": "The build is very burst-oriented as well, with Ravenous Hydra, Eclipse, and Endless Hunger as the three-item core."
+    }
+   ],
+   "mentions": [],
+   "action": "Tester la rune Déluge de lames sur Fiora avec un premier achat d'Hydre vorace et d'Éclipse pour accentuer le burst lors des escarmouches.",
+   "observe": "Noter la rapidité du déclenchement des points vitaux lors des trois premières attaques sous Déluge de lames.",
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Unité issue de la lecture automatique d'une vidéo YouTube par IA, exigeant une validation humaine selon les règles du coach."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-2",
+   "claim": "Selon Skill Capped : sur Malphite, il est conseillé d'adapter la compétence maximisée en second entre le Z et le E selon la composition adverse, et d'enchaîner Cœur gelé puis Égide solaire face aux compositions physiques.",
+   "champions": [
+    "Malphite"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "matchup"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Malphite/W",
+    "Malphite/E",
+    "item:Cœur gelé",
+    "item:Égide solaire"
+   ],
+   "conditions": [
+    "Équipe adverse à forte dominante de dégâts physiques"
+   ],
+   "limits": [
+    "Ne précise pas les conditions exactes privilégiant le Z par rapport au E"
+   ],
+   "nature": "opinion",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[01:41] (parole)",
+     "lang": "en",
+     "passage": "A bit of optimization you can do with your skill order on Malphite is swapping between W and E max second depending on the enemy team."
+    },
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[02:49] (parole)",
+     "lang": "en",
+     "passage": "Frozen Heart into Sunfire is the two-item core we would recommend when into heavier AD comps."
+    }
+   ],
+   "mentions": [],
+   "action": "Construire Cœur gelé puis Égide solaire contre les compositions lourdes en AD et ajuster l'ordre des sorts au niveau 2 selon les profils adverses.",
+   "observe": "Contrôler l'impact du ralentissement d'attaque et de l'armure cumulée lors des premiers regroupements.",
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil basé sur une analyse vidéo lue par IA, conservé en statut provisoire avant vérification humaine."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-3",
+   "claim": "Selon Skill Capped : sur Garen en voie du haut, acheter la Lame spectre de Youmuu en deuxième objet surpasse les autres options bien que seulement 20% des joueurs utilisent ce choix.",
+   "champions": [
+    "Garen"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Lame spectre de Youmuu"
+   ],
+   "conditions": [
+    "Achat en deuxième objet après l'objet mythique/core"
+   ],
+   "limits": [
+    "Échantillon, rang et source exacte des 20% non précisés"
+   ],
+   "nature": "opinion",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[03:42] (parole)",
+     "lang": "en",
+     "passage": "Ghostblade second item has been the best build for Garen for multiple patches now, but only 20% of Garen players run the item."
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter la Lame spectre de Youmuu comme deuxième objet sur Garen pour maximiser la vitesse d'approche et les dégâts de transition.",
+   "observe": "Observer la facilité à combler la distance sur les cibles reculées grâce à l'actif de vitesse.",
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "petit-echantillon"
+    ],
+    "why": "Affirmation statistique ('20% des joueurs') énoncée en vidéo sans précision du volume global ni de la source de données."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-5",
+   "claim": "Selon Skill Capped : sur Tristana au poste de tireur, l'association de la Lame sauvage de Yun Tal et de la Lame d'infini forme un pic de deux objets offrant un potentiel d'élimination instantanée élevé.",
+   "champions": [
+    "Tristana"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Lame sauvage de Yun Tal",
+    "item:Lame d'infini"
+   ],
+   "conditions": [
+    "Atteinte du palier des deux objets complétés"
+   ],
+   "limits": [
+    "Affirmation dépendante de la méta et de l'affaiblissement de l'Ouragan de Runaan au patch précédent"
+   ],
+   "nature": "opinion",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[15:00] (parole)",
+     "lang": "en",
+     "passage": "Two-item spike for Tristana of Yun Tal into Infinity Edge gives her so much burst potential for an ADC."
+    }
+   ],
+   "mentions": [],
+   "action": "Enchaîner la Lame sauvage de Yun Tal et la Lame d'infini sur Tristana pour chercher des éliminations rapides en milieu de partie.",
+   "observe": "Mesurer les dégâts infligés sur une rotation complète de bombe avec les coups critiques de Yun Tal et de la Lame d'infini.",
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Opinion sur la synergie d'objets issue d'une transcription lue par IA, à maintenir en provisoire."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20"
   }
  ],
- "updatedAt": "2026-10-20T22:06:19.379Z"
+ "updatedAt": "2026-10-20T22:39:18.525Z"
 }

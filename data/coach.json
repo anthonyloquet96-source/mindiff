@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T22:25:01.971Z",
+ "generatedAt": "2026-10-20T22:46:55.800Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -103,7 +103,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 15
+    "units": 16
    },
    "support": {
     "champions": [
@@ -191,11 +191,11 @@
    }
   },
   "themes": {
-   "lane": 9,
+   "lane": 10,
    "survie": 4,
    "teamfight": 2,
    "synergie": 1,
-   "matchup": 2,
+   "matchup": 3,
    "methode": 2,
    "vagues": 0,
    "vision": 0,
@@ -1077,10 +1077,10 @@
    "published": "2026-10-19",
    "retrievedAt": "2026-10-20",
    "patch": "26.21",
-   "views": 150189,
-   "access": "transcription+visuel",
-   "analysis": "en-attente",
-   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
+   "views": 152783,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription absente de ce cache : la vidéo sera relue.",
    "descriptionExcerpt": "►𝐖𝐄𝐁𝐒𝐈𝐓𝐄: https://www.skill-capped.com/lol#tierlist2621\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUALLY WORK",
    "triage": {
     "score": 5,
@@ -1090,19 +1090,6 @@
     ],
     "patchMentioned": "26.21",
     "basis": "métadonnées seules (titre et description) : ne prouve pas le contenu"
-   },
-   "reader": {
-    "kind": "ia",
-    "tool": "gemini-3.8-flash",
-    "fps": 1,
-    "at": "2026-10-20",
-    "sha256": "ed33d2ed3d3e7c9ef5b1262c06c4d73ea1dec8b7564d1b4e784abc5d35c52c65",
-    "segments": 41,
-    "observations": 40,
-    "duration": "26:58",
-    "videoKind": "tier-list",
-    "gameplayShown": true,
-    "tokens": 160007
    },
    "analyzedAt": "2026-10-20",
    "analyst": "gemini-3.8-flash",
@@ -1126,7 +1113,8 @@
    "quality": {
     "level": "moyenne",
     "why": "Il s'agit d'une vidéo prévisionnelle de tier-list pour un patch à venir (26.21), comportant des spéculations d'équilibrage, mais étayée par des statistiques précises d'itemisation (Nunu) et un repère technique vérifiable (temps de clear de Darius jungle)."
-   }
+   },
+   "videoAttempts": 0
   },
   {
    "id": "c-yt-77pDscn16UY",
@@ -1139,7 +1127,7 @@
    "published": "2026-10-18",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 966725,
+   "views": 971678,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1162,7 +1150,7 @@
    "published": "2026-10-18",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 39421,
+   "views": 40052,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1187,7 +1175,7 @@
    "published": "2026-10-17",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 33017,
+   "views": 33275,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1210,10 +1198,10 @@
    "published": "2026-10-16",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 32061,
-   "access": "transcription+visuel",
-   "analysis": "en-attente",
-   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
+   "views": 32160,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription absente de ce cache : la vidéo sera relue.",
    "descriptionExcerpt": "►DISCOUNT: https://www.skill-capped.com/lol#badsupports26\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUALLY WORK by t",
    "triage": {
     "score": 6,
@@ -1224,19 +1212,6 @@
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : ne prouve pas le contenu"
-   },
-   "reader": {
-    "kind": "ia",
-    "tool": "gemini-3.8-flash",
-    "fps": 1,
-    "at": "2026-10-20",
-    "sha256": "50af875d6884aebee3333d5002bfa4fea6aa181c03c6080732fc06d23a011dae",
-    "segments": 82,
-    "observations": 40,
-    "duration": "17:46",
-    "videoKind": "guide",
-    "gameplayShown": true,
-    "tokens": 106493
    },
    "analyzedAt": "2026-10-20",
    "analyst": "gemini-3.8-flash",
@@ -1252,7 +1227,8 @@
    "quality": {
     "level": "moyenne",
     "why": "Le contenu propose des règles méthodologiques claires et des applications concrètes de wave management pour la solo queue, mais contient des promotions appuyées pour un cours payant et ne précise aucun patch chiffré spécifique."
-   }
+   },
+   "videoAttempts": 0
   },
   {
    "id": "c-yt-yKQETI4WP3U",
@@ -1265,7 +1241,7 @@
    "published": "2026-10-15",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 140928,
+   "views": 141149,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1288,7 +1264,7 @@
    "published": "2026-10-14",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 59502,
+   "views": 59752,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1311,10 +1287,10 @@
    "published": "2026-10-12",
    "retrievedAt": "2026-10-20",
    "patch": "26.20",
-   "views": 170057,
-   "access": "transcription+visuel",
-   "analysis": "en-attente",
-   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
+   "views": 170259,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription absente de ce cache : la vidéo sera relue.",
    "descriptionExcerpt": "►𝐖𝐄𝐁𝐒𝐈𝐓𝐄: https://www.skill-capped.com/lol#update2620\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUALLY WORK b",
    "triage": {
     "score": 5,
@@ -1324,19 +1300,6 @@
     ],
     "patchMentioned": "26.20",
     "basis": "métadonnées seules (titre et description) : ne prouve pas le contenu"
-   },
-   "reader": {
-    "kind": "ia",
-    "tool": "gemini-3.8-flash",
-    "fps": 1,
-    "at": "2026-10-20",
-    "sha256": "4dd901ecc77f562feebeabb1952f56a4f2120f50e15c6687f1e60256aee834a1",
-    "segments": 104,
-    "observations": 40,
-    "duration": "11:37",
-    "videoKind": "tier-list",
-    "gameplayShown": true,
-    "tokens": 72229
    },
    "analyzedAt": "2026-10-20",
    "analyst": "gemini-3.8-flash",
@@ -1352,7 +1315,8 @@
    "quality": {
     "level": "moyenne",
     "why": "Format tier list axé sur des généralités méta, mais fournissant quelques raisonnements mécaniques et statistiques d'objets précis (notamment sur Jhin et Mordekaiser)."
-   }
+   },
+   "videoAttempts": 0
   },
   {
    "id": "c-yt-UgP_S4BmKR8",
@@ -1365,7 +1329,7 @@
    "published": "2026-10-11",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 322401,
+   "views": 322562,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1388,7 +1352,7 @@
    "published": "2026-10-09",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 190587,
+   "views": 190897,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1411,7 +1375,7 @@
    "published": "2026-10-07",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 70033,
+   "views": 70117,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1435,11 +1399,11 @@
    "lang": "en",
    "published": "2026-10-06",
    "retrievedAt": "2026-10-20",
-   "patch": null,
-   "views": 133548,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "patch": "26.20",
+   "views": 133598,
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "►𝐖𝐄𝐁𝐒𝐈𝐓𝐄: https://www.skill-capped.com/lol/browse#solocarry2620\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUA",
    "triage": {
     "score": 5,
@@ -1449,6 +1413,38 @@
     ],
     "patchMentioned": "26.20",
     "basis": "métadonnées seules (titre et description) : ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-20",
+    "sha256": "6f787c53aed5390c10a1749629556fc065aa2b4574b01678f3d5dba4ad1b3d72",
+    "segments": 32,
+    "observations": 40,
+    "duration": "23:54",
+    "videoKind": "tier-list",
+    "gameplayShown": true,
+    "tokens": 135113
+   },
+   "analyzedAt": "2026-10-20",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 1,
+   "alertes": [
+    {
+     "code": "autre",
+     "detail": "Contamination du contenu par des éléments externes ou erronés : 'Gluttonous Greaves' (bottes exclusives à Wild Rift), 'Endless Hunger' (objet d'Ornn) cité dans le core build de Fiora, et confusion sur les versions de tournoi (affirmation que les Worlds se jouent sur le patch 26.20 alors que le client compétition est en 16.20)."
+    },
+    {
+     "code": "traduction",
+     "detail": "Termes d'objets et compétences Data Dragon en anglais traduits vers le français officiel : Hail of Blades -> Déluge de lames, Ghostblade -> Lame spectre de Youmuu, Shieldbow -> Arc-bouclier immortel, Yun Tal -> Lame sauvage de Yun Tal, Sunfire -> Égide solaire, Frozen Heart -> Cœur gelé."
+    }
+   ],
+   "learn": "Repérer des variations d'objets et de runes agressives (Youmuu sur Garen, Arc-bouclier sur Yone, Yun Tal sur Tristana), tout en filtrant les confusions évidentes de la source avec d'autres versions de jeu.",
+   "quality": {
+    "level": "faible",
+    "why": "Le script présente de graves erreurs factuelles et de rigueur : citation d'un équipement de Wild Rift inexistant sur PC ('Gluttonous Greaves' sur Xayah), attribution d'une amélioration d'Ornn ('Endless Hunger') comme troisième item standard de Fiora, confusion de version entre tournois et ranked, et statistiques d'agrégateur non contextualisées."
    }
   },
   {
@@ -1461,11 +1457,11 @@
    "lang": "en",
    "published": "2026-10-05",
    "retrievedAt": "2026-10-20",
-   "patch": null,
-   "views": 186052,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "patch": "26.20",
+   "views": 186082,
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "►𝐖𝐄𝐁𝐒𝐈𝐓𝐄: https://www.skill-capped.com/lol/browse#tierlist2620\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUAL",
    "triage": {
     "score": 5,
@@ -1475,6 +1471,19 @@
     ],
     "patchMentioned": "26.20",
     "basis": "métadonnées seules (titre et description) : ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-20",
+    "sha256": "c856fa277aff8b7ab6a50caf5c88e00366dff1296578c87244b73df471f17157",
+    "segments": 147,
+    "observations": 40,
+    "duration": "19:53",
+    "videoKind": "tier-list",
+    "gameplayShown": true,
+    "tokens": 121252
    }
   },
   {
@@ -1488,7 +1497,7 @@
    "published": "2026-10-04",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 478441,
+   "views": 479594,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1511,7 +1520,7 @@
    "published": "2026-10-02",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 106259,
+   "views": 106287,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1557,7 +1566,7 @@
    "published": "2026-06-04",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 16210,
+   "views": 16211,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1580,7 +1589,7 @@
    "published": "2026-05-12",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 14313,
+   "views": 14312,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1672,7 +1681,7 @@
    "published": "2026-03-12",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 25095,
+   "views": 25100,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1695,7 +1704,7 @@
    "published": "2026-02-03",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 135310,
+   "views": 135362,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1741,7 +1750,7 @@
    "published": "2026-01-11",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 21827,
+   "views": 21828,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1764,7 +1773,7 @@
    "published": "2025-12-10",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 54147,
+   "views": 54160,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1787,7 +1796,7 @@
    "published": "2025-11-20",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 254862,
+   "views": 254900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1833,7 +1842,7 @@
    "published": "2025-10-24",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 12074,
+   "views": 12075,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1879,7 +1888,7 @@
    "published": "2026-10-20",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 722,
+   "views": 4824,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1902,7 +1911,7 @@
    "published": "2026-10-20",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 4036,
+   "views": 11014,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1925,7 +1934,7 @@
    "published": "2026-10-20",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 13368,
+   "views": 19742,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1948,7 +1957,7 @@
    "published": "2026-10-20",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 55671,
+   "views": 55984,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -1971,10 +1980,10 @@
    "published": "2026-10-19",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 107454,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "views": 110251,
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.8-flash : transcription et 31 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "Use code DOUBLELIFTFB50 to get 50% OFF your first Factor box plus free breakfast for 1 year at https://bit.ly/4mysGOl #factorpartner\n► All Social Links\nhttps://YouTube.com/Doublelift\nhttps://YouTube.com/channel/UCjJHdfeEoetPqM5Fr0gumqA\nhttps://Twitter.com/Doublelift1\nhttps://Twit",
    "triage": {
     "score": 2,
@@ -1983,6 +1992,19 @@
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-20",
+    "sha256": "d98fdd6b92b8d9c1961c2d03de3fb97eaea58d6681bfbed0c7a46de72ac8edaf",
+    "segments": 99,
+    "observations": 31,
+    "duration": "26:42",
+    "videoKind": "autre",
+    "gameplayShown": true,
+    "tokens": 151913
    }
   },
   {
@@ -1996,7 +2018,7 @@
    "published": "2026-10-19",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 45442,
+   "views": 46324,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -2019,7 +2041,7 @@
    "published": "2026-10-17",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 26508,
+   "views": 26554,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -2042,7 +2064,7 @@
    "published": "2026-10-17",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 116343,
+   "views": 117010,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -2065,7 +2087,7 @@
    "published": "2026-10-16",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 99631,
+   "views": 100323,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -2090,7 +2112,7 @@
    "published": "2026-10-16",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 77488,
+   "views": 77512,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -2113,7 +2135,7 @@
    "published": "2026-10-15",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 33193,
+   "views": 33162,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -2136,7 +2158,7 @@
    "published": "2026-10-15",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 68425,
+   "views": 68428,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -2159,7 +2181,7 @@
    "published": "2026-10-14",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 170837,
+   "views": 171194,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -2182,7 +2204,7 @@
    "published": "2026-10-14",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 35996,
+   "views": 35997,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -2205,7 +2227,7 @@
    "published": "2026-10-13",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 114340,
+   "views": 114458,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -4115,6 +4137,376 @@
    "firstSeen": "2026-10-20",
    "status": "provisoire",
    "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ],
+   "independentSources": 1,
+   "review": {
+    "human": "en attente",
+    "by": null,
+    "at": null,
+    "reason": null
+   }
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-1",
+   "claim": "Selon Skill Capped : sur Fiora en voie du haut, la rune Déluge de lames est employée en solo queue à haut niveau avec un profil d'objets orienté sur les dégâts instantanés (Hydre vorace et Éclipse).",
+   "champions": [
+    "Fiora"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "rune:Déluge de lames",
+    "item:Hydre vorace",
+    "item:Éclipse"
+   ],
+   "conditions": [
+    "Recherche d'échanges courts et de burst en phase de voie"
+   ],
+   "limits": [
+    "Le troisième objet cité ('Endless Hunger') est une amélioration d'Ornn et constitue une incohérence du script"
+   ],
+   "nature": "opinion",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[00:19] (parole)",
+     "lang": "en",
+     "passage": "For Fiora's Keystone, Hail of Blades is extremely underrated and is something that Challenger Fiora players are taking in solo queue."
+    },
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[00:44] (parole)",
+     "lang": "en",
+     "passage": "The build is very burst-oriented as well, with Ravenous Hydra, Eclipse, and Endless Hunger as the three-item core."
+    }
+   ],
+   "mentions": [],
+   "action": "Tester la rune Déluge de lames sur Fiora avec un premier achat d'Hydre vorace et d'Éclipse pour accentuer le burst lors des escarmouches.",
+   "observe": "Noter la rapidité du déclenchement des points vitaux lors des trois premières attaques sous Déluge de lames.",
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Unité issue de la lecture automatique d'une vidéo YouTube par IA, exigeant une validation humaine selon les règles du coach."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.8-flash",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20",
+   "status": "provisoire",
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-5un5rVpQpf8 : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([00:19] (parole))."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-5un5rVpQpf8 : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([00:44] (parole))."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ],
+   "independentSources": 1,
+   "review": {
+    "human": "en attente",
+    "by": null,
+    "at": null,
+    "reason": null
+   }
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-2",
+   "claim": "Selon Skill Capped : sur Malphite, il est conseillé d'adapter la compétence maximisée en second entre le Z et le E selon la composition adverse, et d'enchaîner Cœur gelé puis Égide solaire face aux compositions physiques.",
+   "champions": [
+    "Malphite"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "matchup"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Malphite/W",
+    "Malphite/E",
+    "item:Cœur gelé",
+    "item:Égide solaire"
+   ],
+   "conditions": [
+    "Équipe adverse à forte dominante de dégâts physiques"
+   ],
+   "limits": [
+    "Ne précise pas les conditions exactes privilégiant le Z par rapport au E"
+   ],
+   "nature": "opinion",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[01:41] (parole)",
+     "lang": "en",
+     "passage": "A bit of optimization you can do with your skill order on Malphite is swapping between W and E max second depending on the enemy team."
+    },
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[02:49] (parole)",
+     "lang": "en",
+     "passage": "Frozen Heart into Sunfire is the two-item core we would recommend when into heavier AD comps."
+    }
+   ],
+   "mentions": [],
+   "action": "Construire Cœur gelé puis Égide solaire contre les compositions lourdes en AD et ajuster l'ordre des sorts au niveau 2 selon les profils adverses.",
+   "observe": "Contrôler l'impact du ralentissement d'attaque et de l'armure cumulée lors des premiers regroupements.",
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil basé sur une analyse vidéo lue par IA, conservé en statut provisoire avant vérification humaine."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.8-flash",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20",
+   "status": "provisoire",
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-5un5rVpQpf8 : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([01:41] (parole))."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-5un5rVpQpf8 : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([02:49] (parole))."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ],
+   "independentSources": 1,
+   "review": {
+    "human": "en attente",
+    "by": null,
+    "at": null,
+    "reason": null
+   }
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-3",
+   "claim": "Selon Skill Capped : sur Garen en voie du haut, acheter la Lame spectre de Youmuu en deuxième objet surpasse les autres options bien que seulement 20% des joueurs utilisent ce choix.",
+   "champions": [
+    "Garen"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Lame spectre de Youmuu"
+   ],
+   "conditions": [
+    "Achat en deuxième objet après l'objet mythique/core"
+   ],
+   "limits": [
+    "Échantillon, rang et source exacte des 20% non précisés"
+   ],
+   "nature": "opinion",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[03:42] (parole)",
+     "lang": "en",
+     "passage": "Ghostblade second item has been the best build for Garen for multiple patches now, but only 20% of Garen players run the item."
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter la Lame spectre de Youmuu comme deuxième objet sur Garen pour maximiser la vitesse d'approche et les dégâts de transition.",
+   "observe": "Observer la facilité à combler la distance sur les cibles reculées grâce à l'actif de vitesse.",
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "petit-echantillon"
+    ],
+    "why": "Affirmation statistique ('20% des joueurs') énoncée en vidéo sans précision du volume global ni de la source de données."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.8-flash",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20",
+   "status": "provisoire",
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-5un5rVpQpf8 : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([03:42] (parole))."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ],
+   "independentSources": 1,
+   "review": {
+    "human": "en attente",
+    "by": null,
+    "at": null,
+    "reason": null
+   }
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-5",
+   "claim": "Selon Skill Capped : sur Tristana au poste de tireur, l'association de la Lame sauvage de Yun Tal et de la Lame d'infini forme un pic de deux objets offrant un potentiel d'élimination instantanée élevé.",
+   "champions": [
+    "Tristana"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Lame sauvage de Yun Tal",
+    "item:Lame d'infini"
+   ],
+   "conditions": [
+    "Atteinte du palier des deux objets complétés"
+   ],
+   "limits": [
+    "Affirmation dépendante de la méta et de l'affaiblissement de l'Ouragan de Runaan au patch précédent"
+   ],
+   "nature": "opinion",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[15:00] (parole)",
+     "lang": "en",
+     "passage": "Two-item spike for Tristana of Yun Tal into Infinity Edge gives her so much burst potential for an ADC."
+    }
+   ],
+   "mentions": [],
+   "action": "Enchaîner la Lame sauvage de Yun Tal et la Lame d'infini sur Tristana pour chercher des éliminations rapides en milieu de partie.",
+   "observe": "Mesurer les dégâts infligés sur une rotation complète de bombe avec les coups critiques de Yun Tal et de la Lame d'infini.",
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Opinion sur la synergie d'objets issue d'une transcription lue par IA, à maintenir en provisoire."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.8-flash",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-20",
+   "validity": {
+    "checkedAt": "2026-10-20",
+    "checkedPatch": "26.20"
+   },
+   "verified": {
+    "at": "2026-10-20",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-20",
+   "status": "provisoire",
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-5un5rVpQpf8 : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([15:00] (parole))."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."

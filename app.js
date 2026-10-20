@@ -60,7 +60,8 @@ let dataLoaded = false;
 let dataError = null;        // { at, cachedAt } si la dernière synchronisation a échoué
 let serverStatus = null;
 const ONLINE = location.protocol.startsWith("http");
-let HAS_SERVER = ONLINE;     // serveur Node local (API + SSE) ; sur GitHub Pages, bascule sur les fichiers statiques
+// Serveur Node local (API + SSE). Sur GitHub Pages il n'existe pas : on lit directement les fichiers statiques.
+let HAS_SERVER = ONLINE && !/\.github\.io$/.test(location.hostname);
 const CACHE_KEY = "tm-cache-v1";
 
 async function fetchJson(url) {

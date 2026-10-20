@@ -366,14 +366,25 @@ function freshnessAlert() {
 }
 
 // --- Matchs : carte compacte, équipes de part et d'autre, heure ou score au centre
-function matchCard(m, t, { withComp = true, line = false } = {}) {
+// Jour relatif dans le fuseau de l'utilisateur : « Aujourd'hui », « Demain », « Hier », sinon « ven. 23 oct. »
+function dayLabel(d) {
+  const k = localDay(d);
+  if (k === localDay(Date.now())) return "Aujourd'hui";
+  if (k === localDay(Date.now() + 864e5)) return "Demain";
+  if (k === localDay(Date.now() - 864e5)) return "Hier";
+  const l = new Date(d).toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "short" });
+  return l.charAt(0).toUpperCase() + l.slice(1);
+}
+
+// day = false seulement quand le jour est déjà donné par l'écran (sélecteur de date de Compétitions → Matchs)
+function matchCard(m, t, { withComp = true, line = false, day = true } = {}) {
   const done = m.state === "completed";
   const hide = done && hidden(m.id);
   const [a, b] = m.teams;
   const center = m.state === "inProgress" ? `<span class="mc-live">En cours</span>`
     : done ? (hide ? `<span class="mc-hidden">Score masqué</span>` : a.score != null ? `<span class="mc-score"><b class="${a.outcome === "win" ? "w" : ""}">${a.score}</b><i>–</i><b class="${b.outcome === "win" ? "w" : ""}">${b.score}</b></span>` : `<span class="mc-score">Terminé</span>`)
-    : m.start ? `<span class="mc-time">${fmtTime(m.start)}</span>` : `<span class="mc-time small">${esc(MATCH_STATE[m.state] || "—")}</span>`;
-  const fmt = m.bo ? `Bo${m.bo}` : "";
+    : m.start ? `${day ? `<span class="mc-day">${esc(dayLabel(m.start))}</span>` : ""}<span class="mc-time">${fmtTime(m.start)}</span>` : `<span class="mc-time small">${esc(MATCH_STATE[m.state] || "—")}</span>`;
+  const fmt = [done && day && m.start ? fmtDay(m.start) : "", m.bo ? `Bo${m.bo}` : ""].filter(Boolean).join(" · ");
   const label = `${a.name} contre ${b.name}, ${MATCH_STATE[m.state] || ""}${done ? (hide ? ", score masqué" : a.score != null ? `, ${a.score} à ${b.score}` : "") : m.start ? `, ${fmtDayTime(m.start)}` : ""}, ${t.name}`;
   const side = (x, cls) => `<span class="mc-team ${cls} ${done && !hide && x.outcome === "win" ? "win" : ""} ${done && !hide && x.outcome === "loss" ? "loss" : ""}">${logo(x.name, x.image)}<span class="mc-name">${esc(x.name)}</span>${prefs.favTeams.includes(x.name) ? icon("star", "fav-ic") : ""}</span>`;
   const summary = line && done && !hide ? (EDITORIAL.matches?.[m.id]?.resume || autoSummary(m) || m.summary || "") : "";
@@ -492,7 +503,7 @@ function viewHome() {
       <div class="metabox-head">
         ${p ? `<a class="patch-badge" href="${href(gg, "actus", keyOf(p))}"><span class="label">Patch</span><b>${esc(patchOf(p, pe) || "—")}</b></a>` : ""}
         <div class="metabox-txt"><p class="metabox-title">${proT ? `Les plus joués · ${esc(proT.name)}` : proTlEnts.length ? `Les plus joués · ${esc(proTl.title.replace(/^Pro\s*—\s*/, ""))}` : ranked ? `En haut du classement ranked` : ""}</p>
-          <p class="fine">${proT ? `${proT.stats.totalGames} parties officielles` : proTlEnts.length ? esc(proTl.context || "") : ranked ? esc(ranked.context || "") : ""}${g === "all" ? ` · ${esc(SHORT[gg])}` : ""}</p></div>
+          <p class="fine">${proT ? `Taux de sélection sur ${proT.stats.totalGames} parties officielles` : proTlEnts.length ? esc(proTl.context || "") : ranked ? esc(ranked.context || "") : ""}${g === "all" ? ` · ${esc(SHORT[gg])}` : ""}</p></div>
       </div>
       ${portraitRow(ents, { game: gg, stat: x => x.stat || "", label: "Méta du moment" })}
       <div class="metabox-links"><a class="btn ghost sm" href="${href(gg, "meta")}">Tier list</a>${p ? `<a class="btn ghost sm" href="${href(gg, "actus", keyOf(p))}">Changements du patch</a>` : ""}</div>
@@ -567,7 +578,7 @@ function matchesTab() {
     </div>
     <p class="fine tz">Heures dans votre fuseau${TZ ? ` (${esc(TZ)})` : ""} · « En cours » uniquement si la source officielle le confirme.</p>
     ${noDated ? empty("Aucun calendrier disponible", route.game === "val" ? "Le calendrier Valorant n'est pas encore relié à une source automatique. Les résultats des Champions 2026 sont dans l'onglet Tournois." : "Les compétitions suivies ne fournissent pas d'horaires.")
-      : byComp.size ? [...byComp.values()].map(({ t, ms }) => `<section class="sec"><div class="sec-head"><a class="comp-link" href="${href(t.game, "tournoi", t.id)}">${esc(t.name)}${icon("chevron")}</a></div><div class="mlist">${ms.map(m => matchCard(m, t, { withComp: false, line: true })).join("")}</div></section>`).join("")
+      : byComp.size ? [...byComp.values()].map(({ t, ms }) => `<section class="sec"><div class="sec-head"><a class="comp-link" href="${href(t.game, "tournoi", t.id)}">${esc(t.name)}${icon("chevron")}</a></div><div class="mlist">${ms.map(m => matchCard(m, t, { withComp: false, line: true, day: false })).join("")}</div></section>`).join("")
       : empty("Aucun match ce jour", ui.favOnly ? "Aucun match de vos équipes favorites ce jour-là." : "")}`;
 }
 
@@ -597,7 +608,11 @@ function viewTournament() {
       </div>
       ${t.stale ? `<p class="note warn">${icon("alert")}<span>Source officielle indisponible : données du ${fmtDayTime(t.asOf)}.</span></p>` : ""}
     </header>
-    <nav class="tabs scroll" aria-label="Sections du tournoi">${tabs.map(([id, l]) => `<a class="tab" href="${href(route.game, "tournoi", t.id, id)}" ${tab === id ? 'aria-current="page"' : ""}>${l}</a>`).join("")}</nav>
+    <div class="tabs-wrap">
+      <button class="tabs-arrow prev" type="button" data-action="tabs-scroll" data-id="-1" aria-label="Onglets précédents" hidden>${icon("left")}</button>
+      <nav class="tabs scroll" aria-label="Sections du tournoi">${tabs.map(([id, l]) => `<a class="tab" href="${href(route.game, "tournoi", t.id, id)}" ${tab === id ? 'aria-current="page"' : ""}>${l}</a>`).join("")}</nav>
+      <button class="tabs-arrow next" type="button" data-action="tabs-scroll" data-id="1" aria-label="Onglets suivants" hidden>${icon("chevron")}</button>
+    </div>
     ${body}
     <p class="fine provenance">${t.manual ? `Résultats vérifiés à la main le ${fmtDay(t.asOf)}` : `Données officielles du ${fmtDayTime(t.asOf || AUTO.generatedAt)}`}${t.sources?.[0] ? ` · <a href="${esc(t.sources[0].url)}" target="_blank" rel="noopener">${esc(t.sources[0].name)}</a>` : ""}</p>`;
 }
@@ -615,12 +630,13 @@ function tOverview(t) {
   const standings = st?.sections.find(x => x.standings?.length)?.standings || [];
   const a = tAnalysis(t);
   const meta = t.stats?.totalGames ? t.stats.champions.slice(0, 6) : [];
+  const teamCount = new Set(ms.flatMap(m => m.teams.filter(x => x.code !== "TBD").map(x => x.name))).size;
   return `<div class="t-grid">
     <div class="t-col">
       <dl class="kpis">
         ${st ? `<div><dt>Phase</dt><dd>${esc(st.name)}</dd></div>` : ""}
-        ${t.progress ? `<div><dt>Matchs joués</dt><dd>${t.progress.done}<small> / ${t.progress.total}</small></dd></div>` : ""}
-        ${t.teams?.length ? `<div><dt>Équipes</dt><dd>${t.teams.length}</dd></div>` : ""}
+        ${t.progress ? `<div><dt>Matchs joués</dt><dd>${t.progress.done}<small> / ${t.progress.total}</small></dd></div>` : ms.length ? `<div><dt>Matchs joués</dt><dd>${ms.filter(m => m.state === "completed").length}<small> / ${ms.length} listés</small></dd></div>` : ""}
+        ${t.teams?.length ? `<div><dt>Équipes</dt><dd>${t.teams.length}</dd></div>` : teamCount ? `<div><dt>Équipes listées</dt><dd>${teamCount}</dd></div>` : ""}
         ${t.stats?.totalGames ? `<div><dt>Parties analysées</dt><dd>${t.stats.totalGames}</dd></div>` : ""}
       </dl>
       ${nxt.length ? `<section class="sec">${secHead("À venir", seeAll(href(t.game, "tournoi", t.id, "matchs"), "Calendrier"))}<div class="mlist">${nxt.map(m => matchCard(m, t, { withComp: false })).join("")}</div></section>` : ""}
@@ -628,7 +644,7 @@ function tOverview(t) {
     </div>
     <div class="t-col">
       ${standings.length ? `<section class="sec">${secHead(`Classement · ${esc(st.name)}`, seeAll(href(t.game, "tournoi", t.id, "classement"), "Complet"))}${spoilerGate("t-" + t.id, "Classement", standingsTable(t, standings.slice(0, 6)))}</section>` : ""}
-      ${meta.length ? `<section class="sec">${secHead("Méta observée", seeAll(href(t.game, "tournoi", t.id, "meta"), "Statistiques"))}${portraitRow(meta.map(c => ({ id: c.champ, stat: pct(c.presence) })), { game: t.game, stat: x => x.stat, label: "Champions les plus joués" })}<p class="fine">Part des parties où le champion est joué.</p></section>` : ""}
+      ${meta.length ? `<section class="sec">${secHead("Méta observée", seeAll(href(t.game, "tournoi", t.id, "meta"), "Statistiques"))}${portraitRow(meta.map(c => ({ id: c.champ, stat: pct(c.presence) })), { game: t.game, stat: x => x.stat, label: "Champions les plus joués" })}<p class="fine">Taux de sélection : part des parties où le champion est choisi.</p></section>` : ""}
       ${a?.resume ? `<section class="sec">${secHead("Le point de la rédaction")}${spoilerGate("t-" + t.id, "Résumé du tournoi", `<p class="summary">${esc(a.resume)}</p>
         ${a.faits_marquants?.length || a.equipes_en_forme?.length || a.a_suivre?.length ? `<details class="more"><summary>Faits marquants, forme et enjeux</summary>
           ${a.faits_marquants?.length ? `<p class="label">Faits marquants</p>${bullets(a.faits_marquants)}` : ""}
@@ -688,9 +704,9 @@ function tMeta(t) {
   rows = [...rows].sort((a, b) => key(a) - key(b));
   const roles = [["all", "Tous"], ...LOL_ROLES.filter(([r]) => s.champions.some(c => c.role === r))];
   return `${seg("t-meta-role", roles, ui.tMetaRole, "Rôle", "wrap")}
-    <div class="toolbar">${sel("t-meta-sort", [["picks", "Plus joués"], ["presence", "Présence"], ["winrate", "Taux de victoire"]], ui.tMetaSort, "Trier")}<span class="fine">${s.totalGames} parties officielles · bans non fournis par l'API</span></div>
+    <div class="toolbar">${sel("t-meta-sort", [["picks", "Plus joués"], ["presence", "Taux de sélection"], ["winrate", "Taux de victoire"]], ui.tMetaSort, "Trier")}<span class="fine">${s.totalGames} parties officielles · bans non fournis par l'API</span></div>
     <div class="table-wrap"><table class="meta-table">
-      <thead><tr><th scope="col">Champion</th><th scope="col" class="num">Picks</th><th scope="col">Présence</th><th scope="col" class="num">Victoires</th></tr></thead>
+      <thead><tr><th scope="col">Champion</th><th scope="col" class="num">Picks</th><th scope="col">Sélection</th><th scope="col" class="num">Victoires</th></tr></thead>
       <tbody>${rows.map(c => { const ent = entity(t.game, c.champ); return `<tr>
         <td><a class="cell-team" href="${sheetHref(t.game, ent.key)}">${portrait(ent, "sm")}<span><b>${esc(ent.name)}</b><small>${esc(ROLE_LABEL[c.role] || c.role)}</small></span></a></td>
         <td class="num">${c.picks}</td>
@@ -774,45 +790,94 @@ function viewMeta() {
   const p = latestPatch(g);
   const pe = p && editOf(p);
 
-  const blocks = inScope.map(L => {
-    let tiers, title, ctx, patch, updated, status, sources = [], why;
-    if (L.t) {
-      const s = L.t.stats;
-      const versions = [...new Set(tMatches(L.t).flatMap(m => (m.games || []).map(x => x.patch)).filter(Boolean))];
-      const rows = s.champions.filter(c => c.picks >= 3 && (ui.metaRole === "all" || c.role === ui.metaRole));
-      tiers = { S: [], A: [], B: [], C: [] };
-      for (const c of rows) tiers[c.presence >= 0.25 ? "S" : c.presence >= 0.15 ? "A" : c.presence >= 0.08 ? "B" : "C"].push({ id: c.champ, stat: pct(c.presence) });
-      title = `Méta pro · ${L.t.name}`; ctx = `${s.totalGames} parties officielles · présence (S ≥ 25 %, A ≥ 15 %, B ≥ 8 %)`; patch = versions.length ? `version ${versions.join(", ")}` : null; updated = L.t.asOf || AUTO.generatedAt; status = "officiel";
-      sources = L.t.sources;
-    } else {
-      const tl = L.tl;
-      const groups = tl.groups.filter(gr => ui.metaRole === "all" || norm(gr.name) === norm(ROLE_LABEL[ui.metaRole] || ui.metaRole) || (ui.metaRole === "bottom" && norm(gr.name) === "adc"));
-      tiers = {};
-      for (const gr of groups) for (const [k, ents] of Object.entries(gr.tiers)) { tiers[k] ||= []; for (const e of ents) if (!tiers[k].some(x => entKey(x) === entKey(e))) tiers[k].push(e); }
-      // Valorant : filtre par rôle d'agent (données de l'API agents)
-      if (g === "val" && ui.metaRole !== "all") for (const k of Object.keys(tiers)) tiers[k] = tiers[k].filter(e => norm(entity("val", entKey(e)).sub) === norm(ui.metaRole));
-      title = tl.title; ctx = tl.context || tl.basis; patch = tl.patch ? `patch ${tl.patch}` : null; updated = tl.updated; status = tl.status; sources = tl.sources;
-    }
-    const stale = updated && (Date.now() - new Date(updated)) / 864e5 > 14;
-    const filled = Object.entries(tiers).filter(([, e]) => e.length);
-    return `<section class="tierlist">
-      <div class="tl-head"><h2 class="tl-title">${esc(title)}</h2>
-        <p class="tl-meta">${patch ? chip(patch) : ""}${status && status !== "confirme" && status !== "officiel" ? chip(natureOf({ status }).label, natureOf({ status }).cls) : ""}<span class="fine">${esc(ctx || "")}${updated ? ` · relevé le ${fmtDay(updated)}` : ""}</span></p>
-        ${stale ? `<p class="note warn">${icon("alert")}<span>Données de plus de deux semaines.</span></p>` : ""}</div>
-      ${filled.length ? filled.map(([k, ents]) => `<div class="tier"><span class="tier-letter t-${k}">${k}</span>${portraitRow(ents, { game: g, stat: x => x.stat || "", label: `Tier ${k}` }).replace('class="prow"', 'class="prow wrap"')}</div>`).join("") : `<p class="inline-empty">Aucun élément pour ce filtre.</p>`}
-      ${sourceList(sources)}
-    </section>`;
-  }).join("");
-
+  const unit = g === "lol" ? "champion" : "agent";
+  const blocks = inScope.map(L => L.scope === "pro" ? proBlock(g, L) : rankedBlock(g, L.tl)).join("");
   const roleOpts = g === "lol" ? [["all", "Tous"], ...LOL_ROLES] : [["all", "Tous"], ...[...new Set((rosters.val || []).map(a => VAL_ROLE_FR[a.role] || a.role).filter(Boolean))].map(r => [r, r])];
-  const mentioned = p && pe ? mentionedEntities(p, pe) : [];
-  return `<header class="page-head"><h1 class="page-title" tabindex="-1">Méta</h1><p class="fine">Touchez un ${g === "lol" ? "champion" : "agent"} pour voir pourquoi il est classé, ses stats et les contenus liés.</p></header>
-    ${p ? `<a class="patchline" href="${href(g, "actus", keyOf(p))}"><span class="patch-badge"><span class="label">Patch</span><b>${esc(patchOf(p, pe) || "—")}</b></span><span class="patchline-txt"><b>${esc(pe ? pe.titre : p.title)}</b><span class="fine">Notes officielles · ${fmtDay(pubDate(p))}${mentioned.length ? ` · ${mentioned.length} ${g === "lol" ? "champions" : "agents"} cités` : ""}</span></span>${icon("chevron")}</a>` : ""}
+  return `<header class="page-head meta-head"><h1 class="page-title" tabindex="-1">Méta</h1>
+      ${p ? `<a class="patchchip" href="${href(g, "actus", keyOf(p))}" aria-label="Patch ${esc(patchOf(p, pe) || "")} : notes officielles du ${fmtDate(pubDate(p))}"><span class="patchchip-num">Patch ${esc(patchOf(p, pe) || "—")}</span><span class="patchchip-txt">Notes du ${fmtDay(pubDate(p))}</span>${icon("chevron")}</a>` : ""}
+    </header>
     <div class="filters">
-      ${scopes.length > 1 ? seg("meta-scope", scopes, ui.metaScope, "Contexte") : `<p class="fine">${esc(scopes[0][1])}</p>`}
+      ${scopes.length > 1 ? seg("meta-scope", scopes, ui.metaScope, "Contexte") : ""}
       ${roleOpts.length > 2 ? seg("meta-role", roleOpts, ui.metaRole, "Rôle", "wrap small") : ""}
     </div>
-    ${blocks}`;
+    ${blocks}
+    <p class="fine">Touchez un ${unit} pour voir ses classements, ses stats et les contenus liés.</p>`;
+}
+
+// Version technique du client (flux des parties officielles) et lien, non officiel, avec le patch destiné aux joueurs
+function clientVersions(t) {
+  return [...new Set(tMatches(t).flatMap(m => (m.games || []).map(x => x.patch)).filter(Boolean))].sort();
+}
+function versionNote(g, versions) {
+  const p = latestPatch(g);
+  const num = p && patchOf(p, editOf(p));
+  const probable = num && versions.length === 1 && versions[0].split(".")[1] === num.split(".")[1];
+  return probable
+    ? `Les parties sont jouées en version client ${versions[0]}, le numéro technique du jeu. Elle correspond très probablement au patch ${num} (même numéro de cycle, et Riot présente le ${num} comme patch du tournoi), mais Riot ne publie pas cette correspondance : elle n'est pas confirmée.`
+    : versions.length ? `Versions client des parties (numéro technique du jeu) : ${versions.join(", ")}. Riot ne publie pas leur correspondance avec les noms de patch.` : "Version du jeu non fournie par la source.";
+}
+
+// Tranches de taux de sélection : une lecture de fréquence, pas un classement de puissance
+const BANDS = [[0.25, "25 % et plus"], [0.15, "15 à 25 %"], [0.08, "8 à 15 %"], [0, "Moins de 8 %"]];
+const parseRate = s => { const m = String(s || "").match(/(\d+(?:[.,]\d+)?)\s*%/); return m ? parseFloat(m[1].replace(",", ".")) / 100 : null; };
+function bandRows(g, ents, rateOf) {
+  const groups = new Map([...BANDS.map(([, l]) => [l, []]), ["Taux global non communiqué", []]]);
+  for (const e of ents) { const r = rateOf(e); groups.get(r == null ? "Taux global non communiqué" : BANDS.find(([min]) => r >= min)[1]).push(e); }
+  const filled = [...groups].filter(([, list]) => list.length);
+  return filled.length ? filled.map(([label, list]) => `<div class="band"><p class="band-label">${esc(label)}</p>${portraitRow(list, { game: g, stat: x => x.stat || "", label }).replace('class="prow"', 'class="prow wrap"')}</div>`).join("") : `<p class="inline-empty">Aucun élément pour ce filtre.</p>`;
+}
+
+function proBlock(g, L) {
+  const unitPl = g === "lol" ? "Champions" : "Agents";
+  if (L.t) {
+    const t = L.t, s = t.stats;
+    const versions = clientVersions(t);
+    const rows = s.champions.filter(c => c.picks >= 3 && (ui.metaRole === "all" || c.role === ui.metaRole)).map(c => ({ id: c.champ, stat: pct(c.presence), rate: c.presence }));
+    const matches = tMatches(t).filter(m => m.games?.length).length;
+    return `<section class="tierlist">
+      <div class="tl-head"><p class="label">Compétition pro · fréquence de sélection</p><h2 class="tl-title">${unitPl} les plus joués · ${esc(t.name)}</h2>
+        <p class="tl-meta">${chip(`${s.totalGames} parties · ${matches} matchs`)}${versions.length ? chip(`Version client ${versions.join(", ")}`, "soft") : ""}<span class="fine">Données officielles du ${fmtDay(t.asOf || AUTO.generatedAt)}</span></p></div>
+      ${bandRows(g, rows, e => e.rate)}
+      <details class="more"><summary>Comment est calculé ce classement ?</summary>
+        <p>Pour chaque champion, on compte les parties officielles où il a été choisi, divisé par le nombre total de parties analysées (${s.totalGames}). Un champion ne peut être choisi qu'une fois par partie : ce taux de sélection va donc de 0 à 100 %.</p>
+        <p>Il mesure la popularité chez les pros, pas la puissance : un champion peut être très joué sans beaucoup gagner. Les bans ne sont pas fournis par l'API officielle et ne sont donc pas comptés. Seuls les champions choisis au moins 3 fois sont affichés.</p>
+        <p>${esc(versionNote(g, versions))}</p>
+        <p>Taux de victoire, rôles et détail par champion : <a href="${href(g, "tournoi", t.id, "meta")}">statistiques du tournoi</a>.</p>
+      </details>
+      ${sourceList(t.sources)}
+    </section>`;
+  }
+  // Liste pro sourcée (ex. Valorant Champions) : taux rapportés par la source
+  const tl = L.tl;
+  let ents = tl.groups.flatMap(gr => Object.values(gr.tiers).flat());
+  if (g === "val" && ui.metaRole !== "all") ents = ents.filter(e => norm(entity("val", entKey(e)).sub) === norm(ui.metaRole));
+  return `<section class="tierlist">
+    <div class="tl-head"><p class="label">Compétition pro · fréquence de sélection</p><h2 class="tl-title">${unitPl} les plus joués · ${esc(tl.title.replace(/^Pro\s*—\s*/, ""))}</h2>
+      <p class="tl-meta">${chip(tl.context || "")}${tl.patch ? chip(/non précisé/.test(tl.patch) ? "Patch non précisé" : `Patch ${tl.patch}`, "soft") : ""}<span class="fine">Relevé le ${fmtDay(tl.updated)}</span></p></div>
+    ${bandRows(g, ents, e => parseRate(e.stat))}
+    <details class="more"><summary>Comment est calculé ce classement ?</summary>
+      <p>${esc(tl.basis)} Ce taux mesure la fréquence de sélection chez les pros, pas la puissance.</p>
+      <p>Les agents sans taux global sont cités par la source pour leur usage sur certaines cartes ; touchez-les pour voir le détail.</p>
+    </details>
+    ${notes(tl.warnings)}${sourceList(tl.sources)}
+  </section>`;
+}
+
+function rankedBlock(g, tl) {
+  const groups = tl.groups.filter(gr => ui.metaRole === "all" || norm(gr.name) === norm(ROLE_LABEL[ui.metaRole] || ui.metaRole) || (ui.metaRole === "bottom" && norm(gr.name) === "adc"));
+  const tiers = {};
+  for (const gr of groups) for (const [k, ents] of Object.entries(gr.tiers)) { tiers[k] ||= []; for (const e of ents) if (!tiers[k].some(x => entKey(x) === entKey(e))) tiers[k].push(e); }
+  if (g === "val" && ui.metaRole !== "all") for (const k of Object.keys(tiers)) tiers[k] = tiers[k].filter(e => norm(entity("val", entKey(e)).sub) === norm(ui.metaRole));
+  const stale = tl.updated && (Date.now() - new Date(tl.updated)) / 864e5 > 14;
+  const filled = Object.entries(tiers).filter(([, e]) => e.length);
+  return `<section class="tierlist">
+    <div class="tl-head"><p class="label">Tier list ranked</p><h2 class="tl-title">${esc(tl.title)}</h2>
+      <p class="tl-meta">${tl.patch ? chip(`Patch ${tl.patch}`) : ""}${tl.status && tl.status !== "confirme" ? chip(natureOf({ status: tl.status }).label, natureOf({ status: tl.status }).cls) : ""}<span class="fine">${esc(tl.context || "")} · relevé le ${fmtDay(tl.updated)}</span></p>
+      ${stale ? `<p class="note warn">${icon("alert")}<span>Données de plus de deux semaines.</span></p>` : ""}</div>
+    ${filled.length ? filled.map(([k, ents]) => `<div class="tier"><span class="tier-letter t-${k}">${k}</span>${portraitRow(ents, { game: g, stat: x => x.stat || "", label: `Tier ${k}` }).replace('class="prow"', 'class="prow wrap"')}</div>`).join("") : `<p class="inline-empty">Aucun élément pour ce filtre.</p>`}
+    <details class="more"><summary>Comment est établie cette tier list ?</summary><p>${esc(tl.basis)}</p><p>Les lettres reprennent le classement des sources citées ; touchez un ${g === "lol" ? "champion" : "agent"} pour voir le chiffre et la raison.</p></details>
+    ${notes(tl.warnings)}${sourceList(tl.sources)}
+  </section>`;
 }
 
 // --- Actus : liste compacte et page de détail
@@ -957,12 +1022,12 @@ function sheetHtml(game, key) {
   return `<div class="sheet-head">${portrait(ent, "xl")}<div><p class="label">${game === "lol" ? "Champion" : "Agent"}${ent.sub ? ` · ${esc(ent.sub)}` : ""}</p><h2 class="sheet-title" id="sheet-title">${esc(ent.name)}</h2></div>
       <button class="icon-btn" data-action="close-sheet" aria-label="Fermer">${icon("close")}</button></div>
     <div class="sheet-body">
-      ${places.length ? `<section class="sec">${secHead("Classements")}${places.map(({ list, group, tier, e }) => `<div class="place"><span class="tier-letter t-${tier}">${tier}</span><div><p class="place-title">${esc(list.title)}${group && list.groups.length > 1 ? ` · ${esc(group)}` : ""}</p>
+      ${places.length ? `<section class="sec">${secHead("Classements")}${places.map(({ list, group, tier, e }) => `<div class="place">${list.scope === "pro" ? `<span class="tier-letter rate">${esc(e.stat || "—")}</span>` : `<span class="tier-letter t-${tier}">${tier}</span>`}<div><p class="place-title">${list.scope === "pro" ? "Les plus joués · " + esc(list.title.replace(/^Pros*—s*/, "")) : esc(list.title)}${group && list.groups.length > 1 ? ` · ${esc(group)}` : ""}</p>
         <p class="fine">${list.patch ? `Patch ${esc(list.patch)} · ` : ""}${esc(list.context || "")}</p>
         <p class="place-why">${esc([e.stat ? `${e.stat} de victoires` : "", e.note].filter(Boolean).join(" · ") || "Classement de la source, sans justification chiffrée.")}</p>
         <p class="fine">Source : ${list.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`).join(", ")}</p></div></div>`).join("")}</section>` : ""}
       ${pro.length ? `<section class="sec">${secHead("Chez les pros")}${pro.map(({ t, c }) => `<a class="prostat" href="${href(game, "tournoi", t.id, "meta")}"><span class="prostat-name">${esc(t.name)}</span>
-        <span class="prostat-nums"><span><b>${c.picks}</b> pick${c.picks > 1 ? "s" : ""}</span><span><b>${pct(c.presence)}</b> présence</span><span>${c.known >= 3 && !hidden("t-" + t.id) ? `<b>${pct(c.winrate)}</b> victoires (${c.known})` : "victoires : —"}</span></span></a>`).join("")}<p class="fine">Parties officielles LoL Esports.</p></section>` : ""}
+        <span class="prostat-nums"><span><b>${c.picks}</b> pick${c.picks > 1 ? "s" : ""}</span><span><b>${pct(c.presence)}</b> des parties</span><span>${c.known >= 3 && !hidden("t-" + t.id) ? `<b>${pct(c.winrate)}</b> victoires (${c.known})` : "victoires : —"}</span></span></a>`).join("")}<p class="fine">Parties officielles LoL Esports.</p></section>` : ""}
       ${patches.length ? `<section class="sec">${secHead("Cité dans les notes de patch")}${patches.map(({ i, e }) => `<a class="link-row" href="${href(game, "actus", keyOf(i))}"><span><b>${esc(e.titre)}</b><span class="fine">${fmtDay(pubDate(i))}</span></span>${icon("chevron")}</a>`).join("")}</section>` : ""}
       ${strats.length ? `<section class="sec">${secHead("Stratégies associées")}${strats.map(s => `<a class="link-row" href="${href(game, "strats", s.id)}"><span><b>${esc(s.title)}</b><span class="fine">${esc(s.kind)}</span></span>${icon("chevron")}</a>`).join("")}</section>` : ""}
       ${!places.length && !pro.length && !patches.length && !strats.length ? `<p class="inline-empty">Aucune donnée vérifiée sur ${esc(ent.name)} dans les sources actuelles.</p>` : ""}
@@ -1075,11 +1140,35 @@ function render(fromRoute = true) {
     s.setSelectionRange(pos, pos);
   };
   if (dataLoaded) syncSheet();
+  syncTabs();
   if (fromRoute) {
     window.scrollTo(0, 0);
     document.querySelector("#view [tabindex='-1']")?.focus({ preventScroll: true });
   }
 }
+
+// Onglets défilants : l'onglet sélectionné est ramené en vue, flèches et dégradés signalent la suite
+function syncTabs() {
+  for (const wrap of document.querySelectorAll(".tabs-wrap")) {
+    const nav = wrap.querySelector(".tabs");
+    const cur = nav.querySelector('[aria-current="page"]');
+    if (cur) {
+      const pad = 28;
+      if (cur.offsetLeft - pad < nav.scrollLeft) nav.scrollLeft = Math.max(0, cur.offsetLeft - pad);
+      else if (cur.offsetLeft + cur.offsetWidth + pad > nav.scrollLeft + nav.clientWidth) nav.scrollLeft = cur.offsetLeft + cur.offsetWidth + pad - nav.clientWidth;
+    }
+    const update = () => {
+      const left = nav.scrollLeft > 2, right = nav.scrollLeft + nav.clientWidth < nav.scrollWidth - 2;
+      wrap.classList.toggle("more-left", left);
+      wrap.classList.toggle("more-right", right);
+      wrap.querySelector(".prev").hidden = !left;
+      wrap.querySelector(".next").hidden = !right;
+    };
+    nav.onscroll = update;
+    update();
+  }
+}
+window.addEventListener("resize", () => syncTabs());
 
 let lastBase = "";
 function onRoute() {
@@ -1121,6 +1210,7 @@ document.addEventListener("click", e => {
     case "news-type": ui.newsType = id; ui.limit = 20; break;
     case "strat-kind": ui.stratKind = id; break;
     case "more": ui.limit += 20; break;
+    case "tabs-scroll": { const nav = el.parentElement.querySelector(".tabs"); nav.scrollBy({ left: Number(id) * nav.clientWidth * 0.6, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); return; }
     case "sync-panel": route.sheet = "__sync"; syncSheet(); return;
     case "close-sheet": closeSheet(); return;
     case "skip": document.getElementById("view").focus(); return;

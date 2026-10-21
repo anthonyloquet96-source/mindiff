@@ -266,6 +266,9 @@ await t("Tri des vidéos sur métadonnées (priorité, pas preuve)", "fixture", 
   assert(tr.matched.includes("Lucian") && /ne prouve pas/.test(tr.basis), JSON.stringify(tr));
   const clip = triage("Gob se fait daronned par une coréenne #twitch", L.config.pilot), guide = triage("GUIDE TEMPO - COMMENT MONTER CHALLENGER SUR LEAGUE OF LEGENDS", L.config.pilot);
   assert(clip.score < guide.score && clip.entertainment.length, `extrait de stream ${clip.score} ≥ guide ${guide.score}`);
+  const { isTeaching } = await import("../video.mjs");
+  assert(isTeaching({ title: "What Is Actually Keeping You Stuck In Silver? - FULL CASE STUDY", triage: { entertainment: [] } }) && isTeaching({ title: "J'AFFRONTE G2 CAPS", backfill: true }), "vidéo pédagogique longue non reconnue");
+  assert(!isTeaching({ title: "🔴 LIVE soloq grind", triage: { entertainment: ["🔴"] } }), "direct traité comme un cours");
   const { keep } = await import("../backfill.mjs");
   assert(keep({ title: "GUIDE QIYANA S12 - COMMENT BIEN JOUER LE CHAMPION", length: "11:26" }) && keep({ title: "DANS LA TETE D'UN CHALLENGER - EPISODE 6", length: "28:45" }), "ancien guide écarté");
   assert(![["TIERLIST MID PATCH 26.11", "12:00"], ["LA LÉTALITÉ COMMENT CA MARCHE ?", "0:55"], ["SOS Élo Hell (+inscription) - Fin des guides", "14:41"]].some(([title, length]) => keep({ title, length })), "tier list, extrait court ou annonce gardés");

@@ -29,6 +29,9 @@ const SCHEMA = {
   },
 };
 
+const TEACHING = /guide|tuto|coaching|case study|vod review|how to|comment (jouer|carry|monter)|dans la t[eê]te d'un|fundamentals|explained|breakdown|masterclass/i;
+export const isTeaching = c => Boolean(c.backfill || c.sourceId?.startsWith("riot-") || (TEACHING.test(c.title || "") && !(c.triage?.entertainment || []).length));
+
 export async function run() {
   const [config, contents, state] = await Promise.all([readJson(P.config), readJson(P.contents), readJson(P.state, {})]);
   const V = config.video;
@@ -55,9 +58,12 @@ export async function run() {
       // Durée estimée avant lecture (gratuit) : les directs de plusieurs heures sont écartés
       const tokens = await countTokens(V.models[0], parts).catch(() => null);
       const estSec = tokens ? Math.round(tokens / V.tokensPerSecond) : null;
-      if (estSec && estSec > V.maxMinutes * 60) { Object.assign(c, { videoSkipped: `environ ${Math.round(estSec / 60)} min : au-delà de ${V.maxMinutes} min (direct ou vidéo longue)` }); c.videoAttempts = V.maxAttempts; log.push(`· ${c.id} : ignorée (${c.videoSkipped})`); continue; }
+      // Une vidéo pédagogique longue (guide, coaching, page officielle, ancien guide ciblé) est lue jusqu'à maxMinutesLong ; le reste (directs, discussions) s'arrête à maxMinutes
+      const limit = isTeaching(c) ? V.maxMinutesLong || V.maxMinutes : V.maxMinutes;
+      if (estSec && estSec > limit * 60) { Object.assign(c, { videoSkipped: `environ ${Math.round(estSec / 60)} min : au-delà de ${limit} min (${limit > V.maxMinutes ? "vidéo pédagogique trop longue" : "direct ou vidéo longue"})` }); c.videoAttempts = V.maxAttempts; log.push(`· ${c.id} : ignorée (${c.videoSkipped})`); continue; }
+      delete c.videoSkipped;
       if (estSec && seconds + estSec > V.maxHoursPerDay * 3600) { log.push(`· Quota du jour atteint (${(seconds / 3600).toFixed(1)} h lues).`); break; }
-      const res = await gemini({ models: V.models, system: SYSTEM, schema: SCHEMA, parts: [...parts, { text: `Vidéo : « ${c.title} » (${c.author}, publiée le ${c.published}). Produis la transcription horodatée et les observations visuelles.` }] });
+      const res = await gemini({ models: V.models, system: SYSTEM, schema: SCHEMA, maxOutputTokens: estSec > V.maxMinutes * 60 ? 64000 : 32000, parts: [...parts, { text: `Vidéo : « ${c.title} » (${c.author}, publiée le ${c.published}). Produis la transcription horodatée et les observations visuelles.` }] });
       const v = res.json;
       const text = [
         `# ${c.title} — lu par ${res.model} le ${today()} (images échantillonnées à ${V.fps} par seconde)`,

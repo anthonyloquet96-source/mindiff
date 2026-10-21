@@ -43,7 +43,7 @@ const C2_KIND_TIP = {
   "combat-sans-toi": "Garde un œil sur la mini-carte : quand ton équipe se bat près de toi, la rejoindre change le rapport de force ; sinon, signale de ne pas engager.",
   "temps-mort": "Moins de morts, c'est plus de temps pour farmer et peser sur les objectifs : commence par les morts d'avant 14 min, les plus coûteuses.",
 };
-const c2TipOf = f => C2_KIND_TIP[f.kind] || C2_LEARN[f.metric]?.tip || "";
+const c2TipOf = f => C2_KIND_TIP[f.kind] || C2_PLAIN[f.metric]?.steps(C2.profile ? c2Role(C2.profile) : null)?.[0] || C2_LEARN[f.metric]?.tip || "";
 
 // ---------- Champions (noms français, images Data Dragon)
 let c2Champs = null;
@@ -140,21 +140,68 @@ function c2OtherChamp(title, mine) {
   const t = ` ${String(title).toLowerCase().replace(/[^a-zà-ÿ0-9' ]+/g, " ")} `;
   return c2ChampList().some(c => c.name.length > 3 && c.id !== mine && t.includes(` ${c.name.toLowerCase()} `));
 }
-function c2Lessons(metric, role, champ = null) {
+// ---------- Langage clair : chaque indicateur expliqué comme à un joueur qui débute, avec des actions concrètes
+const C2_GOOD = { top: "les bons toplaners", jungle: "les bons junglers", mid: "les bons midlaners", bottom: "les bons ADC", support: "les bons supports" };
+const C2_PLAIN = {
+  cs10: {
+    goal: "Mieux farmer en début de partie", name: "Farm en début de partie",
+    say: v => `${c2n(v)} sbires à 10 min`,
+    what: role => role === "jungle"
+      ? "En jungle, le farm, ce sont les camps de monstres que tu tues. Plus tu en fais, plus vite tu gagnes de l'or et des niveaux."
+      : "Les sbires sont les petits soldats qui avancent dans les voies. Donner le dernier coup à un sbire rapporte de l'or : c'est ta première source d'or pour acheter tes objets.",
+    steps: role => role === "jungle"
+      ? ["Enchaîne tes camps sans temps mort : chaque camp tué, c'est de l'or et de l'expérience.", "Entre deux attaques sur une voie, reviens prendre tes camps.", "Garde le même ordre de camps à chaque partie pour gagner en rythme."]
+      : ["Ne frappe un sbire que lorsqu'il est presque mort : seul le dernier coup donne l'or.", "Avant de rentrer à la base, tue d'abord les sbires adverses pour perdre le moins de farm possible.", "Entraîne-toi 5 minutes en mode Entraînement : vise 70 sbires à 10 minutes."],
+  },
+  csMin: {
+    goal: "Farmer davantage sur toute la partie", name: "Farm",
+    say: v => `${c2n(Math.round(v * 10) / 10)} sbires par minute`,
+    what: () => "Le nombre de sbires et de monstres que tu achèves par minute, du début à la fin. Plus de farm, c'est plus d'or, donc de meilleurs objets.",
+    steps: () => ["Après la phase de ligne (vers 14 min), continue à prendre les vagues de sbires proches de toi entre deux combats.", "Quand il ne se passe rien, va chercher une vague sur une voie de côté plutôt que d'attendre.", "Ne laisse jamais une vague mourir sous ta tourelle sans la prendre."],
+  },
+  deaths30: {
+    goal: "Mourir moins", name: "Morts",
+    say: v => `${c2n(Math.round(v * 10) / 10)} morts par tranche de 30 min`,
+    what: () => "Chaque mort te fait attendre sans jouer, donne de l'or à l'adversaire et lui laisse le temps de prendre des objectifs.",
+    steps: () => ["Quand ton adversaire disparaît de la carte, recule : il arrive peut-être avec d'autres.", "Avant d'avancer seul, regarde la mini-carte et compte les adversaires visibles.", "Après chaque mort, demande-toi ce que tu ne voyais pas : c'est souvent la même erreur qui revient."],
+  },
+  visionMin: {
+    goal: "Mieux éclairer la carte", name: "Vision",
+    say: v => `${c2n(Math.round(v * 10) / 10)} de score de vision par minute`,
+    what: () => "Le score de vision compte ce que tu fais pour voir la carte : balises posées, balises adverses détruites. Voir l'adversaire venir évite des morts et aide à prendre les objectifs.",
+    steps: () => ["Pose ta balise gratuite (l'accessoire, touche 4) dès qu'elle est rechargée.", "Achète une balise de contrôle (75 pièces d'or) à chaque retour à la base.", "Place tes balises là où l'adversaire passe : rivière, entrées de jungle, et autour du dragon une minute avant qu'il apparaisse."],
+  },
+  controlWards: {
+    goal: "Poser des balises de contrôle", name: "Balises de contrôle",
+    say: v => `${c2n(v)} balise${v > 1 ? "s" : ""} de contrôle par partie`,
+    what: () => "La balise de contrôle (75 pièces d'or) révèle les balises adverses autour d'elle. C'est l'un des achats les plus rentables du jeu.",
+    steps: () => ["Achètes-en une à chaque retour à la base.", "Pose-la dans un buisson de la rivière ou près d'un objectif (dragon, Baron).", "Garde toujours une place libre pour elle dans ton inventaire."],
+  },
+  kp: {
+    goal: "Participer à plus de combats", name: "Participation aux combats",
+    say: v => `${c2n(Math.round(v))} % des éliminations de ton équipe`,
+    what: () => "La part des éliminations de ton équipe auxquelles tu participes. Être là quand ton équipe se bat change le rapport de force.",
+    steps: () => ["Après avoir poussé ta vague, regarde la mini-carte : si un combat se prépare près de toi, rejoins-le.", "Avant un dragon ou un Baron, rejoins ton équipe une minute avant.", "Évite de farmer seul à l'autre bout de la carte quand ton équipe est regroupée."],
+  },
+};
+// Vidéos pour aller plus loin : 2 au plus, langue indiquée, jamais le guide d'un autre champion
+const C2_LANG = { fr: "en français", en: "en anglais", es: "en espagnol", pt: "en portugais", de: "en allemand", ko: "en coréen", ja: "en japonais", pl: "en polonais", tr: "en turc" };
+function c2Videos(metric, role, champ = null) {
   const L = C2_LEARN[metric];
-  if (!L || !COACH) return { units: [], videos: [] };
-  const units = COACH.units.filter(u => ["exploitable", "provisoire"].includes(u.status) && u.usage !== "correction" && !u.id.startsWith("u-dd-") && u.themes.some(t => L.themes.includes(t)) && (u.roles.includes("all") || u.roles.includes(role))).slice(0, 2);
+  if (!L || !COACH) return [];
   const roleOk = s => { const src = COACH.sources.find(x => x.id === s); return !src || src.roles.includes("all") || src.roles.includes(role); };
-  const videos = COACH.contents.filter(c => c.type === "video" && L.re.test(c.title) && !(c.triage?.entertainment || []).length && roleOk(c.sourceId) && !c2OtherChamp(c.title, champ))
-    .sort((a, b) => (b.analysis === "analysee") - (a.analysis === "analysee") || (b.triage?.score || 0) - (a.triage?.score || 0)).slice(0, 3);
-  return { units, videos };
+  const ROLE_RE = { top: /\btop(lane|laner)?\b/i, jungle: /jungl|\bjg\b/i, mid: /\bmid(lane|laner)?\b/i, bottom: /\badc\b|\bbot ?lane\b|marksman/i, support: /support|\bsupp?\b/i };
+  const otherRole = t => Object.entries(ROLE_RE).some(([r, re]) => r !== role && re.test(t)) && !(ROLE_RE[role]?.test(t));
+  return COACH.contents.filter(c => c.type === "video" && L.re.test(c.title) && !(c.triage?.entertainment || []).length && roleOk(c.sourceId) && !c2OtherChamp(c.title, champ) && !(role && otherRole(c.title)))
+    .sort((a, b) => (b.lang === "fr") - (a.lang === "fr") || (b.analysis === "analysee") - (a.analysis === "analysee") || (b.triage?.score || 0) - (a.triage?.score || 0)).slice(0, 2);
 }
-function c2LessonsHtml(metric, role, champ = null) {
-  const { units, videos } = c2Lessons(metric, role, champ);
+// « Comment progresser » : des actions concrètes, puis une ou deux vidéos (sans détail de provenance : il reste dans la page de contrôle)
+function c2LessonsHtml(metric, role, champ = null, steps = true) {
+  const P = steps ? C2_PLAIN[metric] : null;
+  const vids = c2Videos(metric, role, champ);
   return `<div class="c2-lessons">
-    ${units.map(u => `<div class="c2-lesson"><p>${esc(u.claim)}</p>${typeof unitDetails === "function" ? unitDetails(u, [], "Source et limites") : ""}</div>`).join("")}
-    ${videos.length ? `<p class="label">À regarder</p><ul class="c2-videos">${videos.map(c => `<li><a href="${esc(c.url)}" target="_blank" rel="noopener">${icon("play")}<span><b>${esc(c.title)}</b><span class="fine">${esc(c.author)}${c.published ? ` · ${esc(c.published.slice(0, 4))}` : ""}${c.analysis === "analysee" ? " · analysée par le coach" : " · pas encore analysée par le coach"}</span></span></a></li>`).join("")}</ul>` : ""}
-    ${!units.length && !videos.length ? `<p class="fine">Le coach n'a pas encore de contenu vérifié sur ce point.</p>` : ""}
+    ${P ? `<ol class="c2-howto">${P.steps(role).map(x => `<li>${esc(x)}</li>`).join("")}</ol>` : ""}
+    ${vids.length ? `<p class="label">Pour aller plus loin</p><ul class="c2-videos">${vids.map(c => `<li><a href="${esc(c.url)}" target="_blank" rel="noopener">${icon("play")}<span><b>${esc(c.title)}</b><span class="fine">Vidéo ${C2_LANG[c.lang] || ""} · ${esc(c.author)}</span></span></a></li>`).join("")}</ul>` : ""}
   </div>`;
 }
 
@@ -288,37 +335,43 @@ function c2Spark(g) {
   const y = v => (hi === lo ? 50 : 8 + ((v - lo) / (hi - lo)) * 84);
   const x = i => (list.length === 1 ? 50 : 4 + (i / (list.length - 1)) * 92);
   return `<div class="c2-spark" role="img" aria-label="${esc(g.t.label)} sur tes ${list.length} dernières parties : ${list.filter(v => v.ok).length} au niveau de l'objectif">
-    <span class="c2-sp-target" style="bottom:${y(g.target).toFixed(1)}%"><i>objectif ${c2n(g.target)}</i></span>
+    <span class="c2-sp-target" style="bottom:${y(g.target).toFixed(1)}%"><i>objectif ${c2n(Math.round(g.target * 10) / 10)}</i></span>
     <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="${list.map((p, i) => `${x(i).toFixed(1)},${(100 - y(p.v)).toFixed(1)}`).join(" ")}" vector-effect="non-scaling-stroke"/></svg>
     ${list.map((p, i) => `<a class="c2-sp-dot ${p.ok ? "ok" : ""}" href="${c2Href("partie", p.id)}" style="left:${x(i).toFixed(1)}%;bottom:${y(p.v).toFixed(1)}%" title="${esc(c2Name(p.champion))} : ${c2n(p.v)}${esc(g.t.unit)}"></a>`).join("")}
   </div>`;
 }
 function c2Goal(p) {
-  if (!p.benchmark) return `<p class="note">${icon("info")}<span>Référence Diamant+ indisponible : l'objectif ne peut pas être calculé.</span></p>`;
+  if (!p.benchmark) return `<p class="note">${icon("info")}<span>Référence indisponible : l'objectif ne peut pas être calculé pour l'instant.</span></p>`;
   const role = c2Role(p);
   const g = c2GoalState(p, role);
   const roleName = esc(C2_ROLE[role] || "—");
-  const picker = all => { const list = all.filter(t => t.p50 > 0 || t.better === "low"); return list.length ? `<details class="more c2-pick"><summary>Choisir un objectif</summary><div class="c2-pick-list">${list.map(t => `<button class="pill-btn" data-action="c2-goal-pick" data-role="${esc(role)}" data-metric="${esc(t.metric)}">${esc(t.label)}</button>`).join("")}</div></details>` : ""; };
-  if (!g) return `<section class="c2-card c2-goal ok"><p class="label">Ton objectif</p><p class="fine">Pas assez de parties en ${roleName} pour fixer un objectif (3 au minimum).</p></section>`;
-  if (g.none) return `<section class="c2-card c2-goal ok"><p class="label">Ton objectif · ${roleName}</p><h2 class="c2-goal-title">Rien de net à corriger</h2><p class="fine">Sur tes dernières parties en ${roleName}, aucun indicateur n'est sous la référence Diamant+ plus d'une partie sur deux. Tu peux viser plus haut : la médiane Diamant+ sur un point de ton choix.</p>${picker(g.R.tally)}</section>`;
-  const { t, st } = g;
-  const sign = t.better === "high" ? "au moins" : "au plus";
+  const good = C2_GOOD[role] || "les bons joueurs";
+  const P = m => C2_PLAIN[m] || { goal: m, name: m, say: v => c2n(v), what: () => "", steps: () => [] };
+  const picker = all => { const list = all.filter(t => t.p50 > 0 || t.better === "low"); return list.length ? `<details class="more c2-pick"><summary>Choisir un point à améliorer</summary><div class="c2-pick-list">${list.map(t => `<button class="pill-btn" data-action="c2-goal-pick" data-role="${esc(role)}" data-metric="${esc(t.metric)}">${esc(P(t.metric).goal)}</button>`).join("")}</div></details>` : ""; };
+  if (!g) return `<section class="c2-card c2-goal ok"><p class="label">Ton objectif</p><p class="fine">Joue au moins 3 parties en ${roleName} pour que le coach te propose un objectif.</p></section>`;
+  if (g.none) return `<section class="c2-card c2-goal ok"><p class="label">Ton objectif · ${roleName}</p><h2 class="c2-goal-title">Rien d'urgent à corriger</h2><p class="fine">Sur tes dernières parties en ${roleName}, tu es au niveau sur tous les points mesurés. Tu peux choisir un point pour viser encore plus haut.</p>${picker(g.R.tally)}</section>`;
+  const { t, st } = g, M = P(t.metric);
   const head = g.reached
-    ? `<p class="label">${icon("check")}Objectif atteint · ${roleName}</p><h2 class="c2-goal-title">${esc(t.label)} : ${g.okN} parties réussies sur les 5 dernières</h2>`
-    : `<p class="label">Ton objectif · ${roleName}${st.level === 2 ? " · palier 2" : ""}</p><h2 class="c2-goal-title">${esc(t.label)} : viser ${sign} ${c2n(g.target)}${esc(t.unit)}</h2>`;
-  const trend = g.before != null && g.now != null ? `<span class="c2-trend ${(t.better === "high" ? g.now > g.before : g.now < g.before) ? "up" : g.now === g.before ? "" : "down"}">${c2n(g.before)} → ${c2n(g.now)}${esc(t.unit)}</span>` : "";
+    ? `<p class="label">${icon("check")}Objectif atteint · ${roleName}</p><h2 class="c2-goal-title">${esc(M.goal)}</h2><p class="fine">Réussi dans ${g.okN} de tes 5 dernières parties. Bravo !</p>`
+    : `<p class="label">Ton objectif · ${roleName}${st.level === 2 ? " · niveau 2" : ""}</p><h2 class="c2-goal-title">${esc(M.goal)}</h2><p class="fine">${esc(M.what(role))}</p>`;
+  const better = t.better === "high" ? g.now != null && g.before != null && g.now > g.before : g.now != null && g.before != null && g.now < g.before;
+  const numbers = `<div class="c2-goalnums">
+      <div><span class="fine">Toi en ce moment</span><b>${g.now != null ? esc(M.say(g.now)) : "—"}</b>${g.before != null ? `<span class="fine ${better ? "up" : ""}">${better ? "en progrès, " : ""}avant : ${esc(M.say(g.before))}</span>` : ""}</div>
+      <div><span class="fine">Ta cible</span><b>${t.better === "high" ? "au moins" : "au plus"} ${esc(M.say(g.target))}</b></div>
+      <div><span class="fine">${esc(good[0].toUpperCase() + good.slice(1))} (Diamant et plus)</span><b>${esc(M.say(t.p50))}</b></div>
+    </div>`;
   const after = g.reached ? `<div class="c2-goalbtns">
-      ${st.level !== 2 && g.target !== t.p50 ? `<button class="btn primary" data-action="c2-goal-up" data-role="${esc(role)}">Monter la barre : ${sign} ${c2n(t.p50)}${esc(t.unit)} (médiane Diamant+)</button>` : ""}
-      ${g.next ? `<button class="btn ${st.level === 2 ? "primary" : "ghost"}" data-action="c2-goal-next" data-role="${esc(role)}" data-metric="${esc(g.next.metric)}">Objectif suivant : ${esc(g.next.label)}</button>` : ""}
+      ${st.level !== 2 && g.target !== t.p50 ? `<button class="btn primary" data-action="c2-goal-up" data-role="${esc(role)}">Viser le niveau des bons joueurs : ${esc(M.say(t.p50))}</button>` : ""}
+      ${g.next ? `<button class="btn ${st.level === 2 ? "primary" : "ghost"}" data-action="c2-goal-next" data-role="${esc(role)}" data-metric="${esc(g.next.metric)}">Objectif suivant : ${esc(P(g.next.metric).goal.toLowerCase())}</button>` : ""}
     </div>` : "";
   return `<section class="c2-card c2-goal ${g.reached ? "ok" : ""}">
     ${head}
-    <p class="fine">${g.now != null ? `Sur tes 5 dernières : <b>${c2n(g.now)}${esc(t.unit)}</b> en valeur médiane${trend ? `, contre ${c2n(g.before)} avant` : ""}. ` : ""}Joueurs Diamant+ ${roleName} : médiane ${c2n(t.p50)}${esc(t.unit)} (${t.n} joueurs).</p>
+    ${numbers}
     ${c2Spark(g)}
-    <div class="c2-dots" aria-label="${g.okN} partie${g.okN > 1 ? "s" : ""} réussie${g.okN > 1 ? "s" : ""} sur les ${g.last5.length} dernières">${g.last5.map(s => `<a href="${c2Href("partie", s.id)}" class="c2-dot ${s.ok ? "ok" : ""}" title="${esc(c2Name(s.champion))} : ${c2n(s.v)}${esc(t.unit)}"></a>`).join("")}<span class="fine">${g.okN}/${g.last5.length} réussies${g.streak >= 2 ? ` · série de ${g.streak}` : ""}${trend ? ` · ${trend}` : ""}</span></div>
+    <div class="c2-dots" aria-label="${g.okN} partie${g.okN > 1 ? "s" : ""} réussie${g.okN > 1 ? "s" : ""} sur les ${g.last5.length} dernières">${g.last5.map(s => `<a href="${c2Href("partie", s.id)}" class="c2-dot ${s.ok ? "ok" : ""}" title="${esc(c2Name(s.champion))} : ${esc(M.say(s.v))}"></a>`).join("")}<span class="fine">${g.okN} partie${g.okN > 1 ? "s" : ""} réussie${g.okN > 1 ? "s" : ""} sur les ${g.last5.length} dernières${g.streak >= 2 ? ` · ${g.streak} d'affilée` : ""}</span></div>
     ${after}
-    ${g.reached ? "" : `<details class="more"><summary>Comment progresser</summary><p>${esc(C2_LEARN[t.metric]?.tip || "")}</p>${c2LessonsHtml(t.metric, role)}</details>`}
-    ${st.done.length ? `<p class="fine">Déjà atteint : ${st.done.map(m => esc(g.R.tally.find(x => x.metric === m)?.label || m)).join(", ")}.</p>` : ""}
+    ${g.reached ? "" : `<details class="more"><summary>Comment progresser</summary>${c2LessonsHtml(t.metric, role)}</details>`}
+    ${st.done.length ? `<p class="fine">Déjà atteint : ${st.done.map(m => esc(P(m).goal.toLowerCase())).join(", ")}.</p>` : ""}
   </section>`;
 }
 function c2MarkSeen(id) {
@@ -409,12 +462,12 @@ function c2Game(id) {
     </section>
     <div class="filters">${seg("c2-gview", [["resume", "Résumé"], ["carte", "Carte"], ["details", "Détails"]], view, "Vue")}</div>
     ${view === "carte" ? c2Tactics(r, id) : view === "details" ? `${c2Timeline(r)}
-      ${r.comparisons.length ? `<section class="sec"><div class="sec-head"><h2 class="sec-title">Face à la référence Diamant+</h2></div><div class="c2-card">${r.comparisons.map(c2Bar).join("")}<p class="fine">La zone claire couvre la moitié des joueurs Diamant+ ${esc(C2_ROLE[s.role] || "")} ; le trait marque leur médiane, le point ta partie.</p></div></section>` : ""}
+      ${r.comparisons.length ? `<section class="sec"><div class="sec-head"><h2 class="sec-title">Toi face aux bons joueurs</h2></div><div class="c2-card">${r.comparisons.map(c2Bar).join("")}<p class="fine">Le point, c'est toi sur cette partie. La zone claire montre où se situe la moitié des joueurs Diamant et plus à ton poste, et le trait leur niveau habituel. Vert : mieux qu'eux ; rouge : en dessous.</p></div></section>` : ""}
       ${c2BuildCmp(r)}
       ${c2GameDraft(r, id)}` : `${c2Brief(r, id)}
       <section class="sec"><div class="sec-head"><h2 class="sec-title">Ce qui a pesé</h2></div>
         ${r.findings.length ? r.findings.map((f, i) => `<article class="c2-card c2-finding"><p class="label">Constat ${i + 1}</p><h3 class="c2-f-title">${esc(f.title)}</h3>${bullets(f.facts)}
-          ${f.metric || C2_KIND_TIP[f.kind] ? `<details class="more"><summary>Comment progresser</summary><p>${esc(c2TipOf(f))}</p>${f.metric ? c2LessonsHtml(f.metric, s.role, s.champion) : ""}</details>` : ""}</article>`).join("") : `<p class="inline-empty">Aucun écart net avec la référence Diamant+ sur cette partie.</p>`}
+          ${f.metric || C2_KIND_TIP[f.kind] ? `<details class="more"><summary>Comment progresser</summary>${C2_KIND_TIP[f.kind] || !f.metric ? `<p>${esc(c2TipOf(f))}</p>` : ""}${f.metric ? c2LessonsHtml(f.metric, s.role, s.champion, !C2_KIND_TIP[f.kind]) : ""}</details>` : ""}</article>`).join("") : `<p class="inline-empty">Aucun écart net avec la référence Diamant+ sur cette partie.</p>`}
       </section>
       ${r.tactics?.lessons?.length ? `<button class="c2-ready" data-action="c2-gview" data-id="carte">${icon("compass")}<span><b>${r.tactics.lessons.length} moment${r.tactics.lessons.length > 1 ? "s" : ""} clé${r.tactics.lessons.length > 1 ? "s" : ""} sur la carte</b><span class="fine">Ce qui s'est passé et ce qui aurait été mieux</span></span>${icon("chevron")}</button>` : ""}`}
     <p class="fine c2-foot">${esc(r.note)}${r.benchmark ? ` Référence : ${r.benchmark.games} parties ${esc(r.benchmark.level)}, patch ${esc(r.benchmark.patch)}.` : ""}</p>`;
@@ -437,7 +490,7 @@ function c2Brief(r, id) {
   const v = g?.t ? s.metrics?.[g.t.metric] : null;
   if (v != null) {
     const ok = g.t.better === "high" ? v >= g.target : v <= g.target;
-    rows.push([ok ? "up" : "down", "Ton objectif", `${esc(g.t.label)} : ${c2n(v)}${esc(g.t.unit)} pour ${g.t.better === "high" ? "au moins" : "au plus"} ${c2n(g.target)}, ${ok ? "réussi" : "manqué"}`]);
+    rows.push([ok ? "up" : "down", "Ton objectif", `${esc((C2_PLAIN[g.t.metric]?.goal || g.t.label))} : ${ok ? "réussi" : "pas encore"} (${esc(C2_PLAIN[g.t.metric] ? C2_PLAIN[g.t.metric].say(v) : c2n(v))}, cible ${esc(C2_PLAIN[g.t.metric] ? C2_PLAIN[g.t.metric].say(g.target) : c2n(g.target))})`]);
   }
   if (!rows.length) return "";
   return `<section class="c2-card c2-brief"><p class="label">En bref</p><ul>${rows.map(([k, t, x]) => `<li class="${k}"><b>${t}</b><span>${x}</span></li>`).join("")}</ul></section>`;
@@ -534,7 +587,7 @@ document.addEventListener("click", e => {
 function c2Bar(c) {
   const lo = Math.min(c.value, c.p25) * 0.85, hi = Math.max(c.value, c.p75) * 1.1 || 1;
   const x = v => Math.max(0, Math.min(100, ((v - lo) / (hi - lo || 1)) * 100));
-  return `<div class="c2-bar ${c.level}"><div class="c2-bar-head"><span>${esc(c.label)}</span><b>${c2n(c.value)}</b></div>
+  return `<div class="c2-bar ${c.level}"><div class="c2-bar-head"><span>${esc(C2_PLAIN[c.metric]?.name || c.label)}</span><b>${esc(C2_PLAIN[c.metric] ? C2_PLAIN[c.metric].say(c.value) : c2n(c.value))}</b></div>
     <div class="c2-bar-track"><span class="c2-bar-band" style="left:${x(c.p25)}%;width:${x(c.p75) - x(c.p25)}%"></span><span class="c2-bar-med" style="left:${x(c.p50)}%"></span><span class="c2-bar-me" style="left:${x(c.value)}%"></span></div></div>`;
 }
 
@@ -770,7 +823,7 @@ function c2Report() {
     : view === "champions" ? `<ul class="c2-games">${d.champions.map(c => `<li><div class="c2-game ${c.wins * 2 >= c.games ? "win" : "loss"}">${c2Img(c.champion)}<span class="c2-g-main"><b>${esc(c2Name(c.champion))}</b><span class="fine">${c.games} partie${c.games > 1 ? "s" : ""} · ${c.wins} victoire${c.wins > 1 ? "s" : ""}</span></span><span class="c2-g-kda"><b>${c.k}/${c.d}/${c.a}</b><span class="fine">KDA ${c2n(c.kda)}</span></span><span></span></div></li>`).join("")}</ul>
       ${d.rivals?.length ? `<section class="sec">${secHead("Adversaires rencontrés plusieurs fois")}<div class="c2-chiprow">${d.rivals.map(o => `<span class="c2-cchip">${c2Img(o.opponent, "c2-av xs")}${esc(c2Name(o.opponent))} : ${o.wins}/${o.games}</span>`).join("")}</div></section>` : ""}`
     : (d.minus.length ? d.minus.map((m, i) => `<article class="c2-card c2-finding"><p class="label">Point ${i + 1}</p><h3 class="c2-f-title">${esc(m.title)}</h3><p class="fine">${esc(m.detail)}</p>${dots(m.games)}
-        <details class="more"><summary>Comment progresser</summary><p>${esc(c2TipOf(m))}</p>${m.metric ? c2LessonsHtml(m.metric, role, d.champions[0]?.champion) : ""}</details></article>`).join("") : `<p class="inline-empty">Aucun point faible qui revient dans plusieurs parties.</p>`);
+        <details class="more"><summary>Comment progresser</summary>${C2_KIND_TIP[m.kind] || !m.metric ? `<p>${esc(c2TipOf(m))}</p>` : ""}${m.metric ? c2LessonsHtml(m.metric, role, d.champions[0]?.champion, !C2_KIND_TIP[m.kind]) : ""}</details></article>`).join("") : `<p class="inline-empty">Aucun point faible qui revient dans plusieurs parties.</p>`);
   return `${pick}
     ${c2Synthesis(d, { role, champ })}
     <div class="filters">${seg("c2-bview", [["travailler", "À travailler", d.minus.length || null], ["forces", "Forces", d.plus.length || null], ["profil", "Profil"], ["champions", "Champions"]], view, "Vue")}</div>

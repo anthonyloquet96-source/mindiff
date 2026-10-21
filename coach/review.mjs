@@ -75,12 +75,12 @@ export function metricsOf(p, minutes) {
 }
 
 export const METRICS = {
-  cs10: { label: "Sbires à 10 min", unit: "", better: "high", roles: ["top", "jungle", "mid", "bottom"], themes: ["lane"], learn: /wave|vague|trading|farm|\bcs\b|last ?hit|clear|jungle path/i },
-  csMin: { label: "Sbires par minute", unit: "/min", better: "high", roles: ["top", "jungle", "mid", "bottom"], themes: ["lane"], learn: /wave|vague|farm|\bcs\b|tempo/i },
-  deaths30: { label: "Morts (pour 30 min)", unit: "", better: "low", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["survie", "methode"], learn: /mort|death|dying|survi|position|dans la t[eê]te|mistake|erreur/i },
-  visionMin: { label: "Score de vision par minute", unit: "/min", better: "high", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["methode"], learn: /vision|ward|balise|track/i },
-  controlWards: { label: "Balises de contrôle posées", unit: "", better: "high", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["methode"], learn: /vision|ward|balise|control/i },
-  kp: { label: "Participation aux éliminations", unit: " %", better: "high", roles: ["jungle", "mid", "support"], themes: ["teamfight"], learn: /roam|gank|tempo|teamfight|skirmish|escarmouche|jungle/i },
+  cs10: { label: "Sbires à 10 min", plain: "Farm en début de partie", say: v => `${fr(v)} sbires à 10 min`, unit: "", better: "high", roles: ["top", "jungle", "mid", "bottom"], themes: ["lane"], learn: /wave|vague|trading|farm|\bcs\b|last ?hit|clear|jungle path/i },
+  csMin: { label: "Sbires par minute", plain: "Farm", say: v => `${fr(Math.round(v * 10) / 10)} sbires par minute`, unit: "/min", better: "high", roles: ["top", "jungle", "mid", "bottom"], themes: ["lane"], learn: /wave|vague|farm|\bcs\b|tempo/i },
+  deaths30: { label: "Morts (pour 30 min)", plain: "Morts", say: v => `${fr(Math.round(v * 10) / 10)} morts par tranche de 30 min de jeu`, unit: "", better: "low", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["survie", "methode"], learn: /mort|death|dying|survi|position|dans la t[eê]te|mistake|erreur/i },
+  visionMin: { label: "Score de vision par minute", plain: "Vision", say: v => `score de vision de ${fr(Math.round(v * 10) / 10)} par minute`, unit: "/min", better: "high", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["methode"], learn: /vision|ward|balise|track/i },
+  controlWards: { label: "Balises de contrôle posées", plain: "Balises de contrôle", say: v => `${fr(v)} balise${v > 1 ? "s" : ""} de contrôle posée${v > 1 ? "s" : ""}`, unit: "", better: "high", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["methode"], learn: /vision|ward|balise|control/i },
+  kp: { label: "Participation aux éliminations", plain: "Participation aux combats", say: v => `${fr(Math.round(v))} % de participation aux éliminations de l'équipe`, unit: " %", better: "high", roles: ["jungle", "mid", "support"], themes: ["teamfight"], learn: /roam|gank|tempo|teamfight|skirmish|escarmouche|jungle/i },
 };
 
 // Position d'une valeur par rapport aux joueurs Diamant+ du même rôle (quartiles)
@@ -172,7 +172,7 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   if (lateObj.length) findings.push({ kind: "mort-avant-objectif", weight: 3 + lateObj.length, title: `${lateObj.length} mort${lateObj.length > 1 ? "s" : ""} juste avant un objectif adverse`, facts: lateObj.map(d => `${d.at} : tué par ${d.killer}, puis ${d.beforeObjective}`), metric: "deaths30" });
   const earlyDeaths = deaths.filter(d => d.t < 14 * 60000);
   if (earlyDeaths.length >= 2) findings.push({ kind: "morts-phase-de-ligne", weight: 1 + earlyDeaths.length, title: `${earlyDeaths.length} morts avant 14 min`, facts: earlyDeaths.map(d => `${d.at} : tué par ${d.killer}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}${d.enemyHalf ? ", dans la moitié adverse" : ""}`), metric: "deaths30" });
-  for (const c of comparisons.filter(c => c.level === "sous")) findings.push({ kind: `ecart-${c.metric}`, weight: 1 + c.gap, title: `${c.label} : ${fr(c.value)}${METRICS[c.metric].unit}, moins bien que 75 % des joueurs Diamant+ ${s.role === "bottom" ? "ADC" : s.role}`, facts: [`Diamant+ du même rôle : médiane ${fr(c.p50)}${METRICS[c.metric].unit} (la moitié des joueurs entre ${fr(c.p25)} et ${fr(c.p75)}), ${c.n} joueurs.`], metric: c.metric });
+  for (const c of comparisons.filter(c => c.level === "sous")) findings.push({ kind: `ecart-${c.metric}`, weight: 1 + c.gap, title: `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}`, facts: [`3 joueurs Diamant et plus sur 4 font mieux à ton poste (en général : ${METRICS[c.metric].say(c.p50)}).`], metric: c.metric });
   // Retard net en phase de ligne (environ une élimination et deux vagues) ou plaques perdues
   const a10 = lane.at10;
   if (a10 && a10.gold <= -1000) {
@@ -182,7 +182,7 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   const bigBank = bases.filter(b => !b.afterDeath && b.goldBefore >= 2500);
   if (bigBank.length) findings.push({ kind: "or-non-depense", weight: 1.5, title: `Retour${bigBank.length > 1 ? "s" : ""} tardif${bigBank.length > 1 ? "s" : ""} avec beaucoup d'or`, facts: bigBank.map(b => `Vers ${b.at} : environ ${b.goldBefore} pièces d'or en poche à la minute précédente.`), metric: null });
   findings.sort((a, b) => b.weight - a.weight);
-  const strengths = comparisons.filter(c => c.level === "au-dessus" && c.p50 > 0).map(c => `${c.label} : ${fr(c.value)}${METRICS[c.metric].unit} (médiane Diamant+ ${fr(c.p50)})`);
+  const strengths = comparisons.filter(c => c.level === "au-dessus" && c.p50 > 0).map(c => `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, mieux que 3 joueurs Diamant et plus sur 4`);
   if (a10 && a10.gold >= 1000) strengths.unshift(`Phase de ligne : ${fr(a10.gold)} pièces d'or d'avance sur ${lane.opponent} à 10 min`);
   if (lane.platesTaken >= 3) strengths.push(`${lane.platesTaken} plaques de tourelle prises sur ta voie`);
 
@@ -401,8 +401,8 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
     if (list.length < 3) continue;
     const sous = list.filter(c => c.level === "sous").length, top = list.filter(c => c.level === "au-dessus").length;
     const vals = list.map(c => c.value).sort((a, b) => a - b), med = vals[Math.floor(vals.length / 2)];
-    if (sous / list.length >= 0.5) minus.push({ kind: `ecart-${k}`, metric: k, weight: 1 + sous, title: `${METRICS[k].label} : moins bien que 75 % des Diamant+ dans ${sous} parties sur ${list.length}`, detail: `Ta valeur médiane : ${fr(med)}${METRICS[k].unit} ; médiane Diamant+ : ${fr(list[0].p50)}${METRICS[k].unit}.` });
-    else if (top / list.length >= 0.5 && list[0].p50 > 0) plus.push({ kind: `fort-${k}`, title: `${METRICS[k].label} : mieux que 75 % des Diamant+ dans ${top} parties sur ${list.length}`, detail: `Ta valeur médiane : ${fr(med)}${METRICS[k].unit} ; médiane Diamant+ : ${fr(list[0].p50)}${METRICS[k].unit}.` });
+    if (sous / list.length >= 0.5) minus.push({ kind: `ecart-${k}`, metric: k, weight: 1 + sous, title: `${METRICS[k].plain} en dessous des bons joueurs dans ${sous} parties sur ${list.length}`, detail: `Toi, en général : ${METRICS[k].say(med)}. Les joueurs Diamant et plus à ton poste : ${METRICS[k].say(list[0].p50)}.` });
+    else if (top / list.length >= 0.5 && list[0].p50 > 0) plus.push({ kind: `fort-${k}`, title: `${METRICS[k].plain} au niveau des meilleurs dans ${top} parties sur ${list.length}`, detail: `Toi, en général : ${METRICS[k].say(med)}. Les joueurs Diamant et plus à ton poste : ${METRICS[k].say(list[0].p50)}.` });
   }
   // Habitudes tactiques sur l'ensemble des parties (relecture tactique de chaque partie)
   const T = reviews.map(r => r.tactics).filter(Boolean);

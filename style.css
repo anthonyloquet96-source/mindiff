@@ -871,3 +871,8 @@ button.c2-ready { width: 100%; text-align: left; font: inherit; color: inherit; 
 @media (max-width: 440px) { .c2-tabs .tab .ic { display: none; } }
 .c2-pick { display: block; }
 .c2-pick-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--s2); }
+.c2-goalnums { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--s2); }
+.c2-goalnums > div { display: flex; flex-direction: column; gap: 2px; padding: var(--s2) var(--s3); background: var(--surface-2); border-radius: var(--r-sm); }
+.c2-goalnums b { font-size: 15px; }
+.c2-goalnums .up { color: var(--ok); }
+.c2-howto { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; color: var(--text-2); }

@@ -2,6 +2,33 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-21, 19 h 30 — coach restructuré, plus simple (branche `coach-v2-suite`, à valider)
+- **Demande d'Anthony** : une organisation à l'image du reste de l'application ; aujourd'hui il y a trop d'informations partout, on s'y perd.
+- **4 onglets**, comme Compétitions :
+  - **Suivi** : profil sur une ligne, partie en cours, partie à relire, objectif, accès au bilan général, 3 dernières parties ;
+  - **Parties** : la liste, avec un filtre par rôle ;
+  - **Préparer** : draft ou face-à-face, en pastilles ;
+  - **Champions**.
+- **Bilan d'une partie** : 3 vues en pastilles.
+  - **Résumé** : en bref, constats, accès aux moments clés.
+  - **Carte** : relecture tactique.
+  - **Détails** : frise, référence Diamant+, build, composition.
+  
+  Chaque partie s'ouvre sur le Résumé.
+- **Bilan général** :
+  - sujet choisi en pastilles (rôle ou champion) ;
+  - synthèse courte : la priorité, comment la travailler, les priorités suivantes, les forces ;
+  - puis 4 vues : À travailler, Forces, Profil (indicateurs tactiques, adversaires à préparer, prochaine session), Champions.
+- **Allègement** :
+  - le choix d'un objectif est replié ;
+  - la grille d'outils en bas d'accueil est supprimée (remplacée par les onglets) ;
+  - les composants de l'application sont réutilisés (onglets, pastilles, titres de section).
+- **Hauteur des pages sur téléphone** : accueil d'environ 3 600 à 1 350 px, bilan d'une partie d'environ 6 500 à 1 860 px pour le Résumé.
+- **Vérifié**
+  - parcours complet à 360, 390 et 1280 px : 0 erreur, aucun débordement, les 4 onglets visibles à 360 px ;
+  - 32 tests réussis sur 33 (1 ignoré faute de cache) ;
+  - non-régression de l'application : 0 erreur.
+
 ## 2026-10-21, 18 h 30 — relecture tactique et synthèse du joueur (branche `coach-v2-suite`, à valider)
 - **Demande d'Anthony** : laisser la rediffusion de côté et partir des données publiques. Le coach doit analyser chacune des dernières parties, avec les interactions entre joueurs, puis tout condenser en un résumé du joueur pour le coacher.
 - **Moteur** (`coach/tactics.mjs`), sur la chronologie officielle Riot, sans IA :

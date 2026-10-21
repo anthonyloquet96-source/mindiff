@@ -8,6 +8,7 @@ import { evaluateAll, rulesLockStatus } from "./kb.mjs";
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ROOT } from "./lib.mjs";
+import { isTeaching } from "./video.mjs";
 
 const USABLE = ["exploitable", "provisoire", "contradictoire"];
 
@@ -52,7 +53,12 @@ export async function run() {
     if (rest.context?.queue === "tous" && rest.context?.rank === "tous") delete rest.context;
     return { ...rest, review: { human: u.review.human }, ...(flags.length ? { flags: flags.map(f => ({ code: f.code, why: f.why })) } : {}) };
   };
-  const contents = L.contents.contents.map(({ wpBase, wpId, attempts, lastError, ...c }) => c);
+  // Publiés : contenus lus ou cités par une unité, et vidéos pédagogiques en attente (suggestions « À regarder »).
+  // Les autres vidéos découvertes (flux des chaînes, file de lecture) restent dans le registre privé de la veille.
+  const cited = new Set(units.flatMap(u => (u.evidence || []).map(e => e.content)));
+  const contents = L.contents.contents
+    .filter(c => c.type !== "video" || c.analysis !== "non-analysee" || cited.has(c.id) || c.queueRank || isTeaching(c))
+    .map(({ wpBase, wpId, attempts, lastError, ...c }) => c);
   const out = {
     generatedAt: new Date().toISOString(),
     rules: { version: "v1", prompts: { extraction: "v1", critique: "v1", recommandation: "v1" }, locked: lock.ok },

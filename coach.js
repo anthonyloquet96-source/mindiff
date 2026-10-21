@@ -76,6 +76,8 @@ function coachTabs(cur) {
 
 function viewCoach() {
   const sub = route.rest[0] || "";
+  // Nouveau coach, en aperçu : #/lol/coach/beta
+  if (route.game === "lol" && sub === "beta" && typeof viewCoach2 === "function") return viewCoach2(route.rest.slice(1));
   if (route.game !== "lol") {
     const inner = viewStrats(sub === "strategies" ? route.rest.slice(1) : []);
     return `<header class="page-head"><h1 class="page-title" tabindex="-1">Coach</h1></header>${coachTabs("strategies")}

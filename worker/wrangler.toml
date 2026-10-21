@@ -1,0 +1,6 @@
+name = "mindiff-coach"
+main = "index.mjs"
+compatibility_date = "2026-10-01"
+
+# Offre gratuite : 100 000 requêtes par jour, aucune carte bancaire.
+# Secret à définir une fois : npx wrangler secret put RIOT_API_KEY

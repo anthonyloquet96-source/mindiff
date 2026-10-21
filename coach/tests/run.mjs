@@ -92,6 +92,33 @@ await t("Champions sans conseils officiels : pages officielles et contenus ancie
   assert(r.flags.some(f => f.code === "contenu-ancien") && r.status !== "exploitable" && !r.blocking, "article de 2019 accepté comme actuel");
   return "Plan du site Riot → articles « Champion Insights » et guides vidéo retenus, skins et musique écartés ; contenu de 2019 → provisoire (contenu-ancien).";
 });
+await t("Bilan de partie (données Riot) : faits exacts, comparaison Diamant+", "fixture", async () => {
+  const { review, compare, parseRiotId } = await import("../review.mjs");
+  const P = (id, team, pos, extra = {}) => ({ participantId: id, puuid: `p${id}`.padEnd(60, "x"), teamId: team, teamPosition: pos, championName: `C${id}`, championId: id, win: team === 100, kills: 2, deaths: 6, assists: 3, totalMinionsKilled: 150, neutralMinionsKilled: 10, gameEndedInEarlySurrender: false, challenges: { laneMinionsFirst10Minutes: 50, visionScorePerMinute: 0.4, killParticipation: 0.3, teamDamagePercentage: 0.2, controlWardsPlaced: 0 }, ...extra });
+  const parts = [P(1, 100, "MIDDLE"), P(2, 200, "MIDDLE"), P(3, 200, "JUNGLE")];
+  const match = { metadata: { matchId: "EUW1_1" }, info: { gameDuration: 1800, gameStartTimestamp: 0, queueId: 420, gameVersion: "16.20.1.1", participants: parts } };
+  const pf = (g1, g2) => ({ 1: { totalGold: g1, minionsKilled: 50, jungleMinionsKilled: 0, xp: 4000, currentGold: 2600 }, 2: { totalGold: g2, minionsKilled: 60, jungleMinionsKilled: 0, xp: 4200, currentGold: 300 } });
+  const frames = Array.from({ length: 31 }, (_, m) => ({ participantFrames: pf(500 * m, 520 * m), events: [] }));
+  frames[5].events.push({ type: "ITEM_PURCHASED", participantId: 1, itemId: 1001, timestamp: 300000 }, { type: "ITEM_PURCHASED", participantId: 1, itemId: 2055, timestamp: 305000 });
+  frames[12].events.push({ type: "CHAMPION_KILL", victimId: 1, killerId: 3, assistingParticipantIds: [2], timestamp: 720000, position: { x: 9000, y: 9000 } });
+  frames[12].events.push({ type: "ITEM_PURCHASED", participantId: 1, itemId: 1001, timestamp: 740000 });
+  frames[13].events.push({ type: "ELITE_MONSTER_KILL", monsterType: "DRAGON", killerId: 3, killerTeamId: 200, timestamp: 760000 });
+  frames[20].events.push({ type: "ITEM_PURCHASED", participantId: 1, itemId: 1001, timestamp: 1200000 });
+  const tl = { info: { participants: parts.map(p => ({ participantId: p.participantId, puuid: p.puuid })), frames } };
+  const riot = async url => (url.endsWith("/timeline") ? tl : match);
+  const fetchImpl = async url => ({ json: async () => (url.includes("versions") ? ["16.21.1"] : { data: { 1001: { name: "Bottes", gold: { total: 300 }, into: ["3006"], tags: ["Boots"] }, 2055: { name: "Balise de contrôle", gold: { total: 75 }, tags: [] } } }) });
+  const bench = { patch: "16.20", games: 100, roles: { mid: { cs10: { n: 200, p25: 70, p50: 79, p75: 85 }, deaths30: { n: 200, p25: 4.5, p50: 5.6, p75: 7 }, visionMin: { n: 200, p25: 0.6, p50: 0.73, p75: 0.9 } } } };
+  const r = await review(riot, { matchId: "EUW1_1", puuid: parts[0].puuid, region: "europe", benchmarks: bench, fetchImpl });
+  assert(r.deaths.length === 1 && r.deaths[0].killer === "C3" && r.deaths[0].beforeObjective === "Dragon adverse à 12:40", JSON.stringify(r.deaths));
+  assert(r.bases.length === 3 && r.bases[1].afterDeath && !r.bases[0].afterDeath && r.bases[0].items.join() === "Bottes,Balise de contrôle", JSON.stringify(r.bases));
+  assert(r.lane.opponent === "C2" && r.lane.at10.gold === -200 && r.lane.at10.cs === -10, JSON.stringify(r.lane));
+  assert(r.findings.length === 3 && r.findings[0].kind === "mort-avant-objectif" && r.findings.some(f => f.kind === "ecart-cs10"), r.findings.map(f => f.kind).join());
+  assert(r.bases[0].goldBefore === 2600, "or en poche avant le retour");
+  assert(!r.findings.some(f => f.kind === "ecart-deaths30"), "6 morts/30 min jugées sous la référence alors qu'elles sont dans la moyenne Diamant+");
+  assert(compare("cs10", 82, null) === null && compare("cs10", 82, { cs10: { n: 10, p25: 1, p50: 2, p75: 3 } }) === null, "comparaison sans référence suffisante");
+  assert(parseRiotId("Pseudo#EUW")?.tagLine === "EUW" && !parseRiotId("Pseudo"), "Riot ID");
+  return "Mort à 12:00 suivie d'un dragon adverse à 12:40 → signalée ; achats après la mort distingués d'un retour ; écarts à 10 min exacts ; référence Diamant+ exigée (30 joueurs au moins).";
+});
 await t("Tout le jeu : socle officiel pour chaque champion", "réel", () => {
   const dd = KB.units.filter(u => u.id.startsWith("u-dd-"));
   const champs = new Set(dd.flatMap(u => [...u.champions, u.matchup?.vs].filter(Boolean)));

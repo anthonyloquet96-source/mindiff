@@ -23,7 +23,7 @@ const TYPES = {
   ".json": "application/json; charset=utf-8", ".svg": "image/svg+xml", ".png": "image/png", ".webmanifest": "application/manifest+json",
 };
 // Seuls ces fichiers sont servis : jamais le collecteur, le cache, node_modules ou .env.
-const PUBLIC = [/^(index|admin)\.html$/, /^(app|coach|coach-select|admin)\.js$/, /^style\.css$/, /^manifest\.webmanifest$/, /^(icon|logo)\.svg$/, /^(icon-\d+|icon-maskable-512|apple-touch-icon)\.png$/, /^data\/[\w-]+\.(js|json)$/];
+const PUBLIC = [/^(index|admin)\.html$/, /^(app|coach|coach-select|coach2|admin)\.js$/, /^style\.css$/, /^manifest\.webmanifest$/, /^(icon|logo)\.svg$/, /^(icon-\d+|icon-maskable-512|apple-touch-icon)\.png$/, /^data\/[\w-]+\.(js|json)$/];
 
 let latest = null;
 let running = false;
@@ -87,6 +87,12 @@ const server = http.createServer(async (req, res) => {
     if (running) return send(res, 409, JSON.stringify({ error: "Collecte déjà en cours" }));
     collect("manuelle");
     return send(res, 202, JSON.stringify({ ok: true }));
+  }
+  if (path.startsWith("/api/coach/") && req.method === "GET") {
+    const { coachApi } = await import("../coach/coach-api.mjs");
+    const benchmarks = JSON.parse(await readFile(join(ROOT, "coach", "cache", "benchmarks.json"), "utf8").catch(() => "null"));
+    const r = await coachApi(path, url.searchParams, { key: process.env.RIOT_API_KEY?.trim(), benchmarks, visitor: req.socket.remoteAddress });
+    return send(res, r.status, JSON.stringify(r.body));
   }
   if (req.method !== "GET") return send(res, 405, "{}");
 

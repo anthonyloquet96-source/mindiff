@@ -2,6 +2,26 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-21, 11 h 30 — refonte du coach : aperçu `#/lol/coach/beta`
+
+Décisions d'Anthony : données Riot avec serveur gratuit et demande de clé de production ; pas d'IA en direct ; aperçu séparé avant de remplacer l'ancien coach.
+
+- **`coach/review.mjs`** (sans IA) : bilan d'une partie à partir de match-v5 et de sa chronologie. Il relève :
+  - les morts, avec le tueur, la moitié de carte et l'éventuel objectif adverse dans la minute qui suit ;
+  - les retours à la base, déduits des achats et distingués des achats après une mort ;
+  - les objectifs pris et perdus ;
+  - les écarts d'or, de sbires et d'expérience avec l'adversaire direct à 10 et 15 min ;
+  - au plus 3 constats, classés par importance.
+- **Profil** : rang, 10 dernières parties classées, rôle principal, et un objectif. C'est l'indicateur le plus souvent sous la référence Diamant+ du rôle, suivi partie par partie.
+- **Référence Diamant+** (`coach/benchmarks.mjs`) : quartiles par rôle sur 114 parties Challenger à Diamant IV (EUW, surtout 16.20), soit 228 joueurs par rôle. Elle reste dans le cache privé tant que la clé de production n'est pas obtenue.
+- **Interface** (`coach2.js`) : connexion par Riot ID, carte de profil, objectif avec pastilles de réussite, dernières parties, bilan (ligne de temps, constats, barres de comparaison), face-à-face, 173 fiches champions. Les leçons proposées viennent de la base vérifiée et des vidéos de coachs, en écartant les guides d'autres champions.
+- **API** : `coach/coach-api.mjs`, commune au serveur local (`/api/coach/*`) et au service en ligne (`worker/`, Cloudflare Workers, non déployé). La clé reste côté serveur ; limite de 30 demandes par visiteur toutes les 5 min.
+- **Contrôles** : test du bilan sur une partie fictive ; parcours complet vérifié dans le navigateur avec un compte Challenger et un compte Or, à 390 et 1280 px, sans erreur.
+- **Limites** :
+  - en ligne, la connexion des comptes attend le service et la clé de production ; le face-à-face et les fiches champions fonctionnent déjà ;
+  - les retours à la base sans achat n'apparaissent pas ;
+  - la référence Diamant+ ne couvre qu'EUW pour l'instant.
+
 ## Bilan de la nuit du 20 au 21/10/2026 (boucle locale, fin à 10 h 20)
 
 - **Couverture** :

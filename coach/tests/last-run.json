@@ -1,7 +1,7 @@
 {
- "at": "2026-10-21T08:39:36.322Z",
- "ok": 27,
- "total": 27,
+ "at": "2026-10-21T08:51:51.478Z",
+ "ok": 28,
+ "total": 28,
  "results": [
   {
    "name": "1. Source récente compatible avec le patch",
@@ -38,6 +38,12 @@
    "kind": "fixture",
    "ok": true,
    "detail": "Plan du site Riot → articles « Champion Insights » et guides vidéo retenus, skins et musique écartés ; contenu de 2019 → provisoire (contenu-ancien)."
+  },
+  {
+   "name": "Bilan de partie (données Riot) : faits exacts, comparaison Diamant+",
+   "kind": "fixture",
+   "ok": true,
+   "detail": "Mort à 12:00 suivie d'un dragon adverse à 12:40 → signalée ; achats après la mort distingués d'un retour ; écarts à 10 min exacts ; référence Diamant+ exigée (30 joueurs au moins)."
   },
   {
    "name": "Tout le jeu : socle officiel pour chaque champion",
@@ -79,7 +85,7 @@
    "name": "8b. Source en panne pendant la découverte",
    "kind": "réel (réseau coupé simulé)",
    "ok": true,
-   "detail": "15 sources en échec, 509 contenus conservés, nouvel essai planifié (2026-10-21T09:39)."
+   "detail": "15 sources en échec, 509 contenus conservés, nouvel essai planifié (2026-10-21T09:51)."
   },
   {
    "name": "9. Citation qui ne soutient pas le conseil",

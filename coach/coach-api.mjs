@@ -39,7 +39,7 @@ export async function coachApi(path, params, { key, benchmarks, champstats, visi
     if (path === "/api/coach/review") {
       const matchId = String(params.get("match") || ""), puuid = String(params.get("puuid") || "");
       if (!/^[A-Z0-9]+_\d+$/.test(matchId) || !/^[\w-]{40,90}$/.test(puuid)) return { status: 400, body: { error: "Partie ou joueur invalide." } };
-      return { status: 200, body: await review(riot, { matchId, puuid, region: PLATFORMS[platform][0], benchmarks }) };
+      return { status: 200, body: await review(riot, { matchId, puuid, region: PLATFORMS[platform][0], benchmarks, champstats }) };
     }
     return { status: 404, body: { error: "Introuvable" } };
   } catch (e) {

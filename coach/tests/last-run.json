@@ -1,7 +1,7 @@
 {
- "at": "2026-10-21T09:19:03.476Z",
- "ok": 29,
- "total": 29,
+ "at": "2026-10-21T11:41:25.591Z",
+ "ok": 30,
+ "total": 30,
  "results": [
   {
    "name": "1. Source récente compatible avec le patch",
@@ -44,6 +44,12 @@
    "kind": "fixture",
    "ok": true,
    "detail": "Mort à 12:00 suivie d'un dragon adverse à 12:40 → signalée ; achats après la mort distingués d'un retour ; écarts à 10 min exacts ; référence Diamant+ exigée (30 joueurs au moins)."
+  },
+  {
+   "name": "Bilan : retard en ligne, plaques, build face aux Diamant+ ; objectif par rôle",
+   "kind": "fixture",
+   "ok": true,
+   "detail": "1 200 or de retard à 10 min → constat ; plaques comptées avant 14 min et sur la bonne voie ; objets comparés aux Diamant+ du champion (Lame d'infini 60 %, rune clé 20 % contre Conquérant 80 %) ; objectif par rôle sans mélanger les rôles."
   },
   {
    "name": "Partie en cours : rôles estimés, fiches Diamant+ par champion",
@@ -91,7 +97,7 @@
    "name": "8b. Source en panne pendant la découverte",
    "kind": "réel (réseau coupé simulé)",
    "ok": true,
-   "detail": "15 sources en échec, 509 contenus conservés, nouvel essai planifié (2026-10-21T10:19)."
+   "detail": "15 sources en échec, 509 contenus conservés, nouvel essai planifié (2026-10-21T12:41)."
   },
   {
    "name": "9. Citation qui ne soutient pas le conseil",

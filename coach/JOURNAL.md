@@ -2,6 +2,22 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-21, 14 h — nouveau coach : progression, objectifs par rôle, bilan enrichi (branche `coach-v2-suite`, à valider)
+- **Progression** : chaque partie vue est gardée sur l'appareil (80 au plus). L'objectif ne change plus à chaque actualisation : il est suivi jusqu'à 4 parties réussies sur les 5 dernières, avec une courbe partie par partie, la série en cours et l'évolution (valeur médiane avant et sur les 5 dernières).
+- **Paliers** : palier 1, sortir du quart le plus faible des Diamant+ ; palier 2, atteindre leur médiane ; ensuite l'objectif suivant. Si rien n'est à corriger, le joueur choisit un point à travailler, avec la médiane Diamant+ comme cible. Les indicateurs dont la médiane Diamant+ vaut 0 ne sont pas proposés.
+- **Choix du rôle** : un objectif par rôle joué (3 parties au moins).
+- **Bilan de partie**
+  - Encart « En bref » : phase de ligne, point clé, point fort, temps passé mort, objectif réussi ou manqué.
+  - Deux nouveaux constats : retard de 1 000 or ou plus à 10 min, et 3 plaques ou plus perdues avant 14 min. Les événements de plaques existent aussi après 14 min dans les données Riot : seuls ceux d'avant 14 min sont comptés.
+  - Section « Ton build face aux Diamant+ » : la part de chaque objet et de la rune clé chez les Diamant+ du champion, et les objets très joués absents. Formulation neutre : un objet rare peut être un bon choix.
+- **Nouvelle partie** : encart « Ta dernière partie est prête » (moins de 3 jours), étiquette « Nouveau », rechargement automatique quand une partie suivie en direct se termine.
+- **Accueil de l'app** : la carte « Mon coach » remplace « Préparer ma session », seulement si le service est disponible et le compte connecté (donc rien ne change en ligne aujourd'hui).
+- **Pannes** : un message compréhensible et un bouton « Réessayer » quand la clé Riot est expirée ou que le service est indisponible.
+- **Vérifié**
+  - 29 tests réussis sur 30, 1 ignoré, dont un nouveau test (retard en ligne, plaques, build, objectif par rôle).
+  - Navigateur à 390 et 1280 px, comptes Challenger et Or : aucune erreur ni débordement.
+  - Non-régression de l'application : aucune erreur.
+
 ## 2026-10-21, 12 h 30 — partie en cours et fiches Diamant+
 
 - **Partie en cours** (`live`, spectator-v5) : quand le joueur est en partie, le coach affiche son champion contre son adversaire direct, l'objectif personnel rappelé, 3 conseils contre l'adversaire et les deux équipes. Riot ne donne pas les rôles en direct : ils sont estimés (fréquences Diamant+ par champion, Châtiment, répartition la plus probable des 5 rôles). Les rôles incertains sont signalés.

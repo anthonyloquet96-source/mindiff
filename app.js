@@ -292,6 +292,7 @@ const ICONS = {
   users: '<circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3 6"/>',
   list: '<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>',
   bracket: '<path d="M4 5h5v6H4M4 13h5v6H4M9 8h4v8h-4M13 12h7"/>',
+  check: '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
 };
 // Logo MINDIFF : un D et un 1 dont la silhouette commune forme un M (mêmes tracés que logo.svg)
 const BRAND_MARK = `<svg class="brand-mark" viewBox="8 8 50 48" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M12 51V13C22 13 30 26 32 51ZM19 46V24.5c4.6 4 7.1 10.5 8.1 21.5Z"/><path fill="var(--accent)" d="M32 51 47 13h7v38h-7V33.5L39 51Z"/></svg>`;

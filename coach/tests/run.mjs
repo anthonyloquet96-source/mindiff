@@ -119,6 +119,33 @@ await t("Bilan de partie (données Riot) : faits exacts, comparaison Diamant+", 
   assert(parseRiotId("Pseudo#EUW")?.tagLine === "EUW" && !parseRiotId("Pseudo"), "Riot ID");
   return "Mort à 12:00 suivie d'un dragon adverse à 12:40 → signalée ; achats après la mort distingués d'un retour ; écarts à 10 min exacts ; référence Diamant+ exigée (30 joueurs au moins).";
 });
+await t("Bilan : retard en ligne, plaques, build face aux Diamant+ ; objectif par rôle", "fixture", async () => {
+  const { review, goalFor } = await import("../review.mjs");
+  const P = (id, team, pos) => ({ participantId: id, puuid: `p${id}`.padEnd(60, "x"), teamId: team, teamPosition: pos, championName: `C${id}`, championId: id, win: false, kills: 0, deaths: 3, assists: 1, totalMinionsKilled: 150, neutralMinionsKilled: 0, totalTimeSpentDead: 120, item0: 3031, item1: 3006, item2: 6672, item3: 0, item4: 0, item5: 0, perks: { styles: [{ selections: [{ perk: 8008 }] }] }, challenges: { laneMinionsFirst10Minutes: 60 } });
+  const parts = [P(1, 100, "TOP"), P(2, 200, "TOP")];
+  const match = { metadata: { matchId: "EUW1_2" }, info: { gameDuration: 1500, gameStartTimestamp: 0, queueId: 420, gameVersion: "16.20.1", participants: parts } };
+  const frames = Array.from({ length: 26 }, (_, m) => ({ participantFrames: { 1: { totalGold: 400 * m, minionsKilled: 6 * m, jungleMinionsKilled: 0, xp: 300 * m, currentGold: 0 }, 2: { totalGold: 520 * m, minionsKilled: 8 * m, jungleMinionsKilled: 0, xp: 330 * m, currentGold: 0 } }, events: [] }));
+  // Plaques : 3 perdues avant 14 min sur la voie du haut, 1 après (ne compte pas), 1 sur une autre voie
+  for (const [t, team, lane] of [[300000, 100, "TOP_LANE"], [500000, 100, "TOP_LANE"], [700000, 100, "TOP_LANE"], [900000, 100, "TOP_LANE"], [400000, 100, "MID_LANE"], [600000, 200, "TOP_LANE"]]) frames[Math.floor(t / 60000)].events.push({ type: "TURRET_PLATE_DESTROYED", teamId: team, laneType: lane, timestamp: t });
+  frames[6].events.push({ type: "CHAMPION_KILL", victimId: 1, killerId: 2, assistingParticipantIds: [], timestamp: 360000, position: { x: 2000, y: 12000 } });
+  const tl = { info: { participants: parts.map(p => ({ participantId: p.participantId, puuid: p.puuid })), frames } };
+  const riot = async url => (url.endsWith("/timeline") ? tl : match);
+  const itemData = { 3031: { name: "Lame d'infini", gold: { total: 3450 }, tags: [] }, 6672: { name: "Tueur de krakens", gold: { total: 3000 }, tags: [] }, 3006: { name: "Grèves", gold: { total: 1100 }, tags: ["Boots"] }, 3153: { name: "Lame du roi déchu", gold: { total: 3200 }, tags: [] } };
+  const fetchImpl = async url => ({ json: async () => (url.includes("versions") ? ["16.21.1"] : url.includes("runesReforged") ? [{ id: 8000, name: "Précision", slots: [{ runes: [{ id: 8008, name: "Tempo mortel", icon: "a.png" }, { id: 8010, name: "Conquérant", icon: "b.png" }] }] }] : url.includes("summoner") ? { data: {} } : { data: itemData }) });
+  const champstats = { patch: "16.20", minGames: 30, champions: { 1: { games: 100, items: [{ id: "3153", games: 70 }, { id: "3031", games: 60 }, { id: "3006", games: 50 }], keystones: [{ id: "8010", games: 80 }, { id: "8008", games: 20 }] } } };
+  const r = await review(riot, { matchId: "EUW1_2", puuid: parts[0].puuid, region: "europe", benchmarks: null, champstats, fetchImpl });
+  assert(r.lane.platesLost === 3 && r.lane.platesTaken === 1, JSON.stringify(r.lane));
+  assert(r.findings[0]?.kind === "retard-en-ligne" && r.findings[0].title.startsWith("1200 pièces") && r.findings[0].facts.some(f => f.includes("1 mort contre C2")), JSON.stringify(r.findings[0]));
+  assert(r.summary.deadSeconds === 120, "temps passé mort");
+  const b = r.build;
+  assert(b && b.items.map(x => `${x.id}:${x.share}`).join() === "3031:60,6672:0" && b.keystone.share === 20 && b.keystone.top.name === "Conquérant" && b.missing.map(x => x.id).join() === "3153", JSON.stringify(b));
+  // Objectif par rôle : calculé seulement avec au moins une partie sur deux sous la référence
+  const g = (role, cs10) => ({ id: `G${cs10}`, role, metrics: { cs10, deaths30: 5 } });
+  const bench = { roles: { top: { cs10: { n: 100, p25: 60, p50: 70, p75: 80 }, deaths30: { n: 100, p25: 4, p50: 5, p75: 6 } } } };
+  const G = goalFor([g("top", 50), g("top", 55), g("top", 75), g("mid", 10)], "top", bench);
+  assert(G.games === 3 && G.goal?.metric === "cs10" && G.goal.target === 60 && G.goal.success.map(s => s.ok).join() === "false,false,true" && G.tally.find(t => t.metric === "deaths30").sous === 0, JSON.stringify(G));
+  return "1 200 or de retard à 10 min → constat ; plaques comptées avant 14 min et sur la bonne voie ; objets comparés aux Diamant+ du champion (Lame d'infini 60 %, rune clé 20 % contre Conquérant 80 %) ; objectif par rôle sans mélanger les rôles.";
+});
 await t("Partie en cours : rôles estimés, fiches Diamant+ par champion", "fixture", async () => {
   const { assignRoles } = await import("../review.mjs");
   const { compute } = await import("../benchmarks.mjs");

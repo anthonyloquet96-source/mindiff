@@ -244,6 +244,14 @@ function coachResources() {
 // ---------- Liens depuis le reste de l'application
 function coachHomeCard() {
   if (!COACH) return "";
+  // Nouveau coach (aperçu) : compte connecté et service disponible → objectif en cours et dernière partie
+  if (typeof C2 !== "undefined" && C2_API != null && C2.account && C2.profile) {
+    const P = C2.profile, g = c2GoalState(P, c2Role(P)), last = P.games[0];
+    const fresh = last && Array.isArray(C2.seen) && !C2.seen.includes(last.id);
+    const line = fresh ? `Nouvelle partie à relire : ${c2Name(last.champion)}, ${last.win ? "victoire" : "défaite"}`
+      : g?.t ? `${g.reached ? "Objectif atteint" : "Objectif"} : ${g.t.label} · ${g.okN}/${g.last5.length} réussies` : "Bilan de tes dernières parties";
+    return `<a class="cstrip ${fresh ? "hot" : ""}" href="${c2Href()}">${icon("target")}<span class="cstrip-txt"><b>Mon coach</b><span class="fine">${esc(line)}</span></span>${icon("chevron")}</a>`;
+  }
   const p = coach.profile;
   return `<a class="cstrip" href="${href("lol", "coach")}">${icon("target")}<span class="cstrip-txt"><b>Préparer ma session</b><span class="fine">${p ? esc([p.champions[0], CS.label(CS.ROLES, p.role), CS.label(CS.GOALS, p.goal)].filter(Boolean).join(" · ")) : "Un objectif et un plan pour votre prochaine session"}</span></span>${icon("chevron")}</a>`;
 }

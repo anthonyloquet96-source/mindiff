@@ -26,9 +26,10 @@ export function createRiot(key, { fetchImpl = fetch } = {}) {
   };
 }
 
-let itemsCache = null;
+let itemsCache = null, itemsFor = null; // cache par source (les tests injectent leur propre fetch)
 async function items(fetchImpl = fetch) {
-  if (itemsCache) return itemsCache;
+  if (itemsCache && itemsFor === fetchImpl) return itemsCache;
+  itemsFor = fetchImpl;
   const [v] = await fetchImpl(`${DD}/api/versions.json`).then(r => r.json());
   const j = await fetchImpl(`${DD}/cdn/${v}/data/fr_FR/item.json`).then(r => r.json());
   itemsCache = Object.fromEntries(Object.entries(j.data).map(([id, it]) => [id, { name: it.name, gold: it.gold.total, final: !it.into?.length && it.gold.total >= 2000, boots: it.tags?.includes("Boots") }]));
@@ -93,7 +94,7 @@ export function compare(metric, value, bench) {
 }
 
 // Bilan d'une partie : chronologie des morts, retours à la base, objectifs ; constats comparés au Diamant+
-export async function review(riot, { matchId, puuid, region, benchmarks, fetchImpl = fetch }) {
+export async function review(riot, { matchId, puuid, region, benchmarks, champstats = null, fetchImpl = fetch }) {
   const [match, timeline, itemDb] = await Promise.all([
     riot(`https://${region}.api.riotgames.com/lol/match/v5/matches/${matchId}`),
     riot(`https://${region}.api.riotgames.com/lol/match/v5/matches/${matchId}/timeline`),
@@ -154,6 +155,13 @@ export async function review(riot, { matchId, puuid, region, benchmarks, fetchIm
     return { min, gold: a.totalGold - b.totalGold, cs: cs(a) - cs(b), xp: a.xp - b.xp };
   };
   const lane = { opponent: oppId ? byId[oppId].championName : null, at10: diffAt(10), at15: diffAt(15) };
+  // Plaques de tourelle de sa voie (elles tombent à 14 min) : teamId = équipe propriétaire de la plaque
+  const LANE = { top: "TOP_LANE", mid: "MID_LANE", bottom: "BOT_LANE", support: "BOT_LANE" }[s.role];
+  const plates = events.filter(e => e.type === "TURRET_PLATE_DESTROYED" && LANE && e.laneType === LANE && e.timestamp < 14 * 60000);
+  lane.platesLost = LANE ? plates.filter(e => e.teamId === me.teamId).length : null;
+  lane.platesTaken = LANE ? plates.filter(e => e.teamId !== me.teamId).length : null;
+  const firstTower = LANE && events.find(e => e.type === "BUILDING_KILL" && e.buildingType === "TOWER_BUILDING" && e.laneType === LANE && e.teamId === me.teamId);
+  lane.towerLostAt = firstTower ? mmss(firstTower.timestamp) : null;
 
   // Constats : écarts nets avec le Diamant+ du même rôle, triés par importance
   const bench = benchmarks?.roles?.[s.role];
@@ -164,22 +172,51 @@ export async function review(riot, { matchId, puuid, region, benchmarks, fetchIm
   const earlyDeaths = deaths.filter(d => d.t < 14 * 60000);
   if (earlyDeaths.length >= 2) findings.push({ kind: "morts-phase-de-ligne", weight: 1 + earlyDeaths.length, title: `${earlyDeaths.length} morts avant 14 min`, facts: earlyDeaths.map(d => `${d.at} : tué par ${d.killer}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}${d.enemyHalf ? ", dans la moitié adverse" : ""}`), metric: "deaths30" });
   for (const c of comparisons.filter(c => c.level === "sous")) findings.push({ kind: `ecart-${c.metric}`, weight: 1 + c.gap, title: `${c.label} : ${fr(c.value)}${METRICS[c.metric].unit}, moins bien que 75 % des joueurs Diamant+ ${s.role === "bottom" ? "ADC" : s.role}`, facts: [`Diamant+ du même rôle : médiane ${fr(c.p50)}${METRICS[c.metric].unit} (la moitié des joueurs entre ${fr(c.p25)} et ${fr(c.p75)}), ${c.n} joueurs.`], metric: c.metric });
+  // Retard net en phase de ligne (environ une élimination et deux vagues) ou plaques perdues
+  const a10 = lane.at10;
+  if (a10 && a10.gold <= -1000) {
+    const byOpp = deaths.filter(d => d.t < 10 * 60000 && d.killer === lane.opponent).length;
+    findings.push({ kind: "retard-en-ligne", weight: 2 + Math.min(2, -a10.gold / 1000), title: `${fr(-a10.gold)} pièces d'or de retard sur ${lane.opponent} à 10 min`, facts: [`Sbires : ${a10.cs > 0 ? "+" : ""}${a10.cs} à 10 min.`, ...(byOpp ? [`${byOpp} mort${byOpp > 1 ? "s" : ""} contre ${lane.opponent} avant 10 min.`] : []), ...(lane.platesLost >= 2 ? [`${lane.platesLost} plaques de ta tourelle perdues avant 14 min.`] : [])], metric: a10.cs <= -10 ? "cs10" : "deaths30" });
+  } else if (lane.platesLost >= 3) findings.push({ kind: "plaques-perdues", weight: 1.5 + lane.platesLost / 5, title: `${lane.platesLost} plaques de ta tourelle perdues avant 14 min`, facts: [`Plaques prises chez l'adversaire : ${lane.platesTaken}.`, ...(lane.towerLostAt ? [`Première tourelle de ta voie perdue à ${lane.towerLostAt}.`] : [])], metric: "csMin" });
   const bigBank = bases.filter(b => !b.afterDeath && b.goldBefore >= 2500);
   if (bigBank.length) findings.push({ kind: "or-non-depense", weight: 1.5, title: `Retour${bigBank.length > 1 ? "s" : ""} tardif${bigBank.length > 1 ? "s" : ""} avec beaucoup d'or`, facts: bigBank.map(b => `Vers ${b.at} : environ ${b.goldBefore} pièces d'or en poche à la minute précédente.`), metric: null });
   findings.sort((a, b) => b.weight - a.weight);
   const strengths = comparisons.filter(c => c.level === "au-dessus" && c.p50 > 0).map(c => `${c.label} : ${fr(c.value)}${METRICS[c.metric].unit} (médiane Diamant+ ${fr(c.p50)})`);
+  if (a10 && a10.gold >= 1000) strengths.unshift(`Phase de ligne : ${fr(a10.gold)} pièces d'or d'avance sur ${lane.opponent} à 10 min`);
+  if (lane.platesTaken >= 3) strengths.push(`${lane.platesTaken} plaques de tourelle prises sur ta voie`);
 
   return {
-    summary: s, lane, deaths, bases, objectives, comparisons, findings: findings.slice(0, 3), strengths,
+    summary: { ...s, deadSeconds: me.totalTimeSpentDead ?? null }, lane, deaths, bases, objectives, comparisons, findings: findings.slice(0, 3), strengths,
+    build: await buildVsDiamond(me, champstats, itemDb, fetchImpl),
     duration: info.gameDuration, benchmark: bench ? { patch: benchmarks.patch, games: benchmarks.games, level: "Diamant et plus" } : null,
     note: "Faits tirés des données officielles de Riot. Les retours à la base sont déduits des achats (on n'achète qu'en base) ; un retour sans achat n'apparaît pas.",
   };
 }
 
+// Objets et rune clé du joueur, comparés à ce que jouent les Diamant+ sur le même champion (patch de référence)
+async function buildVsDiamond(me, champstats, itemDb, fetchImpl) {
+  const c = champstats?.champions?.[me.championId];
+  if (!c || c.games < (champstats.minGames || 30)) return null;
+  const nm = await ddNames(fetchImpl);
+  const share = (list, id) => Math.round(((list.find(x => String(x.id) === String(id))?.games || 0) / c.games) * 100);
+  const big = id => itemDb[id]?.gold >= 2000 && !itemDb[id]?.boots;
+  const mine = [me.item0, me.item1, me.item2, me.item3, me.item4, me.item5].map(String).filter(big);
+  const ks = me.perks?.styles?.[0]?.selections?.[0]?.perk;
+  const topKs = c.keystones[0];
+  return {
+    games: c.games, patch: champstats.patch, ddVersion: nm.v,
+    items: mine.map(id => ({ id, name: itemDb[id].name, share: share(c.items, id) })),
+    keystone: ks ? { name: nm.perk[ks]?.name || String(ks), icon: nm.perk[ks]?.icon, share: share(c.keystones, ks), top: topKs && String(topKs.id) !== String(ks) ? { name: nm.perk[topKs.id]?.name, icon: nm.perk[topKs.id]?.icon, share: Math.round((topKs.games / c.games) * 100) } : null } : null,
+    // Objets les plus joués par les Diamant+ absents de l'inventaire final (seulement si la partie a duré assez pour finir 3 objets)
+    missing: mine.length >= 2 ? c.items.filter(x => big(x.id)).slice(0, 3).filter(x => !mine.includes(String(x.id))).map(x => ({ id: x.id, name: itemDb[x.id].name, share: Math.round((x.games / c.games) * 100) })) : [],
+  };
+}
+
 // ---------- Fiche champion Diamant+ : objets, runes, sorts réellement joués (échantillon coach/benchmarks.mjs)
-let namesCache = null;
+let namesCache = null, namesFor = null;
 async function ddNames(fetchImpl = fetch) {
-  if (namesCache) return namesCache;
+  if (namesCache && namesFor === fetchImpl) return namesCache;
+  namesFor = fetchImpl;
   const [v] = await fetchImpl(`${DD}/api/versions.json`).then(r => r.json());
   const [runes, spells] = await Promise.all([`${DD}/cdn/${v}/data/fr_FR/runesReforged.json`, `${DD}/cdn/${v}/data/fr_FR/summoner.json`].map(u => fetchImpl(u).then(r => r.json())));
   const perk = {}, tree = {};
@@ -271,20 +308,28 @@ export async function profile(riot, { gameName, tagLine, platform, benchmarks, c
   const roles = count1(games.map(g => g.role));
   const mainRole = roles[0]?.[0] || null;
   // Objectif : l'indicateur le plus souvent sous le Diamant+ sur les parties du rôle principal
-  const bench = benchmarks?.roles?.[mainRole];
-  const inRole = games.filter(g => g.role === mainRole);
-  const tally = Object.keys(METRICS).filter(k => METRICS[k].roles.includes(mainRole)).map(k => {
+  const byRole = Object.fromEntries(roles.filter(([, n]) => n >= 3).map(([r]) => [r, goalFor(games, r, benchmarks)]));
+  const main = byRole[mainRole] || goalFor(games, mainRole, benchmarks);
+  return {
+    riotId: `${acc.gameName}#${acc.tagLine}`, puuid: acc.puuid, platform, platformLabel: label, region,
+    rank: solo ? { tier: solo.tier, division: solo.rank, lp: solo.leaguePoints, wins: solo.wins, losses: solo.losses } : null,
+    games, roles, mainRole, champions: count1(games.map(g => g.champion)).slice(0, 5),
+    goal: main.goal, tally: main.tally, byRole,
+    benchmark: benchmarks?.roles?.[mainRole] ? { patch: benchmarks.patch, games: benchmarks.games, level: "Diamant et plus" } : null,
+  };
+}
+
+// Objectif d'un rôle : l'indicateur le plus souvent sous la référence Diamant+ (au moins une partie sur deux)
+export function goalFor(games, role, benchmarks) {
+  const bench = benchmarks?.roles?.[role];
+  const inRole = games.filter(g => g.role === role);
+  const tally = Object.keys(METRICS).filter(k => METRICS[k].roles.includes(role)).map(k => {
     const cmp = inRole.map(g => compare(k, g.metrics[k], bench)).filter(Boolean);
     const sous = cmp.filter(c => c.level === "sous").length;
     const vals = cmp.map(c => c.value).sort((a, b) => a - b);
     return { metric: k, label: METRICS[k].label, unit: METRICS[k].unit, better: METRICS[k].better, sous, games: cmp.length, median: vals.length ? vals[Math.floor(vals.length / 2)] : null, target: bench?.[k] ? (METRICS[k].better === "high" ? bench[k].p25 : bench[k].p75) : null, p50: bench?.[k]?.p50 ?? null, n: bench?.[k]?.n ?? 0 };
   }).filter(t => t.games >= 3);
   const goal = tally.filter(t => t.sous / t.games >= 0.5).sort((a, b) => b.sous / b.games - a.sous / a.games)[0] || null;
-  return {
-    riotId: `${acc.gameName}#${acc.tagLine}`, puuid: acc.puuid, platform, platformLabel: label, region,
-    rank: solo ? { tier: solo.tier, division: solo.rank, lp: solo.leaguePoints, wins: solo.wins, losses: solo.losses } : null,
-    games, roles, mainRole, champions: count1(games.map(g => g.champion)).slice(0, 5),
-    goal: goal ? { ...goal, success: inRole.map(g => ({ id: g.id, ok: compare(goal.metric, g.metrics[goal.metric], bench)?.level !== "sous" })) } : null,
-    tally, benchmark: bench ? { patch: benchmarks.patch, games: benchmarks.games, level: "Diamant et plus" } : null,
-  };
+  const ok = k => inRole.map(g => ({ id: g.id, ok: compare(k, g.metrics[k], bench)?.level !== "sous" }));
+  return { role, games: inRole.length, goal: goal ? { ...goal, success: ok(goal.metric) } : null, tally: tally.map(t => ({ ...t, success: ok(t.metric) })) };
 }

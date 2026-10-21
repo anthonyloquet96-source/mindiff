@@ -1,8 +1,9 @@
 // Banc d'essai du coach : l'analyse complète (bilan + relecture tactique) sur de vraies parties de tous les rangs, de Fer à Challenger.
 // But : vérifier que chaque règle repère une vraie erreur (plus fréquente chez les joueurs faibles, liée aux défaites),
 // écarter le bruit (règle qui se déclenche presque toujours) et trouver de nouveaux écarts nets entre bons et mauvais joueurs.
-// Résultats privés (coach/cache/bench.json), aucun identifiant de joueur gardé.
+// Résultats privés (coach/cache/bench.json et coach/cache/bench-raw/), parties anonymisées : aucun identifiant de joueur gardé.
 // Usage : node --env-file=.env coach/bench.mjs [--par-rang 80]   puis   node coach/bench.mjs --rapport
+//         node coach/bench.mjs --rejouer   (règles corrigées : réanalyse les parties gardées, sans requête Riot)
 
 import { readFile, writeFile } from "node:fs/promises";
 import { review } from "./review.mjs";
@@ -46,7 +47,9 @@ async function collect(perTier) {
   const champstats = JSON.parse(await readFile("coach/cache/champstats.json", "utf8"));
   const data = JSON.parse(await readFile(OUT, "utf8").catch(() => '{"seen":[],"games":[]}'));
   const seen = new Set(data.seen);
-  const wrap = async url => riot(url); // review() attend une fonction riot(url)
+  // review() attend une fonction riot(url) ; on garde aussi la partie et sa chronologie (anonymisées, compressées) pour rejouer l'analyse
+  let last = {};
+  const wrap = async url => { const j = await riot(url); if (url.endsWith("/timeline")) last.timeline = j; else if (/\/matches\/[A-Z0-9]+_\d+$/.test(url)) last.match = j; return j; };
   for (const tier of TIERS) {
     const have = data.games.filter(g => g.tier === tier).length;
     if (have >= perTier) continue;
@@ -63,9 +66,11 @@ async function collect(perTier) {
         if (seen.has(h) || n >= perTier) continue;
         seen.add(h);
         try {
+          last = {};
           const r = await review(wrap, { matchId: id, puuid: p.puuid, region: "europe", benchmarks, champstats });
           if (r.duration < 900) continue; // parties écourtées
-          data.games.push(record(tier, r)); n++;
+          data.games.push({ ...record(tier, r), raw: h }); n++;
+          if (last.match && last.timeline) await saveRaw(h, tier, p.puuid, last.match, last.timeline);
         } catch (e) { if (e.status === 401 || e.status === 403) throw e; }
       }
       data.seen = [...seen]; await writeFile(OUT, JSON.stringify(data));
@@ -73,6 +78,42 @@ async function collect(perTier) {
     console.log(`${new Date().toLocaleTimeString("fr-FR")} ${tier} : ${n} parties (${used} requêtes)`);
   }
   return data;
+}
+
+// Parties gardées pour rejouer l'analyse après chaque correction des règles, sans redemander les données à Riot.
+// Anonymisées : identifiants Riot remplacés par « p1 » à « p10 », noms et Riot ID retirés. Compressées (gzip).
+const RAW = "coach/cache/bench-raw";
+async function saveRaw(h, tier, puuid, match, timeline) {
+  const { mkdir } = await import("node:fs/promises");
+  const { gzipSync } = await import("node:zlib");
+  await mkdir(RAW, { recursive: true });
+  const alias = new Map(match.info.participants.map(p => [p.puuid, `p${p.participantId}`]));
+  const m = structuredClone(match), t = structuredClone(timeline);
+  m.metadata.participants = m.metadata.participants.map(x => alias.get(x) || "p?");
+  for (const p of m.info.participants) { p.puuid = alias.get(p.puuid); for (const k of ["riotIdGameName", "riotIdTagline", "summonerName", "summonerId", "profileIcon"]) delete p[k]; }
+  t.metadata.participants = t.metadata.participants.map(x => alias.get(x) || "p?");
+  for (const p of t.info.participants) p.puuid = alias.get(p.puuid);
+  await writeFile(`${RAW}/${h}.json.gz`, gzipSync(JSON.stringify({ tier, me: alias.get(puuid), match: m, timeline: t })));
+}
+// Rejoue l'analyse (règles actuelles) sur toutes les parties gardées : la boucle d'apprentissage ne coûte plus aucune requête
+async function replay() {
+  const { readdir } = await import("node:fs/promises");
+  const { gunzipSync } = await import("node:zlib");
+  const benchmarks = JSON.parse(await readFile("coach/cache/benchmarks.json", "utf8"));
+  const champstats = JSON.parse(await readFile("coach/cache/champstats.json", "utf8"));
+  const data = JSON.parse(await readFile(OUT, "utf8"));
+  const files = (await readdir(RAW).catch(() => [])).filter(f => f.endsWith(".json.gz"));
+  const games = [];
+  for (const f of files) {
+    const g = JSON.parse(gunzipSync(await readFile(`${RAW}/${f}`)).toString());
+    const stub = async url => (url.endsWith("/timeline") ? g.timeline : g.match);
+    try { games.push({ ...record(g.tier, await review(stub, { matchId: g.match.metadata.matchId, puuid: g.me, region: "europe", benchmarks, champstats })), raw: f.replace(".json.gz", "") }); } catch (e) { console.error(`${f} : ${e.message}`); }
+  }
+  // Les parties sans copie (premier passage) gardent leur ancienne analyse
+  const kept = data.games.filter(x => !x.raw || !files.includes(`${x.raw}.json.gz`));
+  data.games = [...kept, ...games];
+  await writeFile(OUT, JSON.stringify(data));
+  return { replayed: games.length, kept: kept.length };
 }
 
 // Rapport : pour chaque règle, fréquence par groupe de rangs et lien avec la défaite (à rang égal)
@@ -100,7 +141,10 @@ export function analyse(games) {
 }
 
 if (process.argv[1]?.endsWith("bench.mjs")) {
-  if (process.argv.includes("--rapport")) {
+  if (process.argv.includes("--rejouer")) {
+    const r = await replay();
+    console.log(`Analyse rejouée sur ${r.replayed} parties gardées (${r.kept} parties du premier passage conservées telles quelles).`);
+  } else if (process.argv.includes("--rapport")) {
     const { games } = JSON.parse(await readFile(OUT, "utf8"));
     const by = {}; for (const g of games) by[g.tier] = (by[g.tier] || 0) + 1;
     console.log(`${games.length} parties :`, JSON.stringify(by));

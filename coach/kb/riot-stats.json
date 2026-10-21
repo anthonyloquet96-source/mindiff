@@ -1,15 +1,1312 @@
 {
- "buckets": {
-  "diamant+": {
-   "matches": 0,
-   "champions": {}
-  }
- },
  "platform": "euw1",
  "queue": 420,
  "client": "16.21",
  "patch": "26.20",
  "method": "Joueurs tirés au hasard dans chaque division de la tranche ; parties classées solo de ces joueurs sur la version client courante ; chaque partie comptée une fois.",
- "updatedAt": "2026-10-21T02:24:32.022Z",
- "requests": 450
+ "updatedAt": "2026-10-21T02:30:10.348Z",
+ "requests": 649,
+ "versions": {
+  "16.20": {
+   "buckets": {
+    "diamant+": {
+     "matches": 160,
+     "champions": {
+      "Chogath|top": {
+       "games": 4,
+       "wins": 2
+      },
+      "LeeSin|jungle": {
+       "games": 15,
+       "wins": 9
+      },
+      "Teemo|mid": {
+       "games": 2,
+       "wins": 1
+      },
+      "Caitlyn|bottom": {
+       "games": 22,
+       "wins": 9
+      },
+      "Hwei|support": {
+       "games": 2,
+       "wins": 2
+      },
+      "Kayle|top": {
+       "games": 8,
+       "wins": 4
+      },
+      "Jax|jungle": {
+       "games": 2,
+       "wins": 0
+      },
+      "Syndra|mid": {
+       "games": 20,
+       "wins": 12
+      },
+      "Nilah|bottom": {
+       "games": 4,
+       "wins": 1
+      },
+      "Nunu|support": {
+       "games": 2,
+       "wins": 1
+      },
+      "Briar|jungle": {
+       "games": 5,
+       "wins": 3
+      },
+      "Taliyah|mid": {
+       "games": 4,
+       "wins": 2
+      },
+      "Yunara|bottom": {
+       "games": 19,
+       "wins": 12
+      },
+      "Lulu|support": {
+       "games": 24,
+       "wins": 15
+      },
+      "Tryndamere|top": {
+       "games": 3,
+       "wins": 0
+      },
+      "JarvanIV|jungle": {
+       "games": 9,
+       "wins": 2
+      },
+      "Zoe|mid": {
+       "games": 9,
+       "wins": 3
+      },
+      "Jinx|bottom": {
+       "games": 20,
+       "wins": 8
+      },
+      "Rell|support": {
+       "games": 15,
+       "wins": 3
+      },
+      "Nasus|top": {
+       "games": 5,
+       "wins": 3
+      },
+      "Talon|jungle": {
+       "games": 15,
+       "wins": 8
+      },
+      "Locke|mid": {
+       "games": 23,
+       "wins": 15
+      },
+      "Tristana|bottom": {
+       "games": 18,
+       "wins": 11
+      },
+      "Anivia|support": {
+       "games": 2,
+       "wins": 2
+      },
+      "Zaahen|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "MasterYi|jungle": {
+       "games": 8,
+       "wins": 2
+      },
+      "Leblanc|mid": {
+       "games": 2,
+       "wins": 0
+      },
+      "Jhin|bottom": {
+       "games": 24,
+       "wins": 14
+      },
+      "Swain|support": {
+       "games": 5,
+       "wins": 1
+      },
+      "Irelia|top": {
+       "games": 8,
+       "wins": 3
+      },
+      "Warwick|jungle": {
+       "games": 2,
+       "wins": 0
+      },
+      "Ekko|mid": {
+       "games": 10,
+       "wins": 5
+      },
+      "Samira|bottom": {
+       "games": 2,
+       "wins": 0
+      },
+      "Lux|support": {
+       "games": 5,
+       "wins": 3
+      },
+      "Camille|top": {
+       "games": 9,
+       "wins": 5
+      },
+      "Katarina|bottom": {
+       "games": 2,
+       "wins": 1
+      },
+      "Yuumi|support": {
+       "games": 8,
+       "wins": 4
+      },
+      "Aatrox|top": {
+       "games": 6,
+       "wins": 1
+      },
+      "Diana|jungle": {
+       "games": 4,
+       "wins": 2
+      },
+      "Briar|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "Milio|support": {
+       "games": 10,
+       "wins": 6
+      },
+      "Yone|top": {
+       "games": 11,
+       "wins": 6
+      },
+      "MonkeyKing|jungle": {
+       "games": 7,
+       "wins": 6
+      },
+      "Ashe|bottom": {
+       "games": 10,
+       "wins": 7
+      },
+      "Blitzcrank|support": {
+       "games": 13,
+       "wins": 5
+      },
+      "Gnar|top": {
+       "games": 2,
+       "wins": 2
+      },
+      "Locke|jungle": {
+       "games": 6,
+       "wins": 2
+      },
+      "Irelia|mid": {
+       "games": 5,
+       "wins": 3
+      },
+      "Draven|bottom": {
+       "games": 10,
+       "wins": 6
+      },
+      "Evelynn|jungle": {
+       "games": 2,
+       "wins": 0
+      },
+      "Yone|mid": {
+       "games": 12,
+       "wins": 5
+      },
+      "Lucian|bottom": {
+       "games": 13,
+       "wins": 7
+      },
+      "Elise|jungle": {
+       "games": 10,
+       "wins": 3
+      },
+      "Viktor|mid": {
+       "games": 10,
+       "wins": 4
+      },
+      "Alistar|support": {
+       "games": 18,
+       "wins": 11
+      },
+      "Fiora|top": {
+       "games": 7,
+       "wins": 2
+      },
+      "Hecarim|jungle": {
+       "games": 22,
+       "wins": 16
+      },
+      "Karma|support": {
+       "games": 7,
+       "wins": 3
+      },
+      "Yasuo|top": {
+       "games": 7,
+       "wins": 6
+      },
+      "Qiyana|mid": {
+       "games": 4,
+       "wins": 2
+      },
+      "Xayah|bottom": {
+       "games": 8,
+       "wins": 4
+      },
+      "Pyke|support": {
+       "games": 4,
+       "wins": 2
+      },
+      "Shen|top": {
+       "games": 6,
+       "wins": 2
+      },
+      "Chogath|jungle": {
+       "games": 2,
+       "wins": 1
+      },
+      "Ahri|mid": {
+       "games": 16,
+       "wins": 10
+      },
+      "TahmKench|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Shyvana|jungle": {
+       "games": 4,
+       "wins": 4
+      },
+      "Vayne|bottom": {
+       "games": 9,
+       "wins": 5
+      },
+      "Xerath|support": {
+       "games": 3,
+       "wins": 2
+      },
+      "Trundle|top": {
+       "games": 4,
+       "wins": 1
+      },
+      "Khazix|jungle": {
+       "games": 22,
+       "wins": 7
+      },
+      "Sylas|mid": {
+       "games": 8,
+       "wins": 3
+      },
+      "Kaisa|bottom": {
+       "games": 29,
+       "wins": 9
+      },
+      "Vladimir|top": {
+       "games": 6,
+       "wins": 3
+      },
+      "Gangplank|top": {
+       "games": 8,
+       "wins": 3
+      },
+      "Akali|mid": {
+       "games": 6,
+       "wins": 2
+      },
+      "Zeri|bottom": {
+       "games": 11,
+       "wins": 7
+      },
+      "Camille|support": {
+       "games": 2,
+       "wins": 2
+      },
+      "Vayne|top": {
+       "games": 4,
+       "wins": 3
+      },
+      "Cassiopeia|mid": {
+       "games": 2,
+       "wins": 0
+      },
+      "Leona|support": {
+       "games": 13,
+       "wins": 4
+      },
+      "Lissandra|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "Lillia|jungle": {
+       "games": 11,
+       "wins": 3
+      },
+      "Zed|mid": {
+       "games": 10,
+       "wins": 5
+      },
+      "Jax|top": {
+       "games": 6,
+       "wins": 3
+      },
+      "Pantheon|jungle": {
+       "games": 1,
+       "wins": 1
+      },
+      "Veigar|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "Nautilus|support": {
+       "games": 20,
+       "wins": 12
+      },
+      "Malphite|top": {
+       "games": 7,
+       "wins": 4
+      },
+      "Kayn|jungle": {
+       "games": 5,
+       "wins": 2
+      },
+      "Katarina|mid": {
+       "games": 9,
+       "wins": 6
+      },
+      "Garen|top": {
+       "games": 10,
+       "wins": 5
+      },
+      "Volibear|jungle": {
+       "games": 3,
+       "wins": 2
+      },
+      "Yasuo|mid": {
+       "games": 14,
+       "wins": 13
+      },
+      "Qiyana|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "Kaisa|top": {
+       "games": 1,
+       "wins": 0
+      },
+      "Amumu|jungle": {
+       "games": 1,
+       "wins": 0
+      },
+      "Kalista|bottom": {
+       "games": 5,
+       "wins": 2
+      },
+      "Renata|support": {
+       "games": 6,
+       "wins": 2
+      },
+      "Mordekaiser|top": {
+       "games": 5,
+       "wins": 4
+      },
+      "Rammus|jungle": {
+       "games": 2,
+       "wins": 2
+      },
+      "Zoe|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "Malphite|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "Sion|top": {
+       "games": 3,
+       "wins": 2
+      },
+      "Poppy|jungle": {
+       "games": 1,
+       "wins": 1
+      },
+      "Ornn|mid": {
+       "games": 1,
+       "wins": 1
+      },
+      "Viego|jungle": {
+       "games": 6,
+       "wins": 4
+      },
+      "Malzahar|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "Viktor|bottom": {
+       "games": 13,
+       "wins": 4
+      },
+      "Akshan|mid": {
+       "games": 3,
+       "wins": 1
+      },
+      "TahmKench|support": {
+       "games": 2,
+       "wins": 0
+      },
+      "Gwen|top": {
+       "games": 4,
+       "wins": 3
+      },
+      "Kayn|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Vi|jungle": {
+       "games": 8,
+       "wins": 2
+      },
+      "KogMaw|bottom": {
+       "games": 6,
+       "wins": 5
+      },
+      "Soraka|support": {
+       "games": 7,
+       "wins": 4
+      },
+      "Morgana|support": {
+       "games": 7,
+       "wins": 2
+      },
+      "Smolder|bottom": {
+       "games": 5,
+       "wins": 2
+      },
+      "Zilean|support": {
+       "games": 4,
+       "wins": 1
+      },
+      "Braum|support": {
+       "games": 10,
+       "wins": 6
+      },
+      "Teemo|top": {
+       "games": 7,
+       "wins": 3
+      },
+      "Orianna|mid": {
+       "games": 7,
+       "wins": 3
+      },
+      "Pantheon|top": {
+       "games": 8,
+       "wins": 4
+      },
+      "Brand|jungle": {
+       "games": 1,
+       "wins": 1
+      },
+      "Rakan|support": {
+       "games": 9,
+       "wins": 7
+      },
+      "Akali|top": {
+       "games": 11,
+       "wins": 6
+      },
+      "Graves|jungle": {
+       "games": 14,
+       "wins": 6
+      },
+      "Nami|support": {
+       "games": 16,
+       "wins": 8
+      },
+      "Darius|top": {
+       "games": 6,
+       "wins": 2
+      },
+      "Sylas|jungle": {
+       "games": 19,
+       "wins": 11
+      },
+      "Yasuo|bottom": {
+       "games": 10,
+       "wins": 4
+      },
+      "Taric|support": {
+       "games": 6,
+       "wins": 1
+      },
+      "Vex|mid": {
+       "games": 2,
+       "wins": 1
+      },
+      "Fizz|mid": {
+       "games": 11,
+       "wins": 7
+      },
+      "Vladimir|mid": {
+       "games": 3,
+       "wins": 1
+      },
+      "Lissandra|mid": {
+       "games": 5,
+       "wins": 2
+      },
+      "Ornn|top": {
+       "games": 10,
+       "wins": 6
+      },
+      "Belveth|jungle": {
+       "games": 3,
+       "wins": 3
+      },
+      "Thresh|support": {
+       "games": 26,
+       "wins": 14
+      },
+      "Urgot|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "Malphite|jungle": {
+       "games": 1,
+       "wins": 0
+      },
+      "Veigar|mid": {
+       "games": 6,
+       "wins": 2
+      },
+      "Olaf|top": {
+       "games": 5,
+       "wins": 2
+      },
+      "Sett|top": {
+       "games": 3,
+       "wins": 1
+      },
+      "Bard|support": {
+       "games": 9,
+       "wins": 3
+      },
+      "Ezreal|bottom": {
+       "games": 15,
+       "wins": 6
+      },
+      "Seraphine|support": {
+       "games": 5,
+       "wins": 3
+      },
+      "Karthus|jungle": {
+       "games": 2,
+       "wins": 2
+      },
+      "Rengar|jungle": {
+       "games": 10,
+       "wins": 3
+      },
+      "Mel|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "Nocturne|jungle": {
+       "games": 5,
+       "wins": 2
+      },
+      "Janna|support": {
+       "games": 10,
+       "wins": 4
+      },
+      "Quinn|top": {
+       "games": 3,
+       "wins": 3
+      },
+      "Qiyana|jungle": {
+       "games": 12,
+       "wins": 6
+      },
+      "TwistedFate|mid": {
+       "games": 6,
+       "wins": 6
+      },
+      "Aphelios|bottom": {
+       "games": 9,
+       "wins": 4
+      },
+      "Velkoz|support": {
+       "games": 3,
+       "wins": 2
+      },
+      "Jayce|top": {
+       "games": 14,
+       "wins": 7
+      },
+      "Annie|mid": {
+       "games": 5,
+       "wins": 4
+      },
+      "Skarner|support": {
+       "games": 1,
+       "wins": 1
+      },
+      "Morgana|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "Maokai|support": {
+       "games": 6,
+       "wins": 2
+      },
+      "Varus|bottom": {
+       "games": 3,
+       "wins": 3
+      },
+      "Galio|mid": {
+       "games": 7,
+       "wins": 2
+      },
+      "Rengar|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "Ambessa|mid": {
+       "games": 1,
+       "wins": 1
+      },
+      "Elise|support": {
+       "games": 5,
+       "wins": 2
+      },
+      "Shaco|jungle": {
+       "games": 8,
+       "wins": 3
+      },
+      "Lux|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "Senna|support": {
+       "games": 6,
+       "wins": 3
+      },
+      "FiddleSticks|jungle": {
+       "games": 4,
+       "wins": 1
+      },
+      "Renekton|top": {
+       "games": 9,
+       "wins": 3
+      },
+      "Corki|mid": {
+       "games": 2,
+       "wins": 1
+      },
+      "Velkoz|mid": {
+       "games": 2,
+       "wins": 1
+      },
+      "Swain|bottom": {
+       "games": 2,
+       "wins": 1
+      },
+      "Pantheon|support": {
+       "games": 4,
+       "wins": 3
+      },
+      "Kennen|top": {
+       "games": 5,
+       "wins": 3
+      },
+      "Gwen|mid": {
+       "games": 1,
+       "wins": 1
+      },
+      "Aurora|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "Vi|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "Ekko|jungle": {
+       "games": 8,
+       "wins": 3
+      },
+      "Ambessa|top": {
+       "games": 9,
+       "wins": 3
+      },
+      "Sivir|bottom": {
+       "games": 8,
+       "wins": 6
+      },
+      "Illaoi|top": {
+       "games": 1,
+       "wins": 0
+      },
+      "MonkeyKing|support": {
+       "games": 1,
+       "wins": 0
+      },
+      "Aurora|mid": {
+       "games": 8,
+       "wins": 3
+      },
+      "KSante|top": {
+       "games": 10,
+       "wins": 5
+      },
+      "DrMundo|top": {
+       "games": 6,
+       "wins": 2
+      },
+      "Jhin|jungle": {
+       "games": 1,
+       "wins": 0
+      },
+      "Quinn|jungle": {
+       "games": 4,
+       "wins": 3
+      },
+      "Naafiri|mid": {
+       "games": 2,
+       "wins": 2
+      },
+      "Zac|jungle": {
+       "games": 2,
+       "wins": 1
+      },
+      "Kassadin|mid": {
+       "games": 5,
+       "wins": 1
+      },
+      "Naafiri|jungle": {
+       "games": 3,
+       "wins": 0
+      },
+      "Vi|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Kennen|mid": {
+       "games": 2,
+       "wins": 2
+      },
+      "Volibear|top": {
+       "games": 3,
+       "wins": 1
+      },
+      "Jayce|mid": {
+       "games": 8,
+       "wins": 1
+      },
+      "Taliyah|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "Anivia|mid": {
+       "games": 2,
+       "wins": 1
+      },
+      "Sylas|support": {
+       "games": 3,
+       "wins": 2
+      },
+      "Kayle|jungle": {
+       "games": 1,
+       "wins": 0
+      },
+      "Hwei|mid": {
+       "games": 5,
+       "wins": 2
+      },
+      "Kled|top": {
+       "games": 1,
+       "wins": 0
+      },
+      "Gragas|jungle": {
+       "games": 2,
+       "wins": 2
+      },
+      "Sona|support": {
+       "games": 4,
+       "wins": 3
+      },
+      "Maokai|jungle": {
+       "games": 1,
+       "wins": 1
+      },
+      "Nidalee|jungle": {
+       "games": 8,
+       "wins": 6
+      },
+      "Veigar|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Jhin|top": {
+       "games": 3,
+       "wins": 3
+      },
+      "Velkoz|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "Sion|jungle": {
+       "games": 1,
+       "wins": 1
+      },
+      "Shaco|support": {
+       "games": 4,
+       "wins": 2
+      },
+      "Singed|top": {
+       "games": 4,
+       "wins": 4
+      },
+      "Ziggs|bottom": {
+       "games": 3,
+       "wins": 1
+      },
+      "MasterYi|top": {
+       "games": 1,
+       "wins": 0
+      },
+      "Aatrox|jungle": {
+       "games": 6,
+       "wins": 2
+      },
+      "Lucian|mid": {
+       "games": 5,
+       "wins": 3
+      },
+      "Syndra|bottom": {
+       "games": 3,
+       "wins": 0
+      },
+      "Xerath|mid": {
+       "games": 5,
+       "wins": 3
+      },
+      "Ivern|jungle": {
+       "games": 3,
+       "wins": 2
+      },
+      "Swain|mid": {
+       "games": 4,
+       "wins": 1
+      },
+      "Udyr|jungle": {
+       "games": 8,
+       "wins": 6
+      },
+      "Mel|bottom": {
+       "games": 3,
+       "wins": 2
+      },
+      "FiddleSticks|support": {
+       "games": 2,
+       "wins": 0
+      },
+      "Galio|top": {
+       "games": 1,
+       "wins": 0
+      },
+      "Udyr|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Neeko|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "Tristana|mid": {
+       "games": 5,
+       "wins": 0
+      },
+      "Sejuani|jungle": {
+       "games": 1,
+       "wins": 1
+      },
+      "Brand|support": {
+       "games": 1,
+       "wins": 1
+      },
+      "Senna|bottom": {
+       "games": 1,
+       "wins": 0
+      },
+      "Jax|mid": {
+       "games": 2,
+       "wins": 2
+      },
+      "Brand|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "Cassiopeia|top": {
+       "games": 3,
+       "wins": 0
+      },
+      "Shen|support": {
+       "games": 1,
+       "wins": 0
+      },
+      "Diana|mid": {
+       "games": 3,
+       "wins": 2
+      },
+      "Galio|support": {
+       "games": 3,
+       "wins": 2
+      },
+      "Talon|mid": {
+       "games": 2,
+       "wins": 1
+      },
+      "Pantheon|mid": {
+       "games": 1,
+       "wins": 1
+      },
+      "Shen|bottom": {
+       "games": 2,
+       "wins": 1
+      },
+      "Warwick|top": {
+       "games": 3,
+       "wins": 2
+      },
+      "Aphelios|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Nunu|jungle": {
+       "games": 1,
+       "wins": 0
+      },
+      "Sion|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "Teemo|support": {
+       "games": 1,
+       "wins": 1
+      },
+      "Corki|bottom": {
+       "games": 3,
+       "wins": 1
+      },
+      "Zeri|mid": {
+       "games": 1,
+       "wins": 1
+      },
+      "Hwei|bottom": {
+       "games": 2,
+       "wins": 1
+      },
+      "Zac|top": {
+       "games": 1,
+       "wins": 0
+      },
+      "TwistedFate|top": {
+       "games": 2,
+       "wins": 0
+      },
+      "Kindred|jungle": {
+       "games": 2,
+       "wins": 0
+      },
+      "MissFortune|bottom": {
+       "games": 4,
+       "wins": 1
+      },
+      "Twitch|support": {
+       "games": 1,
+       "wins": 1
+      },
+      "Sylas|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "Gragas|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "Skarner|jungle": {
+       "games": 4,
+       "wins": 3
+      },
+      "RekSai|jungle": {
+       "games": 1,
+       "wins": 1
+      },
+      "Azir|mid": {
+       "games": 2,
+       "wins": 1
+      },
+      "Neeko|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "Tryndamere|jungle": {
+       "games": 1,
+       "wins": 1
+      },
+      "Jayce|jungle": {
+       "games": 4,
+       "wins": 2
+      },
+      "Chogath|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "Karthus|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Zaahen|jungle": {
+       "games": 1,
+       "wins": 1
+      },
+      "Hwei|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Ambessa|jungle": {
+       "games": 2,
+       "wins": 1
+      },
+      "Graves|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "Karthus|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "Sejuani|top": {
+       "games": 1,
+       "wins": 0
+      },
+      "Zed|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "Fizz|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Zeri|top": {
+       "games": 1,
+       "wins": 0
+      },
+      "Kennen|bottom": {
+       "games": 2,
+       "wins": 0
+      },
+      "Zyra|jungle": {
+       "games": 1,
+       "wins": 1
+      },
+      "Varus|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "KSante|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "Corki|top": {
+       "games": 3,
+       "wins": 0
+      },
+      "Jayce|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "Ekko|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "Orianna|top": {
+       "games": 2,
+       "wins": 2
+      },
+      "Galio|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "Vayne|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "XinZhao|jungle": {
+       "games": 1,
+       "wins": 1
+      },
+      "Ekko|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "Viktor|top": {
+       "games": 1,
+       "wins": 0
+      },
+      "Elise|mid": {
+       "games": 1,
+       "wins": 0
+      },
+      "Nasus|mid": {
+       "games": 4,
+       "wins": 2
+      },
+      "Chogath|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "Seraphine|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "KogMaw|mid": {
+       "games": 3,
+       "wins": 0
+      },
+      "Taliyah|jungle": {
+       "games": 1,
+       "wins": 1
+      },
+      "Shen|mid": {
+       "games": 1,
+       "wins": 1
+      },
+      "Karthus|bottom": {
+       "games": 1,
+       "wins": 0
+      },
+      "Cassiopeia|bottom": {
+       "games": 2,
+       "wins": 1
+      },
+      "Leblanc|support": {
+       "games": 1,
+       "wins": 0
+      },
+      "Zoe|support": {
+       "games": 2,
+       "wins": 2
+      },
+      "Elise|top": {
+       "games": 2,
+       "wins": 2
+      },
+      "Quinn|mid": {
+       "games": 1,
+       "wins": 1
+      },
+      "KogMaw|top": {
+       "games": 1,
+       "wins": 0
+      },
+      "Yorick|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "Varus|mid": {
+       "games": 1,
+       "wins": 1
+      },
+      "RekSai|support": {
+       "games": 1,
+       "wins": 0
+      },
+      "Yone|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "Shyvana|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Kalista|top": {
+       "games": 1,
+       "wins": 0
+      },
+      "Anivia|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "Vex|bottom": {
+       "games": 1,
+       "wins": 0
+      },
+      "Riven|mid": {
+       "games": 2,
+       "wins": 1
+      },
+      "Garen|mid": {
+       "games": 1,
+       "wins": 1
+      },
+      "Riven|top": {
+       "games": 1,
+       "wins": 0
+      },
+      "AurelionSol|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "Rumble|top": {
+       "games": 2,
+       "wins": 1
+      },
+      "Ryze|mid": {
+       "games": 2,
+       "wins": 1
+      },
+      "Swain|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Anivia|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Twitch|bottom": {
+       "games": 1,
+       "wins": 1
+      },
+      "Akshan|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Gwen|bottom": {
+       "games": 1,
+       "wins": 0
+      },
+      "Locke|top": {
+       "games": 1,
+       "wins": 0
+      },
+      "Xerath|bottom": {
+       "games": 1,
+       "wins": 0
+      },
+      "Heimerdinger|top": {
+       "games": 1,
+       "wins": 1
+      },
+      "Gragas|mid": {
+       "games": 1,
+       "wins": 0
+      }
+     }
+    }
+   }
+  }
+ }
 }

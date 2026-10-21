@@ -3,7 +3,7 @@
 // Le résultat reste dans le cache privé ; le contenu passe « en attente » pour l'extraction et la critique.
 // Usage : node --env-file-if-exists=.env coach/video.mjs [--max 3] [--only <id-contenu>]
 
-import { P, readJson, writeJson, saveText, today } from "./lib.mjs";
+import { P, readJson, writeJson, saveText, cachedText, today } from "./lib.mjs";
 import { gemini, countTokens, hasGeminiKey } from "./gemini.mjs";
 import { detectInjection } from "./critic.mjs";
 
@@ -43,6 +43,14 @@ export async function run() {
   let seconds = usedToday;
   for (const c of queue) {
     const parts = [{ fileData: { fileUri: c.url } }];
+    // Transcription déjà présente dans ce cache (vidéo lue ici, état réinitialisé ailleurs) : réutilisée, pas relue
+    const prev = await cachedText(c.id);
+    const head = prev?.match(/^# .* — lu par (\S+) le (\d{4}-\d{2}-\d{2}) \(images échantillonnées à (\d+) par seconde\)\n(?:durée (\S+))?/);
+    if (head) {
+      Object.assign(c, { access: /\(image/.test(prev) ? "transcription+visuel" : "transcription", analysis: "en-attente", attempts: 0, reader: { kind: "ia", tool: head[1], fps: Number(head[3]), at: head[2], duration: head[4] || null, reused: true }, note: `Lue par ${head[1]} le ${head[2]} : transcription réutilisée depuis le cache de cet ordinateur.` });
+      log.push(`✔ ${c.id} : transcription déjà présente, réutilisée sans nouvelle lecture`);
+      continue;
+    }
     try {
       // Durée estimée avant lecture (gratuit) : les directs de plusieurs heures sont écartés
       const tokens = await countTokens(V.models[0], parts).catch(() => null);

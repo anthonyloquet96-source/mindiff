@@ -75,7 +75,7 @@ await t("4b. Deux créateurs qui se contredisent", "fixture", () => {
   return "Deux avis opposés (ordre des compétences de Nami) : tous deux « contradictoire », conditions affichées, ni l'un ni l'autre retenu comme objectif.";
 });
 await t("5. Vidéo sans transcription accessible", "réel", async () => {
-  const v = L.contents.contents.find(c => c.type === "video" && c.access === "metadonnees");
+  const v = L.contents.contents.find(c => c.type === "video" && c.access === "metadonnees" && ctx.texts.get(c.id) == null);
   assert(v && v.access === "metadonnees" && v.analysis === "non-analysee", "vidéo mal classée");
   const got = await acquireText(v);
   assert(got.text === null, "un texte a été obtenu");

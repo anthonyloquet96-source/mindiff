@@ -1,51 +1,62 @@
 {
- "generatedAt": "2026-10-20T22:46:55.800Z",
+ "generatedAt": "2026-10-21T00:11:17.798Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
-  "lockedAt": "2026-10-20T21:37:11.852Z",
-  "by": "Claude Code (v1.1 lecture vidéo par Gemini, à relire)"
+  "lockedAt": "2026-10-20T23:46:59.164Z",
+  "by": "Anthony (validé le 21/10/2026)"
  },
  "discovery": {
   "wtl-blog": {
    "attempts": 0,
-   "lastOk": "2026-10-20T22:29:07.209Z",
+   "lastOk": "2026-10-20T20:57:28.874Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 2
   },
   "yt-skill-capped": {
    "attempts": 0,
-   "lastOk": "2026-10-20T22:29:07.407Z",
+   "lastOk": "2026-10-20T20:57:28.986Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-coach-curtis": {
    "attempts": 0,
-   "lastOk": "2026-10-20T22:29:07.512Z",
+   "lastOk": "2026-10-20T20:57:29.061Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-doublelift": {
    "attempts": 0,
-   "lastOk": "2026-10-20T22:29:07.759Z",
+   "lastOk": "2026-10-20T20:57:29.090Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-10-20T22:29:07.761Z",
+ "lastDiscovery": "2026-10-20T20:57:29.092Z",
  "failures": [],
  "quarantine": [],
  "rejected": [
   {
-   "id": "u-ai-yt-5un5rVpQpf8-4",
+   "id": "u-ai-yt-j9D4cUnQWqY-1",
    "reasons": [
     {
      "code": "citation-insuffisante",
-     "why": "Aucun passage ne porte sur Yone."
+     "why": "Aucun passage ne porte sur Nunu et Willump."
+    }
+   ],
+   "at": "2026-10-20",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-4DTgrtkWYCI-1",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Mordekaiser."
     }
    ],
    "at": "2026-10-20",
@@ -53,6 +64,9 @@
   }
  ],
  "pending": [
+  "c-yt-j9D4cUnQWqY",
+  "c-yt-y4qpSa5m5K0",
+  "c-yt-4DTgrtkWYCI",
   "c-yt-QXIlupvG0z8",
   "c-yt-n2Rw0lR96eg"
  ],
@@ -95,19 +109,115 @@
   "month": 0,
   "calls": [
    {
-    "at": "2026-10-20T22:36:35.770Z",
-    "content": "c-yt-5un5rVpQpf8",
-    "model": "gemini-3.7-flash",
-    "input": 5133,
-    "output": 6351,
+    "at": "2026-10-20T21:47:28.419Z",
+    "content": "c-yt-y4qpSa5m5K0",
+    "model": "gemini-3.8-flash",
+    "input": 9374,
+    "output": 2958,
     "usd": 0
    },
    {
-    "at": "2026-10-20T22:39:12.508Z",
-    "content": "c-yt-5un5rVpQpf8",
+    "at": "2026-10-20T21:54:28.526Z",
+    "content": "c-yt-y4qpSa5m5K0",
+    "model": "gemini-3.7-flash",
+    "input": 4738,
+    "output": 1860,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-20T21:55:03.748Z",
+    "content": "c-yt-j9D4cUnQWqY",
+    "model": "gemini-3.8-flash",
+    "input": 12599,
+    "output": 4012,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-20T21:55:34.880Z",
+    "content": "c-yt-j9D4cUnQWqY",
+    "model": "gemini-3.8-flash",
+    "input": 5400,
+    "output": 2095,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-20T21:56:03.760Z",
+    "content": "c-yt-4DTgrtkWYCI",
+    "model": "gemini-3.8-flash",
+    "input": 8272,
+    "output": 3582,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-20T21:56:35.390Z",
+    "content": "c-yt-4DTgrtkWYCI",
+    "model": "gemini-3.8-flash",
+    "input": 6227,
+    "output": 3688,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-20T21:58:39.258Z",
+    "content": "c-yt-y4qpSa5m5K0",
+    "model": "gemini-3.8-flash",
+    "input": 9374,
+    "output": 4156,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-20T21:58:56.279Z",
+    "content": "c-yt-y4qpSa5m5K0",
+    "model": "gemini-3.8-flash",
+    "input": 5003,
+    "output": 1804,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-20T21:59:42.652Z",
+    "content": "c-yt-j9D4cUnQWqY",
+    "model": "gemini-3.8-flash",
+    "input": 12599,
+    "output": 4870,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-20T22:00:07.964Z",
+    "content": "c-yt-j9D4cUnQWqY",
+    "model": "gemini-3.8-flash",
+    "input": 5461,
+    "output": 2715,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-20T22:00:29.546Z",
+    "content": "c-yt-4DTgrtkWYCI",
+    "model": "gemini-3.8-flash",
+    "input": 8272,
+    "output": 2106,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-20T22:06:13.356Z",
+    "content": "c-yt-4DTgrtkWYCI",
+    "model": "gemini-3.7-flash",
+    "input": 5398,
+    "output": 1133,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-20T22:09:36.032Z",
+    "content": "c-yt-y4qpSa5m5K0",
     "model": "gemini-3.5-flash",
-    "input": 4534,
-    "output": 2018,
+    "input": 9374,
+    "output": 3817,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-20T22:20:36.218Z",
+    "content": "c-yt-4DTgrtkWYCI",
+    "model": "gemini-3.5-flash",
+    "input": 8272,
+    "output": 5413,
     "usd": 0
    }
   ],

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-21T07:33:40.999Z",
+ "generatedAt": "2026-10-21T08:39:35.286Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -11610,7 +11610,9 @@
    },
    "access": "metadonnees",
    "analysis": "non-analysee",
-   "note": "Vidéo officielle de Riot : à lire par Gemini."
+   "note": "Vidéo officielle de Riot : à lire par Gemini.",
+   "videoAttempts": 1,
+   "videoError": "gemini-3.5-flash HTTP 503 : This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later. (2026-10-21)"
   },
   {
    "id": "c-riot-champion-insights-naafiri",
@@ -12225,7 +12227,7 @@
    "lang": "en",
    "published": "2025-11-24",
    "retrievedAt": "2026-10-21",
-   "patch": null,
+   "patch": "Non mentionné",
    "champions": [
     "Zaahen"
    ],
@@ -12238,9 +12240,22 @@
     "patchMentioned": null,
     "basis": "page officielle de Riot sur Zaahen, champion sans conseils officiels dans Data Dragon"
    },
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Vidéo officielle de Riot : à lire par Gemini."
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-21",
+    "sha256": "ae465c0612d1d7d6560b9d566dc391f08a579cfe1c2814a3e0304872867c8d0e",
+    "segments": 33,
+    "observations": 40,
+    "duration": "15:30",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 97396
+   }
   },
   {
    "id": "c-yt-S3F9CpeiSNE",
@@ -12266,9 +12281,22 @@
     "patchMentioned": null,
     "basis": "page officielle de Riot sur Zaahen, champion sans conseils officiels dans Data Dragon"
    },
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Vidéo officielle de Riot : à lire par Gemini."
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.6-flash : transcription et 15 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-21",
+    "sha256": "89d013e7bffac1381e5f1ea9a26906cd71bfff955acaba0b273cdb70128da108",
+    "segments": 14,
+    "observations": 15,
+    "duration": "03:12",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 21314
+   }
   },
   {
    "id": "c-riot-champion-insights-zeri",
@@ -16912,21 +16940,16 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Get 1-on-1 coaching, champion guides and more: https://weteachleague.com/\n\n0:00 - Waiting room\n1:25 - Stream start\n4:30 - Start / 40% wr on OTP vs 60% wr on main champ\n6:56 - Mindset playing as Shyvana vs Warwick\n8:55 - Playing around enemy junglers early\n10:00 - Skipping Raptors",
    "triage": {
-    "score": 17,
+    "score": 10,
     "matched": [
-     "Ahri",
-     "Gwen",
-     "Ivern",
-     "top",
+     "Shyvana",
+     "Twitch",
+     "Warwick",
      "jungle",
      "jungler",
      "mid",
-     "adc",
-     "support",
      "guide",
-     "vod review",
-     "coaching",
-     "climb"
+     "coaching"
     ],
     "entertainment": [
      "stream"
@@ -17000,19 +17023,15 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Get 1-on-1 coaching, champion guides and more: https://join.weteachleague.com/O4iSF4\n\nCharlie is joined by Violet, Tonirel, Danman and Omibro to give hot takes and discuss the ADC role.\n\nSome topics covered:\n◼️ ADC itemization\n◼️ Mechanics and draft\n◼️ How to have impact as an AD",
    "triage": {
-    "score": 17,
+    "score": 11,
     "matched": [
      "Vi",
      "top",
-     "jungle",
      "adc",
      "bot lane",
-     "support",
      "guide",
      "how to",
-     "coaching",
-     "build",
-     "climb"
+     "coaching"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -17214,23 +17233,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Get 1-on-1 coaching, champion guides and more: https://weteachleague.com/\n\n00:00 - Waiting room\n13:01 - Thoughts on League Classic?\n16:33 - Is it possible to get Challenger playing 2 games a day?\n17:17 - Master Splinter Plat 3 1500 games ADC op.gg\n26:33 - Paying attention to lane",
    "triage": {
-    "score": 24,
+    "score": 7,
     "matched": [
-     "Ivern",
-     "Kha'Zix",
-     "Rek'Sai",
-     "top",
-     "jungle",
-     "jungler",
-     "mid",
      "adc",
-     "support",
      "guide",
-     "how to",
      "vod review",
-     "coaching",
-     "matchup",
-     "climb"
+     "coaching"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -17278,18 +17286,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "The ultimate Bel'Veth jungle guide for League of Legends 2026, taught by EUW Challenger Bel'Veth main, Hybradge. Learn how to play Bel'Veth, the best Bel'Veth build, runes, matchups and mechanics in Episode 23 of Challenger Teaches Me.\n\nGet 1-on-1 coaching, champion guides and mo",
    "triage": {
-    "score": 26,
+    "score": 17,
     "matched": [
      "Bel'Veth",
-     "Vi",
      "jungle",
-     "mid",
      "guide",
      "how to",
-     "tips",
      "coaching",
-     "jungle path",
-     "clear",
      "matchup",
      "build",
      "runes",
@@ -17369,10 +17372,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "I was invited back to casting on the LCK Broadcast for the LCK Classic Showmatch, these are all the games.\n\n[INDEX]\n09:09 Trash Talk\n16:46 Game 1\n01:01:53 Game 2\n01:46:40 Game 3 (Blind Pick)\n\nJOIN THE SITE: https://drafting.gg/draft\n\n∙Join my discord for coaches, announcements an",
    "triage": {
-    "score": 1,
-    "matched": [
-     "support"
-    ],
+    "score": 0,
+    "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -17449,10 +17450,9 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "THIS IS PURELY THEORY ATM, NEED DATA/FEEDBACK FROM PRO PLAYERS AND OTHER HIGH MMR AND THEN TO EVALUATE WHAT IS HAPPENING/WHY TO UNDERSTAND BETTER EITHER WHY IT WORKS OR WHY IT DOESN'T IN ORDER TO DOWNLOAD THAT DATA. \n\nJOIN THE SITE: https://drafting.gg/draft\n\n∙Join my discord for",
    "triage": {
-    "score": 3,
+    "score": 2,
     "matched": [
-     "Jayce",
-     "support"
+     "Jayce"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -17502,10 +17502,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Conversation with x4NTY, head coach of Eintracht Spandau in the German Prime League, you can find him here: https://x.com/x4ntylol\n\nJOIN THE SITE: https://drafting.gg/draft\n\n∙Join my discord for coaches, announcements and more: \nhttps://discord.gg/ZF3rxry\n\n∙Do you want exclusive ",
    "triage": {
-    "score": 1,
-    "matched": [
-     "support"
-    ],
+    "score": 0,
+    "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -17528,10 +17526,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "A prime example of why I stopped being so active in the community.\n\nJOIN THE SITE: https://drafting.gg/draft\n\n∙Join my discord for coaches, announcements and more: \nhttps://discord.gg/ZF3rxry\n\n∙Do you want exclusive Patreon SoloQ and Clash tierlists designed by me as well as some",
    "triage": {
-    "score": 1,
-    "matched": [
-     "support"
-    ],
+    "score": 0,
+    "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -17580,9 +17576,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Try Coachless: https://coachless.gg/\n\nJOIN THE SITE: https://drafting.gg/draft\n\n∙Join my discord for coaches, announcements and more: \nhttps://discord.gg/ZF3rxry\n\n∙Do you want exclusive Patreon SoloQ and Clash tierlists designed by me as well as some extra perks? It's also a way ",
    "triage": {
-    "score": 3,
+    "score": 2,
     "matched": [
-     "support",
      "runes"
     ],
     "entertainment": [],
@@ -17717,11 +17712,9 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Macrojuego y midgame esencial para cerrar tus partidas de League of legends en 27 minutos\ncomo subir de Elo en LoL\n\nEscribime al instagram y te doy una mano para que subas de liga https://www.instagram.com/dishake.lol.coach/\n\n00:00 Cómo cerrar partidas en LoL y dejar de regalar t",
    "triage": {
-    "score": 6,
+    "score": 3,
     "matched": [
-     "Vi",
      "mid",
-     "adc",
      "macro"
     ],
     "entertainment": [],
@@ -17746,16 +17739,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Dominá el macrojuego y el midgame avanzado para dejar de perder partidas donde ganaste tu línea en League of Legends | guia support | guia adc | guia jungla lol\n\n\nAyudo a adultos +25 a subir a Diamante con 1-3 rankeds al día\nSistema diseñado para subir CON POCO TIEMPO y disfrutan",
    "triage": {
-    "score": 12,
+    "score": 5,
     "matched": [
-     "Graves",
-     "Vi",
-     "top",
      "mid",
      "adc",
      "support",
-     "macro",
-     "clear"
+     "macro"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -17779,11 +17768,9 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Que no te mientan, subir de support SÍ es posible y te muestro cómo en sólo 11 minutos\nLa verdad sobre cómo subir de elo jugando support en LoL\nAprende a subir de elo support dominando tus iniciaciones y dejando de cometer errores básicos que te estancan en la partida.\n\nMuchos ju",
    "triage": {
-    "score": 4,
+    "score": 1,
     "matched": [
-     "adc",
-     "support",
-     "macro"
+     "support"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -17831,9 +17818,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Cómo subir de ELO jugando TOPLANE en League of Legends | Mejores campeones para Top\n\nEscribime \"ACADEMIA\" por privado en instagram y armamos un plan personalizado para que subas consistentemente.\nhttps://www.instagram.com/dishake.lol.coach/\n\n0:00 La mentalidad necesaria para la t",
    "triage": {
-    "score": 3,
+    "score": 1,
     "matched": [
-     "Malphite",
      "top"
     ],
     "entertainment": [],
@@ -17938,14 +17924,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Evitá errores comunes en midlane y aprendé a reconocer tus ventanas óptimas para pelear sin depender de la suerte.\n\nMuchos jugadores por debajo de diamante pierden partidas simplemente porque pushean las oleadas sin criterio. En este video analizamos cómo identificar las ventajas",
    "triage": {
-    "score": 11,
+    "score": 3,
     "matched": [
-     "Diana",
-     "Sylas",
      "Vi",
-     "mid",
-     "macro",
-     "wave"
+     "mid"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -17969,14 +17951,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Guía para ADULTOS OCUPADOS que quieren subir a DIAMANTE con POCAS RANKED\n\n0:00 Cómo subir de liga en TOP sin depender del equipo\n1:16 El error con la wave que te hace perder la línea\n3:12 Buscar revancha: cómo una muerte se convierte en dos\n5:42 Vas 3/0: cómo convertir tu ventaja",
    "triage": {
-    "score": 11,
+    "score": 3,
     "matched": [
-     "Darius",
-     "Garen",
-     "Mordekaiser",
      "top",
-     "wave",
-     "build"
+     "wave"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -18051,13 +18029,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Cómo subir a MAESTRO en 2026 jugando TOPLANE | si valoras tu tiempo NECESITAS ver esto\n\nJugás MAL la TOPLANE (y no es por tus mecánicas)\n\nPodés ganar top, sacar kills y tirar torres… y aun así perder la partida. En este análisis de una partida de Sett contra Gnar en Diamante, te ",
    "triage": {
-    "score": 9,
+    "score": 5,
     "matched": [
      "Gnar",
-     "Graves",
      "Sett",
-     "top",
-     "wave"
+     "top"
     ],
     "entertainment": [],
     "patchMentioned": null,

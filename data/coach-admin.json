@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-21T07:33:40.999Z",
+ "generatedAt": "2026-10-21T08:39:35.286Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -111,7 +111,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-10-21T07:33:34.188Z",
+ "lastDiscovery": "2026-10-21T08:17:05.371Z",
  "failures": [],
  "quarantine": [],
  "rejected": [
@@ -169,6 +169,8 @@
   "c-riot-champion-insights-yone",
   "c-riot-dev-launching-yuumi-s-rework",
   "c-riot-dev-yuumi-s-rework",
+  "c-yt-qQNuoySpVMc",
+  "c-yt-S3F9CpeiSNE",
   "c-riot-champion-insights-zeri"
  ],
  "review": [
@@ -1197,6 +1199,14 @@
     "model": "gemini-3.5-flash",
     "input": 8272,
     "output": 5413,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-21T08:32:46.614Z",
+    "content": "c-yt-qQNuoySpVMc",
+    "model": "gemini-3.5-flash",
+    "input": 8199,
+    "output": 4881,
     "usd": 0
    }
   ],

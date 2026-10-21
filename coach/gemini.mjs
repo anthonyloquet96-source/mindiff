@@ -46,6 +46,8 @@ export async function gemini({ models, parts, system, schema, maxOutputTokens = 
     }
   }
   if (models.every(m => quotaHit.has(m))) throw new QuotaError();
+  // Modèles saturés (503) ou à quota épuisé, sans autre erreur : indisponibilité passagère, pas un échec du contenu
+  if (last && /HTTP (429|503)\b/.test(last.message) && models.some(m => quotaHit.has(m))) throw Object.assign(new QuotaError(), { message: `Gemini indisponible (quota ou saturation) : ${last.message.slice(0, 80)}` });
   throw last || new Error("aucun modèle Gemini disponible");
 }
 

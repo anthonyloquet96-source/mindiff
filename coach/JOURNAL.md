@@ -2,6 +2,35 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## Bilan de la nuit du 20 au 21/10/2026 (boucle locale, fin à 10 h 20)
+
+- **Couverture** :
+  - conseils officiels de Riot pour les **173 champions** (803 conseils) ;
+  - **40 pages officielles** de Riot en file pour les 26 champions sans conseils ;
+  - **9 nouvelles sources** de créateurs (Chreak, Sixen, perryjg, Coach Leo, Coach Kirei, WTL YouTube, LS, Dishake, plus 3 chaînes ajoutées hier soir) ;
+  - environ 290 vidéos en file, dont les anciens guides de Chreak et perryjg.
+- **Référence Diamant+** : appliquée par le contrôle critique ; 4 statistiques retirées ; échantillon Riot de 160 parties Diamant+ (16.20).
+- **Nouveaux contrôles** :
+  - `contenu-ancien` : contenu de plus d'un an → provisoire ;
+  - organisation commune (un blog et une chaîne YouTube d'une même équipe ne comptent que pour une source) ;
+  - tri des extraits de stream ;
+  - vidéos pédagogiques jusqu'à 90 min.
+- **Robustesse** :
+  - Gemini oublie le quota épuisé à sa remise à zéro ;
+  - une indisponibilité de Gemini (quota ou saturation) ne consomme plus d'essai ;
+  - correction de la priorité des pages officielles.
+- **Connaissances ajoutées par l'IA cette nuit : aucune.** Le quota gratuit de Gemini (environ 20 requêtes par jour et par modèle) a été épuisé dès 2 h, puis de nouveau à 10 h, en partie par l'essai du prototype « Mes parties ». C'est le principal frein : la file d'attente demandera plusieurs semaines avec l'offre gratuite.
+- **Prototype « Mes parties »** (local, non publié) : la chaîne fonctionne de bout en bout, mais l'IA produit des faits contradictoires et des horodatages décalés. Compte rendu : `%LOCALAPPDATA%\MINDIFF\essai-1.md`.
+- **Veille distante réactivée** (variable `COACH_LOCAL_LOOP` supprimée) : GitHub reprend la veille toutes les 6 h.
+- **Tests** : 26 réussis sur 27 (1 ignoré faute de transcription locale) ; parcours mobile et non-régression sans erreur.
+- **En attente de décision** : la règle Diamant+ à inscrire dans `FIABILITE.md` (« je valide la règle Diamant+ ») ; la demande de clé Riot « production ».
+
+## 2026-10-21, 10 h 17 — dernier passage de la boucle
+
+- **Vidéos** : 2 lues (`c-yt-qQNuoySpVMc`, « How To: Dominate with Zaahen », 15:30 ; `c-yt-S3F9CpeiSNE`, « Zaahen Champion Spotlight », 03:12) ; `c-yt-ynG4T9yLKFs` (Locke) a échoué parce que Gemini était saturé.
+- **Analyse** : aucune. Gemini était saturé (503) ou à quota épuisé ; les 2 essais consommés ont été rendus, et le code est corrigé pour ne plus les consommer.
+- **Unités** : aucune nouvelle ; rien à relire.
+
 ## 2026-10-21, 09 h 45 — nouveaux créateurs (Sixen et recherche internationale)
 
 - **Demande d'Anthony** : ajouter Sixen et chercher dans le monde entier des créateurs pédagogiques de haut niveau. Leurs vidéos sont lues dans leur langue, et les connaissances sont rédigées en français.

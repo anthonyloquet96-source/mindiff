@@ -1098,7 +1098,9 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "videoSkipped": "environ 40 min : au-delà de 40 min (direct ou vidéo longue)",
+   "videoAttempts": 3
   },
   {
    "id": "c-yt-7NE_Mg74dCI",
@@ -1166,11 +1168,11 @@
    "lang": "en",
    "published": "2026-01-21",
    "retrievedAt": "2026-10-20",
-   "patch": null,
+   "patch": "S16",
    "views": 14917,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.8-flash : transcription et 26 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "Join over 10,000 members in our free community: https://wtl.lol/skool\nGet coaching and climb solo queue: https://wtl.lol/mid",
    "triage": {
     "score": 7,
@@ -1182,6 +1184,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-21",
+    "sha256": "12c351baa66bdd5271548acf9fb4192fa5ed3ce76c700b3ff0c2776cd0299a64",
+    "segments": 28,
+    "observations": 26,
+    "duration": "14:55",
+    "videoKind": "guide",
+    "gameplayShown": false,
+    "tokens": 88822
    }
   },
   {

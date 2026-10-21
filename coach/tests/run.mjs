@@ -208,13 +208,13 @@ await t("Relecture tactique : combats, objectifs, morts isolées, alliés morts"
   assert(o.kind === "Dragon" && !o.ours && o.allies === 2 && o.enemies === 5 && o.absent.some(a => a.champion === "C2" && a.dead) && o.absent.some(a => a.me), JSON.stringify(o));
   assert(r.fights.length === 2 && r.fights[0].allies === 2 && r.fights[0].enemies === 4 && r.fights[0].won === false, "combat au dragon mal reconstitué : " + JSON.stringify(r.fights));
   const kinds = r.lessons.map(l => l.kind);
-  assert(kinds.includes("absent-objectif") && kinds.includes("mort-isolee"), kinds.join());
+  assert(kinds.includes("objectif-inferiorite") && kinds.includes("mort-isolee") && !kinds.includes("absent-objectif"), kinds.join());
   assert(r.summary.deathsIsolated === 1 && r.map.length === 31 && r.map[20][2][0] === 2000, "résumé ou mini-carte");
   assert(zone({ x: 7400, y: 7400 }, 100) === "voie du milieu" && zone({ x: 13900, y: 13900 }, 100) === "base adverse", "zones de la carte");
   // Élimination isolée en 1 contre 1 : pas un « combat »
   frames[10].events.push({ type: "CHAMPION_KILL", timestamp: 600000, victimId: 1, killerId: 6, assistingParticipantIds: [], position: { x: 1500, y: 9000 } });
   assert(tactics(match, tl, "p3").fights.length === 2, "duel compté comme combat");
-  return "Dragon perdu à 2 contre 5 : jungler noté « mort », joueur noté absent et loin → leçon ; combat au dragon 2 contre 4 perdu ; mort seule dans la jungle adverse contre 2 → leçon ; un duel n'est pas un combat.";
+  return "Dragon disputé à 2 contre 5 avec un combat perdu → leçon (jungler noté « mort ») ; « absent d'un objectif » n'est plus une leçon (banc d'essai) ; mort seule dans la jungle adverse contre 2 → leçon ; un duel n'est pas un combat.";
 });
 await t("Partie en cours : rôles estimés, fiches Diamant+ par champion", "fixture", async () => {
   const { assignRoles } = await import("../review.mjs");

@@ -116,22 +116,16 @@ export function tactics(match, timeline, puuid) {
     const early = o.t < 14 * 60000;
     // Personne de l'équipe autour : décision d'équipe (céder), pas une erreur personnelle
     if (o.allies === 0) continue;
-    // Un toplaner n'a pas à traverser la carte pour un dragon en début de partie
-    if (o.allies < o.enemies && o.myDist >= R_OBJ * 1.6 && !(role === "top" && early && o.kind === "Dragon")) lessons.push({ kind: "absent-objectif", t: o.t, at: o.at, title: `${o.kind} adverse à ${o.at} : ton équipe était ${o.allies} contre ${o.enemies}, et tu étais ${far(o.myDist)} (${o.myZone})`,
-      better: "Une minute avant l'apparition de l'objectif, pousse ta vague puis rejoins ton équipe : l'adversaire prend les objectifs quand vous êtes moins nombreux.", facts: o.absent.length ? [`Absents : ${absents(o.absent)}.`] : [] });
+    // « Absent d'un objectif perdu » retiré au banc d'essai du 21/10 : sans effet au-delà de l'état de la partie (coût médian nul)
     // Disputé en infériorité (combat autour, avec des pertes) ; céder un objectif sans combat n'est pas une erreur
-    else if (o.allies < o.enemies && fightView.some(f => Math.abs(f.t - o.t) < 45000 && dist(f, o) < R_OBJ && f.alliesDead > 0)) lessons.push({ kind: "objectif-inferiorite", t: o.t, at: o.at, title: `${o.kind} adverse à ${o.at} : disputé à ${o.allies} contre ${o.enemies}, avec un combat perdu autour`,
+    if (o.allies < o.enemies && fightView.some(f => Math.abs(f.t - o.t) < 45000 && dist(f, o) < R_OBJ && f.alliesDead > 0)) lessons.push({ kind: "objectif-inferiorite", t: o.t, at: o.at, title: `${o.kind} adverse à ${o.at} : disputé à ${o.allies} contre ${o.enemies}, avec un combat perdu autour`,
       better: o.absent.some(x => x.dead) ? "Un allié était mort : sans lui, il valait mieux céder l'objectif et prendre une tourelle ou une vague de l'autre côté de la carte." : "En infériorité numérique, cède l'objectif et prends plutôt une tourelle ou une vague de l'autre côté de la carte.",
       facts: o.absent.length ? [`Absents : ${absents(o.absent)}.`] : [] });
   }
   for (const d of deaths) {
     const lowHp = d.hpBefore != null && d.hpBefore < 40 ? [`Tu étais déjà bas en vie (${d.hpBefore} %) une minute avant : rentrer à la base t'aurait évité ce risque.`] : [];
-    if (d.gank) lessons.push({ kind: "gank-subi", t: d.t, at: d.at, title: `Mort à ${d.at} sur une attaque du jungler adverse (${d.zone})`,
-      better: role === "support" ? "Avant de pousser la vague avec ton ADC, pose une balise dans le buisson de la rivière : tu verras le jungler adverse arriver."
-        : role === "jungle" ? "Quand tu envahis la jungle adverse, vérifie d'abord où est le jungler adverse (dernière apparition sur la carte)."
-        : "Quand le jungler adverse n'a pas été vu depuis un moment et que ta vague est poussée, rapproche-toi de ta tourelle.",
-      facts: [`Tes adversaires : ${d.attackers.join(", ")}.`, ...lowHp] });
-    else if (!d.alliesNear.length && d.attackers.length >= 2 && d.t >= 14 * 60000) lessons.push({ kind: "mort-isolee", t: d.t, at: d.at, title: `Mort seul à ${d.at} (${d.zone}), contre ${d.attackers.length} adversaires`,
+    // « Gank subi » retiré au banc d'essai du 21/10 : aussi fréquent à tous les rangs, sans lien avec la victoire
+    if (!d.alliesNear.length && d.attackers.length >= 2 && d.t >= 14 * 60000) lessons.push({ kind: "mort-isolee", t: d.t, at: d.at, title: `Mort seul à ${d.at} (${d.zone}), contre ${d.attackers.length} adversaires`,
       better: ["top", "bottom"].includes(role) && /voie/.test(d.zone) ? "Sur une voie de côté, quand 2 adversaires ou plus disparaissent de la mini-carte, recule vers ta tourelle : ils arrivent peut-être sur toi."
         : d.enemyHalf ? "Évite d'avancer seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : reste à portée de ton équipe ou replie-toi." : "Aucun allié n'était proche : replie-toi vers ton équipe avant que plusieurs adversaires arrivent.",
       facts: [`Tes adversaires : ${d.attackers.join(", ")}.`, "Aucun allié n'était tout près de toi.", ...lowHp] });

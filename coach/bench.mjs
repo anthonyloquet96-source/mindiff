@@ -34,7 +34,7 @@ function record(tier, r) {
   const s = r.summary, T = r.tactics;
   return {
     tier, group: GROUP(tier), role: s.role, win: s.win ? 1 : 0, min: s.minutes, k: s.k, d: s.d, a: s.a,
-    findings: r.findings.map(f => f.kind), strengths: r.strengths.length,
+    findings: r.findingsAll || r.findings.map(f => f.kind), strengths: r.strengths.length, habits: r.habits || null,
     comparisons: Object.fromEntries(r.comparisons.map(c => [c.metric, { v: c.value, level: c.level }])),
     gold10: r.lane.at10?.gold ?? null, platesLost: r.lane.platesLost, deadShare: s.deadSeconds != null ? Math.round((s.deadSeconds / r.duration) * 100) : null,
     lessons: T ? T.lessons.map(l => l.kind) : [],

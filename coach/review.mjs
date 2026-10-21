@@ -79,7 +79,7 @@ export const METRICS = {
   csMin: { label: "Sbires par minute", plain: "Farm", say: v => `${fr(Math.round(v * 10) / 10)} sbires par minute`, unit: "/min", better: "high", roles: ["top", "jungle", "mid", "bottom"], themes: ["lane"], learn: /wave|vague|farm|\bcs\b|tempo/i },
   deaths30: { label: "Morts (pour 30 min)", plain: "Morts", say: v => `${fr(Math.round(v * 10) / 10)} morts par tranche de 30 min de jeu`, unit: "", better: "low", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["survie", "methode"], learn: /mort|death|dying|survi|position|dans la t[eê]te|mistake|erreur/i },
   visionMin: { label: "Score de vision par minute", plain: "Vision", say: v => `score de vision de ${fr(Math.round(v * 10) / 10)} par minute`, unit: "/min", better: "high", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["methode"], learn: /vision|ward|balise|track/i },
-  controlWards: { label: "Balises de contrôle posées", plain: "Balises de contrôle", say: v => `${fr(v)} balise${v > 1 ? "s" : ""} de contrôle posée${v > 1 ? "s" : ""}`, unit: "", better: "high", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["methode"], learn: /vision|ward|balise|control/i },
+  controlWards: { label: "Balises de contrôle posées", plain: "Balises de contrôle", noCompare: true, say: v => `${fr(v)} balise${v > 1 ? "s" : ""} de contrôle posée${v > 1 ? "s" : ""}`, unit: "", better: "high", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["methode"], learn: /vision|ward|balise|control/i },
   kp: { label: "Participation aux éliminations", plain: "Participation aux combats", say: v => `${fr(Math.round(v))} % de participation aux éliminations de l'équipe`, unit: " %", better: "high", roles: ["jungle", "mid", "support"], themes: ["teamfight"], learn: /roam|gank|tempo|teamfight|skirmish|escarmouche|jungle/i },
 };
 
@@ -170,28 +170,40 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
 
   // Constats : écarts nets avec le Diamant+ du même rôle, triés par importance
   const bench = benchmarks?.roles?.[s.role];
-  const comparisons = Object.keys(METRICS).filter(k => METRICS[k].roles.includes(s.role)).map(k => compare(k, s.metrics[k], bench)).filter(Boolean);
+  const comparisons = Object.keys(METRICS).filter(k => METRICS[k].roles.includes(s.role) && !METRICS[k].noCompare).map(k => compare(k, s.metrics[k], bench)).filter(Boolean);
   const findings = [];
   const lateObj = deaths.filter(d => d.beforeObjective);
-  if (lateObj.length) findings.push({ kind: "mort-avant-objectif", weight: 3 + lateObj.length, title: `${lateObj.length} mort${lateObj.length > 1 ? "s" : ""} juste avant un objectif adverse`, facts: lateObj.map(d => `${d.at} : tué par ${d.killer}, puis ${d.beforeObjective}`), metric: "deaths30" });
+  if (lateObj.length) findings.push({ kind: "mort-avant-objectif", family: "decision", weight: 3 + lateObj.length, title: `${lateObj.length} mort${lateObj.length > 1 ? "s" : ""} juste avant un objectif adverse`, facts: lateObj.map(d => `${d.at} : tué par ${d.killer}, puis ${d.beforeObjective}`), metric: "deaths30" });
   const earlyDeaths = deaths.filter(d => d.t < 14 * 60000);
-  if (earlyDeaths.length >= 2) findings.push({ kind: "morts-phase-de-ligne", weight: 1 + earlyDeaths.length, title: `${earlyDeaths.length} morts avant 14 min`, facts: earlyDeaths.map(d => `${d.at} : tué par ${d.killer}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}${d.enemyHalf ? ", dans la moitié adverse" : ""}`), metric: "deaths30" });
-  for (const c of comparisons.filter(c => c.level === "sous")) findings.push({ kind: `ecart-${c.metric}`, weight: 1 + c.gap, title: `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, en dessous des bons joueurs`, facts: [`Les bons joueurs à ton poste (Diamant et plus) : ${METRICS[c.metric].say(c.p50)}.`], metric: c.metric });
-  // Retard net en phase de ligne (environ une élimination et deux vagues) ou plaques perdues
+  if (earlyDeaths.length >= 3) findings.push({ kind: "morts-phase-de-ligne", family: "decision", weight: 1 + earlyDeaths.length, title: `${earlyDeaths.length} morts avant 14 min`, facts: earlyDeaths.map(d => `${d.at} : tué par ${d.killer}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}${d.enemyHalf ? ", dans la moitié adverse" : ""}`), metric: "deaths30" });
+  for (const c of comparisons.filter(c => c.level === "sous")) findings.push({ kind: `ecart-${c.metric}`, family: "niveau", weight: 1 + c.gap, title: `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, en dessous des bons joueurs`, facts: [`Les bons joueurs à ton poste (Diamant et plus) : ${METRICS[c.metric].say(c.p50)}.`], metric: c.metric });
+  // Retard net en phase de ligne : seuil par rôle (20 % des parties les plus en retard au banc d'essai du 21/10/2026, 800 parties)
   const a10 = lane.at10;
-  if (a10 && a10.gold <= -1000) {
+  const LANE_LIMIT = { top: -1000, mid: -800, jungle: -700, bottom: -1500, support: -1300 };
+  if (a10 && a10.gold <= (LANE_LIMIT[s.role] ?? -1000)) {
     const byOpp = deaths.filter(d => d.t < 10 * 60000 && d.killer === lane.opponent).length;
-    findings.push({ kind: "retard-en-ligne", weight: 2 + Math.min(2, -a10.gold / 1000), title: `${a10.duo ? "Ton duo : " : ""}${(-a10.gold).toLocaleString("fr-FR")} pièces d'or de retard sur ${a10.duo ? "le duo adverse" : lane.opponent} à 10 min`, facts: [...(a10.cs != null ? [`Sbires : ${a10.cs > 0 ? "+" : ""}${a10.cs} à 10 min.`] : []), ...(byOpp ? [`${byOpp} mort${byOpp > 1 ? "s" : ""} contre ${lane.opponent} avant 10 min.`] : []), ...(lane.platesLost >= 2 ? [`${lane.platesLost} plaques de ta tourelle perdues avant 14 min.`] : [])], metric: a10.cs <= -10 ? "cs10" : "deaths30" });
-  } else if (lane.platesLost >= 3) findings.push({ kind: "plaques-perdues", weight: 1.5 + lane.platesLost / 5, title: `${lane.platesLost} plaques de ta tourelle perdues avant 14 min`, facts: [`Plaques prises chez l'adversaire : ${lane.platesTaken}.`, ...(lane.towerLostAt ? [`Première tourelle de ta voie perdue à ${lane.towerLostAt}.`] : [])], metric: "csMin" });
-  const bigBank = bases.filter(b => !b.afterDeath && b.goldBefore >= 2500);
-  if (bigBank.length) findings.push({ kind: "or-non-depense", weight: 1.5, title: `Retour${bigBank.length > 1 ? "s" : ""} tardif${bigBank.length > 1 ? "s" : ""} avec beaucoup d'or`, facts: bigBank.map(b => `Vers ${b.at} : environ ${b.goldBefore} pièces d'or en poche à la minute précédente.`), metric: null });
+    findings.push({ kind: "retard-en-ligne", family: "decision", weight: 2 + Math.min(2, -a10.gold / 1000), title: `${a10.duo ? "Ton duo : " : ""}${(-a10.gold).toLocaleString("fr-FR")} pièces d'or de retard sur ${a10.duo ? "le duo adverse" : lane.opponent} à 10 min`, facts: [...(a10.cs != null ? [`Sbires : ${a10.cs > 0 ? "+" : ""}${a10.cs} à 10 min.`] : []), ...(byOpp ? [`${byOpp} mort${byOpp > 1 ? "s" : ""} contre ${lane.opponent} avant 10 min.`] : []), ...(lane.platesLost >= 2 ? [`${lane.platesLost} plaques de ta tourelle perdues avant 14 min.`] : [])], metric: a10.cs != null && a10.cs <= -10 ? "cs10" : "deaths30" });
+  }
+  // Habitudes des bons joueurs, mesurées au banc d'essai (plus rares chez les Diamant et plus que chez les Fer à Argent, à rôle égal)
+  const min20 = 20 * 60000, min14 = 14 * 60000, support = s.role === "support";
+  const wardKills20 = events.filter(e => e.type === "WARD_KILL" && e.killerId === pid && e.timestamp < min20).length;
+  const control20 = events.filter(e => e.type === "WARD_PLACED" && e.creatorId === pid && e.wardType === "CONTROL_WARD" && e.timestamp < min20).length;
+  const backs14 = bases.filter(b => b.t < min14 && !b.afterDeath).length;
+  const firstLegendary = events.find(e => e.type === "ITEM_PURCHASED" && e.participantId === pid && itemDb[e.itemId]?.final && !itemDb[e.itemId]?.boots);
+  const legendaryMin = firstLegendary ? Math.round(firstLegendary.timestamp / 6000) / 10 : null;
+  const habits = { wardKills20, control20, backs14, legendaryMin };
+  const long = s.minutes >= 20;
+  if (!support && long && wardKills20 === 0) findings.push({ kind: "aucune-balise-detruite", family: "niveau", weight: 1.2, title: "Aucune balise adverse détruite avant 20 min", facts: ["Les bons joueurs détruisent en moyenne 1 à 2 balises adverses avant 20 min (banc d'essai de 800 parties)."], metric: "visionMin" });
+  if (!support && backs14 <= 1) findings.push({ kind: "peu-de-retours", family: "niveau", weight: 1.1, title: `${backs14 ? "Un seul retour" : "Aucun retour"} volontaire à la base avant 14 min`, facts: ["Les bons joueurs rentrent environ 3 fois avant 14 min, au bon moment, et meurent moins (banc d'essai)."], metric: null });
+  if (!support && (legendaryMin == null ? s.minutes >= 14 : legendaryMin > 14)) findings.push({ kind: "premier-objet-tardif", family: "niveau", weight: 1, title: legendaryMin != null ? `Premier grand objet terminé à ${fr(legendaryMin)} min` : "Aucun grand objet terminé", facts: ["Les bons joueurs terminent leur premier grand objet vers 11 min (banc d'essai)."], metric: "csMin" });
+  if (long && ((s.role === "jungle" && control20 === 0) || (support && control20 <= 1))) findings.push({ kind: "balises-controle", family: "niveau", weight: 1.1, title: `${control20 ? "Une seule balise" : "Aucune balise"} de contrôle posée avant 20 min`, facts: [s.role === "jungle" ? "En jungle, les bons joueurs en posent au moins une avant 20 min pour sécuriser leurs camps et les objectifs." : "En support, les bons joueurs en posent au moins 2 avant 20 min."], metric: "controlWards" });
   findings.sort((a, b) => b.weight - a.weight);
   const strengths = comparisons.filter(c => c.level === "au-dessus" && c.p50 > 0).map(c => `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, au niveau des meilleurs`);
   if (a10 && a10.gold >= 1000) strengths.unshift(`Phase de ligne : ${a10.duo ? "ton duo avait " : ""}${a10.gold.toLocaleString("fr-FR")} pièces d'or d'avance sur ${a10.duo ? "le duo adverse" : lane.opponent} à 10 min`);
   if (lane.platesTaken >= 3) strengths.push(`${lane.platesTaken} plaques de tourelle prises sur ta voie`);
 
   return {
-    summary: { ...s, deadSeconds: me.totalTimeSpentDead ?? null }, lane, deaths, bases, objectives, comparisons, findings: findings.slice(0, 3), strengths,
+    summary: { ...s, deadSeconds: me.totalTimeSpentDead ?? null }, lane, deaths, bases, objectives, comparisons, findings: findings.slice(0, 3), findingsAll: findings.map(f => f.kind), habits, strengths,
     build: await buildVsDiamond(me, champstats, itemDb, fetchImpl),
     // Compositions : champions et rôles (aucun Riot ID des autres joueurs)
     // Relecture tactique : mini-carte, combats, objectifs, morts, interactions, ce qui aurait été mieux (coach/tactics.mjs)
@@ -376,49 +388,60 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
   // Seuil d'une tendance : au moins 3 parties et au moins un quart des parties relues
   const need = Math.max(3, Math.ceil(n / 4));
   const minus = [], plus = [];
-  // Morts avant un objectif adverse
-  const objGames = reviews.filter(r => r.deaths.some(d => d.beforeObjective));
+  // Règles et seuils validés au banc d'essai du 21/10/2026 (800 parties de Fer à Challenger, effets mesurés à rôle, durée et état de la partie comparables)
+  // family « decision » : ce qui coûte des parties ; family « niveau » : habitudes qui distinguent les bons joueurs (à travailler dans le temps)
+  // Morts avant un objectif adverse : au moins 2 dans la partie (une seule arrive à tous les rangs)
+  const objGames = reviews.filter(r => r.deaths.filter(d => d.beforeObjective).length >= 2);
   const objDeaths = reviews.reduce((a, r) => a + r.deaths.filter(d => d.beforeObjective).length, 0);
-  if (objGames.length >= need) minus.push({ kind: "mort-avant-objectif", metric: "deaths30", weight: 3 + objGames.length, title: `Morts juste avant un objectif adverse dans ${objGames.length} parties sur ${n}`, detail: `${objDeaths} morts au total suivies d'un dragon, d'un Héraut, de Larves ou d'un Baron adverse dans la minute.`, games: objGames.map(r => r.summary.id) });
+  if (objGames.length >= need) minus.push({ kind: "mort-avant-objectif", family: "decision", metric: "deaths30", weight: 4 + objGames.length, title: `Au moins 2 morts juste avant un objectif adverse dans ${objGames.length} parties sur ${n}`, detail: `${objDeaths} morts au total suivies d'un dragon, d'un Héraut, de Larves ou d'un Baron adverse dans la minute.`,
+    evidence: "Mesuré sur 800 parties : une mort juste avant un objectif adverse fait perdre en moyenne 1 100 pièces d'or d'écart à ton équipe dans les 3 minutes, 5 fois plus qu'une autre mort. Les parties avec 2 de ces morts sont gagnées 22 % du temps, contre 60 % sans.", games: objGames.map(r => r.summary.id) });
   // Phase de ligne
   const lanes = reviews.filter(r => r.lane.at10);
   if (lanes.length >= 3) {
     const avg = Math.round(lanes.reduce((a, r) => a + r.lane.at10.gold, 0) / lanes.length);
     const behind = lanes.filter(r => r.lane.at10.gold <= -500), ahead = lanes.filter(r => r.lane.at10.gold >= 500);
-    if (behind.length >= need && behind.length > ahead.length) minus.push({ kind: "retard-en-ligne", metric: "cs10", weight: 2 + behind.length, title: `Au moins 500 pièces d'or de retard sur ton adversaire à 10 min dans ${behind.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} pièces d'or à 10 min.`, games: behind.map(r => r.summary.id) });
+    if (behind.length >= need && behind.length > ahead.length) minus.push({ kind: "retard-en-ligne", family: "decision", metric: "cs10", weight: 2 + behind.length / 2, title: `Au moins 500 pièces d'or de retard sur ton adversaire à 10 min dans ${behind.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} pièces d'or à 10 min.`, games: behind.map(r => r.summary.id) });
     if (ahead.length >= Math.max(need, Math.ceil(lanes.length / 2)) && ahead.length > behind.length) plus.push({ kind: "avance-en-ligne", title: `Au moins 500 pièces d'or d'avance sur ton adversaire à 10 min dans ${ahead.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} pièces d'or à 10 min.` });
   }
-  const early = reviews.filter(r => r.deaths.filter(d => d.t < 14 * 60000).length >= 2);
-  if (early.length >= need) minus.push({ kind: "morts-phase-de-ligne", metric: "deaths30", weight: 1 + early.length, title: `Au moins 2 morts avant 14 min dans ${early.length} parties sur ${n}`, detail: "Chaque mort en phase de ligne coûte des sbires, de l'expérience et souvent des plaques.", games: early.map(r => r.summary.id) });
-  const plates = reviews.filter(r => r.lane.platesLost >= 3);
-  if (plates.length >= need) minus.push({ kind: "plaques-perdues", metric: "csMin", weight: 1 + plates.length, title: `3 plaques ou plus perdues avant 14 min dans ${plates.length} parties sur ${n}`, detail: "Une vague qui s'écrase sous ta tourelle pendant ton absence donne des plaques à l'adversaire.", games: plates.map(r => r.summary.id) });
-  const bank = reviews.filter(r => r.bases.some(b => !b.afterDeath && b.goldBefore >= 2500));
-  if (bank.length >= need) minus.push({ kind: "or-non-depense", metric: null, weight: 1 + bank.length / 2, title: `Retours tardifs avec plus de 2 500 pièces d'or dans ${bank.length} parties sur ${n}`, detail: "L'or non dépensé ne sert à rien en combat : rentrer plus tôt donne l'objet au bon moment.", games: bank.map(r => r.summary.id) });
+  // Morts en phase de ligne : au moins 3 avant 14 min (2 arrivait dans 65 % des parties, à tous les rangs)
+  const early = reviews.filter(r => r.deaths.filter(d => d.t < 14 * 60000).length >= 3);
+  if (early.length >= need) minus.push({ kind: "morts-phase-de-ligne", family: "decision", metric: "deaths30", weight: 2 + early.length / 2, title: `Au moins 3 morts avant 14 min dans ${early.length} parties sur ${n}`, detail: "Chaque mort en phase de ligne coûte des sbires, de l'expérience et souvent des plaques.",
+    evidence: "Mesuré sur 800 parties : avec 3 morts ou plus avant 14 min, les parties sont gagnées 40 % du temps, contre 58 % sans.", games: early.map(r => r.summary.id) });
   const dead = reviews.filter(r => r.summary.deadSeconds != null);
   if (dead.length >= 3) {
     const avg = dead.reduce((a, r) => a + r.summary.deadSeconds / r.duration, 0) / dead.length;
-    if (avg >= 0.12) minus.push({ kind: "temps-mort", metric: "deaths30", weight: 1 + avg * 10, title: `${Math.round(avg * 100)} % de la partie passés mort en moyenne`, detail: "Sur une partie de 30 min, c'est environ " + Math.round(avg * 30) + " min sans pouvoir agir." });
+    if (avg >= 0.12) minus.push({ kind: "temps-mort", family: "decision", metric: "deaths30", weight: 1 + avg * 10, title: `${Math.round(avg * 100)} % de la partie passés mort en moyenne`, detail: "Sur une partie de 30 min, c'est environ " + Math.round(avg * 30) + " min sans pouvoir agir." });
     else if (avg <= 0.05) plus.push({ kind: "survie", title: `Très peu de temps passé mort : ${Math.round(avg * 100)} % de la partie en moyenne` });
   }
-  // Indicateurs face au Diamant+ : sous ou au-dessus de la référence dans au moins la moitié des parties
+  // Indicateurs face au Diamant+ (marqueurs de niveau) : sous ou au-dessus de la référence dans au moins la moitié des parties
   const byMetric = {};
   for (const r of reviews) for (const c of r.comparisons) (byMetric[c.metric] ||= []).push(c);
   for (const [k, list] of Object.entries(byMetric)) {
     if (list.length < 3) continue;
     const sous = list.filter(c => c.level === "sous").length, top = list.filter(c => c.level === "au-dessus").length;
     const vals = list.map(c => c.value).sort((a, b) => a - b), med = vals[Math.floor(vals.length / 2)];
-    if (sous / list.length >= 0.5) minus.push({ kind: `ecart-${k}`, metric: k, weight: 1 + sous, title: `${METRICS[k].plain} en dessous des bons joueurs dans ${sous} parties sur ${list.length}`, detail: `Toi, en général : ${METRICS[k].say(med)}. Les joueurs Diamant et plus à ton poste : ${METRICS[k].say(list[0].p50)}.` });
+    if (sous / list.length >= 0.5) minus.push({ kind: `ecart-${k}`, family: "niveau", metric: k, weight: 1 + sous / 2, title: `${METRICS[k].plain} en dessous des bons joueurs dans ${sous} parties sur ${list.length}`, detail: `Toi, en général : ${METRICS[k].say(med)}. Les joueurs Diamant et plus à ton poste : ${METRICS[k].say(list[0].p50)}.` });
     else if (top / list.length >= 0.5 && list[0].p50 > 0) plus.push({ kind: `fort-${k}`, title: `${METRICS[k].plain} au niveau des meilleurs dans ${top} parties sur ${list.length}`, detail: `Toi, en général : ${METRICS[k].say(med)}. Les joueurs Diamant et plus à ton poste : ${METRICS[k].say(list[0].p50)}.` });
   }
-  // Habitudes tactiques sur l'ensemble des parties (relecture tactique de chaque partie)
+  // Habitudes des bons joueurs (banc d'essai : part des parties où l'habitude manque, Fer à Argent → Diamant et plus, à rôle égal)
+  const H = (kind, test, eligible, diamond, low, title, detail, metric = null) => {
+    const pool = reviews.filter(r => r.habits && eligible(r)), miss = pool.filter(test);
+    if (pool.length < 3 || miss.length < need || miss.length / pool.length < diamond / 100 + 0.15) return;
+    minus.push({ kind, family: "niveau", metric, weight: 1 + miss.length / 2, title: `${title} dans ${miss.length} parties sur ${pool.length}`, detail, games: miss.map(r => r.summary.id),
+      evidence: `Mesuré sur 800 parties : ça arrive dans ${low} % des parties des joueurs Fer à Argent, et dans ${diamond} % de celles des joueurs Diamant et plus.` });
+  };
+  const notSup = r => r.summary.role !== "support", long = r => r.summary.minutes >= 20;
+  H("aucune-balise-detruite", r => r.habits.wardKills20 === 0, r => notSup(r) && long(r), 32, 66, "Aucune balise adverse détruite avant 20 min", "Détruire les balises adverses (accessoire rouge, balise de contrôle) prive l'adversaire de vision et protège tes déplacements.", "visionMin");
+  H("peu-de-retours", r => r.habits.backs14 <= 1, notSup, 9, 25, "Au plus un retour volontaire à la base avant 14 min", "Les bons joueurs rentrent environ 3 fois avant 14 min, au bon moment (vague poussée, or suffisant), et meurent moins.");
+  H("premier-objet-tardif", r => r.habits.legendaryMin == null || r.habits.legendaryMin > 14, notSup, 12, 23, "Premier grand objet terminé après 14 min", "Les bons joueurs terminent leur premier grand objet vers 11 min : plus de farm et des retours au bon moment.", "csMin");
+  H("balises-controle", r => (r.summary.role === "jungle" ? r.habits.control20 === 0 : r.habits.control20 <= 1), r => long(r) && ["jungle", "support"].includes(r.summary.role), 40, 68, "Peu de balises de contrôle posées avant 20 min", "Une balise de contrôle (75 pièces d'or) sécurise une zone et un objectif pendant toute sa durée.", "controlWards");
+  // Relecture tactique : seules les erreurs dont l'effet est mesuré au-delà de l'état de la partie
   const T = reviews.map(r => r.tactics).filter(Boolean);
   const lessonGames = kind => reviews.filter(r => r.tactics?.lessons.some(l => l.kind === kind));
-  const iso = lessonGames("mort-isolee"), ganks = lessonGames("gank-subi"), contested = lessonGames("objectif-inferiorite"), away = lessonGames("absent-objectif"), missed = lessonGames("combat-sans-toi");
-  if (iso.length >= need) minus.push({ kind: "mort-isolee", metric: "deaths30", weight: 2 + iso.length, title: `Morts seul face à plusieurs adversaires après 14 min dans ${iso.length} parties sur ${n}`, detail: "Aucun allié à moins de 2 500 unités au moment de la mort : souvent en poussant seul une voie sans savoir où sont les adversaires.", games: iso.map(r => r.summary.id) });
-  if (ganks.length >= need) minus.push({ kind: "gank-subi", metric: "deaths30", weight: 2 + ganks.length, title: `Morts sur un gank du jungler adverse avant 14 min dans ${ganks.length} parties sur ${n}`, detail: "Avant 14 min, le jungler adverse a participé à ta mort. Garde en tête où il a été vu pour la dernière fois : s'il n'a pas été vu depuis un moment, reste près de ta tourelle.", games: ganks.map(r => r.summary.id) });
-  if (away.length >= need) minus.push({ kind: "absent-objectif", metric: "kp", weight: 2 + away.length, title: `Loin de l'équipe sur un objectif perdu en infériorité dans ${away.length} parties sur ${n}`, detail: "L'adversaire a pris l'objectif en surnombre pendant que tu étais à l'autre bout de la carte.", games: away.map(r => r.summary.id) });
-  if (contested.length >= need) minus.push({ kind: "objectif-inferiorite", metric: null, weight: 1.5 + contested.length, title: `Objectifs disputés en infériorité numérique dans ${contested.length} parties sur ${n}`, detail: "Combat perdu autour d'un objectif alors que l'équipe était moins nombreuse (souvent avec un allié mort).", games: contested.map(r => r.summary.id) });
-  if (missed.length >= need) minus.push({ kind: "combat-sans-toi", metric: "kp", weight: 1 + missed.length, title: `Combats perdus près de toi, sans toi, dans ${missed.length} parties sur ${n}`, detail: "Ton équipe s'est battue en infériorité à moins de 6 000 unités de toi.", games: missed.map(r => r.summary.id) });
+  const iso = lessonGames("mort-isolee"), contested = lessonGames("objectif-inferiorite");
+  if (iso.length >= need) minus.push({ kind: "mort-isolee", family: "decision", metric: "deaths30", weight: 1.5 + iso.length / 2, title: `Morts seul face à plusieurs adversaires après 14 min dans ${iso.length} parties sur ${n}`, detail: "Aucun allié n'était tout près au moment de la mort : souvent en poussant seul une voie sans savoir où sont les adversaires.", games: iso.map(r => r.summary.id) });
+  if (contested.length >= need) minus.push({ kind: "objectif-inferiorite", family: "decision", metric: null, weight: 3 + contested.length / 2, title: `Objectifs disputés en infériorité numérique dans ${contested.length} parties sur ${n}`, detail: "Combat perdu autour d'un objectif alors que l'équipe était moins nombreuse (souvent avec un allié mort).",
+    evidence: "Mesuré sur 800 parties : disputer un objectif en infériorité fait perdre environ 9 points de chances de victoire, même en tenant compte de l'état de la partie.", games: contested.map(r => r.summary.id) });
   // Participation aux combats et aux objectifs
   const near = T.flatMap(t => t.fights.filter(f => f.myDist < 6000 || f.me)), joined = near.filter(f => f.me);
   const objs = T.flatMap(t => t.objectives), present = objs.filter(o => o.myDist < 4500);

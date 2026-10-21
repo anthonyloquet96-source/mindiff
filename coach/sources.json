@@ -3324,6 +3324,42 @@
    "lastChecked": "2026-10-21",
    "active": true,
    "addedBy": "inventaire 21/10/2026"
+  },
+  {
+   "id": "inven-global",
+   "name": "Inven Global",
+   "author": "Inven Global (média esport)",
+   "url": "https://www.invenglobal.com/lol",
+   "langs": [
+    "en"
+   ],
+   "kind": "media",
+   "format": "article",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Média esport anglophone du groupe coréen Inven : interviews de coachs et joueurs de LCK, LEC, LCS",
+     "evidence": "https://www.invenglobal.com/lol",
+     "how": "site consulté le 2026-10-21 ; les propos rapportés sont ceux des coachs et joueurs interrogés"
+    }
+   ],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Articles publics (HTTP 200, robots.txt autorise la lecture). Ajout ciblé d'interviews de coachs, pas de suivi automatique.",
+    "discovery": {
+     "type": "aucune"
+    }
+   },
+   "credibility": {
+    "level": "moyenne",
+    "why": "Média reconnu ; les conseils viennent de coachs et joueurs professionnels interrogés, souvent dans un contexte de compétition (à transposer avec prudence à la partie classée)."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true,
+   "addedBy": "recherche coachs professionnels 21/10/2026"
   }
  ]
 }

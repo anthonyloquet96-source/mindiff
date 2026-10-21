@@ -23,8 +23,10 @@ const EXTRACT_SCHEMA = {
   properties: {
     units: { type: "array", items: {
       type: "object", additionalProperties: false,
-      required: ["claim", "champions", "roles", "themes", "matchup_vs", "synergy_with", "queue", "rank", "region", "patch_known", "patch_value", "conditions", "limits", "nature", "evidence", "mention_only_champions", "depends_on", "meta_dependent", "action", "observe"],
+      required: ["claim", "champions", "roles", "themes", "matchup_vs", "synergy_with", "queue", "rank", "region", "patch_known", "patch_value", "conditions", "limits", "nature", "evidence", "mention_only_champions", "depends_on", "meta_dependent", "action", "observe", "niveau_partie", "usage"],
       properties: {
+        niveau_partie: { type: "string", enum: ["challenger", "grand-maitre", "maitre", "diamant", "emeraude", "platine", "or", "argent", "bronze", "fer", "pro", "non-precise"], description: "Niveau des parties dont le conseil est tiré (gameplay montré ou analysé), seulement s'il est indiqué ou visible ; sinon non-precise" },
+        usage: { type: "string", enum: ["reference", "correction"], description: "reference : savoir de haut niveau à appliquer ; correction : erreur observée à plus bas niveau, à éviter (jamais une référence)" },
         claim: { type: "string" }, champions: { type: "array", items: { type: "string" } },
         roles: { type: "array", items: { type: "string", enum: ["top", "jungle", "mid", "bottom", "support", "all"] } },
         themes: { type: "array", items: { type: "string", enum: THEMES } },
@@ -185,6 +187,7 @@ export async function run() {
         metaDependent: x.meta_dependent, dependsOn: x.depends_on, conditions: x.conditions,
         limits: [...x.limits, ...(partial ? ["Analyse d'un accès partiel au texte."] : [])],
         nature: natureFor(x.nature, c),
+        levelContext: x.niveau_partie, usage: x.usage,
         evidence: x.evidence.map(e => ({ content: c.id, locator: e.locator, lang: c.lang, passage: e.passage, mentionOnly: x.mention_only_champions.some(m => e.passage.includes(m)) || undefined })),
         mentions: x.mention_only_champions.map(m => `${m} (exemple)`),
         ...(x.action ? { action: x.action, observe: x.observe } : {}),
@@ -192,6 +195,12 @@ export async function run() {
         aiReview: r ? { verdict: r.verdict, flags: r.flags, why: r.why } : null,
         published: c.published || null,
       }));
+      // Tri des mauvais contenus : un contenu jugé de faible qualité n'apporte aucune connaissance
+      if (ex.qualite?.level === "faible") {
+        Object.assign(c, { analysis: "analysee", analyzedAt: today(), analyst: model, unitsAccepted: 0, quality: ex.qualite, learn: null, rejectedForQuality: true, note: `Écarté : contenu jugé de faible qualité (${ex.qualite.why}).` });
+        log.push(`· ${c.id} : écarté pour faible qualité`);
+        n++; continue;
+      }
       // Réanalyse : les unités automatiques précédentes de ce contenu sont remplacées (l'historique garde la trace)
       const prefix = `u-ai-${c.id.replace(/^c-/, "")}-`;
       const kb = await readJson(P.units, { units: [] });

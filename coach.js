@@ -171,7 +171,7 @@ function coachSession() {
         : `<p class="inline-empty">Pas d'autre consigne analysée pour ${esc(focus || "ce profil")}. Le coach ne complète pas avec des conseils non sourcés.</p>`}
       ${!coach.vs && opts.opponents.length ? `<p class="fine">Aucun adversaire choisi : pas de consigne propre à un adversaire.</p>` : ""}
       ${r.stats.length ? `<details class="more"><summary>Ce que disent les statistiques</summary>${r.stats.map(s => `<p><b>${esc(s.line)}</b></p><div class="crow-tags">${unitTags(s.unit)}</div><p>${esc(s.unit.claim)}</p>${s.unit.detail ? `<p>${esc(s.unit.detail)}</p>` : ""}${bullets(s.unit.limits)}${evidenceHtml(s.unit)}`).join("")}
-        <p class="fine">Contexte retenu selon votre rang déclaré : ${s0(r.stats).bucket === "emeraude+" ? "Émeraude et plus" : "tous rangs"}. Une statistique mesure le champion dans un contexte, pas votre maîtrise ni sa valeur dans votre équipe.</p></details>` : ""}
+        <p class="fine">Référence : parties Diamant et plus, quel que soit votre rang, car l'objectif est de monter. Une statistique mesure le champion dans un contexte, pas votre maîtrise ni sa valeur dans votre équipe.</p></details>` : ""}
     </section>
 
     <section class="ccard" aria-labelledby="c-d"><p class="label" id="c-d">D · Une ressource pour comprendre</p>
@@ -210,7 +210,8 @@ const unitAction = id => { const u = COACH?.units.find(x => x.id === id); return
 function coachResources() {
   const p = coach.profile;
   const usable = COACH.units.filter(u => CS.USABLE.includes(u.status));
-  const mine = p ? usable.filter(u => u.champions.some(c => p.champions.includes(c)) || u.synergy?.with?.some(c => p.champions.includes(c)) || u.roles.includes("all") || (u.roles.includes(p.role) && !u.champions.length && !u.matchup)) : usable;
+  const generic = u => !u.champions.length && !u.matchup;
+  const mine = p ? usable.filter(u => u.champions.some(c => p.champions.includes(c)) || u.synergy?.with?.some(c => p.champions.includes(c)) || (generic(u) && (u.roles.includes("all") || u.roles.includes(p.role)))) : usable.filter(u => u.nature !== "officiel" || !u.id.startsWith("u-dd-"));
   const ids = [...new Set(mine.flatMap(u => u.evidence.map(e => e.content)))];
   const analysed = COACH.contents.filter(c => ids.includes(c.id) && c.analysis === "analysee" && c.learn)
     .sort((a, b) => (b.type === "article") - (a.type === "article") || String(b.published || "").localeCompare(String(a.published || "")));

@@ -1,7 +1,7 @@
 {
- "at": "2026-10-20T22:25:21.616Z",
- "ok": 24,
- "total": 24,
+ "at": "2026-10-21T02:28:37.986Z",
+ "ok": 26,
+ "total": 26,
  "results": [
   {
    "name": "1. Source récente compatible avec le patch",
@@ -22,10 +22,22 @@
    "detail": "Conseil officiel non daté, retrouvé tel quel dans Data Dragon 16.20.1 : exploitable, présenté « patch non daté »."
   },
   {
-   "name": "4a. Deux sources statistiques divergentes",
+   "name": "4a. Sources statistiques divergentes, puis retirées (Diamant+)",
    "kind": "réel",
    "ok": true,
-   "detail": "Milio : S (tous rangs) / A / B (Émeraude+) → « Sources divergentes », contextes exposés, aucune majorité."
+   "detail": "Milio : S (tous rangs) / A / B (Émeraude+) → divergence exposée par contexte ; depuis la consigne Diamant+, ces données sont refusées et l'unité est retirée (historisé)."
+  },
+  {
+   "name": "Référence Diamant+ : le bas niveau ne sert qu'à corriger",
+   "kind": "fixture",
+   "ok": true,
+   "detail": "Partie Argent comme référence → rejetée ; comme erreur à corriger → admise mais jamais proposée en consigne ; Diamant → admise."
+  },
+  {
+   "name": "Tout le jeu : socle officiel pour chaque champion",
+   "kind": "réel",
+   "ok": true,
+   "detail": "803 conseils officiels, 147 champions ; Lee Sin (jungle) reçoit ses conseils officiels avec la mention de couverture ; 146 adversaires proposables."
   },
   {
    "name": "4b. Deux créateurs qui se contredisent",
@@ -49,7 +61,7 @@
    "name": "7. Champion ou rôle non couvert",
    "kind": "réel",
    "ok": true,
-   "detail": "Jungle/Lee Sin : avertissement + méthode seulement. ADC/Ezreal : avertissement, aucun conseil d'un autre champion."
+   "detail": "Akshan (aucun conseil) : avertissement, méthode seulement. Lee Sin : « conseils officiels seulement » et objectif jungle déclaré non couvert."
   },
   {
    "name": "8a. Source indisponible (accès refusé)",
@@ -61,7 +73,7 @@
    "name": "8b. Source en panne pendant la découverte",
    "kind": "réel (réseau coupé simulé)",
    "ok": true,
-   "detail": "4 sources en échec, 60 contenus conservés, nouvel essai planifié (2026-10-20T23:25)."
+   "detail": "7 sources en échec, 263 contenus conservés, nouvel essai planifié (2026-10-21T03:28)."
   },
   {
    "name": "9. Citation qui ne soutient pas le conseil",
@@ -97,13 +109,13 @@
    "name": "Chaque recommandation renvoie à ses preuves",
    "kind": "réel",
    "ok": true,
-   "detail": "4 unités affichées, 10 passages tous retrouvés dans les textes consultés, chacun avec un lien."
+   "detail": "7 unités affichées, 13 passages tous retrouvés dans les textes consultés, chacun avec un lien."
   },
   {
    "name": "Une modification du profil change la sélection",
    "kind": "réel",
    "ok": true,
-   "detail": "Or → Diamant : statistique tous → emeraude+. Contre Lulu : +consigne de matchup. Jinx/combats : u-jinx-teamfight. Méthode : u-methode-un-objectif."
+   "detail": "Contre Lulu : +consigne de matchup. Jinx/combats : u-jinx-teamfight. Méthode : u-methode-un-objectif. 5 min : 2 consignes contre 3. Statistiques : toujours Diamant+, quel que soit le rang."
   },
   {
    "name": "Aucun plan propre à un adversaire non renseigné",
@@ -127,7 +139,7 @@
    "name": "Tri des vidéos sur métadonnées (priorité, pas preuve)",
    "kind": "fixture",
    "ok": true,
-   "detail": "« Lucian ADC guide patch 26.20 » → priorité 9 (Lucian, adc, bot lane, trading) ; métadonnées seules (titre et description) : ne prouve pas le contenu."
+   "detail": "« Lucian ADC guide patch 26.20 » → priorité 11 (Lucian, adc, bot lane, guide, tips, trading) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu."
   },
   {
    "name": "Règles verrouillées contre toute modification automatique",
@@ -145,7 +157,8 @@
    "name": "Vidéos réellement lues : durée conforme et passages retrouvés",
    "kind": "réel",
    "ok": true,
-   "detail": "3 vidéos lues (26:58, 17:46, 11:37), 0 unités, toutes au mieux provisoires, passages retrouvés."
+   "skipped": true,
+   "detail": "ignoré : texte c-yt-5un5rVpQpf8 absent du cache privé"
   }
  ]
 }

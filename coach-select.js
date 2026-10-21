@@ -6,7 +6,7 @@
 
   const USABLE = ["exploitable", "provisoire", "contradictoire"];
   const RANKS = [["non-precise", "Non précisé"], ["fer", "Fer"], ["bronze", "Bronze"], ["argent", "Argent"], ["or", "Or"], ["platine", "Platine"], ["emeraude", "Émeraude"], ["diamant", "Diamant"], ["maitre", "Maître"], ["grand-maitre", "Grand maître"], ["challenger", "Challenger"]];
-  const HIGH = ["emeraude", "diamant", "maitre", "grand-maitre", "challenger"];
+
   const ROLES = [["top", "Top"], ["jungle", "Jungle"], ["mid", "Mid"], ["bottom", "ADC"], ["support", "Support"]];
   const MODES = [["solo", "Solo"], ["duo", "Duo"], ["equipe", "Équipe"]];
   const GOALS = [["lane", "Phase de lane"], ["survie", "Positionnement et survie"], ["teamfight", "Combats d'équipe"], ["synergie", "Jeu en duo"], ["methode", "Méthode de travail"], ["vagues", "Gestion des vagues"], ["vision", "Vision"], ["macro", "Macro"], ["jungle", "Jungle"]];
@@ -29,8 +29,9 @@
       note: !roleCovered
         ? `Le coach couvre pour l'instant l'ADC et le support (pilote). Le rôle ${label(ROLES, profile.role)} n'est pas encore couvert : seuls des conseils de méthode, valables pour tous les rôles, sont proposés.`
         : !champion ? "Ajoutez un champion à votre profil pour des conseils propres au champion."
-        : !c ? `${champion} n'est pas encore couvert par le coach (pilote : ${Object.values(kb.pilot.champions).flat().join(", ")}). Conseils de rôle et de méthode seulement.`
+        : !c ? `${champion} n'est pas encore couvert par le coach. Conseils de rôle et de méthode seulement.`
         : c.partial ? `${champion} n'a qu'une couverture partielle : changements de patch seulement, pas encore de conseils de jeu analysés.`
+        : c.officialOnly ? `Pour ${champion}, le coach s'appuie pour l'instant sur les conseils officiels de Riot. Les analyses de coachs de haut niveau arrivent au fil de la veille.`
         : null,
     };
   }
@@ -43,7 +44,7 @@
         if (u.champions.includes(champion)) u.synergy.with.forEach(x => allies.add(x));
         if (u.synergy.with.includes(champion)) u.champions.forEach(x => allies.add(x));
       }
-      if (u.matchup?.vs && u.matchup.vs !== champion && (!role || u.roles.includes(role))) opponents.add(u.matchup.vs);
+      if (u.matchup?.vs && u.matchup.vs !== champion && (!role || u.roles.includes(role) || u.roles.includes("all"))) opponents.add(u.matchup.vs);
     }
     return { allies: [...allies].sort(), opponents: [...opponents].sort() };
   }
@@ -61,6 +62,7 @@
   }
   // Un conseil propre à un adversaire n'est retenu que si l'adversaire est renseigné ; une synergie seulement si elle concerne le champion
   const eligible = (u, p, champion, o) => {
+    if (u.usage === "correction") return false; // erreur observée à plus bas niveau : jamais une consigne
     if (u.matchup && u.matchup.vs !== o.vs) return false;
     if (u.synergy && !(champion && pairs(u, champion))) return false;
     if (u.champions.length && !(champion && covers(u, champion)) && !u.synergy) return false;
@@ -68,7 +70,8 @@
     return true;
   };
 
-  function rankBucket(rank) { return HIGH.includes(rank) ? "emeraude+" : "tous"; }
+  // Référence unique : Diamant et plus, quel que soit le rang déclaré (le but est de monter)
+  function rankBucket() { return "diamant+"; }
 
   function whyFor(u, p, champion, o) {
     const why = [];

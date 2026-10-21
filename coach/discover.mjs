@@ -10,15 +10,23 @@ const FORCE = process.argv.includes("--force");
 const UA = "MINDIFF-coach/1.0 (+https://anthonyloquet96-source.github.io/mindiff/)";
 const VIDEO_NOTE = "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).";
 
-export function triage(text, pilot) {
-  const champs = Object.values(pilot.champions).flat().concat(pilot.partial || []);
+// Priorité de lecture, calculée sur les métadonnées seules : tous les champions et tous les rôles,
+// contenus pédagogiques favorisés, divertissement pénalisé, crédibilité de la source prise en compte
+const TEACH = ["guide", "how to", "tutorial", "tips", "fundamentals", "explained", "breakdown", "vod review", "coaching", "macro", "wave", "laning", "trading", "jungle path", "clear", "matchup", "build", "runes", "climb", "mistakes", "comment", "conseils", "erreurs"];
+const ROLES_KW = ["top", "jungle", "jungler", "mid", "adc", "bot lane", "support", "marksman"];
+const FUN = ["reacts", "reaction", "clips", "moments", "funny", "costream", "stream", "highlights", "🔴", "tries ", "drama"];
+const CRED = { "élevée": 2, moyenne: 1, "à établir": 0, faible: -2 };
+export function triage(text, pilot, names = null, credibility = "à établir") {
+  const champs = names || Object.values(pilot.champions).flat().concat(pilot.partial || []);
   const t = ` ${String(text).toLowerCase()} `;
-  const matched = [
-    ...champs.filter(c => t.includes(` ${c.toLowerCase()}`)),
-    ...["adc", "bot lane", "botlane", "support", "marksman", "laning", "wave", "trading", "duo", "tireur", "vague"].filter(k => t.includes(` ${k}`)),
-  ];
+  const champHits = champs.filter(c => t.includes(` ${c.toLowerCase()}`));
+  const teach = TEACH.filter(k => t.includes(k));
+  const roles = ROLES_KW.filter(k => t.includes(` ${k}`));
+  const fun = FUN.filter(k => t.includes(k));
+  const matched = [...champHits.slice(0, 3), ...roles, ...teach];
   const patch = t.match(/patch\s*(\d{1,2}\.\d{1,2})/)?.[1] || null;
-  return { score: matched.length * 2 + (patch ? 1 : 0), matched, patchMentioned: patch, basis: "métadonnées seules (titre et description) : ne prouve pas le contenu" };
+  const score = Math.min(champHits.length, 3) * 2 + roles.length + teach.length * 2 + (patch ? 1 : 0) - fun.length * 3 + (CRED[credibility] ?? 0);
+  return { score, matched, entertainment: fun, patchMentioned: patch, basis: "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu" };
 }
 
 async function get(url, type) {
@@ -45,6 +53,9 @@ export async function run() {
   state.discovery ||= {};
   const log = [];
   const byId = new Map(contents.contents.map(c => [c.id, c]));
+  const NAMES = (await readJson("coach/cache/roster.json", null))?.names || null;
+  // Nouveau calcul de priorité appliqué aussi aux vidéos déjà repérées et pas encore lues
+  for (const c of contents.contents.filter(c => c.type === "video" && c.access === "metadonnees")) { const src = reg.sources.find(x => x.id === c.sourceId); c.triage = triage(`${c.title} ${c.descriptionExcerpt || ""}`, config.pilot, NAMES, src?.credibility.level); }
   const active = reg.sources.filter(s => s.active && ["youtube-rss", "wp-json"].includes(s.access.discovery?.type)).slice(0, d.maxSources);
   for (const s of active) {
     const st = state.discovery[s.id] ||= { attempts: 0 };
@@ -59,7 +70,7 @@ export async function run() {
           published: v.published?.slice(0, 10), retrievedAt: today(), patch: null, views: v.views,
           access: "metadonnees", analysis: "non-analysee", note: VIDEO_NOTE,
           descriptionExcerpt: String(v.description).slice(0, 280),
-          triage: triage(`${v.title} ${v.description}`, config.pilot),
+          triage: triage(`${v.title} ${v.description}`, config.pilot, NAMES, s.credibility.level),
         }));
       } else {
         const posts = await get(s.access.discovery.url, "json");
@@ -67,7 +78,7 @@ export async function run() {
           id: `c-wtl-${p.id}`, sourceId: s.id, type: "article", url: p.link, title: String(p.title?.rendered || "").replace(/<[^>]+>/g, ""),
           author: s.author, lang: s.langs[0], published: p.date?.slice(0, 10), modified: p.modified?.slice(0, 10), retrievedAt: today(), patch: null,
           access: "texte-integral", analysis: "en-attente", wpId: p.id, wpBase: new URL(s.access.discovery.url).origin,
-          triage: triage(p.title?.rendered || "", config.pilot),
+          triage: triage(p.title?.rendered || "", config.pilot, NAMES, s.credibility.level),
         }));
       }
       let added = 0, updated = 0;

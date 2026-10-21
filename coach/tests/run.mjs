@@ -60,11 +60,36 @@ await t("3. Fondamental ancien encore applicable", "réel", async () => {
   assert(normText(txt).includes(normText(u.evidence[0].passage)), "conseil absent des données 16.20.1");
   return "Conseil officiel non daté, retrouvé tel quel dans Data Dragon 16.20.1 : exploitable, présenté « patch non daté ».";
 });
-await t("4a. Deux sources statistiques divergentes", "réel", () => {
-  const r = ev(unit("u-milio-stats"));
-  assert(r.status === "contradictoire", r.status);
+await t("4a. Sources statistiques divergentes, puis retirées (Diamant+)", "réel", () => {
+  const u = unit("u-milio-stats");
+  const { usage, ...asCorrectionFree } = u;
+  const r = checkUnit({ ...asCorrectionFree, proposedStatus: "contradictoire" }, ctx);
   assert(r.flags.some(f => f.code === "ecart-de-contexte"), "écart de contexte non signalé");
-  return "Milio : S (tous rangs) / A / B (Émeraude+) → « Sources divergentes », contextes exposés, aucune majorité.";
+  assert(r.flags.some(f => f.code === "rang-sous-reference") && r.blocking, "statistique Émeraude+ / tous rangs acceptée comme référence");
+  assert(ev(u).status === "retire", "non retirée");
+  return "Milio : S (tous rangs) / A / B (Émeraude+) → divergence exposée par contexte ; depuis la consigne Diamant+, ces données sont refusées et l'unité est retirée (historisé).";
+});
+await t("Référence Diamant+ : le bas niveau ne sert qu'à corriger", "fixture", () => {
+  const base = { id: "fx-rang", claim: "Selon un créateur : conseil.", champions: [], roles: ["bottom"], themes: ["lane"], context: { queue: "solo" }, patch: { known: false }, nature: "opinion", evidence: [{ content: "fx-createur-a", locator: "§1", lang: "fr", passage: "montez Prison aqueuse en premier" }] };
+  const silver = checkUnit({ ...base, levelContext: "argent", usage: "reference" }, fxCtx);
+  const corr = checkUnit({ ...base, levelContext: "argent", usage: "correction" }, fxCtx);
+  const dia = checkUnit({ ...base, levelContext: "diamant", usage: "reference" }, fxCtx);
+  assert(silver.blocking && silver.flags.some(f => f.code === "rang-sous-reference"), "partie Argent acceptée comme référence");
+  assert(!corr.flags.some(f => f.code === "rang-sous-reference") && !dia.flags.some(f => f.code === "rang-sous-reference"), "correction ou Diamant refusés à tort");
+  const kb = { ...KB, units: [...KB.units, { ...base, id: "fx-corr", status: "exploitable", usage: "correction", action: "x", review: { human: "en attente" } }] };
+  const r = CS.prepare(kb, { role: "bottom", rank: "argent", champions: [], mode: "solo", goal: "lane", time: 30 });
+  assert(r.goal?.unit.id !== "fx-corr" && !r.plan.some(x => x.unit.id === "fx-corr"), "erreur de bas niveau proposée comme consigne");
+  return "Partie Argent comme référence → rejetée ; comme erreur à corriger → admise mais jamais proposée en consigne ; Diamant → admise.";
+});
+await t("Tout le jeu : socle officiel pour chaque champion", "réel", () => {
+  const dd = KB.units.filter(u => u.id.startsWith("u-dd-"));
+  const champs = new Set(dd.flatMap(u => [...u.champions, u.matchup?.vs].filter(Boolean)));
+  assert(champs.size > 140, `${champs.size} champions`);
+  const r = CS.prepare(KB, { role: "jungle", rank: "or", champions: ["Lee Sin"], mode: "solo", goal: "lane", time: 30 });
+  assert(r.plan.some(x => x.unit.champions.includes("Lee Sin")) && /conseils officiels/.test(r.coverage.note), "Lee Sin sans conseil officiel ou sans mention de couverture");
+  const opts = CS.options(KB, "Lee Sin", "jungle");
+  assert(opts.opponents.length > 100, "adversaires");
+  return `${dd.length} conseils officiels, ${champs.size} champions ; Lee Sin (jungle) reçoit ses conseils officiels avec la mention de couverture ; ${opts.opponents.length} adversaires proposables.`;
 });
 await t("4b. Deux créateurs qui se contredisent", "fixture", () => {
   const [a, b] = fx.contradiction.map(u => ev(u, fxCtx));
@@ -91,13 +116,17 @@ await t("6. Traduction ambiguë", "réel", () => {
   assert(r.flags.some(f => f.code === "traduction") && r.status === "provisoire", "non signalé");
   return "« le protéger » (fr) vs « shield them » (en) pour Pix à la rescousse ! : sans note de traduction, l'unité tombe en provisoire.";
 });
-await t("7. Champion ou rôle non couvert", "réel", () => {
-  const r = CS.prepare(KB, { role: "jungle", rank: "or", champions: ["Lee Sin"], mode: "solo", goal: "jungle", time: 15 });
-  assert(!r.coverage.roleCovered && r.coverage.note, "pas d'avertissement");
-  assert(r.goal.unit.roles.includes("all") && r.plan.every(x => x.unit.roles.includes("all")), "conseil propre à un rôle couvert proposé");
-  const r2 = CS.prepare(KB, { role: "bottom", rank: "or", champions: ["Ezreal"], mode: "solo", goal: "lane", time: 15 });
-  assert(/pas encore couvert/.test(r2.coverage.note) && r2.plan.every(x => !x.unit.champions.length), "conseil d'un autre champion proposé");
-  return "Jungle/Lee Sin : avertissement + méthode seulement. ADC/Ezreal : avertissement, aucun conseil d'un autre champion.";
+await t("7. Champion ou rôle non couvert", "réel", async () => {
+  // Champion réel sans aucun conseil dans la base (Riot ne publie pas de conseils officiels pour les plus récents)
+  const roster = JSON.parse(await readFile(join(ROOT, "coach/cache/roster.json"), "utf8").catch(() => '{"names":[]}')).names;
+  const none = roster.find(n => !KB.coverage.champions[n]);
+  if (!none) throw Object.assign(new Error("ignoré : tous les champions ont au moins un conseil"), { skip: true });
+  const r = CS.prepare(KB, { role: "bottom", rank: "or", champions: [none], mode: "solo", goal: "jungle", time: 15 });
+  assert(/pas encore couvert/.test(r.coverage.note), "pas d'avertissement");
+  assert(r.plan.every(x => !x.unit.champions.length) && r.goal.unit.roles.includes("all"), "conseil d'un autre champion proposé");
+  const r2 = CS.prepare(KB, { role: "jungle", rank: "or", champions: ["Lee Sin"], mode: "solo", goal: "jungle", time: 15 });
+  assert(/conseils officiels/.test(r2.coverage.note) && /aucun conseil analysé/i.test(r2.goalNote || ""), "couverture de Lee Sin mal annoncée");
+  return `${none} (aucun conseil) : avertissement, méthode seulement. Lee Sin : « conseils officiels seulement » et objectif jungle déclaré non couvert.`;
 });
 await t("8a. Source indisponible (accès refusé)", "réel", async () => {
   const got = await acquireText({ id: "test-mobalytics", type: "article", url: "https://mobalytics.gg/blog/lol-essential-skills-to-master-for-adcs/", access: "texte-integral" });
@@ -193,10 +222,12 @@ await t("Chaque recommandation renvoie à ses preuves", "réel", async () => {
 await t("Une modification du profil change la sélection", "réel", () => {
   const base = { role: "bottom", rank: "or", champions: ["Lucian"], mode: "duo", goal: "lane", time: 15 };
   const a = CS.prepare(KB, base), b = CS.prepare(KB, { ...base, rank: "diamant" }), c = CS.prepare(KB, base, { vs: "Lulu" }), d = CS.prepare(KB, { ...base, champions: ["Jinx"], goal: "teamfight" }), e = CS.prepare(KB, { ...base, goal: "methode" });
-  assert(a.stats[0].line !== b.stats[0].line, "rang sans effet");
+  const f = CS.prepare(KB, { ...base, time: 5 });
+  assert(a.stats.every(s => s.bucket === "diamant+") && b.stats.every(s => s.bucket === "diamant+"), "référence autre que Diamant+");
   assert(c.plan.some(x => x.unit.matchup?.vs === "Lulu") && !a.plan.some(x => x.unit.matchup), "adversaire sans effet");
   assert(d.goal.unit.id !== a.goal.unit.id && e.goal.unit.id !== a.goal.unit.id, "champion ou objectif sans effet");
-  return `Or → Diamant : statistique ${a.stats[0].bucket} → ${b.stats[0].bucket}. Contre Lulu : +consigne de matchup. Jinx/combats : ${d.goal.unit.id}. Méthode : ${e.goal.unit.id}.`;
+  assert(f.plan.length < a.plan.length || a.plan.length <= 2, "temps disponible sans effet");
+  return `Contre Lulu : +consigne de matchup. Jinx/combats : ${d.goal.unit.id}. Méthode : ${e.goal.unit.id}. 5 min : ${f.plan.length} consignes contre ${a.plan.length}. Statistiques : toujours Diamant+, quel que soit le rang.`;
 });
 await t("Aucun plan propre à un adversaire non renseigné", "réel", () => {
   for (const ch of ["Lucian", "Jinx", "Smolder", "Lulu", "Milio", "Nami"]) for (const g of ["lane", "survie", "teamfight", "synergie"]) {

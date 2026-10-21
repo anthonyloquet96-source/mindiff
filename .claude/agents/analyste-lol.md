@@ -25,6 +25,12 @@ Ces fichiers sont verrouillés par empreinte (`coach/rules/rules.lock.json`). Tu
 6. **Enregistrer** : écrire un lot dans `coach/kb/batches/<date>-<sujet>.json`, puis `node coach/merge.mjs <lot> --origin agent-claude-code`. Les unités rejetées par le contrôle critique ne sont jamais forcées.
 7. **Actualiser** : `node coach/build.mjs`, puis `node coach/tests/run.mjs`. Signale les unités passées en « à revalider » ou « obsolète ».
 
+## Niveau de référence (consigne d'Anthony, 21/10)
+
+Le coach aide tous les niveaux, mais son savoir vient du **niveau Diamant et plus**, ou de la compétition. Une partie ou une statistique de niveau inférieur (Émeraude, Platine, Or, Argent…) ne sert qu'à illustrer une **erreur à corriger** : `usage: "correction"`, jamais `reference`. Indique toujours `levelContext` quand le niveau est connu. Les statistiques « tous rangs » ou « Émeraude+ » ne sont pas des références.
+
+Le coach doit couvrir tout le jeu. Le socle officiel de chaque champion vient de `node coach/ddragon.mjs`. Les analyses de coachs de haut niveau, actuelles, enrichissent ce socle au fil de la veille. Les contenus faibles (démonstration insuffisante, clickbait, divertissement) sont écartés.
+
 ## Interdits
 
 - Conclure sur le fond d'une vidéo à partir de son titre, de sa miniature ou de sa description.

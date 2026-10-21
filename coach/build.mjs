@@ -33,10 +33,25 @@ export async function run() {
     }
   }
   for (const ch of pilot.partial || []) coverage.champions[ch] = { role: "bottom", partial: true, units: usable.filter(u => u.champions.includes(ch)).length, themes: [...new Set(usable.filter(u => u.champions.includes(ch)).flatMap(u => u.themes))], actions: 0 };
+  // Tous les champions présents dans la base : socle officiel (Data Dragon) et analyses de coaching comptés à part
+  const names = new Set(usable.flatMap(u => [...u.champions, ...(u.matchup?.vs ? [u.matchup.vs] : []), ...(u.synergy?.with || [])]));
+  for (const ch of names) {
+    const own = usable.filter(u => u.champions.includes(ch) || u.matchup?.vs === ch || u.synergy?.with?.includes(ch));
+    const c = coverage.champions[ch] ||= { role: null, units: own.length, themes: [...new Set(own.flatMap(u => u.themes))], actions: own.filter(u => u.action).length };
+    c.official = own.filter(u => u.nature === "officiel").length;
+    c.coaching = own.filter(u => u.nature !== "officiel").length;
+    if (!c.coaching && !pilot.champions[c.role]?.includes(ch)) c.officialOnly = true;
+  }
   for (const t of ["lane", "survie", "teamfight", "synergie", "matchup", "methode", "vagues", "vision", "macro", "jungle"]) coverage.themes[t] = usable.filter(u => u.themes.includes(t) && u.action).length;
   coverage.generic = usable.filter(u => u.roles.includes("all")).map(u => u.id);
 
-  const pub = u => { const { blocking, origin, ...rest } = u; return rest; };
+  // Version publiée allégée : les champs de travail restent dans coach/kb et dans la page de contrôle
+  const pub = u => {
+    const { blocking, origin, validity, verified, firstSeen, version, analyst, proposedStatus, promptVersions, independentSources, dependsOn, flags, aiReview, ...rest } = u;
+    if (!rest.conditions?.length) delete rest.conditions;
+    if (rest.context?.queue === "tous" && rest.context?.rank === "tous") delete rest.context;
+    return { ...rest, review: { human: u.review.human }, ...(flags.length ? { flags: flags.map(f => ({ code: f.code, why: f.why })) } : {}) };
+  };
   const contents = L.contents.contents.map(({ wpBase, wpId, attempts, lastError, ...c }) => c);
   const out = {
     generatedAt: new Date().toISOString(),

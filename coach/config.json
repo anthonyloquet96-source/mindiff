@@ -2,6 +2,9 @@
   "_doc": "Réglages de la veille du coach. Modifiables sans toucher au code. Voir coach/README.md.",
   "pilot": {
     "roles": [
+      "top",
+      "jungle",
+      "mid",
       "bottom",
       "support"
     ],
@@ -19,7 +22,8 @@
     },
     "partial": [
       "Ashe"
-    ]
+    ],
+    "_doc": "Rôles et champions couverts. Les conseils officiels (Data Dragon) couvrent tous les champions ; les analyses de coaching sont collectées au fil de la veille."
   },
   "discovery": {
     "everyHours": 6,
@@ -55,79 +59,42 @@
     "region": "europe",
     "queue": 420,
     "buckets": {
-      "emeraude+": [
-        [
-          "EMERALD",
-          "I"
-        ],
-        [
-          "EMERALD",
-          "II"
-        ],
-        [
-          "EMERALD",
-          "III"
-        ],
-        [
-          "EMERALD",
-          "IV"
-        ],
-        [
-          "DIAMOND",
-          "I"
-        ],
-        [
-          "DIAMOND",
-          "II"
-        ],
-        [
-          "DIAMOND",
-          "III"
-        ],
+      "diamant+": [
         [
           "DIAMOND",
           "IV"
-        ]
-      ],
-      "sous-emeraude": [
-        [
-          "SILVER",
-          "I"
         ],
         [
-          "SILVER",
-          "II"
-        ],
-        [
-          "GOLD",
-          "I"
-        ],
-        [
-          "GOLD",
-          "II"
-        ],
-        [
-          "GOLD",
+          "DIAMOND",
           "III"
         ],
         [
-          "PLATINUM",
-          "I"
-        ],
-        [
-          "PLATINUM",
+          "DIAMOND",
           "II"
         ],
         [
-          "PLATINUM",
-          "III"
+          "DIAMOND",
+          "I"
+        ],
+        [
+          "MASTER",
+          null
+        ],
+        [
+          "GRANDMASTER",
+          null
+        ],
+        [
+          "CHALLENGER",
+          null
         ]
       ]
     },
     "playersPerDivision": 4,
     "matchesPerPlayer": 8,
     "maxRequestsPerRun": 420,
-    "minGamesForUnit": 30
+    "minGamesForUnit": 30,
+    "_niveau": "Référence : Diamant et plus uniquement (consigne du 21/10). Aucune partie de rang inférieur n’est comptée."
   },
   "analysis": {
     "provider": "gemini",
@@ -171,5 +138,10 @@
     "minRankedGames": 1000,
     "minProGames": 30,
     "maxPassageChars": 320
+  },
+  "knowledge": {
+    "minRank": "diamant",
+    "lowRankUse": "correction",
+    "_doc": "Le savoir du coach vient du niveau Diamant et plus (ou de la compétition). Un contenu de plus bas niveau ne sert qu’à illustrer une erreur à corriger."
   }
 }

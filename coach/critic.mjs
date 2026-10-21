@@ -5,7 +5,7 @@
 import { normText, patchCmp, patchGap } from "./lib.mjs";
 
 export const NATURES = ["officiel", "opinion", "statistique", "analyse"];
-export const THEMES = ["patch", "lane", "synergie", "matchup", "teamfight", "survie", "methode", "build", "vagues", "vision", "macro", "jungle"];
+export const THEMES = ["patch", "lane", "synergie", "matchup", "teamfight", "survie", "methode", "build", "vagues", "vision", "macro", "jungle", "champion"];
 export const ROLES = ["top", "jungle", "mid", "bottom", "support", "all"];
 // Du moins au plus restrictif : le statut final est le plus restrictif des statuts proposés et calculés
 export const STATUS_ORDER = ["exploitable", "provisoire", "contradictoire", "a-revalider", "obsolete", "retire"];
@@ -28,6 +28,7 @@ export function detectInjection(text) {
   return INJECTION.map(re => t.match(re)?.[0]).filter(Boolean);
 }
 
+export const LOW_LEVELS = ["emeraude", "platine", "or", "argent", "bronze", "fer"];
 const TIER_RANK = { "S+": 0, S: 1, A: 2, B: 3, C: 4, D: 5, F: 6 };
 const tierOf = p => { const m = p.match(/(?:^|\s)(S\+|[SABCDF])(?:-tier|\s+\d)/); return m ? m[1] : null; };
 const hasPercent = p => /\d+(?:[.,]\d+)?\s?%/.test(p);
@@ -78,6 +79,14 @@ export function checkUnit(u, ctx) {
     else if (!inPassage && !inTitle) flag("citation-insuffisante", `Aucun passage ne porte sur ${ch}.`, true);
   }
   for (const m of u.mentions || []) if ((u.champions || []).some(ch => m.startsWith(ch))) flag("mention", `${m} : mention, pas conseil.`, true);
+
+  // Niveau de référence (consigne d'Anthony, 21/10) : le savoir vient du niveau Diamant et plus, ou de la compétition.
+  // Un contenu de plus bas niveau ne sert qu'à illustrer une erreur à corriger (usage « correction »).
+  if (u.usage !== "correction") {
+    const low = ev.filter(e => /^solo-(tous|emeraude\+|sous-emeraude|or|argent|bronze|fer|platine)/.test(String(e.context || "")));
+    if (u.nature === "statistique" && low.length) flag("rang-sous-reference", `Statistique tirée d'un niveau inférieur à Diamant (${[...new Set(low.map(e => e.context))].join(", ")}) : le coach ne prend comme référence que Diamant et plus.`, true);
+    if (LOW_LEVELS.includes(u.levelContext)) flag("rang-sous-reference", `Contenu tiré de parties de niveau ${u.levelContext} : utilisable seulement comme erreur à corriger, pas comme référence.`, true);
+  }
 
   // Ranked et compétition
   const evCtx = ev.map(e => e.context || ctx.contents.get(e.content)?.context?.queue).filter(Boolean);

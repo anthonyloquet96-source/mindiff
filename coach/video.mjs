@@ -3,6 +3,7 @@
 // Le résultat reste dans le cache privé ; le contenu passe « en attente » pour l'extraction et la critique.
 // Usage : node --env-file-if-exists=.env coach/video.mjs [--max 3] [--only <id-contenu>]
 
+import { refill } from "./queue.mjs";
 import { P, readJson, writeJson, saveText, cachedText, today } from "./lib.mjs";
 import { gemini, countTokens, hasGeminiKey } from "./gemini.mjs";
 import { detectInjection } from "./critic.mjs";
@@ -39,10 +40,15 @@ export async function run() {
   if (!hasGeminiKey()) return ["· GEMINI_API_KEY absente : vidéos laissées en métadonnées seules."];
   const usedToday = state.videoSecondsByDay?.[today()] || 0;
   const only = arg("only");
-  const queue = contents.contents
-    .filter(c => c.type === "video" && (only ? c.id === only : c.access === "metadonnees" && (c.triage?.score || 0) >= V.minTriage && (c.videoAttempts || 0) < V.maxAttempts))
-    .sort((a, b) => (b.triage?.score || 0) - (a.triage?.score || 0) || String(b.published).localeCompare(String(a.published)))
-    .slice(0, Number(arg("max", V.maxPerRun)));
+  // File de lecture (coach/queue.mjs) : les prochaines vidéos classées entrent au registre juste avant d'être lues
+  if (!only) log.push(...await refill(contents, (await readJson(P.sources)).sources).catch(e => [`· File de lecture non rechargée : ${e.message}`]));
+  const ready = contents.contents.filter(c => c.type === "video" && (only ? c.id === only : c.access === "metadonnees" && (c.triage?.score || 0) >= V.minTriage && (c.videoAttempts || 0) < V.maxAttempts));
+  const byScore = (a, b) => (b.triage?.score || 0) - (a.triage?.score || 0) || String(b.published).localeCompare(String(a.published));
+  // Deux vidéos de la file (ordre de pertinence) pour une vidéo récente des flux RSS (nouveautés des chaînes suivies)
+  const fromQueue = ready.filter(c => c.queueRank).sort((a, b) => a.queueRank - b.queueRank), fresh = ready.filter(c => !c.queueRank).sort(byScore);
+  const mixed = [];
+  while (fromQueue.length || fresh.length) mixed.push(...fromQueue.splice(0, 2), ...fresh.splice(0, 1));
+  const queue = mixed.slice(0, Number(arg("max", V.maxPerRun)));
   let seconds = usedToday;
   for (const c of queue) {
     const parts = [{ fileData: { fileUri: c.url } }];

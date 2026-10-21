@@ -52,6 +52,8 @@ jobs:
         run: node coach/revalidate.mjs
       - name: Socle officiel de tous les champions (si Data Dragon a changé)
         run: node coach/ddragon.mjs
+      - name: Pages officielles des champions sans conseils Data Dragon
+        run: node coach/insights.mjs
       - name: Lire les vidéos (Gemini, si la clé est configurée)
         run: node coach/video.mjs
         env:

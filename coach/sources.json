@@ -1,596 +1,634 @@
 {
-  "_doc": "Registre des sources du coach. Une source n'est jamais présentée comme partenaire de MINDIFF. credibility = crédibilité de la source (pas la qualité d'un contenu précis, évaluée par contenu, ni la pertinence, calculée selon le profil du joueur).",
-  "verifiedAt": "2026-10-20",
-  "sources": [
+ "_doc": "Registre des sources du coach. Une source n'est jamais présentée comme partenaire de MINDIFF. credibility = crédibilité de la source (pas la qualité d'un contenu précis, évaluée par contenu, ni la pertinence, calculée selon le profil du joueur).",
+ "verifiedAt": "2026-10-20",
+ "sources": [
+  {
+   "id": "riot-patch-notes",
+   "name": "Notes de patch League of Legends",
+   "author": "Riot Games (éditeur)",
+   "url": "https://www.leagueoflegends.com/fr-fr/news/game-updates/",
+   "langs": [
+    "fr",
+    "en"
+   ],
+   "kind": "officiel",
+   "format": "article",
+   "roles": [
+    "all"
+   ],
+   "champions": [
+    "all"
+   ],
+   "expertise": [
     {
-      "id": "riot-patch-notes",
-      "name": "Notes de patch League of Legends",
-      "author": "Riot Games (éditeur)",
-      "url": "https://www.leagueoflegends.com/fr-fr/news/game-updates/",
-      "langs": [
-        "fr",
-        "en"
-      ],
-      "kind": "officiel",
-      "format": "article",
-      "roles": [
-        "all"
-      ],
-      "champions": [
-        "all"
-      ],
-      "expertise": [
-        {
-          "claim": "Éditeur du jeu : les valeurs publiées font foi",
-          "evidence": "https://www.leagueoflegends.com/fr-fr/news/game-updates/league-of-legends-patch-26-20-notes",
-          "how": "page officielle consultée"
-        }
-      ],
-      "access": {
-        "mode": "texte-integral",
-        "detail": "Page HTML publique, texte complet lisible (HTTP 200).",
-        "discovery": {
-          "type": "riot-news",
-          "from": "data/auto.json (collecte existante)"
-        }
-      },
-      "credibility": {
-        "level": "élevée",
-        "why": "Source primaire des changements de jeu. Les intentions affichées par Riot restent des déclarations, pas des mesures."
-      },
-      "lastChecked": "2026-10-20",
-      "active": true
-    },
-    {
-      "id": "riot-data-dragon",
-      "name": "Data Dragon",
-      "author": "Riot Games (éditeur)",
-      "url": "https://ddragon.leagueoflegends.com/cdn/16.20.1/data/fr_FR/champion.json",
-      "langs": [
-        "fr",
-        "en",
-        "ko"
-      ],
-      "kind": "officiel",
-      "format": "donnees",
-      "roles": [
-        "all"
-      ],
-      "champions": [
-        "all"
-      ],
-      "expertise": [
-        {
-          "claim": "Données officielles des champions : descriptions de compétences et conseils intégrés au jeu",
-          "evidence": "https://ddragon.leagueoflegends.com/api/versions.json",
-          "how": "API publique, version 16.20.1"
-        }
-      ],
-      "access": {
-        "mode": "api-json",
-        "detail": "JSON public sans clé. Les conseils (allytips, enemytips) ne sont pas datés : ils sont rattachés à la version où ils ont été relus.",
-        "discovery": {
-          "type": "ddragon-versions",
-          "url": "https://ddragon.leagueoflegends.com/api/versions.json"
-        }
-      },
-      "credibility": {
-        "level": "élevée",
-        "why": "Texte officiel. Les conseils sont anciens et génériques : leur pertinence actuelle se vérifie contre la description de la compétence de la version courante."
-      },
-      "lastChecked": "2026-10-20",
-      "active": true
-    },
-    {
-      "id": "lolesports",
-      "name": "LoL Esports (statistiques des matchs officiels)",
-      "author": "Riot Games (organisateur)",
-      "url": "https://lolesports.com/",
-      "langs": [
-        "en"
-      ],
-      "kind": "officiel",
-      "format": "donnees",
-      "roles": [
-        "all"
-      ],
-      "champions": [
-        "all"
-      ],
-      "expertise": [
-        {
-          "claim": "Picks officiels des compétitions",
-          "evidence": "collecte MINDIFF existante (collector/lolesports.mjs)",
-          "how": "API officielle"
-        }
-      ],
-      "access": {
-        "mode": "api-json",
-        "detail": "Déjà collecté toutes les 30 min. Contexte : compétition, version client technique (16.20), jamais confondu avec le ranked.",
-        "discovery": {
-          "type": "auto-json",
-          "from": "data/auto.json"
-        }
-      },
-      "credibility": {
-        "level": "élevée",
-        "why": "Données officielles. Les échantillons d'un tournoi en cours sont petits."
-      },
-      "lastChecked": "2026-10-20",
-      "active": true
-    },
-    {
-      "id": "metabot",
-      "name": "metabot.gg — tier list",
-      "author": "MetaBot.GG",
-      "url": "https://metabot.gg/en/league/champions/tier-list",
-      "langs": [
-        "en"
-      ],
-      "kind": "statistiques",
-      "format": "donnees",
-      "roles": [
-        "all"
-      ],
-      "champions": [
-        "all"
-      ],
-      "expertise": [
-        {
-          "claim": "Agrégateur de parties classées, « toutes régions », mis à jour quotidiennement (déclaré)",
-          "evidence": "https://metabot.gg/en/league/champions/tier-list",
-          "how": "méthode lue sur la page (S et A exigent au moins 1 % de taux de sélection)"
-        }
-      ],
-      "access": {
-        "mode": "texte-integral",
-        "detail": "Page publique lisible (HTTP 200). Rang : tous rangs, non filtré.",
-        "discovery": {
-          "type": "aucune",
-          "note": "relevé manuel ou à chaque patch"
-        }
-      },
-      "credibility": {
-        "level": "moyenne",
-        "why": "Méthode partiellement documentée, non vérifiable indépendamment. Tous rangs confondus."
-      },
-      "lastChecked": "2026-10-20",
-      "active": false,
-      "inactiveReason": "Données publiques lisibles limitées à Émeraude+ ou tous rangs ; le coach ne prend comme référence que Diamant et plus (consigne du 21/10). Le filtre Diamant+ de LoLValue n’existe que dans le navigateur."
-    },
-    {
-      "id": "mobatrainer",
-      "name": "MOBA Trainer — tier list",
-      "author": "MOBA Trainer",
-      "url": "https://www.mobatrainer.com/lol/tier-list",
-      "langs": [
-        "en"
-      ],
-      "kind": "statistiques",
-      "format": "donnees",
-      "roles": [
-        "all"
-      ],
-      "champions": [
-        "all"
-      ],
-      "expertise": [
-        {
-          "claim": "Statistiques Émeraude+ fusionnées depuis u.gg et op.gg (déclaré)",
-          "evidence": "https://www.mobatrainer.com/lol/tier-list",
-          "how": "métadonnées de la page : bracket emerald_plus, sourcesOnPatch opgg et lolalytics, fusion du 2026-10-20"
-        }
-      ],
-      "access": {
-        "mode": "texte-integral",
-        "detail": "Page publique lisible (HTTP 200).",
-        "discovery": {
-          "type": "aucune"
-        }
-      },
-      "credibility": {
-        "level": "moyenne",
-        "why": "Données de seconde main (u.gg, op.gg, lolalytics) : ne pas compter comme source indépendante de ces sites."
-      },
-      "origin": [
-        "opgg",
-        "ugg",
-        "lolalytics"
-      ],
-      "lastChecked": "2026-10-20",
-      "active": false,
-      "inactiveReason": "Données publiques lisibles limitées à Émeraude+ ou tous rangs ; le coach ne prend comme référence que Diamant et plus (consigne du 21/10). Le filtre Diamant+ de LoLValue n’existe que dans le navigateur."
-    },
-    {
-      "id": "lolvalue",
-      "name": "LoLValue — tier list",
-      "author": "LoLValue",
-      "url": "https://lolvalue.com/lol-tier-list",
-      "langs": [
-        "en"
-      ],
-      "kind": "statistiques",
-      "format": "donnees",
-      "roles": [
-        "all"
-      ],
-      "champions": [
-        "all"
-      ],
-      "expertise": [
-        {
-          "claim": "143 132 parties classées Émeraude+ de toutes régions, taux de victoire ajusté pour les petits échantillons (déclaré)",
-          "evidence": "https://lolvalue.com/lol-tier-list",
-          "how": "méthode lue sur la page"
-        }
-      ],
-      "access": {
-        "mode": "texte-integral",
-        "detail": "Page publique lisible (HTTP 200), « updated October 20, 2026 ».",
-        "discovery": {
-          "type": "aucune"
-        }
-      },
-      "credibility": {
-        "level": "moyenne",
-        "why": "Méthode documentée (ajustement bayésien). Collecte non vérifiable indépendamment."
-      },
-      "lastChecked": "2026-10-20",
-      "active": false,
-      "inactiveReason": "Données publiques lisibles limitées à Émeraude+ ou tous rangs ; le coach ne prend comme référence que Diamant et plus (consigne du 21/10). Le filtre Diamant+ de LoLValue n’existe que dans le navigateur."
-    },
-    {
-      "id": "wtl-blog",
-      "name": "We Teach League — blog",
-      "author": "We Teach League (académies de coaching)",
-      "url": "https://weteachleague.com/blog/",
-      "langs": [
-        "en"
-      ],
-      "kind": "coaching",
-      "format": "article",
-      "roles": [
-        "all"
-      ],
-      "champions": [],
-      "expertise": [
-        {
-          "claim": "Organisation fondée autour de Coach Curtis (Curtis Morgan), ancien joueur et coach de Dire Wolves (Océanie)",
-          "evidence": "https://lol.fandom.com/wiki/Curtis",
-          "how": "recherche web du 2026-10-20 ; page Leaguepedia refusée à notre collecteur (403)"
-        },
-        {
-          "claim": "Auteure des articles analysés : Elena, mentor de la Mid Lane Academy, Émeraude en mid",
-          "evidence": "https://weteachleague.com/author/elenaschulz/",
-          "how": "fiche auteur publique (API WordPress)"
-        }
-      ],
-      "access": {
-        "mode": "texte-integral",
-        "detail": "API WordPress publique (wp-json), robots.txt sans interdiction, délai de 10 s demandé entre requêtes.",
-        "discovery": {
-          "type": "wp-json",
-          "url": "https://weteachleague.com/wp-json/wp/v2/posts?per_page=10&_fields=id,date,modified,link,title,author"
-        }
-      },
-      "credibility": {
-        "level": "moyenne",
-        "why": "Méthode de travail clairement argumentée mais témoignage personnel. Site commercial qui promeut ses académies. Auteure spécialiste du mid, pas de la bot lane."
-      },
-      "lastChecked": "2026-10-20",
-      "active": true
-    },
-    {
-      "id": "yt-skill-capped",
-      "name": "Skill Capped Challenger LoL Guides",
-      "author": "Skill Capped",
-      "url": "https://www.youtube.com/channel/UCFl1mGlf5j0Qno1Kxnyv6FA",
-      "channelId": "UCFl1mGlf5j0Qno1Kxnyv6FA",
-      "langs": [
-        "en"
-      ],
-      "kind": "createur",
-      "format": "video",
-      "roles": [
-        "all"
-      ],
-      "champions": [],
-      "expertise": [
-        {
-          "claim": "Guides présentés comme « Challenger » par la chaîne",
-          "evidence": "https://www.youtube.com/channel/UCFl1mGlf5j0Qno1Kxnyv6FA",
-          "how": "déclaration de la chaîne, non vérifiée indépendamment"
-        }
-      ],
-      "access": {
-        "mode": "rss-metadonnees",
-        "detail": "Flux RSS public : titre, date, description, vues. Aucune transcription accessible par une voie autorisée.",
-        "discovery": {
-          "type": "youtube-rss",
-          "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFl1mGlf5j0Qno1Kxnyv6FA"
-        }
-      },
-      "credibility": {
-        "level": "à établir",
-        "why": "Expertise auto-déclarée. Titres accrocheurs (« BRAINDEAD », « EVERY game ») qui ne prouvent rien du contenu."
-      },
-      "lastChecked": "2026-10-20",
-      "active": true
-    },
-    {
-      "id": "yt-coach-curtis",
-      "name": "Coach Curtis",
-      "author": "Curtis Morgan",
-      "url": "https://www.youtube.com/channel/UCcoZq8yFAAX7TtdRaHhJlZg",
-      "channelId": "UCcoZq8yFAAX7TtdRaHhJlZg",
-      "langs": [
-        "en"
-      ],
-      "kind": "coach",
-      "format": "video",
-      "roles": [
-        "mid",
-        "all"
-      ],
-      "champions": [],
-      "expertise": [
-        {
-          "claim": "Ancien joueur, ancien coach de Dire Wolves (Océanie)",
-          "evidence": "https://lol.fandom.com/wiki/Curtis",
-          "how": "recherche web du 2026-10-20 ; page Leaguepedia refusée à notre collecteur (403)"
-        }
-      ],
-      "access": {
-        "mode": "rss-metadonnees",
-        "detail": "Flux RSS public. Aucune transcription accessible par une voie autorisée.",
-        "discovery": {
-          "type": "youtube-rss",
-          "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcoZq8yFAAX7TtdRaHhJlZg"
-        }
-      },
-      "credibility": {
-        "level": "moyenne",
-        "why": "Passé de coach vérifiable, spécialité mid lane et méthode de progression plutôt que bot lane."
-      },
-      "lastChecked": "2026-10-20",
-      "active": true
-    },
-    {
-      "id": "yt-doublelift",
-      "name": "Doublelift",
-      "author": "Yiliang « Doublelift » Peng",
-      "url": "https://www.youtube.com/channel/UCrPCP1oaOr0AEs2JdxzfOFA",
-      "channelId": "UCrPCP1oaOr0AEs2JdxzfOFA",
-      "langs": [
-        "en"
-      ],
-      "kind": "ancien-pro",
-      "format": "video",
-      "roles": [
-        "bottom"
-      ],
-      "champions": [],
-      "expertise": [
-        {
-          "claim": "Ancien tireur professionnel en LCS",
-          "evidence": "https://lol.fandom.com/wiki/Doublelift",
-          "how": "notoriété publique ; page Leaguepedia refusée à notre collecteur (403), non revérifiée le 2026-10-20"
-        }
-      ],
-      "access": {
-        "mode": "rss-metadonnees",
-        "detail": "Flux RSS public. Surtout des réactions et du direct. Aucune transcription accessible par une voie autorisée.",
-        "discovery": {
-          "type": "youtube-rss",
-          "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrPCP1oaOr0AEs2JdxzfOFA"
-        }
-      },
-      "credibility": {
-        "level": "moyenne",
-        "why": "Expertise réelle du rôle, mais contenus majoritairement de divertissement : la pertinence pédagogique se juge vidéo par vidéo."
-      },
-      "lastChecked": "2026-10-20",
-      "active": true
-    },
-    {
-      "id": "mobalytics",
-      "name": "Mobalytics — guides",
-      "author": "Mobalytics (auteurs nommés)",
-      "url": "https://mobalytics.gg/blog/",
-      "langs": [
-        "en"
-      ],
-      "kind": "coaching",
-      "format": "article",
-      "roles": [
-        "all"
-      ],
-      "champions": [],
-      "expertise": [],
-      "access": {
-        "mode": "bloque",
-        "detail": "Le site refuse notre collecteur (HTTP 403, protection anti-robots) le 2026-10-20. Pas de contournement : liens seulement, aucun contenu analysé.",
-        "discovery": {
-          "type": "aucune"
-        }
-      },
-      "credibility": {
-        "level": "à établir",
-        "why": "Non évaluée faute d'accès."
-      },
-      "lastChecked": "2026-10-20",
-      "active": false
-    },
-    {
-      "id": "lol-wiki",
-      "name": "League of Legends Wiki",
-      "author": "Communauté",
-      "url": "https://wiki.leagueoflegends.com/en-us/",
-      "langs": [
-        "en"
-      ],
-      "kind": "communaute",
-      "format": "article",
-      "roles": [
-        "all"
-      ],
-      "champions": [
-        "all"
-      ],
-      "expertise": [],
-      "access": {
-        "mode": "bloque",
-        "detail": "HTTP 403 au collecteur le 2026-10-20 (page de vérification anti-robots). Data Dragon couvre les descriptions officielles.",
-        "discovery": {
-          "type": "aucune"
-        }
-      },
-      "credibility": {
-        "level": "à établir",
-        "why": "Non évaluée faute d'accès."
-      },
-      "lastChecked": "2026-10-20",
-      "active": false
-    },
-    {
-      "id": "inven",
-      "name": "Inven — LoL",
-      "author": "Inven (média coréen)",
-      "url": "https://www.inven.co.kr/webzine/news/?site=lol",
-      "langs": [
-        "ko"
-      ],
-      "kind": "media",
-      "format": "article",
-      "roles": [
-        "all"
-      ],
-      "champions": [],
-      "expertise": [],
-      "access": {
-        "mode": "texte-integral",
-        "detail": "Accessible (HTTP 200), mais les articles relevés le 2026-10-20 sont des actualités esport, pas des contenus pédagogiques.",
-        "discovery": {
-          "type": "aucune"
-        }
-      },
-      "credibility": {
-        "level": "moyenne",
-        "why": "Média reconnu ; aucun contenu de coaching identifié pour le pilote."
-      },
-      "lastChecked": "2026-10-20",
-      "active": false
-    },
-    {
-      "id": "yt-veigar-v2",
-      "name": "Veigar v2",
-      "author": "Veigar v2",
-      "url": "https://www.youtube.com/channel/UCtaPMBliSXumW6ZbVExwrqw",
-      "channelId": "UCtaPMBliSXumW6ZbVExwrqw",
-      "langs": [
-        "en"
-      ],
-      "kind": "createur",
-      "format": "video",
-      "roles": [
-        "support"
-      ],
-      "champions": [],
-      "expertise": [
-        {
-          "claim": "Chaîne éducative support (fondamentaux de lane, questions-réponses)",
-          "evidence": "https://www.youtube.com/channel/UCtaPMBliSXumW6ZbVExwrqw",
-          "how": "déclaration de la chaîne ou listes de chaînes éducatives ; niveau non vérifié indépendamment au 2026-10-21"
-        }
-      ],
-      "access": {
-        "mode": "rss-metadonnees",
-        "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google).",
-        "discovery": {
-          "type": "youtube-rss",
-          "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtaPMBliSXumW6ZbVExwrqw"
-        }
-      },
-      "credibility": {
-        "level": "à établir",
-        "why": "Contenu pédagogique déclaré ; niveau à vérifier."
-      },
-      "lastChecked": "2026-10-21",
-      "active": true
-    },
-    {
-      "id": "yt-pekinwoof",
-      "name": "PekinWoof",
-      "author": "PekinWoof",
-      "url": "https://www.youtube.com/channel/UCP9q8DRbsTDPhU4E0R3-1rA",
-      "channelId": "UCP9q8DRbsTDPhU4E0R3-1rA",
-      "langs": [
-        "en"
-      ],
-      "kind": "createur",
-      "format": "video",
-      "roles": [
-        "mid"
-      ],
-      "champions": [],
-      "expertise": [
-        {
-          "claim": "Joueur mid présenté comme Challenger par des listes de chaînes éducatives",
-          "evidence": "https://www.youtube.com/channel/UCP9q8DRbsTDPhU4E0R3-1rA",
-          "how": "déclaration de la chaîne ou listes de chaînes éducatives ; niveau non vérifié indépendamment au 2026-10-21"
-        }
-      ],
-      "access": {
-        "mode": "rss-metadonnees",
-        "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google).",
-        "discovery": {
-          "type": "youtube-rss",
-          "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCP9q8DRbsTDPhU4E0R3-1rA"
-        }
-      },
-      "credibility": {
-        "level": "à établir",
-        "why": "Niveau rapporté par des tiers, non vérifié ; vidéos de type « comment je joue »."
-      },
-      "lastChecked": "2026-10-21",
-      "active": true
-    },
-    {
-      "id": "yt-aloisnl",
-      "name": "AloisNL",
-      "author": "AloisNL",
-      "url": "https://www.youtube.com/channel/UChwh1KpZf0Y5KsmaCCMSt6A",
-      "channelId": "UChwh1KpZf0Y5KsmaCCMSt6A",
-      "langs": [
-        "en"
-      ],
-      "kind": "createur",
-      "format": "video",
-      "roles": [
-        "top"
-      ],
-      "champions": [],
-      "expertise": [
-        {
-          "claim": "Joueur top présenté par des listes de chaînes éducatives",
-          "evidence": "https://www.youtube.com/channel/UChwh1KpZf0Y5KsmaCCMSt6A",
-          "how": "déclaration de la chaîne ou listes de chaînes éducatives ; niveau non vérifié indépendamment au 2026-10-21"
-        }
-      ],
-      "access": {
-        "mode": "rss-metadonnees",
-        "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google).",
-        "discovery": {
-          "type": "youtube-rss",
-          "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UChwh1KpZf0Y5KsmaCCMSt6A"
-        }
-      },
-      "credibility": {
-        "level": "à établir",
-        "why": "Titres récents surtout de divertissement : chaque vidéo est jugée sur sa qualité réelle."
-      },
-      "lastChecked": "2026-10-21",
-      "active": true
+     "claim": "Éditeur du jeu : les valeurs publiées font foi",
+     "evidence": "https://www.leagueoflegends.com/fr-fr/news/game-updates/league-of-legends-patch-26-20-notes",
+     "how": "page officielle consultée"
     }
-  ]
+   ],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Page HTML publique, texte complet lisible (HTTP 200).",
+    "discovery": {
+     "type": "riot-news",
+     "from": "data/auto.json (collecte existante)"
+    }
+   },
+   "credibility": {
+    "level": "élevée",
+    "why": "Source primaire des changements de jeu. Les intentions affichées par Riot restent des déclarations, pas des mesures."
+   },
+   "lastChecked": "2026-10-20",
+   "active": true
+  },
+  {
+   "id": "riot-data-dragon",
+   "name": "Data Dragon",
+   "author": "Riot Games (éditeur)",
+   "url": "https://ddragon.leagueoflegends.com/cdn/16.20.1/data/fr_FR/champion.json",
+   "langs": [
+    "fr",
+    "en",
+    "ko"
+   ],
+   "kind": "officiel",
+   "format": "donnees",
+   "roles": [
+    "all"
+   ],
+   "champions": [
+    "all"
+   ],
+   "expertise": [
+    {
+     "claim": "Données officielles des champions : descriptions de compétences et conseils intégrés au jeu",
+     "evidence": "https://ddragon.leagueoflegends.com/api/versions.json",
+     "how": "API publique, version 16.20.1"
+    }
+   ],
+   "access": {
+    "mode": "api-json",
+    "detail": "JSON public sans clé. Les conseils (allytips, enemytips) ne sont pas datés : ils sont rattachés à la version où ils ont été relus.",
+    "discovery": {
+     "type": "ddragon-versions",
+     "url": "https://ddragon.leagueoflegends.com/api/versions.json"
+    }
+   },
+   "credibility": {
+    "level": "élevée",
+    "why": "Texte officiel. Les conseils sont anciens et génériques : leur pertinence actuelle se vérifie contre la description de la compétence de la version courante."
+   },
+   "lastChecked": "2026-10-20",
+   "active": true
+  },
+  {
+   "id": "lolesports",
+   "name": "LoL Esports (statistiques des matchs officiels)",
+   "author": "Riot Games (organisateur)",
+   "url": "https://lolesports.com/",
+   "langs": [
+    "en"
+   ],
+   "kind": "officiel",
+   "format": "donnees",
+   "roles": [
+    "all"
+   ],
+   "champions": [
+    "all"
+   ],
+   "expertise": [
+    {
+     "claim": "Picks officiels des compétitions",
+     "evidence": "collecte MINDIFF existante (collector/lolesports.mjs)",
+     "how": "API officielle"
+    }
+   ],
+   "access": {
+    "mode": "api-json",
+    "detail": "Déjà collecté toutes les 30 min. Contexte : compétition, version client technique (16.20), jamais confondu avec le ranked.",
+    "discovery": {
+     "type": "auto-json",
+     "from": "data/auto.json"
+    }
+   },
+   "credibility": {
+    "level": "élevée",
+    "why": "Données officielles. Les échantillons d'un tournoi en cours sont petits."
+   },
+   "lastChecked": "2026-10-20",
+   "active": true
+  },
+  {
+   "id": "metabot",
+   "name": "metabot.gg — tier list",
+   "author": "MetaBot.GG",
+   "url": "https://metabot.gg/en/league/champions/tier-list",
+   "langs": [
+    "en"
+   ],
+   "kind": "statistiques",
+   "format": "donnees",
+   "roles": [
+    "all"
+   ],
+   "champions": [
+    "all"
+   ],
+   "expertise": [
+    {
+     "claim": "Agrégateur de parties classées, « toutes régions », mis à jour quotidiennement (déclaré)",
+     "evidence": "https://metabot.gg/en/league/champions/tier-list",
+     "how": "méthode lue sur la page (S et A exigent au moins 1 % de taux de sélection)"
+    }
+   ],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Page publique lisible (HTTP 200). Rang : tous rangs, non filtré.",
+    "discovery": {
+     "type": "aucune",
+     "note": "relevé manuel ou à chaque patch"
+    }
+   },
+   "credibility": {
+    "level": "moyenne",
+    "why": "Méthode partiellement documentée, non vérifiable indépendamment. Tous rangs confondus."
+   },
+   "lastChecked": "2026-10-20",
+   "active": false,
+   "inactiveReason": "Données publiques lisibles limitées à Émeraude+ ou tous rangs ; le coach ne prend comme référence que Diamant et plus (consigne du 21/10). Le filtre Diamant+ de LoLValue n’existe que dans le navigateur."
+  },
+  {
+   "id": "mobatrainer",
+   "name": "MOBA Trainer — tier list",
+   "author": "MOBA Trainer",
+   "url": "https://www.mobatrainer.com/lol/tier-list",
+   "langs": [
+    "en"
+   ],
+   "kind": "statistiques",
+   "format": "donnees",
+   "roles": [
+    "all"
+   ],
+   "champions": [
+    "all"
+   ],
+   "expertise": [
+    {
+     "claim": "Statistiques Émeraude+ fusionnées depuis u.gg et op.gg (déclaré)",
+     "evidence": "https://www.mobatrainer.com/lol/tier-list",
+     "how": "métadonnées de la page : bracket emerald_plus, sourcesOnPatch opgg et lolalytics, fusion du 2026-10-20"
+    }
+   ],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Page publique lisible (HTTP 200).",
+    "discovery": {
+     "type": "aucune"
+    }
+   },
+   "credibility": {
+    "level": "moyenne",
+    "why": "Données de seconde main (u.gg, op.gg, lolalytics) : ne pas compter comme source indépendante de ces sites."
+   },
+   "origin": [
+    "opgg",
+    "ugg",
+    "lolalytics"
+   ],
+   "lastChecked": "2026-10-20",
+   "active": false,
+   "inactiveReason": "Données publiques lisibles limitées à Émeraude+ ou tous rangs ; le coach ne prend comme référence que Diamant et plus (consigne du 21/10). Le filtre Diamant+ de LoLValue n’existe que dans le navigateur."
+  },
+  {
+   "id": "lolvalue",
+   "name": "LoLValue — tier list",
+   "author": "LoLValue",
+   "url": "https://lolvalue.com/lol-tier-list",
+   "langs": [
+    "en"
+   ],
+   "kind": "statistiques",
+   "format": "donnees",
+   "roles": [
+    "all"
+   ],
+   "champions": [
+    "all"
+   ],
+   "expertise": [
+    {
+     "claim": "143 132 parties classées Émeraude+ de toutes régions, taux de victoire ajusté pour les petits échantillons (déclaré)",
+     "evidence": "https://lolvalue.com/lol-tier-list",
+     "how": "méthode lue sur la page"
+    }
+   ],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Page publique lisible (HTTP 200), « updated October 20, 2026 ».",
+    "discovery": {
+     "type": "aucune"
+    }
+   },
+   "credibility": {
+    "level": "moyenne",
+    "why": "Méthode documentée (ajustement bayésien). Collecte non vérifiable indépendamment."
+   },
+   "lastChecked": "2026-10-20",
+   "active": false,
+   "inactiveReason": "Données publiques lisibles limitées à Émeraude+ ou tous rangs ; le coach ne prend comme référence que Diamant et plus (consigne du 21/10). Le filtre Diamant+ de LoLValue n’existe que dans le navigateur."
+  },
+  {
+   "id": "wtl-blog",
+   "name": "We Teach League — blog",
+   "author": "We Teach League (académies de coaching)",
+   "url": "https://weteachleague.com/blog/",
+   "langs": [
+    "en"
+   ],
+   "kind": "coaching",
+   "format": "article",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Organisation fondée autour de Coach Curtis (Curtis Morgan), ancien joueur et coach de Dire Wolves (Océanie)",
+     "evidence": "https://lol.fandom.com/wiki/Curtis",
+     "how": "recherche web du 2026-10-20 ; page Leaguepedia refusée à notre collecteur (403)"
+    },
+    {
+     "claim": "Auteure des articles analysés : Elena, mentor de la Mid Lane Academy, Émeraude en mid",
+     "evidence": "https://weteachleague.com/author/elenaschulz/",
+     "how": "fiche auteur publique (API WordPress)"
+    }
+   ],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "API WordPress publique (wp-json), robots.txt sans interdiction, délai de 10 s demandé entre requêtes.",
+    "discovery": {
+     "type": "wp-json",
+     "url": "https://weteachleague.com/wp-json/wp/v2/posts?per_page=10&_fields=id,date,modified,link,title,author"
+    }
+   },
+   "credibility": {
+    "level": "moyenne",
+    "why": "Méthode de travail clairement argumentée mais témoignage personnel. Site commercial qui promeut ses académies. Auteure spécialiste du mid, pas de la bot lane."
+   },
+   "lastChecked": "2026-10-20",
+   "active": true
+  },
+  {
+   "id": "yt-skill-capped",
+   "name": "Skill Capped Challenger LoL Guides",
+   "author": "Skill Capped",
+   "url": "https://www.youtube.com/channel/UCFl1mGlf5j0Qno1Kxnyv6FA",
+   "channelId": "UCFl1mGlf5j0Qno1Kxnyv6FA",
+   "langs": [
+    "en"
+   ],
+   "kind": "createur",
+   "format": "video",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Guides présentés comme « Challenger » par la chaîne",
+     "evidence": "https://www.youtube.com/channel/UCFl1mGlf5j0Qno1Kxnyv6FA",
+     "how": "déclaration de la chaîne, non vérifiée indépendamment"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public : titre, date, description, vues. Aucune transcription accessible par une voie autorisée.",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCFl1mGlf5j0Qno1Kxnyv6FA"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Expertise auto-déclarée. Titres accrocheurs (« BRAINDEAD », « EVERY game ») qui ne prouvent rien du contenu."
+   },
+   "lastChecked": "2026-10-20",
+   "active": true
+  },
+  {
+   "id": "yt-coach-curtis",
+   "name": "Coach Curtis",
+   "author": "Curtis Morgan",
+   "url": "https://www.youtube.com/channel/UCcoZq8yFAAX7TtdRaHhJlZg",
+   "channelId": "UCcoZq8yFAAX7TtdRaHhJlZg",
+   "langs": [
+    "en"
+   ],
+   "kind": "coach",
+   "format": "video",
+   "roles": [
+    "mid",
+    "all"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Ancien joueur, ancien coach de Dire Wolves (Océanie)",
+     "evidence": "https://lol.fandom.com/wiki/Curtis",
+     "how": "recherche web du 2026-10-20 ; page Leaguepedia refusée à notre collecteur (403)"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public. Aucune transcription accessible par une voie autorisée.",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcoZq8yFAAX7TtdRaHhJlZg"
+    }
+   },
+   "credibility": {
+    "level": "moyenne",
+    "why": "Passé de coach vérifiable, spécialité mid lane et méthode de progression plutôt que bot lane."
+   },
+   "lastChecked": "2026-10-20",
+   "active": true
+  },
+  {
+   "id": "yt-doublelift",
+   "name": "Doublelift",
+   "author": "Yiliang « Doublelift » Peng",
+   "url": "https://www.youtube.com/channel/UCrPCP1oaOr0AEs2JdxzfOFA",
+   "channelId": "UCrPCP1oaOr0AEs2JdxzfOFA",
+   "langs": [
+    "en"
+   ],
+   "kind": "ancien-pro",
+   "format": "video",
+   "roles": [
+    "bottom"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Ancien tireur professionnel en LCS",
+     "evidence": "https://lol.fandom.com/wiki/Doublelift",
+     "how": "notoriété publique ; page Leaguepedia refusée à notre collecteur (403), non revérifiée le 2026-10-20"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public. Surtout des réactions et du direct. Aucune transcription accessible par une voie autorisée.",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCrPCP1oaOr0AEs2JdxzfOFA"
+    }
+   },
+   "credibility": {
+    "level": "moyenne",
+    "why": "Expertise réelle du rôle, mais contenus majoritairement de divertissement : la pertinence pédagogique se juge vidéo par vidéo."
+   },
+   "lastChecked": "2026-10-20",
+   "active": true
+  },
+  {
+   "id": "mobalytics",
+   "name": "Mobalytics — guides",
+   "author": "Mobalytics (auteurs nommés)",
+   "url": "https://mobalytics.gg/blog/",
+   "langs": [
+    "en"
+   ],
+   "kind": "coaching",
+   "format": "article",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "expertise": [],
+   "access": {
+    "mode": "bloque",
+    "detail": "Le site refuse notre collecteur (HTTP 403, protection anti-robots) le 2026-10-20. Pas de contournement : liens seulement, aucun contenu analysé.",
+    "discovery": {
+     "type": "aucune"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Non évaluée faute d'accès."
+   },
+   "lastChecked": "2026-10-20",
+   "active": false
+  },
+  {
+   "id": "lol-wiki",
+   "name": "League of Legends Wiki",
+   "author": "Communauté",
+   "url": "https://wiki.leagueoflegends.com/en-us/",
+   "langs": [
+    "en"
+   ],
+   "kind": "communaute",
+   "format": "article",
+   "roles": [
+    "all"
+   ],
+   "champions": [
+    "all"
+   ],
+   "expertise": [],
+   "access": {
+    "mode": "bloque",
+    "detail": "HTTP 403 au collecteur le 2026-10-20 (page de vérification anti-robots). Data Dragon couvre les descriptions officielles.",
+    "discovery": {
+     "type": "aucune"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Non évaluée faute d'accès."
+   },
+   "lastChecked": "2026-10-20",
+   "active": false
+  },
+  {
+   "id": "inven",
+   "name": "Inven — LoL",
+   "author": "Inven (média coréen)",
+   "url": "https://www.inven.co.kr/webzine/news/?site=lol",
+   "langs": [
+    "ko"
+   ],
+   "kind": "media",
+   "format": "article",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "expertise": [],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Accessible (HTTP 200), mais les articles relevés le 2026-10-20 sont des actualités esport, pas des contenus pédagogiques.",
+    "discovery": {
+     "type": "aucune"
+    }
+   },
+   "credibility": {
+    "level": "moyenne",
+    "why": "Média reconnu ; aucun contenu de coaching identifié pour le pilote."
+   },
+   "lastChecked": "2026-10-20",
+   "active": false
+  },
+  {
+   "id": "yt-veigar-v2",
+   "name": "Veigar v2",
+   "author": "Veigar v2",
+   "url": "https://www.youtube.com/channel/UCtaPMBliSXumW6ZbVExwrqw",
+   "channelId": "UCtaPMBliSXumW6ZbVExwrqw",
+   "langs": [
+    "en"
+   ],
+   "kind": "createur",
+   "format": "video",
+   "roles": [
+    "support"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Chaîne éducative support (fondamentaux de lane, questions-réponses)",
+     "evidence": "https://www.youtube.com/channel/UCtaPMBliSXumW6ZbVExwrqw",
+     "how": "déclaration de la chaîne ou listes de chaînes éducatives ; niveau non vérifié indépendamment au 2026-10-21"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google).",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCtaPMBliSXumW6ZbVExwrqw"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Contenu pédagogique déclaré ; niveau à vérifier."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true
+  },
+  {
+   "id": "yt-pekinwoof",
+   "name": "PekinWoof",
+   "author": "PekinWoof",
+   "url": "https://www.youtube.com/channel/UCP9q8DRbsTDPhU4E0R3-1rA",
+   "channelId": "UCP9q8DRbsTDPhU4E0R3-1rA",
+   "langs": [
+    "en"
+   ],
+   "kind": "createur",
+   "format": "video",
+   "roles": [
+    "mid"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Joueur mid présenté comme Challenger par des listes de chaînes éducatives",
+     "evidence": "https://www.youtube.com/channel/UCP9q8DRbsTDPhU4E0R3-1rA",
+     "how": "déclaration de la chaîne ou listes de chaînes éducatives ; niveau non vérifié indépendamment au 2026-10-21"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google).",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCP9q8DRbsTDPhU4E0R3-1rA"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Niveau rapporté par des tiers, non vérifié ; vidéos de type « comment je joue »."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true
+  },
+  {
+   "id": "yt-aloisnl",
+   "name": "AloisNL",
+   "author": "AloisNL",
+   "url": "https://www.youtube.com/channel/UChwh1KpZf0Y5KsmaCCMSt6A",
+   "channelId": "UChwh1KpZf0Y5KsmaCCMSt6A",
+   "langs": [
+    "en"
+   ],
+   "kind": "createur",
+   "format": "video",
+   "roles": [
+    "top"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Joueur top présenté par des listes de chaînes éducatives",
+     "evidence": "https://www.youtube.com/channel/UChwh1KpZf0Y5KsmaCCMSt6A",
+     "how": "déclaration de la chaîne ou listes de chaînes éducatives ; niveau non vérifié indépendamment au 2026-10-21"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google).",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UChwh1KpZf0Y5KsmaCCMSt6A"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Titres récents surtout de divertissement : chaque vidéo est jugée sur sa qualité réelle."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true
+  },
+  {
+   "id": "riot-champion-insights",
+   "name": "Riot Games — Champion Insights et vidéos officielles",
+   "author": "Riot Games (éditeur)",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/",
+   "langs": [
+    "en"
+   ],
+   "kind": "officiel",
+   "format": "article",
+   "roles": [
+    "all"
+   ],
+   "champions": [
+    "all"
+   ],
+   "expertise": [
+    {
+     "claim": "Éditeur et concepteurs du jeu",
+     "evidence": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-briar/",
+     "how": "page officielle consultée (HTTP 200, robots.txt : Allow /)"
+    }
+   ],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Articles HTML publics ; vidéos « Champion Spotlight » liées depuis le site, lues par Gemini.",
+    "discovery": {
+     "type": "sitemap",
+     "from": "https://www.leagueoflegends.com/en-us/sitemap_loc.xml (coach/insights.mjs)"
+    }
+   },
+   "credibility": {
+    "level": "élevée",
+    "why": "Source primaire sur le kit et les intentions de conception. Articles écrits à la sortie du champion : à confronter aux patchs suivants."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true
+  }
+ ]
 }

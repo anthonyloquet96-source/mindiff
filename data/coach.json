@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-21T06:28:17.362Z",
+ "generatedAt": "2026-10-21T06:53:19.694Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -3312,6 +3312,44 @@
      "claim": "Joueur top présenté par des listes de chaînes éducatives",
      "evidence": "https://www.youtube.com/channel/UChwh1KpZf0Y5KsmaCCMSt6A",
      "how": "déclaration de la chaîne ou listes de chaînes éducatives ; niveau non vérifié indépendamment au 2026-10-21"
+    }
+   ]
+  },
+  {
+   "id": "riot-champion-insights",
+   "name": "Riot Games — Champion Insights et vidéos officielles",
+   "author": "Riot Games (éditeur)",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/",
+   "langs": [
+    "en"
+   ],
+   "kind": "officiel",
+   "format": "article",
+   "roles": [
+    "all"
+   ],
+   "champions": [
+    "all"
+   ],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Articles HTML publics ; vidéos « Champion Spotlight » liées depuis le site, lues par Gemini.",
+    "discovery": {
+     "type": "sitemap",
+     "from": "https://www.leagueoflegends.com/en-us/sitemap_loc.xml (coach/insights.mjs)"
+    }
+   },
+   "credibility": {
+    "level": "élevée",
+    "why": "Source primaire sur le kit et les intentions de conception. Articles écrits à la sortie du champion : à confronter aux patchs suivants."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true,
+   "expertise": [
+    {
+     "claim": "Éditeur et concepteurs du jeu",
+     "evidence": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-briar/",
+     "how": "page officielle consultée (HTTP 200, robots.txt : Allow /)"
     }
    ]
   }
@@ -10891,6 +10929,1104 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
+  },
+  {
+   "id": "c-riot-champion-insights-akshan",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-akshan/",
+   "title": "Champion Insights: Akshan",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2021-07-07",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Akshan"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Akshan"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Akshan, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2021-07-07 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-yt-Yrzk-24ZnPA",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=Yrzk-24ZnPA",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/akshan-champion-spotlight/",
+   "title": "Akshan Champion Spotlight",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2021-07-22",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Akshan"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Akshan"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Akshan, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-yt-J_TQK480XDk",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=J_TQK480XDk",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-ambessa/",
+   "title": "Champion Insights: Ambessa",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2024-11-08",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Ambessa"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Ambessa"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Ambessa, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-yt-dx4-4AfjULY",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=dx4-4AfjULY",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/dev/devs-spill-the-beans-aurelion-sol-gameplay-update/",
+   "title": "Devs Spill the Beans: Aurelion Sol Gameplay Update",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2022-07-15",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Aurelion Sol"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Aurelion Sol"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Aurelion Sol, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-riot-champion-insights-aurora",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-Aurora/",
+   "title": "Champion Insights: Aurora",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2024-06-20",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Aurora"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Aurora"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Aurora, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2024-06-20 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-yt-L8Za9xjMg84",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=L8Za9xjMg84",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/aurora-champion-spotlight/",
+   "title": "Aurora Champion Spotlight",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2024-07-18",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Aurora"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Aurora"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Aurora, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-riot-champion-insights-bel-veth",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-bel-veth/",
+   "title": "Champion Insights: Bel’Veth",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2022-06-08",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Bel'Veth"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Bel'Veth"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Bel'Veth, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2022-06-08 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-yt-lZC0QV4N3OU",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=lZC0QV4N3OU",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/bel-veth-champion-spotlight/",
+   "title": "Bel’Veth Champion Spotlight",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2022-06-09",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Bel'Veth"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Bel'Veth"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Bel'Veth, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-riot-champion-insights-briar",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-briar/",
+   "title": "Champion Insights: Briar",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2023-08-30",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Briar"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Briar"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Briar, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2023-08-30 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-riot-dev-the-latest-on-fiddlesticks-vgu",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/dev-the-latest-on-fiddlesticks-vgu/",
+   "title": "/dev: The Latest on Fiddlesticks’ VGU",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2020-01-14",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Fiddlesticks"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Fiddlesticks"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Fiddlesticks, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2020-01-14 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-riot-fiddlesticks-and-volibear-dev-update-1",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/fiddlesticks-and-volibear-dev-update-1/",
+   "title": "FIDDLESTICKS AND VOLIBEAR: DEV UPDATE #1",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2019-07-25",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Fiddlesticks"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Fiddlesticks"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Fiddlesticks, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2019-07-25 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-yt-S6r5TwgDL4Q",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=S6r5TwgDL4Q",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/gameplay-preview-fiddlesticks-update/",
+   "title": "Fiddlesticks Gameplay Preview",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2020-03-14",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Fiddlesticks"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Fiddlesticks"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Fiddlesticks, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-riot-champion-insights-lillia",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-lillia/",
+   "title": "Champion Insights: Lillia",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2020-07-07",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Lillia"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Lillia"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Lillia, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2020-07-07 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-yt-ynG4T9yLKFs",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=ynG4T9yLKFs",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/locke-champion-spotlight/",
+   "title": "Locke Champion Spotlight",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2026-06-09",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Locke"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Locke"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Locke, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-riot-champion-insights-naafiri",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-naafiri/",
+   "title": "Champion Insights: Naafiri",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2023-06-22",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Naafiri"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Naafiri"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Naafiri, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2023-06-22 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-riot-champion-insights-nilah",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-nilah/",
+   "title": "Champion Insights: Nilah",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2022-06-22",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Nilah"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Nilah"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Nilah, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2022-06-22 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-yt-6OBgIHyPAJ8",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=6OBgIHyPAJ8",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/nilah-champion-spotlight/",
+   "title": "Nilah Champion Spotlight",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2022-07-13",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Nilah"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Nilah"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Nilah, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-yt-3ECXeoLlR3I",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=3ECXeoLlR3I",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/qiyana-empress-of-the-elements-or-champ-spotlight/",
+   "title": "Qiyana Champion Spotlight",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2019-06-28",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Qiyana"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Qiyana"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Qiyana, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-riot-champion-insights-rell",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-rell/",
+   "title": "Champion Insights: Rell",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2020-11-23",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Rell"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Rell"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Rell, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2020-11-23 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-riot-dev-the-midscope-process-rell",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/dev-the-midscope-process-rell/",
+   "title": "/dev: The Midscope Process &amp; Rell",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2023-03-17",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Rell"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Rell"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Rell, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2023-03-17 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-riot-champion-insights-renata-glasc",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-renata-glasc/",
+   "title": "Champion Insights: Renata Glasc",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2022-02-17",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Renata Glasc"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Renata Glasc"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Renata Glasc, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2022-02-17 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-yt-3v7ZGvXmSUA",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=3v7ZGvXmSUA",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/renata-glasc-champion-spotlight/",
+   "title": "Renata Glasc, The Chem-Baroness",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2022-02-16",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Renata Glasc"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Renata Glasc"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Renata Glasc, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-riot-champion-insights-samira",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-samira/",
+   "title": "Champion Insights: Samira",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2020-09-21",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Samira"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Samira"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Samira, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2020-09-21 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-riot-champion-insights-senna",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-senna/",
+   "title": "Champion Insights: Senna",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2019-10-24",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Senna"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Senna"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Senna, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2019-10-24 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-riot-champion-insights-seraphine",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-seraphine/",
+   "title": "Champion Insights: Seraphine",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2020-10-12",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Séraphine"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Séraphine"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Séraphine, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2020-10-12 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-yt-hiNN2WKkR3Q",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=hiNN2WKkR3Q",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/seraphine-champion-spotlight/",
+   "title": "Seraphine Champion Spotlight",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2020-10-29",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Séraphine"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Séraphine"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Séraphine, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-riot-champion-insights-sett",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-sett/",
+   "title": "Champion Insights: Sett",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2020-01-14",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Sett"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Sett"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Sett, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2020-01-14 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-riot-champion-insights-vex",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-vex/",
+   "title": "Champion Insights: Vex",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2021-09-07",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Vex"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Vex"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Vex, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2021-09-07 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-yt--53Hat-vM-k",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=-53Hat-vM-k",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/vex-champion-spotlight/",
+   "title": "Vex Champion Spotlight",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2021-09-23",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Vex"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Vex"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Vex, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-riot-champion-insights-viego",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-viego/",
+   "title": "Champion Insights: Viego",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2021-01-21",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Viego"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Viego"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Viego, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2021-01-21 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-yt-98CIAkqX6ZU",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=98CIAkqX6ZU",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/viego-champion-spotlight/",
+   "title": "Viego Champion Spotlight",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2021-01-21",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Viego"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Viego"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Viego, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-yt-vmkF0rYLaBg",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=vmkF0rYLaBg",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/volibear-gameplay-preview/",
+   "title": "Volibear Gameplay Preview",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2020-05-27",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Volibear"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Volibear"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Volibear, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-riot-champion-insights-yone",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-yone/",
+   "title": "Champion Insights: Yone",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2020-07-24",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Yone"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Yone"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Yone, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2020-07-24 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-yt-gG09J6Vxbgo",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=gG09J6Vxbgo",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/yunara-champion-spotlight/",
+   "title": "Yunara Champion Spotlight",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2025-06-24",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Yunara"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Yunara"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Yunara, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-riot-dev-launching-yuumi-s-rework",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/dev-launching-yuumi-s-rework/",
+   "title": "/dev: Launching Yuumi’s Rework",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2023-03-10",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Yuumi"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Yuumi"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Yuumi, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2023-03-10 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-riot-dev-yuumi-s-rework",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/dev/dev-yuumi-s-rework/",
+   "title": "/Dev: Yuumi’s Rework",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2022-12-16",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Yuumi"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Yuumi"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Yuumi, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2022-12-16 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-yt-qQNuoySpVMc",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=qQNuoySpVMc",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/how-to-dominate-with-zaahen-us/",
+   "title": "How To: Dominate with Zaahen",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2025-11-24",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Zaahen"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Zaahen"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Zaahen, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-yt-S3F9CpeiSNE",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=S3F9CpeiSNE",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/zaahen-champion-spotlight/",
+   "title": "Zaahen Champion Spotlight",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2025-11-10",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Zaahen"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Zaahen"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Zaahen, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-riot-champion-insights-zeri",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/champion-insights-zeri/",
+   "title": "Champion Insights: Zeri",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2022-01-14",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Zeri"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Zeri"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Zeri, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "texte-integral",
+   "analysis": "en-attente",
+   "note": "Article officiel du 2022-01-14 : les valeurs et intentions décrites peuvent avoir changé depuis."
+  },
+  {
+   "id": "c-yt-VcaUG8hV9SU",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=VcaUG8hV9SU",
+   "pageUrl": "https://www.leagueoflegends.com/en-us/news/game-updates/zeri-champion-spotlight/",
+   "title": "Zeri Champion Spotlight",
+   "sourceId": "riot-champion-insights",
+   "author": "Riot Games",
+   "lang": "en",
+   "published": "2022-01-20",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "champions": [
+    "Zeri"
+   ],
+   "triage": {
+    "score": 20,
+    "matched": [
+     "Zeri"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "page officielle de Riot sur Zeri, champion sans conseils officiels dans Data Dragon"
+   },
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Vidéo officielle de Riot : à lire par Gemini."
   }
  ],
  "units": [

@@ -132,7 +132,8 @@
   "freshness": {
     "metaDependentMaxPatches": 2,
     "statsMaxAgeDays": 14,
-    "fundamentalRecheckDays": 90
+    "fundamentalRecheckDays": 90,
+    "maxContentAgeDays": 365
   },
   "critic": {
     "minRankedGames": 1000,

@@ -56,6 +56,9 @@ export function checkUnit(u, ctx) {
     if (c.analysis === "quarantaine") flag("injection", `${e.content} est en quarantaine.`, true);
     // Transcription ou images lues par une IA : passage de seconde main, à vérifier sur la vidéo
     if (c.reader?.kind === "ia" && !e.humanChecked) flag("lecture-ia", `${e.content} : lu par ${c.reader.tool} (${c.reader.fps} image/s) ; passage à vérifier sur la vidéo (${e.locator}).`, false, "provisoire");
+    // Contenu ancien (ex. article de sortie d'un champion) : le kit a pu changer depuis, la date du patch ne suffit pas à le savoir
+    const maxAge = ctx.config.freshness?.maxContentAgeDays;
+    if (maxAge && c.published && !e.humanChecked && (Date.now() - Date.parse(c.published)) / 864e5 > maxAge) flag("contenu-ancien", `${e.content} publié le ${c.published} : à confirmer sur le kit et la méta actuels.`, false, "provisoire");
     if ((e.passage || "").length > cfg.maxPassageChars) flag("citation-trop-longue", `Passage de plus de ${cfg.maxPassageChars} caractères : résumer plutôt que republier.`, true);
     if (detectInjection(e.passage).length) flag("injection", `Le passage cité contient une instruction : ${detectInjection(e.passage)[0]}`, true);
     const text = ctx.texts.get(e.content);

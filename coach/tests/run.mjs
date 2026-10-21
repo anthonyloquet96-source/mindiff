@@ -81,6 +81,17 @@ await t("Référence Diamant+ : le bas niveau ne sert qu'à corriger", "fixture"
   assert(r.goal?.unit.id !== "fx-corr" && !r.plan.some(x => x.unit.id === "fx-corr"), "erreur de bas niveau proposée comme consigne");
   return "Partie Argent comme référence → rejetée ; comme erreur à corriger → admise mais jamais proposée en consigne ; Diamant → admise.";
 });
+await t("Champions sans conseils officiels : pages officielles et contenus anciens", "fixture", async () => {
+  const { pickPages } = await import("../insights.mjs");
+  const urls = ["https://www.leagueoflegends.com/en-us/news/dev/champion-insights-bel-veth/", "https://www.leagueoflegends.com/en-us/news/dev/dev-composing-bel-veth-s-theme/", "https://www.leagueoflegends.com/en-us/news/game-updates/how-to-dominate-with-zaahen-us/", "https://www.leagueoflegends.com/en-us/news/game-updates/chibi-spirit-blossom-yunara-showcase/"];
+  assert(pickPages(urls, "Bel'Veth").length === 1, "Bel'Veth : article de conception non retenu ou musique retenue");
+  assert(pickPages(urls, "Zaahen").length === 1 && !pickPages(urls, "Yunara").length, "guide vidéo Zaahen ou vitrine de skin mal triés");
+  const old = new Map(fxCtx.contents); old.set("fx-createur-a", { ...fxCtx.contents.get("fx-createur-a"), published: "2019-10-24" });
+  const u = { id: "fx-ancien", claim: "Selon un créateur : conseil.", champions: [], roles: ["bottom"], themes: ["lane"], context: { queue: "solo" }, patch: { known: false }, nature: "opinion", levelContext: "diamant", evidence: [{ content: "fx-createur-a", locator: "§1", lang: "fr", passage: "montez Prison aqueuse en premier" }] };
+  const r = checkUnit(u, { ...fxCtx, contents: old });
+  assert(r.flags.some(f => f.code === "contenu-ancien") && r.status !== "exploitable" && !r.blocking, "article de 2019 accepté comme actuel");
+  return "Plan du site Riot → articles « Champion Insights » et guides vidéo retenus, skins et musique écartés ; contenu de 2019 → provisoire (contenu-ancien).";
+});
 await t("Tout le jeu : socle officiel pour chaque champion", "réel", () => {
   const dd = KB.units.filter(u => u.id.startsWith("u-dd-"));
   const champs = new Set(dd.flatMap(u => [...u.champions, u.matchup?.vs].filter(Boolean)));

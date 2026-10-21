@@ -29,7 +29,7 @@ Ces fichiers sont verrouillés par empreinte (`coach/rules/rules.lock.json`). Tu
 
 Le coach aide tous les niveaux, mais son savoir vient du **niveau Diamant et plus**, ou de la compétition. Une partie ou une statistique de niveau inférieur (Émeraude, Platine, Or, Argent…) ne sert qu'à illustrer une **erreur à corriger** : `usage: "correction"`, jamais `reference`. Indique toujours `levelContext` quand le niveau est connu. Les statistiques « tous rangs » ou « Émeraude+ » ne sont pas des références.
 
-Le coach doit couvrir tout le jeu. Le socle officiel de chaque champion vient de `node coach/ddragon.mjs`. Les analyses de coachs de haut niveau, actuelles, enrichissent ce socle au fil de la veille. Les contenus faibles (démonstration insuffisante, clickbait, divertissement) sont écartés.
+Le coach doit couvrir tout le jeu. Le socle officiel de chaque champion vient de `node coach/ddragon.mjs`. Pour les champions sans conseils dans Data Dragon, `node coach/insights.mjs` cherche dans le plan du site de Riot les articles « Champion Insights » et les vidéos officielles (« Champion Spotlight », « How To »). Ces pages datent souvent de la sortie du champion : leurs conseils restent provisoires (`contenu-ancien`) tant qu'on ne les a pas confirmés sur le kit actuel. Les analyses de coachs de haut niveau, actuelles, enrichissent ce socle au fil de la veille. Les contenus faibles (démonstration insuffisante, clickbait, divertissement) sont écartés.
 
 ## Interdits
 

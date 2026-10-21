@@ -18,7 +18,7 @@ Deux niveaux, complémentaires :
    - classements divergents dans un même contexte → contradictoire ; dans des contextes différents → écart signalé ;
    - dépendance modifiée par un patch postérieur → à revalider ; valeur remplacée → obsolète ;
    - statistique ou partie de niveau inférieur à Diamant utilisée comme référence → rejet (`rang-sous-reference`). Admise seulement comme erreur à corriger (`usage: "correction"`), et jamais proposée comme consigne au joueur ;
-   - patch pas encore sorti → provisoire (`patch-futur`) ; lecture vidéo par une IA → provisoire jusqu'à vérification humaine (`lecture-ia`).
+   - patch pas encore sorti → provisoire (`patch-futur`) ; lecture vidéo par une IA → provisoire jusqu'à vérification humaine (`lecture-ia`) ; contenu publié il y a plus d'un an (`freshness.maxContentAgeDays`), par exemple un article de sortie de champion → provisoire (`contenu-ancien`), à confirmer sur le kit actuel.
 
 La seconde passe n'est pas une garantie : toute unité reste « relecture humaine en attente » jusqu'à `node coach/admin.mjs valider <unité> "<nom>"`. Une personne peut aussi contester, retirer ou corriger une unité ; tout est historisé (`coach/kb/corrections.json`).
 

@@ -132,10 +132,10 @@ await t("Bilan : retard en ligne, plaques, build face aux Diamant+ ; objectif pa
   const riot = async url => (url.endsWith("/timeline") ? tl : match);
   const itemData = { 3031: { name: "Lame d'infini", gold: { total: 3450 }, tags: [] }, 6672: { name: "Tueur de krakens", gold: { total: 3000 }, tags: [] }, 3006: { name: "Grèves", gold: { total: 1100 }, tags: ["Boots"] }, 3153: { name: "Lame du roi déchu", gold: { total: 3200 }, tags: [] } };
   const fetchImpl = async url => ({ json: async () => (url.includes("versions") ? ["16.21.1"] : url.includes("runesReforged") ? [{ id: 8000, name: "Précision", slots: [{ runes: [{ id: 8008, name: "Tempo mortel", icon: "a.png" }, { id: 8010, name: "Conquérant", icon: "b.png" }] }] }] : url.includes("summoner") ? { data: {} } : { data: itemData }) });
-  const champstats = { patch: "16.20", minGames: 30, champions: { 1: { games: 100, items: [{ id: "3153", games: 70 }, { id: "3031", games: 60 }, { id: "3006", games: 50 }], keystones: [{ id: "8010", games: 80 }, { id: "8008", games: 20 }] } } };
+  const champstats = { patch: "16.20", minGames: 30, champions: { 1: { games: 100, roles: { top: 90 }, items: [{ id: "3153", games: 70 }, { id: "3031", games: 60 }, { id: "3006", games: 50 }], keystones: [{ id: "8010", games: 80 }, { id: "8008", games: 20 }] } } };
   const r = await review(riot, { matchId: "EUW1_2", puuid: parts[0].puuid, region: "europe", benchmarks: null, champstats, fetchImpl });
   assert(r.lane.platesLost === 3 && r.lane.platesTaken === 1, JSON.stringify(r.lane));
-  assert(r.findings[0]?.kind === "retard-en-ligne" && r.findings[0].title.startsWith("1200 pièces") && r.findings[0].facts.some(f => f.includes("1 mort contre C2")), JSON.stringify(r.findings[0]));
+  assert(r.findings[0]?.kind === "retard-en-ligne" && /^1.200 pièces/.test(r.findings[0].title) && r.findings[0].facts.some(f => f.includes("1 mort contre C2")), JSON.stringify(r.findings[0]));
   assert(r.summary.deadSeconds === 120, "temps passé mort");
   const b = r.build;
   assert(b && b.items.map(x => `${x.id}:${x.share}`).join() === "3031:60,6672:0" && b.keystone.share === 20 && b.keystone.top.name === "Conquérant" && b.missing.map(x => x.id).join() === "3153", JSON.stringify(b));

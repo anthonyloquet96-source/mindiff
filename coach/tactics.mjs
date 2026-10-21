@@ -102,32 +102,64 @@ export function tactics(match, timeline, puuid) {
     ((presence[phase] ||= {})[z] = (presence[phase][z] || 0) + 1);
   });
 
-  // Ce qui aurait été mieux : règles de fondamentaux sur des faits mesurés
+  // Ce qui aurait été mieux : règles de fondamentaux sur des faits mesurés, adaptées au rôle (relecture « joueur Argent » du 21/10)
   const lessons = [];
   const deadAt = t => deadAtId(mine.id, t); // temps de réapparition approximatif
+  const diedBefore = (t, span = 90000) => kills.find(k => k.victim === mine.id && t - k.t >= 0 && t - k.t < span);
+  const role = mine.role;
+  // Distances en repères compréhensibles plutôt qu'en unités du jeu
+  const far = d => (d < 2500 ? "tout près" : d < 6000 ? "à quelques secondes" : d < 9000 ? "loin" : "à l'autre bout de la carte");
+  // Liste des absents : le joueur est désigné par « toi »
+  const absents = list => { const me = list.some(a => a.me), others = list.filter(a => !a.me).map(a => `${a.champion} (${a.zone})`); return [me ? "toi" : null, ...others].filter(Boolean).join(", "); };
   for (const o of objectives.filter(o => !o.ours)) {
-    if (deadAt(o.t)) continue; // le joueur attendait de réapparaître
-    if (o.allies < o.enemies && o.myDist >= R_OBJ * 1.6) lessons.push({ kind: "absent-objectif", t: o.t, at: o.at, title: `${o.kind} adverse à ${o.at} : vous étiez ${o.allies} contre ${o.enemies}, et tu étais loin (${o.myZone})`, better: "Regroupe-toi près de l'objectif environ une minute avant son apparition : pousse ta vague, puis rejoins la rivière avec ton équipe.", facts: [`Position une minute avant : ${o.myZone}, à ${Math.round(o.myDist / 100) * 100} unités.`, ...(o.absent.length ? [`Absents de ton équipe : ${o.absent.map(a => `${a.champion} (${a.zone})`).join(", ")}.`] : [])] });
+    if (deadAt(o.t) || diedBefore(o.t)) continue; // le joueur réapparaissait : c'est sa mort d'avant qui compte, pas son absence
+    const early = o.t < 14 * 60000;
+    // Personne de l'équipe autour : décision d'équipe (céder), pas une erreur personnelle
+    if (o.allies === 0) continue;
+    // Un toplaner n'a pas à traverser la carte pour un dragon en début de partie
+    if (o.allies < o.enemies && o.myDist >= R_OBJ * 1.6 && !(role === "top" && early && o.kind === "Dragon")) lessons.push({ kind: "absent-objectif", t: o.t, at: o.at, title: `${o.kind} adverse à ${o.at} : ton équipe était ${o.allies} contre ${o.enemies}, et tu étais ${far(o.myDist)} (${o.myZone})`,
+      better: "Une minute avant l'apparition de l'objectif, pousse ta vague puis rejoins ton équipe : l'adversaire prend les objectifs quand vous êtes moins nombreux.", facts: o.absent.length ? [`Absents : ${absents(o.absent)}.`] : [] });
     // Disputé en infériorité (combat autour, avec des pertes) ; céder un objectif sans combat n'est pas une erreur
-    else if (o.allies >= 1 && o.allies < o.enemies && fightView.some(f => Math.abs(f.t - o.t) < 45000 && dist(f, o) < R_OBJ && f.alliesDead > 0)) lessons.push({ kind: "objectif-inferiorite", t: o.t, at: o.at, title: `${o.kind} adverse à ${o.at} : disputé à ${o.allies} contre ${o.enemies}, avec un combat perdu autour`, better: o.absent.some(x => x.dead) ? "Un allié était mort : sans lui, mieux valait céder l'objectif (ou prendre une compensation ailleurs) que combattre en infériorité numérique." : "Sans le nombre, mieux vaut céder l'objectif et prendre une compensation ailleurs (tourelle, vague, Larves) que s'engager en infériorité.", facts: o.absent.length ? [`Absents : ${o.absent.map(a => `${a.champion} (${a.zone})`).join(", ")}.`] : [] });
+    else if (o.allies < o.enemies && fightView.some(f => Math.abs(f.t - o.t) < 45000 && dist(f, o) < R_OBJ && f.alliesDead > 0)) lessons.push({ kind: "objectif-inferiorite", t: o.t, at: o.at, title: `${o.kind} adverse à ${o.at} : disputé à ${o.allies} contre ${o.enemies}, avec un combat perdu autour`,
+      better: o.absent.some(x => x.dead) ? "Un allié était mort : sans lui, il valait mieux céder l'objectif et prendre une tourelle ou une vague de l'autre côté de la carte." : "En infériorité numérique, cède l'objectif et prends plutôt une tourelle ou une vague de l'autre côté de la carte.",
+      facts: o.absent.length ? [`Absents : ${absents(o.absent)}.`] : [] });
   }
   for (const d of deaths) {
-    if (d.gank) lessons.push({ kind: "gank-subi", t: d.t, at: d.at, title: `Mort à ${d.at} sur un gank du jungler adverse (${d.zone})`, better: "En phase de ligne, quand le jungler adverse n'est pas visible et que ta vague est poussée, joue plus près de ta tourelle ; demande une balise dans la rivière.", facts: [`Attaquants : ${d.attackers.join(", ")}.`, ...(d.hpBefore != null ? [`Points de vie à la minute précédente : ${d.hpBefore} %.`] : [])] });
-    else if (!d.alliesNear.length && d.attackers.length >= 2 && d.t >= 14 * 60000) lessons.push({ kind: "mort-isolee", t: d.t, at: d.at, title: `Mort seul à ${d.at} (${d.zone}), contre ${d.attackers.length} adversaires`, better: d.enemyHalf ? "Après la phase de ligne, éviter de pousser seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : rester à portée de son équipe ou se replier." : "Aucun allié à portée : rester groupé ou se replier avant que plusieurs adversaires arrivent.", facts: [`Attaquants : ${d.attackers.join(", ")}.`, "Aucun allié à moins de 2 500 unités au moment de la mort."] });
+    const lowHp = d.hpBefore != null && d.hpBefore < 40 ? [`Tu étais déjà bas en vie (${d.hpBefore} %) une minute avant : rentrer à la base t'aurait évité ce risque.`] : [];
+    if (d.gank) lessons.push({ kind: "gank-subi", t: d.t, at: d.at, title: `Mort à ${d.at} sur une attaque du jungler adverse (${d.zone})`,
+      better: role === "support" ? "Avant de pousser la vague avec ton ADC, pose une balise dans le buisson de la rivière : tu verras le jungler adverse arriver."
+        : role === "jungle" ? "Quand tu envahis la jungle adverse, vérifie d'abord où est le jungler adverse (dernière apparition sur la carte)."
+        : "Quand le jungler adverse n'a pas été vu depuis un moment et que ta vague est poussée, rapproche-toi de ta tourelle.",
+      facts: [`Tes adversaires : ${d.attackers.join(", ")}.`, ...lowHp] });
+    else if (!d.alliesNear.length && d.attackers.length >= 2 && d.t >= 14 * 60000) lessons.push({ kind: "mort-isolee", t: d.t, at: d.at, title: `Mort seul à ${d.at} (${d.zone}), contre ${d.attackers.length} adversaires`,
+      better: ["top", "bottom"].includes(role) && /voie/.test(d.zone) ? "Sur une voie de côté, quand 2 adversaires ou plus disparaissent de la mini-carte, recule vers ta tourelle : ils arrivent peut-être sur toi."
+        : d.enemyHalf ? "Évite d'avancer seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : reste à portée de ton équipe ou replie-toi." : "Aucun allié n'était proche : replie-toi vers ton équipe avant que plusieurs adversaires arrivent.",
+      facts: [`Tes adversaires : ${d.attackers.join(", ")}.`, "Aucun allié n'était tout près de toi.", ...lowHp] });
   }
-  for (const f of fightView.filter(f => f.won === false && !f.me && !deadAt(f.t) && f.allies >= 2 && f.allies < f.enemies && f.myDist < 6000)) lessons.push({ kind: "combat-sans-toi", t: f.t, at: f.at, title: `Combat perdu à ${f.at} (${f.zone}) : ${f.allies} contre ${f.enemies}, sans toi alors que tu étais à ${Math.round(f.myDist / 100) * 100} unités`, better: "Quand ton équipe se bat près de toi, la rejoindre change le rapport de force ; sinon, prévenir de ne pas engager.", facts: [`Pertes : ${f.alliesDead} de ton côté, ${f.enemiesDead} en face.`] });
+  for (const f of fightView.filter(f => f.won === false && !f.me && !deadAt(f.t) && !diedBefore(f.t, 60000) && f.allies >= 2 && f.allies < f.enemies && f.myDist < 6000)) lessons.push({ kind: "combat-sans-toi", t: f.t, at: f.at, title: `Combat perdu à ${f.at} (${f.zone}) sans toi, alors que tu étais ${far(f.myDist)}`,
+    better: "Quand ton équipe se bat près de toi, rejoins-la : un joueur de plus change le rapport de force. Sinon, signale-lui de ne pas engager.", facts: [`${f.allies} de ton équipe contre ${f.enemies} : ${f.alliesDead} perte${f.alliesDead > 1 ? "s" : ""} de ton côté, ${f.enemiesDead ? `${f.enemiesDead} en face` : "aucune en face"}.`] });
   lessons.sort((a, b) => a.t - b.t);
 
-  // Conséquences mesurées : écart d'or entre les équipes (somme de l'or gagné) avant et 2 minutes après, et ce qui a été perdu
+  // Ce qui a suivi (2 minutes) : écart d'or entre les équipes et ce qui a été perdu — présenté comme une suite, pas comme une cause certaine
   const teamGold = frames.map(f => players.reduce((s, p) => s + (p.team === myTeam ? 1 : -1) * (f.participantFrames?.[p.id]?.totalGold || 0), 0));
   const goldAt = t => teamGold[Math.min(teamGold.length - 1, Math.max(0, Math.floor(t / 60000)))];
   const buildings = events.filter(e => e.type === "BUILDING_KILL").map(e => ({ t: e.timestamp, ours: e.teamId !== myTeam, kind: e.buildingType === "INHIBITOR_BUILDING" ? "inhibiteur" : "tourelle" }));
+  const gold = v => Math.abs(Math.round(v / 100) * 100).toLocaleString("fr-FR");
+  // « 2 tourelles et 1 inhibiteur », « le Dragon et le Baron » : regroupés et accordés
+  const losses = list => {
+    const n = k => list.filter(x => x === k).length;
+    const parts = [...new Set(list.filter(x => !["tourelle", "inhibiteur"].includes(x)))].map(k => `le ${k}`.replace("le Larves du Néant", "les Larves du Néant").replace("le Héraut", "le Héraut"));
+    if (n("tourelle")) parts.push(n("tourelle") > 1 ? `${n("tourelle")} tourelles` : "une tourelle");
+    if (n("inhibiteur")) parts.push(n("inhibiteur") > 1 ? `${n("inhibiteur")} inhibiteurs` : "un inhibiteur");
+    return parts.length > 1 ? `${parts.slice(0, -1).join(", ")} et ${parts.at(-1)}` : parts[0] || "";
+  };
   const after = (t, span = 120000) => {
     const lost = [...objectives.filter(o => !o.ours && o.t > t && o.t - t <= span).map(o => o.kind), ...buildings.filter(b => !b.ours && b.t > t && b.t - t <= span).map(b => b.kind)];
     const swing = goldAt(t + span) - goldAt(t);
-    return { gold: swing, lost, text: [swing <= -500 ? `${Math.abs(Math.round(swing / 100) * 100).toLocaleString("fr-FR")} pièces d'or d'écart perdues par ton équipe` : null, lost.length ? `${lost.join(", ")} perdu${lost.length > 1 ? "s" : ""}` : null].filter(Boolean).join(" ; ") };
+    const bits = [lost.length ? `ton équipe a perdu ${losses(lost)}` : null, swing <= -500 ? `l'écart d'or s'est creusé de ${gold(swing)} en faveur de l'adversaire` : null].filter(Boolean);
+    return { gold: swing, lost, text: bits.join(", et ") };
   };
-  for (const l of lessons) { const e = after(l.t); if (e.text) { l.effect = e; l.facts = [...l.facts, `Dans les 2 minutes qui ont suivi : ${e.text}.`]; } }
+  for (const l of lessons) { const e = after(l.t); if (e.text) { l.effect = e; l.facts = [...l.facts, `Ensuite (sans lien certain avec ce seul moment) : ${e.text} dans les 2 minutes.`]; } }
   // Tournants : les minutes où l'écart d'or bascule le plus (au moins 1 500 en 2 minutes), avec ce qui s'est passé
   const turns = [];
   for (let m = 2; m < teamGold.length; m++) {
@@ -135,13 +167,11 @@ export function tactics(match, timeline, puuid) {
     if (Math.abs(d) < 1500) continue;
     const t0 = (m - 2) * 60000, t1 = m * 60000;
     const inWin = t => t > t0 && t <= t1;
-    const what = [
-      ...fightView.filter(f => inWin(f.t)).map(f => `combat ${f.zone} à ${f.allies} contre ${f.enemies} (${f.enemiesDead} adversaire${f.enemiesDead > 1 ? "s" : ""} éliminé${f.enemiesDead > 1 ? "s" : ""}, ${f.alliesDead} perte${f.alliesDead > 1 ? "s" : ""} de ton côté)`),
-      ...objectives.filter(o => inWin(o.t)).map(o => `${o.kind} ${o.ours ? "pris" : "perdu"}`),
-      ...buildings.filter(b => inWin(b.t)).map(b => `${b.kind} ${b.ours ? "détruite" : "perdue"}`),
-      ...deaths.filter(x => inWin(x.t)).map(x => `ta mort à ${x.at}`),
-    ];
-    turns.push({ t: t0, at: mmss(t0), to: mmss(t1), gold: d, what: [...new Set(what)].slice(0, 4) });
+    const fights = fightView.filter(f => inWin(f.t)).map(f => `combat ${f.zone} (${f.enemiesDead ? `${f.enemiesDead} adversaire${f.enemiesDead > 1 ? "s" : ""} éliminé${f.enemiesDead > 1 ? "s" : ""}` : "aucun adversaire éliminé"}, ${f.alliesDead ? `${f.alliesDead} perte${f.alliesDead > 1 ? "s" : ""} de ton côté` : "aucune perte de ton côté"})`);
+    const won = [...objectives.filter(o => inWin(o.t) && o.ours).map(o => o.kind), ...buildings.filter(b => inWin(b.t) && b.ours).map(b => b.kind)];
+    const lost = [...objectives.filter(o => inWin(o.t) && !o.ours).map(o => o.kind), ...buildings.filter(b => inWin(b.t) && !b.ours).map(b => b.kind)];
+    const what = [...fights.slice(0, 2), won.length ? `pris : ${losses(won).replace(/^le |^les /, m => m)}` : null, lost.length ? `perdu : ${losses(lost)}` : null, ...deaths.filter(x => inWin(x.t)).map(x => `ta mort à ${x.at}`)].filter(Boolean);
+    turns.push({ t: t0, at: mmss(t0), to: mmss(t1), gold: d, what });
   }
   // On garde les tournants les plus forts sans chevauchement
   const keyTurns = [];

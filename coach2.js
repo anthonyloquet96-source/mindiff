@@ -31,15 +31,15 @@ const C2_LEARN = {
 };
 // Conseil de méthode propre à chaque type de constat (plus précis que celui de l'indicateur)
 const C2_KIND_TIP = {
-  "mort-avant-objectif": "Dans la minute qui précède un dragon ou un Baron (le minuteur s'affiche avec Tab), rejoins ton équipe et évite de mourir seul loin de l'objectif : l'adversaire le prendrait en surnombre.",
+  "mort-avant-objectif": "Dans la minute qui précède un dragon ou un Baron rejoins ton équipe et évite de mourir seul loin de l'objectif : l'adversaire le prendrait en surnombre.",
   "plaques-perdues": "Avant de quitter ta voie (retour à la base, aide à un combat), pousse ta vague vers la tourelle adverse : elle ne s'écrasera pas sous la tienne pendant ton absence.",
   "retard-en-ligne": "Quand ton adversaire a l'avantage, joue la sécurité : prends les sbires près de ta tourelle, signale-le à ton jungler et ne te bats qu'avec un avantage net.",
   "morts-phase-de-ligne": "En phase de ligne, recule quand ton adversaire disparaît de la carte ou que son jungler est vu de ton côté : la plupart des morts précoces viennent d'un adversaire non vu.",
   "or-non-depense": "Rentre à la base dès que tu peux acheter un composant important, de préférence après avoir poussé ta vague.",
   "mort-isolee": "Après la phase de ligne, ne pousse pas seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : reste à portée de ton équipe ou replie-toi avant leur arrivée.",
-  "gank-subi": "En phase de ligne, quand le jungler adverse n'est pas visible et que ta vague est poussée, joue plus près de ta tourelle ; une balise dans la rivière évite la plupart des ganks.",
+  "gank-subi": "En phase de ligne, quand le jungler adverse n'a pas été vu depuis un moment et que ta vague est poussée, rapproche-toi de ta tourelle ; une balise dans la rivière te montre son arrivée.",
   "absent-objectif": "Environ une minute avant un dragon ou un Baron, pousse ta vague puis rejoins ton équipe : l'adversaire prend les objectifs quand vous êtes moins nombreux.",
-  "objectif-inferiorite": "Si un allié est mort ou absent, cède l'objectif et prends une compensation ailleurs (tourelle, vague, Larves) plutôt que de combattre en infériorité.",
+  "objectif-inferiorite": "Si un allié est mort ou absent, cède l'objectif et prends plutôt une tourelle ou une vague de l'autre côté de la carte, au lieu de combattre en infériorité.",
   "combat-sans-toi": "Garde un œil sur la mini-carte : quand ton équipe se bat près de toi, la rejoindre change le rapport de force ; sinon, signale de ne pas engager.",
   "temps-mort": "Moins de morts, c'est plus de temps pour farmer et peser sur les objectifs : commence par les morts d'avant 14 min, les plus coûteuses.",
 };
@@ -169,7 +169,7 @@ const C2_PLAIN = {
     goal: "Mieux éclairer la carte", name: "Vision",
     say: v => `${c2n(Math.round(v * 10) / 10)} de score de vision par minute`,
     what: () => "Le score de vision compte ce que tu fais pour voir la carte : balises posées, balises adverses détruites. Voir l'adversaire venir évite des morts et aide à prendre les objectifs.",
-    steps: () => ["Pose ta balise gratuite (l'accessoire, touche 4) dès qu'elle est rechargée.", "Achète une balise de contrôle (75 pièces d'or) à chaque retour à la base.", "Place tes balises là où l'adversaire passe : rivière, entrées de jungle, et autour du dragon une minute avant qu'il apparaisse."],
+    steps: role => [...(role === "support" ? ["Termine vite la quête de ton objet de support : il te donne des balises à poser ; pose-les dès qu'elles sont disponibles."] : []), "Pose ta balise gratuite (l'accessoire, touche 4) dès qu'elle est rechargée.", "Achète une balise de contrôle (75 pièces d'or) à chaque retour à la base.", "Place tes balises là où l'adversaire passe : rivière, entrées de jungle, et autour du dragon une minute avant qu'il apparaisse."],
   },
   controlWards: {
     goal: "Poser des balises de contrôle", name: "Balises de contrôle",
@@ -349,7 +349,7 @@ function c2Goal(p) {
   const P = m => C2_PLAIN[m] || { goal: m, name: m, say: v => c2n(v), what: () => "", steps: () => [] };
   const picker = all => { const list = all.filter(t => t.p50 > 0 || t.better === "low"); return list.length ? `<details class="more c2-pick"><summary>Choisir un point à améliorer</summary><div class="c2-pick-list">${list.map(t => `<button class="pill-btn" data-action="c2-goal-pick" data-role="${esc(role)}" data-metric="${esc(t.metric)}">${esc(P(t.metric).goal)}</button>`).join("")}</div></details>` : ""; };
   if (!g) return `<section class="c2-card c2-goal ok"><p class="label">Ton objectif</p><p class="fine">Joue au moins 3 parties en ${roleName} pour que le coach te propose un objectif.</p></section>`;
-  if (g.none) return `<section class="c2-card c2-goal ok"><p class="label">Ton objectif · ${roleName}</p><h2 class="c2-goal-title">Rien d'urgent à corriger</h2><p class="fine">Sur tes dernières parties en ${roleName}, tu es au niveau sur tous les points mesurés. Tu peux choisir un point pour viser encore plus haut.</p>${picker(g.R.tally)}</section>`;
+  if (g.none) return `<section class="c2-card c2-goal ok"><p class="label">Ton objectif · ${roleName}</p><h2 class="c2-goal-title">Rien d'urgent à corriger</h2><p class="fine">Sur tes dernières parties en ${roleName}, tu es au niveau sur tous les points mesurés. Pour aller plus loin, ouvre ton <a href="${c2Href("bilan")}">bilan général</a> : il relit tes combats, tes morts et tes objectifs.</p>${picker(g.R.tally)}</section>`;
   const { t, st } = g, M = P(t.metric);
   const head = g.reached
     ? `<p class="label">${icon("check")}Objectif atteint · ${roleName}</p><h2 class="c2-goal-title">${esc(M.goal)}</h2><p class="fine">Réussi dans ${g.okN} de tes 5 dernières parties. Bravo !</p>`
@@ -458,7 +458,7 @@ function c2Game(id) {
   const tile = (label, v, unit = "") => `<div class="c2-tile ${v > 0 ? "up" : v < 0 ? "down" : ""}"><span class="c2-k">${v > 0 ? "+" : ""}${v}${unit}</span><span class="fine">${label}</span></div>`;
   return `<section class="c2-card c2-match ${s.win ? "win" : "loss"}">
       <div class="c2-prow">${c2Img(s.champion, "c2-av lg")}<div><p class="c2-name">${s.win ? "Victoire" : "Défaite"} · ${esc(c2Name(s.champion))}</p><p class="fine">${esc(C2_ROLE[s.role] || "")}${s.opponent ? ` contre ${esc(c2Name(s.opponent))}` : ""} · ${s.k}/${s.d}/${s.a} · ${s.cs} sbires · ${Math.round(s.minutes)} min · patch ${esc(s.patch)}</p></div></div>
-      ${r.lane.at10 ? `<div class="c2-tiles">${tile("or à 10 min", r.lane.at10.gold)}${tile("sbires à 10 min", r.lane.at10.cs)}${r.lane.at15 ? tile("or à 15 min", r.lane.at15.gold) : ""}${r.lane.at15 ? tile("expérience à 15 min", r.lane.at15.xp) : ""}</div><p class="fine">Écarts avec ${esc(c2Name(r.lane.opponent))}, ton adversaire direct.</p>` : ""}
+      ${r.lane.at10 ? `<div class="c2-tiles">${tile("or à 10 min", r.lane.at10.gold)}${r.lane.at10.cs != null ? tile("sbires à 10 min", r.lane.at10.cs) : ""}${r.lane.at15 ? tile("or à 15 min", r.lane.at15.gold) : ""}${r.lane.at15 ? tile("expérience à 15 min", r.lane.at15.xp) : ""}</div><p class="fine">${r.lane.duo ? "Écarts de ton duo de la voie du bas avec le duo adverse." : `Écarts avec ${esc(c2Name(r.lane.opponent))}, ton adversaire direct.`}</p>` : ""}
     </section>
     <div class="filters">${seg("c2-gview", [["resume", "Résumé"], ["carte", "Carte"], ["details", "Détails"]], view, "Vue")}</div>
     ${view === "carte" ? c2Tactics(r, id) : view === "details" ? `${c2Timeline(r)}
@@ -477,14 +477,14 @@ function c2Game(id) {
 function c2Brief(r, id) {
   const s = r.summary, a = r.lane.at10, rows = [];
   if (a && r.lane.opponent) {
-    const opp = esc(c2Name(r.lane.opponent));
-    rows.push(a.gold >= 500 ? ["up", "Phase de ligne", `gagnée : ${c2n(a.gold)} or d'avance sur ${opp} à 10 min`]
-      : a.gold <= -500 ? ["down", "Phase de ligne", `difficile : ${c2n(-a.gold)} or de retard sur ${opp} à 10 min`]
-      : ["", "Phase de ligne", `équilibrée face à ${opp} (${a.gold > 0 ? "+" : ""}${c2n(a.gold)} or à 10 min)`]);
+    const opp = r.lane.duo ? "le duo adverse" : esc(c2Name(r.lane.opponent)), who = r.lane.duo ? "ton duo a " : "";
+    rows.push(a.gold >= 500 ? ["up", "Phase de ligne", `gagnée : ${who}${c2n(a.gold)} pièces d'or d'avance sur ${opp} à 10 min`]
+      : a.gold <= -500 ? ["down", "Phase de ligne", `difficile : ${who}${c2n(-a.gold)} pièces d'or de retard sur ${opp} à 10 min`]
+      : ["", "Phase de ligne", `équilibrée face à ${opp} (${a.gold > 0 ? "+" : ""}${c2n(a.gold)} pièces d'or à 10 min)`]);
   }
   if (r.findings[0]) rows.push(["down", "À travailler", esc(r.findings[0].title)]);
   if (r.strengths[0]) rows.push(["up", "Point fort", esc(r.strengths[0])]);
-  if (s.deadSeconds != null && s.deadSeconds / (r.duration || 1) >= 0.1) rows.push(["down", "Temps mort", `${Math.round(s.deadSeconds / 60)} min, soit ${Math.round((s.deadSeconds / r.duration) * 100)} % de la partie`]);
+  if (s.deadSeconds != null && s.deadSeconds / (r.duration || 1) >= 0.1) rows.push(["down", "Temps passé mort", `${Math.round(s.deadSeconds / 60)} min, soit ${Math.round((s.deadSeconds / r.duration) * 100)} % de la partie`]);
   // Objectif du joueur dans ce rôle : réussi ou non sur cette partie
   const g = C2.profile && s.role ? c2GoalState(C2.profile, s.role) : null;
   const v = g?.t ? s.metrics?.[g.t.metric] : null;
@@ -508,6 +508,7 @@ function c2BuildCmp(r) {
     ${b.items.length ? `<div class="c2-brow"><span class="label">Tes objets terminés</span><div class="c2-icons">${b.items.map(it).join("")}</div><p class="fine">${b.items.map(x => esc(x.name)).join(" · ")}</p></div>` : ""}
     ${b.missing.length ? `<div class="c2-brow"><span class="label">Très joués par les Diamant+, absents chez toi</span><div class="c2-icons">${b.missing.map(it).join("")}</div><p class="fine">${b.missing.map(x => esc(x.name)).join(" · ")}</p></div>` : ""}
     ${rare.length ? `<p class="fine">${rare.map(x => esc(x.name)).join(", ")} : rare chez les Diamant+ sur ${esc(c2Name(r.summary.champion))}. Ça peut être un bon choix selon la partie ; compare avec la fiche du champion.</p>` : ""}
+    ${r.summary.patch && b.patch && r.summary.patch !== b.patch ? `<p class="note">${icon("info")}<span>Ta partie date du patch ${esc(r.summary.patch)}, la référence du patch ${esc(b.patch)} : les objets ont pu changer entre-temps.</span></p>` : ""}
     <p class="fine">Part des parties Diamant+ (${b.games} parties, patch ${esc(b.patch)}) où l'objet est dans l'inventaire final. <a href="${c2Href("champions", r.summary.champion)}">Voir la fiche ${esc(c2Name(r.summary.champion))}</a></p>
   </div></section>`;
 }
@@ -553,7 +554,7 @@ function c2Tactics(r, id) {
     ${T.lessons.length ? T.lessons.map(l => `<article class="c2-card c2-finding"><p class="label">À ${esc(l.at)}</p><h3 class="c2-f-title">${esc(l.title)}</h3>${bullets(l.facts)}<p class="c2-better"><b>Ce qui aurait été mieux</b> ${esc(l.better)}</p><button class="btn ghost sm" data-action="c2-tgo" data-id="${esc(id)}" data-m="${Math.max(0, Math.floor(l.t / 60000))}">Voir sur la carte</button></article>`).join("")
       : `<p class="inline-empty">Aucune erreur de placement nette relevée sur cette partie (objectifs, morts, combats).</p>`}
     <details class="more c2-card"><summary>Tous les combats (${T.fights.length}) et interactions</summary>
-      <ul class="c2-events">${T.fights.map(f => `<li><b>${f.at}</b> ${esc(f.zone)} · ${f.allies} contre ${f.enemies} · <span class="${f.won === true ? "up" : f.won === false ? "bad" : ""}">${f.won === true ? "gagné" : f.won === false ? "perdu" : "égal"}</span> (${f.enemiesDead} adversaire${f.enemiesDead > 1 ? "s" : ""} éliminé${f.enemiesDead > 1 ? "s" : ""}, ${f.alliesDead} allié${f.alliesDead > 1 ? "s" : ""}) · ${f.me ? "avec toi" : `sans toi, à ${Math.round(f.myDist / 100) * 100} unités`} <button class="linkish" data-action="c2-tgo" data-id="${esc(id)}" data-m="${Math.floor(f.t / 60000)}">carte</button></li>`).join("")}</ul>
+      <ul class="c2-events">${T.fights.map(f => `<li><b>${f.at}</b> ${esc(f.zone)} · ${f.allies} contre ${f.enemies} · <span class="${f.won === true ? "up" : f.won === false ? "bad" : ""}">${f.won === true ? "gagné" : f.won === false ? "perdu" : "égal"}</span> (${f.enemiesDead} adversaire${f.enemiesDead > 1 ? "s" : ""} éliminé${f.enemiesDead > 1 ? "s" : ""}, ${f.alliesDead} allié${f.alliesDead > 1 ? "s" : ""}) · ${f.me ? "avec toi" : `sans toi (${f.myDist < 2500 ? "tu étais tout près" : f.myDist < 6000 ? "tu étais à quelques secondes" : f.myDist < 9000 ? "tu étais loin" : "tu étais à l'autre bout de la carte"})`} <button class="linkish" data-action="c2-tgo" data-id="${esc(id)}" data-m="${Math.floor(f.t / 60000)}">carte</button></li>`).join("")}</ul>
       ${chips(T.interactions.killedBy, "T'ont éliminé le plus")}${chips(T.interactions.killed, "Tu as éliminé le plus")}${chips(T.interactions.with, "Tes éliminations avec")}
     </details>
     <p class="fine">${esc(T.limits)}</p>
@@ -790,7 +791,7 @@ function c2ReportPicker(p, role, champ) {
 function c2Synthesis(d, { role, champ }) {
   const top = d.minus.slice(0, 3);
   const short = t => t.replace(/ dans \d+ parties sur \d+$/, "");
-  return `<section class="c2-card c2-plan"><p class="label">Synthèse du coach · ${champ ? esc(c2Name(champ)) : esc(C2_ROLE[role])} · ${d.wins} victoire${d.wins > 1 ? "s" : ""} sur ${d.found ?? d.games}</p>
+  return `<section class="c2-card c2-plan"><p class="label">Synthèse du coach · ${champ ? esc(c2Name(champ)) : esc(C2_ROLE[role])} · ${d.winsReviewed ?? d.wins} victoire${(d.winsReviewed ?? d.wins) > 1 ? "s" : ""} sur les ${d.games} parties relues</p>
       <h2 class="c2-goal-title">${top.length ? `Ta priorité : ${esc(short(top[0].title).replace(/^./, c => c.toLowerCase()))}` : "Aucun point faible récurrent : garde ce qui marche"}</h2>
       ${top.length ? `<p class="c2-better"><b>Comment</b> ${esc(c2TipOf(top[0]) || top[0].detail)}</p>` : ""}
       ${top.length > 1 ? `<p class="fine"><b>Ensuite</b> : ${top.slice(1).map(m => esc(short(m.title))).join(" · ")}.</p>` : ""}
@@ -828,7 +829,9 @@ function c2Report() {
   const subject = champ ? `avec ${esc(c2Name(champ))}` : `en ${esc(C2_ROLE[role])}`;
   if (!R || R.loading) return `${pick}<div class="c2-card c2-loading">Relecture de tes parties ${subject} (jusqu'à 20, parmi tes ${champ ? 60 : 40} dernières parties classées)…</div>`;
   if (R.error) return `${pick}<div class="note warn">${icon("alert")}<span>${esc(R.error)}</span><button class="btn ghost sm" data-action="c2-report-retry">Réessayer</button></div>`;
-  if (R.data.games < 3) return `${pick}<p class="note">${icon("info")}<span>Seulement ${R.data.found ?? R.data.games} partie${(R.data.found ?? R.data.games) > 1 ? "s" : ""} ${subject} parmi tes ${R.data.scanned ?? "dernières"} dernières parties classées : il en faut au moins 3 pour un bilan.</span></p>`;
+  if (R.data.games < 3) return (R.data.found ?? 0) >= 3
+    ? `${pick}<div class="note warn">${icon("alert")}<span>Le coach n'a pu relire que ${R.data.games} de tes ${R.data.found} parties ${subject} : le service de Riot était saturé. Réessaie dans une minute.</span><button class="btn ghost sm" data-action="c2-report-retry">Réessayer</button></div>`
+    : `${pick}<p class="note">${icon("info")}<span>${R.data.found ? `Seulement ${R.data.found} partie${R.data.found > 1 ? "s" : ""}` : "Aucune partie"} ${subject} parmi tes ${R.data.scanned ?? "dernières"} dernières parties classées : il en faut au moins 3 pour un bilan.</span></p>`;
   const d = R.data;
   // Champion conseillé : meilleurs résultats récents du joueur (2 parties au moins)
   const best = [...d.champions].filter(c => c.games >= 2).sort((a, b) => b.wins / b.games - a.wins / a.games || b.kda - a.kda)[0];

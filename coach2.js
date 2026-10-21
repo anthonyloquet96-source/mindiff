@@ -61,6 +61,20 @@ function c2Remember(p) {
   // Première connexion : les parties déjà jouées ne sont pas « nouvelles »
   if (!Array.isArray(C2.seen)) C2.seen = p.games.map(g => g.id);
 }
+// Changer de Riot ID : la progression de chaque compte est mise de côté et retrouvée au retour (5 comptes récents)
+function c2SwitchTo(riotId, platform) {
+  const key = id => id.toLowerCase();
+  C2.accounts ||= {};
+  if (C2.account?.riotId) C2.accounts[key(C2.account.riotId)] = { history: C2.history, goals: C2.goals, seen: C2.seen, role: C2.role };
+  const saved = C2.accounts[key(riotId)] || {};
+  const prev = C2.account?.riotId && C2.profile ? [{ riotId: C2.account.riotId, platform: C2.account.platform }] : [];
+  Object.assign(C2, { account: { riotId, platform }, profile: null, profileAt: 0, reviews: {}, history: saved.history || {}, goals: saved.goals || {}, seen: saved.seen ?? null, role: saved.role || null });
+  C2.recent = [{ riotId, platform }, ...prev, ...(C2.recent || [])].filter((r, i, all) => all.findIndex(x => key(x.riotId) === key(r.riotId)) === i).slice(0, 5);
+  for (const k of Object.keys(C2.accounts)) if (!C2.recent.some(r => key(r.riotId) === k)) delete C2.accounts[k];
+  Object.assign(c2ui, { error: null, switching: false, live: null, liveAt: 0 });
+  c2Save();
+  c2LoadProfile(true);
+}
 async function c2LoadProfile(force = false) {
   if (!C2.account || c2ui.loading || (!force && c2ui.error)) return;
   if (!force && C2.profile && Date.now() - C2.profileAt < 120e3) return;
@@ -69,9 +83,15 @@ async function c2LoadProfile(force = false) {
     C2.profile = await c2Fetch("profile", { id: C2.account.riotId, platform: C2.account.platform });
     C2.account = { riotId: C2.profile.riotId, platform: C2.profile.platform, puuid: C2.profile.puuid };
     C2.profileAt = Date.now();
+    // Orthographe officielle du Riot ID dans la liste des comptes récents
+    C2.recent = (C2.recent || []).map(r => (r.riotId.toLowerCase() === C2.profile.riotId.toLowerCase() ? { ...r, riotId: C2.profile.riotId } : r));
     c2Remember(C2.profile);
     c2Save();
-  } catch (e) { c2ui.error = e.message; }
+  } catch (e) {
+    c2ui.error = e.message;
+    // Compte inexistant : retiré des comptes récents
+    if (/^Aucun compte/.test(e.message)) { C2.recent = (C2.recent || []).filter(r => r.riotId.toLowerCase() !== C2.account.riotId.toLowerCase()); c2Save(); }
+  }
   c2ui.loading = null; render(false);
 }
 // Partie en cours : vérifiée à l'ouverture du coach, puis à la demande (au plus une fois par minute)
@@ -145,22 +165,27 @@ function c2Home() {
   setTimeout(() => c2LoadProfile(), 0);
   const p = C2.profile;
   const err = c2ui.error ? `<div class="note warn">${icon("alert")}<span>${esc(c2ui.error)}</span><button class="btn ghost sm" data-action="c2-refresh">Réessayer</button></div>` : "";
+  if (!p && c2ui.error && !c2ui.loading) return `${c2Connect()}${tools}`;
   if (!p) return `${err}<div class="c2-card c2-loading">${c2ui.loading ? "Lecture de vos dernières parties…" : ""}</div>${tools}`;
   setTimeout(() => c2LoadLive(), 0);
-  return `${err}${c2Live(p)}${c2Ready(p)}${c2ProfileCard(p)}${c2Goal(p)}${c2Games(p)}${tools}
+  return `${c2ui.switching ? c2Connect(true) : ""}${err}${c2Live(p)}${c2Ready(p)}${c2ProfileCard(p)}${c2Goal(p)}${c2Games(p)}${tools}
     <p class="fine c2-foot">Données officielles de Riot Games${p.benchmark ? ` · référence : ${p.benchmark.games} parties ${esc(p.benchmark.level)} (patch ${esc(p.benchmark.patch)})` : ""} · <button class="linkish" data-action="c2-logout">changer de compte</button></p>`;
 }
 
-function c2Connect() {
+function c2Connect(switching = false) {
   const off = C2_API == null;
-  return `<section class="c2-hero">
-    <p class="label">Ton coach personnel</p>
-    <h2 class="c2-hero-title">Tes vraies parties, un objectif à la fois</h2>
-    <ol class="c2-steps"><li><b>Connecte ton compte</b> avec ton Riot ID : rien à installer.</li><li><b>Bilan de chaque partie</b> : morts, retours à la base, objectifs, comparés aux joueurs Diamant+ de ton rôle.</li><li><b>Un seul objectif</b> suivi de partie en partie, avec les vidéos de coachs qui l'expliquent.</li></ol>
+  const recent = (C2.recent || []).filter(r => r.riotId.toLowerCase() !== (C2.profile?.riotId || "").toLowerCase());
+  const intro = switching ? "" : `<h2 class="c2-hero-title">Tes vraies parties, un objectif à la fois</h2>
+    <ol class="c2-steps"><li><b>Connecte ton compte</b> avec ton Riot ID : rien à installer.</li><li><b>Bilan de chaque partie</b> : morts, retours à la base, objectifs, comparés aux joueurs Diamant+ de ton rôle.</li><li><b>Un seul objectif</b> suivi de partie en partie, avec les vidéos de coachs qui l'expliquent.</li></ol>`;
+  const chips = recent.length && !off ? `<div class="c2-recent"><span class="fine">Comptes récents</span>${recent.map(r => `<button class="pill-btn" data-action="c2-use" data-id="${esc(r.riotId)}" data-platform="${esc(r.platform)}">${esc(r.riotId)}</button>`).join("")}</div>` : "";
+  return `<section class="c2-hero ${switching ? "compact" : ""}">
+    <p class="label">${switching ? "Changer de Riot ID" : "Ton coach personnel"}</p>
+    ${intro}${chips}
     ${off ? `<p class="note">${icon("info")}<span>Bientôt disponible en ligne : la connexion des comptes attend la validation de la clé Riot de production. Le face-à-face et les fiches champions fonctionnent déjà.</span></p>` : `<form id="c2-connect" class="c2-form" novalidate>
-      <label class="field"><span>Riot ID</span><input name="riotid" autocomplete="off" placeholder="Pseudo#TAG" value="${esc(C2.account?.riotId || "")}" required></label>
+      <label class="field"><span>Riot ID</span><input name="riotid" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Pseudo#TAG" value="${switching ? "" : esc(C2.account?.riotId || "")}" required></label>
       <label class="field c2-region"><span>Région</span><select name="platform">${C2_REGIONS.map(([v, l]) => `<option value="${v}" ${v === (C2.account?.platform || "euw1") ? "selected" : ""}>${l}</option>`).join("")}</select></label>
-      <button class="btn primary" type="submit">Analyser mes parties</button>
+      <button class="btn primary" type="submit">${switching ? "Voir ce compte" : "Analyser mes parties"}</button>
+      ${switching ? `<button class="btn ghost" type="button" data-action="c2-switch">Annuler</button>` : ""}
       <p class="form-msg fine" role="status" aria-live="polite">${c2ui.error ? esc(c2ui.error) : ""}</p>
     </form>
     <p class="fine">Seules des données de jeu publiques sont lues. Ton Riot ID reste sur cet appareil.</p>`}
@@ -174,12 +199,14 @@ function c2ProfileCard(p) {
     <div class="c2-prow">${c2Img(c2Id(p.champions[0]?.[0]) || p.champions[0]?.[0], "c2-av lg")}
       <div><p class="c2-name">${esc(p.riotId)}</p><p class="fine">${r ? `${esc(C2_TIER[r.tier] || r.tier)}${["MASTER", "GRANDMASTER", "CHALLENGER"].includes(r.tier) ? "" : ` ${esc(r.division)}`} · ${r.lp} LP · ${Math.round((r.wins / (r.wins + r.losses)) * 100)} % sur ${r.wins + r.losses} parties` : "Non classé en solo/duo"} · ${esc(p.platformLabel)}</p></div>
       <button class="icon-btn" data-action="c2-refresh" aria-label="Actualiser">${icon("refresh")}</button></div>
+    <button class="btn ghost sm c2-switch" data-action="c2-switch" aria-expanded="${!!c2ui.switching}">${icon("users")}Changer de Riot ID</button>
     <div class="c2-kpis">
       <div><span class="c2-k">${wins}<small>/${p.games.length}</small></span><span class="fine">victoires récentes</span></div>
       <div><span class="c2-k">${esc(C2_ROLE[p.mainRole] || "—")}</span><span class="fine">rôle principal</span></div>
       <div class="c2-champs">${p.champions.slice(0, 3).map(([c]) => c2Img(c)).join("")}<span class="fine">champions joués</span></div>
     </div>
     ${c2Roles(p)}
+    ${p.ranked === false && p.games.length ? `<p class="fine">Pas de partie classée récente : le coach lit tes parties normales. La référence reste celle des parties classées Diamant+.</p>` : ""}
   </section>`;
 }
 
@@ -272,7 +299,7 @@ function c2Ready(p) {
 }
 
 function c2Games(p) {
-  if (!p.games.length) return empty("Aucune partie classée récente", "Le bilan porte sur les parties classées (solo/duo et flexible).");
+  if (!p.games.length) return empty("Aucune partie classée récente", "Le bilan porte sur les parties classées, ou à défaut normales (hors ARAM).");
   return `<section class="sec"><div class="sec-head"><h2 class="sec-title">Dernières parties</h2></div>
     <ul class="c2-games">${p.games.map(g => `<li><a class="c2-game ${g.win ? "win" : "loss"}" href="${c2Href("partie", g.id)}">
       ${c2Img(g.champion)}<span class="c2-g-main"><b>${esc(c2Name(g.champion))}${Array.isArray(C2.seen) && !C2.seen.includes(g.id) ? ` <span class="chip live">Nouveau</span>` : ""}</b><span class="fine">${esc(C2_ROLE[g.role] || "")}${g.opponent ? ` · contre ${esc(c2Name(g.opponent))}` : ""} · ${c2Ago(g.at)}</span></span>
@@ -481,10 +508,7 @@ document.addEventListener("submit", e => {
     const fd = new FormData(e.target);
     const id = String(fd.get("riotid") || "").trim();
     if (!/^.{3,16}#[A-Za-z0-9]{2,5}$/.test(id)) { e.target.querySelector(".form-msg").textContent = "Riot ID attendu sous la forme Pseudo#TAG (le TAG est visible dans le client, sous ton pseudo)."; return; }
-    C2.account = { riotId: id, platform: String(fd.get("platform")) };
-    C2.profile = null; C2.reviews = {}; c2ui.error = null;
-    c2Save();
-    c2LoadProfile(true);
+    c2SwitchTo(id, String(fd.get("platform")));
   }
   if (e.target.id === "c2-face") {
     e.preventDefault();
@@ -498,6 +522,8 @@ document.addEventListener("click", e => {
   if (!a) return;
   if (a.dataset.action === "c2-refresh") c2LoadProfile(true);
   if (a.dataset.action === "c2-logout") { C2.account = null; C2.profile = null; C2.reviews = {}; c2ui.error = null; c2Save(); render(false); }
+  if (a.dataset.action === "c2-switch") { c2ui.switching = !c2ui.switching; render(false); if (c2ui.switching) document.querySelector("#c2-connect input")?.focus(); }
+  if (a.dataset.action === "c2-use") c2SwitchTo(a.dataset.id, a.dataset.platform);
   if (a.dataset.action === "c2-face-with") { C2.face = { ...C2.face, me: a.dataset.champ }; c2Save(); }
   if (a.dataset.action === "c2-face-live") { C2.face = { ...C2.face, me: a.dataset.me, vs: a.dataset.vs }; c2Save(); }
   if (a.dataset.action === "c2-live") c2LoadLive(true);

@@ -784,3 +784,7 @@ a.sb-team:hover .sb-name { text-decoration: underline; text-underline-offset: 3p
 .c2-kline b { color: var(--text); }
 .c2-buildcmp a { color: var(--text-2); text-decoration: underline; }
 .cstrip.hot { border: 1px solid rgba(255, 77, 46, .45); background: linear-gradient(90deg, rgba(255, 77, 46, .14), transparent 80%), var(--surface); }
+.c2-recent { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.c2-recent .fine { flex-basis: 100%; }
+.c2-hero.compact { padding: var(--s4); border: 1px solid var(--line); }
+.c2-switch { align-self: flex-start; }

@@ -298,11 +298,12 @@ export async function profile(riot, { gameName, tagLine, platform, benchmarks, c
   const [region, label] = PLATFORMS[platform] || [];
   if (!region) throw Object.assign(new Error("Région inconnue"), { status: 400 });
   const acc = await riot(`https://${region}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${encodeURIComponent(gameName)}/${encodeURIComponent(tagLine)}`, { ttl: 3600e3 });
-  const [entries, ids] = await Promise.all([
-    riot(`https://${platform}.api.riotgames.com/lol/league/v4/entries/by-puuid/${acc.puuid}`, { ttl: 300e3 }),
-    riot(`https://${region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${acc.puuid}/ids?type=ranked&count=${count}`, { ttl: 120e3 }),
-  ]);
-  const games = (await Promise.all(ids.map(id => riot(`https://${region}.api.riotgames.com/lol/match/v5/matches/${id}`).then(m => summarize(m, acc.puuid)).catch(() => null)))).filter(g => g && !g.remake);
+  const idsOf = type => riot(`https://${region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${acc.puuid}/ids?type=${type}&count=${count}`, { ttl: 120e3 });
+  const [entries, rankedIds] = await Promise.all([riot(`https://${platform}.api.riotgames.com/lol/league/v4/entries/by-puuid/${acc.puuid}`, { ttl: 300e3 }), idsOf("ranked")]);
+  // Sans partie classée récente : parties normales avec des rôles (l'ARAM n'en a pas et est écartée)
+  const ranked = rankedIds.length > 0;
+  const ids = ranked ? rankedIds : await idsOf("normal");
+  const games = (await Promise.all(ids.map(id => riot(`https://${region}.api.riotgames.com/lol/match/v5/matches/${id}`).then(m => summarize(m, acc.puuid)).catch(() => null)))).filter(g => g && !g.remake && (ranked || g.role));
   const solo = entries.find(e => e.queueType === "RANKED_SOLO_5x5");
   const count1 = arr => Object.entries(arr.reduce((a, x) => (x ? ((a[x] = (a[x] || 0) + 1), a) : a), {})).sort((a, b) => b[1] - a[1]);
   const roles = count1(games.map(g => g.role));
@@ -313,7 +314,7 @@ export async function profile(riot, { gameName, tagLine, platform, benchmarks, c
   return {
     riotId: `${acc.gameName}#${acc.tagLine}`, puuid: acc.puuid, platform, platformLabel: label, region,
     rank: solo ? { tier: solo.tier, division: solo.rank, lp: solo.leaguePoints, wins: solo.wins, losses: solo.losses } : null,
-    games, roles, mainRole, champions: count1(games.map(g => g.champion)).slice(0, 5),
+    games, ranked, roles, mainRole, champions: count1(games.map(g => g.champion)).slice(0, 5),
     goal: main.goal, tally: main.tally, byRole,
     benchmark: benchmarks?.roles?.[mainRole] ? { patch: benchmarks.patch, games: benchmarks.games, level: "Diamant et plus" } : null,
   };

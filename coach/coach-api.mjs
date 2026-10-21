@@ -44,6 +44,6 @@ export async function coachApi(path, params, { key, benchmarks, champstats, visi
     return { status: 404, body: { error: "Introuvable" } };
   } catch (e) {
     const status = e.status === 404 ? 404 : e.status === 429 ? 429 : e.status === 400 ? 400 : 502;
-    return { status, body: { error: e.status === 404 ? (path.endsWith("profile") ? "Compte introuvable : vérifiez le Riot ID et la région." : "Partie introuvable.") : e.message } };
+    return { status, body: { error: e.status === 404 ? (path.endsWith("profile") ? `Aucun compte « ${params.get("id")} ». Vérifie l'orthographe exacte et le TAG après le # (visible sous ton pseudo dans le client, par exemple #EUW ou #1234).` : "Partie introuvable.") : e.message } };
   }
 }

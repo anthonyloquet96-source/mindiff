@@ -14,7 +14,7 @@ const VIDEO_NOTE = "Transcription inaccessible par une voie autorisée : l'API Y
 // contenus pédagogiques favorisés, divertissement pénalisé, crédibilité de la source prise en compte
 const TEACH = ["guide", "how to", "tutorial", "tips", "fundamentals", "explained", "breakdown", "vod review", "coaching", "macro", "wave", "laning", "trading", "jungle path", "clear", "matchup", "build", "runes", "climb", "mistakes", "comment", "conseils", "erreurs"];
 const ROLES_KW = ["top", "jungle", "jungler", "mid", "adc", "bot lane", "support", "marksman"];
-const FUN = ["reacts", "reaction", "clips", "moments", "funny", "costream", "stream", "highlights", "🔴", "tries ", "drama"];
+const FUN = ["reacts", "reaction", "clips", "moments", "funny", "costream", "stream", "highlights", "🔴", "tries ", "drama", "#twitch", "#shorts", "scandale", "pentakill"];
 const CRED = { "élevée": 2, moyenne: 1, "à établir": 0, faible: -2 };
 export function triage(text, pilot, names = null, credibility = "à établir") {
   const champs = names || Object.values(pilot.champions).flat().concat(pilot.partial || []);
@@ -55,7 +55,8 @@ export async function run() {
   const byId = new Map(contents.contents.map(c => [c.id, c]));
   const NAMES = (await readJson("coach/cache/roster.json", null))?.names || null;
   // Nouveau calcul de priorité appliqué aussi aux vidéos déjà repérées et pas encore lues
-  for (const c of contents.contents.filter(c => c.type === "video" && c.access === "metadonnees")) { const src = reg.sources.find(x => x.id === c.sourceId); c.triage = triage(`${c.title} ${c.descriptionExcerpt || ""}`, config.pilot, NAMES, src?.credibility.level); }
+  // Les pages officielles des champions sans conseils (coach/insights.mjs) gardent leur priorité fixe
+  for (const c of contents.contents.filter(c => c.type === "video" && c.access === "metadonnees" && c.sourceId !== "riot-champion-insights")) { const src = reg.sources.find(x => x.id === c.sourceId); c.triage = triage(`${c.title} ${c.descriptionExcerpt || ""}`, config.pilot, NAMES, src?.credibility.level); }
   const active = reg.sources.filter(s => s.active && ["youtube-rss", "wp-json"].includes(s.access.discovery?.type)).slice(0, d.maxSources);
   for (const s of active) {
     const st = state.discovery[s.id] ||= { attempts: 0 };

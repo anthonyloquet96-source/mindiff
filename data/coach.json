@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-21T06:53:19.694Z",
+ "generatedAt": "2026-10-21T07:09:22.314Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -3350,6 +3350,43 @@
      "claim": "Éditeur et concepteurs du jeu",
      "evidence": "https://www.leagueoflegends.com/en-us/news/dev/champion-insights-briar/",
      "how": "page officielle consultée (HTTP 200, robots.txt : Allow /)"
+    }
+   ]
+  },
+  {
+   "id": "yt-chreak",
+   "name": "Chreak",
+   "author": "Chreak (Corentin Moreau)",
+   "url": "https://www.youtube.com/channel/UCxLdRA_ZOiUxKe592BUt8zA",
+   "channelId": "UCxLdRA_ZOiUxKe592BUt8zA",
+   "langs": [
+    "fr"
+   ],
+   "kind": "createur",
+   "format": "video",
+   "roles": [
+    "mid"
+   ],
+   "champions": [],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google). La chaîne « VOD et clips » (parties commentées, SoloQ Challenge) n'est pas suivie.",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxLdRA_ZOiUxKe592BUt8zA"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Guides mid en français par un ancien pro, mais la chaîne mêle guides et extraits de stream : chaque vidéo est jugée sur sa qualité réelle."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true,
+   "expertise": [
+    {
+     "claim": "Ancien joueur professionnel mid (BDS, Gameward), Challenger, coach et caster (OTP)",
+     "evidence": "https://www.patreon.com/cw/ChreakLoL",
+     "how": "déclaration du créateur (Patreon) ; Leaguepedia (lol.fandom.com/wiki/Chreak) le présente comme mid laner et caster, page non lisible par le collecteur (HTTP 403) ; non vérifié indépendamment au 2026-10-21"
     }
    ]
   }
@@ -12027,6 +12064,427 @@
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Vidéo officielle de Riot : à lire par Gemini."
+  },
+  {
+   "id": "c-yt-mpcg7FQw4KI",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/mpcg7FQw4KI",
+   "title": "J'avoue j'ai un peu déconné #twitch",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-06-15",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 14174,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : chreact.clip@gmail.com !\n\n-\n\n🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pou",
+   "triage": {
+    "score": -4,
+    "matched": [
+     "Vi"
+    ],
+    "entertainment": [
+     "clips",
+     "#twitch"
+    ],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-l6nbkg5NCKU",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/l6nbkg5NCKU",
+   "title": "Papesan est vraiment le maire de Séoul hein...",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-06-14",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 3608,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : chreact.clip@gmail.com !\n\n-\n\n🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pou",
+   "triage": {
+    "score": -1,
+    "matched": [
+     "Vi"
+    ],
+    "entertainment": [
+     "clips"
+    ],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-OV0bdoIEUF0",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/OV0bdoIEUF0",
+   "title": "le DM de dégénéré reçu par une streameuse",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-06-12",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 23396,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "",
+   "triage": {
+    "score": -3,
+    "matched": [],
+    "entertainment": [
+     "stream"
+    ],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-r6laE-jXyUo",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/r6laE-jXyUo",
+   "title": "Gob se fait daronned par une coréenne #twitch",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-06-12",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 22391,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : chreact.clip@gmail.com !\n\n-\n\n🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pou",
+   "triage": {
+    "score": -4,
+    "matched": [
+     "Vi"
+    ],
+    "entertainment": [
+     "clips",
+     "#twitch"
+    ],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-x-EQRuAMMbA",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/x-EQRuAMMbA",
+   "title": "J'ai demandé des 67 à des Coréens pour des subs... #twitch",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-06-11",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 6275,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : chreact.clip@gmail.com !\n\n-\n\n🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pou",
+   "triage": {
+    "score": -4,
+    "matched": [
+     "Vi"
+    ],
+    "entertainment": [
+     "clips",
+     "#twitch"
+    ],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-AbVtyF1e1G4",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/AbVtyF1e1G4",
+   "title": "On a perdu TELLEMENT d'aura en 1 live... #twitch",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-06-10",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 18131,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : chreact.clip@gmail.com !\n\n-\n\n🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pou",
+   "triage": {
+    "score": -4,
+    "matched": [
+     "Vi"
+    ],
+    "entertainment": [
+     "clips",
+     "#twitch"
+    ],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-xMVtF-XolCY",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=xMVtF-XolCY",
+   "title": "TIERLIST MID PATCH 26.11 LOL - LA SEULE FOIS DE L'ANNÉE OU VOUS VERREZ CE PICK",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-06-04",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 25797,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "Boostez votre espace ce printemps !\n👉 Jusqu’à -50 % sur FlexiSpot –  https://go.flexispot.fr/ChreakLoL-deals\n🔹 Bureau E7 PRO 🏷️ - Jusqu’à 130 € de réduction  !\n🔥 https://go.flexispot.fr/ChreakLoL-e7pro\n#FlexiSpotFR\n\n🌟 Rejoignez la communauté et progressez dans League of Lege",
+   "triage": {
+    "score": 2,
+    "matched": [
+     "mid"
+    ],
+    "entertainment": [],
+    "patchMentioned": "26.11",
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-G2S5y9OSPpc",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=G2S5y9OSPpc",
+   "title": "PATCH NOTE 26.11 LOL - RETOUR DES RANKED TEAM, META ENCHANTEUR TCHAO BYE",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-05-28",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 32370,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : chreact.clip@gmail.com !\n\n-\n\n🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pou",
+   "triage": {
+    "score": -1,
+    "matched": [
+     "Vi"
+    ],
+    "entertainment": [
+     "clips"
+    ],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-LPqwgjZl_Yc",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=LPqwgjZl_Yc",
+   "title": "10 OP PICKS DU PATCH 26.10 SUR LES 5 ROLES - LEAGUE OF LEGENDS",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-05-21",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 18392,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "Utilise mon code \"CHREAK\" pour bénéficier de -20% sur tous les produits présents sur ce lien : https://shorturl.at/d9BXR \n\n📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : chreact.clip@gmail.com !\n\n-\n\n🌟 Rejoi",
+   "triage": {
+    "score": 0,
+    "matched": [
+     "Vi"
+    ],
+    "entertainment": [
+     "clips"
+    ],
+    "patchMentioned": "26.10",
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-018imRNtfx0",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/018imRNtfx0",
+   "title": "Ce changement est GAMEBREAKER mais...",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-05-13",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 68643,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : chreact.clip@gmail.com !\n\n-\n\n🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pou",
+   "triage": {
+    "score": -1,
+    "matched": [
+     "Vi"
+    ],
+    "entertainment": [
+     "clips"
+    ],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Mcg1B2NLRw0",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=Mcg1B2NLRw0",
+   "title": "PATCH NOTE 26.10 LOL - VOTEBAN EN PLEINE GAME, CHANGEMENT SUR L'AGGRO DES SBIRES !!",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-05-13",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 35188,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : chreact.clip@gmail.com !\n\n-\n\n🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pou",
+   "triage": {
+    "score": -1,
+    "matched": [
+     "Vi"
+    ],
+    "entertainment": [
+     "clips"
+    ],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-yjNxFYo9y6I",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/yjNxFYo9y6I",
+   "title": "Le move incroyable de Caliste contre KOI qui solo carry 😮",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-05-12",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 220584,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : chreact.clip@gmail.com !\n\n-\n\n🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pou",
+   "triage": {
+    "score": -1,
+    "matched": [
+     "Vi"
+    ],
+    "entertainment": [
+     "clips"
+    ],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-hYPlkpgNQNU",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/hYPlkpgNQNU",
+   "title": "ENCORE UN SCANDALE AU CHRONOBREAK EN LEC !",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-05-10",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 171380,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : chreact.clip@gmail.com !\n\n-\n\n🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pou",
+   "triage": {
+    "score": -4,
+    "matched": [
+     "Vi"
+    ],
+    "entertainment": [
+     "clips",
+     "scandale"
+    ],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Vbmvf0VNbCc",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/Vbmvf0VNbCc",
+   "title": "Le PENTAKILL de Caliste contre KOI, avez vous tout vu ?",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-05-10",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 102208,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : chreact.clip@gmail.com !\n\n-\n\n🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pou",
+   "triage": {
+    "score": -4,
+    "matched": [
+     "Vi"
+    ],
+    "entertainment": [
+     "clips",
+     "pentakill"
+    ],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-3OnS-n1nNg0",
+   "sourceId": "yt-chreak",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=3OnS-n1nNg0",
+   "title": "10 OP PICKS DU PATCH 26.9 SUR LES 5 ROLES - LEAGUE OF LEGENDS",
+   "author": "Chreak",
+   "lang": "fr",
+   "published": "2026-05-06",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 21328,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pour tout apprendre sur la Midlane! ⬅️\n‼️ https://chreak.podia.com ‼️\n►  Patreon pour progresser avec du contenu exclusif pour seulement 5€ : https://bi",
+   "triage": {
+    "score": 4,
+    "matched": [
+     "Vi",
+     "mid"
+    ],
+    "entertainment": [],
+    "patchMentioned": "26.9",
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
   }
  ],
  "units": [

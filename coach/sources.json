@@ -629,6 +629,43 @@
    },
    "lastChecked": "2026-10-21",
    "active": true
+  },
+  {
+   "id": "yt-chreak",
+   "name": "Chreak",
+   "author": "Chreak (Corentin Moreau)",
+   "url": "https://www.youtube.com/channel/UCxLdRA_ZOiUxKe592BUt8zA",
+   "channelId": "UCxLdRA_ZOiUxKe592BUt8zA",
+   "langs": [
+    "fr"
+   ],
+   "kind": "createur",
+   "format": "video",
+   "roles": [
+    "mid"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Ancien joueur professionnel mid (BDS, Gameward), Challenger, coach et caster (OTP)",
+     "evidence": "https://www.patreon.com/cw/ChreakLoL",
+     "how": "déclaration du créateur (Patreon) ; Leaguepedia (lol.fandom.com/wiki/Chreak) le présente comme mid laner et caster, page non lisible par le collecteur (HTTP 403) ; non vérifié indépendamment au 2026-10-21"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google). La chaîne « VOD et clips » (parties commentées, SoloQ Challenge) n'est pas suivie.",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxLdRA_ZOiUxKe592BUt8zA"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Guides mid en français par un ancien pro, mais la chaîne mêle guides et extraits de stream : chaque vidéo est jugée sur sa qualité réelle."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true
   }
  ]
 }

@@ -264,6 +264,8 @@ await t("Tri des vidéos sur métadonnées (priorité, pas preuve)", "fixture", 
   const items = parseYoutubeFeed(fx.rss);
   const tr = triage(`${items[0].title} ${items[0].description}`, L.config.pilot);
   assert(tr.matched.includes("Lucian") && /ne prouve pas/.test(tr.basis), JSON.stringify(tr));
+  const clip = triage("Gob se fait daronned par une coréenne #twitch", L.config.pilot), guide = triage("GUIDE TEMPO - COMMENT MONTER CHALLENGER SUR LEAGUE OF LEGENDS", L.config.pilot);
+  assert(clip.score < guide.score && clip.entertainment.length, `extrait de stream ${clip.score} ≥ guide ${guide.score}`);
   return `« ${items[0].title} » → priorité ${tr.score} (${tr.matched.join(", ")}) ; ${tr.basis}.`;
 });
 await t("Règles verrouillées contre toute modification automatique", "réel", async () => {

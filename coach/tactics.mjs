@@ -118,9 +118,39 @@ export function tactics(match, timeline, puuid) {
   for (const f of fightView.filter(f => f.won === false && !f.me && !deadAt(f.t) && f.allies >= 2 && f.allies < f.enemies && f.myDist < 6000)) lessons.push({ kind: "combat-sans-toi", t: f.t, at: f.at, title: `Combat perdu à ${f.at} (${f.zone}) : ${f.allies} contre ${f.enemies}, sans toi alors que tu étais à ${Math.round(f.myDist / 100) * 100} unités`, better: "Quand ton équipe se bat près de toi, la rejoindre change le rapport de force ; sinon, prévenir de ne pas engager.", facts: [`Pertes : ${f.alliesDead} de ton côté, ${f.enemiesDead} en face.`] });
   lessons.sort((a, b) => a.t - b.t);
 
+  // Conséquences mesurées : écart d'or entre les équipes (somme de l'or gagné) avant et 2 minutes après, et ce qui a été perdu
+  const teamGold = frames.map(f => players.reduce((s, p) => s + (p.team === myTeam ? 1 : -1) * (f.participantFrames?.[p.id]?.totalGold || 0), 0));
+  const goldAt = t => teamGold[Math.min(teamGold.length - 1, Math.max(0, Math.floor(t / 60000)))];
+  const buildings = events.filter(e => e.type === "BUILDING_KILL").map(e => ({ t: e.timestamp, ours: e.teamId !== myTeam, kind: e.buildingType === "INHIBITOR_BUILDING" ? "inhibiteur" : "tourelle" }));
+  const after = (t, span = 120000) => {
+    const lost = [...objectives.filter(o => !o.ours && o.t > t && o.t - t <= span).map(o => o.kind), ...buildings.filter(b => !b.ours && b.t > t && b.t - t <= span).map(b => b.kind)];
+    const swing = goldAt(t + span) - goldAt(t);
+    return { gold: swing, lost, text: [swing <= -500 ? `${Math.abs(Math.round(swing / 100) * 100).toLocaleString("fr-FR")} pièces d'or d'écart perdues par ton équipe` : null, lost.length ? `${lost.join(", ")} perdu${lost.length > 1 ? "s" : ""}` : null].filter(Boolean).join(" ; ") };
+  };
+  for (const l of lessons) { const e = after(l.t); if (e.text) { l.effect = e; l.facts = [...l.facts, `Dans les 2 minutes qui ont suivi : ${e.text}.`]; } }
+  // Tournants : les minutes où l'écart d'or bascule le plus (au moins 1 500 en 2 minutes), avec ce qui s'est passé
+  const turns = [];
+  for (let m = 2; m < teamGold.length; m++) {
+    const d = teamGold[m] - teamGold[m - 2];
+    if (Math.abs(d) < 1500) continue;
+    const t0 = (m - 2) * 60000, t1 = m * 60000;
+    const inWin = t => t > t0 && t <= t1;
+    const what = [
+      ...fightView.filter(f => inWin(f.t)).map(f => `combat ${f.zone} à ${f.allies} contre ${f.enemies} (${f.enemiesDead} adversaire${f.enemiesDead > 1 ? "s" : ""} éliminé${f.enemiesDead > 1 ? "s" : ""}, ${f.alliesDead} perte${f.alliesDead > 1 ? "s" : ""} de ton côté)`),
+      ...objectives.filter(o => inWin(o.t)).map(o => `${o.kind} ${o.ours ? "pris" : "perdu"}`),
+      ...buildings.filter(b => inWin(b.t)).map(b => `${b.kind} ${b.ours ? "détruite" : "perdue"}`),
+      ...deaths.filter(x => inWin(x.t)).map(x => `ta mort à ${x.at}`),
+    ];
+    turns.push({ t: t0, at: mmss(t0), to: mmss(t1), gold: d, what: [...new Set(what)].slice(0, 4) });
+  }
+  // On garde les tournants les plus forts sans chevauchement
+  const keyTurns = [];
+  for (const tr of turns.sort((a, b) => Math.abs(b.gold) - Math.abs(a.gold))) if (!keyTurns.some(k => Math.abs(k.t - tr.t) < 120000)) keyTurns.push(tr);
+  keyTurns.splice(4); keyTurns.sort((a, b) => a.t - b.t);
+
   return {
     players: players.map(p => ({ champion: p.champion, role: p.role, team: p.team === myTeam ? "ally" : "enemy", me: p.me })),
-    map, fights: fightView, objectives, deaths, interactions, presence, lessons,
+    map, fights: fightView, objectives, deaths, interactions, presence, lessons, turns: keyTurns, goldDiff: teamGold.map(g => Math.round(g / 100) * 100),
     summary: { fights: fightView.length, fightsWithMe: fightView.filter(f => f.me).length, objectivesLost: objectives.filter(o => !o.ours).length, objectivesTaken: objectives.filter(o => o.ours).length, objectivesPresent: objectives.filter(o => o.myDist < R_OBJ).length,
       deathsIsolated: deaths.filter(d => !d.alliesNear.length && d.attackers.length >= 2 && d.t >= 14 * 60000).length, deathsGank: deaths.filter(d => d.gank).length, deaths: deaths.length,
       wards: events.filter(e => e.type === "WARD_PLACED" && e.creatorId === mine.id).length, wardsKilled: events.filter(e => e.type === "WARD_KILL" && e.killerId === mine.id).length },

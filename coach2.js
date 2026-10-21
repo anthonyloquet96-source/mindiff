@@ -549,6 +549,7 @@ function c2Tactics(r, id) {
         <div class="c2-tile ${S.deathsGank ? "down" : ""}"><span class="c2-k">${S.deathsGank}</span><span class="fine">morts sur un gank avant 14 min</span></div>
       </div>
     </div>
+    ${c2Turns(T, id)}
     ${T.lessons.length ? T.lessons.map(l => `<article class="c2-card c2-finding"><p class="label">À ${esc(l.at)}</p><h3 class="c2-f-title">${esc(l.title)}</h3>${bullets(l.facts)}<p class="c2-better"><b>Ce qui aurait été mieux</b> ${esc(l.better)}</p><button class="btn ghost sm" data-action="c2-tgo" data-id="${esc(id)}" data-m="${Math.max(0, Math.floor(l.t / 60000))}">Voir sur la carte</button></article>`).join("")
       : `<p class="inline-empty">Aucune erreur de placement nette relevée sur cette partie (objectifs, morts, combats).</p>`}
     <details class="more c2-card"><summary>Tous les combats (${T.fights.length}) et interactions</summary>
@@ -556,6 +557,22 @@ function c2Tactics(r, id) {
       ${chips(T.interactions.killedBy, "T'ont éliminé le plus")}${chips(T.interactions.killed, "Tu as éliminé le plus")}${chips(T.interactions.with, "Tes éliminations avec")}
     </details>
     <p class="fine">${esc(T.limits)}</p>
+  </section>`;
+}
+// Tournants de la partie : courbe de l'écart d'or entre les deux équipes, et les moments où il bascule (avec ce qui s'est passé)
+function c2Turns(T, id) {
+  const g = T.goldDiff || [];
+  if (g.length < 3) return "";
+  const max = Math.max(1000, ...g.map(Math.abs));
+  const x = i => ((i / (g.length - 1)) * 100).toFixed(1), y = v => (50 - (v / max) * 46).toFixed(1);
+  const line = g.map((v, i) => `${x(i)},${y(v)}`).join(" ");
+  const last = g[g.length - 1];
+  return `<section class="c2-card"><p class="label">Les tournants de la partie</p>
+    <div class="c2-gold" role="img" aria-label="Écart d'or entre les équipes, minute par minute : ${last >= 0 ? "+" : ""}${c2n(last)} à la fin">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="50" x2="100" y2="50" class="zero" vector-effect="non-scaling-stroke"/><polyline points="${line}" vector-effect="non-scaling-stroke"/></svg>
+      <span class="c2-gold-lab up">ton équipe devant</span><span class="c2-gold-lab down">ton équipe derrière</span>
+    </div>
+    ${T.turns?.length ? `<ul class="c2-turns">${T.turns.map(tr => `<li class="${tr.gold > 0 ? "up" : "down"}"><button class="linkish" data-action="c2-tgo" data-id="${esc(id)}" data-m="${Math.floor(tr.t / 60000) + 1}"><b>${tr.at} → ${tr.to}</b></button> <b class="${tr.gold > 0 ? "up" : "down"}">${tr.gold > 0 ? "+" : "−"}${c2n(Math.abs(Math.round(tr.gold / 100) * 100))} or</b> pour ton équipe${tr.what.length ? ` : ${esc(tr.what.join(" ; "))}` : ""}</li>`).join("")}</ul>` : `<p class="fine">Pas de bascule nette : l'écart d'or a évolué progressivement.</p>`}
   </section>`;
 }
 // Curseur et lecture : seule la carte est redessinée (le curseur garde la main pendant le glissement)

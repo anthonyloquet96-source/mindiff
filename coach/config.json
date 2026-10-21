@@ -1,23 +1,45 @@
 {
   "_doc": "Réglages de la veille du coach. Modifiables sans toucher au code. Voir coach/README.md.",
   "pilot": {
-    "roles": ["bottom", "support"],
+    "roles": [
+      "bottom",
+      "support"
+    ],
     "champions": {
-      "bottom": ["Lucian", "Jinx", "Smolder"],
-      "support": ["Lulu", "Milio", "Nami"]
+      "bottom": [
+        "Lucian",
+        "Jinx",
+        "Smolder"
+      ],
+      "support": [
+        "Lulu",
+        "Milio",
+        "Nami"
+      ]
     },
-    "partial": ["Ashe"]
+    "partial": [
+      "Ashe"
+    ]
   },
   "discovery": {
     "everyHours": 6,
     "maxSources": 12,
     "maxItemsPerSource": 15,
     "maxAttempts": 3,
-    "retryAfterHours": [1, 6, 24]
+    "retryAfterHours": [
+      1,
+      6,
+      24
+    ]
   },
   "video": {
     "_doc": "Lecture des vidéos YouTube publiques par Gemini. Gratuit en préversion, 8 h de vidéo par jour au maximum côté Google.",
-    "models": ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-3.5-flash"],
+    "models": [
+      "gemini-3.8-flash",
+      "gemini-3.7-flash",
+      "gemini-3.6-flash",
+      "gemini-3.5-flash"
+    ],
     "fps": 1,
     "maxPerRun": 3,
     "maxHoursPerDay": 6,
@@ -33,8 +55,74 @@
     "region": "europe",
     "queue": 420,
     "buckets": {
-      "emeraude+": [["EMERALD", "I"], ["EMERALD", "II"], ["EMERALD", "III"], ["EMERALD", "IV"], ["DIAMOND", "I"], ["DIAMOND", "II"], ["DIAMOND", "III"], ["DIAMOND", "IV"]],
-      "sous-emeraude": [["SILVER", "I"], ["SILVER", "II"], ["GOLD", "I"], ["GOLD", "II"], ["GOLD", "III"], ["PLATINUM", "I"], ["PLATINUM", "II"], ["PLATINUM", "III"]]
+      "emeraude+": [
+        [
+          "EMERALD",
+          "I"
+        ],
+        [
+          "EMERALD",
+          "II"
+        ],
+        [
+          "EMERALD",
+          "III"
+        ],
+        [
+          "EMERALD",
+          "IV"
+        ],
+        [
+          "DIAMOND",
+          "I"
+        ],
+        [
+          "DIAMOND",
+          "II"
+        ],
+        [
+          "DIAMOND",
+          "III"
+        ],
+        [
+          "DIAMOND",
+          "IV"
+        ]
+      ],
+      "sous-emeraude": [
+        [
+          "SILVER",
+          "I"
+        ],
+        [
+          "SILVER",
+          "II"
+        ],
+        [
+          "GOLD",
+          "I"
+        ],
+        [
+          "GOLD",
+          "II"
+        ],
+        [
+          "GOLD",
+          "III"
+        ],
+        [
+          "PLATINUM",
+          "I"
+        ],
+        [
+          "PLATINUM",
+          "II"
+        ],
+        [
+          "PLATINUM",
+          "III"
+        ]
+      ]
     },
     "playersPerDivision": 4,
     "matchesPerPlayer": 8,
@@ -44,21 +132,35 @@
   "analysis": {
     "provider": "gemini",
     "_providerDoc": "gemini (clé GEMINI_API_KEY, offre gratuite) ou anthropic (clé ANTHROPIC_API_KEY, payant). Les étapes 1 et 2 utilisent le même modèle.",
-    "geminiModels": ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-3.5-flash"],
+    "geminiModels": [
+      "gemini-3.8-flash",
+      "gemini-3.7-flash",
+      "gemini-3.6-flash",
+      "gemini-3.5-flash"
+    ],
     "model": "claude-opus-5-5",
     "effort": "medium",
     "maxPerRun": 4,
     "maxPerDay": 8,
-    "budgetUsdPerDay": 1.0,
-    "budgetUsdPerMonth": 15.0,
+    "budgetUsdPerDay": 1,
+    "budgetUsdPerMonth": 15,
     "maxInputChars": 60000,
     "maxRequestsPerMinute": 10
   },
   "pricesUsdPerMTok": {
     "_source": "Tarifs Anthropic relevés le 2026-10-20 (référence claude-api, cache du 2026-10-06)",
-    "claude-opus-5-5": { "input": 4.0, "output": 20.0 },
-    "claude-sonnet-5-5": { "input": 2.0, "output": 10.0 },
-    "claude-haiku-5-5": { "input": 0.1, "output": 0.5 }
+    "claude-opus-5-5": {
+      "input": 4,
+      "output": 20
+    },
+    "claude-sonnet-5-5": {
+      "input": 2,
+      "output": 10
+    },
+    "claude-haiku-5-5": {
+      "input": 0.1,
+      "output": 0.5
+    }
   },
   "freshness": {
     "metaDependentMaxPatches": 2,

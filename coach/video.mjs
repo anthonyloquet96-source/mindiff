@@ -72,6 +72,7 @@ export async function run() {
       (state.videoLog ||= []).push({ id: c.id, at: new Date().toISOString(), model: res.model, duration: v.duration, tokens: res.usage.totalTokenCount });
       log.push(`✔ ${c.id} : ${v.duration}, ${v.kind}, ${v.segments.length} segments, ${v.observations.length} observations (${res.model})`);
     } catch (e) {
+      if (e.quota) { log.push(`· ${e.message}`); break; } // pas un échec de la vidéo : aucun essai consommé
       c.videoAttempts = (c.videoAttempts || 0) + 1;
       c.videoError = `${e.message} (${today()})`;
       log.push(`✘ ${c.id} : ${e.message} (essai ${c.videoAttempts}/${V.maxAttempts})`);

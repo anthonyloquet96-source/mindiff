@@ -17,7 +17,8 @@ const headers = () => ({ "x-goog-api-key": process.env.GEMINI_API_KEY.trim(), "c
 // parts : [{ fileData: { fileUri } }, { text }] ; schema : JSON Schema de la réponse
 export async function gemini({ models, parts, system, schema, maxOutputTokens = 32000, timeoutMs = 600000 }) {
   let last = null;
-  for (const model of models) {
+  if (models.every(m => quotaHit.has(m))) throw new QuotaError();
+  for (const model of models.filter(m => !quotaHit.has(m))) {
     for (let attempt = 0; attempt < 3; attempt++) {
       const body = {
         contents: [{ role: "user", parts }],
@@ -38,9 +39,18 @@ export async function gemini({ models, parts, system, schema, maxOutputTokens = 
       }
       last = new Error(`${model} HTTP ${r.status} : ${j.error?.message || ""}`);
       if (r.status === 404) break;                       // modèle retiré : suivant
+      // Quota journalier épuisé : inutile de réessayer ce modèle aujourd'hui, on passe au suivant
+      if (r.status === 429 && /quota|billing|free_tier/i.test(j.error?.message || "")) { quotaHit.add(model); break; }
       if (r.status === 429 || r.status >= 500) { await wait([5000, 20000, 45000][attempt]); continue; }
       throw last;                                          // 400, 403 : inutile d'insister
     }
   }
+  if (models.every(m => quotaHit.has(m))) throw new QuotaError();
   throw last || new Error("aucun modèle Gemini disponible");
+}
+
+// Quota gratuit épuisé sur tous les modèles : ce n'est pas un échec du contenu, on s'arrête jusqu'au lendemain
+const quotaHit = new Set();
+export class QuotaError extends Error {
+  constructor() { super("quota gratuit de Gemini épuisé pour aujourd'hui (environ 20 requêtes par jour et par modèle) : reprise au prochain passage après sa remise à zéro"); this.quota = true; }
 }

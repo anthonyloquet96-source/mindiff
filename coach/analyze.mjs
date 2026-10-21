@@ -208,6 +208,7 @@ export async function run() {
       log.push(`✔ ${c.id} : ${res.accepted.length} unité(s) acceptée(s), ${res.rejected.length} rejetée(s) par le contrôle critique`);
       n++;
     } catch (e) {
+      if (e.quota) { log.push(`· ${e.message}`); break; } // pas un échec du contenu : aucun essai consommé
       c.attempts = (c.attempts || 0) + 1;
       c.lastError = `${e.message} (${today()})`;
       if (c.attempts >= config.discovery.maxAttempts) { c.analysis = "echec"; (state.failures ||= []).push({ id: c.id, at: today(), error: e.message }); }

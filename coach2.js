@@ -8,7 +8,7 @@
 const C2_KEY = "mindiff-coach2-v1";
 const C2 = (() => {
   // history : parties déjà vues (au-delà des 10 dernières) ; goals : objectif suivi par rôle ; seen : bilans ouverts
-  const base = { account: null, profile: null, profileAt: 0, reviews: {}, face: { me: "", vs: "", role: "" }, history: {}, goals: {}, role: null, seen: null };
+  const base = { account: null, profile: null, profileAt: 0, reviews: {}, face: { me: "", vs: "", role: "" }, history: {}, goals: {}, role: null, seen: null, pool: {}, draft: null };
   try { return { ...base, ...JSON.parse(localStorage.getItem(C2_KEY) || "null") }; } catch { return base; }
 })();
 const c2Save = () => { try { localStorage.setItem(C2_KEY, JSON.stringify({ ...C2, reviews: Object.fromEntries(Object.entries(C2.reviews).slice(-8)) })); } catch { /* stockage indisponible */ } };
@@ -22,13 +22,23 @@ const C2_ROLE = { top: "Top", jungle: "Jungle", mid: "Mid", bottom: "ADC", suppo
 const C2_TIER = { IRON: "Fer", BRONZE: "Bronze", SILVER: "Argent", GOLD: "Or", PLATINUM: "Platine", EMERALD: "Émeraude", DIAMOND: "Diamant", MASTER: "Maître", GRANDMASTER: "Grand Maître", CHALLENGER: "Challenger" };
 // Comment progresser sur chaque indicateur : thèmes de la base et mots-clés des vidéos de coachs
 const C2_LEARN = {
-  cs10: { themes: ["lane"], re: /wave|vague|trading|farm|\bcs\b|last ?hit|clear|jungle path|tempo/i, tip: "Visez la référence Diamant+ à 10 min : chaque vague perdue, c'est environ 125 pièces d'or (6 sbires)." },
-  csMin: { themes: ["lane"], re: /wave|vague|farm|\bcs\b|tempo/i, tip: "Après la phase de ligne, continuez à prendre les vagues proches de vous entre deux combats." },
-  deaths30: { themes: ["survie", "methode"], re: /mort|death|dying|surviv|position|dans la t[eê]te|mistake|erreur/i, tip: "Pour chaque mort, notez ce que vous ne voyiez pas : le coach part de vos morts, pas de vos victoires." },
-  visionMin: { themes: ["methode"], re: /vision|ward|balise|track/i, tip: "Posez votre balise à chaque retour et utilisez votre trinket dès qu'il est rechargé." },
+  cs10: { themes: ["lane"], re: /wave|vague|trading|farm|\bcs\b|last ?hit|clear|jungle path|tempo/i, tip: "Vise la référence Diamant+ à 10 min : chaque vague perdue, ce sont 6 sbires et leur or." },
+  csMin: { themes: ["lane"], re: /wave|vague|farm|\bcs\b|tempo/i, tip: "Après la phase de ligne, continue à prendre les vagues proches de toi entre deux combats." },
+  deaths30: { themes: ["survie", "methode"], re: /mort|death|dying|surviv|position|dans la t[eê]te|mistake|erreur/i, tip: "Pour chaque mort, note ce que tu ne voyais pas (adversaires absents de la mini-carte, vision) : ouvre le bilan de la partie, chaque mort y est datée." },
+  visionMin: { themes: ["methode"], re: /vision|ward|balise|track/i, tip: "Pose une balise à chaque retour et utilise ton trinket dès qu'il est rechargé." },
   controlWards: { themes: ["methode"], re: /vision|ward|balise|control/i, tip: "Une balise de contrôle à chaque retour à la base : c'est 75 pièces d'or, et souvent un objectif sauvé." },
-  kp: { themes: ["teamfight"], re: /roam|gank|tempo|teamfight|skirmish|escarmouche|jungle/i, tip: "Après avoir poussé votre vague, regardez la mini-carte : rejoignez les combats qui ont lieu près de vous." },
+  kp: { themes: ["teamfight"], re: /roam|gank|tempo|teamfight|skirmish|escarmouche|jungle/i, tip: "Après avoir poussé ta vague, regarde la mini-carte : rejoins les combats qui ont lieu près de toi." },
 };
+// Conseil de méthode propre à chaque type de constat (plus précis que celui de l'indicateur)
+const C2_KIND_TIP = {
+  "mort-avant-objectif": "Dans la minute qui précède un dragon ou un Baron (le minuteur s'affiche avec Tab), rejoins ton équipe et évite de mourir seul loin de l'objectif : l'adversaire le prendrait en surnombre.",
+  "plaques-perdues": "Avant de quitter ta voie (retour à la base, aide à un combat), pousse ta vague vers la tourelle adverse : elle ne s'écrasera pas sous la tienne pendant ton absence.",
+  "retard-en-ligne": "Quand ton adversaire a l'avantage, joue la sécurité : prends les sbires près de ta tourelle, signale-le à ton jungler et ne te bats qu'avec un avantage net.",
+  "morts-phase-de-ligne": "En phase de ligne, recule quand ton adversaire disparaît de la carte ou que son jungler est vu de ton côté : la plupart des morts précoces viennent d'un adversaire non vu.",
+  "or-non-depense": "Rentre à la base dès que tu peux acheter un composant important, de préférence après avoir poussé ta vague.",
+  "temps-mort": "Moins de morts, c'est plus de temps pour farmer et peser sur les objectifs : commence par les morts d'avant 14 min, les plus coûteuses.",
+};
+const c2TipOf = f => C2_KIND_TIP[f.kind] || C2_LEARN[f.metric]?.tip || "";
 
 // ---------- Champions (noms français, images Data Dragon)
 let c2Champs = null;
@@ -150,12 +160,16 @@ function viewCoach2(rest = []) {
   const head = (title, back) => `<header class="c2-head">${back ? `<a class="back" href="${back}">${icon("left")}Coach</a>` : ""}<h1 class="page-title" tabindex="-1">${esc(title)}</h1>${back ? "" : `<span class="chip soft">Aperçu</span>`}</header>`;
   if (sub === "partie" && arg) return head("Bilan de partie", c2Href()) + c2Game(arg);
   if (sub === "face") return head("Face-à-face", c2Href()) + c2Face();
+  if (sub === "draft") return head("Préparer ma partie", c2Href()) + c2Draft();
+  if (sub === "bilan") return head("Bilan général", c2Href()) + c2Report();
   if (sub === "champions") return head(arg ? c2Name(arg) : "Champions", arg ? c2Href("champions") : c2Href()) + (arg ? c2Champion(arg) : c2Champions());
   return head("Coach") + c2Home() + `<p class="fine c2-foot">${RIOT_LEGAL}</p>`;
 }
 
 function c2Home() {
   const tools = `<div class="c2-tools">
+    <a class="c2-tool hot" href="${c2Href("draft")}">${icon("bracket")}<span><b>Préparer ma partie</b><span class="fine">Draft, matchups, compositions, mes champions</span></span></a>
+    ${C2.profile && C2_API != null ? `<a class="c2-tool" href="${c2Href("bilan")}">${icon("tiers")}<span><b>Bilan général</b><span class="fine">Points forts, points faibles, priorités</span></span></a>` : ""}
     <a class="c2-tool" href="${c2Href("face")}">${icon("users")}<span><b>Face-à-face</b><span class="fine">Mon champion contre le sien</span></span></a>
     <a class="c2-tool" href="${c2Href("champions")}">${icon("list")}<span><b>Champions</b><span class="fine">${c2ChampList().length} champions, conseils sourcés</span></span></a>
     <a class="c2-tool" href="${href("lol", "coach", "strategies")}">${icon("compass")}<span><b>Stratégies</b><span class="fine">Compositions et plans de jeu</span></span></a>
@@ -326,7 +340,8 @@ function c2Live(p) {
     ${g ? `<div class="c2-remind"><p class="label">Ton objectif</p><p><b>${esc(g.label)}</b> : ${g.better === "high" ? "au moins" : "au plus"} ${c2n(g.target)}${esc(g.unit)}</p></div>` : ""}
     ${tips.length ? `<div><p class="label">Contre ${esc(opName)}</p><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></div>` : ""}
     ${team(l.allies, "ally")}${team(l.enemies, "enemy")}
-    ${op ? `<a class="btn primary" href="${c2Href("face")}" data-action="c2-face-live" data-me="${esc(c2Name(me.champion))}" data-vs="${esc(opName)}">Face-à-face complet</a>` : ""}
+    <a class="btn primary" href="${c2Href("draft")}" data-action="c2-draft-live">Analyser les compositions</a>
+    ${op ? `<a class="btn ghost" href="${c2Href("face")}" data-action="c2-face-live" data-me="${esc(c2Name(me.champion))}" data-vs="${esc(opName)}">Face-à-face complet</a>` : ""}
   </section>`;
 }
 
@@ -369,10 +384,11 @@ function c2Game(id) {
     ${c2Timeline(r)}
     <section class="sec"><div class="sec-head"><h2 class="sec-title">Ce qui a pesé</h2></div>
       ${r.findings.length ? r.findings.map((f, i) => `<article class="c2-card c2-finding"><p class="label">Constat ${i + 1}</p><h3 class="c2-f-title">${esc(f.title)}</h3>${bullets(f.facts)}
-        ${f.metric ? `<details class="more"><summary>Comment progresser</summary><p>${esc(C2_LEARN[f.metric]?.tip || "")}</p>${c2LessonsHtml(f.metric, s.role, s.champion)}</details>` : ""}</article>`).join("") : `<p class="inline-empty">Aucun écart net avec la référence Diamant+ sur cette partie.</p>`}
+        ${f.metric || C2_KIND_TIP[f.kind] ? `<details class="more"><summary>Comment progresser</summary><p>${esc(c2TipOf(f))}</p>${f.metric ? c2LessonsHtml(f.metric, s.role, s.champion) : ""}</details>` : ""}</article>`).join("") : `<p class="inline-empty">Aucun écart net avec la référence Diamant+ sur cette partie.</p>`}
     </section>
     ${r.strengths.length ? `<section class="sec"><div class="sec-head"><h2 class="sec-title">Points forts</h2></div>${bullets(r.strengths)}</section>` : ""}
     ${c2BuildCmp(r)}
+    ${c2GameDraft(r, id)}
     ${r.comparisons.length ? `<section class="sec"><div class="sec-head"><h2 class="sec-title">Face à la référence Diamant+</h2></div><div class="c2-card">${r.comparisons.map(c2Bar).join("")}<p class="fine">Barre : la moitié des joueurs Diamant+ ${esc(C2_ROLE[s.role] || "")} se situe dans la zone claire ; le trait marque la médiane, le point ta partie.</p></div></section>` : ""}
     <p class="fine c2-foot">${esc(r.note)}${r.benchmark ? ` Référence : ${r.benchmark.games} parties ${esc(r.benchmark.level)}, patch ${esc(r.benchmark.patch)}.` : ""}</p>`;
 }
@@ -501,6 +517,135 @@ function c2Champion(id) {
     <div class="sheet-actions"><a class="btn" href="${c2Href("face")}" data-action="c2-face-with" data-champ="${esc(name)}">Préparer un face-à-face</a></div>`;
 }
 
+// ---------- Statistiques Diamant+ de draft : taux de victoire toujours avec marge et nombre de parties
+const C2_ORDER = ["top", "jungle", "mid", "bottom", "support"];
+function c2Rate(r, short = false) {
+  if (!r || !r.enough) return `<span class="c2-rate none">${r?.games ? `${r.games} partie${r.games > 1 ? "s" : ""} : pas assez` : "aucune donnée"}</span>`;
+  return `<span class="c2-rate ${r.verdict === "favorable" ? "up" : r.verdict === "défavorable" ? "down" : ""}"><b>${c2n(r.winrate)} %</b>${short ? "" : ` <span class="fine">± ${c2n(r.margin)} · ${c2n(r.games)} parties</span>`}</span>`;
+}
+const C2_VERDICT = { favorable: "favorable", défavorable: "défavorable", équilibré: "équilibré (dans la marge d'erreur)" };
+async function c2LoadDraft(key, params) {
+  if (c2ui.draft?.[key]) return;
+  (c2ui.draft ||= {})[key] = { loading: true };
+  try { c2ui.draft[key] = { data: await c2Fetch("draft", params) }; } catch (e) { c2ui.draft[key] = { error: e.message }; }
+  render(false);
+}
+const c2Pick = list => C2_ORDER.map(r => list[r] ? `${r}:${list[r]}` : null).filter(Boolean).join(",");
+// Affichage commun (préparation de partie et bilan d'une partie passée)
+function c2DraftResult(d, { myRole = null, compact = false } = {}) {
+  if (!d) return "";
+  const vsTxt = (a, b) => `${c2Img(a, "c2-av sm")}<span class="c2-vs-sep">contre</span>${c2Img(b, "c2-av sm")}`;
+  const myLane = d.lanes.find(l => l.role === myRole);
+  const lanes = d.lanes.length ? `<section class="c2-card"><p class="label">Duels par voie · joueurs Diamant+</p><ul class="c2-mu">${d.lanes.map(l => `<li class="${l.role === myRole ? "me" : ""}">
+      <span class="c2-mu-role">${esc(C2_ROLE[l.role])}</span><span class="c2-mu-duel">${vsTxt(l.ally, l.enemy)}</span>
+      <span class="c2-mu-stat">${c2Rate(l)}${l.enough ? `<span class="fine">${C2_VERDICT[l.verdict]}${l.cs10 != null ? ` · sbires à 10 min ${l.cs10 > 0 ? "+" : ""}${c2n(l.cs10)}` : ""}</span>` : ""}</span></li>`).join("")}</ul>
+      <p class="fine">Taux de victoire du champion de ton équipe dans chaque duel, avec la marge d'erreur à 95 %.</p></section>` : "";
+  const BOT = { "support-bottom": "Ton support contre leur ADC", "bottom-support": "Ton ADC contre leur support", duo: "Votre duo ADC + support ensemble" };
+  const bot = d.bot.length ? `<section class="c2-card"><p class="label">Bot lane à 2 contre 2</p><ul class="c2-mu">${d.bot.map(b => `<li><span class="c2-mu-role wide">${BOT[b.kind]}</span><span class="c2-mu-duel">${b.kind === "duo" ? `${c2Img(b.ally, "c2-av sm")}<span class="c2-vs-sep">+</span>${c2Img(b.enemy, "c2-av sm")}` : vsTxt(b.ally, b.enemy)}</span><span class="c2-mu-stat">${c2Rate(b)}</span></li>`).join("")}</ul></section>` : "";
+  const me = d.me ? `<section class="c2-card"><p class="label">${esc(c2Name(d.me.c))} dans cette partie</p>
+      <p class="fine">Tous rôles confondus : un champion peut profiter d'une composition sans dépendre de son vis-à-vis. Taux de victoire Diamant+ de ${esc(c2Name(d.me.c))} : ${c2Rate(d.me.overall)}</p>
+      ${d.me.vs.length ? `<p class="label">Face à leurs champions</p><div class="c2-chiprow">${d.me.vs.map(x => `<span class="c2-cchip">${c2Img(x.c, "c2-av xs")}${c2Rate(x, true)}</span>`).join("")}</div>` : ""}
+      ${d.me.with.length ? `<p class="label">Avec tes alliés</p><div class="c2-chiprow">${d.me.with.map(x => `<span class="c2-cchip">${c2Img(x.c, "c2-av xs")}${c2Rate(x, true)}</span>`).join("")}</div>` : ""}
+    </section>` : "";
+  const comp = (c, title) => `<div class="c2-comp"><p class="label">${title}</p>${c?.enough ? `<div class="c2-dmg" aria-label="Dégâts : ${c.dmg[0]} % physiques, ${c.dmg[1]} % magiques, ${c.dmg[2]} % bruts"><span class="ad" style="width:${c.dmg[0]}%"></span><span class="ap" style="width:${c.dmg[1]}%"></span><span class="tr" style="width:${c.dmg[2]}%"></span></div><ul>${c.notes.map(n => `<li>${esc(n.text)}</li>`).join("")}</ul>` : `<p class="fine">Pas assez de champions connus (${c?.known || 0} sur 3 au minimum).</p>`}</div>`;
+  const comps = `<section class="c2-card"><p class="label">Compositions</p><div class="c2-comps">${comp(d.comps.allies, "Ton équipe")}${comp(d.comps.enemies, "Adversaires")}</div><p class="c2-legend fine"><span><i class="lg ad"></i>physiques</span><span><i class="lg ap"></i>magiques</span><span><i class="lg tr"></i>bruts</span></p></section>`;
+  // Conseils vérifiés de la base pour ton duel
+  const tips = myLane ? c2TipsFor(c2Name(myLane.enemy)).against.slice(0, 3) : [];
+  const kb = tips.length ? `<section class="c2-card"><p class="label">Contre ${esc(c2Name(myLane.enemy))} : ce qu'en disent les coachs</p><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></section>` : "";
+  const pool = !compact && d.pool.length ? `<section class="c2-card"><p class="label">Mes champions dans cette partie</p><ul class="c2-mu">${d.pool.map((x, i) => `<li class="${i === 0 && (x.lane?.enough || x.vsComp?.enough) ? "me" : ""}"><span class="c2-mu-duel">${c2Img(x.c, "c2-av sm")}<b>${esc(c2Name(x.c))}</b></span>
+      <span class="c2-mu-stat"><span class="fine">duel</span>${x.lane ? c2Rate(x.lane, true) : `<span class="c2-rate none">—</span>`}<span class="fine">contre leur compo</span>${c2Rate(x.vsComp, true)}</span></li>`).join("")}</ul>
+      <p class="fine">Classés du plus sûr au moins sûr (taux de victoire moins la marge d'erreur). Sans assez de parties, aucun champion n'est mis en avant.</p></section>` : "";
+  return `${lanes}${bot}${me}${kb}${comps}${pool}<p class="fine c2-foot">Statistiques sur ${c2n(d.games)} parties classées Diamant+ (EUW) des ${d.days} derniers jours. Sous ${d.minGames} parties, le coach ne donne pas de verdict.</p>`;
+}
+
+// ---------- Préparer ma partie : draft (saisie libre ou partie en cours), pool de champions
+function c2Draft() {
+  const D = (C2.draft ||= { role: c2Role(C2.profile || {}) || "mid", allies: {}, enemies: {} });
+  const role = D.role;
+  const pool = (C2.pool ||= {})[role] || [];
+  const names = c2ChampList();
+  const slot = (side, r) => `<label class="c2-slot ${side === "allies" && r === role ? "me" : ""}"><span>${esc(C2_ROLE[r])}${side === "allies" && r === role ? " · toi" : ""}</span><input name="${side}-${r}" list="c2-champs" autocomplete="off" placeholder="—" value="${esc(D[side][r] ? c2Name(D[side][r]) : "")}"></label>`;
+  const params = { me: D.allies[role] ? `${role}:${D.allies[role]}` : "", allies: c2Pick(D.allies), enemies: c2Pick(D.enemies), pool: pool.join(",") };
+  const key = JSON.stringify(params);
+  const any = Object.keys(D.allies).length + Object.keys(D.enemies).length + pool.length;
+  if (any && C2_API != null) setTimeout(() => c2LoadDraft(key, params), 0);
+  const res = c2ui.draft?.[key];
+  return `<datalist id="c2-champs">${names.map(c => `<option value="${esc(c.name)}">`).join("")}</datalist>
+    <form id="c2-draft" class="c2-card" novalidate>
+      <div class="c2-roles" role="group" aria-label="Mon rôle">${C2_ORDER.map(r => `<button type="button" class="pill-btn ${r === role ? "on" : ""}" data-action="c2-draft-role" data-role="${r}" aria-pressed="${r === role}">${esc(C2_ROLE[r])}</button>`).join("")}</div>
+      <div class="c2-teams"><fieldset><legend>Mon équipe</legend>${C2_ORDER.map(r => slot("allies", r)).join("")}</fieldset><fieldset><legend>Adversaires</legend>${C2_ORDER.map(r => slot("enemies", r)).join("")}</fieldset></div>
+      <div class="c2-goalbtns"><button class="btn primary" type="submit">Analyser</button><button class="btn ghost" type="button" data-action="c2-draft-clear">Tout effacer</button></div>
+      <p class="fine">Renseigne les champions au fil de la sélection : l'analyse se met à jour avec ce qui est connu.</p>
+    </form>
+    <section class="c2-card"><p class="label">Mes champions en ${esc(C2_ROLE[role])}</p>
+      <div class="c2-chiprow">${pool.map(c => `<span class="c2-cchip">${c2Img(c, "c2-av xs")}${esc(c2Name(c))}<button class="linkish" data-action="c2-pool-del" data-c="${esc(c)}" aria-label="Retirer ${esc(c2Name(c))}">×</button></span>`).join("") || `<span class="fine">Ajoute les champions que tu joues dans ce rôle : le coach les compare pour chaque partie.</span>`}</div>
+      <form id="c2-pool" class="c2-poolform"><input name="c" list="c2-champs" autocomplete="off" placeholder="Ajouter un champion"><button class="btn ghost sm" type="submit">Ajouter</button></form>
+      ${C2.profile ? (() => { const sug = C2.profile.champions.map(([c]) => c2Id(c) || c).filter(c => !pool.includes(c)).slice(0, 4); return sug.length ? `<p class="fine">Joués récemment : ${sug.map(c => `<button class="linkish" data-action="c2-pool-add" data-c="${esc(c)}">${esc(c2Name(c))}</button>`).join(", ")}</p>` : ""; })() : ""}
+    </section>
+    ${C2_API == null ? `<p class="note">${icon("info")}<span>Les statistiques de matchups arrivent avec la version en ligne du coach.</span></p>` : !any ? "" : !res || res.loading ? `<div class="c2-card c2-loading">Analyse de la draft…</div>` : res.error ? `<p class="note warn">${icon("alert")}<span>${esc(res.error)}</span></p>` : c2DraftResult(res.data, { myRole: role })}`;
+}
+
+// Composition et matchups d'une partie passée, et lecture du coach (conseils vérifiés) pour ce duel
+function c2GameDraft(r, id) {
+  if (!r.teams || C2_API == null) return "";
+  const s = r.summary;
+  const side = list => Object.fromEntries(list.filter(p => p.role).map(p => [p.role, p.champion]));
+  const params = { me: s.role ? `${s.role}:${s.champion}` : "", allies: c2Pick(side(r.teams.allies)), enemies: c2Pick(side(r.teams.enemies)) };
+  const key = JSON.stringify(params);
+  setTimeout(() => c2LoadDraft(key, params), 0);
+  const res = c2ui.draft?.[key];
+  const play = c2TipsFor(c2Name(s.champion)).play.slice(0, 3);
+  return `<section class="sec"><div class="sec-head"><h2 class="sec-title">Composition et matchups</h2></div>
+    ${!res || res.loading ? `<div class="c2-card c2-loading">Statistiques Diamant+…</div>` : res.error ? `<p class="note">${icon("info")}<span>${esc(res.error)}</span></p>` : c2DraftResult(res.data, { myRole: s.role, compact: true })}
+    ${play.length ? `<section class="c2-card"><p class="label">Bien jouer ${esc(c2Name(s.champion))}</p><ul class="c2-tiplist">${play.map(c2Tip).join("")}</ul></section>` : ""}
+  </section>`;
+}
+
+// ---------- Bilan général : tendances sur les dernières parties du rôle suivi, priorités et plan de session
+async function c2LoadReport(key, ids) {
+  if (c2ui.report?.key === key) return;
+  c2ui.report = { key, loading: true };
+  try { c2ui.report = { key, data: await c2Fetch("report", { puuid: C2.account.puuid, platform: C2.account.platform, ids: ids.join(",") }) }; } catch (e) { c2ui.report = { key, error: e.message }; }
+  render(false);
+}
+function c2Report() {
+  const p = C2.profile;
+  if (!p || C2_API == null) return empty("Compte non connecté", "", `<a class="btn" href="${c2Href()}">Connecter mon compte</a>`);
+  const role = c2Role(p);
+  const ids = p.games.filter(g => g.role === role).map(g => g.id);
+  if (ids.length < 3) return `${c2Roles(p)}<p class="note">${icon("info")}<span>Il faut au moins 3 parties récentes en ${esc(C2_ROLE[role] || "—")} pour un bilan général.</span></p>`;
+  const key = `${C2.account.puuid}|${ids.join(",")}`;
+  setTimeout(() => c2LoadReport(key, ids), 0);
+  const R = c2ui.report?.key === key ? c2ui.report : null;
+  if (!R || R.loading) return `${c2Roles(p)}<div class="c2-card c2-loading">Relecture de tes ${ids.length} dernières parties en ${esc(C2_ROLE[role])}…</div>`;
+  if (R.error) return `<div class="note warn">${icon("alert")}<span>${esc(R.error)}</span></div>`;
+  const d = R.data;
+  const first = d.minus[0];
+  // Champion conseillé : meilleurs résultats récents du joueur (2 parties au moins), à défaut le plus joué
+  const best = [...d.champions].filter(c => c.games >= 2).sort((a, b) => b.wins / b.games - a.wins / a.games || b.kda - a.kda)[0];
+  const dots = list => list?.length ? `<div class="c2-dots">${list.map(gid => `<a class="c2-dot" href="${c2Href("partie", gid)}" title="Voir la partie"></a>`).join("")}</div>` : "";
+  return `${c2Roles(p)}
+    <section class="c2-card c2-plan"><p class="label">Ta prochaine session · ${esc(C2_ROLE[role])}</p>
+      <h2 class="c2-goal-title">${first ? esc(first.title.replace(/ dans \d+ parties sur \d+$/, "")) : "Garder ce qui marche"}</h2>
+      <ol class="c2-steps">
+        ${first ? `<li><b>Priorité</b> : ${esc(c2TipOf(first) || first.detail)}</li>` : `<li><b>Aucun point faible récurrent</b> sur tes ${d.games} dernières parties : vise la médiane Diamant+ sur un point de ton choix.</li>`}
+        ${best ? `<li><b>Champion</b> : ${esc(c2Name(best.champion))}, ${best.wins} victoire${best.wins > 1 ? "s" : ""} sur ${best.games} récemment (KDA ${c2n(best.kda)}).</li>` : ""}
+        <li><b>Avant chaque partie</b> : <a href="${c2Href("draft")}">prépare la draft</a> pour connaître ton duel et les compositions.</li>
+      </ol></section>
+    <section class="sec"><div class="sec-head"><h2 class="sec-title">À améliorer</h2></div>
+      ${d.minus.length ? d.minus.map((m, i) => `<article class="c2-card c2-finding"><p class="label">Point ${i + 1}</p><h3 class="c2-f-title">${esc(m.title)}</h3><p class="fine">${esc(m.detail)}</p>${dots(m.games)}
+        <details class="more"><summary>Comment progresser</summary><p>${esc(c2TipOf(m))}</p>${m.metric ? c2LessonsHtml(m.metric, role, d.champions[0]?.champion) : ""}</details></article>`).join("") : `<p class="inline-empty">Aucun point faible qui revient dans au moins 3 parties.</p>`}
+    </section>
+    <section class="sec"><div class="sec-head"><h2 class="sec-title">Ce qui va bien</h2></div>
+      ${d.plus.length ? `<ul class="c2-plus">${d.plus.map(x => `<li><b>${esc(x.title)}</b>${x.detail ? `<span class="fine">${esc(x.detail)}</span>` : ""}</li>`).join("")}</ul>` : `<p class="inline-empty">Pas encore de point fort net sur ces parties.</p>`}
+    </section>
+    <section class="sec"><div class="sec-head"><h2 class="sec-title">Tes champions</h2></div>
+      <ul class="c2-games">${d.champions.map(c => `<li><div class="c2-game ${c.wins * 2 >= c.games ? "win" : "loss"}">${c2Img(c.champion)}<span class="c2-g-main"><b>${esc(c2Name(c.champion))}</b><span class="fine">${c.games} partie${c.games > 1 ? "s" : ""} · ${c.wins} victoire${c.wins > 1 ? "s" : ""}</span></span><span class="c2-g-kda"><b>${c.k}/${c.d}/${c.a}</b><span class="fine">KDA ${c2n(c.kda)}</span></span><span></span></div></li>`).join("")}</ul>
+    </section>
+    ${d.matchups.length ? `<section class="sec"><div class="sec-head"><h2 class="sec-title">Tes duels</h2></div><ul class="c2-mu c2-card">${d.matchups.map(m => `<li><span class="c2-mu-duel"><a href="${c2Href("partie", m.id)}">${c2Img(m.champion, "c2-av sm")}</a><span class="c2-vs-sep">contre</span>${c2Img(m.opponent, "c2-av sm")}</span><span class="c2-mu-stat"><b class="${m.win ? "up" : "down"}">${m.win ? "Victoire" : "Défaite"}</b>${m.gold10 != null ? `<span class="fine">${m.gold10 > 0 ? "+" : ""}${c2n(m.gold10)} or à 10 min</span>` : ""}</span></li>`).join("")}</ul></section>` : ""}
+    <p class="fine c2-foot">${esc(d.note)}</p>`;
+}
+
 // ---------- Événements
 document.addEventListener("submit", e => {
   if (e.target.id === "c2-connect") {
@@ -548,4 +693,45 @@ document.addEventListener("input", e => {
   render(false);
   const s = document.getElementById("c2-search");
   s?.focus(); s?.setSelectionRange(pos, pos);
+});
+
+// Préparer ma partie : saisie de la draft, pool de champions
+function c2DraftRead(form) {
+  const D = C2.draft;
+  for (const side of ["allies", "enemies"]) for (const r of C2_ORDER) {
+    const v = form.elements[`${side}-${r}`]?.value.trim();
+    const id = v ? c2Id(v) : null;
+    if (id) D[side][r] = id; else delete D[side][r];
+  }
+  c2Save(); render(false);
+}
+document.addEventListener("change", e => { const f = e.target.closest?.("#c2-draft"); if (f && e.target.name) c2DraftRead(f); });
+document.addEventListener("submit", e => {
+  if (e.target.id === "c2-draft") { e.preventDefault(); c2DraftRead(e.target); }
+  if (e.target.id === "c2-pool") {
+    e.preventDefault();
+    const id = c2Id(String(new FormData(e.target).get("c") || "").trim());
+    if (!id) return;
+    const role = C2.draft.role, list = ((C2.pool ||= {})[role] ||= []);
+    if (!list.includes(id)) list.push(id);
+    c2Save(); render(false);
+  }
+});
+document.addEventListener("click", e => {
+  const a = e.target.closest("[data-action]");
+  if (!a || !a.dataset.action.startsWith("c2-")) return;
+  const D = C2.draft, act = a.dataset.action;
+  if (act === "c2-draft-role") { D.role = a.dataset.role; c2Save(); render(false); }
+  if (act === "c2-draft-clear") { D.allies = {}; D.enemies = {}; c2Save(); render(false); }
+  if (act === "c2-pool-del" || act === "c2-pool-add") {
+    const list = ((C2.pool ||= {})[D.role] ||= []);
+    C2.pool[D.role] = act === "c2-pool-del" ? list.filter(c => c !== a.dataset.c) : [...new Set([...list, a.dataset.c])];
+    c2Save(); render(false);
+  }
+  // Partie en cours : compositions et rôles estimés reportés dans la préparation
+  if (act === "c2-draft-live" && c2ui.live?.inGame) {
+    const side = list => Object.fromEntries(list.filter(p => p.role).map(p => [p.role, p.champion]));
+    C2.draft = { role: c2ui.live.me.role, allies: side(c2ui.live.allies), enemies: side(c2ui.live.enemies) };
+    c2Save();
+  }
 });

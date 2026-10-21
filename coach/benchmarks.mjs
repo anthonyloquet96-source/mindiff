@@ -5,7 +5,9 @@
 // Seuls des agrégats et des empreintes de parties sont gardés : aucun identifiant de joueur.
 // Usage : node --env-file=.env coach/benchmarks.mjs [--matches 120]
 
+import { writeFile } from "node:fs/promises";
 import { P, readJson, writeJson, sha256 } from "./lib.mjs";
+import { writeMatchups } from "./matchups.mjs";
 import { metricsOf, POS, METRICS } from "./review.mjs";
 
 const wait = ms => new Promise(r => setTimeout(r, ms));
@@ -28,10 +30,14 @@ async function riot(url) {
 const q = (sorted, p) => { const i = (sorted.length - 1) * p; const lo = Math.floor(i); return Math.round((sorted[lo] + (sorted[Math.ceil(i)] - sorted[lo]) * (i - lo)) * 100) / 100; };
 
 // Ligne compacte par joueur : de quoi calculer références et fiches, sans identifiant
+// t : équipe (matchups, compositions) ; dmg : dégâts aux champions physiques/magiques/bruts ; cc : secondes de contrôle infligées ;
+// tank : dégâts subis + atténués ; k/d/a et éliminations en solo : profil du champion, jamais du joueur
 function row(p, info) {
   const style = p.perks?.styles || [];
   return {
-    role: POS[p.teamPosition] || null, c: p.championId, n: p.championName, win: p.win ? 1 : 0,
+    role: POS[p.teamPosition] || null, c: p.championId, n: p.championName, win: p.win ? 1 : 0, t: p.teamId,
+    dmg: [p.physicalDamageDealtToChampions, p.magicDamageDealtToChampions, p.trueDamageDealtToChampions], cc: p.timeCCingOthers ?? null,
+    tank: (p.totalDamageTaken || 0) + (p.damageSelfMitigated || 0), kda: [p.kills, p.deaths, p.assists], solo: p.challenges?.soloKills ?? null,
     m: metricsOf(p, info.gameDuration / 60),
     items: [p.item0, p.item1, p.item2, p.item3, p.item4, p.item5].filter(Boolean),
     ks: style[0]?.selections?.[0]?.perk || null, prim: style[0]?.style || null, sec: style[1]?.style || null,
@@ -82,31 +88,38 @@ export async function run() {
   sample.matches = sample.matches.filter(m => Date.now() - m.at <= DAYS * 864e5);
   const seen = new Set(sample.seen);
   const tiers = [["challengerleagues", null], ["grandmasterleagues", null], ["masterleagues", null], ["DIAMOND", "I"], ["DIAMOND", "II"], ["DIAMOND", "III"], ["DIAMOND", "IV"]];
+  // Plusieurs pages par division pour les longues collectes (205 joueurs par page)
+  const pages = Math.min(8, Math.max(1, Math.ceil(want / 1500)));
   const players = [];
+  // Sauvegarde compacte et régulière : une collecte longue interrompue (clé expirée) garde ce qu'elle a réuni
+  const save = async () => { sample.seen = [...seen].slice(-300000); await writeFile(SAMPLE, JSON.stringify(sample)); };
+  let added = 0;
   try {
     for (const [t, div] of tiers) {
-      const entries = div ? await riot(`https://${R.platform}.api.riotgames.com/lol/league/v4/entries/RANKED_SOLO_5x5/DIAMOND/${div}?page=${1 + Math.floor(Math.random() * 3)}`) : (await riot(`https://${R.platform}.api.riotgames.com/lol/league/v4/${t}/by-queue/RANKED_SOLO_5x5`)).entries;
-      players.push(...entries.sort(() => Math.random() - 0.5).slice(0, Math.ceil(want / tiers.length / 2) + 2));
+      if (!div) players.push(...(await riot(`https://${R.platform}.api.riotgames.com/lol/league/v4/${t}/by-queue/RANKED_SOLO_5x5`)).entries);
+      else for (let pg = 1; pg <= pages; pg++) players.push(...(await riot(`https://${R.platform}.api.riotgames.com/lol/league/v4/entries/RANKED_SOLO_5x5/DIAMOND/${div}?page=${pg}`)));
     }
-    const ids = new Set();
     const since = Math.floor((Date.now() - DAYS * 864e5) / 1000);
+    const perPlayer = want > 1000 ? 20 : 3;
     for (const p of players.sort(() => Math.random() - 0.5)) {
-      if (ids.size >= want) break;
-      for (const id of await riot(`https://${R.region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${p.puuid}/ids?queue=420&startTime=${since}&count=3`)) if (!seen.has(sha256(id).slice(0, 16))) ids.add(id);
-    }
-    for (const id of [...ids].slice(0, want)) {
-      const h = sha256(id).slice(0, 16);
-      seen.add(h);
-      const m = await riot(`https://${R.region}.api.riotgames.com/lol/match/v5/matches/${id}`).catch(e => (e.status === 404 ? null : Promise.reject(e)));
-      if (!m || m.info.gameDuration < 900 || m.info.queueId !== 420) continue; // parties écourtées : non représentatives
-      sample.matches.push({ at: m.info.gameStartTimestamp, patch: m.info.gameVersion.split(".").slice(0, 2).join("."), rows: m.info.participants.map(p => row(p, m.info)) });
+      if (added >= want) break;
+      const ids = (await riot(`https://${R.region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${p.puuid}/ids?queue=420&startTime=${since}&count=${perPlayer}`)).filter(id => !seen.has(sha256(id).slice(0, 16)));
+      for (const id of ids) {
+        if (added >= want) break;
+        seen.add(sha256(id).slice(0, 16));
+        const m = await riot(`https://${R.region}.api.riotgames.com/lol/match/v5/matches/${id}`).catch(e => (e.status === 404 ? null : Promise.reject(e)));
+        if (!m || m.info.gameDuration < 900 || m.info.queueId !== 420) continue; // parties écourtées : non représentatives
+        sample.matches.push({ at: m.info.gameStartTimestamp, patch: m.info.gameVersion.split(".").slice(0, 2).join("."), d: Math.round(m.info.gameDuration / 6) / 10, rows: m.info.participants.map(p => row(p, m.info)) });
+        if (++added % 2500 === 0) await writeMatchups(sample);
+        if (added % 250 === 0) { await save(); console.log(`${new Date().toLocaleTimeString("fr-FR")} : ${added} parties ajoutées (${sample.matches.length} au total)`); }
+      }
     }
   } catch (e) {
     if (!sample.matches.length) throw e;
     console.error(`Collecte interrompue (${e.message}) : l'échantillon déjà réuni est conservé.`);
   }
-  sample.seen = [...seen].slice(-20000);
-  await writeJson(SAMPLE, sample);
+  await save();
+  await writeMatchups(sample);
   const { bench, champstats } = compute(sample);
   await writeJson("coach/cache/benchmarks.json", bench);
   await writeJson("coach/cache/champstats.json", champstats);

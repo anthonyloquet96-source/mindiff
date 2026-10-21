@@ -27,7 +27,7 @@ export function createRiot(key, { fetchImpl = fetch } = {}) {
 }
 
 let itemsCache = null, itemsFor = null; // cache par source (les tests injectent leur propre fetch)
-async function items(fetchImpl = fetch) {
+export async function items(fetchImpl = fetch) {
   if (itemsCache && itemsFor === fetchImpl) return itemsCache;
   itemsFor = fetchImpl;
   const [v] = await fetchImpl(`${DD}/api/versions.json`).then(r => r.json());
@@ -188,6 +188,8 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   return {
     summary: { ...s, deadSeconds: me.totalTimeSpentDead ?? null }, lane, deaths, bases, objectives, comparisons, findings: findings.slice(0, 3), strengths,
     build: await buildVsDiamond(me, champstats, itemDb, fetchImpl),
+    // Compositions : champions et rôles (aucun Riot ID des autres joueurs)
+    teams: { allies: info.participants.filter(p => p.teamId === me.teamId).map(p => ({ champion: p.championName, role: POS[p.teamPosition] || null })), enemies: info.participants.filter(p => p.teamId !== me.teamId).map(p => ({ champion: p.championName, role: POS[p.teamPosition] || null })) },
     duration: info.gameDuration, benchmark: bench ? { patch: benchmarks.patch, games: benchmarks.games, level: "Diamant et plus" } : null,
     note: "Faits tirés des données officielles de Riot. Les retours à la base sont déduits des achats (on n'achète qu'en base) ; un retour sans achat n'apparaît pas.",
   };
@@ -214,7 +216,7 @@ async function buildVsDiamond(me, champstats, itemDb, fetchImpl) {
 
 // ---------- Fiche champion Diamant+ : objets, runes, sorts réellement joués (échantillon coach/benchmarks.mjs)
 let namesCache = null, namesFor = null;
-async function ddNames(fetchImpl = fetch) {
+export async function ddNames(fetchImpl = fetch) {
   if (namesCache && namesFor === fetchImpl) return namesCache;
   namesFor = fetchImpl;
   const [v] = await fetchImpl(`${DD}/api/versions.json`).then(r => r.json());
@@ -243,7 +245,7 @@ export async function championCard(c, champstats, fetchImpl = fetch) {
 
 // ---------- Partie en cours (spectator-v5) : champions des deux équipes ; Riot ne donne pas les rôles, on les estime
 let champsCache = null;
-async function ddChampions(fetchImpl = fetch) {
+export async function ddChampions(fetchImpl = fetch) {
   if (champsCache) return champsCache;
   const [v] = await fetchImpl(`${DD}/api/versions.json`).then(r => r.json());
   const j = await fetchImpl(`${DD}/cdn/${v}/data/en_US/champion.json`).then(r => r.json());
@@ -333,4 +335,57 @@ export function goalFor(games, role, benchmarks) {
   const goal = tally.filter(t => t.sous / t.games >= 0.5).sort((a, b) => b.sous / b.games - a.sous / a.games)[0] || null;
   const ok = k => inRole.map(g => ({ id: g.id, ok: compare(k, g.metrics[k], bench)?.level !== "sous" }));
   return { role, games: inRole.length, goal: goal ? { ...goal, success: ok(goal.metric) } : null, tally: tally.map(t => ({ ...t, success: ok(t.metric) })) };
+}
+
+// ---------- Bilan général : relecture des dernières parties d'un rôle, tendances nettes seulement (au moins 3 parties concernées)
+export async function report(riot, { puuid, region, ids, benchmarks, champstats = null }) {
+  const reviews = [];
+  for (const id of ids.slice(0, 10)) {
+    try { reviews.push(await review(riot, { matchId: id, puuid, region, benchmarks, champstats })); } catch (e) { if (e.status === 401 || e.status === 403) throw e; }
+  }
+  const n = reviews.length;
+  if (!n) return { games: 0, plus: [], minus: [], champions: [], matchups: [] };
+  const minus = [], plus = [];
+  // Morts avant un objectif adverse
+  const objGames = reviews.filter(r => r.deaths.some(d => d.beforeObjective));
+  const objDeaths = reviews.reduce((a, r) => a + r.deaths.filter(d => d.beforeObjective).length, 0);
+  if (objGames.length >= 3) minus.push({ kind: "mort-avant-objectif", metric: "deaths30", weight: 3 + objGames.length, title: `Morts juste avant un objectif adverse dans ${objGames.length} parties sur ${n}`, detail: `${objDeaths} morts au total suivies d'un dragon, d'un Héraut, de Larves ou d'un Baron adverse dans la minute.`, games: objGames.map(r => r.summary.id) });
+  // Phase de ligne
+  const lanes = reviews.filter(r => r.lane.at10);
+  if (lanes.length >= 3) {
+    const avg = Math.round(lanes.reduce((a, r) => a + r.lane.at10.gold, 0) / lanes.length);
+    const behind = lanes.filter(r => r.lane.at10.gold <= -500), ahead = lanes.filter(r => r.lane.at10.gold >= 500);
+    if (behind.length >= 3 && behind.length > ahead.length) minus.push({ kind: "retard-en-ligne", metric: "cs10", weight: 2 + behind.length, title: `En retard sur ton adversaire direct à 10 min dans ${behind.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} pièces d'or à 10 min.`, games: behind.map(r => r.summary.id) });
+    if (ahead.length >= 3 && ahead.length > behind.length) plus.push({ kind: "avance-en-ligne", title: `En avance sur ton adversaire direct à 10 min dans ${ahead.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} pièces d'or à 10 min.` });
+  }
+  const early = reviews.filter(r => r.deaths.filter(d => d.t < 14 * 60000).length >= 2);
+  if (early.length >= 3) minus.push({ kind: "morts-phase-de-ligne", metric: "deaths30", weight: 1 + early.length, title: `Au moins 2 morts avant 14 min dans ${early.length} parties sur ${n}`, detail: "Chaque mort en phase de ligne coûte des sbires, de l'expérience et souvent des plaques.", games: early.map(r => r.summary.id) });
+  const plates = reviews.filter(r => r.lane.platesLost >= 3);
+  if (plates.length >= 3) minus.push({ kind: "plaques-perdues", metric: "csMin", weight: 1 + plates.length, title: `3 plaques ou plus perdues avant 14 min dans ${plates.length} parties sur ${n}`, detail: "Une vague qui s'écrase sous ta tourelle pendant ton absence donne des plaques à l'adversaire.", games: plates.map(r => r.summary.id) });
+  const bank = reviews.filter(r => r.bases.some(b => !b.afterDeath && b.goldBefore >= 2500));
+  if (bank.length >= 3) minus.push({ kind: "or-non-depense", metric: null, weight: 1 + bank.length / 2, title: `Retours tardifs avec plus de 2 500 pièces d'or dans ${bank.length} parties sur ${n}`, detail: "L'or non dépensé ne sert à rien en combat : rentrer plus tôt donne l'objet au bon moment.", games: bank.map(r => r.summary.id) });
+  const dead = reviews.filter(r => r.summary.deadSeconds != null);
+  if (dead.length >= 3) {
+    const avg = dead.reduce((a, r) => a + r.summary.deadSeconds / r.duration, 0) / dead.length;
+    if (avg >= 0.12) minus.push({ kind: "temps-mort", metric: "deaths30", weight: 1 + avg * 10, title: `${Math.round(avg * 100)} % de la partie passés mort en moyenne`, detail: "Sur une partie de 30 min, c'est environ " + Math.round(avg * 30) + " min sans pouvoir agir." });
+    else if (avg <= 0.05) plus.push({ kind: "survie", title: `Très peu de temps passé mort : ${Math.round(avg * 100)} % de la partie en moyenne` });
+  }
+  // Indicateurs face au Diamant+ : sous ou au-dessus de la référence dans au moins la moitié des parties
+  const byMetric = {};
+  for (const r of reviews) for (const c of r.comparisons) (byMetric[c.metric] ||= []).push(c);
+  for (const [k, list] of Object.entries(byMetric)) {
+    if (list.length < 3) continue;
+    const sous = list.filter(c => c.level === "sous").length, top = list.filter(c => c.level === "au-dessus").length;
+    const vals = list.map(c => c.value).sort((a, b) => a - b), med = vals[Math.floor(vals.length / 2)];
+    if (sous / list.length >= 0.5) minus.push({ kind: `ecart-${k}`, metric: k, weight: 1 + sous, title: `${METRICS[k].label} : moins bien que 75 % des Diamant+ dans ${sous} parties sur ${list.length}`, detail: `Ta valeur médiane : ${fr(med)}${METRICS[k].unit} ; médiane Diamant+ : ${fr(list[0].p50)}${METRICS[k].unit}.` });
+    else if (top / list.length >= 0.5 && list[0].p50 > 0) plus.push({ kind: `fort-${k}`, title: `${METRICS[k].label} : mieux que 75 % des Diamant+ dans ${top} parties sur ${list.length}`, detail: `Ta valeur médiane : ${fr(med)}${METRICS[k].unit} ; médiane Diamant+ : ${fr(list[0].p50)}${METRICS[k].unit}.` });
+  }
+  minus.sort((a, b) => b.weight - a.weight);
+  // Champions et vis-à-vis rencontrés
+  const champs = {};
+  for (const r of reviews) { const s = r.summary, c = (champs[s.champion] ||= { champion: s.champion, games: 0, wins: 0, k: 0, d: 0, a: 0 }); c.games++; c.wins += s.win ? 1 : 0; c.k += s.k; c.d += s.d; c.a += s.a; }
+  const champions = Object.values(champs).sort((a, b) => b.games - a.games).map(c => ({ ...c, kda: Math.round(((c.k + c.a) / Math.max(1, c.d)) * 10) / 10 }));
+  const matchups = reviews.filter(r => r.summary.opponent).map(r => ({ id: r.summary.id, champion: r.summary.champion, opponent: r.summary.opponent, win: r.summary.win, gold10: r.lane.at10?.gold ?? null }));
+  return { games: n, role: reviews[0].summary.role, plus, minus: minus.slice(0, 4), champions, matchups, wins: reviews.filter(r => r.summary.win).length,
+    note: "Tendances calculées sur les données officielles de Riot de tes dernières parties ; un point n'apparaît que s'il revient dans au moins 3 parties." };
 }

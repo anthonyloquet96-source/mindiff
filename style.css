@@ -788,3 +788,45 @@ a.sb-team:hover .sb-name { text-decoration: underline; text-underline-offset: 3p
 .c2-recent .fine { flex-basis: 100%; }
 .c2-hero.compact { padding: var(--s4); border: 1px solid var(--line); }
 .c2-switch { align-self: flex-start; }
+/* Coach : préparation de partie, matchups, compositions, bilan général */
+.c2-tool.hot { border: 1px solid rgba(255, 77, 46, .45); background: linear-gradient(90deg, rgba(255, 77, 46, .12), transparent 80%), var(--surface); }
+.c2-av.sm { width: 32px; height: 32px; border-radius: 8px; }
+.c2-av.xs { width: 22px; height: 22px; border-radius: 6px; }
+.c2-mu { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.c2-mu li { display: grid; grid-template-columns: 64px auto 1fr; gap: var(--s3); align-items: center; padding: 6px var(--s2); border-radius: var(--r-sm); background: var(--surface-2); }
+.c2-mu li.me { outline: 1.5px solid var(--accent); }
+.c2-mu-role { font-size: 12px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: .04em; }
+.c2-mu-role.wide { grid-column: 1 / -1; text-transform: none; letter-spacing: 0; font-size: var(--fs-sm); }
+.c2-mu-duel { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.c2-mu-duel .c2-vs-sep { padding: 0; font-size: 11px; font-weight: 600; }
+.c2-mu-stat { display: flex; flex-direction: column; align-items: flex-end; text-align: right; min-width: 0; gap: 1px; }
+.c2-mu li:not(:has(.c2-mu-role)) { grid-template-columns: 1fr auto; }
+.c2-mu li:has(.c2-mu-role.wide) { grid-template-columns: auto 1fr; }
+.c2-rate { font-variant-numeric: tabular-nums; }
+.c2-rate.up b, b.up { color: var(--ok); }
+.c2-rate.down b, b.down { color: var(--bad); }
+.c2-rate.none { font-size: 12px; color: var(--text-3); }
+.c2-chiprow { display: flex; flex-wrap: wrap; gap: 6px; }
+.c2-cchip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 8px 3px 3px; border-radius: 999px; background: var(--surface-2); font-size: var(--fs-sm); }
+.c2-cchip .linkish { text-decoration: none; font-size: 16px; line-height: 1; padding: 0 2px; }
+.c2-comps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--s4); }
+.c2-comp ul { margin: 6px 0 0; padding-left: 18px; font-size: var(--fs-sm); color: var(--text-2); display: flex; flex-direction: column; gap: 4px; }
+.c2-dmg { display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: var(--surface-2); }
+.c2-dmg .ad, .lg.ad { background: #ff8a5c; }
+.c2-dmg .ap, .lg.ap { background: #6aa8ff; }
+.c2-dmg .tr, .lg.tr { background: #e8e8e8; }
+.c2-teams { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
+.c2-teams fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.c2-teams legend { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--text-3); margin-bottom: 4px; }
+.c2-teams fieldset + fieldset legend { color: var(--bad); }
+.c2-slot { display: flex; flex-direction: column; gap: 2px; font-size: 11px; color: var(--text-3); }
+.c2-slot input { width: 100%; min-height: 40px; border-radius: var(--r-sm); border: 1px solid var(--line); background: var(--surface-2); padding: 0 var(--s2); font-size: var(--fs-sm); color: var(--text); }
+.c2-slot.me span { color: var(--accent); font-weight: 700; }
+.c2-slot.me input { border-color: var(--accent); }
+.c2-poolform { display: flex; gap: var(--s2); }
+.c2-poolform input { flex: 1; min-width: 0; min-height: 40px; border-radius: var(--r-sm); border: 1px solid var(--line); background: var(--surface-2); padding: 0 var(--s3); }
+.c2-plan { border: 1px solid rgba(255, 77, 46, .35); background: linear-gradient(180deg, rgba(255, 77, 46, .08), transparent 70%), var(--surface); }
+.c2-plan a { color: var(--text); text-decoration: underline; }
+.c2-plus { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.c2-plus li { display: flex; flex-direction: column; gap: 2px; padding: var(--s3); border-radius: var(--r-sm); background: var(--surface); border-left: 3px solid var(--ok); }
+.c2-finding .c2-dots .c2-dot { width: 16px; height: 16px; border-color: var(--warn); }

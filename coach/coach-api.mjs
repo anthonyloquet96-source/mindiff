@@ -5,19 +5,45 @@
 //   GET /api/coach/live?puuid=…&platform=euw1       partie en cours (rôles estimés)
 //   GET /api/coach/champion?id=Ahri                  objets, runes, sorts Diamant+ (au moins 30 parties)
 
-import { createRiot, profile, review, live, championCard, parseRiotId, PLATFORMS } from "./review.mjs";
+//   GET /api/coach/draft?me=mid:Ahri&allies=top:Garen,…&enemies=mid:Zed,…&pool=Ahri,Syndra   matchups, bot lane, compositions, pool
+//   GET /api/coach/report?puuid=…&platform=euw1&ids=EUW1_1,EUW1_2   bilan général sur plusieurs parties
+
+import { createRiot, profile, review, live, championCard, parseRiotId, PLATFORMS, ddChampions, report } from "./review.mjs";
+import { analyzeDraft } from "./draft.mjs";
+
+const ROLES = ["top", "jungle", "mid", "bottom", "support"];
+// Draft : identifiants Data Dragon (« Ahri ») ↔ numéros des agrégats
+async function draftApi(params, matchups) {
+  const dd = await ddChampions();
+  const byName = Object.fromEntries(Object.entries(dd).map(([k, v]) => [v.id.toLowerCase(), k]));
+  const parse = s => String(s || "").split(",").filter(Boolean).slice(0, 10).map(x => {
+    const [role, name] = x.includes(":") ? x.split(":") : [null, x];
+    return { role: ROLES.includes(role) ? role : null, c: byName[String(name).toLowerCase()] || null };
+  }).filter(x => x.c);
+  const me = parse(params.get("me"))[0] || null;
+  const res = analyzeDraft(matchups, { allies: parse(params.get("allies")).slice(0, 5), enemies: parse(params.get("enemies")).slice(0, 5), me, pool: parse(params.get("pool")).map(x => x.c) });
+  const name = c => dd[c]?.id || String(c);
+  const rename = o => (Array.isArray(o) ? o.map(rename) : o && typeof o === "object" ? Object.fromEntries(Object.entries(o).map(([k, v]) => [k, ["ally", "enemy", "c"].includes(k) ? name(v) : rename(v)])) : o);
+  return rename(res);
+}
 
 let riot = null, riotKey = null;
 const hits = new Map(); // limite par visiteur : 30 requêtes par 5 minutes
 
-export async function coachApi(path, params, { key, benchmarks, champstats, visitor = "?" }) {
-  if (!key) return { status: 503, body: { error: "Service Riot non configuré : la connexion des comptes arrive bientôt." } };
-  if (key !== riotKey) { riot = createRiot(key); riotKey = key; }
+export async function coachApi(path, params, { key, benchmarks, champstats, matchups = null, visitor = "?" }) {
   const now = Date.now();
   const h = (hits.get(visitor) || []).filter(t => now - t < 300e3);
-  if (h.length >= 30) return { status: 429, body: { error: "Trop de demandes : réessayez dans quelques minutes." } };
+  // La draft ne coûte aucune requête Riot : limite plus large
+  const cap = path === "/api/coach/draft" ? 120 : 30;
+  if (h.length >= cap) return { status: 429, body: { error: "Trop de demandes : réessayez dans quelques minutes." } };
   hits.set(visitor, [...h, now]);
   if (hits.size > 5000) hits.clear();
+  if (path === "/api/coach/draft") {
+    if (!matchups) return { status: 503, body: { error: "Statistiques de matchups indisponibles pour l'instant." } };
+    return { status: 200, body: await draftApi(params, matchups) };
+  }
+  if (!key) return { status: 503, body: { error: "Service Riot non configuré : la connexion des comptes arrive bientôt." } };
+  if (key !== riotKey) { riot = createRiot(key); riotKey = key; }
   const platform = String(params.get("platform") || "euw1").toLowerCase();
   if (!PLATFORMS[platform]) return { status: 400, body: { error: "Région inconnue." } };
   try {
@@ -35,6 +61,11 @@ export async function coachApi(path, params, { key, benchmarks, champstats, visi
       const id = String(params.get("id") || "");
       const c = Object.values(champstats?.champions || {}).find(x => x.name === id);
       return { status: 200, body: await championCard(c, champstats) };
+    }
+    if (path === "/api/coach/report") {
+      const puuid = String(params.get("puuid") || ""), ids = String(params.get("ids") || "").split(",").filter(id => /^[A-Z0-9]+_\d+$/.test(id)).slice(0, 10);
+      if (!/^[\w-]{40,90}$/.test(puuid) || !ids.length) return { status: 400, body: { error: "Joueur ou parties invalides." } };
+      return { status: 200, body: await report(riot, { puuid, region: PLATFORMS[platform][0], ids, benchmarks, champstats }) };
     }
     if (path === "/api/coach/review") {
       const matchId = String(params.get("match") || ""), puuid = String(params.get("puuid") || "");

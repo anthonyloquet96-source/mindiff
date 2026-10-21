@@ -1,7 +1,7 @@
 {
- "at": "2026-10-21T11:57:45.058Z",
- "ok": 30,
- "total": 30,
+ "at": "2026-10-21T13:03:10.205Z",
+ "ok": 32,
+ "total": 32,
  "results": [
   {
    "name": "1. Source récente compatible avec le patch",
@@ -52,6 +52,18 @@
    "detail": "1 200 or de retard à 10 min → constat ; plaques comptées avant 14 min et sur la bonne voie ; objets comparés aux Diamant+ du champion (Lame d'infini 60 %, rune clé 20 % contre Conquérant 80 %) ; objectif par rôle sans mélanger les rôles."
   },
   {
+   "name": "Draft : matchups avec marge d'erreur, bot lane 2 contre 2, compositions",
+   "kind": "fixture",
+   "ok": true,
+   "detail": "120 parties : 75 % ± 7,7 → favorable, écart moyen de sbires +2,5 ; bot lane 2 contre 2 et duo comptés ; compositions physique / magique reconnues ; sous 30 parties, aucun verdict."
+  },
+  {
+   "name": "Contradictions entre conseils : détectées et départagées à la source",
+   "kind": "fixture",
+   "ok": true,
+   "detail": "« Prends » contre « évite » Électrocution → départagé par les données Diamant+ (60 % des parties) ; duel « favorable » officiel contre « difficile » → officiel retenu ; sans source ni donnée → listé « à vérifier à la source »."
+  },
+  {
    "name": "Partie en cours : rôles estimés, fiches Diamant+ par champion",
    "kind": "fixture",
    "ok": true,
@@ -97,7 +109,7 @@
    "name": "8b. Source en panne pendant la découverte",
    "kind": "réel (réseau coupé simulé)",
    "ok": true,
-   "detail": "15 sources en échec, 509 contenus conservés, nouvel essai planifié (2026-10-21T12:57)."
+   "detail": "15 sources en échec, 509 contenus conservés, nouvel essai planifié (2026-10-21T14:03)."
   },
   {
    "name": "9. Citation qui ne soutient pas le conseil",

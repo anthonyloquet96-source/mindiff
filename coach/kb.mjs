@@ -5,6 +5,8 @@ import { readFile, mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { P, ROOT, readJson, writeJson, cachedText, sha256, today } from "./lib.mjs";
 import { checkUnit } from "./critic.mjs";
+import { findContradictions, applyContradictions } from "./contradictions.mjs";
+import { items, ddNames } from "./review.mjs";
 
 export async function loadContext() {
   const [config, sources, contents, units, corrections, glossary, changes] = await Promise.all([
@@ -93,7 +95,28 @@ const strip = u => { const { version, firstSeen, validity, analyzedAt, verified,
 // Recalcul de toutes les unités (après un patch, une correction ou un nouveau contenu)
 export async function evaluateAll() {
   const L = await loadContext();
-  return { L, units: L.units.units.map(u => evaluate(u, L.ctx, L.corrections)) };
+  const units = L.units.units.map(u => evaluate(u, L.ctx, L.corrections));
+  // Contradictions entre unités : départagées par la source officielle, les données Diamant+ ou la date ; sinon listées
+  try {
+    const { names, champKey } = await contradictionNames();
+    const [champstats, matchups] = await Promise.all([readJson("coach/cache/champstats.json", null), readJson("coach/cache/matchups.json", null)]);
+    const found = findContradictions(units, names, { champstats, matchups, champKey });
+    applyContradictions(units, found);
+    await writeJson("coach/kb/contradictions.json", { at: new Date().toISOString(), note: "Conseils qui se contredisent sur un même sujet. Le conseil écarté passe « contradictoire » (non montré) ; les cas non départagés sont à vérifier à la source.", items: found });
+  } catch (e) { console.error(`Contradictions non vérifiées : ${e.message}`); }
+  return { L, units };
+}
+// Noms français des objets, runes clés et sorts (Data Dragon), et correspondance nom de champion → numéro
+async function contradictionNames() {
+  const [it, nm] = await Promise.all([items(), ddNames()]);
+  const names = [
+    ...Object.entries(it).filter(([, x]) => x.gold >= 400).map(([id, x]) => ({ kind: "item", id, name: x.name })),
+    ...Object.entries(nm.perk).map(([id, x]) => ({ kind: "rune", id, name: x.name })),
+    ...Object.values(nm.spell).map(x => ({ kind: "sort", id: x.id, name: x.name })),
+  ].filter((n, i, all) => all.findIndex(m => m.name === n.name) === i);
+  const champs = await fetch(`https://ddragon.leagueoflegends.com/cdn/${nm.v}/data/fr_FR/champion.json`).then(r => r.json());
+  const champKey = Object.fromEntries(Object.values(champs.data).map(c => [c.name, c.key]));
+  return { names, champKey };
 }
 
 export async function appendCorrection(entry) {

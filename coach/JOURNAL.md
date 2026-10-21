@@ -2,6 +2,46 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-21, 15 h 30 — préparation de partie, matchups, bilan général, contradictions (branche `coach-v2-suite`, à valider)
+- **Demande d'Anthony**
+  - une analyse de chaque partie à partir des connaissances ;
+  - un bilan général (quoi améliorer, comment, points forts et points faibles) ;
+  - la composition et des commentaires sur tous les matchups, y compris support contre support, support contre ADC et la bot lane à 2 contre 2 ;
+  - la force d'un champion dans une composition, indépendamment de son vis-à-vis ;
+  - la préparation de la partie (draft, taux de victoire, champions joués habituellement).
+- **Données**
+  - Nouvelle grande collecte Diamant+ en cours (environ 2 100 parties par heure, jusqu'à l'expiration de la clé de développement), sauvegardée au fil de l'eau.
+  - Chaque partie garde maintenant les équipes et, par joueur, le profil de dégâts (physiques, magiques, bruts), le contrôle, l'encaissement et le KDA.
+  - `coach/matchups.mjs` calcule :
+    - les duels par voie ;
+    - la bot lane : support contre ADC, ADC contre support, et le duo allié ;
+    - chaque champion contre et avec chaque autre, tous rôles confondus ;
+    - les profils de champions, dont les victoires selon la durée de partie.
+- **Règle de prudence**
+  - Tout taux de victoire est donné avec sa marge d'erreur à 95 % et le nombre de parties.
+  - Sous 30 parties, aucun verdict.
+  - Les champions du pool sont classés sur le taux de victoire moins la marge.
+- **Préparer ma partie** (`#/lol/coach/beta/draft`)
+  - Saisie des 10 champions, ou reprise de la partie en cours avec les rôles estimés.
+  - Mon rôle, et mes champions (pool) par rôle.
+  - Analyse : duels par voie, bot lane, mon champion face à toute la composition adverse et avec ses alliés, profils de composition, conseils vérifiés contre mon vis-à-vis, classement de mon pool.
+- **Bilan de partie** : nouvelle section « Composition et matchups », avec les mêmes statistiques et les conseils « Bien jouer » du champion.
+- **Bilan général** (`#/lol/coach/beta/bilan`)
+  - Relecture des 10 dernières parties du rôle suivi (`/api/coach/report`).
+  - Points à améliorer présents dans au moins 3 parties, avec les parties concernées et la façon de progresser.
+  - Points forts, champions joués, duels rencontrés.
+  - Un plan pour la prochaine session : une priorité, un champion, la draft à préparer.
+- **Conseils** : un conseil de méthode propre à chaque type de constat, et le tutoiement partout.
+- **Contradictions** (`coach/contradictions.mjs`, appliqué par `coach/kb.mjs`)
+  - Détecte « prends X » contre « évite X » (objet, rune, sort), et un duel dit « favorable » d'un côté et « difficile » de l'autre.
+  - Départage, dans l'ordre : la source officielle Riot, puis les données Diamant+, puis le conseil le plus récent.
+  - Le conseil écarté passe « contradictoire » ; les cas non départagés sont listés dans `coach/kb/contradictions.json`, à vérifier à la source (consigne ajoutée au contrôle critique).
+  - Base actuelle : 0 contradiction. Seules 2 unités sur 831 contiennent une consigne d'objet ou de rune ; la détection servira à mesure que la base grandit.
+- **Vérifié**
+  - 31 tests réussis sur 32 (1 ignoré faute de cache), dont la draft (marge, bot lane, compositions, aucun verdict sous 30 parties) et les contradictions.
+  - Navigateur à 390 et 1280 px : 0 erreur, aucun débordement.
+  - Non-régression de l'application : 0 erreur.
+
 ## 2026-10-21, 14 h — nouveau coach : progression, objectifs par rôle, bilan enrichi (branche `coach-v2-suite`, à valider)
 - **Progression** : chaque partie vue est gardée sur l'appareil (80 au plus). L'objectif ne change plus à chaque actualisation : il est suivi jusqu'à 4 parties réussies sur les 5 dernières, avec une courbe partie par partie, la série en cours et l'évolution (valeur médiane avant et sur les 5 dernières).
 - **Paliers** : palier 1, sortir du quart le plus faible des Diamant+ ; palier 2, atteindre leur médiane ; ensuite l'objectif suivant. Si rien n'est à corriger, le joueur choisit un point à travailler, avec la médiane Diamant+ comme cible. Les indicateurs dont la médiane Diamant+ vaut 0 ne sont pas proposés.

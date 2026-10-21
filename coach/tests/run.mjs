@@ -146,6 +146,41 @@ await t("Bilan : retard en ligne, plaques, build face aux Diamant+ ; objectif pa
   assert(G.games === 3 && G.goal?.metric === "cs10" && G.goal.target === 60 && G.goal.success.map(s => s.ok).join() === "false,false,true" && G.tally.find(t => t.metric === "deaths30").sous === 0, JSON.stringify(G));
   return "1 200 or de retard à 10 min → constat ; plaques comptées avant 14 min et sur la bonne voie ; objets comparés aux Diamant+ du champion (Lame d'infini 60 %, rune clé 20 % contre Conquérant 80 %) ; objectif par rôle sans mélanger les rôles.";
 });
+await t("Draft : matchups avec marge d'erreur, bot lane 2 contre 2, compositions", "fixture", async () => {
+  const { computeMatchups } = await import("../matchups.mjs");
+  const { analyzeDraft } = await import("../draft.mjs");
+  // 120 parties : 1 (mid) contre 2 (mid), 1 gagne 90 fois ; bot : 3 (ADC) + 4 (support) contre 5 (ADC) + 6 (support)
+  const row = (c, role, t, win, phys) => ({ role, c, n: `C${c}`, win, t, m: { cs10: role === "support" ? null : 70 + (win ? 5 : 0) }, dmg: [phys, 1000 - phys, 0], cc: 30, tank: 20000, kda: [5, 5, 5], solo: 0 });
+  const matches = Array.from({ length: 120 }, (_, i) => { const w = i < 90 ? 1 : 0; return { at: Date.now(), patch: "16.20", d: 20 + (i % 20), rows: [row(1, "mid", 100, w, 900), row(3, "bottom", 100, w, 900), row(4, "support", 100, w, 800), row(7, "top", 100, w, 900), row(2, "mid", 200, 1 - w, 200), row(5, "bottom", 200, 1 - w, 900), row(6, "support", 200, 1 - w, 100), row(8, "top", 200, 1 - w, 100)] }; });
+  const mu = computeMatchups({ platform: "euw1", matches });
+  assert(JSON.stringify(mu.lane.mid[1][2]) === "[120,90,300,120]" && mu.bot["support-bottom"][4][5][0] === 120 && mu.bot.duo[3][4][1] === 90, JSON.stringify(mu.lane.mid[1][2]));
+  const d = analyzeDraft(mu, { me: { role: "mid", c: "1" }, allies: [{ role: "mid", c: "1" }, { role: "bottom", c: "3" }, { role: "support", c: "4" }, { role: "top", c: "7" }], enemies: [{ role: "mid", c: "2" }, { role: "bottom", c: "5" }, { role: "support", c: "6" }, { role: "top", c: "8" }], pool: ["1", "9"] });
+  const mid = d.lanes.find(l => l.role === "mid");
+  assert(mid.winrate === 75 && mid.margin === 7.7 && mid.verdict === "favorable" && mid.cs10 === 2.5, JSON.stringify(mid));
+  assert(d.bot.length === 3 && d.bot.every(b => b.enough), JSON.stringify(d.bot));
+  assert(d.comps.allies.enough && d.comps.allies.notes[0].kind === "ad" && d.comps.enemies.notes[0].kind === "ap", JSON.stringify(d.comps));
+  assert(d.pool[0].c === "1" && !d.pool[1].overall.enough, "pool mal classé");
+  // Sous 30 parties : aucun verdict
+  const few = analyzeDraft(computeMatchups({ platform: "euw1", matches: matches.slice(0, 20) }), { allies: [{ role: "mid", c: "1" }], enemies: [{ role: "mid", c: "2" }] });
+  assert(!few.lanes[0].enough && few.lanes[0].winrate == null, "verdict donné sur 20 parties");
+  return "120 parties : 75 % ± 7,7 → favorable, écart moyen de sbires +2,5 ; bot lane 2 contre 2 et duo comptés ; compositions physique / magique reconnues ; sous 30 parties, aucun verdict.";
+});
+await t("Contradictions entre conseils : détectées et départagées à la source", "fixture", async () => {
+  const { directives, findContradictions, applyContradictions } = await import("../contradictions.mjs");
+  const names = [{ kind: "rune", id: "8112", name: "Électrocution" }, { kind: "item", id: "3111", name: "Sandales de Mercure" }];
+  assert(directives("Sur Ahri, évite Électrocution.", names)[0]?.pol === -1 && directives("Prends Électrocution.", names)[0]?.pol === 1 && !directives("Le combo d'Électrocution.", names).length, "polarité mal lue (accents)");
+  const U = (id, extra) => ({ id, status: "exploitable", nature: "opinion", roles: ["mid"], champions: ["Ahri"], patch: { known: false }, review: {}, flags: [], ...extra });
+  const units = [U("a", { claim: "Sur Ahri, prends Électrocution." }), U("b", { claim: "Sur Ahri, évite Électrocution." }), U("c", { claim: "Contre Zed, le matchup est difficile pour Ahri.", matchup: { vs: "Zed" } }), U("d", { claim: "Contre Zed, le duel est favorable à Ahri.", matchup: { vs: "Zed" }, nature: "officiel" })];
+  // Données Diamant+ : Électrocution dans 60 % des parties d'Ahri → « prends » l'emporte
+  const found = findContradictions(units, names, { champKey: { Ahri: "103" }, champstats: { minGames: 30, champions: { 103: { games: 100, items: [], keystones: [{ id: "8112", games: 60 }] } } } });
+  const rune = found.find(f => f.topic.includes("Électrocution")), duel = found.find(f => f.topic.includes("Zed"));
+  assert(rune?.winner === "a" && /60 %/.test(rune.reason) && duel?.winner === "d" && duel.reason === "source officielle Riot", JSON.stringify(found));
+  applyContradictions(units, found);
+  assert(units.find(u => u.id === "b").status === "contradictoire" && units.find(u => u.id === "a").status === "exploitable" && units.find(u => u.id === "c").status === "contradictoire", "statuts après départage");
+  const tie = findContradictions([U("e", { claim: "Prends Électrocution." }), U("f", { claim: "Évite Électrocution." })], names, {});
+  assert(tie[0]?.winner === null && /vérifier à la source/.test(tie[0].reason), "cas non départagé");
+  return "« Prends » contre « évite » Électrocution → départagé par les données Diamant+ (60 % des parties) ; duel « favorable » officiel contre « difficile » → officiel retenu ; sans source ni donnée → listé « à vérifier à la source ».";
+});
 await t("Partie en cours : rôles estimés, fiches Diamant+ par champion", "fixture", async () => {
   const { assignRoles } = await import("../review.mjs");
   const { compute } = await import("../benchmarks.mjs");

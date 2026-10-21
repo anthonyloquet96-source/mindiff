@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-21T02:26:30.527Z",
+ "generatedAt": "2026-10-21T04:19:07.662Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -4238,11 +4238,11 @@
    "lang": "en",
    "published": "2026-06-24",
    "retrievedAt": "2026-10-20",
-   "patch": null,
+   "patch": "none",
    "views": 9007,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "Get coaching and climb solo queue: https://weteachleague.com\nJoin over 12,000 members in our free community: https://wtl.lol/skool",
    "triage": {
     "score": 11,
@@ -4256,6 +4256,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-21",
+    "sha256": "e529072597f94207fd4030d896a4d329dd3d2f54c9911dc377a98f531bdf75d0",
+    "segments": 49,
+    "observations": 40,
+    "duration": "33:21",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 196023
    }
   },
   {
@@ -4312,7 +4325,9 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "videoSkipped": "environ 61 min : au-delà de 40 min (direct ou vidéo longue)",
+   "videoAttempts": 3
   },
   {
    "id": "c-yt-ZbaswOh-yvE",
@@ -10065,20 +10080,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Want to get coaching from me? Go to: https://shorturl.at/82ckB Watch full coaching sessions: https://ko-fi.com/veigarv2\n\nDownload my LoL Recording software Ascent! https://tryascent.gg/veigarv2\n\nSocials:\nhttps://ko-fi.com/veigarv2 Go here to watch full coaching sessions and more!",
    "triage": {
-    "score": 21,
+    "score": 6,
     "matched": [
-     "Qiyana",
-     "Sett",
-     "Trundle",
-     "mid",
-     "adc",
-     "support",
-     "how to",
+     "Veigar",
      "coaching",
-     "matchup",
-     "build",
-     "runes",
-     "climb"
+     "matchup"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -10095,16 +10101,15 @@
    "lang": "en",
    "published": "2026-10-18",
    "retrievedAt": "2026-10-21",
-   "patch": null,
+   "patch": "non spécifié",
    "views": 4671,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.6-flash : transcription et 6 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "Want to get coaching from me? Go to: https://shorturl.at/82ckB Watch full coaching sessions: https://ko-fi.com/veigarv2\n\nDownload my LoL Recording software Ascent! https://tryascent.gg/veigarv2\n\nSocials:\nhttps://ko-fi.com/veigarv2 Go here to watch full coaching sessions and more!",
    "triage": {
-    "score": 9,
+    "score": 7,
     "matched": [
-     "Veigar",
      "support",
      "fundamentals",
      "coaching",
@@ -10113,6 +10118,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-21",
+    "sha256": "5919f2f7f73d8a155aec20e671701d4257ad9ca702e7b703787dc9ae87b67523",
+    "segments": 13,
+    "observations": 6,
+    "duration": "00:48",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 6843
    }
   },
   {
@@ -10160,9 +10178,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Want to get coaching from me? Go to: https://shorturl.at/82ckB Watch full coaching sessions: https://ko-fi.com/veigarv2\n\nDownload my LoL Recording software Ascent! https://tryascent.gg/veigarv2\n\nVideo Link: https://www.youtube.com/watch?v=TdZJmVxq4AM\nSocials:\nhttps://ko-fi.com/ve",
    "triage": {
-    "score": 6,
+    "score": 4,
     "matched": [
-     "Veigar",
      "tips",
      "coaching"
     ],
@@ -10188,9 +10205,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Want to get coaching from me? Go to: https://shorturl.at/82ckB Watch full coaching sessions: https://ko-fi.com/veigarv2\n\nDownload my LoL Recording software Ascent! https://tryascent.gg/veigarv2\n\nSocials:\nhttps://ko-fi.com/veigarv2 Go here to watch full coaching sessions and more!",
    "triage": {
-    "score": 4,
+    "score": 2,
     "matched": [
-     "Veigar",
      "coaching"
     ],
     "entertainment": [],
@@ -10215,9 +10231,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Want to get coaching from me? Go to: https://shorturl.at/82ckB Watch full coaching sessions: https://ko-fi.com/veigarv2\n\nDownload my LoL Recording software Ascent! https://tryascent.gg/veigarv2\n\nSocials:\nhttps://ko-fi.com/veigarv2 Go here to watch full coaching sessions and more!",
    "triage": {
-    "score": 4,
+    "score": 2,
     "matched": [
-     "Veigar",
      "coaching"
     ],
     "entertainment": [],
@@ -10242,9 +10257,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Want to get coaching from me? Go to: https://shorturl.at/82ckB Watch full coaching sessions: https://ko-fi.com/veigarv2\n\nDownload my LoL Recording software Ascent! https://tryascent.gg/veigarv2\n\nSocials:\nhttps://ko-fi.com/veigarv2 Go here to watch full coaching sessions and more!",
    "triage": {
-    "score": 5,
+    "score": 3,
     "matched": [
-     "Veigar",
      "support",
      "coaching"
     ],
@@ -10270,9 +10284,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Want to get coaching from me? Go to: https://shorturl.at/82ckB Watch full coaching sessions: https://ko-fi.com/veigarv2\n\nDownload my LoL Recording software Ascent! https://tryascent.gg/veigarv2\n\nSocials:\nhttps://ko-fi.com/veigarv2 Go here to watch full coaching sessions and more!",
    "triage": {
-    "score": 4,
+    "score": 2,
     "matched": [
-     "Veigar",
      "coaching"
     ],
     "entertainment": [],
@@ -10297,9 +10310,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Want to get coaching from me? Go to: https://shorturl.at/82ckB Watch full coaching sessions: https://ko-fi.com/veigarv2\n\nDownload my LoL Recording software Ascent! https://tryascent.gg/veigarv2\n\nSocials:\nhttps://ko-fi.com/veigarv2 Go here to watch full coaching sessions and more!",
    "triage": {
-    "score": 5,
+    "score": 3,
     "matched": [
-     "Veigar",
      "adc",
      "coaching"
     ],
@@ -10352,21 +10364,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Want to get coaching from me? Go to: https://shorturl.at/82ckB Watch full coaching sessions: https://ko-fi.com/veigarv2\n\nDownload my LoL Recording software Ascent! https://ascent.gg/veigarv2\n\nSocials:\nhttps://ko-fi.com/veigarv2 Go here to watch full coaching sessions and more!\nht",
    "triage": {
-    "score": 22,
+    "score": 4,
     "matched": [
-     "Alistar",
-     "Diana",
-     "Kassadin",
-     "top",
-     "jungle",
-     "mid",
-     "support",
-     "how to",
-     "tips",
-     "coaching",
-     "macro",
-     "build",
-     "mistakes"
+     "Veigar",
+     "coaching"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -10390,9 +10391,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Want to get coaching from me? Go to: https://shorturl.at/82ckB Watch full coaching sessions: https://ko-fi.com/veigarv2\n\nDownload my LoL Recording software Ascent! https://ascent.gg/veigarv2\n\nSocials:\nhttps://ko-fi.com/veigarv2 Go here to watch full coaching sessions and more!\nht",
    "triage": {
-    "score": 4,
+    "score": 2,
     "matched": [
-     "Veigar",
      "coaching"
     ],
     "entertainment": [],
@@ -10417,9 +10417,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Want to get coaching from me? Go to: https://shorturl.at/82ckB Watch full coaching sessions: https://ko-fi.com/veigarv2\n\nDownload my LoL Recording software Ascent! https://ascent.gg/veigarv2\n\nSocials:\nhttps://ko-fi.com/veigarv2 Go here to watch full coaching sessions and more!\nht",
    "triage": {
-    "score": 5,
+    "score": 3,
     "matched": [
-     "Veigar",
      "jungle",
      "coaching"
     ],
@@ -10445,9 +10444,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Want to get coaching from me? Go to: https://shorturl.at/82ckB Watch full coaching sessions: https://ko-fi.com/veigarv2\n\nSocials:\nhttps://ko-fi.com/veigarv2 Go here to watch full coaching sessions and more!\nhttps://www.patreon.com/veigarv2\nhttps://twitter.com/Veigar_v2\nhttps://ww",
    "triage": {
-    "score": 4,
+    "score": 2,
     "matched": [
-     "Veigar",
      "coaching"
     ],
     "entertainment": [],
@@ -10499,21 +10497,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/ CODE KOREA20 FOR 20% DISCOUNT\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter: https://twitt",
    "triage": {
-    "score": -5,
+    "score": 2,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -10535,22 +10523,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/ CODE KOREA20 FOR 20% DISCOUNT\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter: https://twitt",
    "triage": {
-    "score": -3,
+    "score": 4,
     "matched": [
      "Renekton",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -10572,21 +10550,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/ CODE KOREA20 FOR 20% DISCOUNT\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter: https://twitt",
    "triage": {
-    "score": -5,
+    "score": 2,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -10608,21 +10576,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "CHECK OUT THE VOD CHANNEL HERE➡️https://www.youtube.com/@AloisNLVODs\nMake sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nGET THE BEST DRINKS FOR GAMING➡️https://gamersupps.gg/AloisNL\n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/\n\n➡️VOD Channel: ",
    "triage": {
-    "score": -5,
+    "score": 2,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -10644,21 +10602,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://aloisnl.com/\nhttps://summonerschool.com/home - Use code Korea20\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter:",
    "triage": {
-    "score": -5,
+    "score": 2,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -10680,22 +10628,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/ CODE KOREA20 FOR 20% DISCOUNT\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter: https://twitt",
    "triage": {
-    "score": -3,
+    "score": 4,
     "matched": [
      "Lillia",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -10717,22 +10655,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/ CODE KOREA20 FOR 20% DISCOUNT\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter: https://twitt",
    "triage": {
-    "score": -3,
+    "score": 4,
     "matched": [
      "Yone",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -10754,21 +10682,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://aloisnl.com/\nhttps://summonerschool.com/home - Use code Korea20\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter:",
    "triage": {
-    "score": -5,
+    "score": 2,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -10790,21 +10708,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/ CODE KOREA20 FOR 20% DISCOUNT\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter: https://twitt",
    "triage": {
-    "score": -5,
+    "score": 2,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -10826,21 +10734,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/ CODE KOREA20 FOR 20% DISCOUNT\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter: https://twitt",
    "triage": {
-    "score": -5,
+    "score": 2,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -10862,22 +10760,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/ CODE KOREA20 FOR 20% DISCOUNT\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter: https://twitt",
    "triage": {
-    "score": -3,
+    "score": 4,
     "matched": [
      "Aatrox",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -10899,22 +10787,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "CHECK OUT THE VOD CHANNEL HERE➡️https://www.youtube.com/@AloisNLVODs\nMake sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nGET THE BEST DRINKS FOR GAMING➡️https://gamersupps.gg/AloisNL\n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/\n\n➡️VOD Channel: ",
    "triage": {
-    "score": -3,
+    "score": 4,
     "matched": [
      "Camille",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -10936,21 +10814,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://aloisnl.com/\nhttps://summonerschool.com/home - Use code Korea20\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter:",
    "triage": {
-    "score": -5,
+    "score": 2,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -10972,21 +10840,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/ CODE KOREA20 FOR 20% DISCOUNT\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter: https://twitt",
    "triage": {
-    "score": -5,
+    "score": 2,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -11008,20 +10866,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "CHECK OUT THE VOD CHANNEL HERE➡️https://www.youtube.com/@AloisNLVODs\nMake sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nGET THE BEST DRINKS FOR GAMING➡️https://gamersupps.gg/AloisNL\n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/\n\n➡️VOD Channel: ",
    "triage": {
-    "score": -5,
+    "score": -1,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
     "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights"
+     "stream"
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"

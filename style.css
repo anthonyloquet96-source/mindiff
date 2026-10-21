@@ -830,3 +830,6 @@ a.sb-team:hover .sb-name { text-decoration: underline; text-underline-offset: 3p
 .c2-plus { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 .c2-plus li { display: flex; flex-direction: column; gap: 2px; padding: var(--s3); border-radius: var(--r-sm); background: var(--surface); border-left: 3px solid var(--ok); }
 .c2-finding .c2-dots .c2-dot { width: 16px; height: 16px; border-color: var(--warn); }
+.c2-picker { gap: var(--s2); }
+button.c2-cchip { border: 1px solid transparent; color: var(--text-2); cursor: pointer; font: inherit; font-size: var(--fs-sm); }
+button.c2-cchip.on { border-color: var(--accent); color: var(--text); background: var(--accent-soft); }

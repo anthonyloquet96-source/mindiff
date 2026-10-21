@@ -6,7 +6,7 @@
 //   GET /api/coach/champion?id=Ahri                  objets, runes, sorts Diamant+ (au moins 30 parties)
 
 //   GET /api/coach/draft?me=mid:Ahri&allies=top:Garen,…&enemies=mid:Zed,…&pool=Ahri,Syndra   matchups, bot lane, compositions, pool
-//   GET /api/coach/report?puuid=…&platform=euw1&ids=EUW1_1,EUW1_2   bilan général sur plusieurs parties
+//   GET /api/coach/report?puuid=…&platform=euw1&role=mid (ou &champion=Ahri)   bilan général : jusqu'à 20 parties relues, choisies parmi les 40 (60 pour un champion) dernières
 
 import { createRiot, profile, review, live, championCard, parseRiotId, PLATFORMS, ddChampions, report } from "./review.mjs";
 import { analyzeDraft } from "./draft.mjs";
@@ -63,9 +63,11 @@ export async function coachApi(path, params, { key, benchmarks, champstats, matc
       return { status: 200, body: await championCard(c, champstats) };
     }
     if (path === "/api/coach/report") {
-      const puuid = String(params.get("puuid") || ""), ids = String(params.get("ids") || "").split(",").filter(id => /^[A-Z0-9]+_\d+$/.test(id)).slice(0, 10);
-      if (!/^[\w-]{40,90}$/.test(puuid) || !ids.length) return { status: 400, body: { error: "Joueur ou parties invalides." } };
-      return { status: 200, body: await report(riot, { puuid, region: PLATFORMS[platform][0], ids, benchmarks, champstats }) };
+      // role : parties du rôle ; champion : parties du champion (on remonte plus loin dans l'historique) ; ids : liste imposée
+      const puuid = String(params.get("puuid") || ""), ids = String(params.get("ids") || "").split(",").filter(id => /^[A-Z0-9]+_\d+$/.test(id)).slice(0, 20);
+      const role = ROLES.includes(params.get("role")) ? params.get("role") : null, champion = /^[A-Za-z]{2,20}$/.test(params.get("champion") || "") ? params.get("champion") : null;
+      if (!/^[\w-]{40,90}$/.test(puuid) || (!ids.length && !role && !champion)) return { status: 400, body: { error: "Joueur ou parties invalides." } };
+      return { status: 200, body: await report(riot, { puuid, region: PLATFORMS[platform][0], ids, role, champion, benchmarks, champstats }) };
     }
     if (path === "/api/coach/review") {
       const matchId = String(params.get("match") || ""), puuid = String(params.get("puuid") || "");

@@ -2,6 +2,15 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-21, 15 h 45 — bilan approfondi : plus de parties quand le sujet l'exige (branche `coach-v2-suite`)
+- **Demande d'Anthony** : analyser beaucoup plus de parties du joueur quand un sujet le demande.
+- **Bilan général par rôle** : jusqu'à 20 parties relues en détail, choisies parmi les 40 dernières parties classées (le profil n'en lit que 10). Tous les rôles sont proposés, même secondaires.
+- **Bilan par champion** : on remonte jusqu'aux 60 dernières parties classées pour trouver celles jouées avec ce champion.
+- **Adversaires rencontrés plusieurs fois** : bilan du joueur contre eux, par exemple Ahri 1 victoire sur 4. Les champions et les duels sont comptés sur toutes les parties retenues.
+- **Seuil d'une tendance** : au moins 3 parties et au moins un quart des parties relues (5 sur 20).
+- **Clé de développement partagée** : la collecte passe à 80 requêtes par 2 minutes pour laisser de la marge à l'application, et le service fait jusqu'à 6 essais quand Riot le freine.
+- **Mesure réelle** (compte Challenger) : 20 parties mid relues en 13 s ; 8 parties Sylas trouvées parmi 60 en 4 s.
+
 ## 2026-10-21, 15 h 30 — préparation de partie, matchups, bilan général, contradictions (branche `coach-v2-suite`, à valider)
 - **Demande d'Anthony**
   - une analyse de chaque partie à partir des connaissances ;

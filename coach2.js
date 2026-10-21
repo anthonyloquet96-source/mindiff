@@ -602,30 +602,42 @@ function c2GameDraft(r, id) {
 }
 
 // ---------- Bilan général : tendances sur les dernières parties du rôle suivi, priorités et plan de session
-async function c2LoadReport(key, ids) {
+async function c2LoadReport(key, params) {
   if (c2ui.report?.key === key) return;
   c2ui.report = { key, loading: true };
-  try { c2ui.report = { key, data: await c2Fetch("report", { puuid: C2.account.puuid, platform: C2.account.platform, ids: ids.join(",") }) }; } catch (e) { c2ui.report = { key, error: e.message }; }
+  try { c2ui.report = { key, data: await c2Fetch("report", { puuid: C2.account.puuid, platform: C2.account.platform, ...params }) }; } catch (e) { c2ui.report = { key, error: e.message }; }
   render(false);
+}
+// Sujet du bilan : un rôle (jusqu'à 20 parties relues parmi les 40 dernières) ou un champion (parmi les 60 dernières)
+function c2ReportPicker(p, role, champ) {
+  const champs = [...new Set([...p.champions.map(([c]) => c2Id(c) || c), ...((C2.pool || {})[role] || [])])].slice(0, 8);
+  return `<div class="c2-card c2-picker">
+    <div class="c2-roles" role="group" aria-label="Rôle">${C2_ORDER.map(r => `<button class="pill-btn ${r === role && !champ ? "on" : ""}" data-action="c2-report-role" data-role="${r}" aria-pressed="${r === role && !champ}">${esc(C2_ROLE[r])}</button>`).join("")}</div>
+    <div class="c2-chiprow" role="group" aria-label="Champion">${champs.map(c => `<button class="c2-cchip ${champ === c ? "on" : ""}" data-action="c2-report-champ" data-c="${esc(c)}" aria-pressed="${champ === c}">${c2Img(c, "c2-av xs")}${esc(c2Name(c))}</button>`).join("")}</div>
+  </div>`;
 }
 function c2Report() {
   const p = C2.profile;
   if (!p || C2_API == null) return empty("Compte non connecté", "", `<a class="btn" href="${c2Href()}">Connecter mon compte</a>`);
-  const role = c2Role(p);
-  const ids = p.games.filter(g => g.role === role).map(g => g.id);
-  if (ids.length < 3) return `${c2Roles(p)}<p class="note">${icon("info")}<span>Il faut au moins 3 parties récentes en ${esc(C2_ROLE[role] || "—")} pour un bilan général.</span></p>`;
-  const key = `${C2.account.puuid}|${ids.join(",")}`;
-  setTimeout(() => c2LoadReport(key, ids), 0);
+  const champ = c2ui.reportChamp || null;
+  const role = c2ui.reportRole || c2Role(p);
+  const params = champ ? { champion: champ } : { role };
+  const key = `${C2.account.puuid}|${role}|${champ || ""}`;
+  setTimeout(() => c2LoadReport(key, params), 0);
   const R = c2ui.report?.key === key ? c2ui.report : null;
-  if (!R || R.loading) return `${c2Roles(p)}<div class="c2-card c2-loading">Relecture de tes ${ids.length} dernières parties en ${esc(C2_ROLE[role])}…</div>`;
-  if (R.error) return `<div class="note warn">${icon("alert")}<span>${esc(R.error)}</span></div>`;
+  const pick = c2ReportPicker(p, role, champ);
+  const subject = champ ? `avec ${esc(c2Name(champ))}` : `en ${esc(C2_ROLE[role])}`;
+  if (!R || R.loading) return `${pick}<div class="c2-card c2-loading">Relecture de tes parties ${subject} (jusqu'à 20, parmi tes ${champ ? 60 : 40} dernières parties classées)…</div>`;
+  if (R.error) return `${pick}<div class="note warn">${icon("alert")}<span>${esc(R.error)}</span><button class="btn ghost sm" data-action="c2-report-retry">Réessayer</button></div>`;
+  if (R.data.games < 3) return `${pick}<p class="note">${icon("info")}<span>Seulement ${R.data.found ?? R.data.games} partie${(R.data.found ?? R.data.games) > 1 ? "s" : ""} ${subject} parmi tes ${R.data.scanned ?? "dernières"} dernières parties classées : il en faut au moins 3 pour un bilan.</span></p>`;
   const d = R.data;
   const first = d.minus[0];
   // Champion conseillé : meilleurs résultats récents du joueur (2 parties au moins), à défaut le plus joué
   const best = [...d.champions].filter(c => c.games >= 2).sort((a, b) => b.wins / b.games - a.wins / a.games || b.kda - a.kda)[0];
   const dots = list => list?.length ? `<div class="c2-dots">${list.map(gid => `<a class="c2-dot" href="${c2Href("partie", gid)}" title="Voir la partie"></a>`).join("")}</div>` : "";
-  return `${c2Roles(p)}
-    <section class="c2-card c2-plan"><p class="label">Ta prochaine session · ${esc(C2_ROLE[role])}</p>
+  return `${pick}
+    <p class="fine">${d.games} parties relues en détail${d.scanned ? ` sur ${d.found} trouvées ${subject} parmi tes ${d.scanned} dernières parties classées` : ""} · ${d.wins} victoire${d.wins > 1 ? "s" : ""} sur ${d.found ?? d.games}.</p>
+    <section class="c2-card c2-plan"><p class="label">Ta prochaine session · ${champ ? esc(c2Name(champ)) : esc(C2_ROLE[role])}</p>
       <h2 class="c2-goal-title">${first ? esc(first.title.replace(/ dans \d+ parties sur \d+$/, "")) : "Garder ce qui marche"}</h2>
       <ol class="c2-steps">
         ${first ? `<li><b>Priorité</b> : ${esc(c2TipOf(first) || first.detail)}</li>` : `<li><b>Aucun point faible récurrent</b> sur tes ${d.games} dernières parties : vise la médiane Diamant+ sur un point de ton choix.</li>`}
@@ -642,6 +654,7 @@ function c2Report() {
     <section class="sec"><div class="sec-head"><h2 class="sec-title">Tes champions</h2></div>
       <ul class="c2-games">${d.champions.map(c => `<li><div class="c2-game ${c.wins * 2 >= c.games ? "win" : "loss"}">${c2Img(c.champion)}<span class="c2-g-main"><b>${esc(c2Name(c.champion))}</b><span class="fine">${c.games} partie${c.games > 1 ? "s" : ""} · ${c.wins} victoire${c.wins > 1 ? "s" : ""}</span></span><span class="c2-g-kda"><b>${c.k}/${c.d}/${c.a}</b><span class="fine">KDA ${c2n(c.kda)}</span></span><span></span></div></li>`).join("")}</ul>
     </section>
+    ${d.rivals?.length ? `<section class="sec"><div class="sec-head"><h2 class="sec-title">Adversaires rencontrés plusieurs fois</h2></div><div class="c2-chiprow">${d.rivals.map(o => `<span class="c2-cchip">${c2Img(o.opponent, "c2-av xs")}${esc(c2Name(o.opponent))} : ${o.wins}/${o.games}</span>`).join("")}</div></section>` : ""}
     ${d.matchups.length ? `<section class="sec"><div class="sec-head"><h2 class="sec-title">Tes duels</h2></div><ul class="c2-mu c2-card">${d.matchups.map(m => `<li><span class="c2-mu-duel"><a href="${c2Href("partie", m.id)}">${c2Img(m.champion, "c2-av sm")}</a><span class="c2-vs-sep">contre</span>${c2Img(m.opponent, "c2-av sm")}</span><span class="c2-mu-stat"><b class="${m.win ? "up" : "down"}">${m.win ? "Victoire" : "Défaite"}</b>${m.gold10 != null ? `<span class="fine">${m.gold10 > 0 ? "+" : ""}${c2n(m.gold10)} or à 10 min</span>` : ""}</span></li>`).join("")}</ul></section>` : ""}
     <p class="fine c2-foot">${esc(d.note)}</p>`;
 }
@@ -722,6 +735,10 @@ document.addEventListener("click", e => {
   if (!a || !a.dataset.action.startsWith("c2-")) return;
   const D = C2.draft, act = a.dataset.action;
   if (act === "c2-draft-role") { D.role = a.dataset.role; c2Save(); render(false); }
+  // Bilan général : sujet (rôle ou champion), nouvel essai
+  if (act === "c2-report-role") { c2ui.reportRole = a.dataset.role; c2ui.reportChamp = null; render(false); }
+  if (act === "c2-report-champ") { c2ui.reportChamp = c2ui.reportChamp === a.dataset.c ? null : a.dataset.c; render(false); }
+  if (act === "c2-report-retry") { c2ui.report = null; render(false); }
   if (act === "c2-draft-clear") { D.allies = {}; D.enemies = {}; c2Save(); render(false); }
   if (act === "c2-pool-del" || act === "c2-pool-add") {
     const list = ((C2.pool ||= {})[D.role] ||= []);

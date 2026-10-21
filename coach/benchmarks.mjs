@@ -17,7 +17,7 @@ const DAYS = 30; // au-delà, la partie sort de l'échantillon (méta et patchs 
 let used = 0;
 async function riot(url) {
   for (let attempt = 0; attempt < 4; attempt++) {
-    await wait(1250); // clé de développement : 100 requêtes par 2 minutes
+    await wait(1500); // clé de développement : 100 requêtes par 2 minutes, dont 20 laissées à l'application
     used++;
     const r = await fetch(url, { headers: { "X-Riot-Token": process.env.RIOT_API_KEY.trim() } });
     if (r.ok) return r.json();

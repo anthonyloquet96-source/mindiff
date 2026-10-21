@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-21T09:19:03.850Z",
+ "generatedAt": "2026-10-21T12:51:15.759Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -9,129 +9,120 @@
  "discovery": {
   "wtl-blog": {
    "attempts": 0,
-   "lastOk": "2026-10-21T02:26:16.920Z",
+   "lastOk": "2026-10-21T12:50:18.649Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 2
   },
   "yt-skill-capped": {
    "attempts": 0,
-   "lastOk": "2026-10-21T02:26:16.963Z",
+   "lastOk": "2026-10-21T12:50:18.852Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-coach-curtis": {
    "attempts": 0,
-   "lastOk": "2026-10-21T02:26:17.040Z",
+   "lastOk": "2026-10-21T12:50:18.979Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-doublelift": {
    "attempts": 0,
-   "lastOk": "2026-10-21T02:26:17.116Z",
+   "lastOk": "2026-10-21T12:50:19.095Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-veigar-v2": {
    "attempts": 0,
-   "lastOk": "2026-10-21T02:26:17.211Z",
+   "lastOk": "2026-10-21T12:50:19.203Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-pekinwoof": {
-   "attempts": 2,
-   "lastError": "HTTP 404 (2026-10-21T04:17:08.026Z)",
-   "nextTry": "2026-10-21T10:17:08.027Z"
+   "attempts": 0,
+   "lastOk": "2026-10-21T12:50:19.318Z",
+   "lastError": null,
+   "nextTry": null,
+   "lastCount": 15
   },
   "yt-aloisnl": {
    "attempts": 0,
-   "lastOk": "2026-10-21T02:26:17.340Z",
+   "lastOk": "2026-10-21T12:50:19.511Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-chreak": {
    "attempts": 0,
-   "lastOk": "2026-10-21T07:08:47.150Z",
+   "lastOk": "2026-10-21T12:50:19.622Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-sixen": {
    "attempts": 0,
-   "lastOk": "2026-10-21T07:32:59.858Z",
+   "lastOk": "2026-10-21T12:50:19.762Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-perryjg": {
    "attempts": 0,
-   "lastOk": "2026-10-21T07:32:59.876Z",
+   "lastOk": "2026-10-21T12:50:19.922Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-coach-leo": {
    "attempts": 0,
-   "lastOk": "2026-10-21T07:32:59.905Z",
+   "lastOk": "2026-10-21T12:50:20.036Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-coach-kirei": {
    "attempts": 0,
-   "lastOk": "2026-10-21T07:32:59.929Z",
+   "lastOk": "2026-10-21T12:50:20.141Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-wtl": {
    "attempts": 0,
-   "lastOk": "2026-10-21T07:33:34.067Z",
+   "lastOk": "2026-10-21T12:50:20.333Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-ls": {
    "attempts": 0,
-   "lastOk": "2026-10-21T07:33:34.162Z",
+   "lastOk": "2026-10-21T12:50:20.457Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-dishake": {
    "attempts": 0,
-   "lastOk": "2026-10-21T07:33:34.182Z",
+   "lastOk": "2026-10-21T12:50:20.636Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-10-21T08:17:05.371Z",
+ "lastDiscovery": "2026-10-21T12:50:20.641Z",
  "failures": [],
  "quarantine": [],
  "rejected": [
   {
-   "id": "u-ai-yt-j9D4cUnQWqY-1",
+   "id": "u-ai-yt-5un5rVpQpf8-4",
    "reasons": [
     {
      "code": "citation-insuffisante",
-     "why": "Aucun passage ne porte sur Nunu et Willump."
-    }
-   ],
-   "at": "2026-10-20",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-4DTgrtkWYCI-1",
-   "reasons": [
-    {
-     "code": "citation-insuffisante",
-     "why": "Aucun passage ne porte sur Mordekaiser."
+     "why": "Aucun passage ne porte sur Yone."
     }
    ],
    "at": "2026-10-20",
@@ -169,8 +160,6 @@
   "c-riot-champion-insights-yone",
   "c-riot-dev-launching-yuumi-s-rework",
   "c-riot-dev-yuumi-s-rework",
-  "c-yt-qQNuoySpVMc",
-  "c-yt-S3F9CpeiSNE",
   "c-riot-champion-insights-zeri"
  ],
  "review": [
@@ -1090,123 +1079,19 @@
   "month": 0,
   "calls": [
    {
-    "at": "2026-10-20T21:47:28.419Z",
-    "content": "c-yt-y4qpSa5m5K0",
-    "model": "gemini-3.8-flash",
-    "input": 9374,
-    "output": 2958,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-20T21:54:28.526Z",
-    "content": "c-yt-y4qpSa5m5K0",
+    "at": "2026-10-20T22:36:35.770Z",
+    "content": "c-yt-5un5rVpQpf8",
     "model": "gemini-3.7-flash",
-    "input": 4738,
-    "output": 1860,
+    "input": 5133,
+    "output": 6351,
     "usd": 0
    },
    {
-    "at": "2026-10-20T21:55:03.748Z",
-    "content": "c-yt-j9D4cUnQWqY",
-    "model": "gemini-3.8-flash",
-    "input": 12599,
-    "output": 4012,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-20T21:55:34.880Z",
-    "content": "c-yt-j9D4cUnQWqY",
-    "model": "gemini-3.8-flash",
-    "input": 5400,
-    "output": 2095,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-20T21:56:03.760Z",
-    "content": "c-yt-4DTgrtkWYCI",
-    "model": "gemini-3.8-flash",
-    "input": 8272,
-    "output": 3582,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-20T21:56:35.390Z",
-    "content": "c-yt-4DTgrtkWYCI",
-    "model": "gemini-3.8-flash",
-    "input": 6227,
-    "output": 3688,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-20T21:58:39.258Z",
-    "content": "c-yt-y4qpSa5m5K0",
-    "model": "gemini-3.8-flash",
-    "input": 9374,
-    "output": 4156,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-20T21:58:56.279Z",
-    "content": "c-yt-y4qpSa5m5K0",
-    "model": "gemini-3.8-flash",
-    "input": 5003,
-    "output": 1804,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-20T21:59:42.652Z",
-    "content": "c-yt-j9D4cUnQWqY",
-    "model": "gemini-3.8-flash",
-    "input": 12599,
-    "output": 4870,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-20T22:00:07.964Z",
-    "content": "c-yt-j9D4cUnQWqY",
-    "model": "gemini-3.8-flash",
-    "input": 5461,
-    "output": 2715,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-20T22:00:29.546Z",
-    "content": "c-yt-4DTgrtkWYCI",
-    "model": "gemini-3.8-flash",
-    "input": 8272,
-    "output": 2106,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-20T22:06:13.356Z",
-    "content": "c-yt-4DTgrtkWYCI",
-    "model": "gemini-3.7-flash",
-    "input": 5398,
-    "output": 1133,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-20T22:09:36.032Z",
-    "content": "c-yt-y4qpSa5m5K0",
+    "at": "2026-10-20T22:39:12.508Z",
+    "content": "c-yt-5un5rVpQpf8",
     "model": "gemini-3.5-flash",
-    "input": 9374,
-    "output": 3817,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-20T22:20:36.218Z",
-    "content": "c-yt-4DTgrtkWYCI",
-    "model": "gemini-3.5-flash",
-    "input": 8272,
-    "output": 5413,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-21T08:32:46.614Z",
-    "content": "c-yt-qQNuoySpVMc",
-    "model": "gemini-3.5-flash",
-    "input": 8199,
-    "output": 4881,
+    "input": 4534,
+    "output": 2018,
     "usd": 0
    }
   ],

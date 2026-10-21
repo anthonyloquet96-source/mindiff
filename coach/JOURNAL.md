@@ -2,6 +2,26 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-21, 16 h 30 — inventaire des vidéos pédagogiques (toutes langues) pour chiffrer Gemini payant
+- **Outil** : `coach/inventory.mjs` (pages publiques de YouTube, sans clé ni IA). Il cherche les chaînes par langue, lit le catalogue complet de chaque chaîne (titre, durée, âge) et estime le coût au tarif Gemini 3.8 Flash. Résultats privés : `coach/cache/inventory.json`, sélections dans `inventory-selection.json`.
+- **Périmètre**
+  - 290 chaînes trouvées dans 10 langues.
+  - 87 retenues (5 000 abonnés au moins, profil haut niveau, coaching ou guides, aucun autre jeu) dans 9 langues ; le vietnamien n'a rien donné d'utile sur YouTube.
+  - 79 chaînes ont du contenu pédagogique sur les 24 derniers mois.
+- **Volumes et coûts estimés**, hors vidéos de plus de 60 min et contenus pour débutants ou bas niveau :
+
+| Sélection | Vidéos | Heures | Coût 2026 | Coût 2027 |
+|---|---|---|---|---|
+| Tout le pédagogique sur 24 mois | 5 497 | 2 530 | ~895 $ | ~1 790 $ |
+| Les 25 plus vues par chaîne | 1 480 | 603 | ~222 $ | ~444 $ |
+| Les 15 plus vues par chaîne sur 12 mois | 887 | 369 | ~135 $ | ~270 $ |
+| Suivi des nouvelles vidéos | ~230 par mois | | ~37 $ par mois | ~74 $ par mois |
+
+- **Limites**
+  - Le tri « pédagogique » se fait sur les titres (mots-clés en 10 langues) : c'est une estimation.
+  - Le coût par vidéo est estimé (90 tokens par seconde de vidéo, plus l'analyse) ; à mesurer sur les premières lectures payantes.
+  - Le mode « Batch » (moitié prix) n'est pas encore vérifié pour les vidéos YouTube.
+
 ## 2026-10-21, 15 h 45 — bilan approfondi : plus de parties quand le sujet l'exige (branche `coach-v2-suite`)
 - **Demande d'Anthony** : analyser beaucoup plus de parties du joueur quand un sujet le demande.
 - **Bilan général par rôle** : jusqu'à 20 parties relues en détail, choisies parmi les 40 dernières parties classées (le profil n'en lit que 10). Tous les rôles sont proposés, même secondaires.

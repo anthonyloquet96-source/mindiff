@@ -1049,8 +1049,11 @@ function syncPanelHtml() {
       <p class="fine">La synchronisation indique quand le site a interrogé les sources. Chaque contenu affiche sa propre date de publication.</p>
       <ul class="srclist">${AUTO.sources.map(s => `<li><span class="dot ${s.ok ? "ok" : "warn"}"></span><span>${esc(s.name)}</span><span class="fine">${s.ok ? `${s.count}` : esc(s.error)}${s.keptFrom ? ` · données du ${fmtDay(s.keptFrom)} conservées` : ""}</span></li>`).join("")}</ul>
       ${HAS_SERVER ? `<button class="btn ghost sm" data-action="collect">Lancer une collecte</button>` : ""}
+      <p class="fine">${RIOT_LEGAL}</p>
     </div>`;
 }
+// Mention exigée par Riot Games pour les produits utilisant son API (texte officiel, en anglais)
+const RIOT_LEGAL = "MINDIFF isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.";
 
 let sheetOpener = null;
 function syncSheet() {

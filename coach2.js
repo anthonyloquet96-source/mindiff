@@ -151,7 +151,7 @@ function viewCoach2(rest = []) {
   if (sub === "partie" && arg) return head("Bilan de partie", c2Href()) + c2Game(arg);
   if (sub === "face") return head("Face-à-face", c2Href()) + c2Face();
   if (sub === "champions") return head(arg ? c2Name(arg) : "Champions", arg ? c2Href("champions") : c2Href()) + (arg ? c2Champion(arg) : c2Champions());
-  return head("Coach") + c2Home();
+  return head("Coach") + c2Home() + `<p class="fine c2-foot">${RIOT_LEGAL}</p>`;
 }
 
 function c2Home() {

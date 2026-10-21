@@ -10,7 +10,7 @@ import { triage } from "./discover.mjs";
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36";
 const HEAD = { "User-Agent": UA, "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8", Cookie: "CONSENT=YES+cb; SOCS=CAI" };
 // Guides et cours ; jamais les courts extraits, tier lists, notes de patch ni divertissement (dépassés ou sans méthode)
-const KEEP = /guide|tuto|coaching|comment (jouer|carry|monter)|dans la t[eê]te d'un|apprend|how to|fundamentals/i;
+const KEEP = /guide|tuto|coaching|comment (jouer|carry|monter)|dans la t[eê]te d'un|apprend|how to|fundamentals|vod review|#1 [^|]*world|educational/i;
 const DROP = /tier ?list|patch ?note|op picks|guess the elo|trailer|#shorts|#twitch|r[ée]action|fin des guides|futur 20\d\d|inscription/i;
 
 const ytData = html => JSON.parse(html.match(/var ytInitialData = (\{.*?\});<\/script>/s)?.[1] || "{}");

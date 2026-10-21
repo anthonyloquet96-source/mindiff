@@ -40,7 +40,7 @@ export async function gemini({ models, parts, system, schema, maxOutputTokens = 
       last = new Error(`${model} HTTP ${r.status} : ${j.error?.message || ""}`);
       if (r.status === 404) break;                       // modèle retiré : suivant
       // Quota journalier épuisé : inutile de réessayer ce modèle aujourd'hui, on passe au suivant
-      if (r.status === 429 && /quota|billing|free_tier/i.test(j.error?.message || "")) { quotaHit.add(model); break; }
+      if (r.status === 429 && /quota|billing|free_tier/i.test(j.error?.message || "")) { quotaHit.add(model, j.error?.message); break; }
       if (r.status === 429 || r.status >= 500) { await wait([5000, 20000, 45000][attempt]); continue; }
       throw last;                                          // 400, 403 : inutile d'insister
     }
@@ -50,7 +50,16 @@ export async function gemini({ models, parts, system, schema, maxOutputTokens = 
 }
 
 // Quota gratuit épuisé sur tous les modèles : ce n'est pas un échec du contenu, on s'arrête jusqu'au lendemain
-const quotaHit = new Set();
+// Un serveur qui tourne plusieurs jours doit oublier le quota épuisé à sa remise à zéro : délai annoncé par Google (« retry in 6h51m38s »), sinon 1 h
+export const quotaHit = {
+  until: new Map(),
+  has(model) { const t = this.until.get(model); if (t && t <= Date.now()) this.until.delete(model); return this.until.has(model); },
+  add(model, message = "") {
+    const m = String(message).match(/retry in (?:(\d+)h)?(?:(\d+)m)?(?:([\d.]+)s)?/i);
+    const ms = m && (m[1] || m[2] || m[3]) ? ((+m[1] || 0) * 3600 + (+m[2] || 0) * 60 + (+m[3] || 0)) * 1000 : 3600e3;
+    this.until.set(model, Date.now() + ms);
+  },
+};
 export class QuotaError extends Error {
   constructor() { super("quota gratuit de Gemini épuisé pour aujourd'hui (environ 20 requêtes par jour et par modèle) : reprise au prochain passage après sa remise à zéro"); this.quota = true; }
 }

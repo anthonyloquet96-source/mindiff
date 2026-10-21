@@ -2,6 +2,31 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-21, 09 h 45 — nouveaux créateurs (Sixen et recherche internationale)
+
+- **Demande d'Anthony** : ajouter Sixen et chercher dans le monde entier des créateurs pédagogiques de haut niveau. Leurs vidéos sont lues dans leur langue, et les connaissances sont rédigées en français.
+- **Ajoutés** (crédibilité « à établir » pour tous ; niveau déclaré, non vérifié indépendamment) :
+  - `yt-sixen` (fr) : ses analyses « #1 world » portent sur le haut niveau et servent de référence ; ses « Analyses délu » (Bronze–Platine) ne servent qu'à corriger.
+  - `yt-perryjg` (en, jungle) : règles de jeu et VOD reviews ; 25 anciens guides en file.
+  - `yt-coach-leo` (en, jungle) : parties commentées « Educational SoloQ » à plus de 1100 LP.
+  - `yt-coach-kirei` (en, mid et jungle) : analyses de joueurs du haut du classement.
+  - `yt-wtl` (en) : même organisation que `wtl-blog` (`organization: we-teach-league`). Le contrôle critique ne compte plus deux sources d'une même organisation comme indépendantes.
+  - `yt-ls` (en) : coachings et fondamentaux, mêlés à du commentaire esport.
+  - `yt-dishake` (es) : guides de macro par rôle.
+- **Écartés après examen des titres récents** :
+  - Vars : histoire du jeu, pas de cours.
+  - Spear Shot : défis et classement.
+  - Agurin : directs et extraits courts ; il est analysé par Coach Leo et Coach Kirei.
+  - Midbeast : rediffusions commentées.
+  - Phreak : aperçus de League Classic, pas la Faille actuelle.
+  - CoreJJ : temps forts.
+  - Nemesis : contenu mixte.
+- **Non trouvé** : la recherche YouTube en coréen et en chinois ne renvoie aucune chaîne exploitable. Aucune chaîne coréenne n'est ajoutée sans vérification.
+- **Corrections** :
+  - `discovery.maxSources` passe de 12 à 25 : 3 sources n'étaient jamais vérifiées ;
+  - l'outil `backfill` reconnaît désormais « VOD review », « #1 … world » et « educational ».
+- **Prototype « Mes parties »** : le serveur expérimental gardait en mémoire le quota épuisé et n'essayait plus jamais Gemini. `coach/gemini.mjs` oublie désormais ce blocage après le délai indiqué par Google. Test ajouté.
+
 ## 2026-10-21, 09 h 25 — vidéos longues pédagogiques
 
 - **Demande d'Anthony** : prendre en compte les vidéos longues quand elles sont pertinentes.

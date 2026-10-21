@@ -278,7 +278,8 @@
     "why": "Méthode de travail clairement argumentée mais témoignage personnel. Site commercial qui promeut ses académies. Auteure spécialiste du mid, pas de la bot lane."
    },
    "lastChecked": "2026-10-20",
-   "active": true
+   "active": true,
+   "organization": "we-teach-league"
   },
   {
    "id": "yt-skill-capped",
@@ -663,6 +664,267 @@
    "credibility": {
     "level": "à établir",
     "why": "Guides mid en français par un ancien pro, mais la chaîne mêle guides et extraits de stream : chaque vidéo est jugée sur sa qualité réelle."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true
+  },
+  {
+   "id": "yt-sixen",
+   "name": "Sixen",
+   "author": "Sixen",
+   "url": "https://www.youtube.com/channel/UCRE9cpOPYEBMx4V6vTzfOWQ",
+   "channelId": "UCRE9cpOPYEBMx4V6vTzfOWQ",
+   "langs": [
+    "fr"
+   ],
+   "kind": "createur",
+   "format": "video",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Analyses de joueurs n°1 mondiaux par champion et analyses de joueurs de bas niveau (« délu »)",
+     "evidence": "https://www.youtube.com/channel/UCRE9cpOPYEBMx4V6vTzfOWQ",
+     "how": "déclaration de la chaîne (titres, description) ; niveau non vérifié indépendamment au 2026-10-21"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google), dans leur langue d'origine ; connaissances rédigées en français avec mention de traduction.",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCRE9cpOPYEBMx4V6vTzfOWQ"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Pédagogique selon Anthony. Les analyses « #1 world » portent sur le haut niveau (référence) ; les « délu » portent sur Bronze–Platine et ne servent qu'à corriger (règle Diamant+). Titres racoleurs : chaque vidéo est jugée sur son contenu."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true
+  },
+  {
+   "id": "yt-perryjg",
+   "name": "perryjg",
+   "author": "perryjg",
+   "url": "https://www.youtube.com/channel/UCKFyfbdmrlTERfDVmw_eJqw",
+   "channelId": "UCKFyfbdmrlTERfDVmw_eJqw",
+   "langs": [
+    "en"
+   ],
+   "kind": "createur",
+   "format": "video",
+   "roles": [
+    "jungle"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Jungler se présentant comme Challenger ; VOD reviews et règles de jeu jungle",
+     "evidence": "https://www.youtube.com/channel/UCKFyfbdmrlTERfDVmw_eJqw",
+     "how": "déclaration de la chaîne (titres, description) ; niveau non vérifié indépendamment au 2026-10-21"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google), dans leur langue d'origine ; connaissances rédigées en français avec mention de traduction.",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCKFyfbdmrlTERfDVmw_eJqw"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Contenu jungle pédagogique (VOD reviews, règles) ; comble l'absence de source jungle. Tier lists dépendantes du patch."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true
+  },
+  {
+   "id": "yt-coach-leo",
+   "name": "Coach Leo (JungleGap)",
+   "author": "Coach Leo (JungleGap)",
+   "url": "https://www.youtube.com/channel/UCcWrPkUDJRSPqt4kAF9DVsA",
+   "channelId": "UCcWrPkUDJRSPqt4kAF9DVsA",
+   "langs": [
+    "en"
+   ],
+   "kind": "createur",
+   "format": "video",
+   "roles": [
+    "jungle"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Coach jungle ; parties commentées « Educational SoloQ » à plus de 1100 LP",
+     "evidence": "https://www.youtube.com/channel/UCcWrPkUDJRSPqt4kAF9DVsA",
+     "how": "déclaration de la chaîne (titres, description) ; niveau non vérifié indépendamment au 2026-10-21"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google), dans leur langue d'origine ; connaissances rédigées en français avec mention de traduction.",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcWrPkUDJRSPqt4kAF9DVsA"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Parties pédagogiques commentées de haut niveau ; certains coachings portent sur l'Or (correction uniquement)."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true
+  },
+  {
+   "id": "yt-coach-kirei",
+   "name": "Coach Kirei",
+   "author": "Coach Kirei",
+   "url": "https://www.youtube.com/channel/UCLrwY-46wPor7pjCaDz2NgA",
+   "channelId": "UCLrwY-46wPor7pjCaDz2NgA",
+   "langs": [
+    "en"
+   ],
+   "kind": "createur",
+   "format": "video",
+   "roles": [
+    "mid",
+    "jungle"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Coach ; analyses de joueurs du top du classement (Agurin, Sheiden)",
+     "evidence": "https://www.youtube.com/channel/UCLrwY-46wPor7pjCaDz2NgA",
+     "how": "déclaration de la chaîne (titres, description) ; niveau non vérifié indépendamment au 2026-10-21"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google), dans leur langue d'origine ; connaissances rédigées en français avec mention de traduction.",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCLrwY-46wPor7pjCaDz2NgA"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Analyses de joueurs de très haut niveau ; formats courts et titres accrocheurs fréquents."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true
+  },
+  {
+   "id": "yt-wtl",
+   "name": "We Teach League (YouTube)",
+   "author": "We Teach League (YouTube)",
+   "url": "https://www.youtube.com/channel/UCbkFsQcaQ_CuPWTBrsEm6cw",
+   "channelId": "UCbkFsQcaQ_CuPWTBrsEm6cw",
+   "langs": [
+    "en"
+   ],
+   "kind": "createur",
+   "format": "video",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Équipe de coachs (Broken By Concept) ; tables rondes et revues de parties",
+     "evidence": "https://www.youtube.com/channel/UCbkFsQcaQ_CuPWTBrsEm6cw",
+     "how": "déclaration de la chaîne (titres, description) ; niveau non vérifié indépendamment au 2026-10-21"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google), dans leur langue d'origine ; connaissances rédigées en français avec mention de traduction.",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCbkFsQcaQ_CuPWTBrsEm6cw"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Même organisation que le blog wtl-blog : ne compte pas comme une source indépendante de celui-ci."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true,
+   "organization": "we-teach-league"
+  },
+  {
+   "id": "yt-ls",
+   "name": "LS",
+   "author": "LS",
+   "url": "https://www.youtube.com/channel/UCWIfnDrWU_Cvc1a8qZribhA",
+   "channelId": "UCWIfnDrWU_Cvc1a8qZribhA",
+   "langs": [
+    "en"
+   ],
+   "kind": "createur",
+   "format": "video",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Ancien coach professionnel et analyste reconnu ; coachings et podcasts de fondamentaux",
+     "evidence": "https://www.youtube.com/channel/UCWIfnDrWU_Cvc1a8qZribhA",
+     "how": "déclaration de la chaîne (titres, description) ; niveau non vérifié indépendamment au 2026-10-21"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google), dans leur langue d'origine ; connaissances rédigées en français avec mention de traduction.",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCWIfnDrWU_Cvc1a8qZribhA"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Fondamentaux et coachings de qualité, mais chaîne mêlant commentaires esport et divertissement."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true
+  },
+  {
+   "id": "yt-dishake",
+   "name": "Dishake",
+   "author": "Dishake",
+   "url": "https://www.youtube.com/channel/UCApgHJTYQT2WA8jopItz4Tg",
+   "channelId": "UCApgHJTYQT2WA8jopItz4Tg",
+   "langs": [
+    "es"
+   ],
+   "kind": "createur",
+   "format": "video",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "expertise": [
+    {
+     "claim": "Coach League of Legends hispanophone ; guides de macro et d'erreurs par rôle",
+     "evidence": "https://www.youtube.com/channel/UCApgHJTYQT2WA8jopItz4Tg",
+     "how": "déclaration de la chaîne (titres, description) ; niveau non vérifié indépendamment au 2026-10-21"
+    }
+   ],
+   "access": {
+    "mode": "rss-metadonnees",
+    "detail": "Flux RSS public ; lecture des vidéos par Gemini (voie officielle de Google), dans leur langue d'origine ; connaissances rédigées en français avec mention de traduction.",
+    "discovery": {
+     "type": "youtube-rss",
+     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCApgHJTYQT2WA8jopItz4Tg"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Guides pédagogiques en espagnol ; niveau du coach à établir."
    },
    "lastChecked": "2026-10-21",
    "active": true

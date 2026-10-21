@@ -115,7 +115,8 @@ export function checkUnit(u, ctx) {
     if (a === b || ctx.contents.get(a)?.sourceId === ctx.contents.get(b)?.sourceId) continue;
     if ([...origins[i]].some(x => origins[j].has(x))) flag("meme-origine", `${a} et ${b} reprennent la même origine de données.`);
   }
-  const independent = new Set(ev.map(e => ctx.contents.get(e.content)?.sourceId)).size;
+  // Deux chaînes d'une même organisation (ex. blog et YouTube de We Teach League) ne comptent que pour une
+  const independent = new Set(ev.map(e => { const c = ctx.contents.get(e.content); return ctx.sources.get(c?.sourceId)?.organization || c?.sourceId; })).size;
   if (u.nature === "statistique" && independent < 2) flag("source-unique", "Statistique d'une seule source.", false, "provisoire");
   if (u.nature === "opinion") flag("source-unique", "Avis d'une seule personne : présenté comme tel.", false, "provisoire");
   const tiers = full.map(e => ({ t: tierOf(e.passage), c: e.context || "" })).filter(x => x.t);

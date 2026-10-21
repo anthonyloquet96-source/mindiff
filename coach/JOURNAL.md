@@ -2,6 +2,17 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-21, 12 h 30 — partie en cours et fiches Diamant+
+
+- **Partie en cours** (`live`, spectator-v5) : quand le joueur est en partie, le coach affiche son champion contre son adversaire direct, l'objectif personnel rappelé, 3 conseils contre l'adversaire et les deux équipes. Riot ne donne pas les rôles en direct : ils sont estimés (fréquences Diamant+ par champion, Châtiment, répartition la plus probable des 5 rôles). Les rôles incertains sont signalés.
+- **Mesure de l'estimation** (`coach/eval-roles.mjs`, 40 parties Émeraude–Or hors échantillon) : 95,1 % des rôles justes, 98 % quand le coach se dit sûr, adversaire direct juste dans 90,3 % des cas. Vérifié aussi sur une vraie partie en cours (Maître EUW).
+- **Échantillon Diamant+ cumulatif** (`coach/benchmarks.mjs`) : 393 parties sur 30 jours (surtout 16.20), soit 786 joueurs par rôle. Les parties déjà vues ne sont jamais recomptées, et seules leurs empreintes sont gardées.
+- **Fiches « Ce que jouent les Diamant+ »** : runes clés, objets, sorts et arbres, pour les champions qui ont au moins 30 parties au patch le plus joué (24 champions pour l'instant). Le taux de victoire n'est affiché qu'à partir de 100 parties, avec sa marge d'erreur. Ces données restent dans le cache privé et ne sont servies que par le serveur local, en attendant la clé de production.
+- **Tests** : rôles estimés (le Châtiment l'emporte sur les fréquences), calcul des fiches (patch le plus joué, parties de plus de 30 jours écartées, aucun identifiant de joueur).
+- **Limites** :
+  - l'échantillon ne grandit que lorsque `coach/benchmarks.mjs` est lancé avec une clé valide, et la clé de développement expire toutes les 24 h ;
+  - les données couvrent uniquement EUW.
+
 ## 2026-10-21, 11 h 30 — refonte du coach : aperçu `#/lol/coach/beta`
 
 Décisions d'Anthony : données Riot avec serveur gratuit et demande de clé de production ; pas d'IA en direct ; aperçu séparé avant de remplacer l'ancien coach.

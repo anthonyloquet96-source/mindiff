@@ -730,3 +730,22 @@ a.sb-team:hover .sb-name { text-decoration: underline; text-underline-offset: 3p
 .c2-champ .c2-av { width: 52px; height: 52px; border-radius: 14px; }
 .c2-foot { text-align: center; }
 .linkish { background: none; border: 0; padding: 0; color: var(--text-2); text-decoration: underline; cursor: pointer; font-size: inherit; }
+.c2-livebar { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); padding: var(--s2) var(--s2) var(--s2) var(--s4); background: var(--surface); border-radius: var(--r); min-height: 52px; }
+.c2-live { border: 1px solid rgba(255, 77, 46, .45); background: radial-gradient(120% 70% at 50% 0%, rgba(255, 77, 46, .18), transparent 70%), var(--surface); }
+.c2-live .label { display: flex; align-items: center; gap: 8px; }
+.c2-live-title { margin: 0; text-align: center; font-weight: 800; font-size: var(--fs-lg); }
+.c2-remind { background: var(--surface-2); border-radius: var(--r-sm); padding: var(--s3); }
+.c2-remind p { margin: 0; }
+.c2-team { display: flex; justify-content: space-between; gap: 4px; padding: var(--s2); border-radius: var(--r-sm); background: rgba(106, 168, 255, .08); }
+.c2-team.enemy { background: rgba(255, 122, 107, .08); }
+.c2-tm { display: flex; flex-direction: column; align-items: center; gap: 2px; flex: 1; min-width: 0; }
+.c2-tm .c2-av { width: 36px; height: 36px; }
+.c2-tm.me .c2-av { outline: 2px solid var(--accent); outline-offset: 1px; }
+.c2-tm i { font-style: normal; font-size: 11px; color: var(--text-3); }
+.c2-brow { display: flex; flex-direction: column; gap: 6px; }
+.c2-icons { display: flex; flex-wrap: wrap; gap: 8px; }
+.c2-ic, .c2-pair { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.c2-ic img { width: 40px; height: 40px; border-radius: 8px; background: var(--surface-2); }
+.c2-pair { flex-direction: row; flex-wrap: wrap; width: 72px; justify-content: center; }
+.c2-pair img { width: 32px; height: 32px; border-radius: 7px; }
+.c2-ic i, .c2-pair i { font-style: normal; font-size: 11px; color: var(--text-3); font-variant-numeric: tabular-nums; flex-basis: 100%; text-align: center; }

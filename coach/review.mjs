@@ -176,6 +176,86 @@ export async function review(riot, { matchId, puuid, region, benchmarks, fetchIm
   };
 }
 
+// ---------- Fiche champion Diamant+ : objets, runes, sorts réellement joués (échantillon coach/benchmarks.mjs)
+let namesCache = null;
+async function ddNames(fetchImpl = fetch) {
+  if (namesCache) return namesCache;
+  const [v] = await fetchImpl(`${DD}/api/versions.json`).then(r => r.json());
+  const [runes, spells] = await Promise.all([`${DD}/cdn/${v}/data/fr_FR/runesReforged.json`, `${DD}/cdn/${v}/data/fr_FR/summoner.json`].map(u => fetchImpl(u).then(r => r.json())));
+  const perk = {}, tree = {};
+  for (const t of runes) { tree[t.id] = t.name; for (const s of t.slots) for (const r of s.runes) perk[r.id] = { name: r.name, icon: r.icon }; }
+  namesCache = { v, perk, tree, spell: Object.fromEntries(Object.values(spells.data).map(s => [s.key, { name: s.name, id: s.id }])) };
+  return namesCache;
+}
+const margin = (w, n) => Math.round(1.96 * Math.sqrt((w / n) * (1 - w / n) / n) * 1000) / 10;
+export async function championCard(c, champstats, fetchImpl = fetch) {
+  const base = { patch: champstats?.patch || null, level: "Diamant et plus", minGames: champstats?.minGames || 30 };
+  if (!c || c.games < base.minGames) return { ...base, games: c?.games || 0, enough: false };
+  const [it, nm] = await Promise.all([items(fetchImpl), ddNames(fetchImpl)]);
+  const pct = x => ({ games: x.games, share: Math.round((x.games / c.games) * 100), winrate: Math.round((x.wins / x.games) * 1000) / 10 });
+  return {
+    ...base, enough: true, games: c.games, winrate: Math.round((c.wins / c.games) * 1000) / 10, margin: margin(c.wins, c.games),
+    roles: Object.entries(c.roles).sort((a, b) => b[1] - a[1]).map(([r, n]) => ({ role: r, share: Math.round((n / c.games) * 100) })).filter(r => r.share >= 10),
+    items: c.items.filter(x => it[x.id]?.gold >= 2000 && !it[x.id]?.boots).slice(0, 6).map(x => ({ id: x.id, name: it[x.id].name, ddVersion: nm.v, ...pct(x) })),
+    boots: c.items.filter(x => it[x.id]?.boots && it[x.id]?.gold > 300).slice(0, 2).map(x => ({ id: x.id, name: it[x.id].name, ddVersion: nm.v, ...pct(x) })),
+    keystones: c.keystones.map(x => ({ id: x.id, name: nm.perk[x.id]?.name || x.id, icon: nm.perk[x.id]?.icon, ...pct(x) })),
+    trees: c.trees.map(x => { const [a, b] = x.id.split("-"); return { name: `${nm.tree[a] || a} + ${nm.tree[b] || b}`, ...pct(x) }; }),
+    spells: c.spells.map(x => ({ names: x.id.split("-").map(k => nm.spell[k]?.name || k), ids: x.id.split("-").map(k => nm.spell[k]?.id), ddVersion: nm.v, ...pct(x) })),
+  };
+}
+
+// ---------- Partie en cours (spectator-v5) : champions des deux équipes ; Riot ne donne pas les rôles, on les estime
+let champsCache = null;
+async function ddChampions(fetchImpl = fetch) {
+  if (champsCache) return champsCache;
+  const [v] = await fetchImpl(`${DD}/api/versions.json`).then(r => r.json());
+  const j = await fetchImpl(`${DD}/cdn/${v}/data/en_US/champion.json`).then(r => r.json());
+  champsCache = Object.fromEntries(Object.values(j.data).map(c => [Number(c.key), { id: c.id, tags: c.tags }]));
+  return champsCache;
+}
+const ROLES5 = ["top", "jungle", "mid", "bottom", "support"];
+const TAG_PRIOR = { Marksman: { bottom: 3 }, Support: { support: 3 }, Mage: { mid: 2, support: 1 }, Assassin: { mid: 2, jungle: 1 }, Fighter: { top: 2, jungle: 1 }, Tank: { top: 2, support: 1, jungle: 1 } };
+function permutations(a) { return a.length <= 1 ? [a] : a.flatMap((x, i) => permutations([...a.slice(0, i), ...a.slice(i + 1)]).map(p => [x, ...p])); }
+// Répartition la plus probable des 5 rôles dans une équipe : fréquences Diamant+ par champion, Châtiment = jungle
+export function assignRoles(team, champstats, dd) {
+  const score = team.map(p => {
+    const seen = champstats?.champions?.[p.championId]?.rolesAll || {};
+    const total = Object.values(seen).reduce((a, b) => a + b, 0);
+    const prior = {};
+    for (const t of dd[p.championId]?.tags || []) for (const [r, w] of Object.entries(TAG_PRIOR[t] || {})) prior[r] = (prior[r] || 0) + w;
+    const smite = p.spells.includes(11);
+    return Object.fromEntries(ROLES5.map(r => [r, Math.log(((seen[r] || 0) * 3 + (prior[r] || 0) + 0.5) / (total * 3 + 10)) + (smite ? (r === "jungle" ? 6 : -6) : r === "jungle" ? -2 : 0)]));
+  });
+  if (team.length !== 5) return team.map((p, i) => ({ role: ROLES5.reduce((b, r) => (score[i][r] > score[i][b] ? r : b), "top"), sure: false }));
+  const perms = permutations(ROLES5).map(perm => ({ perm, s: perm.reduce((a, r, i) => a + score[i][r], 0) })).sort((a, b) => b.s - a.s);
+  const best = perms[0];
+  // Un rôle est « sûr » si toutes les répartitions presque aussi probables le donnent aussi
+  const close = perms.filter(x => best.s - x.s < 1.5);
+  return team.map((p, i) => ({ role: best.perm[i], sure: close.every(x => x.perm[i] === best.perm[i]) }));
+}
+export async function live(riot, { puuid, platform, champstats, fetchImpl = fetch, mainRole = null }) {
+  let g;
+  try { g = await riot(`https://${platform}.api.riotgames.com/lol/spectator/v5/active-games/by-summoner/${puuid}`, { ttl: 30e3 }); } catch (e) { if (e.status === 404) return { inGame: false }; throw e; }
+  const dd = await ddChampions(fetchImpl);
+  const parts = g.participants.map(p => ({ puuid: p.puuid, teamId: p.teamId, championId: p.championId, spells: [p.spell1Id, p.spell2Id] }));
+  const me = parts.find(p => p.puuid === puuid);
+  const out = [];
+  for (const teamId of [100, 200]) {
+    const team = parts.filter(p => p.teamId === teamId);
+    const roles = assignRoles(team, champstats, dd);
+    team.forEach((p, i) => out.push({ ...p, ...roles[i] }));
+  }
+  const view = p => ({ champion: dd[p.championId]?.id || String(p.championId), role: p.role, sure: p.sure, smite: p.spells.includes(11) });
+  const mine = out.find(p => p.puuid === puuid);
+  const opp = out.find(p => p.teamId !== me.teamId && p.role === mine.role);
+  return {
+    inGame: true, queue: QUEUES[g.gameQueueConfigId] || g.gameMode, queueId: g.gameQueueConfigId, startedAt: g.gameStartTime || null, length: g.gameLength,
+    me: view(mine), opponent: opp ? view(opp) : null, mainRole,
+    allies: out.filter(p => p.teamId === me.teamId).map(view), enemies: out.filter(p => p.teamId !== me.teamId).map(view),
+    note: "Riot ne fournit pas les rôles pendant la partie : ils sont estimés d'après ce que jouent les joueurs Diamant+ et le Châtiment.",
+  };
+}
+
 // Profil : compte, rang, dernières parties ; objectif de la semaine sur plusieurs parties (plus fiable qu'une seule)
 export async function profile(riot, { gameName, tagLine, platform, benchmarks, count = 10 }) {
   const [region, label] = PLATFORMS[platform] || [];

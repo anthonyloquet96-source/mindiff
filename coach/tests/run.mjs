@@ -119,6 +119,24 @@ await t("Bilan de partie (données Riot) : faits exacts, comparaison Diamant+", 
   assert(parseRiotId("Pseudo#EUW")?.tagLine === "EUW" && !parseRiotId("Pseudo"), "Riot ID");
   return "Mort à 12:00 suivie d'un dragon adverse à 12:40 → signalée ; achats après la mort distingués d'un retour ; écarts à 10 min exacts ; référence Diamant+ exigée (30 joueurs au moins).";
 });
+await t("Partie en cours : rôles estimés, fiches Diamant+ par champion", "fixture", async () => {
+  const { assignRoles } = await import("../review.mjs");
+  const { compute } = await import("../benchmarks.mjs");
+  const dd = { 1: { tags: ["Fighter"] }, 2: { tags: ["Mage"] }, 3: { tags: ["Marksman"] }, 4: { tags: ["Support"] }, 5: { tags: ["Fighter"] } };
+  // Le combattant avec Châtiment est le jungler, même si ses fréquences disent top
+  const cs = { champions: { 5: { rolesAll: { top: 40, jungle: 2 } }, 1: { rolesAll: { top: 30 } } } };
+  const r = assignRoles([1, 2, 3, 4, 5].map(id => ({ championId: id, spells: id === 5 ? [4, 11] : [4, 14] })), cs, dd);
+  assert(r.map(x => x.role).join() === "top,mid,bottom,support,jungle", r.map(x => x.role).join());
+  // Fiches : patch le plus joué seulement, aucune donnée de joueur
+  const row = (c, role, win, items) => ({ role, c, n: `C${c}`, win, m: { deaths30: 5 }, items, ks: 8005, prim: 8000, sec: 8400, spells: [4, 14] });
+  const now = Date.now();
+  const sample = { platform: "euw1", matches: [{ at: now, patch: "16.20", rows: [row(1, "top", 1, [3031]), row(2, "mid", 0, [3089])] }, { at: now, patch: "16.20", rows: [row(1, "top", 0, [3031, 3071])] }, { at: now, patch: "16.19", rows: [row(1, "jungle", 1, [9999])] }, { at: now - 40 * 864e5, patch: "16.20", rows: [row(1, "top", 1, [1])] }] };
+  const { bench, champstats } = compute(sample);
+  const c1 = champstats.champions[1];
+  assert(bench.games === 3 && champstats.patch === "16.20" && c1.games === 2 && c1.wins === 1 && c1.items[0].id === "3031" && c1.items[0].games === 2 && !c1.items.some(i => i.id === "9999"), JSON.stringify(c1));
+  assert(c1.rolesAll.jungle === 1 && !JSON.stringify(champstats).includes("puuid"), "rôles tous patchs ou identifiant de joueur");
+  return "Châtiment → jungle malgré des fréquences « top » ; fiches limitées au patch le plus joué, parties de plus de 30 jours écartées, aucun identifiant de joueur. Mesure réelle (coach/eval-roles.mjs, 40 parties hors échantillon) : 95 % des rôles justes, 98 % quand « sûr », adversaire direct juste à 90 %.";
+});
 await t("Tout le jeu : socle officiel pour chaque champion", "réel", () => {
   const dd = KB.units.filter(u => u.id.startsWith("u-dd-"));
   const champs = new Set(dd.flatMap(u => [...u.champions, u.matchup?.vs].filter(Boolean)));

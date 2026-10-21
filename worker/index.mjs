@@ -4,6 +4,7 @@
 
 import { coachApi } from "../coach/coach-api.mjs";
 import benchmarks from "./benchmarks.json";
+import champstats from "./champstats.json";
 
 const ORIGINS = ["https://anthonyloquet96-source.github.io", "http://localhost:3000"];
 
@@ -14,7 +15,7 @@ export default {
     const cors = { "Access-Control-Allow-Origin": ORIGINS.includes(origin) ? origin : ORIGINS[0], "Access-Control-Allow-Methods": "GET", Vary: "Origin" };
     if (request.method === "OPTIONS") return new Response(null, { headers: cors });
     if (request.method !== "GET" || !url.pathname.startsWith("/api/coach/")) return new Response("Introuvable", { status: 404, headers: cors });
-    const r = await coachApi(url.pathname, url.searchParams, { key: env.RIOT_API_KEY, benchmarks, visitor: request.headers.get("CF-Connecting-IP") || "?" });
+    const r = await coachApi(url.pathname, url.searchParams, { key: env.RIOT_API_KEY, benchmarks, champstats, visitor: request.headers.get("CF-Connecting-IP") || "?" });
     return new Response(JSON.stringify(r.body), { status: r.status, headers: { ...cors, "Content-Type": "application/json; charset=utf-8", "Cache-Control": r.status === 200 ? "private, max-age=60" : "no-store" } });
   },
 };

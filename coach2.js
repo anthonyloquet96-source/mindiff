@@ -11,7 +11,7 @@ const C2 = (() => {
   try { return { ...base, ...JSON.parse(localStorage.getItem(C2_KEY) || "null") }; } catch { return base; }
 })();
 const c2Save = () => { try { localStorage.setItem(C2_KEY, JSON.stringify({ ...C2, reviews: Object.fromEntries(Object.entries(C2.reviews).slice(-8)) })); } catch { /* stockage indisponible */ } };
-const c2ui = { loading: null, error: null, q: "" };
+const c2ui = { loading: null, error: null, q: "", live: null, liveAt: 0, liveBusy: false, champ: {} };
 // Service : le serveur local sert l'API ; en ligne, l'adresse du service est fixée par window.MINDIFF_API
 const C2_API = window.MINDIFF_API ?? (/^(localhost|127\.|192\.168\.|10\.)/.test(location.hostname) ? "" : null);
 const c2Href = (...p) => href("lol", "coach", "beta", ...p);
@@ -60,6 +60,20 @@ async function c2LoadProfile(force = false) {
     c2Save();
   } catch (e) { c2ui.error = e.message; }
   c2ui.loading = null; render(false);
+}
+// Partie en cours : vérifiée à l'ouverture du coach, puis à la demande (au plus une fois par minute)
+async function c2LoadLive(force = false) {
+  if (!C2.account?.puuid || c2ui.liveBusy || (!force && Date.now() - c2ui.liveAt < 60e3)) return;
+  c2ui.liveBusy = true;
+  try { c2ui.live = await c2Fetch("live", { puuid: C2.account.puuid, platform: C2.account.platform }); } catch { c2ui.live = null; }
+  c2ui.liveAt = Date.now(); c2ui.liveBusy = false; render(false);
+}
+// Fiche Diamant+ d'un champion (objets, runes, sorts) : données du serveur, pas encore publiées en ligne
+async function c2LoadChamp(id) {
+  if (C2_API == null || id in c2ui.champ) return;
+  c2ui.champ[id] = null;
+  try { c2ui.champ[id] = await c2Fetch("champion", { id }); } catch { c2ui.champ[id] = { error: true }; }
+  render(false);
 }
 async function c2LoadReview(id) {
   if (C2.reviews[id] || c2ui.loading) return;
@@ -115,7 +129,8 @@ function c2Home() {
   const p = C2.profile;
   const err = c2ui.error ? `<p class="note warn">${icon("alert")}<span>${esc(c2ui.error)}</span></p>` : "";
   if (!p) return `${err}<div class="c2-card c2-loading">${c2ui.loading ? "Lecture de vos dernières parties…" : ""}</div>${tools}`;
-  return `${err}${c2ProfileCard(p)}${c2Goal(p)}${c2Games(p)}${tools}
+  setTimeout(() => c2LoadLive(), 0);
+  return `${err}${c2Live(p)}${c2ProfileCard(p)}${c2Goal(p)}${c2Games(p)}${tools}
     <p class="fine c2-foot">Données officielles de Riot Games${p.benchmark ? ` · référence : ${p.benchmark.games} parties ${esc(p.benchmark.level)} (patch ${esc(p.benchmark.patch)})` : ""} · <button class="linkish" data-action="c2-logout">changer de compte</button></p>`;
 }
 
@@ -171,6 +186,49 @@ function c2Games(p) {
       ${c2Img(g.champion)}<span class="c2-g-main"><b>${esc(c2Name(g.champion))}</b><span class="fine">${esc(C2_ROLE[g.role] || "")}${g.opponent ? ` · contre ${esc(c2Name(g.opponent))}` : ""} · ${c2Ago(g.at)}</span></span>
       <span class="c2-g-kda"><b>${g.k}/${g.d}/${g.a}</b><span class="fine">${g.cs} sbires · ${Math.round(g.minutes)} min</span></span>
       <span class="c2-g-res">${g.win ? "V" : "D"}</span></a></li>`).join("")}</ul></section>`;
+}
+
+// ---------- Partie en cours : face-à-face immédiat, objectif rappelé
+function c2Live(p) {
+  const l = c2ui.live;
+  if (!l?.inGame) return `<div class="c2-livebar"><span class="fine">${c2ui.liveBusy ? "Recherche d'une partie en cours…" : l ? "Aucune partie en cours." : ""}</span><button class="btn ghost sm" data-action="c2-live">${icon("play")}Je suis en partie</button></div>`;
+  const mins = Math.max(0, Math.floor((l.length + (Date.now() - c2ui.liveAt) / 1000) / 60));
+  const me = l.me, op = l.opponent;
+  const opName = op ? c2Name(op.champion) : null;
+  const tips = opName ? c2TipsFor(opName).against.slice(0, 3) : [];
+  const g = p.goal && p.mainRole === me.role ? p.goal : null;
+  const ORDER = ["top", "jungle", "mid", "bottom", "support"];
+  const team = (list, side) => `<div class="c2-team ${side}">${[...list].sort((a, b) => ORDER.indexOf(a.role) - ORDER.indexOf(b.role)).map(x => `<span class="c2-tm ${x.champion === me.champion && side === "ally" ? "me" : ""}">${c2Img(x.champion)}<i>${esc(C2_ROLE[x.role] || "")}${x.sure ? "" : "?"}</i></span>`).join("")}</div>`;
+  return `<section class="c2-card c2-live">
+    <p class="label"><span class="live-dot"></span>Partie en cours · ${esc(l.queue)} · ${mins} min</p>
+    <div class="c2-duel">${c2Img(me.champion, "c2-av xl")}<span class="c2-vs-sep">VS</span>${op ? c2Img(op.champion, "c2-av xl") : c2Img(null, "c2-av xl")}</div>
+    <p class="c2-live-title">${esc(c2Name(me.champion))} ${esc(C2_ROLE[me.role] || "")}${op ? ` contre ${esc(opName)}` : ""}</p>
+    ${!me.sure || (op && !op.sure) ? `<p class="fine">Rôles estimés : Riot ne les donne pas pendant la partie.</p>` : ""}
+    ${g ? `<div class="c2-remind"><p class="label">Ton objectif</p><p><b>${esc(g.label)}</b> : ${g.better === "high" ? "au moins" : "au plus"} ${c2n(g.target)}${esc(g.unit)}</p></div>` : ""}
+    ${tips.length ? `<div><p class="label">Contre ${esc(opName)}</p><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></div>` : ""}
+    ${team(l.allies, "ally")}${team(l.enemies, "enemy")}
+    ${op ? `<a class="btn primary" href="${c2Href("face")}" data-action="c2-face-live" data-me="${esc(c2Name(me.champion))}" data-vs="${esc(opName)}">Face-à-face complet</a>` : ""}
+  </section>`;
+}
+
+// ---------- Ce que jouent les Diamant+ (objets, runes, sorts), d'après de vraies parties
+function c2Builds(id) {
+  if (C2_API == null) return "";
+  const s = c2ui.champ[id];
+  if (!s) return s === null ? `<div class="c2-card c2-loading">Données Diamant+…</div>` : "";
+  if (s.error) return "";
+  if (!s.enough) return `<p class="note">${icon("info")}<span>Pas encore assez de parties Diamant+ pour ce champion au patch ${esc(s.patch || "—")} (${s.games} sur ${s.minGames} nécessaires). L'échantillon grandit chaque jour.</span></p>`;
+  const V = s.items[0]?.ddVersion || s.spells[0]?.ddVersion || COACH.ddragonVersion;
+  const ic = (kind, file, label, share) => `<span class="c2-ic" title="${esc(label)} : ${share} % des parties"><img src="https://ddragon.leagueoflegends.com/cdn/${kind === "rune" ? "img" : `${esc(V)}/img/${kind}`}/${esc(file)}" alt="" loading="lazy"><i>${share} %</i></span>`;
+  return `<section class="c2-card c2-builds">
+    <p class="label">Ce que jouent les Diamant+ · patch ${esc(s.patch)}</p>
+    <p class="fine">${s.games} parties · ${s.games >= 100 ? `${c2n(s.winrate)} % de victoires (± ${c2n(s.margin)} points)` : "taux de victoire non significatif sous 100 parties"}${s.roles.length ? ` · ${s.roles.map(r => `${esc(C2_ROLE[r.role] || r.role)} ${r.share} %`).join(", ")}` : ""}</p>
+    <div class="c2-brow"><span class="label">Rune clé</span><div class="c2-icons">${s.keystones.map(k => ic("rune", k.icon, k.name, k.share)).join("")}</div><p class="fine">${s.keystones.map(k => esc(k.name)).join(" · ")}</p></div>
+    <div class="c2-brow"><span class="label">Objets</span><div class="c2-icons">${s.items.map(x => ic("item", `${x.id}.png`, x.name, x.share)).join("")}${s.boots.map(x => ic("item", `${x.id}.png`, x.name, x.share)).join("")}</div><p class="fine">${[...s.items, ...s.boots].map(x => esc(x.name)).join(" · ")}</p></div>
+    <div class="c2-brow"><span class="label">Sorts</span><div class="c2-icons">${s.spells.slice(0, 2).map(x => `<span class="c2-pair">${x.ids.map((sid, i) => `<img src="https://ddragon.leagueoflegends.com/cdn/${esc(V)}/img/spell/${esc(sid)}.png" alt="${esc(x.names[i])}" title="${esc(x.names[i])}" loading="lazy">`).join("")}<i>${x.share} %</i></span>`).join("")}</div></div>
+    <p class="fine">${s.trees.map(t => `${esc(t.name)} ${t.share} %`).join(" · ")}</p>
+    <p class="fine">Part des parties où l'objet est dans l'inventaire en fin de partie, sur de vraies parties classées Diamant+ (EUW).</p>
+  </section>`;
 }
 
 // ---------- Bilan d'une partie
@@ -273,7 +331,8 @@ function c2Champion(id) {
   const t = c2TipsFor(name);
   const coaching = t.play.filter(u => u.nature !== "officiel");
   const vids = c2VideosFor(name);
-  return `<div class="c2-duel">${c2Img(id, "c2-av xl")}</div>
+  setTimeout(() => c2LoadChamp(id), 0);
+  return `<div class="c2-duel">${c2Img(id, "c2-av xl")}</div>${c2Builds(id)}
     ${coaching.length ? `<section class="c2-card"><p class="label">Ce qu'en disent les coachs</p><ul class="c2-tiplist">${coaching.map(c2Tip).join("")}</ul></section>` : ""}
     <section class="c2-card"><p class="label">Le jouer</p>${t.play.filter(u => u.nature === "officiel").length ? `<ul class="c2-tiplist">${t.play.filter(u => u.nature === "officiel").map(c2Tip).join("")}</ul>` : `<p class="fine">Riot ne publie pas de conseils officiels pour ${esc(name)}. Des pages officielles sont en cours d'analyse.</p>`}</section>
     <section class="c2-card"><p class="label">L'affronter</p>${t.against.length ? `<ul class="c2-tiplist">${t.against.map(c2Tip).join("")}</ul>` : `<p class="fine">Pas encore de conseil vérifié.</p>`}</section>
@@ -306,6 +365,8 @@ document.addEventListener("click", e => {
   if (a.dataset.action === "c2-refresh") c2LoadProfile(true);
   if (a.dataset.action === "c2-logout") { C2.account = null; C2.profile = null; C2.reviews = {}; c2ui.error = null; c2Save(); render(false); }
   if (a.dataset.action === "c2-face-with") { C2.face = { ...C2.face, me: a.dataset.champ }; c2Save(); }
+  if (a.dataset.action === "c2-face-live") { C2.face = { ...C2.face, me: a.dataset.me, vs: a.dataset.vs }; c2Save(); }
+  if (a.dataset.action === "c2-live") c2LoadLive(true);
 });
 window.addEventListener("hashchange", () => { c2ui.error = null; });
 document.addEventListener("input", e => {

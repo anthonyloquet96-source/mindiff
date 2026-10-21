@@ -2,13 +2,15 @@
 // La clé Riot ne quitte jamais le serveur ; les réponses ne contiennent que des données de jeu publiques.
 //   GET /api/coach/profile?id=Pseudo%23TAG&platform=euw1
 //   GET /api/coach/review?match=EUW1_123&puuid=…&platform=euw1
+//   GET /api/coach/live?puuid=…&platform=euw1       partie en cours (rôles estimés)
+//   GET /api/coach/champion?id=Ahri                  objets, runes, sorts Diamant+ (au moins 30 parties)
 
-import { createRiot, profile, review, parseRiotId, PLATFORMS } from "./review.mjs";
+import { createRiot, profile, review, live, championCard, parseRiotId, PLATFORMS } from "./review.mjs";
 
 let riot = null, riotKey = null;
 const hits = new Map(); // limite par visiteur : 30 requêtes par 5 minutes
 
-export async function coachApi(path, params, { key, benchmarks, visitor = "?" }) {
+export async function coachApi(path, params, { key, benchmarks, champstats, visitor = "?" }) {
   if (!key) return { status: 503, body: { error: "Service Riot non configuré : la connexion des comptes arrive bientôt." } };
   if (key !== riotKey) { riot = createRiot(key); riotKey = key; }
   const now = Date.now();
@@ -23,6 +25,16 @@ export async function coachApi(path, params, { key, benchmarks, visitor = "?" })
       const id = parseRiotId(params.get("id"));
       if (!id) return { status: 400, body: { error: "Riot ID attendu sous la forme Pseudo#TAG." } };
       return { status: 200, body: await profile(riot, { ...id, platform, benchmarks }) };
+    }
+    if (path === "/api/coach/live") {
+      const puuid = String(params.get("puuid") || "");
+      if (!/^[\w-]{40,90}$/.test(puuid)) return { status: 400, body: { error: "Joueur invalide." } };
+      return { status: 200, body: await live(riot, { puuid, platform, champstats }) };
+    }
+    if (path === "/api/coach/champion") {
+      const id = String(params.get("id") || "");
+      const c = Object.values(champstats?.champions || {}).find(x => x.name === id);
+      return { status: 200, body: await championCard(c, champstats) };
     }
     if (path === "/api/coach/review") {
       const matchId = String(params.get("match") || ""), puuid = String(params.get("puuid") || "");

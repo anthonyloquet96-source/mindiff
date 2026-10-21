@@ -260,12 +260,15 @@ await t("Import de transcription : horodatages conservés", "fixture", () => {
   assert(out.startsWith("[00:01:05]") && out.includes("[01:02:03]"), out);
   return out.split("\n").slice(0, 2).join(" / ");
 });
-await t("Tri des vidéos sur métadonnées (priorité, pas preuve)", "fixture", () => {
+await t("Tri des vidéos sur métadonnées (priorité, pas preuve)", "fixture", async () => {
   const items = parseYoutubeFeed(fx.rss);
   const tr = triage(`${items[0].title} ${items[0].description}`, L.config.pilot);
   assert(tr.matched.includes("Lucian") && /ne prouve pas/.test(tr.basis), JSON.stringify(tr));
   const clip = triage("Gob se fait daronned par une coréenne #twitch", L.config.pilot), guide = triage("GUIDE TEMPO - COMMENT MONTER CHALLENGER SUR LEAGUE OF LEGENDS", L.config.pilot);
   assert(clip.score < guide.score && clip.entertainment.length, `extrait de stream ${clip.score} ≥ guide ${guide.score}`);
+  const { keep } = await import("../backfill.mjs");
+  assert(keep({ title: "GUIDE QIYANA S12 - COMMENT BIEN JOUER LE CHAMPION", length: "11:26" }) && keep({ title: "DANS LA TETE D'UN CHALLENGER - EPISODE 6", length: "28:45" }), "ancien guide écarté");
+  assert(![["TIERLIST MID PATCH 26.11", "12:00"], ["LA LÉTALITÉ COMMENT CA MARCHE ?", "0:55"], ["SOS Élo Hell (+inscription) - Fin des guides", "14:41"]].some(([title, length]) => keep({ title, length })), "tier list, extrait court ou annonce gardés");
   return `« ${items[0].title} » → priorité ${tr.score} (${tr.matched.join(", ")}) ; ${tr.basis}.`;
 });
 await t("Règles verrouillées contre toute modification automatique", "réel", async () => {

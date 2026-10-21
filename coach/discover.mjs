@@ -55,8 +55,8 @@ export async function run() {
   const byId = new Map(contents.contents.map(c => [c.id, c]));
   const NAMES = (await readJson("coach/cache/roster.json", null))?.names || null;
   // Nouveau calcul de priorité appliqué aussi aux vidéos déjà repérées et pas encore lues
-  // Les pages officielles des champions sans conseils (coach/insights.mjs) gardent leur priorité fixe
-  for (const c of contents.contents.filter(c => c.type === "video" && c.access === "metadonnees" && c.sourceId !== "riot-champion-insights")) { const src = reg.sources.find(x => x.id === c.sourceId); c.triage = triage(`${c.title} ${c.descriptionExcerpt || ""}`, config.pilot, NAMES, src?.credibility.level); }
+  // Les pages officielles des champions sans conseils (coach/insights.mjs) et les anciens guides ciblés (coach/backfill.mjs) gardent leur priorité fixe
+  for (const c of contents.contents.filter(c => c.type === "video" && c.access === "metadonnees" && c.sourceId !== "riot-champion-insights" && !c.backfill)) { const src = reg.sources.find(x => x.id === c.sourceId); c.triage = triage(`${c.title} ${c.descriptionExcerpt || ""}`, config.pilot, NAMES, src?.credibility.level); }
   const active = reg.sources.filter(s => s.active && ["youtube-rss", "wp-json"].includes(s.access.discovery?.type)).slice(0, d.maxSources);
   for (const s of active) {
     const st = state.discovery[s.id] ||= { attempts: 0 };

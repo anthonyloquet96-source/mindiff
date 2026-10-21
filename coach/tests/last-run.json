@@ -1,7 +1,7 @@
 {
- "at": "2026-10-21T15:35:13.925Z",
- "ok": 32,
- "total": 32,
+ "at": "2026-10-21T18:09:41.981Z",
+ "ok": 33,
+ "total": 33,
  "results": [
   {
    "name": "1. Source récente compatible avec le patch",
@@ -64,6 +64,12 @@
    "detail": "« Prends » contre « évite » Électrocution → départagé par les données Diamant+ (60 % des parties) ; duel « favorable » officiel contre « difficile » → officiel retenu ; sans source ni donnée → listé « à vérifier à la source »."
   },
   {
+   "name": "Relecture tactique : combats, objectifs, morts isolées, alliés morts",
+   "kind": "fixture",
+   "ok": true,
+   "detail": "Dragon perdu à 2 contre 5 : jungler noté « mort », joueur noté absent et loin → leçon ; combat au dragon 2 contre 4 perdu ; mort seule dans la jungle adverse contre 2 → leçon ; un duel n'est pas un combat."
+  },
+  {
    "name": "Partie en cours : rôles estimés, fiches Diamant+ par champion",
    "kind": "fixture",
    "ok": true,
@@ -109,7 +115,7 @@
    "name": "8b. Source en panne pendant la découverte",
    "kind": "réel (réseau coupé simulé)",
    "ok": true,
-   "detail": "78 sources en échec, 509 contenus conservés, nouvel essai planifié (2026-10-21T16:35)."
+   "detail": "78 sources en échec, 1478 contenus conservés, nouvel essai planifié (2026-10-21T19:09)."
   },
   {
    "name": "9. Citation qui ne soutient pas le conseil",

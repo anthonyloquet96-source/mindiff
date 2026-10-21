@@ -181,6 +181,41 @@ await t("Contradictions entre conseils : détectées et départagées à la sour
   assert(tie[0]?.winner === null && /vérifier à la source/.test(tie[0].reason), "cas non départagé");
   return "« Prends » contre « évite » Électrocution → départagé par les données Diamant+ (60 % des parties) ; duel « favorable » officiel contre « difficile » → officiel retenu ; sans source ni donnée → listé « à vérifier à la source ».";
 });
+await t("Relecture tactique : combats, objectifs, morts isolées, alliés morts", "fixture", async () => {
+  const { tactics, zone } = await import("../tactics.mjs");
+  const POS = ["TOP", "JUNGLE", "MIDDLE", "BOTTOM", "UTILITY"];
+  const parts = Array.from({ length: 10 }, (_, i) => ({ participantId: i + 1, puuid: `p${i + 1}`, teamId: i < 5 ? 100 : 200, teamPosition: POS[i % 5], championName: `C${i + 1}` }));
+  const match = { info: { participants: parts } };
+  // Positions : par défaut chacun dans sa base ; le joueur 3 (mid bleu) loin au bas de carte à 20 min
+  const base = id => (id <= 5 ? { x: 1000, y: 1000 } : { x: 13800, y: 13800 });
+  const frames = Array.from({ length: 31 }, (_, m) => ({ timestamp: m * 60000, events: [], participantFrames: Object.fromEntries(parts.map(p => [p.participantId, { position: base(p.participantId), championStats: { health: 500, healthMax: 1000 } }])) }));
+  const dragon = { x: 9866, y: 4414 };
+  // 20:00 : 5 rouges autour du dragon, 2 bleus seulement ; le mid bleu (3) au bas de la carte à l'opposé
+  for (const id of [6, 7, 8, 9, 10]) frames[20].participantFrames[id].position = { x: 9800, y: 4600 };
+  for (const id of [4, 5]) frames[20].participantFrames[id].position = { x: 9500, y: 4300 };
+  frames[20].participantFrames[3].position = { x: 2000, y: 9000 };
+  // Le jungler bleu (2) est mort à 19:40 : en attente de réapparition au moment du dragon
+  frames[19].events.push({ type: "CHAMPION_KILL", timestamp: 1180000, victimId: 2, killerId: 7, assistingParticipantIds: [], position: { x: 9000, y: 5000 } });
+  // Combat au dragon à 20:05 : deux bleus meurent contre trois rouges
+  frames[20].events.push({ type: "CHAMPION_KILL", timestamp: 1205000, victimId: 4, killerId: 9, assistingParticipantIds: [6, 7], position: dragon }, { type: "CHAMPION_KILL", timestamp: 1212000, victimId: 5, killerId: 8, assistingParticipantIds: [9], position: dragon });
+  frames[20].events.push({ type: "ELITE_MONSTER_KILL", timestamp: 1220000, killerId: 7, killerTeamId: 200, monsterType: "DRAGON", position: dragon });
+  // 25:00 : le mid bleu meurt seul dans la jungle adverse contre deux rouges
+  frames[25].participantFrames[3].position = { x: 11000, y: 9000 };
+  frames[25].events.push({ type: "CHAMPION_KILL", timestamp: 1500000, victimId: 3, killerId: 8, assistingParticipantIds: [7], position: { x: 11000, y: 9000 } });
+  const tl = { info: { participants: parts.map(p => ({ participantId: p.participantId, puuid: p.puuid })), frames } };
+  const r = tactics(match, tl, "p3");
+  const o = r.objectives[0];
+  assert(o.kind === "Dragon" && !o.ours && o.allies === 2 && o.enemies === 5 && o.absent.some(a => a.champion === "C2" && a.dead) && o.absent.some(a => a.me), JSON.stringify(o));
+  assert(r.fights.length === 2 && r.fights[0].allies === 2 && r.fights[0].enemies === 4 && r.fights[0].won === false, "combat au dragon mal reconstitué : " + JSON.stringify(r.fights));
+  const kinds = r.lessons.map(l => l.kind);
+  assert(kinds.includes("absent-objectif") && kinds.includes("mort-isolee"), kinds.join());
+  assert(r.summary.deathsIsolated === 1 && r.map.length === 31 && r.map[20][2][0] === 2000, "résumé ou mini-carte");
+  assert(zone({ x: 7400, y: 7400 }, 100) === "voie du milieu" && zone({ x: 13900, y: 13900 }, 100) === "base adverse", "zones de la carte");
+  // Élimination isolée en 1 contre 1 : pas un « combat »
+  frames[10].events.push({ type: "CHAMPION_KILL", timestamp: 600000, victimId: 1, killerId: 6, assistingParticipantIds: [], position: { x: 1500, y: 9000 } });
+  assert(tactics(match, tl, "p3").fights.length === 2, "duel compté comme combat");
+  return "Dragon perdu à 2 contre 5 : jungler noté « mort », joueur noté absent et loin → leçon ; combat au dragon 2 contre 4 perdu ; mort seule dans la jungle adverse contre 2 → leçon ; un duel n'est pas un combat.";
+});
 await t("Partie en cours : rôles estimés, fiches Diamant+ par champion", "fixture", async () => {
   const { assignRoles } = await import("../review.mjs");
   const { compute } = await import("../benchmarks.mjs");

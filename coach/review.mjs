@@ -1,6 +1,7 @@
 // Bilan de parties à partir des données officielles de Riot (match-v5 et sa chronologie) : faits exacts, sans IA.
 // Module sans dépendance (fetch uniquement) : utilisé par le serveur local et par le service en ligne (Cloudflare Worker).
 // Comparaisons : uniquement au niveau Diamant et plus, par rôle (coach/cache/benchmarks.json, construit par coach/benchmarks.mjs).
+import { tactics } from "./tactics.mjs";
 
 export const PLATFORMS = {
   euw1: ["europe", "EUW"], eun1: ["europe", "EUNE"], tr1: ["europe", "TR"], ru: ["europe", "RU"], me1: ["europe", "ME"],
@@ -189,6 +190,8 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
     summary: { ...s, deadSeconds: me.totalTimeSpentDead ?? null }, lane, deaths, bases, objectives, comparisons, findings: findings.slice(0, 3), strengths,
     build: await buildVsDiamond(me, champstats, itemDb, fetchImpl),
     // Compositions : champions et rôles (aucun Riot ID des autres joueurs)
+    // Relecture tactique : mini-carte, combats, objectifs, morts, interactions, ce qui aurait été mieux (coach/tactics.mjs)
+    tactics: (() => { try { return tactics(match, timeline, puuid); } catch { return null; } })(), // données incomplètes : le bilan reste disponible sans la relecture
     teams: { allies: info.participants.filter(p => p.teamId === me.teamId).map(p => ({ champion: p.championName, role: POS[p.teamPosition] || null })), enemies: info.participants.filter(p => p.teamId !== me.teamId).map(p => ({ champion: p.championName, role: POS[p.teamPosition] || null })) },
     duration: info.gameDuration, benchmark: bench ? { patch: benchmarks.patch, games: benchmarks.games, level: "Diamant et plus" } : null,
     note: "Faits tirés des données officielles de Riot. Les retours à la base sont déduits des achats (on n'achète qu'en base) ; un retour sans achat n'apparaît pas.",
@@ -401,6 +404,31 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
     if (sous / list.length >= 0.5) minus.push({ kind: `ecart-${k}`, metric: k, weight: 1 + sous, title: `${METRICS[k].label} : moins bien que 75 % des Diamant+ dans ${sous} parties sur ${list.length}`, detail: `Ta valeur médiane : ${fr(med)}${METRICS[k].unit} ; médiane Diamant+ : ${fr(list[0].p50)}${METRICS[k].unit}.` });
     else if (top / list.length >= 0.5 && list[0].p50 > 0) plus.push({ kind: `fort-${k}`, title: `${METRICS[k].label} : mieux que 75 % des Diamant+ dans ${top} parties sur ${list.length}`, detail: `Ta valeur médiane : ${fr(med)}${METRICS[k].unit} ; médiane Diamant+ : ${fr(list[0].p50)}${METRICS[k].unit}.` });
   }
+  // Habitudes tactiques sur l'ensemble des parties (relecture tactique de chaque partie)
+  const T = reviews.map(r => r.tactics).filter(Boolean);
+  const lessonGames = kind => reviews.filter(r => r.tactics?.lessons.some(l => l.kind === kind));
+  const iso = lessonGames("mort-isolee"), ganks = lessonGames("gank-subi"), contested = lessonGames("objectif-inferiorite"), away = lessonGames("absent-objectif"), missed = lessonGames("combat-sans-toi");
+  if (iso.length >= need) minus.push({ kind: "mort-isolee", metric: "deaths30", weight: 2 + iso.length, title: `Morts seul face à plusieurs adversaires après 14 min dans ${iso.length} parties sur ${n}`, detail: "Aucun allié à moins de 2 500 unités au moment de la mort : souvent en poussant seul une voie sans savoir où sont les adversaires.", games: iso.map(r => r.summary.id) });
+  if (ganks.length >= need) minus.push({ kind: "gank-subi", metric: "deaths30", weight: 2 + ganks.length, title: `Morts sur un gank du jungler adverse avant 14 min dans ${ganks.length} parties sur ${n}`, detail: "Le jungler adverse participe à l'élimination pendant la phase de ligne.", games: ganks.map(r => r.summary.id) });
+  if (away.length >= need) minus.push({ kind: "absent-objectif", metric: "kp", weight: 2 + away.length, title: `Loin de l'équipe sur un objectif perdu en infériorité dans ${away.length} parties sur ${n}`, detail: "L'adversaire a pris l'objectif en surnombre pendant que tu étais à l'autre bout de la carte.", games: away.map(r => r.summary.id) });
+  if (contested.length >= need) minus.push({ kind: "objectif-inferiorite", metric: null, weight: 1.5 + contested.length, title: `Objectifs disputés en infériorité numérique dans ${contested.length} parties sur ${n}`, detail: "Combat perdu autour d'un objectif alors que l'équipe était moins nombreuse (souvent avec un allié mort).", games: contested.map(r => r.summary.id) });
+  if (missed.length >= need) minus.push({ kind: "combat-sans-toi", metric: "kp", weight: 1 + missed.length, title: `Combats perdus près de toi, sans toi, dans ${missed.length} parties sur ${n}`, detail: "Ton équipe s'est battue en infériorité à moins de 6 000 unités de toi.", games: missed.map(r => r.summary.id) });
+  // Participation aux combats et aux objectifs
+  const near = T.flatMap(t => t.fights.filter(f => f.myDist < 6000 || f.me)), joined = near.filter(f => f.me);
+  const objs = T.flatMap(t => t.objectives), present = objs.filter(o => o.myDist < 4500);
+  if (near.length >= 10 && joined.length / near.length >= 0.7) plus.push({ kind: "presence-combats", title: `Présent dans ${Math.round((joined.length / near.length) * 100)} % des combats qui ont lieu près de toi`, detail: `${joined.length} combats sur ${near.length}, sur ${n} parties.` });
+  if (iso.length === 0 && T.length >= need && T.reduce((a, t) => a + t.summary.deaths, 0) > 0) plus.push({ kind: "pas-isole", title: "Jamais mort seul face à plusieurs adversaires après 14 min", detail: `Sur ${n} parties.` });
+  // Adversaires qui t'éliminent le plus (toutes parties)
+  const foes = {};
+  for (const t of T) for (const k of t.interactions.killedBy) foes[k.champion] = (foes[k.champion] || 0) + k.n;
+  const tactical = {
+    games: T.length,
+    fights: { near: near.length, joined: joined.length },
+    objectives: { total: objs.length, present: present.length, lostOutnumbered: objs.filter(o => !o.ours && o.allies < o.enemies).length },
+    deaths: { total: T.reduce((a, t) => a + t.summary.deaths, 0), isolated: T.reduce((a, t) => a + t.summary.deathsIsolated, 0), ganks: T.reduce((a, t) => a + t.summary.deathsGank, 0) },
+    nemesis: Object.entries(foes).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([champion, n]) => ({ champion, n })),
+    wardsPerGame: T.length ? Math.round((T.reduce((a, t) => a + t.summary.wards, 0) / T.length) * 10) / 10 : null,
+  };
   minus.sort((a, b) => b.weight - a.weight);
   // Champions et vis-à-vis : sur toutes les parties retenues (résumés), au-delà de celles relues en détail
   const all = pool || reviews.map(r => r.summary);
@@ -413,6 +441,6 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
   const opp = {};
   for (const m of matchups) { const o = (opp[m.opponent] ||= { opponent: m.opponent, games: 0, wins: 0 }); o.games++; o.wins += m.win ? 1 : 0; }
   const rivals = Object.values(opp).filter(o => o.games >= 2).sort((a, b) => b.games - a.games);
-  return { games: n, found: all.length, scanned, role: role || reviews[0].summary.role, champion, plus, minus: minus.slice(0, 4), champions, matchups, rivals, wins: all.filter(g => g.win).length,
+  return { games: n, found: all.length, scanned, role: role || reviews[0].summary.role, champion, plus, minus: minus.slice(0, 5), champions, matchups, rivals, tactical, wins: all.filter(g => g.win).length,
     note: `Tendances calculées sur les données officielles de Riot : ${n} parties relues en détail${scanned ? ` (sélectionnées parmi tes ${scanned} dernières parties classées)` : ""} ; un point n'apparaît que s'il revient dans au moins ${need} parties.` };
 }

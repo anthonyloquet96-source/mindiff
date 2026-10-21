@@ -2,6 +2,46 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-21, 18 h 30 — relecture tactique et synthèse du joueur (branche `coach-v2-suite`, à valider)
+- **Demande d'Anthony** : laisser la rediffusion de côté et partir des données publiques. Le coach doit analyser chacune des dernières parties, avec les interactions entre joueurs, puis tout condenser en un résumé du joueur pour le coacher.
+- **Moteur** (`coach/tactics.mjs`), sur la chronologie officielle Riot, sans IA :
+  - mini-carte : position et points de vie des 10 joueurs à chaque minute ;
+  - combats : éliminations proches dans le temps (20 s) et l'espace (3 000 unités), avec au moins 3 joueurs impliqués ;
+  - objectifs : qui était autour, au relevé le plus proche dans le temps ;
+  - morts : alliés présents et attaquants ; un allié compte comme présent s'il est proche au relevé ou impliqué dans une élimination toute proche (positions exactes) ; ganks avant 14 min ;
+  - interactions : qui t'élimine, qui tu élimines, avec qui ;
+  - présence sur la carte par phase de jeu.
+- **« Ce qui aurait été mieux »** : 5 règles de fondamentaux, appliquées seulement à des faits mesurés :
+  - absent sur un objectif perdu en infériorité ;
+  - objectif disputé en infériorité, avec un combat perdu autour ;
+  - mort seul face à plusieurs adversaires après 14 min ;
+  - gank subi avant 14 min ;
+  - combat perdu près du joueur, sans lui.
+- **Garde-fous, ajoutés après relecture critique sur une vraie partie Challenger** :
+  - un allié mort est noté « mort, en attente de réapparition » et non « absent » ;
+  - aucun reproche quand le joueur était lui-même mort ;
+  - un objectif cédé sans combat n'est pas une erreur ;
+  - un duel n'est pas un combat ;
+  - le relevé d'avant (jusqu'à 59 s plus tôt) donnait des comptes faux, par exemple « Baron 3 contre 0 » ; on prend désormais le relevé le plus proche.
+- **Critère d'isolement durci** : le premier critère classait 40 morts sur 84 comme isolées, ce qui était faux. Le critère retenu en compte 7.
+- **Bilan de partie** : section « Relecture tactique » avec mini-carte animée (curseur par minute, bouton Lire, combats et objectifs sur la carte), 4 indicateurs, les leçons et un bouton « Voir sur la carte », tous les combats et les interactions.
+- **Bilan général** : tendances tactiques sur jusqu'à 20 parties. La « Synthèse du coach » donne :
+  - ce qui coûte le plus, avec 3 priorités et pour chacune comment la travailler ;
+  - les forces ;
+  - le profil tactique (participation aux combats proches, présence aux objectifs, morts isolées, ganks) ;
+  - les adversaires à préparer, avec un lien vers le face-à-face ;
+  - un plan avant et après chaque partie.
+- **Mesure** (compte Challenger, 20 parties mid) :
+  - présent dans 68 % des combats proches et 67 % des objectifs ;
+  - 21 morts sur 84 sur des ganks avant 14 min (12 parties sur 20) ;
+  - 7 morts isolées ;
+  - adversaires à préparer : Yone, Thresh, Locke.
+- **Limites affichées** : une position par minute ; ni vision, ni sorts, ni position des balises.
+- **Vérifié**
+  - 32 tests réussis sur 33 (1 ignoré faute de cache), dont la relecture tactique (dragon perdu à 2 contre 5 avec jungler mort, combat au dragon, mort isolée, duel non compté) ;
+  - navigateur à 390 et 1280 px : 0 erreur, aucun débordement ;
+  - non-régression de l'application : 0 erreur.
+
 ## 2026-10-21, 16 h 30 — inventaire des vidéos pédagogiques (toutes langues) pour chiffrer Gemini payant
 - **Outil** : `coach/inventory.mjs` (pages publiques de YouTube, sans clé ni IA). Il cherche les chaînes par langue, lit le catalogue complet de chaque chaîne (titre, durée, âge) et estime le coût au tarif Gemini 3.8 Flash. Résultats privés : `coach/cache/inventory.json`, sélections dans `inventory-selection.json`.
 - **Périmètre**

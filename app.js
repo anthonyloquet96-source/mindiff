@@ -24,7 +24,6 @@ const LOL_ROLES = [["top", "Top"], ["jungle", "Jungle"], ["mid", "Mid"], ["botto
 const ROLE_LABEL = Object.fromEntries(LOL_ROLES);
 const MATCH_STATE = { unstarted: "À venir", inProgress: "En cours", completed: "Terminé", postponed: "Reporté", unneeded: "Annulé" };
 const VAL_ROLE_FR = { Duelist: "Duelliste", Initiator: "Initiateur", Controller: "Contrôleur", Sentinel: "Sentinelle" };
-const STALE_MIN = 90; // au-delà, la synchronisation est signalée comme en retard
 
 const PREF_KEY = "tm-prefs-v1";
 function loadPrefs() {
@@ -376,11 +375,10 @@ const skeleton = () => `<div class="skeleton" aria-busy="true" aria-label="Charg
 // Alerte visible si les données sont anciennes ou si la dernière synchronisation a échoué
 function freshnessAlert() {
   if (!AUTO) return "";
-  const mins = (Date.now() - new Date(AUTO.generatedAt)) / 60000;
   const failed = AUTO.sources.filter(s => !s.ok);
   let msg = "";
   if (dataError) msg = `Connexion impossible : affichage ${dataError.cachedAt ? `de la copie du ${fmtDayTime(dataError.cachedAt)}` : "des dernières données reçues"}.`;
-  else if (mins > STALE_MIN) msg = `Données synchronisées ${ago(AUTO.generatedAt)} : elles peuvent être en retard.`;
+  // Plus d'avertissement « données synchronisées il y a X h » : l'heure reste consultable dans la fiche Sources
   else if (failed.some(s => s.id === "lolesports")) msg = "La source officielle des matchs LoL n'a pas répondu : les résultats affichés datent de la synchronisation précédente.";
   if (!msg) return "";
   return `<div class="alert" role="status">${icon("alert")}<span>${esc(msg)}</span>${dataError ? `<button class="btn ghost sm" data-action="retry">${icon("refresh")}Réessayer</button>` : `<button class="btn ghost sm" data-action="sync-panel">Détails</button>`}</div>`;

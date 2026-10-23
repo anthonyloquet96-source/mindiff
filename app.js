@@ -1467,10 +1467,22 @@ function onRoute() {
   // Ouvrir ou fermer une fiche ne change pas l'écran de fond : on ne le redessine pas et on ne remonte pas en haut
   const base = routeToHash({ ...route, sheet: null });
   const onlySheet = base === lastBase && dataLoaded;
+  // Retour en arrière (bouton du téléphone ou lien « ‹ » vers la page d'avant) : on revient là où on était dans la page
+  if (!onlySheet && lastBase) SCROLL_AT.set(lastBase, window.scrollY);
+  const back = !onlySheet && NAV_STACK.length >= 2 && NAV_STACK[NAV_STACK.length - 2] === base;
+  if (back) NAV_STACK.pop(); else if (!onlySheet && NAV_STACK.at(-1) !== base) NAV_STACK.push(base);
+  if (NAV_STACK.length > 50) NAV_STACK.shift();
   lastBase = base;
   if (onlySheet) syncSheet();
-  else render(true);
+  else {
+    render(true);
+    const y = back ? SCROLL_AT.get(base) : null;
+    // Deux essais : tout de suite, puis quand les images et contenus chargés ont pris leur place
+    if (y) { requestAnimationFrame(() => window.scrollTo(0, y)); setTimeout(() => { if (Math.abs(window.scrollY - y) > 40) window.scrollTo(0, y); }, 350); }
+  }
 }
+const SCROLL_AT = new Map(), NAV_STACK = [];
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 window.addEventListener("hashchange", onRoute);
 
 document.addEventListener("click", e => {

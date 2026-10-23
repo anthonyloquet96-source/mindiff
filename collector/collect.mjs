@@ -10,6 +10,7 @@ import { fetchText, fetchJson, nextData, findArrays, parseRss, stripHtml, trunca
 import { detectGame, detectType, isNoise } from "./classify.mjs";
 import { verify } from "./verify.mjs";
 import { collectLolEsports } from "./lolesports.mjs";
+import { collectTeamInfo } from "./teams.mjs";
 import { analyzeAll } from "./analyze.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -157,6 +158,17 @@ export async function runCollection({ log = console.log } = {}) {
     health.push({ id: "lolesports", name: "LoL Esports (officiel)", kind: "officiel", ok: false, error: e.message, keptFrom: state.lastEsport?.at || null, ms: Date.now() - t0 });
   }
 
+  // Fiches équipes (seed, palmarès, effectif) : en cas d'échec, la dernière version connue
+  let teams = {};
+  const tt = Date.now();
+  try {
+    teams = await collectTeamInfo(esport.tournaments, state, log);
+    health.push({ id: "teams", name: "Fiches équipes (LoL Esports, Liquipedia)", kind: "reference", ok: true, count: Object.keys(teams).length, ms: Date.now() - tt });
+  } catch (e) {
+    teams = state.teamInfo || {};
+    health.push({ id: "teams", name: "Fiches équipes (LoL Esports, Liquipedia)", kind: "reference", ok: false, error: e.message, ms: Date.now() - tt });
+  }
+
   // Oublie les articles trop anciens
   for (const [id, it] of Object.entries(state.items)) if (daysAgo(it.date) > KEEP_DAYS) delete state.items[id];
   for (const id of Object.keys(state.firstSeen)) if (!state.items[id] && daysAgo(state.firstSeen[id]) > KEEP_DAYS) delete state.firstSeen[id];
@@ -183,6 +195,7 @@ export async function runCollection({ log = console.log } = {}) {
     news,
     tournaments: esport.tournaments,
     upcoming: esport.upcoming,
+    teams,
   };
 
   await mkdir(join(ROOT, "data"), { recursive: true });

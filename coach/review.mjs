@@ -300,6 +300,9 @@ export function assignRoles(team, champstats, dd) {
 export async function live(riot, { puuid, platform, champstats, builds = null, fetchImpl = fetch, mainRole = null }) {
   let g;
   try { g = await riot(`https://${platform}.api.riotgames.com/lol/spectator/v5/active-games/by-summoner/${puuid}`, { ttl: 30e3 }); } catch (e) { if (e.status === 404) return { inGame: false }; throw e; }
+  // Arène, modes à plus de deux équipes : pas de face-à-face ni de rôles, la carte ne s'affiche pas
+  const teams = new Set(g.participants.map(p => p.teamId));
+  if (g.participants.length !== 10 || teams.size !== 2) return { inGame: false, otherMode: QUEUES[g.gameQueueConfigId] || { CHERRY: "Arène" }[g.gameMode] || g.gameMode };
   const dd = await ddChampions(fetchImpl);
   const parts = g.participants.map(p => ({ puuid: p.puuid, teamId: p.teamId, championId: p.championId, spells: [p.spell1Id, p.spell2Id] }));
   const me = parts.find(p => p.puuid === puuid);

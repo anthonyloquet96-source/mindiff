@@ -459,7 +459,7 @@ function c2Games(p) {
 // ---------- Partie en cours : face-à-face immédiat, objectif rappelé
 function c2Live(p) {
   const l = c2ui.live;
-  if (!l?.inGame) return `<div class="c2-livebar"><span class="fine">${c2ui.liveBusy ? "Recherche d'une partie en cours…" : l ? "Aucune partie en cours." : ""}</span><button class="btn ghost sm" data-action="c2-live">${icon("play")}Je suis en partie</button></div>`;
+  if (!l?.inGame) return `<div class="c2-livebar"><span class="fine">${c2ui.liveBusy ? "Recherche d'une partie en cours…" : l?.otherMode ? `Partie en cours en ${esc(l.otherMode)} : le coach ne suit que les parties 5 contre 5 sur la Faille.` : l ? "Aucune partie en cours." : ""}</span><button class="btn ghost sm" data-action="c2-live">${icon("play")}Je suis en partie</button></div>`;
   const mins = Math.max(0, Math.floor((l.length + (Date.now() - c2ui.liveAt) / 1000) / 60));
   const me = l.me, op = l.opponent;
   const opName = op ? c2Name(op.champion) : null;

@@ -48204,7 +48204,291 @@
    },
    "version": 1,
    "firstSeen": "2026-10-21"
+  },
+  {
+   "id": "u-auto-jinx-26-21",
+   "claim": "Patch 26.21 : Jinx change (Stats de base). Dégâts d'attaque : 59 + 3,25/niveau ⇒ 59 + 3/niveau ; PV : 630 + 105/niveau ⇒ 610 + 105/niveau",
+   "champions": [
+    "Jinx"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "patch"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.21"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Jinx/base"
+   ],
+   "conditions": [],
+   "limits": [
+    "Fait officiel relevé automatiquement : l'effet en partie n'est pas encore analysé."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-riot-notes-26-21",
+     "locator": "Champions › Jinx › Stats de base",
+     "lang": "fr",
+     "passage": "Dégâts d'attaque : 59 + 3,25/niveau ⇒ 59 + 3/niveau"
+    },
+    {
+     "content": "c-riot-notes-26-21",
+     "locator": "Champions › Jinx › Stats de base",
+     "lang": "fr",
+     "passage": "PV : 630 + 105/niveau ⇒ 610 + 105/niveau"
+    },
+    {
+     "content": "c-riot-notes-26-21",
+     "locator": "Champions › Jinx",
+     "lang": "fr",
+     "passage": "Comme sa meilleure amie Caitlyn, Jinx domine également la méta, même après le nerf du Runaan lors du dernier patch. Nous ralentissons sa progression afin de rendre un peu plus difficile sa montée en puissance."
+    }
+   ],
+   "published": null,
+   "proposedStatus": null,
+   "analyst": "Lecture automatique des notes de patch (sans IA)",
+   "origin": "lecture-automatique",
+   "promptVersions": null,
+   "analyzedAt": "2026-10-23",
+   "validity": {
+    "checkedAt": "2026-10-23",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-23",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-23"
+  },
+  {
+   "id": "u-ai-yt-ynG4T9yLKFs-1",
+   "claim": "Locke est un assassin AP joué au mid dont le style repose sur le snowball et l'élimination rapide des cibles fragiles.",
+   "champions": [
+    "Locke"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "lane"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Locke/kit"
+   ],
+   "conditions": [],
+   "limits": [
+    "Analyse basée sur une lecture par IA à 1 image par seconde."
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ynG4T9yLKFs",
+     "locator": "[00:15]",
+     "lang": "en",
+     "passage": "In-game, Locke is an AP assassin who turns early skirmishes into major advantages, snowballing into a devastating weapon against squishy enemy targets."
+    }
+   ],
+   "mentions": [
+    "Ekko (exemple)",
+    "Zed (exemple)",
+    "Shaco (exemple)",
+    "Tahm Kench (exemple)",
+    "Fiddlesticks (exemple)"
+   ],
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Connaissance issue d'une analyse vidéo par IA, le statut est gardé en provisoire en attente d'une revalidation humaine."
+   },
+   "published": "2026-06-09",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-23",
+   "validity": {
+    "checkedAt": "2026-10-23",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-23",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-23"
+  },
+  {
+   "id": "u-ai-yt-ynG4T9yLKFs-2",
+   "claim": "La compétence Z de Locke (Soul Ignition) peut être réactivée pendant qu'il subit un contrôle de foule pour déclencher son soin d'urgence.",
+   "champions": [
+    "Locke"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "survie",
+    "champion"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Locke/W"
+   ],
+   "conditions": [
+    "Être sous contrôle de foule pendant l'activation de la compétence"
+   ],
+   "limits": [
+    "Analyse basée sur une lecture par IA à 1 image par seconde."
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ynG4T9yLKFs",
+     "locator": "[01:19]",
+     "lang": "en",
+     "passage": "Soul Ignition can be recast while crowd controlled, so even if you're out of other options, make sure to heal back up before your opponent sends you to an early grave."
+    }
+   ],
+   "mentions": [],
+   "action": "Réactiver le Z de Locke lorsqu'on est sous contrôle de foule pour récupérer des PV avant de mourir.",
+   "observe": "Vérifier le déclenchement du soin malgré l'état de contrôle de foule. ",
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Connaissance issue d'une analyse vidéo par IA, statut provisoire requis jusqu'à confirmation sur le minutage indiqué."
+   },
+   "published": "2026-06-09",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-23",
+   "validity": {
+    "checkedAt": "2026-10-23",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-23",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-23"
+  },
+  {
+   "id": "u-ai-yt-ynG4T9yLKFs-3",
+   "claim": "Le lancer initial du totem de l'ultime de Locke (Purgatory) traverse le Mur de vent de Yasuo, mais les projectiles émis une fois le totem posé sont bloqués.",
+   "champions": [
+    "Locke",
+    "Yasuo"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "matchup",
+    "champion"
+   ],
+   "matchup": {
+    "vs": "Yasuo"
+   },
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Locke/R",
+    "Yasuo/W"
+   ],
+   "conditions": [
+    "Affrontement contre Yasuo et son Mur de vent"
+   ],
+   "limits": [
+    "Analyse basée sur une lecture par IA à 1 image par seconde."
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ynG4T9yLKFs",
+     "locator": "[02:56]",
+     "lang": "en",
+     "passage": "Abilities like Yasuo's Wind Wall can't block the incoming totem toss, but they can interact with the missiles it throws upon landing."
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer l'ultime de Locke à travers le Mur de vent de Yasuo pour poser le totem derrière lui.",
+   "observe": "Vérifier que le totem se pose correctement au sol malgré le mur.",
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Connaissance issue d'une analyse vidéo par IA, statut provisoire maintenu selon les règles d'accès."
+   },
+   "published": "2026-06-09",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-23",
+   "validity": {
+    "checkedAt": "2026-10-23",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-23",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-23"
   }
  ],
- "updatedAt": "2026-10-21T02:23:30.475Z"
+ "updatedAt": "2026-10-23T11:02:42.264Z"
 }

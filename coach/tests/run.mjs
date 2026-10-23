@@ -429,13 +429,15 @@ await t("Règles verrouillées contre toute modification automatique", "réel", 
 
 await t("Vidéo lue par IA : au mieux provisoire, patch futur signalé", "fixture", () => {
   const c2 = { ...fxCtx, contents: new Map([...fxCtx.contents, ["fx-video", { id: "fx-video", sourceId: "yt-skill-capped", type: "video", title: "Vidéo (fixture)", access: "transcription+visuel", analysis: "analysee", reader: { kind: "ia", tool: "gemini (fixture)", fps: 1 } }]]), texts: new Map([...fxCtx.texts, ["fx-video", "[07:00] (parole) Engage supports need space to engage."]]) };
-  const u = { id: "fx-v", claim: "Selon Skill Capped : un support d'engagement a besoin d'espace.", champions: [], roles: ["bottom"], themes: ["lane"], context: { queue: "solo" }, patch: { known: true, value: "26.21" }, nature: "opinion", translation: { term: "engage", note: "engager" }, evidence: [{ content: "fx-video", locator: "[07:00]", lang: "en", passage: "Engage supports need space to engage." }] };
+  // Patch futur calculé à partir du patch courant (le test ne doit pas dépendre de la date)
+  const [maj, min] = String(c2.current || fxCtx.current || "26.20").split(".").map(Number), future = `${maj}.${min + 1}`;
+  const u = { id: "fx-v", claim: "Selon Skill Capped : un support d'engagement a besoin d'espace.", champions: [], roles: ["bottom"], themes: ["lane"], context: { queue: "solo" }, patch: { known: true, value: future }, nature: "opinion", translation: { term: "engage", note: "engager" }, evidence: [{ content: "fx-video", locator: "[07:00]", lang: "en", passage: "Engage supports need space to engage." }] };
   const r = checkUnit(u, c2);
   assert(!r.blocking && r.status === "provisoire", r.status);
   assert(r.flags.some(f => f.code === "lecture-ia") && r.flags.some(f => f.code === "patch-futur"), r.flags.map(f => f.code).join(","));
   const ok = checkUnit({ ...u, patch: { known: false }, evidence: [{ ...u.evidence[0], humanChecked: true }] }, c2);
   assert(!ok.flags.some(f => f.code === "lecture-ia"), "vérification humaine ignorée");
-  return "Passage lu par Gemini → provisoire jusqu'à vérification humaine ; patch 26.21 (non sorti) → signalé comme prévision.";
+  return `Passage lu par Gemini → provisoire jusqu'à vérification humaine ; patch ${future} (non sorti) → signalé comme prévision.`;
 });
 await t("Vidéos réellement lues : durée conforme et passages retrouvés", "réel", async () => {
   const vids = L.contents.contents.filter(c => c.reader?.kind === "ia");

@@ -307,8 +307,8 @@ function c2Showcase() {
     <p class="label">Bientôt disponible</p>
     <h2 class="c2-show-title">La lecture de tes parties arrive dès la validation de la clé Riot</h2>
     <p class="fine">Le coach est prêt et testé. Il attend l'accord de Riot Games pour lire les parties de tout le monde. Voici ce qu'il te montrera, sur une vraie partie.</p>
-    <figure><img src="coach-apercu-bilan.png" alt="Bilan d'une partie : Yone contre Viktor, victoire, 7/2/4, 258 sbires, et l'écart avec l'adversaire en phase de lane (+41 golds à 10 minutes, +677 à 15 minutes)" loading="lazy" width="358" height="338"><figcaption>Chaque partie résumée : tes chiffres et ta phase de lane face à ton adversaire.</figcaption></figure>
-    <figure><img src="coach-apercu-replay.png" alt="Replay de la partie sur la minimap, arrêté sur un moment clé avec ce qui aurait été mieux" loading="lazy"><figcaption>Le replay sur la minimap s'arrête sur tes erreurs et explique ce qui aurait été mieux.</figcaption></figure>
+    <figure><img src="coach-apercu-bilan${window.LANG === "en" ? "-en" : ""}.png" alt="Bilan d'une partie : Yone contre Viktor, victoire, 7/2/4, 258 sbires, et l'écart avec l'adversaire en phase de lane (+41 golds à 10 minutes, +677 à 15 minutes)" loading="lazy" width="358" height="338"><figcaption>Chaque partie résumée : tes chiffres et ta phase de lane face à ton adversaire.</figcaption></figure>
+    <figure><img src="coach-apercu-replay${window.LANG === "en" ? "-en" : ""}.png" alt="Replay de la partie sur la minimap, arrêté sur un moment clé avec ce qui aurait été mieux" loading="lazy"><figcaption>Le replay sur la minimap s'arrête sur tes erreurs et explique ce qui aurait été mieux.</figcaption></figure>
     <ul class="c2-show-list"><li><b>Ta priorité</b> : l'erreur qui te coûte le plus de parties, avec quoi faire.</li><li><b>Je suis en partie</b> : ton face-à-face, des conseils contre ton adversaire et ton build adapté à son équipe.</li><li><b>Comparé aux meilleurs</b> : tout est mesuré face aux joueurs Diamant et plus de ton poste.</li></ul>
     <p class="fine">Déjà disponibles : le face-à-face et les fiches champions, dans les onglets Préparer et Champions.</p>
   </section>`;
@@ -466,7 +466,7 @@ function c2Games(p) {
   return `<ul class="c2-games">${p.games.map(g => `<li><a class="c2-game ${g.win ? "win" : "loss"}" href="${c2Href("partie", g.id)}">
       ${c2Img(g.champion)}<span class="c2-g-main"><b>${esc(c2Name(g.champion))}${Array.isArray(C2.seen) && !C2.seen.includes(g.id) ? ` <span class="chip live">Nouveau</span>` : ""}</b><span class="fine">${esc(C2_ROLE[g.role] || "")}${g.opponent ? ` · contre ${esc(c2Name(g.opponent))}` : ""} · ${c2Ago(g.at)}</span></span>
       <span class="c2-g-kda"><b>${g.k}/${g.d}/${g.a}</b><span class="fine">${g.cs} sbires · ${Math.round(g.minutes)} min</span></span>
-      <span class="c2-g-res">${g.win ? "V" : "D"}</span></a></li>`).join("")}</ul>`;
+      <span class="c2-g-res">${g.win ? (window.LANG === "en" ? "W" : "V") : (window.LANG === "en" ? "L" : "D")}</span></a></li>`).join("")}</ul>`;
 }
 
 // ---------- Partie en cours : face-à-face immédiat, objectif rappelé

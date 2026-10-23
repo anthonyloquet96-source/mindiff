@@ -18,9 +18,9 @@ const SOON = [["val", "Valorant"], ["cs2", "Counter-Strike 2"], ["fn", "Fortnite
 const NAV = [
   { id: "home", label: "Accueil", icon: "home" },
   { id: "competitions", label: "Compétitions", icon: "trophy" },
+  { id: "coach", label: "Coach", icon: "target" }, // au centre, mis en avant dans la barre du bas
   { id: "meta", label: "Méta", icon: "tiers" },
   { id: "actus", label: "Actus", icon: "news" },
-  { id: "coach", label: "Coach", icon: "target" },
 ];
 const T_TABS = [["apercu", "Vue d'ensemble"], ["matchs", "Matchs"], ["classement", "Classement"], ["equipes", "Équipes"], ["meta", "Méta"]];
 const LOL_ROLES = [["top", "Top"], ["jungle", "Jungle"], ["mid", "Mid"], ["bottom", "ADC"], ["support", "Support"]];
@@ -1297,7 +1297,7 @@ function renderHeader() {
   const c2live = typeof c2ui !== "undefined" && c2ui.live?.inGame, last = typeof C2 !== "undefined" ? C2.profile?.games?.[0] : null;
   const c2new = !!last && Array.isArray(C2.seen) && !C2.seen.includes(last.id);
   const badge = id => id !== "coach" || g !== "lol" ? "" : c2live ? `<i class="nav-badge live" aria-hidden="true">LIVE</i>` : c2new ? `<i class="nav-dot" aria-hidden="true"></i>` : "";
-  const navItems = NAV.map(n => `<a class="nav-item" href="${href(g, n.id === "home" ? "" : n.id)}" ${navView === n.id ? 'aria-current="page"' : ""}${n.id === "coach" && (c2live || c2new) ? ` aria-label="${n.label}, ${c2live ? "partie en cours" : "nouvelle partie à relire"}"` : ""}>${icon(n.icon)}<span>${n.label}</span>${badge(n.id)}</a>`).join("");
+  const navItems = NAV.map(n => `<a class="nav-item nav-${n.id}" href="${href(g, n.id === "home" ? "" : n.id)}" ${navView === n.id ? 'aria-current="page"' : ""}${n.id === "coach" && (c2live || c2new) ? ` aria-label="${n.label}, ${c2live ? "partie en cours" : "nouvelle partie à relire"}"` : ""}>${icon(n.icon)}<span>${n.label}</span>${badge(n.id)}</a>`).join("");
   document.getElementById("top").innerHTML = `<div class="wrap top-inner">
       <a class="brand" href="${g ? href(g) : "#/"}" aria-label="MINDIFF, accueil">${BRAND_MARK}<span class="brand-name">MINDIFF</span></a>
       ${g ? `<div class="gswitch" role="group" aria-label="Jeu">${GAMES_ON.map(x => `<a class="gs-btn${LOCKED.includes(x.id) ? " locked" : ""}" href="${switchTo(x.id)}" ${g === x.id ? 'aria-current="true"' : ""}${LOCKED.includes(x.id) ? ` aria-label="${esc(SHORT[x.id])}, bientôt disponible"` : ""}>${LOCKED.includes(x.id) ? icon("lock") : ""}${esc(SHORT[x.id])}</a>`).join("")}</div>` : ""}

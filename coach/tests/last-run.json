@@ -1,13 +1,13 @@
 {
- "at": "2026-10-21T22:48:54.003Z",
- "ok": 33,
- "total": 33,
+ "at": "2026-10-23T12:01:02.499Z",
+ "ok": 35,
+ "total": 35,
  "results": [
   {
    "name": "1. Source récente compatible avec le patch",
    "kind": "réel",
    "ok": true,
-   "detail": "u-lucian-2620-ad : patch 26.20, exploitable, passages retrouvés dans les notes officielles."
+   "detail": "u-lucian-2620-ad : patch 26.20 (courant 26.20), exploitable, passages retrouvés dans les notes officielles."
   },
   {
    "name": "2. Source ancienne devenue incompatible",
@@ -115,7 +115,7 @@
    "name": "8b. Source en panne pendant la découverte",
    "kind": "réel (réseau coupé simulé)",
    "ok": true,
-   "detail": "78 sources en échec, 1494 contenus conservés, nouvel essai planifié (2026-10-21T23:48)."
+   "detail": "78 sources en échec, 1494 contenus conservés, nouvel essai planifié (2026-10-23T13:01)."
   },
   {
    "name": "9. Citation qui ne soutient pas le conseil",
@@ -201,6 +201,18 @@
    "ok": true,
    "skipped": true,
    "detail": "ignoré : texte c-yt-5un5rVpQpf8 absent du cache privé"
+  },
+  {
+   "name": "Build adapté : variante mesurée seulement si l'objet répond à la menace",
+   "kind": "fixture",
+   "ok": true,
+   "detail": "variante RM : 80 % contre 0 %, objet sans rapport écarté."
+  },
+  {
+   "name": "Build adapté en partie : tanks, critiques et soigneurs détectés depuis les profils exportés",
+   "kind": "fixture",
+   "ok": true,
+   "detail": "menaces détectées : tanks, crit, heal."
   }
  ]
 }

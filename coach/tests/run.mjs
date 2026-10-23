@@ -475,6 +475,19 @@ await t("Build adapté : variante mesurée seulement si l'objet répond à la me
   return `variante RM : ${ap.measured.items[0].on} % contre ${ap.measured.items[0].off} %, objet sans rapport écarté.`;
 });
 
+await t("Build adapté en partie : tanks, critiques et soigneurs détectés depuis les profils exportés", "fixture", async () => {
+  const { adviseBuild } = await import("../builds.mjs");
+  // Profils tels qu'écrits dans builds.json (tank / crit / healer en 0 ou 1)
+  const p = (o) => ({ magic: 0.1, phys: 0.9, dmg: 15000, cc: 1, tank: 0, crit: 0, healer: 0, ...o });
+  const b = { cuts: { magic: 0.5, phys: 0.95, cc: 20 }, champions: {}, items: {},
+    profiles: { 1: p({ tank: 1 }), 2: p({ tank: 1, healer: 1 }), 3: p({ crit: 1 }), 4: p({ crit: 1, healer: 1 }), 5: p({}) } };
+  const keys = adviseBuild(b, 9, [1, 2, 3, 4, 5]).threats.map(x => x.key);
+  for (const k of ["tanks", "crit", "heal"]) assert(keys.includes(k), `menace « ${k} » non détectée en partie`);
+  const calm = adviseBuild(b, 9, [1, 3, 5, 5, 5]).threats.map(x => x.key);
+  assert(!calm.some(k => ["tanks", "crit", "heal"].includes(k)), "menace détectée avec un seul champion concerné");
+  return `menaces détectées : ${keys.join(", ")}.`;
+});
+
 // ---------- Rapport
 const ok = results.filter(r => r.ok).length;
 for (const r of results) console.log(`${r.skipped ? "–" : r.ok ? "✔" : "✘"} ${r.name} [${r.kind}]\n    ${r.detail}`);

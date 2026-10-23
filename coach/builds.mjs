@@ -49,15 +49,21 @@ export const THREATS = {
   tanks: { label: "Plusieurs tanks en face", why: "au moins deux champions faits pour encaisser plutôt que pour infliger des dégâts", answers: ["anti-tank"] },
   crit: { label: "Plusieurs champions à coups critiques", why: "au moins deux champions qui achètent des objets à coups critiques", answers: ["anti-critique", "armure"] },
   cc: { label: "Beaucoup de contrôles adverses", why: "étourdissements, ralentissements et projections en grand nombre", answers: ["tenacite", "purge"] },
+  heal: { label: "Plusieurs champions qui se soignent beaucoup", why: "au moins deux champions qui se soignent (ou soignent leurs alliés) bien plus que la moyenne de leur poste", answers: ["anti-soins"] },
 };
 
 // 1. Profil moyen de chaque champion
 function championProfiles(matches, cat) {
   const crit = new Set(Object.entries(cat.items).filter(([, x]) => x.tags.includes("critique")).map(([id]) => Number(id)));
+  // Soins rapportés à la médiane du poste : un jungler se soigne naturellement sur les camps
+  const perRole = {};
+  for (const m of matches) for (const r of m.rows) if (r.heal != null && m.d) (perRole[r.role] ||= []).push(r.heal / m.d);
+  const roleMed = Object.fromEntries(Object.entries(perRole).map(([k, v]) => [k, v.sort((a, b) => a - b)[v.length >> 1] || 1]));
   const acc = {};
   for (const m of matches) for (const r of m.rows) {
     if (!r.dmg || !m.d) continue;
-    const a = (acc[r.c] ||= { n: 0, p: 0, m: 0, t: 0, cc: 0, tank: 0, dpm: 0, crit: 0 });
+    const a = (acc[r.c] ||= { n: 0, p: 0, m: 0, t: 0, cc: 0, tank: 0, dpm: 0, crit: 0, hn: 0, heal: 0 });
+    if (r.heal != null && roleMed[r.role]) { a.hn++; a.heal += r.heal / m.d / roleMed[r.role]; }
     a.n++; a.p += r.dmg[0]; a.m += r.dmg[1]; a.t += r.dmg[2]; a.cc += (r.cc || 0) / m.d; a.tank += (r.tank || 0) / m.d; a.dpm += (r.dmg[0] + r.dmg[1] + r.dmg[2]) / m.d;
     if (r.items.filter(i => crit.has(i)).length >= 2) a.crit++;
   }
@@ -65,7 +71,7 @@ function championProfiles(matches, cat) {
   for (const [c, a] of Object.entries(acc)) {
     if (a.n < 20) continue;
     const tot = a.p + a.m + a.t || 1;
-    prof[c] = { n: a.n, dmg: Math.round(tot / a.n), phys: a.p / tot, magic: a.m / tot, cc: a.cc / a.n, tank: a.tank / a.n, ratio: a.tank / (a.dpm || 1), crit: a.crit / a.n };
+    prof[c] = { n: a.n, dmg: Math.round(tot / a.n), phys: a.p / tot, magic: a.m / tot, cc: a.cc / a.n, tank: a.tank / a.n, ratio: a.tank / (a.dpm || 1), crit: a.crit / a.n, heal: a.hn >= 20 ? a.heal / a.hn : null };
   }
   // Tank : encaisse beaucoup PAR RAPPORT à ce qu'il inflige (cinquième des champions au rapport le plus élevé), et au moins
   // autant que la moitié des champions. Un combattant qui encaisse et inflige beaucoup (Fiora, Tryndamere) n'est pas un tank.
@@ -74,7 +80,9 @@ function championProfiles(matches, cat) {
   const ratioCut = at(ps.map(p => p.ratio), 0.78), tankMed = at(ps.map(p => p.tank), 0.5);
   // Contrôle : valeurs hors norme plafonnées (certains effets, comme la peur ou l'aveuglement, sont comptés très largement par Riot)
   const ccCap = at(ps.map(p => p.cc), 0.95);
-  for (const p of ps) { p.isTank = p.ratio >= ratioCut && p.tank >= tankMed; p.isCrit = p.crit >= 0.5; p.cc = Math.min(p.cc, ccCap); }
+  // Soigneur : dans les 15 % de champions qui se soignent le plus par rapport à leur poste
+  const heals = ps.map(p => p.heal).filter(h => h != null), healCut = heals.length ? at(heals, 0.85) : Infinity;
+  for (const p of ps) { p.isTank = p.ratio >= ratioCut && p.tank >= tankMed; p.isCrit = p.crit >= 0.5; p.isHealer = p.heal != null && p.heal >= healCut; p.cc = Math.min(p.cc, ccCap); }
   return prof;
 }
 
@@ -87,8 +95,9 @@ function teamShape(champs, prof) {
     magic: ps.reduce((s, p) => s + p.dmg * p.magic, 0) / tot,
     phys: ps.reduce((s, p) => s + p.dmg * p.phys, 0) / tot,
     cc: ps.reduce((s, p) => s + p.cc, 0),
-    tanks: ps.filter(p => p.isTank).length,
-    crits: ps.filter(p => p.isCrit).length,
+    tanks: ps.filter(p => p.isTank ?? p.tank).length,
+    crits: ps.filter(p => p.isCrit ?? p.crit).length,
+    healers: ps.filter(p => p.isHealer ?? p.healer).length,
   };
 }
 const q = (a, p) => { const s = [...a].sort((x, y) => x - y); return s[Math.floor((s.length - 1) * p)]; };
@@ -100,6 +109,7 @@ function threatsOf(shape, cuts) {
   if (shape.tanks >= 2) out.push("tanks");
   if (shape.crits >= 2) out.push("crit");
   if (shape.cc > cuts.cc) out.push("cc");
+  if (shape.healers >= 2) out.push("heal");
   return out;
 }
 
@@ -145,7 +155,7 @@ export function computeBuilds(sample, cat, { patch = null } = {}) {
     }
     out[id] = { games: c.games, variants };
   }
-  const profiles = Object.fromEntries(Object.entries(prof).map(([c, p]) => [c, { magic: Math.round(p.magic * 100) / 100, phys: Math.round(p.phys * 100) / 100, dmg: p.dmg, cc: Math.round(p.cc * 10) / 10, tank: p.isTank ? 1 : 0, crit: p.isCrit ? 1 : 0 }]));
+  const profiles = Object.fromEntries(Object.entries(prof).map(([c, p]) => [c, { magic: Math.round(p.magic * 100) / 100, phys: Math.round(p.phys * 100) / 100, dmg: p.dmg, cc: Math.round(p.cc * 10) / 10, tank: p.isTank ? 1 : 0, crit: p.isCrit ? 1 : 0, healer: p.isHealer ? 1 : 0 }]));
   return { level: "Diamant et plus", at: new Date().toISOString(), patch, games: matches.length, ddVersion: cat.version, cuts, profiles, champions: out, items: cat.items,
     method: "Taux d'achat des objets par champion, avec et sans chaque menace adverse ; variante retenue si l'écart est d'au moins 5 points, statistiquement net, et si la description officielle de l'objet répond à la menace." };
 }
@@ -166,6 +176,7 @@ export function adviseBuild(builds, myChamp, enemyChamps) {
     if (k === "ad") return ps.filter(([, p]) => p.phys >= 0.7).filter(big).map(([c]) => c);
     if (k === "tanks") return ps.filter(([, p]) => p.tank).map(([c]) => c);
     if (k === "crit") return ps.filter(([, p]) => p.crit).map(([c]) => c);
+    if (k === "heal") return ps.filter(([, p]) => p.healer).map(([c]) => c);
     if (k === "cc") return [...ps].sort((a, b) => b[1].cc - a[1].cc).slice(0, 3).map(([c]) => c);
     return [];
   };

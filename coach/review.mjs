@@ -181,7 +181,7 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   const earlyDeaths = deaths.filter(d => d.t < 14 * 60000);
   if (earlyDeaths.length >= 3) findings.push({ kind: "morts-phase-de-ligne", family: "decision", weight: 1 + earlyDeaths.length, title: `${earlyDeaths.length} morts avant 14 min`, facts: earlyDeaths.map(d => `${d.at} : tué par ${d.killer}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}${d.enemyHalf ? ", dans la moitié adverse" : ""}`), metric: "deaths30" });
   for (const c of comparisons.filter(c => c.level === "sous")) findings.push({ kind: `ecart-${c.metric}`, family: "niveau", weight: 1 + c.gap, title: `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, en dessous des bons joueurs`, facts: [`Les bons joueurs à ton poste (Diamant et plus) : ${METRICS[c.metric].say(c.p50)}.`], metric: c.metric });
-  // Retard net en phase de ligne : seuil par rôle (20 % des parties les plus en retard au banc d'essai du 21/10/2026, 800 parties)
+  // Retard net en phase de lane : seuil par rôle (20 % des parties les plus en retard au banc d'essai du 21/10/2026, 800 parties)
   const a10 = lane.at10;
   const LANE_LIMIT = { top: -1000, mid: -800, jungle: -700, bottom: -1500, support: -1300 };
   if (a10 && a10.gold <= (LANE_LIMIT[s.role] ?? -1000)) {
@@ -203,7 +203,7 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   if (long && ((s.role === "jungle" && control20 === 0) || (support && control20 <= 1))) findings.push({ kind: "balises-controle", family: "niveau", weight: 1.1, title: `${control20 ? "Une seule balise" : "Aucune balise"} de contrôle posée avant 20 min`, facts: [s.role === "jungle" ? "En jungle, les bons joueurs en posent au moins une avant 20 min pour sécuriser leurs camps et les objectifs." : "En support, les bons joueurs en posent au moins 2 avant 20 min."], metric: "controlWards" });
   findings.sort((a, b) => b.weight - a.weight);
   const strengths = comparisons.filter(c => c.level === "au-dessus" && c.p50 > 0).map(c => `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, au niveau des meilleurs`);
-  if (a10 && a10.gold >= 1000) strengths.unshift(`Phase de ligne : ${a10.duo ? "ton duo avait " : ""}${a10.gold.toLocaleString("fr-FR")} pièces d'or d'avance sur ${a10.duo ? "le duo adverse" : lane.opponent} à 10 min`);
+  if (a10 && a10.gold >= 1000) strengths.unshift(`Phase de lane : ${a10.duo ? "ton duo avait " : ""}${a10.gold.toLocaleString("fr-FR")} pièces d'or d'avance sur ${a10.duo ? "le duo adverse" : lane.opponent} à 10 min`);
   if (lane.platesTaken >= 3) strengths.push(`${lane.platesTaken} plaques de tourelle prises sur ta voie`);
 
   return {
@@ -424,7 +424,7 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
   const objDeaths = reviews.reduce((a, r) => a + r.deaths.filter(d => d.beforeObjective).length, 0);
   if (objGames.length >= need) minus.push({ kind: "mort-avant-objectif", family: "decision", metric: "deaths30", weight: 4 + objGames.length, title: `Au moins 2 morts juste avant un objectif adverse dans ${objGames.length} parties sur ${n}`, detail: `${objDeaths} morts au total, chacune suivie dans la minute d'un objectif pris par l'adversaire (dragon, Larves, Héraut, Atakhan ou Baron).`,
     evidence: "D'après 800 parties analysées : une mort juste avant un objectif adverse fait prendre à l'adversaire environ 1 100 pièces d'or d'avance dans les 3 minutes, 5 fois plus qu'une autre mort. Avec 2 de ces morts, une partie est gagnée 22 fois sur 100 ; sans, 60 fois sur 100.", games: objGames.map(r => r.summary.id) });
-  // Phase de ligne
+  // Phase de lane
   const lanes = reviews.filter(r => r.lane.at10);
   if (lanes.length >= 3) {
     const avg = Math.round(lanes.reduce((a, r) => a + r.lane.at10.gold, 0) / lanes.length);
@@ -432,9 +432,9 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
     if (behind.length >= need && behind.length > ahead.length) minus.push({ kind: "retard-en-ligne", family: "decision", metric: "cs10", weight: 2 + behind.length / 2, title: `Au moins 500 pièces d'or de retard sur ton adversaire direct (le duo adverse pour la voie du bas) à 10 min dans ${behind.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} pièces d'or à 10 min.`, games: behind.map(r => r.summary.id) });
     if (ahead.length >= Math.max(need, Math.ceil(lanes.length / 2)) && ahead.length > behind.length) plus.push({ kind: "avance-en-ligne", title: `Au moins 500 pièces d'or d'avance sur ton adversaire à 10 min dans ${ahead.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} pièces d'or à 10 min.` });
   }
-  // Morts en phase de ligne : au moins 3 avant 14 min (2 arrivait dans 65 % des parties, à tous les rangs)
+  // Morts en phase de lane : au moins 3 avant 14 min (2 arrivait dans 65 % des parties, à tous les rangs)
   const early = reviews.filter(r => r.deaths.filter(d => d.t < 14 * 60000).length >= 3);
-  if (early.length >= need) minus.push({ kind: "morts-phase-de-ligne", family: "decision", metric: "deaths30", weight: 2 + early.length / 2, title: `Au moins 3 morts avant 14 min dans ${early.length} parties sur ${n}`, detail: "Chaque mort en phase de ligne coûte des sbires, de l'expérience et souvent des plaques.",
+  if (early.length >= need) minus.push({ kind: "morts-phase-de-ligne", family: "decision", metric: "deaths30", weight: 2 + early.length / 2, title: `Au moins 3 morts avant 14 min dans ${early.length} parties sur ${n}`, detail: "Chaque mort en phase de lane coûte des sbires, de l'expérience et souvent des plaques.",
     evidence: "Mesuré sur 800 parties : avec 3 morts ou plus avant 14 min, les parties sont gagnées 40 % du temps, contre 58 % sans.", games: early.map(r => r.summary.id) });
   const dead = reviews.filter(r => r.summary.deadSeconds != null);
   if (dead.length >= 3) {

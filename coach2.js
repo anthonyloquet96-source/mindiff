@@ -23,7 +23,7 @@ const C2_TIER = { IRON: "Fer", BRONZE: "Bronze", SILVER: "Argent", GOLD: "Or", P
 // Comment progresser sur chaque indicateur : thèmes de la base et mots-clés des vidéos de coachs
 const C2_LEARN = {
   cs10: { themes: ["lane"], re: /wave|vague|trading|farm|\bcs\b|last ?hit|clear|jungle path|tempo/i, tip: "Vise la référence Diamant+ à 10 min : chaque vague perdue, ce sont 6 sbires et leur or." },
-  csMin: { themes: ["lane"], re: /wave|vague|farm|\bcs\b|tempo/i, tip: "Après la phase de ligne, continue à prendre les vagues proches de toi entre deux combats." },
+  csMin: { themes: ["lane"], re: /wave|vague|farm|\bcs\b|tempo/i, tip: "Après la phase de lane, continue à prendre les vagues proches de toi entre deux combats." },
   deaths30: { themes: ["survie", "methode"], re: /mort|death|dying|surviv|position|dans la t[eê]te|mistake|erreur/i, tip: "Pour chaque mort, note ce que tu ne voyais pas (adversaires absents de la mini-carte, vision) : ouvre le bilan de la partie, chaque mort y est datée." },
   visionMin: { themes: ["methode"], re: /vision|ward|balise|track/i, tip: "Pose une balise à chaque retour et utilise ton trinket dès qu'il est rechargé." },
   controlWards: { themes: ["methode"], re: /vision|ward|balise|control/i, tip: "Une balise de contrôle à chaque retour à la base : c'est 75 pièces d'or, et souvent un objectif sauvé." },
@@ -34,10 +34,10 @@ const C2_KIND_TIP = {
   "mort-avant-objectif": "Dans la minute qui précède un dragon ou un Baron, rejoins ton équipe et évite de mourir seul loin de l'objectif : l'adversaire le prendrait en surnombre.",
   "plaques-perdues": "Avant de quitter ta voie (retour à la base, aide à un combat), pousse ta vague vers la tourelle adverse : elle ne s'écrasera pas sous la tienne pendant ton absence.",
   "retard-en-ligne": "Quand ton adversaire a l'avantage, joue la sécurité : prends les sbires près de ta tourelle, signale-le à ton jungler et ne te bats qu'avec un avantage net.",
-  "morts-phase-de-ligne": "En phase de ligne, recule quand ton adversaire disparaît de la carte ou que son jungler est vu de ton côté : la plupart des morts précoces viennent d'un adversaire non vu.",
+  "morts-phase-de-ligne": "En phase de lane, recule quand ton adversaire disparaît de la carte ou que son jungler est vu de ton côté : la plupart des morts précoces viennent d'un adversaire non vu.",
   "or-non-depense": "Rentre à la base dès que tu peux acheter un composant important, de préférence après avoir poussé ta vague.",
-  "mort-isolee": "Après la phase de ligne, ne pousse pas seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : reste à portée de ton équipe ou replie-toi avant leur arrivée.",
-  "gank-subi": "En phase de ligne, quand le jungler adverse n'a pas été vu depuis un moment et que ta vague est poussée, rapproche-toi de ta tourelle ; une balise dans la rivière te montre son arrivée.",
+  "mort-isolee": "Après la phase de lane, ne pousse pas seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : reste à portée de ton équipe ou replie-toi avant leur arrivée.",
+  "gank-subi": "En phase de lane, quand le jungler adverse n'a pas été vu depuis un moment et que ta vague est poussée, rapproche-toi de ta tourelle ; une balise dans la rivière te montre son arrivée.",
   "absent-objectif": "Environ une minute avant un dragon ou un Baron, pousse ta vague puis rejoins ton équipe : l'adversaire prend les objectifs quand vous êtes moins nombreux.",
   "objectif-inferiorite": "Si un allié est mort ou absent, cède l'objectif et prends plutôt une tourelle ou une vague de l'autre côté de la carte, au lieu de combattre en infériorité.",
   "combat-sans-toi": "Garde un œil sur la mini-carte : quand ton équipe se bat près de toi, la rejoindre change le rapport de force ; sinon, signale de ne pas engager.",
@@ -161,7 +161,7 @@ const C2_PLAIN = {
     goal: "Farmer davantage sur toute la partie", name: "Farm",
     say: v => `${c2n(Math.round(v * 10) / 10)} sbires par minute`,
     what: () => "Le nombre de sbires et de monstres que tu achèves par minute, du début à la fin. Plus de farm, c'est plus d'or, donc de meilleurs objets.",
-    steps: () => ["Après la phase de ligne (vers 14 min), continue à prendre les vagues de sbires proches de toi entre deux combats.", "Quand il ne se passe rien, va chercher une vague sur une voie de côté plutôt que d'attendre.", "Ne laisse jamais une vague mourir sous ta tourelle sans la prendre."],
+    steps: () => ["Après la phase de lane (vers 14 min), continue à prendre les vagues de sbires proches de toi entre deux combats.", "Quand il ne se passe rien, va chercher une vague sur une voie de côté plutôt que d'attendre.", "Ne laisse jamais une vague mourir sous ta tourelle sans la prendre."],
   },
   deaths30: {
     goal: "Mourir moins", name: "Morts",
@@ -537,7 +537,7 @@ function c2Game(id) {
   const tile = (what, at, v) => `<div class="c2-tile ${v > 0 ? "up" : v < 0 ? "down" : ""}"><span class="c2-k">${v > 0 ? "+" : ""}${c2n(v)}</span><span class="fine">${what} ${v >= 0 ? "de plus" : "de moins"} que ${vsName} à ${at} min</span></div>`;
   return `<section class="c2-card c2-match ${s.win ? "win" : "loss"}">
       <div class="c2-prow">${c2Img(s.champion, "c2-av lg")}<div><p class="c2-name">${s.win ? "Victoire" : "Défaite"} · ${esc(c2Name(s.champion))}</p><p class="fine">${esc(C2_ROLE[s.role] || "")}${s.opponent ? ` contre ${esc(c2Name(s.opponent))}` : ""} · ${s.k}/${s.d}/${s.a} · ${s.cs} sbires · ${Math.round(s.minutes)} min · patch ${esc(s.patch)}</p></div></div>
-      ${r.lane.at10 ? `<p class="label">Ta phase de ligne${r.lane.duo ? " (avec ton duo)" : ""}</p><div class="c2-tiles">${tile("pièces d'or", 10, r.lane.at10.gold)}${r.lane.at10.cs != null ? tile("sbires", 10, r.lane.at10.cs) : ""}${r.lane.at15 ? tile("pièces d'or", 15, r.lane.at15.gold) : ""}${r.lane.at15 ? tile("points d'expérience", 15, r.lane.at15.xp) : ""}</div>` : ""}
+      ${r.lane.at10 ? `<p class="label">Ta phase de lane${r.lane.duo ? " (avec ton duo)" : ""}</p><div class="c2-tiles">${tile("pièces d'or", 10, r.lane.at10.gold)}${r.lane.at10.cs != null ? tile("sbires", 10, r.lane.at10.cs) : ""}${r.lane.at15 ? tile("pièces d'or", 15, r.lane.at15.gold) : ""}${r.lane.at15 ? tile("points d'expérience", 15, r.lane.at15.xp) : ""}</div>` : ""}
     </section>
     <div class="filters">${seg("c2-gview", [["resume", "L'essentiel"], ["carte", "Carte"], ["details", "Chiffres"]], view, "Vue")}</div>
     ${view === "carte" ? c2Tactics(r, id) : view === "details" ? `${c2Timeline(r)}
@@ -552,14 +552,14 @@ function c2Game(id) {
     <p class="fine c2-foot">${esc(r.note)}${r.benchmark ? ` Référence : ${r.benchmark.games} parties ${esc(r.benchmark.level)}, patch ${esc(r.benchmark.patch)}.` : ""}</p>`;
 }
 
-// L'essentiel de la partie en quatre lignes : phase de ligne, point clé, point fort, objectif
+// L'essentiel de la partie en quatre lignes : phase de lane, point clé, point fort, objectif
 function c2Brief(r, id) {
   const s = r.summary, a = r.lane.at10, rows = [];
   if (a && r.lane.opponent) {
     const opp = r.lane.duo ? "le duo adverse" : esc(c2Name(r.lane.opponent)), who = r.lane.duo ? "ton duo a " : "";
-    rows.push(a.gold >= 500 ? ["up", "Phase de ligne", `gagnée : ${who}${c2n(a.gold)} pièces d'or d'avance sur ${opp} à 10 min`]
-      : a.gold <= -500 ? ["down", "Phase de ligne", `difficile : ${who}${c2n(-a.gold)} pièces d'or de retard sur ${opp} à 10 min`]
-      : ["", "Phase de ligne", `équilibrée face à ${opp} (${a.gold > 0 ? "+" : ""}${c2n(a.gold)} pièces d'or à 10 min)`]);
+    rows.push(a.gold >= 500 ? ["up", "Phase de lane", `gagnée : ${who}${c2n(a.gold)} pièces d'or d'avance sur ${opp} à 10 min`]
+      : a.gold <= -500 ? ["down", "Phase de lane", `difficile : ${who}${c2n(-a.gold)} pièces d'or de retard sur ${opp} à 10 min`]
+      : ["", "Phase de lane", `équilibrée face à ${opp} (${a.gold > 0 ? "+" : ""}${c2n(a.gold)} pièces d'or à 10 min)`]);
   }
   if (r.findings[0]) rows.push(["down", "À travailler", esc(r.findings[0].title)]);
   if (r.strengths[0]) rows.push(["up", "Point fort", esc(r.strengths[0])]);

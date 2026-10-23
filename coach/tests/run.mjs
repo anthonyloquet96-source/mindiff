@@ -138,7 +138,7 @@ await t("Bilan : retard en ligne, plaques, build face aux Diamant+ ; objectif pa
   const champstats = { patch: "16.20", minGames: 30, champions: { 1: { games: 100, roles: { top: 90 }, items: [{ id: "3153", games: 70 }, { id: "3031", games: 60 }, { id: "3006", games: 50 }], keystones: [{ id: "8010", games: 80 }, { id: "8008", games: 20 }] } } };
   const r = await review(riot, { matchId: "EUW1_2", puuid: parts[0].puuid, region: "europe", benchmarks: null, champstats, fetchImpl });
   assert(r.lane.platesLost === 3 && r.lane.platesTaken === 1, JSON.stringify(r.lane));
-  assert(r.findings[0]?.kind === "retard-en-ligne" && /^1.200 pièces/.test(r.findings[0].title) && r.findings[0].facts.some(f => f.includes("1 mort contre C2")), JSON.stringify(r.findings[0]));
+  assert(r.findings[0]?.kind === "retard-en-ligne" && /^1.200 golds/.test(r.findings[0].title) && r.findings[0].facts.some(f => f.includes("1 mort contre C2")), JSON.stringify(r.findings[0]));
   assert(r.summary.deadSeconds === 120, "temps passé mort");
   const b = r.build;
   assert(b && b.items.map(x => `${x.id}:${x.share}`).join() === "3031:60,6672:0" && b.keystone.share === 20 && b.keystone.top.name === "Conquérant" && b.missing.map(x => x.id).join() === "3153", JSON.stringify(b));

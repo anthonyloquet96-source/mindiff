@@ -55,7 +55,7 @@ export function compProfile(mu, ids) {
 export function analyzeDraft(mu, { allies = [], enemies = [], me = null, pool = [] }) {
   const out = { games: mu.games, days: mu.days, minGames: MIN_GAMES, lanes: [], bot: [], me: null, comps: {}, pool: [] };
   const at = (list, role) => list.find(p => p.role === role);
-  // Duels par voie (même rôle)
+  // Duels par lane (même rôle)
   for (const role of ROLES) {
     const a = at(allies, role), e = at(enemies, role);
     if (!a?.c || !e?.c) continue;

@@ -1,13 +1,13 @@
 // Build adapté à la partie : ce que les joueurs Diamant+ achètent sur un champion SELON la composition adverse.
 // Tout est mesuré sur l'échantillon Diamant+ (coach/cache/riot-sample.json), rien n'est écrit à la main :
 //   1. profil de chaque champion : part de dégâts physiques / magiques / bruts, contrôle infligé, dégâts encaissés,
-//      part des parties où il construit des objets critiques ;
+//      part des parties où il construit des items critiques ;
 //   2. menaces d'une équipe adverse, calculées à partir de ces profils (les mêmes en direct et dans l'échantillon) :
 //      « très magique » ou « très physique » (quart des équipes le plus extrême), « plusieurs tanks », « plusieurs
 //      porteurs de critique », « beaucoup de contrôle » ;
-//   3. pour chaque champion et chaque menace : taux d'achat de chaque objet quand la menace est présente, comparé
+//   3. pour chaque champion et chaque menace : taux d'achat de chaque item quand la menace est présente, comparé
 //      aux parties sans cette menace. Une variante n'est retenue que si l'écart est net (au moins 5 points et
-//      statistiquement solide) ET que l'objet répond à la menace d'après sa description officielle (Data Dragon).
+//      statistiquement solide) ET que l'item répond à la menace d'après sa description officielle (Data Dragon).
 // Lancement seul (aucune requête Riot) : node coach/builds.mjs   → coach/cache/builds.json
 
 import { readFile, writeFile } from "node:fs/promises";
@@ -15,7 +15,7 @@ import { readFile, writeFile } from "node:fs/promises";
 const DD = "https://ddragon.leagueoflegends.com";
 const MIN_GAMES = 30;
 
-// Catégories d'objets, lues dans les statistiques et la description officielles (Data Dragon, français)
+// Catégories d'items, lues dans les statistiques et la description officielles (Data Dragon, français)
 export async function itemCatalog(fetchImpl = fetch) {
   const [v] = await fetchImpl(`${DD}/api/versions.json`).then(r => r.json());
   const j = await fetchImpl(`${DD}/cdn/${v}/data/fr_FR/item.json`).then(r => r.json());
@@ -42,12 +42,12 @@ export async function itemCatalog(fetchImpl = fetch) {
   return { version: v, items: out };
 }
 
-// Menaces et objets qui y répondent (la réponse doit figurer dans la description officielle de l'objet)
+// Menaces et items qui y répondent (la réponse doit figurer dans la description officielle de l'item)
 export const THREATS = {
   ap: { label: "Équipe adverse très magique", why: "plus de la moitié de leurs dégâts sont magiques", answers: ["resistance-magique", "anti-sort", "stase"] },
   ad: { label: "Équipe adverse très physique", why: "plus de la moitié de leurs dégâts sont physiques", answers: ["armure", "anti-critique", "stase"] },
   tanks: { label: "Plusieurs tanks en face", why: "au moins deux champions faits pour encaisser plutôt que pour infliger des dégâts", answers: ["anti-tank"] },
-  crit: { label: "Plusieurs champions à coups critiques", why: "au moins deux champions qui achètent des objets à coups critiques", answers: ["anti-critique", "armure"] },
+  crit: { label: "Plusieurs champions à coups critiques", why: "au moins deux champions qui achètent des items à coups critiques", answers: ["anti-critique", "armure"] },
   cc: { label: "Beaucoup de contrôles adverses", why: "étourdissements, ralentissements et projections en grand nombre", answers: ["tenacite", "purge"] },
   heal: { label: "Plusieurs champions qui se soignent beaucoup", why: "au moins deux champions qui se soignent (ou soignent leurs alliés) bien plus que la moyenne de leur poste", answers: ["anti-soins"] },
 };
@@ -136,7 +136,7 @@ export function computeBuilds(sample, cat, { patch = null } = {}) {
       }
     }
   }
-  // Variantes : objet nettement plus acheté face à la menace qu'en son absence, et qui y répond (description officielle)
+  // Variantes : item nettement plus acheté face à la menace qu'en son absence, et qui y répond (description officielle)
   const out = {};
   for (const [id, c] of Object.entries(champs)) {
     if (c.games < MIN_GAMES * 3) continue;
@@ -157,7 +157,7 @@ export function computeBuilds(sample, cat, { patch = null } = {}) {
   }
   const profiles = Object.fromEntries(Object.entries(prof).map(([c, p]) => [c, { magic: Math.round(p.magic * 100) / 100, phys: Math.round(p.phys * 100) / 100, dmg: p.dmg, cc: Math.round(p.cc * 10) / 10, tank: p.isTank ? 1 : 0, crit: p.isCrit ? 1 : 0, healer: p.isHealer ? 1 : 0 }]));
   return { level: "Diamant et plus", at: new Date().toISOString(), patch, games: matches.length, ddVersion: cat.version, cuts, profiles, champions: out, items: cat.items,
-    method: "Taux d'achat des objets par champion, avec et sans chaque menace adverse ; variante retenue si l'écart est d'au moins 5 points, statistiquement net, et si la description officielle de l'objet répond à la menace." };
+    method: "Taux d'achat des items par champion, avec et sans chaque menace adverse ; variante retenue si l'écart est d'au moins 5 points, statistiquement net, et si la description officielle de l'item répond à la menace." };
 }
 
 // Conseils pour une partie : menaces de l'équipe adverse et variantes mesurées pour mon champion

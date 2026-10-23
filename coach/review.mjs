@@ -80,8 +80,8 @@ export const METRICS = {
   csMin: { label: "Sbires par minute", plain: "Farm", say: v => `${fr(Math.round(v * 10) / 10)} sbires par minute`, unit: "/min", better: "high", roles: ["top", "jungle", "mid", "bottom"], themes: ["lane"], learn: /wave|vague|farm|\bcs\b|tempo/i },
   deaths30: { label: "Morts (pour 30 min)", plain: "Morts", say: v => `${fr(Math.round(v * 10) / 10)} morts par tranche de 30 min de jeu`, unit: "", better: "low", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["survie", "methode"], learn: /mort|death|dying|survi|position|dans la t[eê]te|mistake|erreur/i },
   visionMin: { label: "Score de vision par minute", plain: "Vision", say: v => `score de vision de ${fr(Math.round(v * 10) / 10)} par minute`, unit: "/min", better: "high", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["methode"], learn: /vision|ward|balise|track/i },
-  controlWards: { label: "Balises de contrôle posées", plain: "Balises de contrôle", noCompare: true, say: v => `${fr(v)} balise${v > 1 ? "s" : ""} de contrôle posée${v > 1 ? "s" : ""}`, unit: "", better: "high", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["methode"], learn: /vision|ward|balise|control/i },
-  kp: { label: "Participation aux éliminations", plain: "Participation aux combats", say: v => `${fr(Math.round(v))} % de participation aux éliminations de l'équipe`, unit: " %", better: "high", roles: ["jungle", "mid", "support"], themes: ["teamfight"], learn: /roam|gank|tempo|teamfight|skirmish|escarmouche|jungle/i },
+  controlWards: { label: "Control wards posées", plain: "Control wards", noCompare: true, say: v => `${fr(v)} ward${v > 1 ? "s" : ""} de contrôle posée${v > 1 ? "s" : ""}`, unit: "", better: "high", roles: ["top", "jungle", "mid", "bottom", "support"], themes: ["methode"], learn: /vision|ward|balise|control/i },
+  kp: { label: "Participation aux kills", plain: "Participation aux combats", say: v => `${fr(Math.round(v))} % de participation aux kills de l'équipe`, unit: " %", better: "high", roles: ["jungle", "mid", "support"], themes: ["teamfight"], learn: /roam|gank|tempo|teamfight|skirmish|escarmouche|jungle/i },
 };
 
 // Position d'une valeur par rapport aux joueurs Diamant+ du même rôle (quartiles)
@@ -95,7 +95,7 @@ export function compare(metric, value, bench) {
   return { metric, label: M.label, value, p25: b.p25, p50: b.p50, p75: b.p75, n: b.n, level: below ? "sous" : above ? "au-dessus" : "dans", gap: r1(gap) };
 }
 
-// Bilan d'une partie : chronologie des morts, retours à la base, objectifs ; constats comparés au Diamant+
+// Bilan d'une partie : chronologie des morts, backs, objectifs ; constats comparés au Diamant+
 export async function review(riot, { matchId, puuid, region, benchmarks, champstats = null, fetchImpl = fetch }) {
   const [match, timeline, itemDb] = await Promise.all([
     riot(`https://${region}.api.riotgames.com/lol/match/v5/matches/${matchId}`),
@@ -131,7 +131,7 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
     const o = objectives.find(o => !o.ours && o.t > d.t && o.t - d.t <= 60000);
     if (o) d.beforeObjective = `${o.kind} adverse à ${o.at}`;
   }
-  // Retours à la base : groupes d'achats (on n'achète qu'en base) ; après une mort, ce n'est pas un retour choisi
+  // Backs : groupes d'achats (on n'achète qu'en base) ; après une mort, ce n'est pas un retour choisi
   const buys = events.filter(e => e.participantId === pid && ["ITEM_PURCHASED", "ITEM_UNDO"].includes(e.type) && e.timestamp > 90000);
   const visits = [];
   for (const e of buys) {
@@ -142,7 +142,7 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
     const bought = [];
     for (const e of v.events) {
       if (e.type === "ITEM_UNDO") { const i = bought.findIndex(b => b.id === String(e.beforeId)); if (i >= 0) bought.splice(i, 1); }
-      else bought.push({ id: String(e.itemId), ...(itemDb[e.itemId] || { name: `Objet ${e.itemId}`, gold: 0 }) });
+      else bought.push({ id: String(e.itemId), ...(itemDb[e.itemId] || { name: `Item ${e.itemId}`, gold: 0 }) });
     }
     const afterDeath = deaths.find(d => d.t < v.start && v.start - d.t < 75000);
     const minute = Math.floor(v.start / 60000);
@@ -161,7 +161,7 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
     return { min, gold: sum(mineIds, f => f.totalGold) - sum(theirIds, f => f.totalGold), cs: me.teamPosition === "UTILITY" ? null : cs(F[pid]) - (oppId && F[oppId] ? cs(F[oppId]) : 0), xp: sum(mineIds, f => f.xp) - sum(theirIds, f => f.xp), duo };
   };
   const lane = { opponent: oppId ? byId[oppId].championName : null, duo, at10: diffAt(10), at15: diffAt(15) };
-  // Plaques de tourelle de sa voie (elles tombent à 14 min) : teamId = équipe propriétaire de la plaque
+  // Plaques de tourelle de sa lane (elles tombent à 14 min) : teamId = équipe propriétaire de la plaque
   const LANE = { top: "TOP_LANE", mid: "MID_LANE", bottom: "BOT_LANE", support: "BOT_LANE" }[s.role];
   const plates = events.filter(e => e.type === "TURRET_PLATE_DESTROYED" && LANE && e.laneType === LANE && e.timestamp < 14 * 60000);
   lane.platesLost = LANE ? plates.filter(e => e.teamId === me.teamId).length : null;
@@ -186,7 +186,7 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   const LANE_LIMIT = { top: -1000, mid: -800, jungle: -700, bottom: -1500, support: -1300 };
   if (a10 && a10.gold <= (LANE_LIMIT[s.role] ?? -1000)) {
     const byOpp = deaths.filter(d => d.t < 10 * 60000 && d.killer === lane.opponent).length;
-    findings.push({ kind: "retard-en-ligne", family: "decision", weight: 2 + Math.min(2, -a10.gold / 1000), title: `${a10.duo ? "Ton duo : " : ""}${(-a10.gold).toLocaleString("fr-FR")} pièces d'or de retard sur ${a10.duo ? "le duo adverse" : lane.opponent} à 10 min`, facts: [...(a10.cs != null ? [`Sbires : ${a10.cs > 0 ? "+" : ""}${a10.cs} à 10 min.`] : []), ...(byOpp ? [`${byOpp} mort${byOpp > 1 ? "s" : ""} contre ${lane.opponent} avant 10 min.`] : []), ...(lane.platesLost >= 2 ? [`${lane.platesLost} plaques de ta tourelle perdues avant 14 min.`] : [])], metric: a10.cs != null && a10.cs <= -10 ? "cs10" : "deaths30" });
+    findings.push({ kind: "retard-en-ligne", family: "decision", weight: 2 + Math.min(2, -a10.gold / 1000), title: `${a10.duo ? "Ton duo : " : ""}${(-a10.gold).toLocaleString("fr-FR")} golds de retard sur ${a10.duo ? "le duo adverse" : lane.opponent} à 10 min`, facts: [...(a10.cs != null ? [`Sbires : ${a10.cs > 0 ? "+" : ""}${a10.cs} à 10 min.`] : []), ...(byOpp ? [`${byOpp} mort${byOpp > 1 ? "s" : ""} contre ${lane.opponent} avant 10 min.`] : []), ...(lane.platesLost >= 2 ? [`${lane.platesLost} plaques de ta tourelle perdues avant 14 min.`] : [])], metric: a10.cs != null && a10.cs <= -10 ? "cs10" : "deaths30" });
   }
   // Habitudes des bons joueurs, mesurées au banc d'essai (plus rares chez les Diamant et plus que chez les Fer à Argent, à rôle égal)
   const min20 = 20 * 60000, min14 = 14 * 60000, support = s.role === "support";
@@ -197,33 +197,33 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   const legendaryMin = firstLegendary ? Math.round(firstLegendary.timestamp / 6000) / 10 : null;
   const habits = { wardKills20, control20, backs14, legendaryMin };
   const long = s.minutes >= 20;
-  if (!support && long && wardKills20 === 0) findings.push({ kind: "aucune-balise-detruite", family: "niveau", weight: 1.2, title: "Aucune balise adverse détruite avant 20 min", facts: ["Les bons joueurs détruisent en moyenne 1 à 2 balises adverses avant 20 min (d'après 800 parties analysées, de Fer à Challenger)."], metric: "visionMin" });
+  if (!support && long && wardKills20 === 0) findings.push({ kind: "aucune-balise-detruite", family: "niveau", weight: 1.2, title: "Aucune ward adverse détruite avant 20 min", facts: ["Les bons joueurs détruisent en moyenne 1 à 2 wards adverses avant 20 min (d'après 800 parties analysées, de Fer à Challenger)."], metric: "visionMin" });
   if (!support && backs14 <= 1) findings.push({ kind: "peu-de-retours", family: "niveau", weight: 1.1, title: `${backs14 ? "Un seul retour" : "Aucun retour"} volontaire à la base avant 14 min`, facts: ["Les bons joueurs rentrent environ 3 fois avant 14 min, au bon moment (d'après 800 parties analysées, de Fer à Challenger)."], metric: null });
-  if (!support && (legendaryMin == null ? s.minutes >= 14 : legendaryMin > 14)) findings.push({ kind: "premier-objet-tardif", family: "niveau", weight: 1, title: legendaryMin != null ? `Premier grand objet terminé à ${fr(legendaryMin)} min` : "Aucun grand objet terminé", facts: ["Les bons joueurs terminent leur premier grand objet vers 11 min (d'après 800 parties analysées, de Fer à Challenger)."], metric: "csMin" });
-  if (long && ((s.role === "jungle" && control20 === 0) || (support && control20 <= 1))) findings.push({ kind: "balises-controle", family: "niveau", weight: 1.1, title: `${control20 ? "Une seule balise" : "Aucune balise"} de contrôle posée avant 20 min`, facts: [s.role === "jungle" ? "En jungle, les bons joueurs en posent au moins une avant 20 min pour sécuriser leurs camps et les objectifs." : "En support, les bons joueurs en posent au moins 2 avant 20 min."], metric: "controlWards" });
+  if (!support && (legendaryMin == null ? s.minutes >= 14 : legendaryMin > 14)) findings.push({ kind: "premier-objet-tardif", family: "niveau", weight: 1, title: legendaryMin != null ? `Premier grand item terminé à ${fr(legendaryMin)} min` : "Aucun grand item terminé", facts: ["Les bons joueurs terminent leur premier grand item vers 11 min (d'après 800 parties analysées, de Fer à Challenger)."], metric: "csMin" });
+  if (long && ((s.role === "jungle" && control20 === 0) || (support && control20 <= 1))) findings.push({ kind: "balises-controle", family: "niveau", weight: 1.1, title: `${control20 ? "Une seule ward" : "Aucune ward"} de contrôle posée avant 20 min`, facts: [s.role === "jungle" ? "En jungle, les bons joueurs en posent au moins une avant 20 min pour sécuriser leurs camps et les objectifs." : "En support, les bons joueurs en posent au moins 2 avant 20 min."], metric: "controlWards" });
   findings.sort((a, b) => b.weight - a.weight);
   const strengths = comparisons.filter(c => c.level === "au-dessus" && c.p50 > 0).map(c => `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, au niveau des meilleurs`);
-  if (a10 && a10.gold >= 1000) strengths.unshift(`Phase de lane : ${a10.duo ? "ton duo avait " : ""}${a10.gold.toLocaleString("fr-FR")} pièces d'or d'avance sur ${a10.duo ? "le duo adverse" : lane.opponent} à 10 min`);
-  if (lane.platesTaken >= 3) strengths.push(`${lane.platesTaken} plaques de tourelle prises sur ta voie`);
+  if (a10 && a10.gold >= 1000) strengths.unshift(`Phase de lane : ${a10.duo ? "ton duo avait " : ""}${a10.gold.toLocaleString("fr-FR")} golds d'avance sur ${a10.duo ? "le duo adverse" : lane.opponent} à 10 min`);
+  if (lane.platesTaken >= 3) strengths.push(`${lane.platesTaken} plaques de tourelle prises sur ta lane`);
 
   return {
     summary: { ...s, deadSeconds: me.totalTimeSpentDead ?? null }, lane, deaths, bases, objectives, comparisons, findings: findings.slice(0, 3), findingsAll: findings.map(f => f.kind), habits, strengths,
     build: await buildVsDiamond(me, champstats, itemDb, fetchImpl),
     // Compositions : champions et rôles (aucun Riot ID des autres joueurs)
-    // Relecture tactique : mini-carte, combats, objectifs, morts, interactions, ce qui aurait été mieux (coach/tactics.mjs)
+    // Relecture tactique : minimap, combats, objectifs, morts, interactions, ce qui aurait été mieux (coach/tactics.mjs)
     tactics: tac,
     teams: { allies: info.participants.filter(p => p.teamId === me.teamId).map(p => ({ champion: p.championName, role: POS[p.teamPosition] || null })), enemies: info.participants.filter(p => p.teamId !== me.teamId).map(p => ({ champion: p.championName, role: POS[p.teamPosition] || null })) },
     duration: info.gameDuration, benchmark: bench ? { patch: benchmarks.patch, games: benchmarks.games, level: "Diamant et plus" } : null,
-    note: "Faits tirés des données officielles de Riot. Les retours à la base sont déduits des achats (on n'achète qu'en base) ; un retour sans achat n'apparaît pas.",
+    note: "Faits tirés des données officielles de Riot. Les backs sont déduits des achats (on n'achète qu'en base) ; un retour sans achat n'apparaît pas.",
   };
 }
 
-// Objets et rune clé du joueur, comparés à ce que jouent les Diamant+ sur le même champion (patch de référence)
+// Items et rune clé du joueur, comparés à ce que jouent les Diamant+ sur le même champion (patch de référence)
 async function buildVsDiamond(me, champstats, itemDb, fetchImpl) {
   const c = champstats?.champions?.[me.championId];
   if (!c || c.games < (champstats.minGames || 30)) return null;
   const role = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "bottom", UTILITY: "support" }[me.teamPosition];
-  if (role && (c.roles?.[role] || 0) / c.games < 0.3) return null; // champion joué à un autre poste chez les Diamant+ : les objets ne sont pas comparables
+  if (role && (c.roles?.[role] || 0) / c.games < 0.3) return null; // champion joué à un autre poste chez les Diamant+ : les items ne sont pas comparables
   const nm = await ddNames(fetchImpl);
   const share = (list, id) => Math.round(((list.find(x => String(x.id) === String(id))?.games || 0) / c.games) * 100);
   const big = id => itemDb[id]?.gold >= 2000 && !itemDb[id]?.boots;
@@ -234,12 +234,12 @@ async function buildVsDiamond(me, champstats, itemDb, fetchImpl) {
     games: c.games, patch: champstats.patch, ddVersion: nm.v,
     items: mine.map(id => ({ id, name: itemDb[id].name, share: share(c.items, id) })),
     keystone: ks ? { name: nm.perk[ks]?.name || String(ks), icon: nm.perk[ks]?.icon, share: share(c.keystones, ks), top: topKs && String(topKs.id) !== String(ks) ? { name: nm.perk[topKs.id]?.name, icon: nm.perk[topKs.id]?.icon, share: Math.round((topKs.games / c.games) * 100) } : null } : null,
-    // Objets les plus joués par les Diamant+ absents de l'inventaire final (seulement si la partie a duré assez pour finir 3 objets)
+    // Items les plus joués par les Diamant+ absents de l'inventaire final (seulement si la partie a duré assez pour finir 3 items)
     missing: mine.length >= 2 ? c.items.filter(x => big(x.id)).slice(0, 3).filter(x => !mine.includes(String(x.id))).map(x => ({ id: x.id, name: itemDb[x.id].name, share: Math.round((x.games / c.games) * 100) })) : [],
   };
 }
 
-// ---------- Fiche champion Diamant+ : objets, runes, sorts réellement joués (échantillon coach/benchmarks.mjs)
+// ---------- Fiche champion Diamant+ : items, runes, sorts réellement joués (échantillon coach/benchmarks.mjs)
 let namesCache = null, namesFor = null;
 export async function ddNames(fetchImpl = fetch) {
   if (namesCache && namesFor === fetchImpl) return namesCache;
@@ -325,8 +325,8 @@ export async function live(riot, { puuid, platform, champstats, builds = null, f
 }
 
 // Build pour la partie en cours : build habituel des Diamant+ sur mon champion, puis variantes selon les menaces adverses.
-// Variante « mesurée » : objet nettement plus acheté par les Diamant+ face à cette menace (coach/builds.mjs).
-// Sinon, « option » : objet déjà joué sur ce champion (au moins 5 % des parties) dont la description officielle répond à la menace.
+// Variante « mesurée » : item nettement plus acheté par les Diamant+ face à cette menace (coach/builds.mjs).
+// Sinon, « option » : item déjà joué sur ce champion (au moins 5 % des parties) dont la description officielle répond à la menace.
 async function liveBuild(mine, enemies, champstats, builds, dd, fetchImpl) {
   const card = await championCard(champstats?.champions?.[mine.championId], champstats, fetchImpl);
   const advice = adviseBuild(builds, mine.championId, enemies.map(p => p.championId));
@@ -341,7 +341,7 @@ async function liveBuild(mine, enemies, champstats, builds, dd, fetchImpl) {
   return {
     core: card.enough ? { items: card.items.slice(0, 4), boots: card.boots.slice(0, 1), keystone: card.keystones[0] || null, games: card.games, patch: card.patch } : null,
     shape: advice?.shape || null, threats, games: advice?.games || 0, ddVersion: builds?.ddVersion || null,
-    note: "Build habituel : objets les plus présents en fin de partie chez les Diamant+ sur ce champion. Variantes : mesurées en comparant les parties avec et sans la menace ; l'objet doit y répondre d'après sa description officielle.",
+    note: "Build habituel : items les plus présents en fin de partie chez les Diamant+ sur ce champion. Variantes : mesurées en comparant les parties avec et sans la menace ; l'item doit y répondre d'après sa description officielle.",
   };
 }
 
@@ -423,14 +423,14 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
   const objGames = reviews.filter(r => r.deaths.filter(d => d.beforeObjective).length >= 2);
   const objDeaths = reviews.reduce((a, r) => a + r.deaths.filter(d => d.beforeObjective).length, 0);
   if (objGames.length >= need) minus.push({ kind: "mort-avant-objectif", family: "decision", metric: "deaths30", weight: 4 + objGames.length, title: `Au moins 2 morts juste avant un objectif adverse dans ${objGames.length} parties sur ${n}`, detail: `${objDeaths} morts au total, chacune suivie dans la minute d'un objectif pris par l'adversaire (dragon, Larves, Héraut, Atakhan ou Baron).`,
-    evidence: "D'après 800 parties analysées : une mort juste avant un objectif adverse fait prendre à l'adversaire environ 1 100 pièces d'or d'avance dans les 3 minutes, 5 fois plus qu'une autre mort. Avec 2 de ces morts, une partie est gagnée 22 fois sur 100 ; sans, 60 fois sur 100.", games: objGames.map(r => r.summary.id) });
+    evidence: "D'après 800 parties analysées : une mort juste avant un objectif adverse fait prendre à l'adversaire environ 1 100 golds d'avance dans les 3 minutes, 5 fois plus qu'une autre mort. Avec 2 de ces morts, une partie est gagnée 22 fois sur 100 ; sans, 60 fois sur 100.", games: objGames.map(r => r.summary.id) });
   // Phase de lane
   const lanes = reviews.filter(r => r.lane.at10);
   if (lanes.length >= 3) {
     const avg = Math.round(lanes.reduce((a, r) => a + r.lane.at10.gold, 0) / lanes.length);
     const behind = lanes.filter(r => r.lane.at10.gold <= -500), ahead = lanes.filter(r => r.lane.at10.gold >= 500);
-    if (behind.length >= need && behind.length > ahead.length) minus.push({ kind: "retard-en-ligne", family: "decision", metric: "cs10", weight: 2 + behind.length / 2, title: `Au moins 500 pièces d'or de retard sur ton adversaire direct (le duo adverse pour la voie du bas) à 10 min dans ${behind.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} pièces d'or à 10 min.`, games: behind.map(r => r.summary.id) });
-    if (ahead.length >= Math.max(need, Math.ceil(lanes.length / 2)) && ahead.length > behind.length) plus.push({ kind: "avance-en-ligne", title: `Au moins 500 pièces d'or d'avance sur ton adversaire à 10 min dans ${ahead.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} pièces d'or à 10 min.` });
+    if (behind.length >= need && behind.length > ahead.length) minus.push({ kind: "retard-en-ligne", family: "decision", metric: "cs10", weight: 2 + behind.length / 2, title: `Au moins 500 golds de retard sur ton adversaire direct (le duo adverse pour la bot lane) à 10 min dans ${behind.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} golds à 10 min.`, games: behind.map(r => r.summary.id) });
+    if (ahead.length >= Math.max(need, Math.ceil(lanes.length / 2)) && ahead.length > behind.length) plus.push({ kind: "avance-en-ligne", title: `Au moins 500 golds d'avance sur ton adversaire à 10 min dans ${ahead.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} golds à 10 min.` });
   }
   // Morts en phase de lane : au moins 3 avant 14 min (2 arrivait dans 65 % des parties, à tous les rangs)
   const early = reviews.filter(r => r.deaths.filter(d => d.t < 14 * 60000).length >= 3);
@@ -460,15 +460,15 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
       evidence: `D'après 800 parties analysées, à poste égal : « ${title.charAt(0).toLowerCase() + title.slice(1)} » dans ${low} % des parties des joueurs Fer à Argent, et seulement ${diamond} % de celles des Diamant et plus.` });
   };
   const notSup = r => r.summary.role !== "support", long = r => r.summary.minutes >= 20;
-  H("aucune-balise-detruite", r => r.habits.wardKills20 === 0, r => notSup(r) && long(r), 32, 66, "Aucune balise adverse détruite avant 20 min", "Détruire les balises adverses (accessoire rouge, balise de contrôle) prive l'adversaire de vision et protège tes déplacements.", "visionMin");
+  H("aucune-balise-detruite", r => r.habits.wardKills20 === 0, r => notSup(r) && long(r), 32, 66, "Aucune ward adverse détruite avant 20 min", "Détruire les wards adverses (trinket rouge, control ward) prive l'adversaire de vision et protège tes déplacements.", "visionMin");
   H("peu-de-retours", r => r.habits.backs14 <= 1, notSup, 9, 25, "Au plus un retour volontaire à la base avant 14 min", "Les bons joueurs rentrent environ 3 fois avant 14 min, au bon moment (sbires poussés, or suffisant).");
-  H("premier-objet-tardif", r => r.habits.legendaryMin == null || r.habits.legendaryMin > 14, r => notSup(r) && r.summary.minutes >= 14, 12, 23, "Premier grand objet terminé après 14 min", "Les bons joueurs terminent leur premier grand objet vers 11 min : plus de farm et des retours au bon moment.", "csMin");
-  H("balises-controle", r => (r.summary.role === "jungle" ? r.habits.control20 === 0 : r.habits.control20 <= 1), r => long(r) && ["jungle", "support"].includes(r.summary.role), 40, 68, "Peu de balises de contrôle posées avant 20 min", "Une balise de contrôle (75 pièces d'or) reste posée jusqu'à ce qu'on la détruise : elle montre et coupe la vision adverse autour d'un objectif.", "controlWards");
+  H("premier-objet-tardif", r => r.habits.legendaryMin == null || r.habits.legendaryMin > 14, r => notSup(r) && r.summary.minutes >= 14, 12, 23, "Premier grand item terminé après 14 min", "Les bons joueurs terminent leur premier grand item vers 11 min : plus de farm et des retours au bon moment.", "csMin");
+  H("balises-controle", r => (r.summary.role === "jungle" ? r.habits.control20 === 0 : r.habits.control20 <= 1), r => long(r) && ["jungle", "support"].includes(r.summary.role), 40, 68, "Peu de control wards posées avant 20 min", "Une control ward (75 golds) reste posée jusqu'à ce qu'on la détruise : elle montre et coupe la vision adverse autour d'un objectif.", "controlWards");
   // Relecture tactique : seules les erreurs dont l'effet est mesuré au-delà de l'état de la partie
   const T = reviews.map(r => r.tactics).filter(Boolean);
   const lessonGames = kind => reviews.filter(r => r.tactics?.lessons.some(l => l.kind === kind));
   const iso = lessonGames("mort-isolee"), contested = lessonGames("objectif-inferiorite");
-  if (iso.length >= need) minus.push({ kind: "mort-isolee", family: "decision", metric: "deaths30", weight: 1.5 + iso.length / 2, title: `Morts seul face à plusieurs adversaires après 14 min dans ${iso.length} parties sur ${n}`, detail: "Aucun allié n'était tout près au moment de la mort : souvent en poussant seul une voie sans savoir où sont les adversaires.", games: iso.map(r => r.summary.id) });
+  if (iso.length >= need) minus.push({ kind: "mort-isolee", family: "decision", metric: "deaths30", weight: 1.5 + iso.length / 2, title: `Morts seul face à plusieurs adversaires après 14 min dans ${iso.length} parties sur ${n}`, detail: "Aucun allié n'était tout près au moment de la mort : souvent en poussant seul une lane sans savoir où sont les adversaires.", games: iso.map(r => r.summary.id) });
   if (contested.length >= need) minus.push({ kind: "objectif-inferiorite", family: "decision", metric: null, weight: 3 + contested.length / 2, title: `Objectifs disputés en infériorité numérique dans ${contested.length} parties sur ${n}`, detail: "Combat perdu autour d'un objectif alors que l'équipe était moins nombreuse (souvent avec un allié mort).",
     evidence: "D'après 800 parties analysées : disputer un objectif à moins nombreux fait perdre environ 9 parties sur 100, que ton équipe soit devant ou derrière.", games: contested.map(r => r.summary.id) });
   // Participation aux combats et aux objectifs

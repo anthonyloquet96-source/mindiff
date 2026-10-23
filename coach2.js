@@ -1,6 +1,6 @@
 /* MINDIFF — nouveau coach (aperçu) : #/lol/coach/beta
    1. Mon coach : compte Riot → rang, dernières parties, un objectif suivi de partie en partie
-   2. Bilan d'une partie : faits officiels de Riot (morts, retours à la base, objectifs, écarts), comparés au Diamant+
+   2. Bilan d'une partie : faits officiels de Riot (morts, backs, objectifs, écarts), comparés au Diamant+
    3. Face-à-face : mon champion contre le sien, conseils sourcés
    4. Champions : les 173 champions et ce que le coach sait de chacun
    Aucun appel d'IA ici : les faits viennent de Riot (via /api/coach, clé gardée côté serveur), les conseils de data/coach.json. */
@@ -22,29 +22,29 @@ const C2_ROLE = { top: "Top", jungle: "Jungle", mid: "Mid", bottom: "ADC", suppo
 const C2_TIER = { IRON: "Fer", BRONZE: "Bronze", SILVER: "Argent", GOLD: "Or", PLATINUM: "Platine", EMERALD: "Émeraude", DIAMOND: "Diamant", MASTER: "Maître", GRANDMASTER: "Grand Maître", CHALLENGER: "Challenger" };
 // Comment progresser sur chaque indicateur : thèmes de la base et mots-clés des vidéos de coachs
 const C2_LEARN = {
-  cs10: { themes: ["lane"], re: /wave|vague|trading|farm|\bcs\b|last ?hit|clear|jungle path|tempo/i, tip: "Vise la référence Diamant+ à 10 min : chaque vague perdue, ce sont 6 sbires et leur or." },
-  csMin: { themes: ["lane"], re: /wave|vague|farm|\bcs\b|tempo/i, tip: "Après la phase de lane, continue à prendre les vagues proches de toi entre deux combats." },
-  deaths30: { themes: ["survie", "methode"], re: /mort|death|dying|surviv|position|dans la t[eê]te|mistake|erreur/i, tip: "Pour chaque mort, note ce que tu ne voyais pas (adversaires absents de la mini-carte, vision) : ouvre le bilan de la partie, chaque mort y est datée." },
-  visionMin: { themes: ["methode"], re: /vision|ward|balise|track/i, tip: "Pose une balise à chaque retour et utilise ton trinket dès qu'il est rechargé." },
-  controlWards: { themes: ["methode"], re: /vision|ward|balise|control/i, tip: "Une balise de contrôle à chaque retour à la base : c'est 75 pièces d'or, et souvent un objectif sauvé." },
-  kp: { themes: ["teamfight"], re: /roam|gank|tempo|teamfight|skirmish|escarmouche|jungle/i, tip: "Après avoir poussé ta vague, regarde la mini-carte : rejoins les combats qui ont lieu près de toi." },
+  cs10: { themes: ["lane"], re: /wave|vague|trading|farm|\bcs\b|last ?hit|clear|jungle path|tempo/i, tip: "Vise la référence Diamant+ à 10 min : chaque wave perdue, ce sont 6 sbires et leur or." },
+  csMin: { themes: ["lane"], re: /wave|vague|farm|\bcs\b|tempo/i, tip: "Après la phase de lane, continue à prendre les waves proches de toi entre deux combats." },
+  deaths30: { themes: ["survie", "methode"], re: /mort|death|dying|surviv|position|dans la t[eê]te|mistake|erreur/i, tip: "Pour chaque mort, note ce que tu ne voyais pas (adversaires absents de la minimap, vision) : ouvre le bilan de la partie, chaque mort y est datée." },
+  visionMin: { themes: ["methode"], re: /vision|ward|balise|track/i, tip: "Pose une ward à chaque retour et utilise ton trinket dès qu'il est rechargé." },
+  controlWards: { themes: ["methode"], re: /vision|ward|balise|control/i, tip: "Une control ward à chaque back : c'est 75 golds, et souvent un objectif sauvé." },
+  kp: { themes: ["teamfight"], re: /roam|gank|tempo|teamfight|skirmish|escarmouche|jungle/i, tip: "Après avoir poussé ta wave, regarde la minimap : rejoins les combats qui ont lieu près de toi." },
 };
 // Conseil de méthode propre à chaque type de constat (plus précis que celui de l'indicateur)
 const C2_KIND_TIP = {
   "mort-avant-objectif": "Dans la minute qui précède un dragon ou un Baron, rejoins ton équipe et évite de mourir seul loin de l'objectif : l'adversaire le prendrait en surnombre.",
-  "plaques-perdues": "Avant de quitter ta voie (retour à la base, aide à un combat), pousse ta vague vers la tourelle adverse : elle ne s'écrasera pas sous la tienne pendant ton absence.",
+  "plaques-perdues": "Avant de quitter ta lane (back, aide à un combat), pousse ta wave vers la tourelle adverse : elle ne s'écrasera pas sous la tienne pendant ton absence.",
   "retard-en-ligne": "Quand ton adversaire a l'avantage, joue la sécurité : prends les sbires près de ta tourelle, signale-le à ton jungler et ne te bats qu'avec un avantage net.",
   "morts-phase-de-ligne": "En phase de lane, recule quand ton adversaire disparaît de la carte ou que son jungler est vu de ton côté : la plupart des morts précoces viennent d'un adversaire non vu.",
-  "or-non-depense": "Rentre à la base dès que tu peux acheter un composant important, de préférence après avoir poussé ta vague.",
+  "or-non-depense": "Rentre à la base dès que tu peux acheter un composant important, de préférence après avoir poussé ta wave.",
   "mort-isolee": "Après la phase de lane, ne pousse pas seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : reste à portée de ton équipe ou replie-toi avant leur arrivée.",
-  "gank-subi": "En phase de lane, quand le jungler adverse n'a pas été vu depuis un moment et que ta vague est poussée, rapproche-toi de ta tourelle ; une balise dans la rivière te montre son arrivée.",
-  "absent-objectif": "Environ une minute avant un dragon ou un Baron, pousse ta vague puis rejoins ton équipe : l'adversaire prend les objectifs quand vous êtes moins nombreux.",
-  "objectif-inferiorite": "Si un allié est mort ou absent, cède l'objectif et prends plutôt une tourelle ou une vague de l'autre côté de la carte, au lieu de combattre en infériorité.",
-  "combat-sans-toi": "Garde un œil sur la mini-carte : quand ton équipe se bat près de toi, la rejoindre change le rapport de force ; sinon, signale de ne pas engager.",
-  "aucune-balise-detruite": "Après ton premier retour, échange ton accessoire jaune contre la Lentille de l'oracle (accessoire rouge, gratuit à la boutique) : active-la en passant près d'un buisson de rivière ou d'une entrée de jungle, ou pose une balise de contrôle, et détruis les balises adverses que tu trouves.",
-  "peu-de-retours": "Rentre à la base dès que tu as l'or d'un composant, juste après avoir poussé tes sbires vers la tourelle adverse (en jungle : après un camp ou un gank) : tu reviens à temps et avec un objet de plus.",
-  "premier-objet-tardif": "Vise ton premier grand objet vers 11 min : prends chaque sbire possible et rentre dès que tu as l'or d'un composant, plutôt que de rester sur la carte avec peu de points de vie.",
-  "balises-controle": "Achète une balise de contrôle à chaque retour à la base et pose-la près du prochain objectif (dragon, Larves, Héraut) ou dans ta jungle. Tu ne peux en poser qu'une à la fois : si l'ancienne est encore en place, déplace-la vers le prochain objectif.",
+  "gank-subi": "En phase de lane, quand le jungler adverse n'a pas été vu depuis un moment et que ta wave est poussée, rapproche-toi de ta tourelle ; une ward dans la rivière te montre son arrivée.",
+  "absent-objectif": "Environ une minute avant un dragon ou un Baron, pousse ta wave puis rejoins ton équipe : l'adversaire prend les objectifs quand vous êtes moins nombreux.",
+  "objectif-inferiorite": "Si un allié est mort ou absent, cède l'objectif et prends plutôt une tourelle ou une wave de l'autre côté de la carte, au lieu de combattre en infériorité.",
+  "combat-sans-toi": "Garde un œil sur la minimap : quand ton équipe se bat près de toi, la rejoindre change le rapport de force ; sinon, signale de ne pas engager.",
+  "aucune-balise-detruite": "Après ton premier retour, échange ton trinket jaune contre la Lentille de l'oracle (trinket rouge, gratuit à la boutique) : active-la en passant près d'un buisson de rivière ou d'une entrée de jungle, ou pose une control ward, et détruis les wards adverses que tu trouves.",
+  "peu-de-retours": "Rentre à la base dès que tu as l'or d'un composant, juste après avoir poussé tes sbires vers la tourelle adverse (en jungle : après un camp ou un gank) : tu reviens à temps et avec un item de plus.",
+  "premier-objet-tardif": "Vise ton premier grand item vers 11 min : prends chaque sbire possible et rentre dès que tu as l'or d'un composant, plutôt que de rester sur la carte avec peu de points de vie.",
+  "balises-controle": "Achète une control ward à chaque back et pose-la près du prochain objectif (dragon, Larves, Héraut) ou dans ta jungle. Tu ne peux en poser qu'une à la fois : si l'ancienne est encore en place, déplace-la vers le prochain objectif.",
   "temps-mort": "Moins de morts, c'est plus de temps pour farmer et peser sur les objectifs : Commence par les morts après 20 min : tu attends plus longtemps avant de revenir, et l'adversaire en profite pour prendre un objectif.",
 };
 const c2TipOf = f => C2_KIND_TIP[f.kind] || C2_PLAIN[f.metric]?.steps(C2.profile ? c2Role(C2.profile) : null)?.[0] || C2_LEARN[f.metric]?.tip || "";
@@ -124,7 +124,7 @@ async function c2LoadLive(force = false) {
   if (was && c2ui.live && !c2ui.live.inGame) { render(false); return c2LoadProfile(true); }
   render(false);
 }
-// Fiche Diamant+ d'un champion (objets, runes, sorts) : données du serveur, pas encore publiées en ligne
+// Fiche Diamant+ d'un champion (items, runes, sorts) : données du serveur, pas encore publiées en ligne
 async function c2LoadChamp(id) {
   if (C2_API == null || id in c2ui.champ) return;
   c2ui.champ[id] = null;
@@ -152,40 +152,40 @@ const C2_PLAIN = {
     say: v => `${c2n(v)} sbires à 10 min`,
     what: role => role === "jungle"
       ? "En jungle, le farm, ce sont les camps de monstres que tu tues. Plus tu en fais, plus vite tu gagnes de l'or et des niveaux."
-      : "Les sbires sont les petits soldats qui avancent dans les voies. Donner le dernier coup à un sbire rapporte de l'or : c'est ta première source d'or pour acheter tes objets.",
+      : "Les sbires sont les petits soldats qui avancent dans les lanes. Donner le last hit à un sbire rapporte de l'or : c'est ta première source d'or pour acheter tes items.",
     steps: role => role === "jungle"
-      ? ["Enchaîne tes camps sans temps mort : chaque camp tué, c'est de l'or et de l'expérience.", "Entre deux attaques sur une voie, reviens prendre tes camps.", "Garde le même ordre de camps à chaque partie pour gagner en rythme."]
-      : ["Ne frappe un sbire que lorsqu'il est presque mort : seul le dernier coup donne l'or.", "Avant de rentrer à la base, tue d'abord les sbires adverses pour perdre le moins de farm possible.", "Entraîne-toi 5 minutes en mode Entraînement : vise 70 sbires à 10 minutes."],
+      ? ["Enchaîne tes camps sans temps mort : chaque camp tué, c'est de l'or et de l'expérience.", "Entre deux attaques sur une lane, reviens prendre tes camps.", "Garde le même ordre de camps à chaque partie pour gagner en rythme."]
+      : ["Ne frappe un sbire que lorsqu'il est presque mort : seul le last hit donne l'or.", "Avant de rentrer à la base, tue d'abord les sbires adverses pour perdre le moins de farm possible.", "Entraîne-toi 5 minutes en mode Entraînement : vise 70 sbires à 10 minutes."],
   },
   csMin: {
     goal: "Farmer davantage sur toute la partie", name: "Farm",
     say: v => `${c2n(Math.round(v * 10) / 10)} sbires par minute`,
-    what: () => "Le nombre de sbires et de monstres que tu achèves par minute, du début à la fin. Plus de farm, c'est plus d'or, donc de meilleurs objets.",
-    steps: () => ["Après la phase de lane (vers 14 min), continue à prendre les vagues de sbires proches de toi entre deux combats.", "Quand il ne se passe rien, va chercher une vague sur une voie de côté plutôt que d'attendre.", "Ne laisse jamais une vague mourir sous ta tourelle sans la prendre."],
+    what: () => "Le nombre de sbires et de monstres que tu achèves par minute, du début à la fin. Plus de farm, c'est plus d'or, donc de meilleurs items.",
+    steps: () => ["Après la phase de lane (vers 14 min), continue à prendre les waves de sbires proches de toi entre deux combats.", "Quand il ne se passe rien, va chercher une wave sur une lane de côté plutôt que d'attendre.", "Ne laisse jamais une wave mourir sous ta tourelle sans la prendre."],
   },
   deaths30: {
     goal: "Mourir moins", name: "Morts",
     say: v => `${c2n(Math.round(v * 10) / 10)} morts par tranche de 30 min`,
     what: () => "Chaque mort te fait attendre sans jouer, donne de l'or à l'adversaire et lui laisse le temps de prendre des objectifs.",
-    steps: () => ["Quand ton adversaire disparaît de la carte, recule : il arrive peut-être avec d'autres.", "Avant d'avancer seul, regarde la mini-carte et compte les adversaires visibles.", "Après chaque mort, demande-toi ce que tu ne voyais pas : c'est souvent la même erreur qui revient."],
+    steps: () => ["Quand ton adversaire disparaît de la carte, recule : il arrive peut-être avec d'autres.", "Avant d'avancer seul, regarde la minimap et compte les adversaires visibles.", "Après chaque mort, demande-toi ce que tu ne voyais pas : c'est souvent la même erreur qui revient."],
   },
   visionMin: {
     goal: "Mieux éclairer la carte", name: "Vision",
     say: v => `${c2n(Math.round(v * 10) / 10)} de score de vision par minute`,
-    what: () => "Le score de vision compte ce que tu fais pour voir la carte : balises posées, balises adverses détruites. Voir l'adversaire venir évite des morts et aide à prendre les objectifs.",
-    steps: role => [...(role === "support" ? ["Termine vite la quête de ton objet de support : il te donne des balises à poser ; pose-les dès qu'elles sont disponibles."] : []), "Pose ta balise gratuite (l'accessoire, touche 4) dès qu'elle est rechargée.", "Achète une balise de contrôle (75 pièces d'or) à chaque retour à la base.", "Place tes balises là où l'adversaire passe : rivière, entrées de jungle, et autour du dragon une minute avant qu'il apparaisse."],
+    what: () => "Le score de vision compte ce que tu fais pour voir la carte : wards posées, wards adverses détruites. Voir l'adversaire venir évite des morts et aide à prendre les objectifs.",
+    steps: role => [...(role === "support" ? ["Termine vite la quête de ton item de support : il te donne des wards à poser ; pose-les dès qu'elles sont disponibles."] : []), "Pose ta ward gratuite (le trinket, touche 4) dès qu'elle est rechargée.", "Achète une control ward (75 golds) à chaque back.", "Place tes wards là où l'adversaire passe : rivière, entrées de jungle, et autour du dragon une minute avant qu'il apparaisse."],
   },
   controlWards: {
-    goal: "Poser des balises de contrôle", name: "Balises de contrôle",
-    say: v => `${c2n(v)} balise${v > 1 ? "s" : ""} de contrôle par partie`,
-    what: () => "La balise de contrôle (75 pièces d'or) révèle les balises adverses autour d'elle. C'est l'un des achats les plus rentables du jeu.",
-    steps: () => ["Achètes-en une à chaque retour à la base.", "Pose-la dans un buisson de la rivière ou près d'un objectif (dragon, Baron).", "Garde toujours une place libre pour elle dans ton inventaire."],
+    goal: "Poser des control wards", name: "Control wards",
+    say: v => `${c2n(v)} ward${v > 1 ? "s" : ""} de contrôle par partie`,
+    what: () => "La control ward (75 golds) révèle les wards adverses autour d'elle. C'est l'un des achats les plus rentables du jeu.",
+    steps: () => ["Achètes-en une à chaque back.", "Pose-la dans un buisson de la rivière ou près d'un objectif (dragon, Baron).", "Garde toujours une place libre pour elle dans ton inventaire."],
   },
   kp: {
     goal: "Participer à plus de combats", name: "Participation aux combats",
-    say: v => `${c2n(Math.round(v))} % des éliminations de ton équipe`,
-    what: () => "La part des éliminations de ton équipe auxquelles tu participes. Être là quand ton équipe se bat change le rapport de force.",
-    steps: () => ["Après avoir poussé ta vague, regarde la mini-carte : si un combat se prépare près de toi, rejoins-le.", "Avant un dragon ou un Baron, rejoins ton équipe une minute avant.", "Évite de farmer seul à l'autre bout de la carte quand ton équipe est regroupée."],
+    say: v => `${c2n(Math.round(v))} % des kills de ton équipe`,
+    what: () => "La part des kills de ton équipe auxquelles tu participes. Être là quand ton équipe se bat change le rapport de force.",
+    steps: () => ["Après avoir poussé ta wave, regarde la minimap : si un combat se prépare près de toi, rejoins-le.", "Avant un dragon ou un Baron, rejoins ton équipe une minute avant.", "Évite de farmer seul à l'autre bout de la carte quand ton équipe est regroupée."],
   },
 };
 // Vidéos pour aller plus loin : 2 au plus, langue indiquée, jamais le guide d'un autre champion
@@ -305,7 +305,7 @@ function c2Connect(switching = false) {
   const off = C2_API == null;
   const recent = (C2.recent || []).filter(r => r.riotId.toLowerCase() !== (C2.profile?.riotId || "").toLowerCase());
   const intro = switching ? "" : `<h2 class="c2-hero-title">Tes vraies parties, un objectif à la fois</h2>
-    <ol class="c2-steps"><li><b>Connecte ton compte</b> avec ton Riot ID : rien à installer.</li><li><b>Bilan de chaque partie</b> : morts, retours à la base, objectifs, comparés aux joueurs Diamant+ de ton rôle.</li><li><b>Un seul objectif</b> suivi de partie en partie, avec les vidéos de coachs qui l'expliquent.</li></ol>`;
+    <ol class="c2-steps"><li><b>Connecte ton compte</b> avec ton Riot ID : rien à installer.</li><li><b>Bilan de chaque partie</b> : morts, backs, objectifs, comparés aux joueurs Diamant+ de ton rôle.</li><li><b>Un seul objectif</b> suivi de partie en partie, avec les vidéos de coachs qui l'expliquent.</li></ol>`;
   const chips = recent.length && !off ? `<div class="c2-recent"><span class="fine">Comptes récents</span>${recent.map(r => `<button class="pill-btn" data-action="c2-use" data-id="${esc(r.riotId)}" data-platform="${esc(r.platform)}">${esc(r.riotId)}</button>`).join("")}</div>` : "";
   return `<section class="c2-hero ${switching ? "compact" : ""}">
     <p class="label">${switching ? "Changer de Riot ID" : "Ton coach personnel"}</p>
@@ -489,19 +489,19 @@ function c2LiveBuild(b, champ) {
   const core = b.core ? `<div class="c2-brow"><span class="label">Build des Diamant+ sur ${esc(c2Name(champ))}</span>
       <div class="c2-icons">${[...b.core.items, ...b.core.boots].map(x => `<span class="c2-ic">${img(x.id, x.name)}<i>${x.share} %</i></span>`).join("")}</div>
       <p class="fine">${[...b.core.items, ...b.core.boots].map(x => esc(x.name)).join(" · ")}${b.core.keystone ? ` · rune ${esc(b.core.keystone.name)}` : ""}</p>
-      <p class="fine">Pourcentage : part des parties Diamant+ où l'objet est dans l'inventaire en fin de partie.</p></div>` : "";
+      <p class="fine">Pourcentage : part des parties Diamant+ où l'item est dans l'inventaire en fin de partie.</p></div>` : "";
   const threats = b.threats.map(t => {
     const list = t.measured?.items.length ? t.measured.items.map(x => `<li>${img(x.id, x.name)}<span><b>${esc(x.name)}</b><small>chez les Diamant+ : dans ${x.on} % des parties face à ce type d'équipe, contre ${x.off} % face aux autres</small></span></li>`).join("")
       : t.options.map(x => `<li>${img(x.id, x.name)}<span><b>${esc(x.name)}</b><small>option déjà jouée sur ${esc(c2Name(champ))} (${x.share} % des parties)</small></span></li>`).join("");
     return `<div class="c2-threat"><p><b>${esc(t.label)}</b> : ${esc(t.why)}${t.champions.length ? ` (${t.champions.map(c => esc(c2Name(c))).join(", ")})` : ""}.</p>
-      ${list ? `<ul class="c2-swap">${list}</ul>` : `<p class="fine">Pas d'objet de rechange repéré sur ${esc(c2Name(champ))} face à cette menace : garde ce build.</p>`}</div>`;
+      ${list ? `<ul class="c2-swap">${list}</ul>` : `<p class="fine">Pas d'item de rechange repéré sur ${esc(c2Name(champ))} face à cette menace : garde ce build.</p>`}</div>`;
   }).join("");
   return `<div class="c2-livebuild"><p class="label">Ton build pour cette partie</p>${core}
     ${b.threats.length ? `<p class="label">À adapter face à cette équipe${b.shape ? ` · en moyenne ${b.shape.magic} % de dégâts magiques, ${b.shape.phys} % physiques (le reste : dégâts bruts, qui ignorent armure et résistance magique)` : ""}</p>${threats}` : `<p class="fine">Composition adverse sans menace marquée : garde ce build.</p>`}
-    <p class="fine">Mesuré sur ${c2n(b.games)} parties Diamant+ de ce champion${b.core ? `, patch ${esc(b.core.patch)}` : ""}. « Dans X % face à ce type d'équipe » : comparé aux parties sans cette menace, et l'objet y répond d'après sa description officielle. « Option déjà jouée » : objet qui répond à la menace d'après sa description, sans mesure face à elle.</p></div>`;
+    <p class="fine">Mesuré sur ${c2n(b.games)} parties Diamant+ de ce champion${b.core ? `, patch ${esc(b.core.patch)}` : ""}. « Dans X % face à ce type d'équipe » : comparé aux parties sans cette menace, et l'item y répond d'après sa description officielle. « Option déjà jouée » : item qui répond à la menace d'après sa description, sans mesure face à elle.</p></div>`;
 }
 
-// ---------- Ce que jouent les Diamant+ (objets, runes, sorts), d'après de vraies parties
+// ---------- Ce que jouent les Diamant+ (items, runes, sorts), d'après de vraies parties
 function c2Builds(id) {
   if (C2_API == null) return "";
   const s = c2ui.champ[id];
@@ -514,10 +514,10 @@ function c2Builds(id) {
     <p class="label">Ce que jouent les Diamant+ · patch ${esc(s.patch)}</p>
     <p class="fine">${s.games} parties · ${s.games >= 100 ? `${c2n(s.winrate)} % de victoires (± ${c2n(s.margin)} points)` : "taux de victoire non significatif sous 100 parties"}${s.roles.length ? ` · ${s.roles.map(r => `${esc(C2_ROLE[r.role] || r.role)} ${r.share} %`).join(", ")}` : ""}</p>
     <div class="c2-brow"><span class="label">Rune clé</span><div class="c2-icons">${s.keystones.map(k => ic("rune", k.icon, k.name, k.share)).join("")}</div><p class="fine">${s.keystones.map(k => esc(k.name)).join(" · ")}</p></div>
-    <div class="c2-brow"><span class="label">Objets</span><div class="c2-icons">${s.items.map(x => ic("item", `${x.id}.png`, x.name, x.share)).join("")}${s.boots.map(x => ic("item", `${x.id}.png`, x.name, x.share)).join("")}</div><p class="fine">${[...s.items, ...s.boots].map(x => esc(x.name)).join(" · ")}</p></div>
+    <div class="c2-brow"><span class="label">Items</span><div class="c2-icons">${s.items.map(x => ic("item", `${x.id}.png`, x.name, x.share)).join("")}${s.boots.map(x => ic("item", `${x.id}.png`, x.name, x.share)).join("")}</div><p class="fine">${[...s.items, ...s.boots].map(x => esc(x.name)).join(" · ")}</p></div>
     <div class="c2-brow"><span class="label">Sorts</span><div class="c2-icons">${s.spells.slice(0, 2).map(x => `<span class="c2-pair">${x.ids.map((sid, i) => `<img src="https://ddragon.leagueoflegends.com/cdn/${esc(V)}/img/spell/${esc(sid)}.png" alt="${esc(x.names[i])}" title="${esc(x.names[i])}" loading="lazy">`).join("")}<i>${x.share} %</i></span>`).join("")}</div></div>
     <p class="fine">${s.trees.map(t => `${esc(t.name)} ${t.share} %`).join(" · ")}</p>
-    <p class="fine">Part des parties où l'objet est dans l'inventaire en fin de partie, sur de vraies parties classées Diamant+ (EUW).</p>
+    <p class="fine">Part des parties où l'item est dans l'inventaire en fin de partie, sur de vraies parties classées Diamant+ (EUW).</p>
   </section>`;
 }
 
@@ -537,7 +537,7 @@ function c2Game(id) {
   const tile = (what, at, v) => `<div class="c2-tile ${v > 0 ? "up" : v < 0 ? "down" : ""}"><span class="c2-k">${v > 0 ? "+" : ""}${c2n(v)}</span><span class="fine">${what} ${v >= 0 ? "de plus" : "de moins"} que ${vsName} à ${at} min</span></div>`;
   return `<section class="c2-card c2-match ${s.win ? "win" : "loss"}">
       <div class="c2-prow">${c2Img(s.champion, "c2-av lg")}<div><p class="c2-name">${s.win ? "Victoire" : "Défaite"} · ${esc(c2Name(s.champion))}</p><p class="fine">${esc(C2_ROLE[s.role] || "")}${s.opponent ? ` contre ${esc(c2Name(s.opponent))}` : ""} · ${s.k}/${s.d}/${s.a} · ${s.cs} sbires · ${Math.round(s.minutes)} min · patch ${esc(s.patch)}</p></div></div>
-      ${r.lane.at10 ? `<p class="label">Ta phase de lane${r.lane.duo ? " (avec ton duo)" : ""}</p><div class="c2-tiles">${tile("pièces d'or", 10, r.lane.at10.gold)}${r.lane.at10.cs != null ? tile("sbires", 10, r.lane.at10.cs) : ""}${r.lane.at15 ? tile("pièces d'or", 15, r.lane.at15.gold) : ""}${r.lane.at15 ? tile("points d'expérience", 15, r.lane.at15.xp) : ""}</div>` : ""}
+      ${r.lane.at10 ? `<p class="label">Ta phase de lane${r.lane.duo ? " (avec ton duo)" : ""}</p><div class="c2-tiles">${tile("golds", 10, r.lane.at10.gold)}${r.lane.at10.cs != null ? tile("sbires", 10, r.lane.at10.cs) : ""}${r.lane.at15 ? tile("golds", 15, r.lane.at15.gold) : ""}${r.lane.at15 ? tile("XP", 15, r.lane.at15.xp) : ""}</div>` : ""}
     </section>
     <div class="filters">${seg("c2-gview", [["resume", "L'essentiel"], ["carte", "Carte"], ["details", "Chiffres"]], view, "Vue")}</div>
     ${view === "carte" ? c2Tactics(r, id) : view === "details" ? `${c2Timeline(r)}
@@ -557,9 +557,9 @@ function c2Brief(r, id) {
   const s = r.summary, a = r.lane.at10, rows = [];
   if (a && r.lane.opponent) {
     const opp = r.lane.duo ? "le duo adverse" : esc(c2Name(r.lane.opponent)), who = r.lane.duo ? "ton duo a " : "";
-    rows.push(a.gold >= 500 ? ["up", "Phase de lane", `gagnée : ${who}${c2n(a.gold)} pièces d'or d'avance sur ${opp} à 10 min`]
-      : a.gold <= -500 ? ["down", "Phase de lane", `difficile : ${who}${c2n(-a.gold)} pièces d'or de retard sur ${opp} à 10 min`]
-      : ["", "Phase de lane", `équilibrée face à ${opp} (${a.gold > 0 ? "+" : ""}${c2n(a.gold)} pièces d'or à 10 min)`]);
+    rows.push(a.gold >= 500 ? ["up", "Phase de lane", `gagnée : ${who}${c2n(a.gold)} golds d'avance sur ${opp} à 10 min`]
+      : a.gold <= -500 ? ["down", "Phase de lane", `difficile : ${who}${c2n(-a.gold)} golds de retard sur ${opp} à 10 min`]
+      : ["", "Phase de lane", `équilibrée face à ${opp} (${a.gold > 0 ? "+" : ""}${c2n(a.gold)} golds à 10 min)`]);
   }
   if (r.findings[0]) rows.push(["down", "À travailler", esc(r.findings[0].title)]);
   if (r.strengths[0]) rows.push(["up", "Point fort", esc(r.strengths[0])]);
@@ -584,15 +584,15 @@ function c2BuildCmp(r) {
   const k = b.keystone;
   return `<section class="sec"><div class="sec-head"><h2 class="sec-title">Ton build face aux Diamant+</h2></div><div class="c2-card c2-buildcmp">
     ${k ? `<div class="c2-brow"><span class="label">Rune clé</span><p class="c2-kline"><img src="https://ddragon.leagueoflegends.com/cdn/img/${esc(k.icon || "")}" alt="" loading="lazy"><span><b>${esc(k.name)}</b> : ${k.share} % des Diamant+${k.top ? `. La plus jouée : ${esc(k.top.name)} (${k.top.share} %)` : ", c'est la plus jouée"}</span></p></div>` : ""}
-    ${b.items.length ? `<div class="c2-brow"><span class="label">Tes objets terminés</span><div class="c2-icons">${b.items.map(it).join("")}</div><p class="fine">${b.items.map(x => esc(x.name)).join(" · ")}</p></div>` : ""}
+    ${b.items.length ? `<div class="c2-brow"><span class="label">Tes items terminés</span><div class="c2-icons">${b.items.map(it).join("")}</div><p class="fine">${b.items.map(x => esc(x.name)).join(" · ")}</p></div>` : ""}
     ${b.missing.length ? `<div class="c2-brow"><span class="label">Très joués par les Diamant+, absents chez toi</span><div class="c2-icons">${b.missing.map(it).join("")}</div><p class="fine">${b.missing.map(x => esc(x.name)).join(" · ")}</p></div>` : ""}
     ${rare.length ? `<p class="fine">${rare.map(x => esc(x.name)).join(", ")} : rare chez les Diamant+ sur ${esc(c2Name(r.summary.champion))}. Ça peut être un bon choix selon la partie ; compare avec la fiche du champion.</p>` : ""}
-    ${r.summary.patch && b.patch && r.summary.patch !== b.patch ? `<p class="note">${icon("info")}<span>Ta partie date du patch ${esc(r.summary.patch)}, la référence du patch ${esc(b.patch)} : les objets ont pu changer entre-temps.</span></p>` : ""}
-    <p class="fine">Part des parties Diamant+ (${b.games} parties, patch ${esc(b.patch)}) où l'objet est dans l'inventaire final. <a href="${c2Href("champions", r.summary.champion)}">Voir la fiche ${esc(c2Name(r.summary.champion))}</a></p>
+    ${r.summary.patch && b.patch && r.summary.patch !== b.patch ? `<p class="note">${icon("info")}<span>Ta partie date du patch ${esc(r.summary.patch)}, la référence du patch ${esc(b.patch)} : les items ont pu changer entre-temps.</span></p>` : ""}
+    <p class="fine">Part des parties Diamant+ (${b.games} parties, patch ${esc(b.patch)}) où l'item est dans l'inventaire final. <a href="${c2Href("champions", r.summary.champion)}">Voir la fiche ${esc(c2Name(r.summary.champion))}</a></p>
   </div></section>`;
 }
 
-// ---------- Relecture tactique : mini-carte minute par minute, moments clés, combats, interactions (données Riot, sans IA)
+// ---------- Relecture tactique : minimap minute par minute, moments clés, combats, interactions (données Riot, sans IA)
 const C2_MAP = 14870;
 function c2MapInner(T, m) {
   const pos = T.map[m] || [];
@@ -627,7 +627,7 @@ function c2Tactics(r, id) {
   const chips = (list, label) => list.length ? `<div><p class="label">${label}</p><div class="c2-chiprow">${list.slice(0, 5).map(x => `<span class="c2-cchip">${c2Img(x.champion, "c2-av xs")}${esc(c2Name(x.champion))} · ${x.n}</span>`).join("")}</div></div>` : "";
   return `<section class="sec"><div class="sec-head"><h2 class="sec-title">Relecture tactique</h2></div>
     <div class="c2-card">
-      <div class="c2-map" id="c2-map-${esc(id)}" style="background-image:url(https://ddragon.leagueoflegends.com/cdn/${esc(COACH?.ddragonVersion || "16.21.1")}/img/map/map11.png)" role="img" aria-label="Mini-carte à la minute ${m} : position des 10 joueurs">${(mi => `${mi.dots}<div class="c2-mlayer">${mi.layer}</div>`)(c2MapInner(T, m))}</div>
+      <div class="c2-map" id="c2-map-${esc(id)}" style="background-image:url(https://ddragon.leagueoflegends.com/cdn/${esc(COACH?.ddragonVersion || "16.21.1")}/img/map/map11.png)" role="img" aria-label="Minimap à la minute ${m} : position des 10 joueurs">${(mi => `${mi.dots}<div class="c2-mlayer">${mi.layer}</div>`)(c2MapInner(T, m))}</div>
       <div class="c2-mctl"><button class="btn ghost sm" data-action="c2-tplay" data-id="${esc(id)}" aria-label="Lire la partie">${icon("play")}Lire</button><input type="range" min="0" max="${T.map.length - 1}" value="${m}" data-c2-tmin="${esc(id)}" aria-label="Minute de la partie"></div>
       <p class="c2-legend fine"><span><i class="lg base"></i>ton équipe</span><span><i class="lg theirs"></i>adversaires</span><span><i class="lg fight"></i>combat</span><span><i class="lg objm"></i>objectif</span></p>
       <div class="c2-tiles">
@@ -642,7 +642,7 @@ function c2Tactics(r, id) {
       : `<p class="inline-empty">Aucune erreur de placement nette relevée sur cette partie (objectifs, morts, combats).</p>`}
     <details class="more c2-card"><summary>Tous les combats (${T.fights.length}) et interactions</summary>
       <ul class="c2-events">${T.fights.map(f => `<li><b>${f.at}</b> ${esc(f.zone)} · ${f.allies} contre ${f.enemies} · <span class="${f.won === true ? "up" : f.won === false ? "bad" : ""}">${f.won === true ? "gagné" : f.won === false ? "perdu" : "égal"}</span> (${f.enemiesDead} adversaire${f.enemiesDead > 1 ? "s" : ""} éliminé${f.enemiesDead > 1 ? "s" : ""}, ${f.alliesDead} allié${f.alliesDead > 1 ? "s" : ""}) · ${f.me ? "avec toi" : `sans toi (${f.myDist < 2500 ? "tu étais tout près" : f.myDist < 6000 ? "tu étais à quelques secondes" : f.myDist < 9000 ? "tu étais loin" : "tu étais à l'autre bout de la carte"})`} <button class="linkish" data-action="c2-tgo" data-id="${esc(id)}" data-m="${Math.floor(f.t / 60000)}">carte</button></li>`).join("")}</ul>
-      ${chips(T.interactions.killedBy, "T'ont éliminé le plus")}${chips(T.interactions.killed, "Tu as éliminé le plus")}${chips(T.interactions.with, "Tes éliminations avec")}
+      ${chips(T.interactions.killedBy, "T'ont éliminé le plus")}${chips(T.interactions.killed, "Tu as éliminé le plus")}${chips(T.interactions.with, "Tes kills avec")}
     </details>
     <p class="fine">${esc(T.limits)}</p>
   </section>`;
@@ -671,7 +671,7 @@ function c2MapGo(id, m) {
   const mi = c2MapInner(T, m), layer = el.querySelector(".c2-mlayer");
   if (layer) layer.innerHTML = mi.layer; else el.innerHTML = `${mi.dots}<div class="c2-mlayer">${mi.layer}</div>`;
   c2MapPlace(el, T, m);
-  el.setAttribute("aria-label", `Mini-carte à la minute ${m} : position des 10 joueurs`);
+  el.setAttribute("aria-label", `Minimap à la minute ${m} : position des 10 joueurs`);
   const s = document.querySelector(`[data-c2-tmin="${CSS.escape(id)}"]`);
   if (s && Number(s.value) !== m) s.value = m;
   return true;
@@ -698,21 +698,21 @@ function c2Bar(c) {
     <div class="c2-bar-track"><span class="c2-bar-band" style="left:${x(c.p25)}%;width:${x(c.p75) - x(c.p25)}%"></span><span class="c2-bar-med" style="left:${x(c.p50)}%"></span><span class="c2-bar-me" style="left:${x(c.value)}%"></span></div></div>`;
 }
 
-// Ligne de temps : objectifs en haut, retours à la base et morts du joueur en bas
+// Ligne de temps : objectifs en haut, backs et morts du joueur en bas
 function c2Timeline(r) {
   const max = r.duration * 1000;
   const x = t => `left:${((t / max) * 100).toFixed(2)}%`;
   const ticks = [];
   for (let m = 5; m * 60000 < max; m += 5) ticks.push(`<span class="tl-tick" style="${x(m * 60000)}"><i>${m}</i></span>`);
   const obj = r.objectives.map(o => `<span class="tl-m tl-obj ${o.ours ? "ours" : "theirs"}" style="${x(o.t)}" title="${esc(o.kind)} ${o.ours ? "pris" : "perdu"} à ${o.at}"></span>`).join("");
-  const bases = r.bases.map(b => `<span class="tl-m tl-b ${b.afterDeath ? "shop" : ""}" style="${x(b.t)}" title="${b.afterDeath ? "Achats après une mort" : "Retour à la base"} à ${b.at} : ${esc(b.items.join(", "))}"></span>`).join("");
+  const bases = r.bases.map(b => `<span class="tl-m tl-b ${b.afterDeath ? "shop" : ""}" style="${x(b.t)}" title="${b.afterDeath ? "Achats après une mort" : "Back"} à ${b.at} : ${esc(b.items.join(", "))}"></span>`).join("");
   const deaths = r.deaths.map(d => `<span class="tl-m tl-d" style="${x(d.t)}" title="Mort à ${d.at}, tué par ${esc(c2Name(d.killer))}${d.beforeObjective ? ` (${esc(d.beforeObjective)})` : ""}"></span>`).join("");
   return `<section class="sec"><div class="sec-head"><h2 class="sec-title">Déroulé</h2></div>
     <div class="c2-card"><div class="c2-tl" role="img" aria-label="Ligne de temps : ${r.objectives.length} objectifs, ${r.bases.length} passages en boutique, ${r.deaths.length} morts">${ticks.join("")}<div class="tl-row">${obj}</div><div class="tl-row tl-me">${bases}${deaths}</div></div>
-    <p class="c2-legend fine"><span><i class="lg ours"></i>objectif pris</span><span><i class="lg theirs"></i>objectif perdu</span><span><i class="lg base"></i>retour à la base</span><span><i class="lg shop"></i>achats après une mort</span><span><i class="lg death"></i>mort</span></p>
-    <details class="more"><summary>Détail : ${r.deaths.length} mort${r.deaths.length > 1 ? "s" : ""}, ${r.bases.filter(b => !b.afterDeath).length} retours à la base</summary>
+    <p class="c2-legend fine"><span><i class="lg ours"></i>objectif pris</span><span><i class="lg theirs"></i>objectif perdu</span><span><i class="lg base"></i>back</span><span><i class="lg shop"></i>achats après une mort</span><span><i class="lg death"></i>mort</span></p>
+    <details class="more"><summary>Détail : ${r.deaths.length} mort${r.deaths.length > 1 ? "s" : ""}, ${r.bases.filter(b => !b.afterDeath).length} backs</summary>
       <ul class="c2-events">${[...r.deaths.map(d => ({ t: d.t, html: `<b>${d.at}</b> Mort, tué par ${esc(c2Name(d.killer))}${d.helpers ? ` (+${d.helpers})` : ""}${d.beforeObjective ? ` · <span class="bad">${esc(d.beforeObjective)}</span>` : ""}` })),
-        ...r.bases.map(b => ({ t: b.t, html: `<b>${b.at}</b> ${b.afterDeath ? "Achats après la mort" : "Retour à la base"} : ${esc(b.items.join(", "))}${!b.afterDeath && b.goldBefore != null ? ` <span class="fine">(${b.goldBefore} or en poche une minute avant)</span>` : ""}` }))].sort((a, b) => a.t - b.t).map(e => `<li>${e.html}</li>`).join("")}</ul></details></div></section>`;
+        ...r.bases.map(b => ({ t: b.t, html: `<b>${b.at}</b> ${b.afterDeath ? "Achats après la mort" : "Back"} : ${esc(b.items.join(", "))}${!b.afterDeath && b.goldBefore != null ? ` <span class="fine">(${b.goldBefore} or en poche une minute avant)</span>` : ""}` }))].sort((a, b) => a.t - b.t).map(e => `<li>${e.html}</li>`).join("")}</ul></details></div></section>`;
 }
 
 // ---------- Face-à-face et fiches champions (base du coach, sans compte)
@@ -795,7 +795,7 @@ function c2DraftResult(d, { myRole = null, compact = false } = {}) {
   if (!d) return "";
   const vsTxt = (a, b) => `${c2Img(a, "c2-av sm")}<span class="c2-vs-sep">contre</span>${c2Img(b, "c2-av sm")}`;
   const myLane = d.lanes.find(l => l.role === myRole);
-  const lanes = d.lanes.length ? `<section class="c2-card"><p class="label">Duels par voie · joueurs Diamant+</p><ul class="c2-mu">${d.lanes.map(l => `<li class="${l.role === myRole ? "me" : ""}">
+  const lanes = d.lanes.length ? `<section class="c2-card"><p class="label">Duels par lane · joueurs Diamant+</p><ul class="c2-mu">${d.lanes.map(l => `<li class="${l.role === myRole ? "me" : ""}">
       <span class="c2-mu-role">${esc(C2_ROLE[l.role])}</span><span class="c2-mu-duel">${vsTxt(l.ally, l.enemy)}</span>
       <span class="c2-mu-stat">${c2Rate(l)}${l.enough ? `<span class="fine">${C2_VERDICT[l.verdict]}${l.cs10 != null ? ` · sbires à 10 min ${l.cs10 > 0 ? "+" : ""}${c2n(l.cs10)}` : ""}</span>` : ""}</span></li>`).join("")}</ul>
       <p class="fine">Taux de victoire du champion de ton équipe dans chaque duel, avec la marge d'erreur à 95 %.</p></section>` : "";

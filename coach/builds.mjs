@@ -45,9 +45,9 @@ export async function itemCatalog(fetchImpl = fetch) {
 // Menaces et objets qui y répondent (la réponse doit figurer dans la description officielle de l'objet)
 export const THREATS = {
   ap: { label: "Équipe adverse très magique", why: "plus de la moitié de leurs dégâts sont magiques", answers: ["resistance-magique", "anti-sort", "stase"] },
-  ad: { label: "Équipe adverse très physique", why: "leurs dégâts sont presque tous physiques", answers: ["armure", "anti-critique", "stase"] },
-  tanks: { label: "Plusieurs tanks en face", why: "au moins deux champions qui encaissent énormément", answers: ["anti-tank"] },
-  crit: { label: "Plusieurs porteurs de critique", why: "au moins deux champions qui construisent des coups critiques", answers: ["anti-critique", "armure"] },
+  ad: { label: "Équipe adverse très physique", why: "plus de la moitié de leurs dégâts sont physiques", answers: ["armure", "anti-critique", "stase"] },
+  tanks: { label: "Plusieurs tanks en face", why: "au moins deux champions faits pour encaisser plutôt que pour infliger des dégâts", answers: ["anti-tank"] },
+  crit: { label: "Plusieurs champions à coups critiques", why: "au moins deux champions qui achètent des objets à coups critiques", answers: ["anti-critique", "armure"] },
   cc: { label: "Beaucoup de contrôles adverses", why: "étourdissements, ralentissements et projections en grand nombre", answers: ["tenacite", "purge"] },
 };
 
@@ -57,20 +57,24 @@ function championProfiles(matches, cat) {
   const acc = {};
   for (const m of matches) for (const r of m.rows) {
     if (!r.dmg || !m.d) continue;
-    const a = (acc[r.c] ||= { n: 0, p: 0, m: 0, t: 0, cc: 0, tank: 0, crit: 0 });
-    a.n++; a.p += r.dmg[0]; a.m += r.dmg[1]; a.t += r.dmg[2]; a.cc += (r.cc || 0) / m.d; a.tank += (r.tank || 0) / m.d;
+    const a = (acc[r.c] ||= { n: 0, p: 0, m: 0, t: 0, cc: 0, tank: 0, dpm: 0, crit: 0 });
+    a.n++; a.p += r.dmg[0]; a.m += r.dmg[1]; a.t += r.dmg[2]; a.cc += (r.cc || 0) / m.d; a.tank += (r.tank || 0) / m.d; a.dpm += (r.dmg[0] + r.dmg[1] + r.dmg[2]) / m.d;
     if (r.items.filter(i => crit.has(i)).length >= 2) a.crit++;
   }
   const prof = {};
   for (const [c, a] of Object.entries(acc)) {
     if (a.n < 20) continue;
     const tot = a.p + a.m + a.t || 1;
-    prof[c] = { n: a.n, dmg: Math.round(tot / a.n), phys: a.p / tot, magic: a.m / tot, cc: a.cc / a.n, tank: a.tank / a.n, crit: a.crit / a.n };
+    prof[c] = { n: a.n, dmg: Math.round(tot / a.n), phys: a.p / tot, magic: a.m / tot, cc: a.cc / a.n, tank: a.tank / a.n, ratio: a.tank / (a.dpm || 1), crit: a.crit / a.n };
   }
-  // Tank : dans le cinquième des champions qui encaissent le plus par minute
-  const tanks = Object.values(prof).map(p => p.tank).sort((a, b) => a - b);
-  const tankCut = tanks[Math.floor(tanks.length * 0.8)] || Infinity;
-  for (const p of Object.values(prof)) { p.isTank = p.tank >= tankCut; p.isCrit = p.crit >= 0.5; }
+  // Tank : encaisse beaucoup PAR RAPPORT à ce qu'il inflige (cinquième des champions au rapport le plus élevé), et au moins
+  // autant que la moitié des champions. Un combattant qui encaisse et inflige beaucoup (Fiora, Tryndamere) n'est pas un tank.
+  const ps = Object.values(prof);
+  const at = (arr, p) => { const s = [...arr].sort((a, b) => a - b); return s[Math.floor((s.length - 1) * p)]; };
+  const ratioCut = at(ps.map(p => p.ratio), 0.78), tankMed = at(ps.map(p => p.tank), 0.5);
+  // Contrôle : valeurs hors norme plafonnées (certains effets, comme la peur ou l'aveuglement, sont comptés très largement par Riot)
+  const ccCap = at(ps.map(p => p.cc), 0.95);
+  for (const p of ps) { p.isTank = p.ratio >= ratioCut && p.tank >= tankMed; p.isCrit = p.crit >= 0.5; p.cc = Math.min(p.cc, ccCap); }
   return prof;
 }
 
@@ -153,10 +157,13 @@ export function adviseBuild(builds, myChamp, enemyChamps) {
   const threats = threatsOf(shape, builds.cuts);
   const mine = builds.champions[String(myChamp)];
   const name = id => builds.items[id]?.name || id;
+  const dmgs = Object.values(builds.profiles).map(p => p.dmg).sort((a, b) => a - b), dmgMed = dmgs[Math.floor(dmgs.length / 2)] || 0;
   const why = k => {
     const ps = enemyChamps.map(c => [c, builds.profiles[c]]).filter(([, p]) => p);
-    if (k === "ap") return ps.filter(([, p]) => p.magic >= 0.6).map(([c]) => c);
-    if (k === "ad") return ps.filter(([, p]) => p.phys >= 0.7).map(([c]) => c);
+    // Seuls les champions qui infligent beaucoup de dégâts sont cités (pas un support qui en fait peu)
+    const big = ([, p]) => p.dmg >= dmgMed;
+    if (k === "ap") return ps.filter(([, p]) => p.magic >= 0.6).filter(big).map(([c]) => c);
+    if (k === "ad") return ps.filter(([, p]) => p.phys >= 0.7).filter(big).map(([c]) => c);
     if (k === "tanks") return ps.filter(([, p]) => p.tank).map(([c]) => c);
     if (k === "crit") return ps.filter(([, p]) => p.crit).map(([c]) => c);
     if (k === "cc") return [...ps].sort((a, b) => b[1].cc - a[1].cc).slice(0, 3).map(([c]) => c);

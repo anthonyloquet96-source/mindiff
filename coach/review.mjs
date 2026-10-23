@@ -173,8 +173,11 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   const bench = benchmarks?.roles?.[s.role];
   const comparisons = Object.keys(METRICS).filter(k => METRICS[k].roles.includes(s.role) && !METRICS[k].noCompare).map(k => compare(k, s.metrics[k], bench)).filter(Boolean);
   const findings = [];
+  // Relecture tactique calculée d'abord : une mort déjà racontée sur la Carte y renvoie au lieu d'être racontée deux fois
+  const tac = (() => { try { return tactics(match, timeline, puuid); } catch { return null; } })(); // données incomplètes : le bilan reste disponible sans la relecture
+  const onMap = d => tac?.lessons?.some(l => Math.abs(l.t - d.t) < 60000);
   const lateObj = deaths.filter(d => d.beforeObjective);
-  if (lateObj.length) findings.push({ kind: "mort-avant-objectif", family: "decision", weight: 3 + lateObj.length, title: `${lateObj.length} mort${lateObj.length > 1 ? "s" : ""} juste avant un objectif adverse`, facts: lateObj.map(d => `${d.at} : tué par ${d.killer}, puis ${d.beforeObjective}`), metric: "deaths30" });
+  if (lateObj.length) findings.push({ kind: "mort-avant-objectif", family: "decision", weight: 3 + lateObj.length, title: `${lateObj.length} mort${lateObj.length > 1 ? "s" : ""} juste avant un objectif adverse`, facts: lateObj.map(d => `${d.at} : tué par ${d.killer}, puis ${d.beforeObjective}${onMap(d) ? " (détail sur la Carte)" : ""}`), metric: "deaths30" });
   const earlyDeaths = deaths.filter(d => d.t < 14 * 60000);
   if (earlyDeaths.length >= 3) findings.push({ kind: "morts-phase-de-ligne", family: "decision", weight: 1 + earlyDeaths.length, title: `${earlyDeaths.length} morts avant 14 min`, facts: earlyDeaths.map(d => `${d.at} : tué par ${d.killer}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}${d.enemyHalf ? ", dans la moitié adverse" : ""}`), metric: "deaths30" });
   for (const c of comparisons.filter(c => c.level === "sous")) findings.push({ kind: `ecart-${c.metric}`, family: "niveau", weight: 1 + c.gap, title: `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, en dessous des bons joueurs`, facts: [`Les bons joueurs à ton poste (Diamant et plus) : ${METRICS[c.metric].say(c.p50)}.`], metric: c.metric });
@@ -194,9 +197,9 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   const legendaryMin = firstLegendary ? Math.round(firstLegendary.timestamp / 6000) / 10 : null;
   const habits = { wardKills20, control20, backs14, legendaryMin };
   const long = s.minutes >= 20;
-  if (!support && long && wardKills20 === 0) findings.push({ kind: "aucune-balise-detruite", family: "niveau", weight: 1.2, title: "Aucune balise adverse détruite avant 20 min", facts: ["Les bons joueurs détruisent en moyenne 1 à 2 balises adverses avant 20 min (banc d'essai de 800 parties)."], metric: "visionMin" });
-  if (!support && backs14 <= 1) findings.push({ kind: "peu-de-retours", family: "niveau", weight: 1.1, title: `${backs14 ? "Un seul retour" : "Aucun retour"} volontaire à la base avant 14 min`, facts: ["Les bons joueurs rentrent environ 3 fois avant 14 min, au bon moment, et meurent moins (banc d'essai)."], metric: null });
-  if (!support && (legendaryMin == null ? s.minutes >= 14 : legendaryMin > 14)) findings.push({ kind: "premier-objet-tardif", family: "niveau", weight: 1, title: legendaryMin != null ? `Premier grand objet terminé à ${fr(legendaryMin)} min` : "Aucun grand objet terminé", facts: ["Les bons joueurs terminent leur premier grand objet vers 11 min (banc d'essai)."], metric: "csMin" });
+  if (!support && long && wardKills20 === 0) findings.push({ kind: "aucune-balise-detruite", family: "niveau", weight: 1.2, title: "Aucune balise adverse détruite avant 20 min", facts: ["Les bons joueurs détruisent en moyenne 1 à 2 balises adverses avant 20 min (d'après 800 parties analysées, de Fer à Challenger)."], metric: "visionMin" });
+  if (!support && backs14 <= 1) findings.push({ kind: "peu-de-retours", family: "niveau", weight: 1.1, title: `${backs14 ? "Un seul retour" : "Aucun retour"} volontaire à la base avant 14 min`, facts: ["Les bons joueurs rentrent environ 3 fois avant 14 min, au bon moment (d'après 800 parties analysées, de Fer à Challenger)."], metric: null });
+  if (!support && (legendaryMin == null ? s.minutes >= 14 : legendaryMin > 14)) findings.push({ kind: "premier-objet-tardif", family: "niveau", weight: 1, title: legendaryMin != null ? `Premier grand objet terminé à ${fr(legendaryMin)} min` : "Aucun grand objet terminé", facts: ["Les bons joueurs terminent leur premier grand objet vers 11 min (d'après 800 parties analysées, de Fer à Challenger)."], metric: "csMin" });
   if (long && ((s.role === "jungle" && control20 === 0) || (support && control20 <= 1))) findings.push({ kind: "balises-controle", family: "niveau", weight: 1.1, title: `${control20 ? "Une seule balise" : "Aucune balise"} de contrôle posée avant 20 min`, facts: [s.role === "jungle" ? "En jungle, les bons joueurs en posent au moins une avant 20 min pour sécuriser leurs camps et les objectifs." : "En support, les bons joueurs en posent au moins 2 avant 20 min."], metric: "controlWards" });
   findings.sort((a, b) => b.weight - a.weight);
   const strengths = comparisons.filter(c => c.level === "au-dessus" && c.p50 > 0).map(c => `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, au niveau des meilleurs`);
@@ -208,7 +211,7 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
     build: await buildVsDiamond(me, champstats, itemDb, fetchImpl),
     // Compositions : champions et rôles (aucun Riot ID des autres joueurs)
     // Relecture tactique : mini-carte, combats, objectifs, morts, interactions, ce qui aurait été mieux (coach/tactics.mjs)
-    tactics: (() => { try { return tactics(match, timeline, puuid); } catch { return null; } })(), // données incomplètes : le bilan reste disponible sans la relecture
+    tactics: tac,
     teams: { allies: info.participants.filter(p => p.teamId === me.teamId).map(p => ({ champion: p.championName, role: POS[p.teamPosition] || null })), enemies: info.participants.filter(p => p.teamId !== me.teamId).map(p => ({ champion: p.championName, role: POS[p.teamPosition] || null })) },
     duration: info.gameDuration, benchmark: bench ? { patch: benchmarks.patch, games: benchmarks.games, level: "Diamant et plus" } : null,
     note: "Faits tirés des données officielles de Riot. Les retours à la base sont déduits des achats (on n'achète qu'en base) ; un retour sans achat n'apparaît pas.",
@@ -416,14 +419,14 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
   // Morts avant un objectif adverse : au moins 2 dans la partie (une seule arrive à tous les rangs)
   const objGames = reviews.filter(r => r.deaths.filter(d => d.beforeObjective).length >= 2);
   const objDeaths = reviews.reduce((a, r) => a + r.deaths.filter(d => d.beforeObjective).length, 0);
-  if (objGames.length >= need) minus.push({ kind: "mort-avant-objectif", family: "decision", metric: "deaths30", weight: 4 + objGames.length, title: `Au moins 2 morts juste avant un objectif adverse dans ${objGames.length} parties sur ${n}`, detail: `${objDeaths} morts au total suivies d'un dragon, d'un Héraut, de Larves ou d'un Baron adverse dans la minute.`,
-    evidence: "Mesuré sur 800 parties : une mort juste avant un objectif adverse fait perdre en moyenne 1 100 pièces d'or d'écart à ton équipe dans les 3 minutes, 5 fois plus qu'une autre mort. Les parties avec 2 de ces morts sont gagnées 22 % du temps, contre 60 % sans.", games: objGames.map(r => r.summary.id) });
+  if (objGames.length >= need) minus.push({ kind: "mort-avant-objectif", family: "decision", metric: "deaths30", weight: 4 + objGames.length, title: `Au moins 2 morts juste avant un objectif adverse dans ${objGames.length} parties sur ${n}`, detail: `${objDeaths} morts au total, chacune suivie dans la minute d'un objectif pris par l'adversaire (dragon, Larves, Héraut, Atakhan ou Baron).`,
+    evidence: "D'après 800 parties analysées : une mort juste avant un objectif adverse fait prendre à l'adversaire environ 1 100 pièces d'or d'avance dans les 3 minutes, 5 fois plus qu'une autre mort. Avec 2 de ces morts, une partie est gagnée 22 fois sur 100 ; sans, 60 fois sur 100.", games: objGames.map(r => r.summary.id) });
   // Phase de ligne
   const lanes = reviews.filter(r => r.lane.at10);
   if (lanes.length >= 3) {
     const avg = Math.round(lanes.reduce((a, r) => a + r.lane.at10.gold, 0) / lanes.length);
     const behind = lanes.filter(r => r.lane.at10.gold <= -500), ahead = lanes.filter(r => r.lane.at10.gold >= 500);
-    if (behind.length >= need && behind.length > ahead.length) minus.push({ kind: "retard-en-ligne", family: "decision", metric: "cs10", weight: 2 + behind.length / 2, title: `Au moins 500 pièces d'or de retard sur ton adversaire à 10 min dans ${behind.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} pièces d'or à 10 min.`, games: behind.map(r => r.summary.id) });
+    if (behind.length >= need && behind.length > ahead.length) minus.push({ kind: "retard-en-ligne", family: "decision", metric: "cs10", weight: 2 + behind.length / 2, title: `Au moins 500 pièces d'or de retard sur ton adversaire direct (le duo adverse pour la voie du bas) à 10 min dans ${behind.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} pièces d'or à 10 min.`, games: behind.map(r => r.summary.id) });
     if (ahead.length >= Math.max(need, Math.ceil(lanes.length / 2)) && ahead.length > behind.length) plus.push({ kind: "avance-en-ligne", title: `Au moins 500 pièces d'or d'avance sur ton adversaire à 10 min dans ${ahead.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} pièces d'or à 10 min.` });
   }
   // Morts en phase de ligne : au moins 3 avant 14 min (2 arrivait dans 65 % des parties, à tous les rangs)
@@ -451,20 +454,20 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
     const pool = reviews.filter(r => r.habits && eligible(r)), miss = pool.filter(test);
     if (pool.length < 3 || miss.length < need || miss.length / pool.length < diamond / 100 + 0.15) return;
     minus.push({ kind, family: "niveau", metric, weight: 1 + miss.length / 2, title: `${title} dans ${miss.length} parties sur ${pool.length}`, detail, games: miss.map(r => r.summary.id),
-      evidence: `Mesuré sur 800 parties : ça arrive dans ${low} % des parties des joueurs Fer à Argent, et dans ${diamond} % de celles des joueurs Diamant et plus.` });
+      evidence: `D'après 800 parties analysées, à poste égal : « ${title.charAt(0).toLowerCase() + title.slice(1)} » dans ${low} % des parties des joueurs Fer à Argent, et seulement ${diamond} % de celles des Diamant et plus.` });
   };
   const notSup = r => r.summary.role !== "support", long = r => r.summary.minutes >= 20;
   H("aucune-balise-detruite", r => r.habits.wardKills20 === 0, r => notSup(r) && long(r), 32, 66, "Aucune balise adverse détruite avant 20 min", "Détruire les balises adverses (accessoire rouge, balise de contrôle) prive l'adversaire de vision et protège tes déplacements.", "visionMin");
-  H("peu-de-retours", r => r.habits.backs14 <= 1, notSup, 9, 25, "Au plus un retour volontaire à la base avant 14 min", "Les bons joueurs rentrent environ 3 fois avant 14 min, au bon moment (vague poussée, or suffisant), et meurent moins.");
-  H("premier-objet-tardif", r => r.habits.legendaryMin == null || r.habits.legendaryMin > 14, notSup, 12, 23, "Premier grand objet terminé après 14 min", "Les bons joueurs terminent leur premier grand objet vers 11 min : plus de farm et des retours au bon moment.", "csMin");
-  H("balises-controle", r => (r.summary.role === "jungle" ? r.habits.control20 === 0 : r.habits.control20 <= 1), r => long(r) && ["jungle", "support"].includes(r.summary.role), 40, 68, "Peu de balises de contrôle posées avant 20 min", "Une balise de contrôle (75 pièces d'or) sécurise une zone et un objectif pendant toute sa durée.", "controlWards");
+  H("peu-de-retours", r => r.habits.backs14 <= 1, notSup, 9, 25, "Au plus un retour volontaire à la base avant 14 min", "Les bons joueurs rentrent environ 3 fois avant 14 min, au bon moment (sbires poussés, or suffisant).");
+  H("premier-objet-tardif", r => r.habits.legendaryMin == null || r.habits.legendaryMin > 14, r => notSup(r) && r.summary.minutes >= 14, 12, 23, "Premier grand objet terminé après 14 min", "Les bons joueurs terminent leur premier grand objet vers 11 min : plus de farm et des retours au bon moment.", "csMin");
+  H("balises-controle", r => (r.summary.role === "jungle" ? r.habits.control20 === 0 : r.habits.control20 <= 1), r => long(r) && ["jungle", "support"].includes(r.summary.role), 40, 68, "Peu de balises de contrôle posées avant 20 min", "Une balise de contrôle (75 pièces d'or) reste posée jusqu'à ce qu'on la détruise : elle montre et coupe la vision adverse autour d'un objectif.", "controlWards");
   // Relecture tactique : seules les erreurs dont l'effet est mesuré au-delà de l'état de la partie
   const T = reviews.map(r => r.tactics).filter(Boolean);
   const lessonGames = kind => reviews.filter(r => r.tactics?.lessons.some(l => l.kind === kind));
   const iso = lessonGames("mort-isolee"), contested = lessonGames("objectif-inferiorite");
   if (iso.length >= need) minus.push({ kind: "mort-isolee", family: "decision", metric: "deaths30", weight: 1.5 + iso.length / 2, title: `Morts seul face à plusieurs adversaires après 14 min dans ${iso.length} parties sur ${n}`, detail: "Aucun allié n'était tout près au moment de la mort : souvent en poussant seul une voie sans savoir où sont les adversaires.", games: iso.map(r => r.summary.id) });
   if (contested.length >= need) minus.push({ kind: "objectif-inferiorite", family: "decision", metric: null, weight: 3 + contested.length / 2, title: `Objectifs disputés en infériorité numérique dans ${contested.length} parties sur ${n}`, detail: "Combat perdu autour d'un objectif alors que l'équipe était moins nombreuse (souvent avec un allié mort).",
-    evidence: "Mesuré sur 800 parties : disputer un objectif en infériorité fait perdre environ 9 points de chances de victoire, même en tenant compte de l'état de la partie.", games: contested.map(r => r.summary.id) });
+    evidence: "D'après 800 parties analysées : disputer un objectif à moins nombreux fait perdre environ 9 parties sur 100, que ton équipe soit devant ou derrière.", games: contested.map(r => r.summary.id) });
   // Participation aux combats et aux objectifs
   const near = T.flatMap(t => t.fights.filter(f => f.myDist < 6000 || f.me)), joined = near.filter(f => f.me);
   const objs = T.flatMap(t => t.objectives), present = objs.filter(o => o.myDist < 4500);

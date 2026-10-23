@@ -41,11 +41,11 @@ const C2_KIND_TIP = {
   "absent-objectif": "Environ une minute avant un dragon ou un Baron, pousse ta vague puis rejoins ton équipe : l'adversaire prend les objectifs quand vous êtes moins nombreux.",
   "objectif-inferiorite": "Si un allié est mort ou absent, cède l'objectif et prends plutôt une tourelle ou une vague de l'autre côté de la carte, au lieu de combattre en infériorité.",
   "combat-sans-toi": "Garde un œil sur la mini-carte : quand ton équipe se bat près de toi, la rejoindre change le rapport de force ; sinon, signale de ne pas engager.",
-  "aucune-balise-detruite": "Quand tu passes près d'un buisson de rivière ou d'une entrée de jungle, active ton accessoire rouge (la lentille qui révèle les balises) ou pose une balise de contrôle : détruis les balises adverses que tu trouves.",
-  "peu-de-retours": "Rentre à la base quand ta vague vient de partir chez l'adversaire et que tu as l'or d'un composant : tu reviens à temps pour la vague suivante, avec un objet de plus.",
-  "premier-objet-tardif": "Vise ton premier grand objet vers 11 min : prends chaque sbire possible et rentre dès que tu as l'or d'un composant, plutôt que de rester en voie bas en vie.",
-  "balises-controle": "Achète une balise de contrôle à chaque retour à la base et pose-la près du prochain objectif (dragon, Larves, Héraut) ou dans ta jungle.",
-  "temps-mort": "Moins de morts, c'est plus de temps pour farmer et peser sur les objectifs : commence par les morts d'avant 14 min, les plus coûteuses.",
+  "aucune-balise-detruite": "Après ton premier retour, échange ton accessoire jaune contre la Lentille de l'oracle (accessoire rouge, gratuit à la boutique) : active-la en passant près d'un buisson de rivière ou d'une entrée de jungle, ou pose une balise de contrôle, et détruis les balises adverses que tu trouves.",
+  "peu-de-retours": "Rentre à la base dès que tu as l'or d'un composant, juste après avoir poussé tes sbires vers la tourelle adverse (en jungle : après un camp ou un gank) : tu reviens à temps et avec un objet de plus.",
+  "premier-objet-tardif": "Vise ton premier grand objet vers 11 min : prends chaque sbire possible et rentre dès que tu as l'or d'un composant, plutôt que de rester sur la carte avec peu de points de vie.",
+  "balises-controle": "Achète une balise de contrôle à chaque retour à la base et pose-la près du prochain objectif (dragon, Larves, Héraut) ou dans ta jungle. Tu ne peux en poser qu'une à la fois : si l'ancienne est encore en place, déplace-la vers le prochain objectif.",
+  "temps-mort": "Moins de morts, c'est plus de temps pour farmer et peser sur les objectifs : Commence par les morts après 20 min : tu attends plus longtemps avant de revenir, et l'adversaire en profite pour prendre un objectif.",
 };
 const c2TipOf = f => C2_KIND_TIP[f.kind] || C2_PLAIN[f.metric]?.steps(C2.profile ? c2Role(C2.profile) : null)?.[0] || C2_LEARN[f.metric]?.tip || "";
 
@@ -434,18 +434,19 @@ function c2LiveBuild(b, champ) {
   if (!b?.core && !b?.threats?.length) return "";
   const V = b.ddVersion || COACH.ddragonVersion;
   const img = (id, label) => `<img src="https://ddragon.leagueoflegends.com/cdn/${esc(V)}/img/item/${esc(id)}.png" alt="" title="${esc(label)}" loading="lazy">`;
-  const core = b.core ? `<div class="c2-brow"><span class="label">Ton build habituel</span>
+  const core = b.core ? `<div class="c2-brow"><span class="label">Build des Diamant+ sur ${esc(c2Name(champ))}</span>
       <div class="c2-icons">${[...b.core.items, ...b.core.boots].map(x => `<span class="c2-ic">${img(x.id, x.name)}<i>${x.share} %</i></span>`).join("")}</div>
-      <p class="fine">${[...b.core.items, ...b.core.boots].map(x => esc(x.name)).join(" · ")}${b.core.keystone ? ` · rune ${esc(b.core.keystone.name)}` : ""}</p></div>` : "";
+      <p class="fine">${[...b.core.items, ...b.core.boots].map(x => esc(x.name)).join(" · ")}${b.core.keystone ? ` · rune ${esc(b.core.keystone.name)}` : ""}</p>
+      <p class="fine">Pourcentage : part des parties Diamant+ où l'objet est dans l'inventaire en fin de partie.</p></div>` : "";
   const threats = b.threats.map(t => {
-    const list = t.measured?.items.length ? t.measured.items.map(x => `<li>${img(x.id, x.name)}<span><b>${esc(x.name)}</b><small>pris dans ${x.on} % des parties face à ce profil, contre ${x.off} % sinon</small></span></li>`).join("")
+    const list = t.measured?.items.length ? t.measured.items.map(x => `<li>${img(x.id, x.name)}<span><b>${esc(x.name)}</b><small>chez les Diamant+ : dans ${x.on} % des parties face à ce type d'équipe, contre ${x.off} % face aux autres</small></span></li>`).join("")
       : t.options.map(x => `<li>${img(x.id, x.name)}<span><b>${esc(x.name)}</b><small>option déjà jouée sur ${esc(c2Name(champ))} (${x.share} % des parties)</small></span></li>`).join("");
     return `<div class="c2-threat"><p><b>${esc(t.label)}</b> : ${esc(t.why)}${t.champions.length ? ` (${t.champions.map(c => esc(c2Name(c))).join(", ")})` : ""}.</p>
-      ${list ? `<ul class="c2-swap">${list}</ul>` : `<p class="fine">Les Diamant+ sur ${esc(c2Name(champ))} ne changent pas leur build face à ce profil : garde ton build habituel.</p>`}</div>`;
+      ${list ? `<ul class="c2-swap">${list}</ul>` : `<p class="fine">Pas d'objet de rechange repéré sur ${esc(c2Name(champ))} face à cette menace : garde ce build.</p>`}</div>`;
   }).join("");
   return `<div class="c2-livebuild"><p class="label">Ton build pour cette partie</p>${core}
-    ${b.threats.length ? `<p class="label">À adapter face à cette équipe${b.shape ? ` · ${b.shape.magic} % de dégâts magiques, ${b.shape.phys} % physiques` : ""}</p>${threats}` : `<p class="fine">Composition adverse sans menace marquée : ton build habituel convient.</p>`}
-    <p class="fine">Mesuré sur ${c2n(b.games)} parties Diamant+ de ton champion${b.core ? `, patch ${esc(b.core.patch)}` : ""}. Une variante n'est proposée que si les Diamant+ achètent nettement plus l'objet face à ce profil, et si sa description officielle répond à la menace.</p></div>`;
+    ${b.threats.length ? `<p class="label">À adapter face à cette équipe${b.shape ? ` · en moyenne ${b.shape.magic} % de dégâts magiques, ${b.shape.phys} % physiques (le reste : dégâts bruts, qui ignorent armure et résistance magique)` : ""}</p>${threats}` : `<p class="fine">Composition adverse sans menace marquée : garde ce build.</p>`}
+    <p class="fine">Mesuré sur ${c2n(b.games)} parties Diamant+ de ce champion${b.core ? `, patch ${esc(b.core.patch)}` : ""}. « Dans X % face à ce type d'équipe » : comparé aux parties sans cette menace, et l'objet y répond d'après sa description officielle. « Option déjà jouée » : objet qui répond à la menace d'après sa description, sans mesure face à elle.</p></div>`;
 }
 
 // ---------- Ce que jouent les Diamant+ (objets, runes, sorts), d'après de vraies parties
@@ -816,7 +817,7 @@ function c2Synthesis(d, { role, champ }) {
   const top = d.minus.slice(0, 3);
   const short = t => t.replace(/ dans \d+ parties sur \d+$/, "");
   return `<section class="c2-card c2-plan"><p class="label">Synthèse du coach · ${champ ? esc(c2Name(champ)) : esc(C2_ROLE[role])} · ${d.winsReviewed ?? d.wins} victoire${(d.winsReviewed ?? d.wins) > 1 ? "s" : ""} sur les ${d.games} parties relues</p>
-      <h2 class="c2-goal-title">${top.length ? `Ta priorité : ${esc(short(top[0].title).replace(/^./, c => c.toLowerCase()))}` : "Aucun point faible récurrent : garde ce qui marche"}</h2>
+      <h2 class="c2-goal-title">${top.length ? `À corriger en priorité : ${esc(short(top[0].title).replace(/^./, c => c.toLowerCase()))}` : "Aucun point faible récurrent : garde ce qui marche"}</h2>
       ${top.length ? `<p class="c2-better"><b>Comment</b> ${esc(c2TipOf(top[0]) || top[0].detail)}</p>` : ""}
       ${top.length > 1 ? `<p class="fine"><b>Ensuite</b> : ${top.slice(1).map(m => esc(short(m.title))).join(" · ")}.</p>` : ""}
       ${d.plus.length ? `<p class="fine"><b>Tes forces</b> : ${d.plus.map(x => esc(x.title)).join(" · ")}.</p>` : ""}
@@ -859,14 +860,14 @@ function c2Report() {
   const d = R.data;
   // Champion conseillé : meilleurs résultats récents du joueur (2 parties au moins)
   const best = [...d.champions].filter(c => c.games >= 2).sort((a, b) => b.wins / b.games - a.wins / a.games || b.kda - a.kda)[0];
-  const dots = list => list?.length ? `<div class="c2-dots">${list.map(gid => `<a class="c2-dot" href="${c2Href("partie", gid)}" title="Voir la partie"></a>`).join("")}</div>` : "";
+  const dots = list => list?.length ? `<div class="c2-dots"><span class="fine">Parties concernées :</span>${list.map(gid => `<a class="c2-dot" href="${c2Href("partie", gid)}" title="Voir la partie"></a>`).join("")}</div>` : "";
   const view = ["travailler", "forces", "profil", "champions"].includes(c2ui.bview) ? c2ui.bview : "travailler";
   const body = view === "forces"
     ? (d.plus.length ? `<ul class="c2-plus">${d.plus.map(x => `<li><b>${esc(x.title)}</b>${x.detail ? `<span class="fine">${esc(x.detail)}</span>` : ""}</li>`).join("")}</ul>` : `<p class="inline-empty">Pas encore de point fort net sur ces parties.</p>`)
     : view === "profil" ? c2Profile(d, best)
     : view === "champions" ? `<ul class="c2-games">${d.champions.map(c => `<li><div class="c2-game ${c.wins * 2 >= c.games ? "win" : "loss"}">${c2Img(c.champion)}<span class="c2-g-main"><b>${esc(c2Name(c.champion))}</b><span class="fine">${c.games} partie${c.games > 1 ? "s" : ""} · ${c.wins} victoire${c.wins > 1 ? "s" : ""}</span></span><span class="c2-g-kda"><b>${c.k}/${c.d}/${c.a}</b><span class="fine">KDA ${c2n(c.kda)}</span></span><span></span></div></li>`).join("")}</ul>
       ${d.rivals?.length ? `<section class="sec">${secHead("Adversaires rencontrés plusieurs fois")}<div class="c2-chiprow">${d.rivals.map(o => `<span class="c2-cchip">${c2Img(o.opponent, "c2-av xs")}${esc(c2Name(o.opponent))} : ${o.wins}/${o.games}</span>`).join("")}</div></section>` : ""}`
-    : (d.minus.length ? [["decision", "Ce qui t'a coûté des parties", "Des erreurs de décision : elles font perdre la partie en cours."], ["niveau", "Les habitudes des bons joueurs", "Ce qui distingue les joueurs Diamant et plus : à travailler dans le temps."]].map(([fam, title, sub]) => {
+    : (d.minus.length ? [["decision", "Ce qui t'a coûté des parties", "Des erreurs qui font souvent perdre la partie où elles arrivent."], ["niveau", "Les habitudes des bons joueurs qui te manquent", "Plus rares chez les Diamant et plus : à travailler dans le temps, partie après partie."]].map(([fam, title, sub]) => {
         const list = d.minus.filter(m => (m.family || "decision") === fam);
         return list.length ? `<section class="sec">${secHead(title)}<p class="fine">${sub}</p>${list.map(m => `<article class="c2-card c2-finding ${fam}"><h3 class="c2-f-title">${esc(m.title)}</h3><p class="fine">${esc(m.detail)}</p>${m.evidence ? `<p class="c2-evidence">${esc(m.evidence)}</p>` : ""}${dots(m.games)}
         <details class="more"><summary>Comment progresser</summary>${C2_KIND_TIP[m.kind] || !m.metric ? `<p>${esc(c2TipOf(m))}</p>` : ""}${m.metric ? c2LessonsHtml(m.metric, role, d.champions[0]?.champion, !C2_KIND_TIP[m.kind]) : ""}</details></article>`).join("")}</section>` : "";

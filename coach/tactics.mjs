@@ -123,7 +123,7 @@ export function tactics(match, timeline, puuid) {
       facts: o.absent.length ? [`Absents : ${absents(o.absent)}.`] : [] });
   }
   for (const d of deaths) {
-    const lowHp = d.hpBefore != null && d.hpBefore < 40 ? [`Tu étais déjà bas en vie (${d.hpBefore} %) une minute avant : rentrer à la base t'aurait évité ce risque.`] : [];
+    const lowHp = d.hpBefore != null && d.hpBefore < 40 ? [`Il te restait ${d.hpBefore} % de tes points de vie une minute avant : rentrer à la base t'aurait évité ce risque.`] : [];
     // « Gank subi » retiré au banc d'essai du 21/10 : aussi fréquent à tous les rangs, sans lien avec la victoire
     if (!d.alliesNear.length && d.attackers.length >= 2 && d.t >= 14 * 60000) lessons.push({ kind: "mort-isolee", t: d.t, at: d.at, title: `Mort seul à ${d.at} (${d.zone}), contre ${d.attackers.length} adversaires`,
       better: ["top", "bottom"].includes(role) && /voie/.test(d.zone) ? "Sur une voie de côté, quand 2 adversaires ou plus disparaissent de la mini-carte, recule vers ta tourelle : ils arrivent peut-être sur toi."

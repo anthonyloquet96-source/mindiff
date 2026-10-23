@@ -324,6 +324,8 @@ const ICONS = {
   bracket: '<path d="M4 5h5v6H4M4 13h5v6H4M9 8h4v8h-4M13 12h7"/>',
   check: '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
   lock: '<rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/>',
+  tower: '<path d="M8 21h8M9 21l1-11h4l1 11M8 10h8l-1-4h-6zM10 6V3h4v3"/>',
+  coin: '<ellipse cx="12" cy="12" rx="8" ry="6"/><path d="M4 12v3c0 3.3 3.6 6 8 6s8-2.7 8-6v-3"/>',
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>',
   moon: '<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/>',
   contrast: '<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/>',
@@ -430,7 +432,66 @@ function matchCard(m, t, { withComp = true, line = false, day = true } = {}) {
     ${side(b, "b")}
     ${withComp ? `<span class="mc-comp">${esc(t.name)}${m.block ? ` · ${esc(m.block)}` : ""}</span>` : m.block ? `<span class="mc-comp">${esc(m.block)}</span>` : ""}
     ${summary ? `<span class="mc-line">${esc(summary)}</span>` : ""}
+    ${m.state === "inProgress" && t.game === "lol" && !prefs.noSpoil ? liveStrip(m.id) : ""}
   </a>`;
+}
+
+// ---------- Partie en cours : score en direct (flux public de LoL Esports, comme le bandeau de la diffusion)
+// kills, tours, golds, dragons, barons, inhibiteurs ; relu toutes les 10 s tant qu'un bandeau est affiché
+const LIVE = {};
+const LOLE_KEY = "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"; // clé publique du site LoL Esports (déjà utilisée par la collecte)
+let liveTimer = null;
+const liveStrip = (id, big = false) => `<span class="livestrip${big ? " big" : ""}" data-live-match="${esc(id)}">${liveStripInner(id)}</span>`;
+const kfmt = n => (n >= 1000 ? `${(n / 1000).toFixed(1).replace(".", ",")}k` : String(n));
+const DRAKE = { infernal: "#ff5a2e", ocean: "#3d9df0", mountain: "#a07a4f", cloud: "#cfd8e3", hextech: "#36c6d6", chemtech: "#6ccf3a", elder: "#b47cff" };
+function liveStripInner(id) {
+  const L = LIVE[id];
+  if (!L?.f) return `<span class="ls-wait">${L?.over ? "Match terminé : le résultat s'affiche à la prochaine mise à jour." : L?.none ? "Entre deux parties : le direct reprend au début de la prochaine." : "Statistiques en direct…"}</span>`;
+  const f = L.f, bm = L.meta?.blueTeamMetadata, rm = L.meta?.redTeamMetadata;
+  const team = tid => L.teams?.find(x => x.id === tid) || {};
+  const B = team(bm?.esportsTeamId), R = team(rm?.esportsTeamId), b = f.blueTeam, r = f.redTeam;
+  const secs = L.start ? Math.max(0, Math.round((Date.parse(f.rfc460Timestamp) - L.start) / 1000)) : null;
+  const clock = secs == null ? "" : `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
+  const diff = b.totalGold - r.totalGold;
+  const drakes = list => (list || []).map(d => `<i class="ls-drake" style="background:${DRAKE[d] || "#999"}" title="${esc(d)}"></i>`).join("");
+  const side = (t, x, cls) => `<span class="ls-side ${cls}">
+      <span class="ls-team">${logo(t.name || "", t.image)}<b>${esc(t.code || "?")}</b></span>
+      <span class="ls-stat" title="Tours">${icon("tower")}${x.towers}</span>
+      <span class="ls-stat" title="Golds">${icon("coin")}${kfmt(x.totalGold)}</span>
+      <span class="ls-objs">${drakes(x.dragons)}${x.barons ? `<span class="ls-baron" title="Barons">B${x.barons > 1 ? x.barons : ""}</span>` : ""}${x.inhibitors ? `<span class="ls-inhib" title="Inhibiteurs">I${x.inhibitors > 1 ? x.inhibitors : ""}</span>` : ""}</span>
+    </span>`;
+  const state = f.gameState === "paused" ? "Pause" : f.gameState === "finished" ? "Terminée" : clock;
+  return `<span class="ls-grid">
+    ${side(B, b, "blue")}
+    <span class="ls-mid"><span class="ls-kills">${b.totalKills}<i>–</i>${r.totalKills}</span><span class="ls-clock">${L.gameNo ? `Partie ${L.gameNo} · ` : ""}${esc(state)}</span>${diff ? `<span class="ls-diff ${diff > 0 ? "blue" : "red"}">+${kfmt(Math.abs(diff))} ${esc((diff > 0 ? B : R).code || "")}</span>` : ""}</span>
+    ${side(R, r, "red")}
+  </span><span class="ls-note">En direct, environ 1 min de décalage · LoL Esports</span>`;
+}
+async function liveTick() {
+  liveTimer = null;
+  const ids = [...new Set([...document.querySelectorAll("[data-live-match]")].map(e => e.dataset.liveMatch))];
+  if (!ids.length) return;
+  for (const id of ids) {
+    const L = (LIVE[id] ||= {});
+    try {
+      if (!L.evAt || Date.now() - L.evAt > 60000) {
+        const ev = await (await fetch(`https://esports-api.lolesports.com/persisted/gw/getEventDetails?hl=fr-FR&id=${encodeURIComponent(id)}`, { headers: { "x-api-key": LOLE_KEY } })).json();
+        const mt = ev?.data?.event?.match, g = mt?.games?.find(x => x.state === "inProgress");
+        L.teams = mt?.teams; L.evAt = Date.now();
+        if (g?.id !== L.game) Object.assign(L, { game: g?.id || null, gameNo: g?.number || null, start: null, f: null });
+        L.none = !g; L.over = !g && !!mt?.games?.length && mt.games.every(x => x.state !== "unstarted" && x.state !== "inProgress");
+      }
+      if (L.game) {
+        if (!L.start) { const w0 = await (await fetch(`https://feed.lolesports.com/livestats/v1/window/${L.game}`)).json(); L.start = Date.parse(w0?.frames?.[0]?.rfc460Timestamp) || null; }
+        const t = new Date(Date.now() - 45000); t.setUTCSeconds(Math.floor(t.getUTCSeconds() / 10) * 10, 0);
+        const w = await (await fetch(`https://feed.lolesports.com/livestats/v1/window/${L.game}?startingTime=${t.toISOString()}`)).json();
+        const f = w?.frames?.at(-1);
+        if (f) { L.f = f; L.meta = w.gameMetadata; }
+      }
+    } catch { /* flux momentanément indisponible : on garde le dernier relevé */ }
+    for (const el of document.querySelectorAll(`[data-live-match="${CSS.escape(id)}"]`)) el.innerHTML = liveStripInner(id);
+  }
+  liveTimer = setTimeout(liveTick, 10000);
 }
 
 // --- Tournoi : carte identifiable
@@ -816,6 +877,7 @@ function matchPage(t, mid) {
         ${side(b)}
       </div>
     </section>
+    ${m.state === "inProgress" && t.game === "lol" && !prefs.noSpoil ? liveStrip(m.id, true) : ""}
     ${!done && t.sources?.[0] ? `<a class="btn ghost" href="${esc(t.sources[0].url)}" target="_blank" rel="noopener">${icon("play")}Suivre sur ${esc(t.sources[0].name)}</a>` : ""}
     ${done ? (hide ? spoilerGate(m.id, "Résumé et détails", "") : `
       <section class="sec">${secHead("Résumé")}<p class="summary">${esc(e?.resume || m.summary || autoSummary(m))}</p>
@@ -1300,11 +1362,12 @@ function renderHeader() {
   const navItems = NAV.map(n => `<a class="nav-item nav-${n.id}" href="${href(g, n.id === "home" ? "" : n.id)}" ${navView === n.id ? 'aria-current="page"' : ""}${n.id === "coach" && (c2live || c2new) ? ` aria-label="${n.label}, ${c2live ? "partie en cours" : "nouvelle partie à relire"}"` : ""}>${icon(n.icon)}<span>${n.label}</span>${badge(n.id)}</a>`).join("");
   document.getElementById("top").innerHTML = `<div class="wrap top-inner">
       <a class="brand" href="${g ? href(g) : "#/"}" aria-label="MINDIFF, accueil">${BRAND_MARK}<span class="brand-name">MINDIFF</span></a>
-      ${g ? `<div class="gswitch" role="group" aria-label="Jeu">${GAMES_ON.map(x => `<a class="gs-btn${LOCKED.includes(x.id) ? " locked" : ""}" href="${switchTo(x.id)}" ${g === x.id ? 'aria-current="true"' : ""}${LOCKED.includes(x.id) ? ` aria-label="${esc(SHORT[x.id])}, bientôt disponible"` : ""}>${LOCKED.includes(x.id) ? icon("lock") : ""}${esc(SHORT[x.id])}</a>`).join("")}</div>` : ""}
+      ${g ? `<div class="gswitch" role="group" aria-label="Jeu">${GAMES_ON.map(x => `<a class="gs-btn${LOCKED.includes(x.id) ? " locked" : ""}" href="${switchTo(x.id)}" ${g === x.id ? 'aria-current="true"' : ""}${LOCKED.includes(x.id) ? ` aria-label="${esc(SHORT[x.id])}, bientôt disponible"` : ""}>${LOCKED.includes(x.id) ? icon("lock") : ""}<span class="gs-txt">${esc(SHORT[x.id])}</span></a>`).join("")}</div>` : ""}
       <div class="top-actions">
         ${g ? `<button class="icon-btn ${prefs.noSpoil ? "on" : ""}" data-action="spoil" aria-pressed="${prefs.noSpoil}" aria-label="Mode sans spoilers${prefs.noSpoil ? " activé" : ""}" title="Mode sans spoilers">${icon(prefs.noSpoil ? "eyeOff" : "eye")}</button>
         <a class="icon-btn" href="${href(g, "favoris")}" aria-label="Favoris" ${route.view === "favoris" ? 'aria-current="page"' : ""}>${icon("star")}</a>
         <button class="icon-btn" data-action="sync-panel" aria-label="Sources et synchronisation">${icon("info")}</button>` : ""}
+        <button class="icon-btn lang-btn" data-action="lang" data-id="${window.LANG === "en" ? "fr" : "en"}" aria-label="${window.LANG === "en" ? "Language: English. Switch to French" : "Langue : français. Passer en anglais"}" title="${window.LANG === "en" ? "Français" : "English"}" translate="no">${window.LANG === "en" ? "EN" : "FR"}</button>
         <button class="icon-btn" data-action="theme" aria-label="${THEMES[prefs.theme]?.[1] || THEMES.auto[1]}" title="${THEMES[prefs.theme]?.[1] || THEMES.auto[1]}">${icon(THEMES[prefs.theme]?.[0] || "contrast")}</button>
       </div>
     </div>
@@ -1332,6 +1395,7 @@ function render(fromRoute = true) {
     s.setSelectionRange(pos, pos);
   };
   if (dataLoaded) syncSheet();
+  if (!liveTimer && document.querySelector("[data-live-match]")) liveTick();
   syncTabs();
   if (fromRoute) {
     window.scrollTo(0, 0);

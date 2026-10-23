@@ -1201,3 +1201,30 @@ body.has-nav { padding-bottom: calc(var(--nav-h) + 34px + env(safe-area-inset-bo
 .bottom-nav .nav-coach[aria-current="page"] .ic { color: #fff; }
 .bottom-nav .nav-coach .nav-dot { top: -14px; left: calc(50% + 14px); }
 .bottom-nav .nav-coach .nav-badge { top: -18px; left: calc(50% + 8px); }
+/* Bouton de langue dans l'en-tête */
+.lang-btn { font-size: 12px; font-weight: 800; letter-spacing: .02em; }
+@media (max-width: 480px) { .gs-btn.locked .gs-txt { display: none; } .gs-btn.locked { padding: 0 11px; } }
+/* Score en direct d'une partie (bandeau façon diffusion) */
+.livestrip { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 4px; margin-top: 8px; padding: 10px 10px 8px; border-radius: 14px; background: #0d0f14; color: #fff; }
+.ls-wait { font-size: 12.5px; color: #b9bdc7; text-align: center; }
+.ls-grid { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; }
+.ls-side { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.ls-side.red { align-items: flex-end; text-align: right; }
+.ls-team { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; }
+.ls-side.red .ls-team { flex-direction: row-reverse; }
+.ls-side.blue .ls-team b { color: #6aa8ff; } .ls-side.red .ls-team b { color: #ff6b5a; }
+.ls-team .logo { width: 22px; height: 22px; }
+.ls-stat { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; font-weight: 700; font-variant-numeric: tabular-nums; color: #e4e6eb; }
+.ls-stat .ic { width: 13px; height: 13px; color: #9aa0ab; }
+.ls-objs { display: inline-flex; align-items: center; gap: 3px; min-height: 12px; }
+.ls-drake { width: 9px; height: 9px; border-radius: 50%; display: inline-block; box-shadow: 0 0 0 1px rgba(255, 255, 255, .25); }
+.ls-baron, .ls-inhib { font: 800 9.5px/1 var(--font); padding: 2px 4px; border-radius: 4px; background: #7a3cff; color: #fff; }
+.ls-inhib { background: #3a3f4b; }
+.ls-mid { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.ls-kills { font-size: 26px; font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1; }
+.ls-kills i { font-style: normal; color: #6b7280; margin: 0 5px; }
+.ls-clock { font-size: 11.5px; color: #b9bdc7; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ls-diff { font-size: 11px; font-weight: 800; padding: 1px 6px; border-radius: 6px; }
+.ls-diff.blue { background: rgba(106, 168, 255, .2); color: #8fc0ff; } .ls-diff.red { background: rgba(255, 107, 90, .2); color: #ff8a7c; }
+.ls-note { font-size: 10.5px; color: #7d828d; text-align: center; }
+.livestrip.big { padding: 14px; } .livestrip.big .ls-kills { font-size: 34px; } .livestrip.big .ls-team { font-size: 16px; } .livestrip.big .ls-stat { font-size: 14px; }

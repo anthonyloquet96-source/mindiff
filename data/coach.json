@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T11:05:21.138Z",
+ "generatedAt": "2026-10-23T12:36:46.255Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -13338,10 +13338,18 @@
     "patchMentioned": null,
     "basis": "page officielle de Riot sur Zaahen, champion sans conseils officiels dans Data Dragon"
    },
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription absente de ce cache : la vidéo sera relue.",
-   "videoAttempts": 0
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.6-flash le 2026-10-23 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "videoAttempts": 0,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-23",
+    "duration": "15:30",
+    "reused": true
+   }
   },
   {
    "id": "c-yt-S3F9CpeiSNE",
@@ -19163,12 +19171,12 @@
    "published": null,
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 4,
-   "note": "File de lecture (rang 4) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash le 2026-10-23 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 15,
     "matched": [
@@ -19178,6 +19186,14 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-23",
+    "duration": "08:33",
+    "reused": true
    }
   },
   {
@@ -19191,12 +19207,12 @@
    "published": null,
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 5,
-   "note": "File de lecture (rang 5) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash le 2026-10-23 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 15,
     "matched": [
@@ -19206,6 +19222,14 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-23",
+    "duration": "19:19",
+    "reused": true
    }
   },
   {
@@ -19786,6 +19810,59 @@
      "support",
      "how to"
     ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-9KXgqOimaGc",
+   "sourceId": "yt-veigar-v2",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=9KXgqOimaGc",
+   "title": "Pro Players vs LS | Was LS Right? Macro Breakdown",
+   "author": "Veigar v2",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-23",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 15,
+   "note": "File de lecture (rang 15) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "breakdown",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-d75rSe6gVP8",
+   "sourceId": "yt-doublelift",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=d75rSe6gVP8",
+   "title": "THE CRAZIEST 29 KILL LUCIAN MASTERCLASS",
+   "author": "Yiliang « Doublelift » Peng",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-23",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 16,
+   "note": "File de lecture (rang 16) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"

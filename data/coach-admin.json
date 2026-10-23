@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T11:05:21.138Z",
+ "generatedAt": "2026-10-23T12:36:46.255Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -554,7 +554,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-10-23T10:56:53.797Z",
+ "lastDiscovery": "2026-10-23T12:36:15.413Z",
  "failures": [],
  "quarantine": [],
  "rejected": [
@@ -601,10 +601,13 @@
   "c-riot-champion-insights-yone",
   "c-riot-dev-launching-yuumi-s-rework",
   "c-riot-dev-yuumi-s-rework",
+  "c-yt-qQNuoySpVMc",
   "c-riot-champion-insights-zeri",
   "c-yt-eceSyaVnz3M",
   "c-yt-7a5EBaZ-ems",
-  "c-yt-fOQBQn0X54M"
+  "c-yt-fOQBQn0X54M",
+  "c-yt-5o6m5FWMhR0",
+  "c-yt-7ZZEBbT_qzQ"
  ],
  "review": [
   "u-lucian-2620-ad",
@@ -1868,6 +1871,38 @@
     "model": "gemini-3.6-flash",
     "input": 4623,
     "output": 1340,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T12:32:53.343Z",
+    "content": "c-yt-qQNuoySpVMc",
+    "model": "gemini-3.6-flash",
+    "input": 7312,
+    "output": 5230,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T12:33:41.068Z",
+    "content": "c-yt-qQNuoySpVMc",
+    "model": "gemini-3.6-flash",
+    "input": 5066,
+    "output": 1707,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T12:34:01.763Z",
+    "content": "c-riot-champion-insights-aurora",
+    "model": "gemini-3.6-flash",
+    "input": 6384,
+    "output": 3168,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T12:34:14.391Z",
+    "content": "c-riot-champion-insights-aurora",
+    "model": "gemini-3.6-flash",
+    "input": 4188,
+    "output": 841,
     "usd": 0
    }
   ],

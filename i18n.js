@@ -308,6 +308,111 @@
   ];
   const ZONE = z => ({ "ta base": "your base", "base adverse": "enemy base", "rivière": "river", "ta jungle": "your jungle", "jungle adverse": "enemy jungle", "inconnue": "unknown" }[z] || z);
   const OBJ = k => ({ "Héraut": "Herald", "Larves du Néant": "Void Grubs" }[k] || k);
+  // ---- Analyses du coach (texte rédigé par le serveur : constats, preuves, moments clés, tournants), traduites phrase par phrase
+  const PLAIN = { "Farm en début de partie": "Early farm", "Farm": "Farm", "Morts": "Deaths", "Vision": "Vision", "Control wards": "Control wards", "Participation aux combats": "Fight participation" };
+  const plainEn = p => PLAIN[p] || p;
+  const sayEn = v => v
+    .replace(/^([\d.,]+) sbires à 10 min$/, "$1 CS at 10 min").replace(/^([\d.,]+) sbires par minute$/, "$1 CS per minute")
+    .replace(/^([\d.,]+) morts par tranche de 30 min de jeu$/, "$1 deaths per 30 min of play").replace(/^score de vision de ([\d.,]+) par minute$/, "a vision score of $1 per minute")
+    .replace(/^([\d.,]+) wards? de contrôle posées?$/, (m, n) => `${n} control ward${n === "1" ? "" : "s"} placed`).replace(/^([\d.,]+) % de participation aux kills de l'équipe$/, "$1% kill participation")
+    .replace(/(\d),(\d)/g, "$1.$2");
+  const objEn = k => ({ "Héraut": "Rift Herald", "Larves du Néant": "Voidgrubs", "dragon": "dragon" }[k] || k);
+  const who = k => (k === "sbires ou tourelle" ? "minions or a turret" : k);
+  const lossEn = s => s.split(/, | et /).map(x => x
+    .replace(/^le (.+)$/, (m, k) => `the ${objEn(k)}`).replace(/^les Larves du Néant$/, "the Voidgrubs")
+    .replace(/^une tourelle$/, "a turret").replace(/^(\d+) tourelles$/, "$1 turrets").replace(/^un inhibiteur$/, "an inhibitor").replace(/^(\d+) inhibiteurs$/, "$1 inhibitors"))
+    .reduce((a, x, i, arr) => (i === 0 ? x : i === arr.length - 1 ? `${a} and ${x}` : `${a}, ${x}`), "");
+  const farEn = f => ({ "tout près": "very close", "à quelques secondes": "a few seconds away", "loin": "far away", "à l'autre bout de la carte": "on the other side of the map" }[f] || f);
+  const nGames = (n, m) => `in ${n} of ${m} games`;
+  const HEAD = {
+    "Au moins 2 morts juste avant un objectif adverse": "At least 2 deaths right before an enemy objective",
+    "Au moins 500 golds de retard sur ton adversaire direct (le duo adverse pour la bot lane) à 10 min": "At least 500 gold behind your direct opponent (the enemy duo in bot lane) at 10 min",
+    "Au moins 500 golds d'avance sur ton adversaire à 10 min": "At least 500 gold ahead of your opponent at 10 min",
+    "Au moins 3 morts avant 14 min": "At least 3 deaths before 14 min",
+    "Aucune ward adverse détruite avant 20 min": "No enemy ward destroyed before 20 min",
+    "Au plus un retour volontaire à la base avant 14 min": "At most one planned back before 14 min",
+    "Premier grand item terminé après 14 min": "First big item finished after 14 min",
+    "Peu de control wards posées avant 20 min": "Few control wards placed before 20 min",
+    "Morts seul face à plusieurs adversaires après 14 min": "Deaths alone against several enemies after 14 min",
+    "Objectifs disputés en infériorité numérique": "Objectives contested while outnumbered",
+  };
+  const headEn = h => HEAD[h] || h.replace(/^(.+) en dessous des bons joueurs$/, (m, p) => `${plainEn(p)} below good players`).replace(/^(.+) au niveau des meilleurs$/, (m, p) => `${plainEn(p)} on par with the best`);
+  Object.assign(T, {
+    // Phrases fixes du coach
+    "Les bons joueurs détruisent en moyenne 1 à 2 wards adverses avant 20 min (d'après 800 parties analysées, de Fer à Challenger).": "Good players destroy 1 to 2 enemy wards on average before 20 min (based on 800 analyzed games, Iron to Challenger).",
+    "Les bons joueurs rentrent environ 3 fois avant 14 min, au bon moment (d'après 800 parties analysées, de Fer à Challenger).": "Good players back about 3 times before 14 min, at the right moments (based on 800 analyzed games, Iron to Challenger).",
+    "Les bons joueurs terminent leur premier grand item vers 11 min (d'après 800 parties analysées, de Fer à Challenger).": "Good players finish their first big item around 11 min (based on 800 analyzed games, Iron to Challenger).",
+    "En jungle, les bons joueurs en posent au moins une avant 20 min pour sécuriser leurs camps et les objectifs.": "In the jungle, good players place at least one before 20 min to secure their camps and objectives.",
+    "En support, les bons joueurs en posent au moins 2 avant 20 min.": "As support, good players place at least 2 before 20 min.",
+    "Aucune ward adverse détruite avant 20 min": "No enemy ward destroyed before 20 min", "Aucun grand item terminé": "No big item finished",
+    "Un seul retour volontaire à la base avant 14 min": "Only one planned back before 14 min", "Aucun retour volontaire à la base avant 14 min": "No planned back before 14 min",
+    "Une seule ward de contrôle posée avant 20 min": "Only one control ward placed before 20 min", "Aucune ward de contrôle posée avant 20 min": "No control ward placed before 20 min",
+    "Chaque mort en phase de lane coûte des sbires, de l'expérience et souvent des plaques.": "Every death in laning costs CS, XP and often turret plates.",
+    "D'après 800 parties analysées : une mort juste avant un objectif adverse fait prendre à l'adversaire environ 1 100 golds d'avance dans les 3 minutes, 5 fois plus qu'une autre mort. Avec 2 de ces morts, une partie est gagnée 22 fois sur 100 ; sans, 60 fois sur 100.": "Based on 800 analyzed games: a death right before an enemy objective gives the enemy about 1,100 gold of lead within 3 minutes, 5 times more than any other death. With 2 of these deaths, a game is won 22 times out of 100; without them, 60 times out of 100.",
+    "Mesuré sur 800 parties : avec 3 morts ou plus avant 14 min, les parties sont gagnées 40 % du temps, contre 58 % sans.": "Measured over 800 games: with 3 or more deaths before 14 min, games are won 40% of the time, versus 58% without.",
+    "Aucun allié n'était tout près au moment de la mort : souvent en poussant seul une lane sans savoir où sont les adversaires.": "No ally was nearby at the time of death: often while pushing a lane alone without knowing where the enemies are.",
+    "Combat perdu autour d'un objectif alors que l'équipe était moins nombreuse (souvent avec un allié mort).": "Fight lost around an objective while your team had fewer players (often with an ally dead).",
+    "D'après 800 parties analysées : disputer un objectif à moins nombreux fait perdre environ 9 parties sur 100, que ton équipe soit devant ou derrière.": "Based on 800 analyzed games: contesting an objective while outnumbered loses about 9 games out of 100, whether your team is ahead or behind.",
+    "Détruire les wards adverses (trinket rouge, control ward) prive l'adversaire de vision et protège tes déplacements.": "Destroying enemy wards (red trinket, control ward) denies the enemy vision and protects your movements.",
+    "Les bons joueurs rentrent environ 3 fois avant 14 min, au bon moment (sbires poussés, or suffisant).": "Good players back about 3 times before 14 min, at the right moments (wave pushed, enough gold).",
+    "Les bons joueurs terminent leur premier grand item vers 11 min : plus de farm et des retours au bon moment.": "Good players finish their first big item around 11 min: more farm and well-timed backs.",
+    "Une control ward (75 golds) reste posée jusqu'à ce qu'on la détruise : elle montre et coupe la vision adverse autour d'un objectif.": "A control ward (75 gold) stays until it is destroyed: it reveals and denies enemy vision around an objective.",
+    "Jamais mort seul face à plusieurs adversaires après 14 min": "Never died alone against several enemies after 14 min",
+    "Un allié était mort : sans lui, il valait mieux céder l'objectif et prendre une tourelle ou une wave de l'autre côté de la carte.": "An ally was dead: without them, it was better to give up the objective and take a turret or a wave on the other side of the map.",
+    "En infériorité numérique, cède l'objectif et prends plutôt une tourelle ou une wave de l'autre côté de la carte.": "When outnumbered, give up the objective and take a turret or a wave on the other side of the map instead.",
+    "Sur une side lane, quand 2 adversaires ou plus disparaissent de la minimap, recule vers ta tourelle : ils arrivent peut-être sur toi.": "In a side lane, when 2 or more enemies disappear from the minimap, fall back to your turret: they may be coming for you.",
+    "Évite d'avancer seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : reste à portée de ton équipe ou replie-toi.": "Avoid pushing alone into the enemy half when several enemies are missing: stay within reach of your team or fall back.",
+    "Aucun allié n'était proche : replie-toi vers ton équipe avant que plusieurs adversaires arrivent.": "No ally was close: fall back toward your team before several enemies arrive.",
+    "Aucun allié n'était tout près de toi.": "No ally was close to you.",
+    "Quand ton équipe se bat près de toi, rejoins-la : un joueur de plus change le rapport de force. Sinon, signale-lui de ne pas engager.": "When your team fights near you, join it: one more player changes the balance of power. Otherwise, ping them not to engage.",
+    "Faits tirés des données officielles de Riot. Les backs sont déduits des achats (on n'achète qu'en base) ; un retour sans achat n'apparaît pas.": "Facts from official Riot data. Backs are inferred from purchases (you can only buy in base); a back without a purchase doesn't show.",
+    "Positions relevées une fois par minute ; Riot ne fournit ni la vision, ni les sorts, ni la position des wards. Les conseils s'appuient sur ces faits mesurés. Entre deux relevés, le trajet affiché est une ligne droite.": "Positions are recorded once per minute; Riot provides neither vision, nor spells, nor ward positions. The advice is based on these measured facts. Between two snapshots, the path shown is a straight line.",
+  });
+  R.push(
+    [/^À (\d+:\d\d)$/, "At $1"], [/^([+−-]?[\d\s  ,.]+) golds$/, (m, n) => `${n.trim()} gold`],
+    // Bilan d'une partie
+    [/^(\d+) morts? juste avant un objectif adverse$/, (m, n) => `${n} death${n === "1" ? "" : "s"} right before an enemy objective`],
+    [/^(\d+:\d\d) : tué par (.+?), puis (.+) adverse à (\d+:\d\d)( \(détail sur la Carte\))?$/, (m, at, k, o, at2, map) => `${at}: killed by ${who(k)}, then enemy ${objEn(o)} at ${at2}${map ? " (details in Replay)" : ""}`],
+    [/^(\d+) morts avant 14 min$/, "$1 deaths before 14 min"],
+    [/^(\d+:\d\d) : tué par (.+?)(?: \(\+(\d+) aides?\))?(, dans la moitié adverse)?$/, (m, at, k, h, half) => `${at}: killed by ${who(k)}${h ? ` (+${h} assist${h === "1" ? "" : "s"})` : ""}${half ? ", on the enemy half" : ""}`],
+    [/^(.+?) : (.+), en dessous des bons joueurs$/, (m, p, v) => `${plainEn(p)}: ${sayEn(v)}, below good players`],
+    [/^(.+?) : (.+), au niveau des meilleurs$/, (m, p, v) => `${plainEn(p)}: ${sayEn(v)}, on par with the best`],
+    [/^Les bons joueurs à ton poste \(Diamant et plus\) : (.+)\.$/, (m, v) => `Good players in your role (Diamond+): ${sayEn(v)}.`],
+    [/^(Ton duo : )?([\d\s  ,.]+) golds de retard sur (.+) à 10 min$/, (m, d, n, o) => `${d ? "Your duo: " : ""}${n.trim()} gold behind ${o === "le duo adverse" ? "the enemy duo" : o} at 10 min`],
+    [/^Sbires : ([+-]?\d+) à 10 min\.$/, "CS: $1 at 10 min."],
+    [/^(\d+) morts? contre (.+) avant 10 min\.$/, (m, n, o) => `${n} death${n === "1" ? "" : "s"} to ${o} before 10 min.`],
+    [/^(\d+) plaques de ta tourelle perdues avant 14 min\.$/, "$1 plates of your turret lost before 14 min."],
+    [/^Premier grand item terminé à ([\d.,]+) min$/, (m, n) => `First big item finished at ${n.replace(",", ".")} min`],
+    [/^Phase de lane : (ton duo avait )?([\d\s  ,.]+) golds d'avance sur (.+) à 10 min$/, (m, d, n, o) => `Laning phase: ${d ? "your duo was " : ""}${n.trim()} gold ahead of ${o === "le duo adverse" ? "the enemy duo" : o} at 10 min`],
+    [/^(\d+) plaques de tourelle prises sur ta lane$/, "$1 turret plates taken in your lane"],
+    // Bilan complet
+    [/^(.+) dans (\d+) parties sur (\d+)$/, (m, h, n, t) => `${headEn(h)} ${nGames(n, t)}`],
+    [/^(\d+) morts au total, chacune suivie dans la minute d'un objectif pris par l'adversaire \(dragon, Larves, Héraut, Atakhan ou Baron\)\.$/, "$1 deaths in total, each followed within a minute by an objective taken by the enemy (dragon, Voidgrubs, Herald, Atakhan or Baron)."],
+    [/^Écart moyen : ([+-]?[\d\s  ,.]+) golds à 10 min\.$/, (m, n) => `Average gap: ${n.trim()} gold at 10 min.`],
+    [/^(\d+) % de la partie passés mort en moyenne$/, "$1% of the game spent dead on average"],
+    [/^Sur une partie de 30 min, c'est environ (\d+) min sans pouvoir agir\.$/, "In a 30-minute game, that's about $1 min unable to play."],
+    [/^Très peu de temps passé mort : (\d+) % de la partie en moyenne$/, "Very little time spent dead: $1% of the game on average"],
+    [/^Toi, en général : (.+)\. Les joueurs Diamant et plus à ton poste : (.+)\.$/, (m, a, b) => `You, usually: ${sayEn(a)}. Diamond+ players in your role: ${sayEn(b)}.`],
+    [/^D'après 800 parties analysées, à poste égal : « (.+) » dans (\d+) % des parties des joueurs Fer à Argent, et seulement (\d+) % de celles des Diamant et plus\.$/, (m, t, lo, hi) => `Based on 800 analyzed games, same role: “${headEn(t.charAt(0).toUpperCase() + t.slice(1))}” in ${lo}% of Iron to Silver players' games, and only ${hi}% of Diamond+ games.`],
+    [/^Présent dans (\d+) % des combats qui ont lieu près de toi$/, "Present in $1% of the fights near you"],
+    [/^(\d+) combats sur (\d+), sur (\d+) parties\.$/, "$1 fights out of $2, over $3 games."], [/^Sur (\d+) parties\.$/, "Over $1 games."],
+    [/^Tendances calculées sur les données officielles de Riot : (\d+) parties relues en détail(?: \(sélectionnées parmi tes (\d+) dernières parties classées\))? ; un point n'apparaît que s'il revient dans au moins (\d+) parties\.$/, (m, n, s2, k) => `Trends computed from official Riot data: ${n} games reviewed in detail${s2 ? ` (selected from your last ${s2} ranked games)` : ""}; a point only shows if it comes back in at least ${k} games.`],
+    [/^(.+) Référence : (\d+) parties Diamant et plus, patch (.+)\.$/, (m, a, n, p) => `${tr(a).trim()} Reference: ${n} Diamond+ games, patch ${p}.`],
+    // Moments clés du replay
+    [/^(.+) adverse à (\d+:\d\d) : disputé à (\d+) contre (\d+), avec un combat perdu autour$/, (m, k, at, a, b) => `Enemy ${objEn(k)} at ${at}: contested ${a} vs ${b}, with a fight lost around it`],
+    [/^Absents : (.+)\.$/, (m, l) => `Missing: ${l.split(", ").map(x => x === "toi" ? "you" : x.replace(/\((.+)\)$/, (mm, z) => `(${z === "mort, en attente de réapparition" ? "dead, waiting to respawn" : ZONE(z)})`)).join(", ")}.`],
+    [/^Il te restait (\d+) % de tes points de vie une minute avant : rentrer à la base t'aurait évité ce risque\.$/, "You had $1% of your health a minute before: backing would have avoided this risk."],
+    [/^Mort seul à (\d+:\d\d) \((.+)\), contre (\d+) adversaires$/, (m, at, z, n) => `Died alone at ${at} (${ZONE(z)}), against ${n} enemies`],
+    [/^Tes adversaires : (.+)\.$/, (m, l) => `Your attackers: ${l.split(", ").map(who).join(", ")}.`],
+    [/^Combat perdu à (\d+:\d\d) \((.+)\) sans toi, alors que tu étais (.+)$/, (m, at, z, f) => `Fight lost at ${at} (${ZONE(z)}) without you, while you were ${farEn(f)}`],
+    [/^(\d+) de ton équipe contre (\d+) : (\d+) pertes? de ton côté, (?:(\d+) en face|aucune en face)\.$/, (m, a, b, l, e) => `${a} of your team vs ${b}: ${l} lost on your side, ${e ? `${e} on theirs` : "none on theirs"}.`],
+    [/^Ensuite \(sans lien certain avec ce seul moment\) : (.+) dans les 2 minutes\.$/, (m, x) => `Then (not necessarily caused by this moment alone): ${x.split(", et ").map(p => p.replace(/^ton équipe a perdu (.+)$/, (mm, l) => `your team lost ${lossEn(l)}`).replace(/^l'écart d'or s'est creusé de (.+) en faveur de l'adversaire$/, (mm, g) => `the gold gap grew by ${g} in the enemy's favor`)).join(", and ")} within 2 minutes.`],
+    [/^(\d+:\d\d) : (.+)$/, (m, at, rest) => { const x = tr(rest).trim(); return x === rest ? m : `${at}: ${x}`; }],
+    // Tournants de la partie (liste après « pour ton équipe »)
+    [/^pour ton équipe(?: : (.+))?$/, (m, l) => `for your team${l ? `: ${l.split(" ; ").map(p => p
+      .replace(/^combat (.+?) \((?:(\d+) adversaires? éliminés?|aucun adversaire éliminé), (?:(\d+) pertes? de ton côté|aucune perte de ton côté)\)$/, (mm, z, e, a) => `fight ${ZONE(z)} (${e ? `${e} ${e === "1" ? "enemy" : "enemies"} killed` : "no enemy killed"}, ${a ? `${a} lost on your side` : "no loss on your side"})`)
+      .replace(/^pris : (.+)$/, (mm, x) => `taken: ${lossEn(x)}`).replace(/^perdu : (.+)$/, (mm, x) => `lost: ${lossEn(x)}`).replace(/^ta mort à (.+)$/, "your death at $1")).join("; ")}` : ""}`],
+  );
   const SKIP = ".nrow-title, .nrow-dek, .article-title, .reading, .summary, .brief-title, .scard-title, .scard-dek, .place-why, .c2-videos, [translate=no], script, style, code";
   function tr(s) {
     const t0 = s.trim(), t = t0.replace(/[\s\u00a0\u202f]+/g, " "); // espaces insécables normalisés

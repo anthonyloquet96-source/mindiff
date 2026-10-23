@@ -132,7 +132,7 @@ async function c2LoadChamp(id) {
   render(false);
 }
 async function c2LoadReview(id) {
-  if (C2.reviews[id]?.tactics || c2ui.loading) return; // bilans plus anciens (sans relecture tactique) : relus
+  if (C2.reviews[id]?.tactics?.kills || c2ui.loading) return; // bilans plus anciens (sans relecture tactique ou sans les kills du replay) : relus
   c2ui.loading = id; c2ui.error = null; render(false);
   try { C2.reviews[id] = await c2Fetch("review", { match: id, puuid: C2.account.puuid, platform: C2.account.platform }); c2MarkSeen(id); c2Save(); } catch (e) { c2ui.error = e.message; }
   c2ui.loading = null; render(false);
@@ -525,6 +525,8 @@ function c2Builds(id) {
 function c2Game(id) {
   if (!C2.account) return empty("Compte non connecté", "", `<a class="btn" href="${c2Href()}">Connecter mon compte</a>`);
   const r = C2.reviews[id]?.tactics ? C2.reviews[id] : null;
+  // Bilan déjà lu avant le replay (sans les kills) : relu une fois en arrière-plan
+  if (r && !r.tactics.kills && C2_API != null && !(c2ui.refreshed ||= new Set()).has(id)) { c2ui.refreshed.add(id); setTimeout(() => c2LoadReview(id), 0); }
   if (!r && !C2.account.puuid) { setTimeout(() => c2LoadProfile(), 0); return `<div class="c2-card c2-loading">Lecture de la partie…</div>`; }
   if (!r) {
     if (C2_API != null && !c2ui.error) setTimeout(() => c2LoadReview(id), 0);
@@ -534,12 +536,14 @@ function c2Game(id) {
   const view = c2ui.gviewFor === id && ["resume", "carte", "details"].includes(c2ui.gview) ? c2ui.gview : "resume";
   if (!C2.seen?.includes(id)) { c2MarkSeen(id); c2Save(); }
   const vsName = r.lane.duo ? "le duo adverse" : esc(c2Name(r.lane.opponent));
-  const tile = (what, at, v) => `<div class="c2-tile ${v > 0 ? "up" : v < 0 ? "down" : ""}"><span class="c2-k">${v > 0 ? "+" : ""}${c2n(v)}</span><span class="fine">${what} ${v >= 0 ? "de plus" : "de moins"} que ${vsName} à ${at} min</span></div>`;
+  // Barre d'écart : centrée sur 0, vers la droite quand tu es devant (échelle propre à chaque mesure)
+  const bar = (what, at, v, scale) => `<div class="c2-lb ${v > 0 ? "up" : v < 0 ? "down" : ""}"><span class="c2-lb-l">${what} à ${at} min</span><span class="c2-lb-t" aria-hidden="true"><i style="--w:${Math.min(50, (Math.abs(v) / scale) * 50).toFixed(1)}%"></i></span><span class="c2-k">${v > 0 ? "+" : ""}${c2n(v)}</span></div>`;
   return `<section class="c2-card c2-match ${s.win ? "win" : "loss"}">
-      <div class="c2-prow">${c2Img(s.champion, "c2-av lg")}<div><p class="c2-name">${s.win ? "Victoire" : "Défaite"} · ${esc(c2Name(s.champion))}</p><p class="fine">${esc(C2_ROLE[s.role] || "")}${s.opponent ? ` contre ${esc(c2Name(s.opponent))}` : ""} · ${s.k}/${s.d}/${s.a} · ${s.cs} sbires · ${Math.round(s.minutes)} min · patch ${esc(s.patch)}</p></div></div>
-      ${r.lane.at10 ? `<p class="label">Ta phase de lane${r.lane.duo ? " (avec ton duo)" : ""}</p><div class="c2-tiles">${tile("golds", 10, r.lane.at10.gold)}${r.lane.at10.cs != null ? tile("sbires", 10, r.lane.at10.cs) : ""}${r.lane.at15 ? tile("golds", 15, r.lane.at15.gold) : ""}${r.lane.at15 ? tile("XP", 15, r.lane.at15.xp) : ""}</div>` : ""}
+      <div class="c2-prow">${c2Img(s.champion, "c2-av lg")}<div><p class="c2-name">${esc(c2Name(s.champion))}${s.opponent ? ` <span class="muted">contre</span> ${esc(c2Name(s.opponent))}` : ""}</p><p class="fine">${esc(C2_ROLE[s.role] || "")} · ${Math.round(s.minutes)} min · patch ${esc(s.patch)}</p></div><span class="c2-res ${s.win ? "win" : "loss"}">${s.win ? "Victoire" : "Défaite"}</span></div>
+      <div class="c2-stats"><div><span class="label">KDA</span><b class="c2-k">${s.k}/${s.d}/${s.a}</b></div><div><span class="label">Sbires</span><b class="c2-k">${s.cs}</b></div><div><span class="label">Par min</span><b>${String(Math.round((s.cs / Math.max(1, s.minutes)) * 10) / 10).replace(".", ",")}</b></div></div>
+      ${r.lane.at10 ? `<div class="c2-lanebars"><p class="label">Phase de lane · écart avec ${esc(vsName)}</p>${bar("Golds", 10, r.lane.at10.gold, 1000)}${r.lane.at10.cs != null ? bar("Sbires", 10, r.lane.at10.cs, 20) : ""}${r.lane.at15 ? bar("Golds", 15, r.lane.at15.gold, 2000) : ""}${r.lane.at15 ? bar("XP", 15, r.lane.at15.xp, 1500) : ""}</div>` : ""}
     </section>
-    <div class="filters">${seg("c2-gview", [["resume", "L'essentiel"], ["carte", "Carte"], ["details", "Chiffres"]], view, "Vue")}</div>
+    <div class="filters">${seg("c2-gview", [["resume", "L'essentiel"], ["carte", "Replay"], ["details", "Chiffres"]], view, "Vue")}</div>
     ${view === "carte" ? c2Tactics(r, id) : view === "details" ? `${c2Timeline(r)}
       ${r.comparisons.length ? `<section class="sec"><div class="sec-head"><h2 class="sec-title">Toi face aux bons joueurs</h2></div><div class="c2-card">${r.comparisons.map(c2Bar).join("")}<p class="fine">Le point, c'est toi sur cette partie. La zone claire montre où se situe la moitié des joueurs Diamant et plus à ton poste, et le trait leur niveau habituel. Vert : mieux qu'eux ; rouge : en dessous.</p></div></section>` : ""}
       ${c2BuildCmp(r)}
@@ -548,7 +552,7 @@ function c2Game(id) {
         ${r.findings.length ? r.findings.map((f, i) => `<article class="c2-card c2-finding"><p class="label">Constat ${i + 1}</p><h3 class="c2-f-title">${esc(f.title)}</h3>${bullets(f.facts)}
           ${f.metric || C2_KIND_TIP[f.kind] ? `<details class="more"><summary>Ce qu'il faut faire</summary>${C2_KIND_TIP[f.kind] || !f.metric ? `<p>${esc(c2TipOf(f))}</p>` : ""}${f.metric ? c2LessonsHtml(f.metric, s.role, s.champion, !C2_KIND_TIP[f.kind]) : ""}</details>` : ""}</article>`).join("") : `<p class="inline-empty">Aucun écart net avec la référence Diamant+ sur cette partie.</p>`}
       </section>
-      ${r.tactics?.lessons?.length ? `<button class="c2-ready" data-action="c2-gview" data-id="carte">${icon("compass")}<span><b>${r.tactics.lessons.length} moment${r.tactics.lessons.length > 1 ? "s" : ""} clé${r.tactics.lessons.length > 1 ? "s" : ""} sur la carte</b><span class="fine">Ce qui s'est passé et ce qui aurait été mieux</span></span>${icon("chevron")}</button>` : ""}`}
+      ${r.tactics?.lessons?.length ? `<button class="c2-ready" data-action="c2-gview" data-id="carte">${icon("compass")}<span><b>${r.tactics.lessons.length} moment${r.tactics.lessons.length > 1 ? "s" : ""} clé${r.tactics.lessons.length > 1 ? "s" : ""} à revoir en replay</b><span class="fine">La partie rejouée sur la minimap, avec ce qui aurait été mieux</span></span>${icon("chevron")}</button>` : ""}`}
     <p class="fine c2-foot">${esc(r.note)}${r.benchmark ? ` Référence : ${r.benchmark.games} parties ${esc(r.benchmark.level)}, patch ${esc(r.benchmark.patch)}.` : ""}</p>`;
 }
 
@@ -592,104 +596,235 @@ function c2BuildCmp(r) {
   </div></section>`;
 }
 
-// ---------- Relecture tactique : minimap minute par minute, moments clés, combats, interactions (données Riot, sans IA)
+// ---------- Relecture tactique : la partie en replay sur la minimap, frise cliquable, arrêts aux moments clés (données Riot, sans IA)
+// Riot donne une position par minute : entre deux relevés, les champions glissent en ligne droite (trajet approximatif, dit au joueur).
 const C2_MAP = 14870;
-function c2MapInner(T, m) {
-  const pos = T.map[m] || [];
-  const pct = v => ((v / C2_MAP) * 100).toFixed(2);
-  const dots = T.players.map((p, i) => { const q = pos[i]; return `<span class="c2-mp ${p.team}${p.me ? " me" : ""}${q?.[2] === 0 ? " dead" : ""}" data-i="${i}"${q ? ` style="left:${pct(q[0])}%;bottom:${pct(q[1])}%" title="${esc(c2Name(p.champion))}${q[2] != null ? ` · ${q[2]} % PV` : ""}"` : " hidden"}>${c2Img(p.champion, "c2-av")}</span>`; }).join("");
-  // Événements de la minute : combats (croix) et objectifs (rond)
-  const inMin = t => t >= m * 60000 - 30000 && t < m * 60000 + 30000;
-  const ev = [...T.fights.filter(f => inMin(f.t)).map(f => `<span class="c2-mev fight ${f.won === true ? "won" : f.won === false ? "lost" : ""}" style="left:${pct(f.x)}%;bottom:${pct(f.y)}%" title="Combat à ${f.at} : ${f.allies} contre ${f.enemies}"></span>`),
-    ...T.objectives.filter(o => inMin(o.t) && o.x != null).map(o => `<span class="c2-mev obj ${o.ours ? "won" : "lost"}" style="left:${pct(o.x)}%;bottom:${pct(o.y)}%" title="${esc(o.kind)} ${o.ours ? "pris" : "perdu"} à ${o.at}"></span>`)].join("");
-  const happening = [...T.fights.filter(f => inMin(f.t)).map(f => `Combat ${esc(f.zone)} : ${f.allies} contre ${f.enemies}${f.won === true ? ", gagné" : f.won === false ? ", perdu" : ""}`), ...T.objectives.filter(o => inMin(o.t)).map(o => `${esc(o.kind)} ${o.ours ? "pris" : "perdu"} (${o.allies} contre ${o.enemies} autour)`)];
-  return { dots, layer: `${ev}<span class="c2-mclock">${m}:00</span>${happening.length ? `<span class="c2-mnow">${happening.join(" · ")}</span>` : ""}` };
+const c2Pct = v => ((v / C2_MAP) * 100).toFixed(2);
+const c2Clock = t => `${Math.floor(t / 60000)}:${String(Math.floor(t / 1000) % 60).padStart(2, "0")}`;
+const C2_SVG = {
+  pause: `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>`,
+  prev: `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M18 6l-8 6 8 6z"/></svg>`,
+  next: `<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M6 6l8 6-8 6z"/></svg>`,
+};
+// Durée de la partie (ms) et instant affiché
+const c2Dur = T => (T.map.length - 1) * 60000;
+const c2TimeOf = (T, id) => Math.max(0, Math.min(c2Dur(T), c2ui.tt?.[id] ?? Math.min(10, T.map.length - 1) * 60000));
+// Position d'un joueur à l'instant t : interpolée entre les deux relevés de minute
+function c2PosAt(T, i, t) {
+  const last = T.map.length - 1, m = t / 60000, a = Math.min(last, Math.floor(m)), b = Math.min(last, a + 1), f = m - a;
+  const A = T.map[a]?.[i], B = T.map[b]?.[i];
+  if (!A || !B || a === b) return A || B || null;
+  return [A[0] + (B[0] - A[0]) * f, A[1] + (B[1] - A[1]) * f, f < 0.5 ? A[2] : B[2]];
 }
-// Place les pions de la minute m (les transitions CSS font glisser les champions)
-function c2MapPlace(el, T, m) {
-  const pos = T.map[m] || [], pct = v => ((v / C2_MAP) * 100).toFixed(2);
-  for (const d of el.querySelectorAll(".c2-mp")) {
-    const i = Number(d.dataset.i), q = pos[i], p = T.players[i];
-    d.hidden = !q;
-    if (!q) continue;
-    d.style.left = `${pct(q[0])}%`;
-    d.style.bottom = `${pct(q[1])}%`;
-    d.classList.toggle("dead", q[2] === 0);
-    d.title = `${c2Name(p.champion)}${q[2] != null ? ` · ${q[2]} % PV` : ""}`;
-  }
+// Mort à l'instant t : d'après les kills exacts quand ils sont là, sinon d'après les points de vie du relevé
+function c2DeadAt(T, i, t, q) {
+  if (T.kills) return T.kills.some(k => k.v === i && t >= k.t && t - k.t < (k.t < 15 * 60000 ? 30000 : 50000));
+  return q?.[2] === 0;
 }
-function c2Tactics(r, id) {
-  const T = r.tactics;
-  if (!T?.map?.length) return "";
-  const m = Math.min(T.map.length - 1, c2ui.tmin?.[id] ?? Math.min(10, T.map.length - 1));
-  const S = T.summary;
-  const near = T.fights.filter(f => f.me || f.myDist < 6000);
-  const chips = (list, label) => list.length ? `<div><p class="label">${label}</p><div class="c2-chiprow">${list.slice(0, 5).map(x => `<span class="c2-cchip">${c2Img(x.champion, "c2-av xs")}${esc(c2Name(x.champion))} · ${x.n}</span>`).join("")}</div></div>` : "";
-  return `<section class="sec"><div class="sec-head"><h2 class="sec-title">Relecture tactique</h2></div>
-    <div class="c2-card">
-      <div class="c2-map" id="c2-map-${esc(id)}" style="background-image:url(https://ddragon.leagueoflegends.com/cdn/${esc(COACH?.ddragonVersion || "16.21.1")}/img/map/map11.png)" role="img" aria-label="Minimap à la minute ${m} : position des 10 joueurs">${(mi => `${mi.dots}<div class="c2-mlayer">${mi.layer}</div>`)(c2MapInner(T, m))}</div>
-      <div class="c2-mctl"><button class="btn ghost sm" data-action="c2-tplay" data-id="${esc(id)}" aria-label="Lire la partie">${icon("play")}Lire</button><input type="range" min="0" max="${T.map.length - 1}" value="${m}" data-c2-tmin="${esc(id)}" aria-label="Minute de la partie"></div>
-      <p class="c2-legend fine"><span><i class="lg base"></i>ton équipe</span><span><i class="lg theirs"></i>adversaires</span><span><i class="lg fight"></i>combat</span><span><i class="lg objm"></i>objectif</span></p>
-      <div class="c2-tiles">
-        <div class="c2-tile"><span class="c2-k">${S.fightsWithMe}<small>/${near.length}</small></span><span class="fine">combats proches de toi auxquels tu as participé</span></div>
-        <div class="c2-tile"><span class="c2-k">${S.objectivesPresent}<small>/${S.objectivesTaken + S.objectivesLost}</small></span><span class="fine">objectifs où tu étais présent</span></div>
-        <div class="c2-tile ${S.deathsIsolated ? "down" : ""}"><span class="c2-k">${S.deathsIsolated}</span><span class="fine">morts seul face à plusieurs adversaires</span></div>
-        <div class="c2-tile ${S.deathsGank ? "down" : ""}"><span class="c2-k">${S.deathsGank}</span><span class="fine">morts sur un gank avant 14 min</span></div>
-      </div>
+// Moments de la partie : erreurs relevées, tes morts, objectifs, combats
+function c2Moments(T) {
+  const L = [];
+  T.lessons.forEach((l, n) => L.push({ t: l.t, type: "lesson", key: true, n, title: l.title, text: l.better, facts: l.facts, at: l.at }));
+  for (const d of T.deaths || []) L.push({ t: d.t, type: "death", key: true, mine: true, x: d.x, y: d.y, text: `Tu meurs (${d.zone}) : tué par ${c2Name(d.killer)}${d.attackers?.length > 1 ? `, ${d.attackers.length} adversaires sur toi` : ""}${d.alliesNear?.length ? "" : ", aucun allié autour"}` });
+  for (const o of T.objectives) L.push({ t: o.t, type: "obj", key: true, good: o.ours, x: o.x, y: o.y, letter: (o.kind || "?")[0], text: `${o.kind} ${o.ours ? "pris" : "perdu"} : ${o.allies} contre ${o.enemies} autour${o.myDist > 6000 ? ", tu étais loin" : ""}` });
+  for (const f of T.fights) L.push({ t: f.t, type: "fight", mine: f.me, good: f.won, x: f.x, y: f.y, text: `Combat ${f.zone} : ${f.allies} contre ${f.enemies}${f.won === true ? ", gagné" : f.won === false ? ", perdu" : ""}${f.me ? " (avec toi)" : ""}` });
+  return L.sort((a, b) => a.t - b.t);
+}
+const C2_TF = [["all", "Tout"], ["me", "Mes moments"], ["fight", "Combats"], ["obj", "Objectifs"]];
+const c2Keep = (m, f) => f === "all" || (f === "me" ? m.mine || m.type === "lesson" : m.type === f);
+// Contenu de la carte qui change avec le temps : pions, trajet suivi, marqueurs d'événements, horloge
+function c2MapState(T, id, t) {
+  const sel = c2ui.tsel?.[id] ?? T.players.findIndex(p => p.me);
+  const dots = T.players.map((p, i) => {
+    const q = c2PosAt(T, i, t);
+    return { i, q, dead: q && c2DeadAt(T, i, t, q), sel: i === sel };
+  });
+  // Trajet des 2 dernières minutes du joueur suivi (un point toutes les 10 s)
+  const pts = [];
+  for (let s = Math.max(0, t - 120000); s <= t; s += 10000) { const q = c2PosAt(T, sel, s); if (q) pts.push(`${c2Pct(q[0])},${(100 - c2Pct(q[1])).toFixed(2)}`); }
+  const q = c2PosAt(T, sel, t); if (q) pts.push(`${c2Pct(q[0])},${(100 - c2Pct(q[1])).toFixed(2)}`);
+  const f = c2ui.tf?.[id] || "all";
+  const marks = c2Moments(T).filter(m => m.x != null && c2Keep(m, f) && t >= m.t - 10000 && t - m.t < 25000);
+  return { sel, dots, trail: pts.join(" "), marks };
+}
+function c2MarkHtml(m) {
+  const cls = `c2-mev ${m.type}${m.good === true ? " won" : m.good === false ? " lost" : ""}`;
+  const inner = m.type === "obj" ? esc(m.letter) : m.type === "death" ? "✕" : "";
+  return `<span class="${cls}" style="left:${c2Pct(m.x)}%;bottom:${c2Pct(m.y)}%" title="${esc(c2Clock(m.t))} · ${esc(m.text)}">${inner}</span>`;
+}
+// Panneau « en ce moment » : l'erreur relevée à cet instant (avec ce qui aurait été mieux), sinon ce qui se passe
+function c2NowHtml(T, id, t) {
+  const L = c2Moments(T), f = c2ui.tf?.[id] || "all";
+  const lesson = L.find(m => m.type === "lesson" && t >= m.t - 40000 && t <= m.t + 20000);
+  if (lesson) return `<div class="c2-now-lesson"><p class="label">Moment clé · ${esc(lesson.at)}</p><p class="c2-now-title">${esc(lesson.title)}</p>${bullets(lesson.facts.slice(0, 2))}<p class="c2-better"><b>Ce qui aurait été mieux</b> ${esc(lesson.text)}</p></div>`;
+  const near = L.filter(m => m.type !== "lesson" && c2Keep(m, f) && Math.abs(m.t - t) <= 30000);
+  if (near.length) return `<ul class="c2-now-list">${near.map(m => `<li class="${m.type}${m.good === true ? " won" : m.good === false ? " lost" : ""}"><b>${c2Clock(m.t)}</b> ${esc(m.text)}</li>`).join("")}</ul>`;
+  return `<p class="fine">Rien de marquant à cet instant. Lance la lecture ou saute au moment clé suivant.</p>`;
+}
+function c2Replay(T, id) {
+  const t = c2TimeOf(T, id), dur = c2Dur(T), S = c2MapState(T, id, t), f = c2ui.tf?.[id] || "all", ID = esc(id);
+  const speed = c2ui.tspeed || 1, playing = c2ui.tplay?.id === id;
+  const selP = T.players[S.sel];
+  // Frise : écart d'or entre les équipes (au-dessus : ton équipe devant), et les moments cliquables
+  const g = T.goldDiff || [], max = Math.max(1000, ...g.map(Math.abs));
+  const gx = i => ((i / Math.max(1, g.length - 1)) * 100).toFixed(2), gy = v => (20 - (v / max) * 18).toFixed(2);
+  const area = g.length > 1 ? `M0,20 ${g.map((v, i) => `L${gx(i)},${gy(v)}`).join(" ")} L100,20 Z` : "";
+  const marks = c2Moments(T).filter(m => c2Keep(m, f) && (m.key || f !== "all"));
+  return `<div class="c2-card c2-replay" id="c2-rp-${ID}">
+    <div class="c2-map" id="c2-map-${ID}" style="background-image:url(https://ddragon.leagueoflegends.com/cdn/${esc(COACH?.ddragonVersion || "16.21.1")}/img/map/map11.png)">
+      <svg class="c2-trail" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="${S.trail}" vector-effect="non-scaling-stroke"/></svg>
+      ${T.players.map((p, i) => { const d = S.dots[i]; return `<button class="c2-mp ${p.team}${p.me ? " me" : ""}${d.dead ? " dead" : ""}${d.sel ? " sel" : ""}" data-action="c2-tsel" data-id="${ID}" data-i="${i}"${d.q ? ` style="left:${c2Pct(d.q[0])}%;bottom:${c2Pct(d.q[1])}%"` : " hidden"} aria-label="Suivre le trajet de ${esc(c2Name(p.champion))}${p.me ? " (toi)" : p.team === "enemy" ? " (adversaire)" : " (allié)"}">${c2Img(p.champion, "c2-av")}</button>`; }).join("")}
+      <div class="c2-mlayer">${S.marks.map(c2MarkHtml).join("")}</div>
+      <span class="c2-mclock">${c2Clock(t)}</span>
     </div>
-    ${c2Turns(T, id)}
-    ${T.lessons.length ? T.lessons.map(l => `<article class="c2-card c2-finding"><p class="label">À ${esc(l.at)}</p><h3 class="c2-f-title">${esc(l.title)}</h3>${bullets(l.facts)}<p class="c2-better"><b>Ce qui aurait été mieux</b> ${esc(l.better)}</p><button class="btn ghost sm" data-action="c2-tgo" data-id="${esc(id)}" data-m="${Math.max(0, Math.floor(l.t / 60000))}">Voir sur la carte</button></article>`).join("")
-      : `<p class="inline-empty">Aucune erreur de placement nette relevée sur cette partie (objectifs, morts, combats).</p>`}
-    <details class="more c2-card"><summary>Tous les combats (${T.fights.length}) et interactions</summary>
-      <ul class="c2-events">${T.fights.map(f => `<li><b>${f.at}</b> ${esc(f.zone)} · ${f.allies} contre ${f.enemies} · <span class="${f.won === true ? "up" : f.won === false ? "bad" : ""}">${f.won === true ? "gagné" : f.won === false ? "perdu" : "égal"}</span> (${f.enemiesDead} adversaire${f.enemiesDead > 1 ? "s" : ""} éliminé${f.enemiesDead > 1 ? "s" : ""}, ${f.alliesDead} allié${f.alliesDead > 1 ? "s" : ""}) · ${f.me ? "avec toi" : `sans toi (${f.myDist < 2500 ? "tu étais tout près" : f.myDist < 6000 ? "tu étais à quelques secondes" : f.myDist < 9000 ? "tu étais loin" : "tu étais à l'autre bout de la carte"})`} <button class="linkish" data-action="c2-tgo" data-id="${esc(id)}" data-m="${Math.floor(f.t / 60000)}">carte</button></li>`).join("")}</ul>
-      ${chips(T.interactions.killedBy, "T'ont éliminé le plus")}${chips(T.interactions.killed, "Tu as éliminé le plus")}${chips(T.interactions.with, "Tes kills avec")}
-    </details>
-    <p class="fine">${esc(T.limits)}</p>
-  </section>`;
-}
-// Tournants de la partie : courbe de l'écart d'or entre les deux équipes, et les moments où il bascule (avec ce qui s'est passé)
-function c2Turns(T, id) {
-  const g = T.goldDiff || [];
-  if (g.length < 3) return "";
-  const max = Math.max(1000, ...g.map(Math.abs));
-  const x = i => ((i / (g.length - 1)) * 100).toFixed(1), y = v => (50 - (v / max) * 46).toFixed(1);
-  const line = g.map((v, i) => `${x(i)},${y(v)}`).join(" ");
-  const last = g[g.length - 1];
-  return `<section class="c2-card"><p class="label">Les tournants de la partie</p>
-    <div class="c2-gold" role="img" aria-label="Écart d'or entre les équipes, minute par minute : ${last >= 0 ? "+" : ""}${c2n(last)} à la fin">
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="50" x2="100" y2="50" class="zero" vector-effect="non-scaling-stroke"/><polyline points="${line}" vector-effect="non-scaling-stroke"/></svg>
-      <span class="c2-gold-lab up">ton équipe devant</span><span class="c2-gold-lab down">ton équipe derrière</span>
+    <p class="fine c2-follow">Trajet suivi : <b>${esc(c2Name(selP.champion))}</b>${selP.me ? " (toi)" : ""}, 2 dernières minutes. Touche un champion pour suivre le sien.</p>
+    <div class="c2-tl">
+      <svg class="c2-tl-gold" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="c2-gg-${ID}" x1="0" y1="0" x2="0" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="var(--ok)" stop-opacity=".45"/><stop offset=".5" stop-color="var(--ok)" stop-opacity=".12"/><stop offset=".5" stop-color="var(--bad)" stop-opacity=".12"/><stop offset="1" stop-color="var(--bad)" stop-opacity=".45"/></linearGradient></defs>
+        <line x1="0" y1="20" x2="100" y2="20" class="zero" vector-effect="non-scaling-stroke"/>
+        ${area ? `<path d="${area}" fill="url(#c2-gg-${ID})"/>` : ""}
+      </svg>
+      <input class="c2-tl-range" type="range" min="0" max="${dur}" step="1000" value="${Math.round(t)}" data-c2-tt="${ID}" aria-label="Moment de la partie" aria-valuetext="${c2Clock(t)}">
+      <span class="c2-tl-head" style="left:${((t / dur) * 100).toFixed(2)}%"></span>
+      ${marks.map(m => `<button class="c2-tl-m ${m.type}${m.good === true ? " won" : m.good === false ? " lost" : ""}" style="left:${((m.t / dur) * 100).toFixed(2)}%" data-action="c2-tgo" data-id="${ID}" data-t="${m.t}" aria-label="${esc(c2Clock(m.t))} : ${esc(m.title || m.text)}" title="${esc(c2Clock(m.t))} · ${esc(m.title || m.text)}"></button>`).join("")}
     </div>
-    ${T.turns?.length ? `<ul class="c2-turns">${T.turns.map(tr => `<li class="${tr.gold > 0 ? "up" : "down"}"><button class="linkish" data-action="c2-tgo" data-id="${esc(id)}" data-m="${Math.floor(tr.t / 60000) + 1}"><b>${tr.at} → ${tr.to}</b></button> <b class="${tr.gold > 0 ? "up" : "down"}">${tr.gold > 0 ? "+" : "−"}${c2n(Math.abs(Math.round(tr.gold / 100) * 100))} or</b> pour ton équipe${tr.what.length ? ` : ${esc(tr.what.join(" ; "))}` : ""}</li>`).join("")}</ul>` : `<p class="fine">Pas de bascule nette : l'écart d'or a évolué progressivement.</p>`}
-  </section>`;
+    <div class="c2-tl-axis fine"><span>0:00</span><span class="up">ton équipe devant ▲</span><span class="down">▼ derrière</span><span>${c2Clock(dur)}</span></div>
+    <div class="c2-mctl">
+      <button class="btn ghost sm icon-only" data-action="c2-tstep" data-id="${ID}" data-d="-1" aria-label="Moment clé précédent">${C2_SVG.prev}</button>
+      <button class="btn primary sm c2-tplay" data-action="c2-tplay" data-id="${ID}">${playing ? `${C2_SVG.pause}Pause` : `${icon("play")}Lire`}</button>
+      <button class="btn ghost sm icon-only" data-action="c2-tstep" data-id="${ID}" data-d="1" aria-label="Moment clé suivant">${C2_SVG.next}</button>
+      <button class="btn ghost sm c2-tspeed" data-action="c2-tspeed" aria-label="Vitesse de lecture">×${speed}</button>
+    </div>
+    <div class="seg small" role="group" aria-label="Moments affichés">${C2_TF.map(([k, l]) => `<button class="seg-btn" data-action="c2-tf" data-id="${ID}" data-f="${k}" aria-pressed="${f === k}">${l}</button>`).join("")}</div>
+    <div class="c2-now" aria-live="polite">${c2NowHtml(T, id, t)}</div>
+    <p class="c2-legend fine"><span><i class="lg base"></i>ton équipe</span><span><i class="lg theirs"></i>adversaires</span><span><i class="lg lessonm"></i>erreur relevée</span><span><i class="lg deathm"></i>ta mort</span><span><i class="lg objd"></i>objectif</span><span><i class="lg fight"></i>combat</span></p>
+  </div>`;
 }
-// Curseur et lecture : seule la carte est redessinée (le curseur garde la main pendant le glissement)
-function c2MapGo(id, m) {
-  (c2ui.tmin ||= {})[id] = m;
+// Met la carte à l'instant t sans tout redessiner (la lecture tourne à 60 images par seconde)
+function c2RpAt(id, t) {
   const T = C2.reviews[id]?.tactics, el = document.getElementById(`c2-map-${id}`);
   if (!T || !el) return false;
-  const mi = c2MapInner(T, m), layer = el.querySelector(".c2-mlayer");
-  if (layer) layer.innerHTML = mi.layer; else el.innerHTML = `${mi.dots}<div class="c2-mlayer">${mi.layer}</div>`;
-  c2MapPlace(el, T, m);
-  el.setAttribute("aria-label", `Minimap à la minute ${m} : position des 10 joueurs`);
-  const s = document.querySelector(`[data-c2-tmin="${CSS.escape(id)}"]`);
-  if (s && Number(s.value) !== m) s.value = m;
+  t = Math.max(0, Math.min(c2Dur(T), t));
+  (c2ui.tt ||= {})[id] = t;
+  const S = c2MapState(T, id, t);
+  for (const b of el.querySelectorAll(".c2-mp")) {
+    const d = S.dots[Number(b.dataset.i)];
+    b.hidden = !d.q;
+    if (!d.q) continue;
+    b.style.left = `${c2Pct(d.q[0])}%`; b.style.bottom = `${c2Pct(d.q[1])}%`;
+    b.classList.toggle("dead", !!d.dead); b.classList.toggle("sel", d.sel);
+  }
+  el.querySelector(".c2-trail polyline")?.setAttribute("points", S.trail);
+  const layer = el.querySelector(".c2-mlayer"), mk = S.marks.map(m => m.t + m.type).join();
+  if (layer && layer.dataset.k !== mk) { layer.dataset.k = mk; layer.innerHTML = S.marks.map(c2MarkHtml).join(""); }
+  el.querySelector(".c2-mclock").textContent = c2Clock(t);
+  const rp = document.getElementById(`c2-rp-${id}`);
+  const r = rp?.querySelector(".c2-tl-range");
+  if (r && document.activeElement !== r) r.value = Math.round(t);
+  r?.setAttribute("aria-valuetext", c2Clock(t));
+  const head = rp?.querySelector(".c2-tl-head");
+  if (head) head.style.left = `${((t / c2Dur(T)) * 100).toFixed(2)}%`;
+  const now = rp?.querySelector(".c2-now"), html = c2NowHtml(T, id, t);
+  if (now && now.dataset.h !== html) { now.dataset.h = html; now.innerHTML = html; }
   return true;
 }
-document.addEventListener("input", e => { const id = e.target.dataset?.c2Tmin; if (id) c2MapGo(id, Number(e.target.value)); });
+// Lecture : 1 seconde = 1 minute de jeu (×1), pause automatique sur tes morts et les erreurs relevées
+function c2PlayBtn(id, on) {
+  const b = document.querySelector(`#c2-rp-${CSS.escape(id)} .c2-tplay`);
+  if (b) b.innerHTML = on ? `${C2_SVG.pause}Pause` : `${icon("play")}Lire`;
+}
+function c2Stop() { if (c2ui.tplay) { cancelAnimationFrame(c2ui.tplay.raf); const id = c2ui.tplay.id; c2ui.tplay = null; c2PlayBtn(id, false); } }
+function c2Play(id) {
+  const T = C2.reviews[id]?.tactics;
+  if (!T) return;
+  c2Stop();
+  let t = c2TimeOf(T, id);
+  if (t >= c2Dur(T) - 1000) t = 0;
+  const stops = c2Moments(T).filter(m => m.type === "lesson" || m.type === "death").map(m => m.t);
+  const P = c2ui.tplay = { id, last: performance.now(), raf: 0 };
+  c2PlayBtn(id, true);
+  const step = now => {
+    if (c2ui.tplay !== P) return;
+    const nt = t + (now - P.last) * 60 * (c2ui.tspeed || 1);
+    P.last = now;
+    const stop = stops.find(s => s > t + 1 && s <= nt);
+    t = stop ?? nt;
+    if (!c2RpAt(id, t)) { c2ui.tplay = null; return; }
+    if (stop != null || t >= c2Dur(T)) { c2Stop(); return; }
+    P.raf = requestAnimationFrame(step);
+  };
+  P.raf = requestAnimationFrame(step);
+}
+// Saut vers un instant : les champions glissent jusqu'à la nouvelle position (0,45 s)
+function c2Seek(id, to) {
+  const T = C2.reviews[id]?.tactics;
+  if (!T) return;
+  c2Stop();
+  const from = c2TimeOf(T, id), t0 = performance.now();
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || Math.abs(to - from) < 2000) { c2RpAt(id, to); return; }
+  const P = c2ui.tseek = {};
+  const step = now => {
+    if (c2ui.tseek !== P) return;
+    const p = Math.min(1, (now - t0) / 450), e = 1 - Math.pow(1 - p, 3);
+    c2RpAt(id, from + (to - from) * e);
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+document.addEventListener("input", e => { const id = e.target.dataset?.c2Tt; if (id) { c2Stop(); c2ui.tseek = null; c2RpAt(id, Number(e.target.value)); } });
 document.addEventListener("click", e => {
   const a = e.target.closest("[data-action]");
   if (!a) return;
-  if (a.dataset.action === "c2-tgo") { const id = a.dataset.id; c2MapGo(id, Number(a.dataset.m)); document.getElementById(`c2-map-${id}`)?.scrollIntoView({ behavior: "smooth", block: "center" }); }
-  if (a.dataset.action === "c2-tplay") {
-    const id = a.dataset.id, T = C2.reviews[id]?.tactics;
-    if (c2ui.tplay) { clearInterval(c2ui.tplay); c2ui.tplay = null; a.innerHTML = `${icon("play")}Lire`; return; }
-    if (!T) return;
-    let m = (c2ui.tmin?.[id] ?? 0) >= T.map.length - 1 ? 0 : c2ui.tmin?.[id] ?? 0;
-    a.innerHTML = "Pause";
-    c2ui.tplay = setInterval(() => { m++; if (m >= T.map.length || !c2MapGo(id, m)) { clearInterval(c2ui.tplay); c2ui.tplay = null; const b = document.querySelector(`[data-action="c2-tplay"][data-id="${CSS.escape(id)}"]`); if (b) b.innerHTML = `${icon("play")}Lire`; } }, 800);
+  const id = a.dataset.id, T = id && C2.reviews[id]?.tactics;
+  if (a.dataset.action === "c2-tgo" && T) {
+    // Un moment s'affiche un peu avant : on voit la mise en place
+    const t = a.dataset.t != null ? Math.max(0, Number(a.dataset.t) - 8000) : Number(a.dataset.m) * 60000;
+    document.getElementById(`c2-rp-${id}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    c2Seek(id, t);
   }
+  if (a.dataset.action === "c2-tplay") { if (c2ui.tplay?.id === id) c2Stop(); else c2Play(id); }
+  if (a.dataset.action === "c2-tstep" && T) {
+    const cur = c2TimeOf(T, id), d = Number(a.dataset.d);
+    const keys = c2Moments(T).filter(m => m.key && c2Keep(m, c2ui.tf?.[id] || "all")).map(m => Math.max(0, m.t - 8000));
+    const to = d > 0 ? keys.find(k => k > cur + 1000) : [...keys].reverse().find(k => k < cur - 1000);
+    if (to != null) c2Seek(id, to);
+  }
+  if (a.dataset.action === "c2-tspeed") { c2ui.tspeed = { 1: 2, 2: 4, 4: 1 }[c2ui.tspeed || 1]; a.textContent = `×${c2ui.tspeed}`; }
+  if (a.dataset.action === "c2-tsel" && T) { (c2ui.tsel ||= {})[id] = Number(a.dataset.i); c2RpAt(id, c2TimeOf(T, id)); const f = a.closest(".c2-replay")?.querySelector(".c2-follow"), p = T.players[Number(a.dataset.i)]; if (f) f.innerHTML = `Trajet suivi : <b>${esc(c2Name(p.champion))}</b>${p.me ? " (toi)" : ""}, 2 dernières minutes. Touche un champion pour suivre le sien.`; }
+  if (a.dataset.action === "c2-tf" && T) { (c2ui.tf ||= {})[id] = a.dataset.f; const rp = document.getElementById(`c2-rp-${id}`); if (rp) { const playing = c2ui.tplay?.id === id; rp.outerHTML = c2Replay(T, id); if (playing) c2PlayBtn(id, true); } }
 });
+function c2Tactics(r, id) {
+  const T = r.tactics;
+  if (!T?.map?.length) return "";
+  const S = T.summary;
+  const near = T.fights.filter(f => f.me || f.myDist < 6000);
+  const chips = (list, label) => list.length ? `<div><p class="label">${label}</p><div class="c2-chiprow">${list.slice(0, 5).map(x => `<span class="c2-cchip">${c2Img(x.champion, "c2-av xs")}${esc(c2Name(x.champion))} · ${x.n}</span>`).join("")}</div></div>` : "";
+  return `<section class="sec"><div class="sec-head"><h2 class="sec-title">La partie en replay</h2></div>
+    <p class="fine">Lance la lecture : elle s'arrête d'elle-même sur tes morts et sur les erreurs relevées, avec ce qui aurait été mieux. Les points de la frise sont cliquables.</p>
+    ${c2Replay(T, id)}
+    <div class="c2-tiles">
+      <div class="c2-tile"><span class="c2-k">${S.fightsWithMe}<small>/${near.length}</small></span><span class="fine">combats proches de toi auxquels tu as participé</span></div>
+      <div class="c2-tile"><span class="c2-k">${S.objectivesPresent}<small>/${S.objectivesTaken + S.objectivesLost}</small></span><span class="fine">objectifs où tu étais présent</span></div>
+      <div class="c2-tile ${S.deathsIsolated ? "down" : ""}"><span class="c2-k">${S.deathsIsolated}</span><span class="fine">morts seul face à plusieurs adversaires</span></div>
+      <div class="c2-tile ${S.deathsGank ? "down" : ""}"><span class="c2-k">${S.deathsGank}</span><span class="fine">morts sur un gank avant 14 min</span></div>
+    </div>
+    ${c2Turns(T, id)}
+    ${T.lessons.length ? T.lessons.map(l => `<article class="c2-card c2-finding"><p class="label">À ${esc(l.at)}</p><h3 class="c2-f-title">${esc(l.title)}</h3>${bullets(l.facts)}<p class="c2-better"><b>Ce qui aurait été mieux</b> ${esc(l.better)}</p><button class="btn ghost sm" data-action="c2-tgo" data-id="${esc(id)}" data-t="${l.t}">Revoir ce moment</button></article>`).join("")
+      : `<p class="inline-empty">Aucune erreur de placement nette relevée sur cette partie (objectifs, morts, combats).</p>`}
+    <details class="more c2-card"><summary>Tous les combats (${T.fights.length}) et interactions</summary>
+      <ul class="c2-events">${T.fights.map(f => `<li><b>${f.at}</b> ${esc(f.zone)} · ${f.allies} contre ${f.enemies} · <span class="${f.won === true ? "up" : f.won === false ? "bad" : ""}">${f.won === true ? "gagné" : f.won === false ? "perdu" : "égal"}</span> (${f.enemiesDead} adversaire${f.enemiesDead > 1 ? "s" : ""} éliminé${f.enemiesDead > 1 ? "s" : ""}, ${f.alliesDead} allié${f.alliesDead > 1 ? "s" : ""}) · ${f.me ? "avec toi" : `sans toi (${f.myDist < 2500 ? "tu étais tout près" : f.myDist < 6000 ? "tu étais à quelques secondes" : f.myDist < 9000 ? "tu étais loin" : "tu étais à l'autre bout de la carte"})`} <button class="linkish" data-action="c2-tgo" data-id="${esc(id)}" data-t="${f.t}">revoir</button></li>`).join("")}</ul>
+      ${chips(T.interactions.killedBy, "T'ont éliminé le plus")}${chips(T.interactions.killed, "Tu as éliminé le plus")}${chips(T.interactions.with, "Tes kills avec")}
+    </details>
+    <p class="fine">${esc(T.limits)} Entre deux relevés, le trajet affiché est une ligne droite.</p>
+  </section>`;
+}
+// Tournants de la partie : les moments où l'écart d'or bascule (la courbe est dans la frise du replay)
+function c2Turns(T, id) {
+  if (!T.turns?.length) return "";
+  return `<section class="c2-card"><p class="label">Les tournants de la partie</p>
+    <ul class="c2-turns">${T.turns.map(tr => `<li class="${tr.gold > 0 ? "up" : "down"}"><button class="linkish" data-action="c2-tgo" data-id="${esc(id)}" data-t="${tr.t}"><b>${tr.at} → ${tr.to}</b></button> <b class="${tr.gold > 0 ? "up" : "down"}">${tr.gold > 0 ? "+" : "−"}${c2n(Math.abs(Math.round(tr.gold / 100) * 100))} golds</b> pour ton équipe${tr.what.length ? ` : ${esc(tr.what.join(" ; "))}` : ""}</li>`).join("")}</ul>
+  </section>`;
+}
 
 function c2Bar(c) {
   const lo = Math.min(c.value, c.p25) * 0.85, hi = Math.max(c.value, c.p75) * 1.1 || 1;

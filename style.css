@@ -1020,3 +1020,99 @@ button.c2-ready { width: 100%; text-align: left; font: inherit; color: inherit; 
 @keyframes c2-cheer { 30% { box-shadow: 0 0 0 6px rgba(242, 193, 78, .25); } 100% { box-shadow: 0 0 0 0 rgba(242, 193, 78, 0); } }
 @keyframes c2-bump { 50% { transform: scale(1.18); } }
 @keyframes c2-glow { 50% { box-shadow: 0 0 0 4px rgba(var(--accent-rgb), .12); } }
+
+/* ---------- Style « appli de performance » : éléments adaptés ---------- */
+/* Plus de bordures colorées sur le côté : l'état se lit dans une pastille ou un point */
+.c2-match.win, .c2-match.loss { box-shadow: var(--shadow); }
+.c2-game { border-left: 0; }
+.c2-finding { border-left: 0; }
+.c2-plus li { border-left: 0; }
+.c2-finding.niveau { border-left: 0; }
+.c2-better { border-left: 0; border-radius: var(--r-sm); }
+.c2-brief li, .c2-turns li { border-left: 0; position: relative; padding-left: 18px; }
+.c2-brief li::before, .c2-turns li::before { content: ""; position: absolute; left: 0; top: .5em; width: 8px; height: 8px; border-radius: 50%; background: var(--surface-3); }
+.c2-brief li.up::before, .c2-turns li.up::before { background: var(--ok); }
+.c2-brief li.down::before, .c2-turns li::before { background: var(--bad); }
+.c2-turns li.up::before { background: var(--ok); }
+/* Cartes mises en avant : fond uni, ombre douce, la couleur reste dans le texte et les icônes */
+.c2-goal, .c2-goal.ok, .c2-plan, .cstrip.hot, .c2-tool.hot, .c2-ready { border: 0; background: var(--surface); box-shadow: var(--shadow); }
+.c2-goal .label, .c2-plan .label { color: var(--accent-text); }
+.c2-goal.ok .label { color: var(--ok); }
+/* Liens en liste façon réglages : icône dans un carré de couleur */
+.cstrip > .ic:first-child, .c2-tool > .ic:first-child, .c2-ready > .ic:first-child { box-sizing: content-box; width: 18px; height: 18px; padding: 7px; border-radius: 9px; background: var(--accent); color: #fff; flex: none; }
+.c2-bilan-link > .ic:first-child { background: #0a84ff; }
+.c2-ready > .ic:last-child, .cstrip > .ic:last-child { color: var(--text-3); }
+.c2-ready b, .cstrip-txt b { font-size: 16px; font-weight: 600; }
+.c2-livebar { box-shadow: var(--shadow); }
+/* Logos d'équipe : toujours sur fond sombre (beaucoup de logos sont blancs) */
+.logo { background: #2c2c2e; color: #d1d1d6; }
+/* Bilan de partie : pastille de résultat, gros chiffres, barres d'écart */
+.c2-res { flex: none; padding: 4px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
+.c2-res.win { background: rgba(var(--ok-rgb), .16); color: var(--ok); }
+.c2-res.loss { background: rgba(var(--bad-rgb), .16); color: var(--bad); }
+.c2-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.c2-stats .label { display: block; text-transform: none; letter-spacing: 0; font-size: 12px; }
+.c2-stats b { display: block; font-size: 26px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; }
+.c2-lanebars { display: flex; flex-direction: column; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line); }
+.c2-lanebars .label { text-transform: none; letter-spacing: 0; font-size: 13px; }
+.c2-lb { display: grid; grid-template-columns: 104px 1fr 56px; align-items: center; gap: 10px; }
+.c2-lb-l { font-size: 14px; color: var(--text-2); }
+.c2-lb-t { position: relative; height: 8px; border-radius: 4px; background: var(--surface-2); }
+.c2-lb-t::after { content: ""; position: absolute; left: 50%; top: -3px; bottom: -3px; width: 1px; background: var(--text-3); opacity: .5; }
+.c2-lb-t i { position: absolute; top: 0; bottom: 0; width: var(--w); border-radius: 4px; background: var(--text-3); }
+.c2-lb.up .c2-lb-t i { left: 50%; background: var(--ok); }
+.c2-lb.down .c2-lb-t i { right: 50%; background: var(--bad); }
+.c2-lb .c2-k { text-align: right; font-weight: 700; font-size: 16px; }
+.c2-lb.up .c2-k { color: var(--ok); } .c2-lb.down .c2-k { color: var(--bad); }
+.c2-enter .c2-lb-t i { animation: c2-grow .7s .25s var(--ease) both; }
+@keyframes c2-grow { from { width: 0; } }
+
+/* ---------- Replay de la partie ---------- */
+.c2-replay { gap: 12px; }
+.c2-map { border-radius: 16px; }
+.c2-trail { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.c2-trail polyline { fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 6; opacity: .9; filter: drop-shadow(0 0 2px rgba(0, 0, 0, .8)); }
+button.c2-mp { border: 0; padding: 0; background: none; cursor: pointer; transition: opacity .3s, filter .3s; }
+.c2-mp.sel { z-index: 4; }
+.c2-mp.sel .c2-av { box-shadow: 0 0 0 2px #fff, 0 0 14px rgba(255, 255, 255, .7); }
+.c2-mev { position: absolute; z-index: 2; transform: translate(-50%, 50%); display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; background: rgba(0, 0, 0, .5); color: #fff; font-size: 11px; font-weight: 800; line-height: 1; animation: c2-pop .3s var(--ease) both; }
+.c2-mev.fight { width: 34px; height: 34px; border-style: dashed; background: rgba(0, 0, 0, .25); }
+.c2-mev.fight.won { border-color: #30d158; } .c2-mev.fight.lost { border-color: #ff453a; }
+.c2-mev.obj.won { background: #30d158; } .c2-mev.obj.lost { background: #ff453a; }
+.c2-mev.death { background: #ff453a; z-index: 5; }
+.c2-mev.fight::after, .c2-mev.death::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid currentColor; opacity: 0; animation: c2-ping 1.2s ease-out 2; }
+@keyframes c2-ping { 0% { opacity: .8; transform: scale(.7); } 100% { opacity: 0; transform: scale(1.5); } }
+.c2-follow b { color: var(--text); }
+.c2-tl { position: relative; height: 56px; border-radius: 12px; background: var(--surface-2); margin-top: 6px; touch-action: none; }
+.c2-tl-gold { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 12px; }
+.c2-tl-gold .zero { stroke: var(--text-3); stroke-width: 1; stroke-dasharray: 3 3; opacity: .6; }
+.c2-tl-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; z-index: 1; }
+.c2-tl-range:focus-visible + .c2-tl-head { box-shadow: 0 0 0 3px var(--accent); }
+.c2-tl-head { position: absolute; top: -5px; bottom: -5px; width: 3px; margin-left: -1.5px; border-radius: 2px; background: var(--text); z-index: 2; pointer-events: none; }
+.c2-tl-m { position: absolute; z-index: 3; transform: translateX(-50%); border: 0; padding: 0; cursor: pointer; }
+.c2-tl-m::after { content: ""; position: absolute; inset: -9px -5px; }
+.c2-tl-m.lesson { top: -8px; width: 8px; height: 20px; border-radius: 4px; background: var(--accent); box-shadow: 0 0 0 2px var(--surface); }
+.c2-tl-m.death { top: calc(50% - 7px); width: 14px; height: 14px; border-radius: 50%; background: var(--bad); box-shadow: 0 0 0 2px var(--surface-2); }
+.c2-tl-m.obj { bottom: 5px; width: 10px; height: 10px; border-radius: 2px; transform: translateX(-50%) rotate(45deg); background: var(--text-3); }
+.c2-tl-m.obj.won { background: var(--ok); } .c2-tl-m.obj.lost { background: var(--bad); }
+.c2-tl-m.fight { top: 6px; width: 7px; height: 7px; border-radius: 50%; background: var(--text-3); }
+.c2-tl-m.fight.won { background: var(--ok); } .c2-tl-m.fight.lost { background: var(--bad); }
+.c2-tl-axis { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; margin-top: -4px; }
+.c2-tl-axis .up { color: var(--ok); } .c2-tl-axis .down { color: var(--bad); }
+.c2-replay .c2-mctl { justify-content: center; gap: 8px; }
+.btn.icon-only { width: 40px; padding: 0; }
+.c2-tspeed { min-width: 52px; font-variant-numeric: tabular-nums; }
+.c2-now { min-height: 72px; padding: 12px 14px; border-radius: 14px; background: var(--surface-2); display: flex; flex-direction: column; justify-content: center; }
+.c2-now-lesson { display: flex; flex-direction: column; gap: 6px; }
+.c2-now-lesson .label { color: var(--accent-text); }
+.c2-now-title { margin: 0; font-weight: 700; font-size: 16px; line-height: 1.3; }
+.c2-now-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+.c2-now-list b { font-variant-numeric: tabular-nums; margin-right: 6px; }
+.c2-now-list li.won b { color: var(--ok); } .c2-now-list li.lost b, .c2-now-list li.death b { color: var(--bad); }
+.lg.lessonm { width: 5px; height: 11px; border-radius: 3px; background: var(--accent); }
+.lg.deathm { background: var(--bad); }
+.c2-replay .seg { flex-wrap: wrap; overflow: visible; }
+.lg.objd { width: 8px; height: 8px; border-radius: 1px; transform: rotate(45deg); background: var(--ok); }
+.sec > .c2-tiles, .c2-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.c2-tile { background: var(--surface); box-shadow: var(--shadow); }
+.c2-card .c2-tile { background: var(--surface-2); box-shadow: none; }

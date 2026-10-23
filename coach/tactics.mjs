@@ -1,5 +1,5 @@
 // Relecture tactique d'une partie, à partir de la chronologie officielle de Riot (match-v5 timeline). Sans IA, sans rediffusion.
-// Données : position et points de vie des 10 joueurs à chaque minute, éliminations (position, tueur, aides), objectifs, tourelles.
+// Données : position et points de vie des 10 joueurs à chaque minute, kills (position, tueur, aides), objectifs, tourelles.
 // Limites, à rappeler au joueur : une position par minute ; ni vision, ni sorts, ni brouillard de guerre.
 // Les « ce qui aurait été mieux » sont des règles de fondamentaux appliquées à des faits mesurés, jamais des suppositions.
 
@@ -16,9 +16,9 @@ export function zone(p, team) {
   const { x, y } = p;
   if (x < 2600 && y < 2600) return team === 100 ? "ta base" : "base adverse";
   if (x > MAP - 2600 && y > MAP - 2600) return team === 200 ? "ta base" : "base adverse";
-  if (Math.abs(x - y) < 1700) return "voie du milieu";
-  if (x < 2200 || y > MAP - 2200) return "voie du haut";
-  if (y < 2200 || x > MAP - 2200) return "voie du bas";
+  if (Math.abs(x - y) < 1700) return "mid lane";
+  if (x < 2200 || y > MAP - 2200) return "top lane";
+  if (y < 2200 || x > MAP - 2200) return "bot lane";
   if (Math.abs(x + y - MAP) < 1800) return x + y < MAP ? "rivière" : "rivière";
   const blueSide = x + y < MAP; // côté de la carte de l'équipe bleue (jungle)
   return blueSide === (team === 100) ? "ta jungle" : "jungle adverse";
@@ -38,10 +38,10 @@ export function tactics(match, timeline, puuid) {
   const near = (id, t) => { const a = frames[Math.floor(t / 60000)], b = frames[Math.ceil(t / 60000)]; const w = (t % 60000) / 60000; return (w < 0.5 ? a : b || a)?.participantFrames?.[id]?.position; };
   const events = frames.flatMap(f => f.events);
 
-  // Mini-carte : positions de tous les joueurs à chaque minute (et points de vie en %)
+  // Minimap : positions de tous les joueurs à chaque minute (et points de vie en %)
   const map = frames.map(f => players.map(p => { const pf = f.participantFrames?.[p.id]; return pf?.position ? [Math.round(pf.position.x), Math.round(pf.position.y), pf.championStats?.healthMax ? Math.round((pf.championStats.health / pf.championStats.healthMax) * 100) : null] : null; }));
 
-  // Combats : éliminations proches dans le temps (20 s) et l'espace (3 000 unités)
+  // Combats : kills proches dans le temps (20 s) et l'espace (3 000 unités)
   const kills = events.filter(e => e.type === "CHAMPION_KILL" && e.position).map(e => ({ t: e.timestamp, killer: e.killerId, victim: e.victimId, assists: e.assistingParticipantIds || [], pos: e.position }));
   const fights = [];
   for (const k of kills) {
@@ -73,10 +73,10 @@ export function tactics(match, timeline, puuid) {
   // Larves du Néant : une seule ligne par groupe
   for (let i = objectives.length - 1; i > 0; i--) if (objectives[i].kind === objectives[i - 1].kind && objectives[i].ours === objectives[i - 1].ours && objectives[i].t - objectives[i - 1].t < 60000) objectives.splice(i, 1);
 
-  // Morts du joueur : isolé ? en infériorité ? loin de sa moitié de carte ? combien d'adversaires absents de leurs voies ?
+  // Morts du joueur : isolé ? en infériorité ? loin de sa moitié de carte ? combien d'adversaires absents de leurs lanes ?
   const deaths = kills.filter(k => k.victim === mine.id).map(k => {
     const t = k.t, at = near(mine.id, t) || k.pos;
-    // Allié présent : proche au relevé de la minute, ou impliqué dans une élimination toute proche (15 s, 3 000 unités) — les éliminations ont une position exacte
+    // Allié présent : proche au relevé de la minute, ou impliqué dans une élimination toute proche (15 s, 3 000 unités) — les kills ont une position exacte
     const inFight = id => kills.some(o => Math.abs(o.t - t) <= 15000 && dist(o.pos, k.pos) < 3000 && [o.killer, o.victim, ...o.assists].includes(id));
     const alliesNear = players.filter(p => p.team === myTeam && !p.me && (dist(near(p.id, t), k.pos) < R_NEAR || inFight(p.id))).map(p => p.champion);
     const attackers = [k.killer, ...k.assists].filter(id => byId[id]).map(id => byId[id].champion);
@@ -119,14 +119,14 @@ export function tactics(match, timeline, puuid) {
     // « Absent d'un objectif perdu » retiré au banc d'essai du 21/10 : sans effet au-delà de l'état de la partie (coût médian nul)
     // Disputé en infériorité (combat autour, avec des pertes) ; céder un objectif sans combat n'est pas une erreur
     if (o.allies < o.enemies && fightView.some(f => Math.abs(f.t - o.t) < 45000 && dist(f, o) < R_OBJ && f.alliesDead > 0)) lessons.push({ kind: "objectif-inferiorite", t: o.t, at: o.at, title: `${o.kind} adverse à ${o.at} : disputé à ${o.allies} contre ${o.enemies}, avec un combat perdu autour`,
-      better: o.absent.some(x => x.dead) ? "Un allié était mort : sans lui, il valait mieux céder l'objectif et prendre une tourelle ou une vague de l'autre côté de la carte." : "En infériorité numérique, cède l'objectif et prends plutôt une tourelle ou une vague de l'autre côté de la carte.",
+      better: o.absent.some(x => x.dead) ? "Un allié était mort : sans lui, il valait mieux céder l'objectif et prendre une tourelle ou une wave de l'autre côté de la carte." : "En infériorité numérique, cède l'objectif et prends plutôt une tourelle ou une wave de l'autre côté de la carte.",
       facts: o.absent.length ? [`Absents : ${absents(o.absent)}.`] : [] });
   }
   for (const d of deaths) {
     const lowHp = d.hpBefore != null && d.hpBefore < 40 ? [`Il te restait ${d.hpBefore} % de tes points de vie une minute avant : rentrer à la base t'aurait évité ce risque.`] : [];
     // « Gank subi » retiré au banc d'essai du 21/10 : aussi fréquent à tous les rangs, sans lien avec la victoire
     if (!d.alliesNear.length && d.attackers.length >= 2 && d.t >= 14 * 60000) lessons.push({ kind: "mort-isolee", t: d.t, at: d.at, title: `Mort seul à ${d.at} (${d.zone}), contre ${d.attackers.length} adversaires`,
-      better: ["top", "bottom"].includes(role) && /voie/.test(d.zone) ? "Sur une voie de côté, quand 2 adversaires ou plus disparaissent de la mini-carte, recule vers ta tourelle : ils arrivent peut-être sur toi."
+      better: ["top", "bottom"].includes(role) && /lane/.test(d.zone) ? "Sur une side lane, quand 2 adversaires ou plus disparaissent de la minimap, recule vers ta tourelle : ils arrivent peut-être sur toi."
         : d.enemyHalf ? "Évite d'avancer seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : reste à portée de ton équipe ou replie-toi." : "Aucun allié n'était proche : replie-toi vers ton équipe avant que plusieurs adversaires arrivent.",
       facts: [`Tes adversaires : ${d.attackers.join(", ")}.`, "Aucun allié n'était tout près de toi.", ...lowHp] });
   }
@@ -174,10 +174,11 @@ export function tactics(match, timeline, puuid) {
 
   return {
     players: players.map(p => ({ champion: p.champion, role: p.role, team: p.team === myTeam ? "ally" : "enemy", me: p.me })),
-    map, fights: fightView, objectives, deaths, interactions, presence, lessons, turns: keyTurns, goldDiff: teamGold.map(g => Math.round(g / 100) * 100),
+    map, fights: fightView, objectives, deaths, interactions,
+    kills: kills.map(k => ({ t: k.t, v: players.findIndex(p => p.id === k.victim), k: players.findIndex(p => p.id === k.killer) })), presence, lessons, turns: keyTurns, goldDiff: teamGold.map(g => Math.round(g / 100) * 100),
     summary: { fights: fightView.length, fightsWithMe: fightView.filter(f => f.me).length, objectivesLost: objectives.filter(o => !o.ours).length, objectivesTaken: objectives.filter(o => o.ours).length, objectivesPresent: objectives.filter(o => o.myDist < R_OBJ).length,
       deathsIsolated: deaths.filter(d => !d.alliesNear.length && d.attackers.length >= 2 && d.t >= 14 * 60000).length, deathsGank: deaths.filter(d => d.gank).length, deaths: deaths.length,
       wards: events.filter(e => e.type === "WARD_PLACED" && e.creatorId === mine.id).length, wardsKilled: events.filter(e => e.type === "WARD_KILL" && e.killerId === mine.id).length },
-    limits: "Positions relevées une fois par minute ; Riot ne fournit ni la vision, ni les sorts, ni la position des balises. Les conseils s'appuient sur ces faits mesurés.",
+    limits: "Positions relevées une fois par minute ; Riot ne fournit ni la vision, ni les sorts, ni la position des wards. Les conseils s'appuient sur ces faits mesurés.",
   };
 }

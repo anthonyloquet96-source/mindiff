@@ -213,7 +213,7 @@ await t("Relecture tactique : combats, objectifs, morts isolées, alliés morts"
   const kinds = r.lessons.map(l => l.kind);
   assert(kinds.includes("objectif-inferiorite") && kinds.includes("mort-isolee") && !kinds.includes("absent-objectif"), kinds.join());
   assert(r.summary.deathsIsolated === 1 && r.map.length === 31 && r.map[20][2][0] === 2000, "résumé ou mini-carte");
-  assert(zone({ x: 7400, y: 7400 }, 100) === "voie du milieu" && zone({ x: 13900, y: 13900 }, 100) === "base adverse", "zones de la carte");
+  assert(zone({ x: 7400, y: 7400 }, 100) === "mid lane" && zone({ x: 13900, y: 13900 }, 100) === "base adverse", "zones de la carte");
   // Élimination isolée en 1 contre 1 : pas un « combat »
   frames[10].events.push({ type: "CHAMPION_KILL", timestamp: 600000, victimId: 1, killerId: 6, assistingParticipantIds: [], position: { x: 1500, y: 9000 } });
   assert(tactics(match, tl, "p3").fights.length === 2, "duel compté comme combat");

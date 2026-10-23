@@ -64,7 +64,7 @@ jobs:
       - name: Préparer le site
         run: |
           mkdir -p _site/data
-          cp riot.txt index.html admin.html app.js coach.js coach2.js coach-select.js admin.js style.css manifest.webmanifest icon.svg logo.svg *.png _site/
+          cp riot.txt index.html confidentialite.html admin.html app.js coach.js coach2.js coach-select.js admin.js style.css manifest.webmanifest icon.svg logo.svg *.png _site/
           cp data/news.js data/esport.js data/meta.js data/auto.json data/status.json data/editorial.json data/coach.json data/coach.js data/coach-admin.json _site/data/
 
       - uses: actions/configure-pages@v5

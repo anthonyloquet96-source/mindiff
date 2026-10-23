@@ -1170,6 +1170,7 @@ function syncPanelHtml() {
       <ul class="srclist">${AUTO.sources.map(s => `<li><span class="dot ${s.ok ? "ok" : "warn"}"></span><span>${esc(s.name)}</span><span class="fine">${s.ok ? `${s.count}` : esc(s.error)}${s.keptFrom ? ` · données du ${fmtDay(s.keptFrom)} conservées` : ""}</span></li>`).join("")}</ul>
       ${HAS_SERVER ? `<button class="btn ghost sm" data-action="collect">Lancer une collecte</button>` : ""}
       <p class="fine">${RIOT_LEGAL}</p>
+      <p class="fine"><a href="confidentialite.html" style="text-decoration: underline">Confidentialité et conditions</a></p>
     </div>`;
 }
 // Mention exigée par Riot Games pour les produits utilisant son API (texte officiel, en anglais)

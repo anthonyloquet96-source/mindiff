@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Confidentialité et conditions · MINDIFF</title>
+  <meta name="description" content="Quelles données MINDIFF lit chez Riot Games, ce qui est conservé (rien sur nos serveurs) et les conditions d'utilisation.">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .legal { max-width: 680px; margin: 0 auto; padding: 24px 16px 64px; display: flex; flex-direction: column; gap: 20px; }
+    .legal h1 { margin: 8px 0 0; }
+    .legal section { background: var(--surface); border-radius: var(--r); padding: 18px 20px; box-shadow: var(--shadow); }
+    .legal h2 { margin: 0 0 8px; font-size: var(--fs-lg); letter-spacing: -.015em; }
+    .legal p, .legal li { color: var(--text-2); margin: 0 0 8px; }
+    .legal ul { margin: 0; padding-left: 20px; }
+    .legal a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; }
+    .legal .en { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <main class="legal">
+    <a class="back" href="./#/lol" style="color: var(--text-2)">← Retour à MINDIFF</a>
+    <h1 class="page-title">Confidentialité et conditions</h1>
+    <p class="fine">Dernière mise à jour : 23 octobre 2026.</p>
+
+    <section>
+      <h2>Ce qu'est MINDIFF</h2>
+      <p>MINDIFF est un site gratuit de suivi esport et d'aide à la progression pour League of Legends. Le coach relit tes parties classées à partir des données officielles de Riot Games et te montre ce qui t'a coûté des parties, comparé aux joueurs Diamant et plus.</p>
+      <p>Il n'y a ni compte, ni inscription, ni publicité, ni abonnement.</p>
+    </section>
+
+    <section>
+      <h2>Les données lues chez Riot Games</h2>
+      <p>Uniquement quand tu saisis ton Riot ID (Pseudo#TAG) dans le coach, MINDIFF interroge l'API officielle de Riot Games pour :</p>
+      <ul>
+        <li>retrouver ton compte (Riot ID, niveau, rang classé) ;</li>
+        <li>lire tes dernières parties classées et leur chronologie (positions, kills, objectifs) ;</li>
+        <li>voir si tu es en partie, quand tu appuies sur « Je suis en partie ».</li>
+      </ul>
+      <p>Ce sont des données de jeu publiques. MINDIFF ne lit jamais ton e-mail, ton mot de passe, tes achats ni tes messages, et ne demande aucune connexion à ton compte Riot.</p>
+    </section>
+
+    <section>
+      <h2>Ce qui est conservé</h2>
+      <ul>
+        <li><b>Sur nos serveurs : rien.</b> Le service du coach relaie tes demandes vers Riot Games et garde les réponses quelques minutes en mémoire pour ne pas interroger Riot deux fois. Aucune base de données, aucun journal de joueurs.</li>
+        <li><b>Dans ton navigateur :</b> ton Riot ID, tes bilans de partie et tes objectifs, pour les retrouver à ta prochaine visite. Tu peux tout effacer en changeant de compte dans le coach ou en vidant les données du site dans ton navigateur.</li>
+        <li><b>Statistiques de référence :</b> les comparaisons « joueurs Diamant et plus » sont des moyennes calculées sur des parties classées, sans aucun identifiant de joueur.</li>
+      </ul>
+      <p>Aucun traceur publicitaire ni outil de mesure d'audience n'est utilisé. Rien n'est vendu ni partagé avec des tiers.</p>
+    </section>
+
+    <section>
+      <h2>Conditions d'utilisation</h2>
+      <ul>
+        <li>MINDIFF est fourni gratuitement, tel quel. Les conseils sont tirés de statistiques et de règles de jeu : ils peuvent se tromper et ne garantissent aucun résultat.</li>
+        <li>MINDIFF n'agit jamais pendant une partie à ta place et ne donne aucune information cachée par le jeu (pas de position d'adversaire invisible, pas de minuteur de sorts adverses). La partie en cours ne montre que les champions et les conseils de préparation.</li>
+        <li>Les données de jeu appartiennent à Riot Games et sont utilisées selon les règles de l'API Riot Games.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Une question, une demande de suppression ou une erreur à signaler : ouvre un ticket sur <a href="https://github.com/anthonyloquet96-source/mindiff/issues" rel="noopener">la page du projet</a>.</p>
+    </section>
+
+    <section>
+      <h2>In English</h2>
+      <p>MINDIFF is a free League of Legends esports tracker and improvement coach. It only calls the official Riot Games API when you enter your Riot ID, to read your account, ranked match history and timelines, and whether you are currently in game. MINDIFF stores no player data on its servers (responses are cached in memory for a few minutes only); your Riot ID and reviews are kept in your own browser and can be deleted at any time. No ads, no tracking, no data sold or shared. MINDIFF never gives information hidden by the game during a match. Contact: <a href="https://github.com/anthonyloquet96-source/mindiff/issues" rel="noopener">project issues page</a>.</p>
+      <p class="fine en">MINDIFF isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
+    </section>
+  </main>
+</body>
+</html>

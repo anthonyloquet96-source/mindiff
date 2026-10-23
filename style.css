@@ -1160,3 +1160,11 @@ button.c2-mp { border: 0; padding: 0; background: none; cursor: pointer; transit
 .sec > .c2-tiles, .c2-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .c2-tile { background: var(--surface); box-shadow: var(--shadow); }
 .c2-card .c2-tile { background: var(--surface-2); box-shadow: none; }
+/* Favoris : choisir une équipe sans passer par un tournoi */
+.fav-search { margin: 4px 0 10px; }
+.fav-pick .teamcell { border: 0; font: inherit; color: inherit; cursor: pointer; box-shadow: var(--shadow); }
+.fav-pick .teamcell[hidden] { display: none; }
+.fav-add { position: absolute; top: 8px; right: 8px; color: var(--text-3); }
+.fav-add .ic { width: 16px; height: 16px; }
+.fav-pick .teamcell:hover .fav-add { color: var(--accent); }
+.fav-more summary { font-weight: 600; }

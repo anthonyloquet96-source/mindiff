@@ -1128,6 +1128,27 @@ function stratDetail(id) {
 }
 
 // --- Favoris : équipes, articles et stratégies enregistrés
+// Choix des équipes à suivre directement depuis les favoris : toutes les équipes des tournois du jeu, recherche par nom
+function teamPicker(favs) {
+  const seen = new Map();
+  const ts = forGame(allTournaments()).sort((a, b) => (b.status === "inProgress") - (a.status === "inProgress"));
+  for (const t of ts) {
+    for (const x of t.teams || []) if (x.team && !seen.has(x.team)) seen.set(x.team, x.image);
+    for (const m of tMatches(t)) for (const x of m.teams) if (x.name && !/^(TBD|À déterminer)$/i.test(x.name) && !seen.has(x.name)) seen.set(x.name, x.image || x.logo);
+  }
+  const list = [...seen].filter(([n]) => !favs.includes(n)).sort((a, b) => a[0].localeCompare(b[0], "fr"));
+  if (!list.length) return "";
+  const grid = `<label class="search fav-search">${icon("list")}<span class="sr">Rechercher une équipe</span><input type="search" data-fav-filter placeholder="Rechercher une équipe" autocomplete="off"></label>
+    <div class="teamgrid fav-pick">${list.map(([n, img]) => `<button class="teamcell" data-action="fav-team" data-id="${esc(n)}" data-name="${esc(n.toLowerCase())}" aria-label="Suivre ${esc(n)}">${logo(n, img, "lg")}<span class="teamcell-name">${esc(n)}</span><span class="fav-add" aria-hidden="true">${icon("star")}</span></button>`).join("")}</div>`;
+  return favs.length
+    ? `<details class="more fav-more"><summary>Suivre une autre équipe</summary>${grid}</details>`
+    : `<p class="fine">Touche une équipe pour la suivre : ses prochains matchs et ses résultats apparaîtront ici.</p>${grid}`;
+}
+document.addEventListener("input", e => {
+  if (!e.target.matches?.("[data-fav-filter]")) return;
+  const q = e.target.value.trim().toLowerCase();
+  for (const b of e.target.closest(".sec").querySelectorAll(".fav-pick .teamcell")) b.hidden = q && !b.dataset.name.includes(q);
+});
 function viewFavorites() {
   const teams = prefs.favTeams;
   const ts = allTournaments();
@@ -1141,7 +1162,8 @@ function viewFavorites() {
       ${teams.length ? `<div class="chips-row">${teams.map(n => `<button class="pill-btn on" data-action="fav-team" data-id="${esc(n)}" aria-label="Retirer ${esc(n)} des favoris">${icon("star")}${esc(n)}${icon("close")}</button>`).join("")}</div>
         ${next.length ? `<p class="label">À venir</p><div class="mlist">${next.map(x => matchCard(x.m, x.t)).join("")}</div>` : ""}
         ${last.length ? `<p class="label">Derniers matchs</p><div class="mlist">${last.map(x => matchCard(x.m, x.t)).join("")}</div>` : ""}`
-        : `<p class="inline-empty">Ajoutez une équipe avec l'étoile depuis sa page dans un tournoi.</p>`}
+        : ""}
+      ${teamPicker(teams)}
     </section>
     <section class="sec">${secHead("Articles enregistrés")}${news.length ? `<div class="nlist">${news.map(newsRow).join("")}</div>` : `<p class="inline-empty">Aucun article enregistré.</p>`}</section>
     <section class="sec">${secHead("Stratégies enregistrées")}${strats.length ? `<div class="sgrid">${strats.map(stratCard).join("")}</div>` : `<p class="inline-empty">Aucune stratégie enregistrée.</p>`}</section>`;

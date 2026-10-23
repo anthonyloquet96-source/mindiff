@@ -11,6 +11,9 @@ const ENABLED_GAMES = ["lol", "val"]; // les autres jeux restent collectés mais
 const GAMES_ON = GAMES.filter(g => ENABLED_GAMES.includes(g.id));
 const gameById = Object.fromEntries(GAMES.map(g => [g.id, g]));
 const SHORT = { lol: "LoL", val: "Valorant", cs2: "CS2", fn: "Fortnite", rl: "Rocket League", fc: "EA FC" };
+// Jeux visibles mais verrouillés : MINDIFF se concentre sur League of Legends, on laisse entrevoir la suite
+const LOCKED = ["val"];
+const SOON = [["val", "Valorant"], ["cs2", "Counter-Strike 2"], ["fn", "Fortnite"], ["rl", "Rocket League"], ["fc", "EA FC"]];
 
 const NAV = [
   { id: "home", label: "Accueil", icon: "home" },
@@ -320,6 +323,7 @@ const ICONS = {
   list: '<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>',
   bracket: '<path d="M4 5h5v6H4M4 13h5v6H4M9 8h4v8h-4M13 12h7"/>',
   check: '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+  lock: '<rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/>',
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>',
   moon: '<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/>',
   contrast: '<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/>',
@@ -457,6 +461,21 @@ function portraitRow(ents, { game, stat = () => "", label = "Champions" } = {}) 
 // ============================================================ 6. Écrans
 
 // --- Choix du jeu (premier lancement)
+// Jeu verrouillé : la page reste visible en flou derrière une carte « bientôt », avec les jeux à venir à suivre
+function lockedView(inner) {
+  const name = SHORT[route.game] || "Ce jeu";
+  return `<div class="locked-view">
+    <div class="locked-blur" inert aria-hidden="true">${inner}</div>
+    <section class="locked-card" aria-labelledby="locked-title">
+      <span class="locked-ic">${icon("lock")}</span>
+      <p class="label">Bientôt disponible</p>
+      <h1 class="locked-title" id="locked-title" tabindex="-1">${esc(name)} arrive bientôt</h1>
+      <p class="fine">MINDIFF se concentre d'abord sur League of Legends. Les autres jeux arrivent ensuite : touche l'étoile de ceux qui t'intéressent, on commencera par les plus demandés.</p>
+      <ul class="soon-list">${SOON.map(([id, n]) => { const on = prefs.favGames.includes(id); return `<li><span>${esc(n)}</span><button class="icon-btn ${on ? "on" : ""}" data-action="fav-game" data-id="${id}" aria-pressed="${on}" aria-label="${on ? "Ne plus suivre" : "Ça m'intéresse"} : ${esc(n)}">${icon("star")}</button></li>`; }).join("")}</ul>
+      <a class="btn primary" href="${href("lol")}">Revenir à League of Legends</a>
+    </section>
+  </div>`;
+}
 function viewSelect() {
   const games = [...GAMES_ON].sort((a, b) => prefs.favGames.includes(b.id) - prefs.favGames.includes(a.id));
   return `<section class="select">
@@ -467,10 +486,10 @@ function viewSelect() {
       const p = latestPatch(g.id);
       const live = allTournaments().filter(t => t.game === g.id && t.status === "live").sort((a, b) => prestige(a) - prestige(b))[0];
       const fav = prefs.favGames.includes(g.id);
-      return `<div class="gtile">
+      return `<div class="gtile${LOCKED.includes(g.id) ? " locked" : ""}">
         <a class="gtile-link" href="${href(g.id)}">
           <span class="gtile-media">${art ? `<img src="${esc(art)}" alt="" decoding="async" onerror="this.remove()">` : ""}</span>
-          <span class="gtile-body"><span class="gtile-name">${esc(g.name)}</span>
+          ${LOCKED.includes(g.id) ? `<span class="gtile-lock">${icon("lock")}Bientôt</span>` : ""}<span class="gtile-body"><span class="gtile-name">${esc(g.name)}</span>
             <span class="gtile-tags">${live ? `<span class="chip live"><span class="live-dot"></span>${esc(live.name)}</span>` : ""}${p ? chip(`Patch ${patchOf(p, editOf(p)) || ""}`, "soft") : ""}</span></span>
         </a>
         <button class="gtile-fav icon-btn ${fav ? "on" : ""}" data-action="fav-game" data-id="${g.id}" aria-pressed="${fav}" aria-label="${fav ? "Retirer des favoris" : "Ajouter aux favoris"} : ${esc(g.name)}">${icon("star")}</button>
@@ -1201,6 +1220,7 @@ function syncPanelHtml() {
       <dl class="kpis compact"><div><dt>Dernière vérification</dt><dd>${ago(AUTO.generatedAt)}</dd></div><div><dt>Sources en ligne</dt><dd>${AUTO.sources.filter(s => s.ok).length} / ${AUTO.sources.length}</dd></div></dl>
       <p class="fine">La synchronisation indique quand le site a interrogé les sources. Chaque contenu affiche sa propre date de publication.</p>
       <ul class="srclist">${AUTO.sources.map(s => `<li><span class="dot ${s.ok ? "ok" : "warn"}"></span><span>${esc(s.name)}</span><span class="fine">${s.ok ? `${s.count}` : esc(s.error)}${s.keptFrom ? ` · données du ${fmtDay(s.keptFrom)} conservées` : ""}</span></li>`).join("")}</ul>
+      <div class="lang-pick"><p class="label">Langue · Language</p><div class="seg small">${[["fr", "Français"], ["en", "English"]].map(([k, l]) => `<button class="seg-btn" data-action="lang" data-id="${k}" aria-pressed="${(window.LANG || "fr") === k}" translate="no">${l}</button>`).join("")}</div></div>
       ${HAS_SERVER ? `<button class="btn ghost sm" data-action="collect">Lancer une collecte</button>` : ""}
       <p class="fine">${RIOT_LEGAL}</p>
       <p class="fine"><a href="confidentialite.html" style="text-decoration: underline">Confidentialité et conditions</a></p>
@@ -1273,10 +1293,14 @@ function renderHeader() {
     const keep = { competitions: route.rest[0] === "matchs" ? ["competitions", "matchs"] : ["competitions"], meta: ["meta"], actus: ["actus"], coach: ["coach", ...(route.rest[0] === "strategies" ? ["strategies"] : [])], favoris: ["favoris"] }[route.view];
     return href(id, ...(route.view === "tournoi" ? ["competitions"] : keep || []));
   };
-  const navItems = NAV.map(n => `<a class="nav-item" href="${href(g, n.id === "home" ? "" : n.id)}" ${navView === n.id ? 'aria-current="page"' : ""}>${icon(n.icon)}<span>${n.label}</span></a>`).join("");
+  // Pastille sur Coach : partie en cours (en direct) ou dernière partie pas encore relue
+  const c2live = typeof c2ui !== "undefined" && c2ui.live?.inGame, last = typeof C2 !== "undefined" ? C2.profile?.games?.[0] : null;
+  const c2new = !!last && Array.isArray(C2.seen) && !C2.seen.includes(last.id);
+  const badge = id => id !== "coach" || g !== "lol" ? "" : c2live ? `<i class="nav-badge live" aria-hidden="true">LIVE</i>` : c2new ? `<i class="nav-dot" aria-hidden="true"></i>` : "";
+  const navItems = NAV.map(n => `<a class="nav-item" href="${href(g, n.id === "home" ? "" : n.id)}" ${navView === n.id ? 'aria-current="page"' : ""}${n.id === "coach" && (c2live || c2new) ? ` aria-label="${n.label}, ${c2live ? "partie en cours" : "nouvelle partie à relire"}"` : ""}>${icon(n.icon)}<span>${n.label}</span>${badge(n.id)}</a>`).join("");
   document.getElementById("top").innerHTML = `<div class="wrap top-inner">
       <a class="brand" href="${g ? href(g) : "#/"}" aria-label="MINDIFF, accueil">${BRAND_MARK}<span class="brand-name">MINDIFF</span></a>
-      ${g ? `<div class="gswitch" role="group" aria-label="Jeu">${GAMES_ON.map(x => `<a class="gs-btn" href="${switchTo(x.id)}" ${g === x.id ? 'aria-current="true"' : ""}>${esc(SHORT[x.id])}</a>`).join("")}</div>` : ""}
+      ${g ? `<div class="gswitch" role="group" aria-label="Jeu">${GAMES_ON.map(x => `<a class="gs-btn${LOCKED.includes(x.id) ? " locked" : ""}" href="${switchTo(x.id)}" ${g === x.id ? 'aria-current="true"' : ""}${LOCKED.includes(x.id) ? ` aria-label="${esc(SHORT[x.id])}, bientôt disponible"` : ""}>${LOCKED.includes(x.id) ? icon("lock") : ""}${esc(SHORT[x.id])}</a>`).join("")}</div>` : ""}
       <div class="top-actions">
         ${g ? `<button class="icon-btn ${prefs.noSpoil ? "on" : ""}" data-action="spoil" aria-pressed="${prefs.noSpoil}" aria-label="Mode sans spoilers${prefs.noSpoil ? " activé" : ""}" title="Mode sans spoilers">${icon(prefs.noSpoil ? "eyeOff" : "eye")}</button>
         <a class="icon-btn" href="${href(g, "favoris")}" aria-label="Favoris" ${route.view === "favoris" ? 'aria-current="page"' : ""}>${icon("star")}</a>
@@ -1296,6 +1320,7 @@ function render(fromRoute = true) {
   const main = document.getElementById("view");
   main.innerHTML = !dataLoaded ? skeleton()
     : !AUTO && route.view !== "select" ? empty("Données indisponibles", "La connexion aux données a échoué et aucune copie locale n'existe encore.", `<button class="btn" data-action="retry">Réessayer</button>`)
+    : LOCKED.includes(route.game) ? lockedView(VIEWS[route.view]())
     : (route.view !== "select" ? freshnessAlert() : "") + VIEWS[route.view]();
   const search = document.getElementById("search");
   if (search) search.oninput = e => {
@@ -1363,6 +1388,7 @@ document.addEventListener("click", e => {
   const id = el.dataset.id;
   switch (el.dataset.action) {
     case "spoil": prefs.noSpoil = !prefs.noSpoil; savePrefs(); revealed.clear(); break;
+    case "lang": prefs.lang = id; savePrefs(); location.reload(); return;
     case "theme": prefs.theme = { auto: "light", light: "dark", dark: "auto" }[prefs.theme] || "light"; savePrefs(); applyTheme(); break;
     case "reveal": revealed.add(id); break;
     case "fav-game": prefs.favGames = prefs.favGames.includes(id) ? prefs.favGames.filter(x => x !== id) : [...prefs.favGames, id]; savePrefs(); break;

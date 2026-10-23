@@ -64,11 +64,11 @@ jobs:
       - name: Préparer le site
         run: |
           mkdir -p _site/data
-          cp riot.txt index.html confidentialite.html admin.html app.js coach.js coach2.js coach-select.js admin.js style.css manifest.webmanifest icon.svg logo.svg *.png _site/
+          cp riot.txt index.html confidentialite.html admin.html i18n.js app.js coach.js coach2.js coach-select.js admin.js style.css manifest.webmanifest icon.svg logo.svg *.png _site/
           cp data/news.js data/esport.js data/meta.js data/auto.json data/status.json data/editorial.json data/coach.json data/coach.js data/coach-admin.json _site/data/
           # Numéro de version sur la feuille de style et les scripts : le téléphone recharge chaque nouvelle publication au lieu de garder l'ancienne en cache
           V="${GITHUB_SHA::8}"
-          sed -i -E "s#href=\"style\.css\"#href=\"style.css?v=$V\"#; s#src=\"(app|coach|coach2|coach-select)\.js\"#src=\"\1.js?v=$V\"#g" _site/index.html _site/confidentialite.html
+          sed -i -E "s#href=\"style\.css\"#href=\"style.css?v=$V\"#; s#src=\"(i18n|app|coach|coach2|coach-select)\.js\"#src=\"\1.js?v=$V\"#g" _site/index.html _site/confidentialite.html
           grep -c "?v=$V" _site/index.html
 
       - uses: actions/configure-pages@v5

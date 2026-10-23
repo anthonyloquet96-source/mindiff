@@ -1168,3 +1168,29 @@ button.c2-mp { border: 0; padding: 0; background: none; cursor: pointer; transit
 .fav-add .ic { width: 16px; height: 16px; }
 .fav-pick .teamcell:hover .fav-add { color: var(--accent); }
 .fav-more summary { font-weight: 600; }
+/* Jeux verrouillés (Valorant) : cadenas dans le sélecteur, page floutée derrière une carte « bientôt » */
+.gs-btn.locked { gap: 4px; color: var(--text-3); }
+.gs-btn.locked .ic { width: 13px; height: 13px; }
+.gs-btn.locked[aria-current="true"] { background: var(--surface-3); color: var(--text); }
+.locked-view { position: relative; min-height: 70vh; }
+.locked-blur { filter: blur(7px) saturate(.8); opacity: .55; pointer-events: none; user-select: none; max-height: 1400px; overflow: hidden; display: flex; flex-direction: column; gap: var(--s5); }
+.locked-card { position: absolute; top: 24px; left: 0; right: 0; margin: 0 auto; max-width: 440px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding: 26px 22px 22px; border-radius: var(--r-lg); background: rgba(var(--surface-rgb), .92); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 20px 60px rgba(0, 0, 0, .35); }
+.locked-ic { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: var(--surface-2); color: var(--accent); }
+.locked-ic .ic { width: 26px; height: 26px; }
+.locked-title { margin: 0; font-size: var(--fs-xl); font-weight: 700; letter-spacing: -.02em; }
+.soon-list { list-style: none; margin: 6px 0; padding: 0; width: 100%; display: flex; flex-direction: column; gap: 6px; text-align: left; }
+.soon-list li { display: flex; align-items: center; justify-content: space-between; padding: 4px 6px 4px 14px; border-radius: 12px; background: var(--surface-2); font-weight: 600; }
+.locked-card .btn.primary { align-self: stretch; }
+.gtile.locked .gtile-media { filter: blur(3px) grayscale(.4); }
+.gtile-lock { position: absolute; top: 10px; left: 10px; z-index: 2; display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; background: rgba(0, 0, 0, .65); color: #fff; font-size: 12px; font-weight: 600; }
+.gtile-lock .ic { width: 13px; height: 13px; }
+/* Barre du bas flottante (façon Instagram) : pilule détachée des bords, en verre dépoli, rubrique active surlignée */
+body.has-nav { padding-bottom: calc(var(--nav-h) + 34px + env(safe-area-inset-bottom)); }
+.bottom-nav { left: 12px; right: 12px; bottom: calc(10px + env(safe-area-inset-bottom)); max-width: 520px; margin: 0 auto; min-height: 64px; padding: 6px; gap: 2px; border-radius: 32px; border: 1px solid rgba(var(--ink-rgb), .08); background: var(--bar); box-shadow: 0 12px 34px rgba(0, 0, 0, .38); }
+.bottom-nav .nav-item { position: relative; min-height: 52px; border-radius: 26px; gap: 2px; font-size: 10.5px; transition: background .2s var(--ease), color .2s; }
+.bottom-nav .nav-item[aria-current="page"] { background: rgba(var(--ink-rgb), .09); color: var(--text); }
+.bottom-nav .nav-item:active { transform: scale(.94); background: rgba(var(--ink-rgb), .12); }
+.nav-dot { position: absolute; top: 9px; left: calc(50% + 8px); width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 2px var(--bar); }
+.nav-badge { position: absolute; top: 4px; left: calc(50% + 2px); padding: 1px 5px; border-radius: 6px; background: var(--accent); color: #fff; font: 800 8.5px/1.3 var(--font); font-style: normal; letter-spacing: .04em; animation: pulse 1.8s infinite; }
+@media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .bottom-nav { box-shadow: 0 10px 30px rgba(0, 0, 0, .12); } }
+:root[data-theme="light"] .bottom-nav { box-shadow: 0 10px 30px rgba(0, 0, 0, .12); }

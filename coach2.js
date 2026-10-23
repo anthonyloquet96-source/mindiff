@@ -209,13 +209,39 @@ function c2LessonsHtml(metric, role, champ = null, steps = true) {
   </div>`;
 }
 
+// ---------- Animation d'arrivée : chiffres qui défilent jusqu'à leur valeur
+function c2Animate() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const fmt = new Intl.NumberFormat("fr-FR");
+  for (const k of document.querySelectorAll(".c2-enter .c2-k, .c2-enter .c2-ring b")) {
+    const node = k.firstChild;
+    const m = node?.nodeType === 3 && node.data.replace(/[\s\u202f\u00a0]/g, "").match(/^([+−-]?)(\d+)$/);
+    if (!m || Number(m[2]) < 2) continue;
+    const sign = m[1], to = Number(m[2]), t0 = performance.now(), dur = Math.min(1100, 500 + to);
+    const step = now => {
+      if (!node.isConnected) return;
+      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      node.data = sign + fmt.format(Math.round(to * e));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+}
+
 // ---------- Écrans
 function viewCoach2(rest = []) {
   if (!COACH) return empty("Base du coach indisponible", "Les connaissances du coach n'ont pas pu être chargées.", `<button class="btn" data-action="retry">Réessayer</button>`);
   const [sub, arg] = rest;
   const enter = c2ui.lastHash !== location.hash;
   c2ui.lastHash = location.hash;
-  const screen = html => `<div class="c2-screen${enter ? " c2-enter" : ""}">${html}</div>`;
+  let slide = "";
+  // Écran qui charge d'abord : l'animation d'arrivée attend que le contenu soit là
+  const screen = html => {
+    const loading = html.includes("c2-loading"), go = (enter || c2ui.pendEnter) && !loading;
+    c2ui.pendEnter = loading && (enter || c2ui.pendEnter);
+    if (go) requestAnimationFrame(c2Animate);
+    return `<div class="c2-screen${go ? " c2-enter" : ""}${slide}">${html}</div>`;
+  };
   // Pages de détail : retour vers l'onglet d'origine, sans onglets
   const back = (title, to, label) => `<header class="c2-head"><a class="back" href="${to}">${icon("left")}${esc(label)}</a><h1 class="page-title" tabindex="-1">${esc(title)}</h1></header>`;
   if (sub === "partie" && arg) return back("Bilan de partie", c2Href("parties"), "Mes parties") + screen(c2Game(arg));
@@ -226,6 +252,9 @@ function viewCoach2(rest = []) {
   if (sub === "face") c2ui.prep = "face";
   if (sub === "draft") c2ui.prep = "draft";
   const tabs = [["suivi", "Mon suivi", "target", c2Href()], ["parties", "Mes parties", "list", c2Href("parties")], ["preparer", "Préparer", "bracket", c2Href("preparer")], ["champions", "Champions", "users", c2Href("champions")]];
+  const ti = tabs.findIndex(x => x[0] === tab);
+  if (enter && c2ui.lastTab != null && c2ui.lastTab !== ti) slide = ti > c2ui.lastTab ? " c2-from-r" : " c2-from-l";
+  c2ui.lastTab = ti;
   const nav = `<nav class="tabs c2-tabs" aria-label="Coach">${tabs.map(([k, l, ic, to]) => `<a class="tab" href="${to}" ${k === tab ? 'aria-current="page"' : ""}>${icon(ic)}${l}</a>`).join("")}</nav>`;
   const body = tab === "parties" ? c2GamesTab() : tab === "preparer" ? c2Prepare() : tab === "champions" ? c2Champions() : c2Home();
   return `<header class="c2-head"><h1 class="page-title" tabindex="-1">Coach</h1><span class="chip soft">Aperçu</span></header>${nav}${screen(body)}<p class="fine c2-foot">${RIOT_LEGAL}</p>`;
@@ -370,7 +399,7 @@ function c2Goal(p) {
   }
   const { t, st } = g, M = P(t.metric);
   const head = g.reached
-    ? `<p class="label">${icon("check")}Objectif atteint · ${roleName}</p><h2 class="c2-goal-title">${esc(M.goal)}</h2><p class="fine">Réussi dans ${g.okN} de tes 5 dernières parties. Bravo !</p>`
+    ? `<div class="c2-goalhead"><div><p class="label">${icon("check")}Objectif atteint · ${roleName}</p><h2 class="c2-goal-title">${esc(M.goal)}</h2></div>${c2Ring(g.okN, 5, "gold")}</div><p class="fine">Réussi dans ${g.okN} de tes 5 dernières parties. Bravo !</p>`
     : `<div class="c2-goalhead"><div><p class="label">Ta priorité · ${roleName}${st.level === 2 ? " · niveau 2" : ""}</p><h2 class="c2-goal-title">${esc(M.goal)}</h2></div>${c2Ring(g.okN, 5)}</div><p class="fine">${esc(M.what(role))}</p>`;
   const better = t.better === "high" ? g.now != null && g.before != null && g.now > g.before : g.now != null && g.before != null && g.now < g.before;
   const numbers = `<div class="c2-goalnums">
@@ -382,7 +411,10 @@ function c2Goal(p) {
       ${st.level !== 2 && g.target !== t.p50 ? `<button class="btn primary" data-action="c2-goal-up" data-role="${esc(role)}">Viser le niveau des bons joueurs : ${esc(M.say(t.p50))}</button>` : ""}
       ${g.next ? `<button class="btn ${st.level === 2 ? "primary" : "ghost"}" data-action="c2-goal-next" data-role="${esc(role)}" data-metric="${esc(g.next.metric)}">Objectif suivant : ${esc(P(g.next.metric).goal.toLowerCase())}</button>` : ""}
     </div>` : "";
-  return `<section class="c2-card c2-goal ${g.reached ? "ok" : ""}">
+  const key = `${role}:${t.metric}:${st.level || 1}`, party = g.reached && !(c2ui.partied ||= new Set()).has(key);
+  if (party) c2ui.partied.add(key);
+  return `<section class="c2-card c2-goal ${g.reached ? "ok" : ""}${party ? " c2-party" : ""}">
+    ${party ? `<div class="c2-confetti" aria-hidden="true">${Array.from({ length: 18 }, (_, i) => `<i style="--i:${i}"></i>`).join("")}</div>` : ""}
     ${head}
     ${numbers}
     ${c2Spark(g)}
@@ -393,8 +425,8 @@ function c2Goal(p) {
   </section>`;
 }
 // Anneau : parties réussies sur les 5 dernières (4 sur 5 = objectif atteint)
-function c2Ring(n, total) {
-  return `<div class="c2-ring" role="img" aria-label="${n} partie${n > 1 ? "s" : ""} réussie${n > 1 ? "s" : ""} sur ${total}" style="--p:${(n / total).toFixed(2)}">
+function c2Ring(n, total, cls = "") {
+  return `<div class="c2-ring ${cls}" role="img" aria-label="${n} partie${n > 1 ? "s" : ""} réussie${n > 1 ? "s" : ""} sur ${total}" style="--p:${(n / total).toFixed(2)}">
     <svg viewBox="0 0 36 36" aria-hidden="true"><circle class="bg" cx="18" cy="18" r="15.9"/><circle class="v" cx="18" cy="18" r="15.9" pathLength="100"/></svg>
     <b>${n}<small>/${total}</small></b></div>`;
 }
@@ -565,18 +597,26 @@ const C2_MAP = 14870;
 function c2MapInner(T, m) {
   const pos = T.map[m] || [];
   const pct = v => ((v / C2_MAP) * 100).toFixed(2);
-  const dots = T.players.map((p, i) => {
-    const q = pos[i];
-    if (!q) return "";
-    const dead = q[2] === 0;
-    return `<span class="c2-mp ${p.team}${p.me ? " me" : ""}${dead ? " dead" : ""}" style="left:${pct(q[0])}%;bottom:${pct(q[1])}%" title="${esc(c2Name(p.champion))}${q[2] != null ? ` · ${q[2]} % PV` : ""}">${c2Img(p.champion, "c2-av")}</span>`;
-  }).join("");
+  const dots = T.players.map((p, i) => { const q = pos[i]; return `<span class="c2-mp ${p.team}${p.me ? " me" : ""}${q?.[2] === 0 ? " dead" : ""}" data-i="${i}"${q ? ` style="left:${pct(q[0])}%;bottom:${pct(q[1])}%" title="${esc(c2Name(p.champion))}${q[2] != null ? ` · ${q[2]} % PV` : ""}"` : " hidden"}>${c2Img(p.champion, "c2-av")}</span>`; }).join("");
   // Événements de la minute : combats (croix) et objectifs (rond)
   const inMin = t => t >= m * 60000 - 30000 && t < m * 60000 + 30000;
   const ev = [...T.fights.filter(f => inMin(f.t)).map(f => `<span class="c2-mev fight ${f.won === true ? "won" : f.won === false ? "lost" : ""}" style="left:${pct(f.x)}%;bottom:${pct(f.y)}%" title="Combat à ${f.at} : ${f.allies} contre ${f.enemies}"></span>`),
     ...T.objectives.filter(o => inMin(o.t) && o.x != null).map(o => `<span class="c2-mev obj ${o.ours ? "won" : "lost"}" style="left:${pct(o.x)}%;bottom:${pct(o.y)}%" title="${esc(o.kind)} ${o.ours ? "pris" : "perdu"} à ${o.at}"></span>`)].join("");
   const happening = [...T.fights.filter(f => inMin(f.t)).map(f => `Combat ${esc(f.zone)} : ${f.allies} contre ${f.enemies}${f.won === true ? ", gagné" : f.won === false ? ", perdu" : ""}`), ...T.objectives.filter(o => inMin(o.t)).map(o => `${esc(o.kind)} ${o.ours ? "pris" : "perdu"} (${o.allies} contre ${o.enemies} autour)`)];
-  return `${dots}${ev}<span class="c2-mclock">${m}:00</span>${happening.length ? `<span class="c2-mnow">${happening.join(" · ")}</span>` : ""}`;
+  return { dots, layer: `${ev}<span class="c2-mclock">${m}:00</span>${happening.length ? `<span class="c2-mnow">${happening.join(" · ")}</span>` : ""}` };
+}
+// Place les pions de la minute m (les transitions CSS font glisser les champions)
+function c2MapPlace(el, T, m) {
+  const pos = T.map[m] || [], pct = v => ((v / C2_MAP) * 100).toFixed(2);
+  for (const d of el.querySelectorAll(".c2-mp")) {
+    const i = Number(d.dataset.i), q = pos[i], p = T.players[i];
+    d.hidden = !q;
+    if (!q) continue;
+    d.style.left = `${pct(q[0])}%`;
+    d.style.bottom = `${pct(q[1])}%`;
+    d.classList.toggle("dead", q[2] === 0);
+    d.title = `${c2Name(p.champion)}${q[2] != null ? ` · ${q[2]} % PV` : ""}`;
+  }
 }
 function c2Tactics(r, id) {
   const T = r.tactics;
@@ -587,7 +627,7 @@ function c2Tactics(r, id) {
   const chips = (list, label) => list.length ? `<div><p class="label">${label}</p><div class="c2-chiprow">${list.slice(0, 5).map(x => `<span class="c2-cchip">${c2Img(x.champion, "c2-av xs")}${esc(c2Name(x.champion))} · ${x.n}</span>`).join("")}</div></div>` : "";
   return `<section class="sec"><div class="sec-head"><h2 class="sec-title">Relecture tactique</h2></div>
     <div class="c2-card">
-      <div class="c2-map" id="c2-map-${esc(id)}" style="background-image:url(https://ddragon.leagueoflegends.com/cdn/${esc(COACH?.ddragonVersion || "16.21.1")}/img/map/map11.png)" role="img" aria-label="Mini-carte à la minute ${m} : position des 10 joueurs">${c2MapInner(T, m)}</div>
+      <div class="c2-map" id="c2-map-${esc(id)}" style="background-image:url(https://ddragon.leagueoflegends.com/cdn/${esc(COACH?.ddragonVersion || "16.21.1")}/img/map/map11.png)" role="img" aria-label="Mini-carte à la minute ${m} : position des 10 joueurs">${(mi => `${mi.dots}<div class="c2-mlayer">${mi.layer}</div>`)(c2MapInner(T, m))}</div>
       <div class="c2-mctl"><button class="btn ghost sm" data-action="c2-tplay" data-id="${esc(id)}" aria-label="Lire la partie">${icon("play")}Lire</button><input type="range" min="0" max="${T.map.length - 1}" value="${m}" data-c2-tmin="${esc(id)}" aria-label="Minute de la partie"></div>
       <p class="c2-legend fine"><span><i class="lg base"></i>ton équipe</span><span><i class="lg theirs"></i>adversaires</span><span><i class="lg fight"></i>combat</span><span><i class="lg objm"></i>objectif</span></p>
       <div class="c2-tiles">
@@ -628,7 +668,9 @@ function c2MapGo(id, m) {
   (c2ui.tmin ||= {})[id] = m;
   const T = C2.reviews[id]?.tactics, el = document.getElementById(`c2-map-${id}`);
   if (!T || !el) return false;
-  el.innerHTML = c2MapInner(T, m);
+  const mi = c2MapInner(T, m), layer = el.querySelector(".c2-mlayer");
+  if (layer) layer.innerHTML = mi.layer; else el.innerHTML = `${mi.dots}<div class="c2-mlayer">${mi.layer}</div>`;
+  c2MapPlace(el, T, m);
   el.setAttribute("aria-label", `Mini-carte à la minute ${m} : position des 10 joueurs`);
   const s = document.querySelector(`[data-c2-tmin="${CSS.escape(id)}"]`);
   if (s && Number(s.value) !== m) s.value = m;

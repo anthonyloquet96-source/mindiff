@@ -956,4 +956,26 @@ button.c2-ready { width: 100%; text-align: left; font: inherit; color: inherit; 
 @keyframes c2-ring { from { stroke-dashoffset: 100; } }
 @keyframes c2-draw { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
 @keyframes c2-pop { from { opacity: 0; transform: scale(.6); } }
+/* Glissement latéral entre onglets */
+.c2-enter.c2-from-r > * { animation-name: c2-from-r; }
+.c2-enter.c2-from-l > * { animation-name: c2-from-l; }
+@keyframes c2-from-r { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
+@keyframes c2-from-l { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: none; } }
+/* Carte : les pions glissent d'une minute à l'autre */
+.c2-mp[hidden] { display: none; }
+.c2-mp { transition: left .75s linear, bottom .75s linear, opacity .3s, filter .3s; }
+.c2-mlayer { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.c2-mlayer > * { pointer-events: auto; }
+.c2-mev { animation: c2-pop .35s var(--ease) both; }
+/* Objectif atteint : anneau doré, confettis, halo */
+.c2-ring.gold .v { stroke: #f2c14e; filter: drop-shadow(0 0 3px rgba(242, 193, 78, .6)); }
+.c2-goal.c2-party { position: relative; overflow: hidden; animation: c2-cheer 1.4s .5s ease-out both; }
+.c2-goal.c2-party .c2-ring { animation: c2-bump .5s 1.2s var(--ease) both; }
+.c2-confetti { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.c2-confetti i { position: absolute; top: -10px; left: calc(var(--i) * 5.5% + 2%); width: 7px; height: 11px; border-radius: 2px; opacity: 0;
+  background: hsl(calc(var(--i) * 47), 85%, 62%); animation: c2-fall 1.8s calc(.4s + var(--i) * 45ms) cubic-bezier(.25, .6, .4, 1) both; }
+.c2-confetti i:nth-child(odd) { width: 6px; height: 6px; border-radius: 50%; }
+@keyframes c2-fall { 0% { opacity: 1; transform: translateY(0) rotate(0); } 85% { opacity: 1; } 100% { opacity: 0; transform: translateY(260px) translateX(calc((var(--i) - 9) * 4px)) rotate(calc(var(--i) * 70deg)); } }
+@keyframes c2-cheer { 30% { box-shadow: 0 0 0 6px rgba(242, 193, 78, .25); } 100% { box-shadow: 0 0 0 0 rgba(242, 193, 78, 0); } }
+@keyframes c2-bump { 50% { transform: scale(1.18); } }
 @keyframes c2-glow { 50% { box-shadow: 0 0 0 4px rgba(255, 77, 46, .12); } }

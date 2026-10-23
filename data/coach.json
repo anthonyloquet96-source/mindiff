@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T12:36:46.255Z",
+ "generatedAt": "2026-10-23T12:51:06.443Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -15564,7 +15564,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 18
   },
   {
    "id": "c-yt-Jtml1Onron0",
@@ -15856,7 +15857,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de perryjg ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 17
   },
   {
    "id": "c-yt-m4Ww5Itl0CI",
@@ -16430,7 +16432,9 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 7
+   "queueRank": 7,
+   "videoSkipped": "environ 137 min : au-delà de 90 min (vidéo pédagogique trop longue)",
+   "videoAttempts": 3
   },
   {
    "id": "c-yt-wTMh8obVK_k",
@@ -16469,11 +16473,11 @@
    "lang": "es",
    "published": "2026-09-24",
    "retrievedAt": "2026-10-21",
-   "patch": null,
+   "patch": "26.13",
    "views": 51211,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "El fin de las builds fijas: 6 ítems correctos y aun así PIERDES \n\nPodés terminar con seis ítems “correctos” y aun así haber troleado toda la partida. En esta guía de itemización de LoL 2026 vas a aprender a elegir componentes, botas y penetración según el estado real de la partid",
    "triage": {
     "score": 2,
@@ -16484,7 +16488,20 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 6
+   "queueRank": 6,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-23",
+    "sha256": "6e5cf5464d8e3de727a1ae25c70b844853ab2a59b7044e4d3bb566a30ada4d76",
+    "segments": 17,
+    "observations": 40,
+    "duration": "27:49",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 172373
+   }
   },
   {
    "id": "c-yt-osH-lOxa4sc",

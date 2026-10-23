@@ -2,7 +2,7 @@
 // La clé Riot ne quitte jamais le serveur ; les réponses ne contiennent que des données de jeu publiques.
 //   GET /api/coach/profile?id=Pseudo%23TAG&platform=euw1
 //   GET /api/coach/review?match=EUW1_123&puuid=…&platform=euw1
-//   GET /api/coach/live?puuid=…&platform=euw1       partie en cours (rôles estimés)
+//   GET /api/coach/live?puuid=…&platform=euw1       partie en cours (rôles estimés) et build adapté à la composition adverse
 //   GET /api/coach/champion?id=Ahri                  objets, runes, sorts Diamant+ (au moins 30 parties)
 
 //   GET /api/coach/draft?me=mid:Ahri&allies=top:Garen,…&enemies=mid:Zed,…&pool=Ahri,Syndra   matchups, bot lane, compositions, pool
@@ -30,7 +30,7 @@ async function draftApi(params, matchups) {
 let riot = null, riotKey = null;
 const hits = new Map(); // limite par visiteur : 30 requêtes par 5 minutes
 
-export async function coachApi(path, params, { key, benchmarks, champstats, matchups = null, visitor = "?" }) {
+export async function coachApi(path, params, { key, benchmarks, champstats, matchups = null, builds = null, visitor = "?" }) {
   const now = Date.now();
   const h = (hits.get(visitor) || []).filter(t => now - t < 300e3);
   // La draft ne coûte aucune requête Riot : limite plus large
@@ -55,7 +55,7 @@ export async function coachApi(path, params, { key, benchmarks, champstats, matc
     if (path === "/api/coach/live") {
       const puuid = String(params.get("puuid") || "");
       if (!/^[\w-]{40,90}$/.test(puuid)) return { status: 400, body: { error: "Joueur invalide." } };
-      return { status: 200, body: await live(riot, { puuid, platform, champstats }) };
+      return { status: 200, body: await live(riot, { puuid, platform, champstats, builds }) };
     }
     if (path === "/api/coach/champion") {
       const id = String(params.get("id") || "");

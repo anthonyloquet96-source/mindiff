@@ -423,9 +423,29 @@ function c2Live(p) {
     ${g ? `<div class="c2-remind"><p class="label">Ton objectif</p><p><b>${esc(g.label)}</b> : ${g.better === "high" ? "au moins" : "au plus"} ${c2n(g.target)}${esc(g.unit)}</p></div>` : ""}
     ${tips.length ? `<div><p class="label">Contre ${esc(opName)}</p><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></div>` : ""}
     ${team(l.allies, "ally")}${team(l.enemies, "enemy")}
+    ${c2LiveBuild(l.build, me.champion)}
     <a class="btn primary" href="${c2Href("draft")}" data-action="c2-draft-live">Analyser les compositions</a>
     ${op ? `<a class="btn ghost" href="${c2Href("face")}" data-action="c2-face-live" data-me="${esc(c2Name(me.champion))}" data-vs="${esc(opName)}">Face-à-face complet</a>` : ""}
   </section>`;
+}
+
+// ---------- Build pour la partie en cours : build habituel, puis ce qui change face à cette équipe adverse
+function c2LiveBuild(b, champ) {
+  if (!b?.core && !b?.threats?.length) return "";
+  const V = b.ddVersion || COACH.ddragonVersion;
+  const img = (id, label) => `<img src="https://ddragon.leagueoflegends.com/cdn/${esc(V)}/img/item/${esc(id)}.png" alt="" title="${esc(label)}" loading="lazy">`;
+  const core = b.core ? `<div class="c2-brow"><span class="label">Ton build habituel</span>
+      <div class="c2-icons">${[...b.core.items, ...b.core.boots].map(x => `<span class="c2-ic">${img(x.id, x.name)}<i>${x.share} %</i></span>`).join("")}</div>
+      <p class="fine">${[...b.core.items, ...b.core.boots].map(x => esc(x.name)).join(" · ")}${b.core.keystone ? ` · rune ${esc(b.core.keystone.name)}` : ""}</p></div>` : "";
+  const threats = b.threats.map(t => {
+    const list = t.measured?.items.length ? t.measured.items.map(x => `<li>${img(x.id, x.name)}<span><b>${esc(x.name)}</b><small>pris dans ${x.on} % des parties face à ce profil, contre ${x.off} % sinon</small></span></li>`).join("")
+      : t.options.map(x => `<li>${img(x.id, x.name)}<span><b>${esc(x.name)}</b><small>option déjà jouée sur ${esc(c2Name(champ))} (${x.share} % des parties)</small></span></li>`).join("");
+    return `<div class="c2-threat"><p><b>${esc(t.label)}</b> : ${esc(t.why)}${t.champions.length ? ` (${t.champions.map(c => esc(c2Name(c))).join(", ")})` : ""}.</p>
+      ${list ? `<ul class="c2-swap">${list}</ul>` : `<p class="fine">Les Diamant+ sur ${esc(c2Name(champ))} ne changent pas leur build face à ce profil : garde ton build habituel.</p>`}</div>`;
+  }).join("");
+  return `<div class="c2-livebuild"><p class="label">Ton build pour cette partie</p>${core}
+    ${b.threats.length ? `<p class="label">À adapter face à cette équipe${b.shape ? ` · ${b.shape.magic} % de dégâts magiques, ${b.shape.phys} % physiques` : ""}</p>${threats}` : `<p class="fine">Composition adverse sans menace marquée : ton build habituel convient.</p>`}
+    <p class="fine">Mesuré sur ${c2n(b.games)} parties Diamant+ de ton champion${b.core ? `, patch ${esc(b.core.patch)}` : ""}. Une variante n'est proposée que si les Diamant+ achètent nettement plus l'objet face à ce profil, et si sa description officielle répond à la menace.</p></div>`;
 }
 
 // ---------- Ce que jouent les Diamant+ (objets, runes, sorts), d'après de vraies parties

@@ -2,6 +2,7 @@
 // Module sans dépendance (fetch uniquement) : utilisé par le serveur local et par le service en ligne (Cloudflare Worker).
 // Comparaisons : uniquement au niveau Diamant et plus, par rôle (coach/cache/benchmarks.json, construit par coach/benchmarks.mjs).
 import { tactics } from "./tactics.mjs";
+import { adviseBuild, THREATS } from "./builds.mjs";
 
 export const PLATFORMS = {
   euw1: ["europe", "EUW"], eun1: ["europe", "EUNE"], tr1: ["europe", "TR"], ru: ["europe", "RU"], me1: ["europe", "ME"],
@@ -293,7 +294,7 @@ export function assignRoles(team, champstats, dd) {
   const close = perms.filter(x => best.s - x.s < 1.5);
   return team.map((p, i) => ({ role: best.perm[i], sure: close.every(x => x.perm[i] === best.perm[i]) }));
 }
-export async function live(riot, { puuid, platform, champstats, fetchImpl = fetch, mainRole = null }) {
+export async function live(riot, { puuid, platform, champstats, builds = null, fetchImpl = fetch, mainRole = null }) {
   let g;
   try { g = await riot(`https://${platform}.api.riotgames.com/lol/spectator/v5/active-games/by-summoner/${puuid}`, { ttl: 30e3 }); } catch (e) { if (e.status === 404) return { inGame: false }; throw e; }
   const dd = await ddChampions(fetchImpl);
@@ -311,8 +312,30 @@ export async function live(riot, { puuid, platform, champstats, fetchImpl = fetc
   return {
     inGame: true, queue: QUEUES[g.gameQueueConfigId] || g.gameMode, queueId: g.gameQueueConfigId, startedAt: g.gameStartTime || null, length: g.gameLength,
     me: view(mine), opponent: opp ? view(opp) : null, mainRole,
+    build: await liveBuild(mine, out.filter(p => p.teamId !== me.teamId), champstats, builds, dd, fetchImpl).catch(() => null),
     allies: out.filter(p => p.teamId === me.teamId).map(view), enemies: out.filter(p => p.teamId !== me.teamId).map(view),
     note: "Riot ne fournit pas les rôles pendant la partie : ils sont estimés d'après ce que jouent les joueurs Diamant+ et le Châtiment.",
+  };
+}
+
+// Build pour la partie en cours : build habituel des Diamant+ sur mon champion, puis variantes selon les menaces adverses.
+// Variante « mesurée » : objet nettement plus acheté par les Diamant+ face à cette menace (coach/builds.mjs).
+// Sinon, « option » : objet déjà joué sur ce champion (au moins 5 % des parties) dont la description officielle répond à la menace.
+async function liveBuild(mine, enemies, champstats, builds, dd, fetchImpl) {
+  const card = await championCard(champstats?.champions?.[mine.championId], champstats, fetchImpl);
+  const advice = adviseBuild(builds, mine.championId, enemies.map(p => p.championId));
+  const name = c => dd[c]?.id || String(c);
+  const cs = champstats?.champions?.[mine.championId];
+  const threats = (advice?.threats || []).map(t => {
+    const options = t.measured ? [] : (cs?.items || [])
+      .filter(x => x.games / cs.games >= 0.05 && THREATS[t.key].answers.some(a => builds.items[x.id]?.tags.includes(a)))
+      .slice(0, 3).map(x => ({ id: x.id, name: builds.items[x.id].name, share: Math.round((x.games / cs.games) * 100) }));
+    return { ...t, champions: t.champions.map(name), options };
+  });
+  return {
+    core: card.enough ? { items: card.items.slice(0, 4), boots: card.boots.slice(0, 1), keystone: card.keystones[0] || null, games: card.games, patch: card.patch } : null,
+    shape: advice?.shape || null, threats, games: advice?.games || 0, ddVersion: builds?.ddVersion || null,
+    note: "Build habituel : objets les plus présents en fin de partie chez les Diamant+ sur ce champion. Variantes : mesurées en comparant les parties avec et sans la menace ; l'objet doit y répondre d'après sa description officielle.",
   };
 }
 

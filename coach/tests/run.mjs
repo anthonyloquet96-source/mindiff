@@ -448,6 +448,30 @@ await t("Vidéos réellement lues : durée conforme et passages retrouvés", "r�
   return `${vids.length} vidéos lues (${vids.map(v => v.reader.duration).join(", ")}), ${units.length} unités, toutes au mieux provisoires, passages retrouvés.`;
 });
 
+await t("Build adapté : variante mesurée seulement si l'objet répond à la menace", "fixture", async () => {
+  const { computeBuilds, adviseBuild } = await import("../builds.mjs");
+  // Catalogue : 1 = résistance magique, 2 = armure, 3 = objet offensif sans rapport ; champion 10 = moi, 20 = mage, 30 et 40 = combattants physiques
+  const cat = { version: "x", items: { 1: { name: "RM", tags: ["resistance-magique"] }, 2: { name: "Armure", tags: ["armure"] }, 3: { name: "Attaque", tags: [] } } };
+  const row = (c, t, items, magic) => ({ c, t, items, dmg: magic ? [1000, 20000, 0] : c === 40 ? [21000, 0, 0] : [20000, 1000, 0], cc: 10, tank: 20000 });
+  const matches = [];
+  for (let i = 0; i < 400; i++) {
+    const ap = i % 2 === 0;
+    // Face aux mages, « moi » achète l'objet RM 7 fois sur 10 (contre 1 fois sur 10 sinon) et l'objet sans rapport aussi souvent
+    const mine = [3, ...(ap ? (i % 10 < 7 ? [1] : []) : (i % 10 < 1 ? [1] : [])), ...(ap && i % 10 < 7 ? [3] : [])];
+    const foes = Array.from({ length: 5 }, () => row(ap ? 20 : 30, 200, [], ap));
+    matches.push({ patch: "1.1", d: 30, rows: [row(10, 100, mine, false), row(30, 100, [], false), row(30, 100, [], false), row(40, 100, [], false), row(40, 100, [], false), ...foes] });
+  }
+  const b = computeBuilds({ matches }, cat, { patch: "1.1" });
+  const adv = adviseBuild(b, 10, [20, 20, 20, 20, 20]);
+  const ap = adv.threats.find(x => x.key === "ap");
+  assert(ap, "menace magique non détectée");
+  assert(ap.measured?.items.some(x => x.id === "1"), "l'objet de résistance magique n'est pas proposé");
+  assert(!ap.measured.items.some(x => x.id === "3"), "un objet sans rapport avec la menace est proposé");
+  const calm = adviseBuild(b, 10, [40, 40, 40, 30, 30]);
+  assert(!calm.threats.some(x => x.key === "ap"), "menace magique inventée face à une équipe physique");
+  return `variante RM : ${ap.measured.items[0].on} % contre ${ap.measured.items[0].off} %, objet sans rapport écarté.`;
+});
+
 // ---------- Rapport
 const ok = results.filter(r => r.ok).length;
 for (const r of results) console.log(`${r.skipped ? "–" : r.ok ? "✔" : "✘"} ${r.name} [${r.kind}]\n    ${r.detail}`);

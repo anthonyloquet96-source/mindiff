@@ -764,6 +764,15 @@ a.sb-team:hover .sb-name { text-decoration: underline; text-underline-offset: 3p
 .c2-tm.me .c2-av { outline: 2px solid var(--accent); outline-offset: 1px; }
 .c2-tm i { font-style: normal; font-size: 11px; color: var(--text-3); }
 .c2-brow { display: flex; flex-direction: column; gap: 6px; }
+/* Build de la partie en cours */
+.c2-livebuild { display: flex; flex-direction: column; gap: var(--s3); padding-top: var(--s3); border-top: 1px solid var(--line); }
+.c2-threat { display: flex; flex-direction: column; gap: var(--s2); }
+.c2-threat > p { margin: 0; font-size: var(--fs-sm); color: var(--text-2); }
+.c2-swap { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s2); }
+.c2-swap li { display: flex; align-items: center; gap: var(--s3); }
+.c2-swap img { width: 36px; height: 36px; border-radius: 8px; flex: none; background: var(--surface-2); }
+.c2-swap span { display: flex; flex-direction: column; }
+.c2-swap small { color: var(--text-3); font-size: 12px; }
 .c2-icons { display: flex; flex-wrap: wrap; gap: 8px; }
 .c2-ic, .c2-pair { display: flex; flex-direction: column; align-items: center; gap: 2px; }
 .c2-ic img { width: 40px; height: 40px; border-radius: 8px; background: var(--surface-2); }

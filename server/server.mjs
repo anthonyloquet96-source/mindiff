@@ -102,8 +102,8 @@ const server = http.createServer(async (req, res) => {
   if (path.startsWith("/api/coach/") && req.method === "GET") {
     const { coachApi } = await import("../coach/coach-api.mjs");
     const cached = name => readFile(join(ROOT, "coach", "cache", name), "utf8").then(JSON.parse).catch(() => null);
-    const [benchmarks, champstats, matchups] = await Promise.all([cached("benchmarks.json"), cached("champstats.json"), matchupsCached()]);
-    const r = await coachApi(path, url.searchParams, { key: process.env.RIOT_API_KEY?.trim(), benchmarks, champstats, matchups, visitor: req.socket.remoteAddress });
+    const [benchmarks, champstats, matchups, builds] = await Promise.all([cached("benchmarks.json"), cached("champstats.json"), matchupsCached(), cached("builds.json")]);
+    const r = await coachApi(path, url.searchParams, { key: process.env.RIOT_API_KEY?.trim(), benchmarks, champstats, matchups, builds, visitor: req.socket.remoteAddress });
     return send(res, r.status, JSON.stringify(r.body));
   }
   if (req.method !== "GET") return send(res, 405, "{}");

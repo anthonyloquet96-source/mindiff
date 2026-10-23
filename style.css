@@ -41,8 +41,9 @@
   --ease: cubic-bezier(.2, .7, .2, 1);
   color-scheme: dark light;
 }
+/* Thème clair : suit le téléphone, sauf si un thème est choisi dans l'application (bouton en haut à droite) */
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([data-theme="dark"]) {
     --bg: #f2f2f7;
     --surface: #ffffff;
     --surface-2: #ececf1;
@@ -69,6 +70,34 @@
     --shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 6px 20px rgba(0, 0, 0, .05);
   }
 }
+:root[data-theme="light"] {
+  --bg: #f2f2f7;
+  --surface: #ffffff;
+  --surface-2: #ececf1;
+  --surface-3: #e0e0e6;
+  --line: #dcdce2;
+  --text: #000000;
+  --text-2: #3a3a3c;
+  --text-3: #6c6c70;
+  --accent: #f0461c;
+  --accent-press: #d63c15;
+  --accent-text: #c4360f;
+  --ok: #1f8a3c;
+  --warn: #b86200;
+  --warn-text: #8a4a00;
+  --bad: #d42b20;
+  --accent-rgb: 240, 70, 28;
+  --ok-rgb: 31, 138, 60;
+  --warn-rgb: 214, 120, 0;
+  --bad-rgb: 212, 43, 32;
+  --bg-rgb: 242, 242, 247;
+  --surface-rgb: 255, 255, 255;
+  --ink-rgb: 0, 0, 0;
+  --bar: rgba(249, 249, 251, .86);
+  --shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 6px 20px rgba(0, 0, 0, .05);
+  color-scheme: light;
+}
+:root[data-theme="dark"] { color-scheme: dark; }
 
 /* ---------- Base ---------- */
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -119,7 +148,8 @@ img { max-width: 100%; display: block; }
 .icon-btn.on { color: var(--accent); }
 .icon-btn.on .ic { fill: currentColor; fill-opacity: .2; }
 .icon-btn[aria-current="page"] { color: var(--text); background: var(--surface-2); }
-@media (max-width: 400px) { .brand-name { font-size: 14.5px; } .top-inner { gap: var(--s2); } .gs-btn { padding: 0 11px; } .top-actions .icon-btn { width: 40px; } }
+@media (max-width: 400px) { .brand-name { font-size: 14px; } .top-inner { gap: 6px; } .gs-btn { padding: 0 9px; } .top-actions .icon-btn { width: 36px; } }
+@media (max-width: 385px) { .brand-name { display: none; } }
 
 /* Navigation principale */
 .nav-top { display: none; }

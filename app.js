@@ -27,7 +27,7 @@ const VAL_ROLE_FR = { Duelist: "Duelliste", Initiator: "Initiateur", Controller:
 
 const PREF_KEY = "tm-prefs-v1";
 function loadPrefs() {
-  const base = { game: null, favGames: [], favTeams: [], saved: [], noSpoil: false, visits: {}, tz: null };
+  const base = { game: null, favGames: [], favTeams: [], saved: [], noSpoil: false, visits: {}, tz: null, theme: "auto" };
   try {
     const p = JSON.parse(localStorage.getItem(PREF_KEY) || "null");
     if (p) return { ...base, ...p };
@@ -37,6 +37,16 @@ function loadPrefs() {
   return base;
 }
 const prefs = loadPrefs();
+// Thème : « auto » suit le téléphone ; « light » / « dark » forcent le thème (attribut data-theme lu par la feuille de style)
+const THEMES = { auto: ["contrast", "Thème : automatique, comme le téléphone. Toucher pour passer en clair"], light: ["sun", "Thème : clair. Toucher pour passer en sombre"], dark: ["moon", "Thème : sombre. Toucher pour revenir en automatique"] };
+function applyTheme() {
+  const t = prefs.theme === "light" || prefs.theme === "dark" ? prefs.theme : null;
+  if (t) document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme;
+  const dark = t ? t === "dark" : !matchMedia("(prefers-color-scheme: light)").matches;
+  for (const m of document.querySelectorAll('meta[name="theme-color"]')) m.content = dark ? "#000000" : "#f2f2f7";
+}
+applyTheme();
+matchMedia("(prefers-color-scheme: light)").addEventListener?.("change", applyTheme);
 function savePrefs() { try { localStorage.setItem(PREF_KEY, JSON.stringify(prefs)); } catch { /* ignoré */ } }
 const PREV_VISIT = { ...prefs.visits };
 const revealed = new Set();
@@ -310,6 +320,9 @@ const ICONS = {
   list: '<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>',
   bracket: '<path d="M4 5h5v6H4M4 13h5v6H4M9 8h4v8h-4M13 12h7"/>',
   check: '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>',
+  moon: '<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/>',
+  contrast: '<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/>',
 };
 // Logo MINDIFF : un D et un 1 dont la silhouette commune forme un M (mêmes tracés que logo.svg)
 const BRAND_MARK = `<svg class="brand-mark" viewBox="8 8 50 48" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M12 51V13C22 13 30 26 32 51ZM19 46V24.5c4.6 4 7.1 10.5 8.1 21.5Z"/><path fill="var(--accent)" d="M32 51 47 13h7v38h-7V33.5L39 51Z"/></svg>`;
@@ -1246,6 +1259,7 @@ function renderHeader() {
         ${g ? `<button class="icon-btn ${prefs.noSpoil ? "on" : ""}" data-action="spoil" aria-pressed="${prefs.noSpoil}" aria-label="Mode sans spoilers${prefs.noSpoil ? " activé" : ""}" title="Mode sans spoilers">${icon(prefs.noSpoil ? "eyeOff" : "eye")}</button>
         <a class="icon-btn" href="${href(g, "favoris")}" aria-label="Favoris" ${route.view === "favoris" ? 'aria-current="page"' : ""}>${icon("star")}</a>
         <button class="icon-btn" data-action="sync-panel" aria-label="Sources et synchronisation">${icon("info")}</button>` : ""}
+        <button class="icon-btn" data-action="theme" aria-label="${THEMES[prefs.theme]?.[1] || THEMES.auto[1]}" title="${THEMES[prefs.theme]?.[1] || THEMES.auto[1]}">${icon(THEMES[prefs.theme]?.[0] || "contrast")}</button>
       </div>
     </div>
     ${g ? `<nav class="wrap nav-top" aria-label="Rubriques">${navItems}</nav>` : ""}`;
@@ -1327,6 +1341,7 @@ document.addEventListener("click", e => {
   const id = el.dataset.id;
   switch (el.dataset.action) {
     case "spoil": prefs.noSpoil = !prefs.noSpoil; savePrefs(); revealed.clear(); break;
+    case "theme": prefs.theme = { auto: "light", light: "dark", dark: "auto" }[prefs.theme] || "light"; savePrefs(); applyTheme(); break;
     case "reveal": revealed.add(id); break;
     case "fav-game": prefs.favGames = prefs.favGames.includes(id) ? prefs.favGames.filter(x => x !== id) : [...prefs.favGames, id]; savePrefs(); break;
     case "fav-team": prefs.favTeams = prefs.favTeams.includes(id) ? prefs.favTeams.filter(x => x !== id) : [...prefs.favTeams, id]; savePrefs(); break;

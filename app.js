@@ -493,12 +493,13 @@ async function liveTick() {
       }
       if (L.game) {
         if (!L.start) { const w0 = await (await fetch(`https://feed.lolesports.com/livestats/v1/window/${L.game}`)).json(); L.start = Date.parse(w0?.frames?.[0]?.rfc460Timestamp) || null; }
-        for (const lag of [20000, 45000]) {
-          const t = new Date(Date.now() - lag); t.setUTCSeconds(Math.floor(t.getUTCSeconds() / 10) * 10, 0);
-          const res = await fetch(`https://feed.lolesports.com/livestats/v1/window/${L.game}?startingTime=${t.toISOString()}`);
-          const w = res.status === 200 ? await res.json() : null, f = w?.frames?.at(-1);
-          if (f) { L.f = f; L.meta = w.gameMetadata; break; }
-        }
+        // Décalage adaptatif : le plus court que le flux accepte (il refuse une image trop récente), entre 20 et 60 s
+        L.lag ||= 20000;
+        const t = new Date(Date.now() - L.lag); t.setUTCSeconds(Math.floor(t.getUTCSeconds() / 10) * 10, 0);
+        const res = await fetch(`https://feed.lolesports.com/livestats/v1/window/${L.game}?startingTime=${t.toISOString()}`);
+        const w = res.status === 200 ? await res.json() : null, f = w?.frames?.at(-1);
+        if (f) { L.f = f; L.meta = w.gameMetadata; L.ok = (L.ok || 0) + 1; if (L.ok > 30 && L.lag > 20000) { L.lag -= 10000; L.ok = 0; } }
+        else { L.lag = Math.min(60000, L.lag + 10000); L.ok = 0; }
       }
     } catch { /* flux momentanément indisponible : on garde le dernier relevé */ }
     for (const el of document.querySelectorAll(`[data-live-match="${CSS.escape(id)}"]`)) el.innerHTML = liveStripInner(id);

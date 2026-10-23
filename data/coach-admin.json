@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-21T18:51:41.432Z",
+ "generatedAt": "2026-10-23T11:05:21.138Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -9,552 +9,552 @@
  "discovery": {
   "wtl-blog": {
    "attempts": 0,
-   "lastOk": "2026-10-21T12:50:18.649Z",
+   "lastOk": "2026-10-23T07:47:33.854Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 2
   },
   "yt-skill-capped": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:18.852Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:45.918Z",
+   "lastError": "HTTP 404 (2026-10-23T06:49:59.555Z)",
+   "nextTry": "2026-10-23T12:49:59.555Z",
    "lastCount": 15
   },
   "yt-coach-curtis": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:18.979Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:46.182Z",
+   "lastError": "HTTP 404 (2026-10-23T06:49:59.658Z)",
+   "nextTry": "2026-10-23T12:49:59.658Z",
    "lastCount": 15
   },
   "yt-doublelift": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:19.095Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:46.336Z",
+   "lastError": "HTTP 404 (2026-10-23T06:49:59.848Z)",
+   "nextTry": "2026-10-23T12:49:59.848Z",
    "lastCount": 15
   },
   "yt-veigar-v2": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:19.203Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:46.607Z",
+   "lastError": "HTTP 404 (2026-10-23T06:49:59.961Z)",
+   "nextTry": "2026-10-23T12:49:59.961Z",
    "lastCount": 15
   },
   "yt-pekinwoof": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:19.318Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:46.740Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:00.042Z)",
+   "nextTry": "2026-10-23T12:50:00.042Z",
    "lastCount": 15
   },
   "yt-aloisnl": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:19.511Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:47.083Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:00.278Z)",
+   "nextTry": "2026-10-23T12:50:00.278Z",
    "lastCount": 15
   },
   "yt-chreak": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:19.622Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:47.417Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:00.354Z)",
+   "nextTry": "2026-10-23T12:50:00.354Z",
    "lastCount": 15
   },
   "yt-sixen": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:19.762Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:47.762Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:00.432Z)",
+   "nextTry": "2026-10-23T12:50:00.432Z",
    "lastCount": 15
   },
   "yt-perryjg": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:19.922Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:48.097Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:00.672Z)",
+   "nextTry": "2026-10-23T12:50:00.672Z",
    "lastCount": 15
   },
   "yt-coach-leo": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:20.036Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:48.335Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:00.759Z)",
+   "nextTry": "2026-10-23T12:50:00.759Z",
    "lastCount": 15
   },
   "yt-coach-kirei": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:20.141Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:48.547Z",
+   "lastError": "HTTP 500 (2026-10-23T06:50:00.912Z)",
+   "nextTry": "2026-10-23T12:50:00.912Z",
    "lastCount": 15
   },
   "yt-wtl": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:20.333Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:48.870Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:01.064Z)",
+   "nextTry": "2026-10-23T12:50:01.064Z",
    "lastCount": 15
   },
   "yt-ls": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:20.457Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:49.128Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:01.149Z)",
+   "nextTry": "2026-10-23T12:50:01.149Z",
    "lastCount": 15
   },
   "yt-dishake": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T12:50:20.636Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:49.294Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:01.304Z)",
+   "nextTry": "2026-10-23T12:50:01.304Z",
    "lastCount": 15
   },
   "yt-gameleap-lol-challenger-guid": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:51.571Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:49.526Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:01.449Z)",
+   "nextTry": "2026-10-23T12:50:01.449Z",
    "lastCount": 15
   },
   "yt-coach-mysterias": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:51.715Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:49.661Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:01.526Z)",
+   "nextTry": "2026-10-23T12:50:01.526Z",
    "lastCount": 15
   },
   "yt-hybradge": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:51.870Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:49.952Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:01.696Z)",
+   "nextTry": "2026-10-23T12:50:01.696Z",
    "lastCount": 15
   },
   "yt-ramyaura": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:52.025Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:50.136Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:01.835Z)",
+   "nextTry": "2026-10-23T12:50:01.835Z",
    "lastCount": 15
   },
   "yt-coach-violet": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:52.153Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:50.328Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:01.969Z)",
+   "nextTry": "2026-10-23T12:50:01.969Z",
    "lastCount": 15
   },
   "yt-mysteriaslol": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:52.295Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:50.547Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:02.126Z)",
+   "nextTry": "2026-10-23T12:50:02.126Z",
    "lastCount": 15
   },
   "yt-sinerias": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:52.433Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:50.685Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:02.220Z)",
+   "nextTry": "2026-10-23T12:50:02.220Z",
    "lastCount": 15
   },
   "yt-coach-chippys": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:52.791Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:50.970Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:02.362Z)",
+   "nextTry": "2026-10-23T12:50:02.362Z",
    "lastCount": 15
   },
   "yt-makkro": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:52.907Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:51.110Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:02.563Z)",
+   "nextTry": "2026-10-23T12:50:02.563Z",
    "lastCount": 15
   },
   "yt-coach-k": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:53.021Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:51.332Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:02.687Z)",
+   "nextTry": "2026-10-23T12:50:02.687Z",
    "lastCount": 15
   },
   "yt-shok": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:53.149Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:51.561Z",
+   "lastError": "HTTP 500 (2026-10-23T06:50:02.837Z)",
+   "nextTry": "2026-10-23T12:50:02.837Z",
    "lastCount": 15
   },
   "yt-rebrrt": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:53.274Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:51.761Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:02.938Z)",
+   "nextTry": "2026-10-23T12:50:02.938Z",
    "lastCount": 15
   },
   "yt-scrubnoob": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:53.384Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:51.878Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:03.090Z)",
+   "nextTry": "2026-10-23T12:50:03.090Z",
    "lastCount": 15
   },
   "yt-broxah": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:53.509Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:52.156Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:03.222Z)",
+   "nextTry": "2026-10-23T12:50:03.222Z",
    "lastCount": 15
   },
   "yt-zen-coaching": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:53.743Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:52.376Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:03.322Z)",
+   "nextTry": "2026-10-23T12:50:03.322Z",
    "lastCount": 15
   },
   "yt-gaethan-league-of-legends": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:53.919Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:52.712Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:03.474Z)",
+   "nextTry": "2026-10-23T12:50:03.474Z",
    "lastCount": 15
   },
   "yt-misanthiel-coach-toplane": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:54.115Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:52.906Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:03.648Z)",
+   "nextTry": "2026-10-23T12:50:03.648Z",
    "lastCount": 15
   },
   "yt-kyan": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:54.259Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:53.247Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:03.724Z)",
+   "nextTry": "2026-10-23T12:50:03.724Z",
    "lastCount": 15
   },
   "yt-potent": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:54.444Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:53.573Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:03.861Z)",
+   "nextTry": "2026-10-23T12:50:03.861Z",
    "lastCount": 15
   },
   "yt-bardinette": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:54.563Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:53.888Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:04.038Z)",
+   "nextTry": "2026-10-23T12:50:04.038Z",
    "lastCount": 15
   },
   "yt-trayton": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:54.696Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:54.028Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:04.117Z)",
+   "nextTry": "2026-10-23T12:50:04.117Z",
    "lastCount": 15
   },
   "yt-bizyze-coaching-league-of-le": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:54.825Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:54.230Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:04.287Z)",
+   "nextTry": "2026-10-23T12:50:04.287Z",
    "lastCount": 15
   },
   "yt-sol1xd": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:54.985Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:54.396Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:04.478Z)",
+   "nextTry": "2026-10-23T12:50:04.478Z",
    "lastCount": 15
   },
   "yt-titans-coaching": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:55.145Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:54.528Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:04.559Z)",
+   "nextTry": "2026-10-23T12:50:04.559Z",
    "lastCount": 15
   },
   "yt-el-blu-lol": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:55.351Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:54.654Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:04.667Z)",
+   "nextTry": "2026-10-23T12:50:04.667Z",
    "lastCount": 15
   },
   "yt-shintalx-coach-de-lol": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:55.580Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:55.018Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:04.855Z)",
+   "nextTry": "2026-10-23T12:50:04.855Z",
    "lastCount": 15
   },
   "yt-raiko-league-of-legends": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:55.692Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:55.216Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:04.953Z)",
+   "nextTry": "2026-10-23T12:50:04.953Z",
    "lastCount": 15
   },
   "yt-maurogarih": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:55.804Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:55.371Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:05.043Z)",
+   "nextTry": "2026-10-23T12:50:05.043Z",
    "lastCount": 15
   },
   "yt-odysseus": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:55.961Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:55.709Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:05.224Z)",
+   "nextTry": "2026-10-23T12:50:05.224Z",
    "lastCount": 15
   },
   "yt-dovahndo": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:56.081Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:55.826Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:05.397Z)",
+   "nextTry": "2026-10-23T12:50:05.397Z",
    "lastCount": 15
   },
   "yt-husumlol": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:56.208Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:56.023Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:05.476Z)",
+   "nextTry": "2026-10-23T12:50:05.476Z",
    "lastCount": 15
   },
   "yt-que-aula": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:56.331Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:56.168Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:05.611Z)",
+   "nextTry": "2026-10-23T12:50:05.611Z",
    "lastCount": 15
   },
   "yt-asteek": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:56.445Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:56.323Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:05.784Z)",
+   "nextTry": "2026-10-23T12:50:05.784Z",
    "lastCount": 15
   },
   "yt-keshaeuw": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:56.572Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:56.672Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:05.860Z)",
+   "nextTry": "2026-10-23T12:50:05.860Z",
    "lastCount": 15
   },
   "yt-phantasm": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:56.678Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:56.848Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:05.989Z)",
+   "nextTry": "2026-10-23T12:50:05.989Z",
    "lastCount": 15
   },
   "yt-powerofevil": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:56.805Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:56.977Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:06.161Z)",
+   "nextTry": "2026-10-23T12:50:06.161Z",
    "lastCount": 15
   },
   "yt-fl7vob_qbs": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:56.911Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:57.107Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:06.238Z)",
+   "nextTry": "2026-10-23T12:50:06.238Z",
    "lastCount": 15
   },
   "yt-japs-99jh_": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:57.110Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:57.273Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:06.414Z)",
+   "nextTry": "2026-10-23T12:50:06.414Z",
    "lastCount": 15
   },
   "yt-mzthr5qzga": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:57.241Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:57.513Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:06.544Z)",
+   "nextTry": "2026-10-23T12:50:06.544Z",
    "lastCount": 15
   },
   "yt-cq2-jrbuz4": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:57.347Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:57.644Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:06.625Z)",
+   "nextTry": "2026-10-23T12:50:06.625Z",
    "lastCount": 15
   },
   "yt-erhqgfd8dn": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:57.484Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:57.790Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:06.868Z)",
+   "nextTry": "2026-10-23T12:50:06.868Z",
    "lastCount": 15
   },
   "yt-ga52d8qlv3": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:57.645Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:57.976Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:06.991Z)",
+   "nextTry": "2026-10-23T12:50:06.991Z",
    "lastCount": 15
   },
   "yt-6izv_x6edr": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:57.787Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:58.163Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:07.069Z)",
+   "nextTry": "2026-10-23T12:50:07.069Z",
    "lastCount": 15
   },
   "yt-fmmwh9er3z": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:58.023Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:58.318Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:07.244Z)",
+   "nextTry": "2026-10-23T12:50:07.244Z",
    "lastCount": 15
   },
   "yt-dmevbthdzh": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:58.228Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:58.521Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:07.386Z)",
+   "nextTry": "2026-10-23T12:50:07.386Z",
    "lastCount": 15
   },
   "yt-o8todsm2gv": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:58.386Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:58.682Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:07.463Z)",
+   "nextTry": "2026-10-23T12:50:07.463Z",
    "lastCount": 15
   },
   "yt-2-8sga9qex": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:58.519Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:58.805Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:07.620Z)",
+   "nextTry": "2026-10-23T12:50:07.620Z",
    "lastCount": 15
   },
   "yt-6-vilhl-lv": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:58.672Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:59.152Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:07.765Z)",
+   "nextTry": "2026-10-23T12:50:07.765Z",
    "lastCount": 15
   },
   "yt-9fhrv-_tww": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:58.912Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:59.343Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:07.845Z)",
+   "nextTry": "2026-10-23T12:50:07.845Z",
    "lastCount": 15
   },
   "yt-guy1cnuajr": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:59.146Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:59.562Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:08.011Z)",
+   "nextTry": "2026-10-23T12:50:08.011Z",
    "lastCount": 15
   },
   "yt-japanesekoreanug": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:59.258Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:59.686Z",
+   "lastError": "HTTP 500 (2026-10-23T06:50:08.216Z)",
+   "nextTry": "2026-10-23T12:50:08.216Z",
    "lastCount": 15
   },
   "yt-02kyy9q5fy": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:59.549Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:46:59.834Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:08.341Z)",
+   "nextTry": "2026-10-23T12:50:08.341Z",
    "lastCount": 15
   },
   "yt-mjdqfb68q1": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:59.712Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:47:00.172Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:08.420Z)",
+   "nextTry": "2026-10-23T12:50:08.420Z",
    "lastCount": 15
   },
   "yt-yamato-natsuna-lol-katarina": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:35:59.915Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:47:00.473Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:08.498Z)",
+   "nextTry": "2026-10-23T12:50:08.498Z",
    "lastCount": 15
   },
   "yt-wcnac9zs-i": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:36:00.030Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:47:00.633Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:08.623Z)",
+   "nextTry": "2026-10-23T12:50:08.623Z",
    "lastCount": 15
   },
   "yt-iqjmsczied": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:36:00.188Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:47:00.792Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:08.747Z)",
+   "nextTry": "2026-10-23T12:50:08.747Z",
    "lastCount": 15
   },
   "yt-zwyro": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:36:00.305Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:47:00.919Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:08.874Z)",
+   "nextTry": "2026-10-23T12:50:08.874Z",
    "lastCount": 15
   },
   "yt-jankos": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:36:00.462Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:47:01.137Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:08.952Z)",
+   "nextTry": "2026-10-23T12:50:08.952Z",
    "lastCount": 15
   },
   "yt-krugz": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:36:00.688Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:47:01.313Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:09.032Z)",
+   "nextTry": "2026-10-23T12:50:09.032Z",
    "lastCount": 15
   },
   "yt-turkish-taliyah": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:36:00.844Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:47:01.465Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:09.112Z)",
+   "nextTry": "2026-10-23T12:50:09.112Z",
    "lastCount": 15
   },
   "yt-taowb": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:36:00.966Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:47:01.702Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:09.186Z)",
+   "nextTry": "2026-10-23T12:50:09.186Z",
    "lastCount": 15
   },
   "yt-hansuo": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:36:01.070Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:47:01.892Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:09.262Z)",
+   "nextTry": "2026-10-23T12:50:09.262Z",
    "lastCount": 15
   },
   "yt-proguides-challenger-league": {
-   "attempts": 0,
-   "lastOk": "2026-10-21T15:36:01.218Z",
-   "lastError": null,
-   "nextTry": null,
+   "attempts": 2,
+   "lastOk": "2026-10-22T18:47:02.219Z",
+   "lastError": "HTTP 404 (2026-10-23T06:50:09.339Z)",
+   "nextTry": "2026-10-23T12:50:09.339Z",
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-10-21T18:47:09.950Z",
+ "lastDiscovery": "2026-10-23T10:56:53.797Z",
  "failures": [],
  "quarantine": [],
  "rejected": [
@@ -602,7 +602,9 @@
   "c-riot-dev-launching-yuumi-s-rework",
   "c-riot-dev-yuumi-s-rework",
   "c-riot-champion-insights-zeri",
-  "c-yt-eceSyaVnz3M"
+  "c-yt-eceSyaVnz3M",
+  "c-yt-7a5EBaZ-ems",
+  "c-yt-fOQBQn0X54M"
  ],
  "review": [
   "u-lucian-2620-ad",
@@ -1431,7 +1433,11 @@
   "u-dd-zyra-e2",
   "u-dd-zyra-e3",
   "u-dd-zyra-e4",
-  "u-dd-zyra-e5"
+  "u-dd-zyra-e5",
+  "u-auto-jinx-26-21",
+  "u-ai-yt-ynG4T9yLKFs-1",
+  "u-ai-yt-ynG4T9yLKFs-2",
+  "u-ai-yt-ynG4T9yLKFs-3"
  ],
  "contested": [],
  "retired": [
@@ -1514,6 +1520,174 @@
    "from": "exploitable",
    "to": "retire",
    "why": "Statistique tirée d'un niveau inférieur à Diamant (solo-emeraude+, solo-tous) : le coach ne prend comme référence que Diamant et plus."
+  },
+  {
+   "at": "2026-10-23T11:05:21.123Z",
+   "unit": "u-dd-caitlyn-e1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Caitlyn/Q modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.123Z",
+   "unit": "u-dd-darius-a1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Darius/Q modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-leesin-a1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Lee Sin/R modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-leesin-e1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Lee Sin/R modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-nunu-a2",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Nunu et Willump/R modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-nunu-a3",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Nunu et Willump/R modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-nunu-e1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Nunu et Willump/R modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-nunu-e2",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Nunu et Willump/R modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-orianna-a1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Orianna/Q modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-rammus-a3",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Rammus/W modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-rammus-e1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Rammus/W modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-rammus-e2",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Rammus/W modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-ryze-a1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Ryze/Q modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-sion-a1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Sion/R modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-taliyah-a1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Taliyah/E modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-taliyah-e1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Taliyah/E modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-tristana-a3",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Tristana/Q modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-tristana-e1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Tristana/Q modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-twistedfate-a3",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Twisted Fate/general modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-varus-a1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Varus/W modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-varus-a2",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Varus/Q modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-varus-a3",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Varus/Q modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-velkoz-a1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Vel'Koz/passive modifié au patch 26.21, après 26.20."
+  },
+  {
+   "at": "2026-10-23T11:05:21.124Z",
+   "unit": "u-dd-xinzhao-e2",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Xin Zhao/Q modifié au patch 26.21, après 26.20."
   }
  ],
  "costs": {
@@ -1534,6 +1708,166 @@
     "model": "gemini-3.5-flash",
     "input": 4534,
     "output": 2018,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-22T06:56:09.841Z",
+    "content": "c-riot-champion-insights-aurora",
+    "model": "gemini-3.8-flash",
+    "input": 6384,
+    "output": 2282,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-22T12:56:30.071Z",
+    "content": "c-yt-ynG4T9yLKFs",
+    "model": "gemini-3.8-flash",
+    "input": 3752,
+    "output": 3974,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-22T12:56:49.964Z",
+    "content": "c-yt-ynG4T9yLKFs",
+    "model": "gemini-3.8-flash",
+    "input": 4882,
+    "output": 1486,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-22T12:59:41.503Z",
+    "content": "c-riot-champion-insights-aurora",
+    "model": "gemini-3.6-flash",
+    "input": 6384,
+    "output": 3064,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-22T13:02:47.863Z",
+    "content": "c-riot-champion-insights-aurora",
+    "model": "gemini-3.6-flash",
+    "input": 4077,
+    "output": 1289,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-22T13:03:18.593Z",
+    "content": "c-riot-champion-insights-briar",
+    "model": "gemini-3.6-flash",
+    "input": 5449,
+    "output": 3773,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-22T13:03:37.351Z",
+    "content": "c-riot-champion-insights-briar",
+    "model": "gemini-3.6-flash",
+    "input": 3804,
+    "output": 1020,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-22T18:48:53.438Z",
+    "content": "c-yt-ynG4T9yLKFs",
+    "model": "gemini-3.6-flash",
+    "input": 3752,
+    "output": 4554,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-22T18:49:09.171Z",
+    "content": "c-yt-ynG4T9yLKFs",
+    "model": "gemini-3.6-flash",
+    "input": 5091,
+    "output": 1994,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T00:56:18.712Z",
+    "content": "c-yt-ynG4T9yLKFs",
+    "model": "gemini-3.8-flash",
+    "input": 3752,
+    "output": 5856,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T00:57:10.254Z",
+    "content": "c-yt-ynG4T9yLKFs",
+    "model": "gemini-3.8-flash",
+    "input": 5455,
+    "output": 1340,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T07:51:38.591Z",
+    "content": "c-yt-ynG4T9yLKFs",
+    "model": "gemini-3.8-flash",
+    "input": 3752,
+    "output": 6050,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T07:53:41.360Z",
+    "content": "c-yt-ynG4T9yLKFs",
+    "model": "gemini-3.8-flash",
+    "input": 5819,
+    "output": 2098,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T07:56:09.337Z",
+    "content": "c-riot-champion-insights-aurora",
+    "model": "gemini-3.8-flash",
+    "input": 6384,
+    "output": 4295,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T07:57:35.703Z",
+    "content": "c-riot-champion-insights-aurora",
+    "model": "gemini-3.8-flash",
+    "input": 3878,
+    "output": 444,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T07:59:01.817Z",
+    "content": "c-riot-champion-insights-briar",
+    "model": "gemini-3.8-flash",
+    "input": 5449,
+    "output": 2845,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T08:03:12.704Z",
+    "content": "c-riot-champion-insights-briar",
+    "model": "gemini-3.7-flash",
+    "input": 3728,
+    "output": 782,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T08:06:09.077Z",
+    "content": "c-riot-champion-insights-naafiri",
+    "model": "gemini-3.8-flash",
+    "input": 5307,
+    "output": 1323,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T11:00:58.171Z",
+    "content": "c-yt-ynG4T9yLKFs",
+    "model": "gemini-3.5-flash",
+    "input": 3752,
+    "output": 4051,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-23T11:02:36.123Z",
+    "content": "c-yt-ynG4T9yLKFs",
+    "model": "gemini-3.6-flash",
+    "input": 4623,
+    "output": 1340,
     "usd": 0
    }
   ],

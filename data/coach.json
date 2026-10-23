@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-21T18:51:41.432Z",
+ "generatedAt": "2026-10-23T11:05:21.138Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -9,7 +9,7 @@
   },
   "locked": true
  },
- "currentPatch": "26.20",
+ "currentPatch": "26.21",
  "competitionVersion": "16.21",
  "ddragonVersion": "16.21.1",
  "patchEntities": {
@@ -72,6 +72,51 @@
    "Volibear/passive",
    "item:Atlas et Boussole runique",
    "system:Délai de récupération de Téléportation"
+  ],
+  "26.21": [
+   "Azir/base",
+   "Caitlyn/passive",
+   "Caitlyn/Q",
+   "Darius/Q",
+   "Jinx/base",
+   "Lee Sin/W",
+   "Lee Sin/R",
+   "Locke/Q",
+   "Locke/base",
+   "Locke/W",
+   "Locke/E",
+   "Miss Fortune/E",
+   "Miss Fortune/R",
+   "Nidalee/W",
+   "Nidalee/E",
+   "Nunu et Willump/R",
+   "Orianna/Q",
+   "Orianna/W",
+   "Qiyana/Q",
+   "Rammus/W",
+   "Ryze/Q",
+   "Ryze/W",
+   "Sion/base",
+   "Sion/R",
+   "Taliyah/E",
+   "Taric/general",
+   "Tristana/Q",
+   "Twisted Fate/general",
+   "Varus/Q",
+   "Varus/W",
+   "Vel'Koz/passive",
+   "Viktor/base",
+   "Viktor/Q",
+   "Wukong/base",
+   "Wukong/passive",
+   "Xin Zhao/Q",
+   "Xin Zhao/E",
+   "Yone/Q",
+   "Zyra/W",
+   "item:Briseur de bastion",
+   "item:Cœur de l'aube",
+   "item:Jambières gloutonnes",
+   "item:Orgueil"
   ]
  },
  "pilot": {
@@ -107,7 +152,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 13
+    "units": 14
    },
    "support": {
     "champions": [
@@ -136,16 +181,17 @@
    },
    "Jinx": {
     "role": "bottom",
-    "units": 7,
+    "units": 8,
     "themes": [
      "lane",
      "teamfight",
      "survie",
      "champion",
-     "matchup"
+     "matchup",
+     "patch"
     ],
     "actions": 2,
-    "official": 7,
+    "official": 8,
     "coaching": 0
    },
    "Smolder": {
@@ -256,14 +302,14 @@
    },
    "Tristana": {
     "role": null,
-    "units": 6,
+    "units": 4,
     "themes": [
      "build",
      "champion",
      "matchup"
     ],
     "actions": 1,
-    "official": 5,
+    "official": 3,
     "coaching": 1
    },
    "Aatrox": {
@@ -424,13 +470,13 @@
    },
    "Caitlyn": {
     "role": null,
-    "units": 5,
+    "units": 4,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 5,
+    "official": 4,
     "coaching": 0,
     "officialOnly": true
    },
@@ -484,13 +530,13 @@
    },
    "Darius": {
     "role": null,
-    "units": 5,
+    "units": 4,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 5,
+    "official": 4,
     "coaching": 0,
     "officialOnly": true
    },
@@ -976,13 +1022,13 @@
    },
    "Lee Sin": {
     "role": null,
-    "units": 6,
+    "units": 4,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 6,
+    "official": 4,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1180,13 +1226,13 @@
    },
    "Nunu et Willump": {
     "role": null,
-    "units": 6,
+    "units": 2,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 6,
+    "official": 2,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1204,13 +1250,13 @@
    },
    "Orianna": {
     "role": null,
-    "units": 5,
+    "units": 4,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 5,
+    "official": 4,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1288,13 +1334,12 @@
    },
    "Rammus": {
     "role": null,
-    "units": 5,
+    "units": 2,
     "themes": [
-     "champion",
-     "matchup"
+     "champion"
     ],
     "actions": 0,
-    "official": 5,
+    "official": 2,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1360,13 +1405,13 @@
    },
    "Ryze": {
     "role": null,
-    "units": 6,
+    "units": 5,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 6,
+    "official": 5,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1432,13 +1477,13 @@
    },
    "Sion": {
     "role": null,
-    "units": 5,
+    "units": 4,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 5,
+    "official": 4,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1540,13 +1585,13 @@
    },
    "Taliyah": {
     "role": null,
-    "units": 5,
+    "units": 3,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 5,
+    "official": 3,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1624,13 +1669,13 @@
    },
    "Twisted Fate": {
     "role": null,
-    "units": 5,
+    "units": 4,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 5,
+    "official": 4,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1672,13 +1717,12 @@
    },
    "Varus": {
     "role": null,
-    "units": 6,
+    "units": 3,
     "themes": [
-     "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 6,
+    "official": 3,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1708,13 +1752,13 @@
    },
    "Vel'Koz": {
     "role": null,
-    "units": 6,
+    "units": 5,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 6,
+    "official": 5,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1792,25 +1836,25 @@
    },
    "Xin Zhao": {
     "role": null,
-    "units": 4,
+    "units": 3,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 4,
+    "official": 3,
     "coaching": 0,
     "officialOnly": true
    },
    "Yasuo": {
     "role": null,
-    "units": 7,
+    "units": 8,
     "themes": [
      "champion",
      "matchup"
     ],
-    "actions": 0,
-    "official": 7,
+    "actions": 1,
+    "official": 8,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1897,14 +1941,28 @@
     "official": 8,
     "coaching": 0,
     "officialOnly": true
+   },
+   "Locke": {
+    "role": null,
+    "units": 3,
+    "themes": [
+     "champion",
+     "lane",
+     "survie",
+     "matchup"
+    ],
+    "actions": 2,
+    "official": 3,
+    "coaching": 0,
+    "officialOnly": true
    }
   },
   "themes": {
    "lane": 10,
-   "survie": 4,
+   "survie": 5,
    "teamfight": 2,
    "synergie": 1,
-   "matchup": 3,
+   "matchup": 4,
    "methode": 2,
    "vagues": 0,
    "vision": 0,
@@ -1998,7 +2056,6 @@
    "u-dd-caitlyn-a1",
    "u-dd-caitlyn-a2",
    "u-dd-caitlyn-a3",
-   "u-dd-caitlyn-e1",
    "u-dd-caitlyn-e2",
    "u-dd-camille-a1",
    "u-dd-camille-a2",
@@ -2019,7 +2076,6 @@
    "u-dd-corki-a3",
    "u-dd-corki-e1",
    "u-dd-corki-e2",
-   "u-dd-darius-a1",
    "u-dd-darius-a2",
    "u-dd-darius-a3",
    "u-dd-darius-e1",
@@ -2262,10 +2318,8 @@
    "u-dd-leblanc-e2",
    "u-dd-leblanc-e3",
    "u-dd-leblanc-e4",
-   "u-dd-leesin-a1",
    "u-dd-leesin-a2",
    "u-dd-leesin-a3",
-   "u-dd-leesin-e1",
    "u-dd-leesin-e2",
    "u-dd-leesin-e3",
    "u-dd-leona-a1",
@@ -2373,17 +2427,12 @@
    "u-dd-nocturne-e1",
    "u-dd-nocturne-e2",
    "u-dd-nunu-a1",
-   "u-dd-nunu-a2",
-   "u-dd-nunu-a3",
-   "u-dd-nunu-e1",
-   "u-dd-nunu-e2",
    "u-dd-nunu-e3",
    "u-dd-olaf-a1",
    "u-dd-olaf-a2",
    "u-dd-olaf-e1",
    "u-dd-olaf-e2",
    "u-dd-olaf-e3",
-   "u-dd-orianna-a1",
    "u-dd-orianna-a2",
    "u-dd-orianna-a3",
    "u-dd-orianna-e1",
@@ -2427,9 +2476,6 @@
    "u-dd-rakan-e3",
    "u-dd-rammus-a1",
    "u-dd-rammus-a2",
-   "u-dd-rammus-a3",
-   "u-dd-rammus-e1",
-   "u-dd-rammus-e2",
    "u-dd-reksai-a1",
    "u-dd-reksai-a2",
    "u-dd-reksai-a3",
@@ -2458,7 +2504,6 @@
    "u-dd-rumble-e1",
    "u-dd-rumble-e2",
    "u-dd-rumble-e3",
-   "u-dd-ryze-a1",
    "u-dd-ryze-a2",
    "u-dd-ryze-a3",
    "u-dd-ryze-e1",
@@ -2492,7 +2537,6 @@
    "u-dd-singed-e1",
    "u-dd-singed-e2",
    "u-dd-singed-e3",
-   "u-dd-sion-a1",
    "u-dd-sion-a2",
    "u-dd-sion-a3",
    "u-dd-sion-e1",
@@ -2549,10 +2593,8 @@
    "u-dd-tahmkench-a2",
    "u-dd-tahmkench-e1",
    "u-dd-tahmkench-e2",
-   "u-dd-taliyah-a1",
    "u-dd-taliyah-a2",
    "u-dd-taliyah-a3",
-   "u-dd-taliyah-e1",
    "u-dd-taliyah-e2",
    "u-dd-talon-a1",
    "u-dd-talon-a2",
@@ -2577,8 +2619,6 @@
    "u-dd-thresh-e3",
    "u-dd-tristana-a1",
    "u-dd-tristana-a2",
-   "u-dd-tristana-a3",
-   "u-dd-tristana-e1",
    "u-dd-tristana-e2",
    "u-dd-trundle-a1",
    "u-dd-trundle-a2",
@@ -2593,7 +2633,6 @@
    "u-dd-tryndamere-e3",
    "u-dd-twistedfate-a1",
    "u-dd-twistedfate-a2",
-   "u-dd-twistedfate-a3",
    "u-dd-twistedfate-e1",
    "u-dd-twistedfate-e2",
    "u-dd-twitch-a1",
@@ -2612,9 +2651,6 @@
    "u-dd-urgot-e1",
    "u-dd-urgot-e2",
    "u-dd-urgot-e3",
-   "u-dd-varus-a1",
-   "u-dd-varus-a2",
-   "u-dd-varus-a3",
    "u-dd-varus-e1",
    "u-dd-varus-e2",
    "u-dd-varus-e3",
@@ -2629,7 +2665,6 @@
    "u-dd-veigar-e1",
    "u-dd-veigar-e2",
    "u-dd-veigar-e3",
-   "u-dd-velkoz-a1",
    "u-dd-velkoz-a2",
    "u-dd-velkoz-a3",
    "u-dd-velkoz-e1",
@@ -2671,7 +2706,6 @@
    "u-dd-xinzhao-a1",
    "u-dd-xinzhao-a2",
    "u-dd-xinzhao-e1",
-   "u-dd-xinzhao-e2",
    "u-dd-yasuo-a1",
    "u-dd-yasuo-a2",
    "u-dd-yasuo-a3",
@@ -6045,6 +6079,259 @@
      "claim": "Welcome To ProGuides: League of Legends ProGuides teaches you how to play League of Legends, Fortnite, Valorant, Apex ...",
      "evidence": "https://www.youtube.com/channel/UCq8up0Ew9K0IiRxbz75BZsg/about",
      "how": "déclaration du créateur (description de la chaîne) ; 840K subscribers ; trouvée par recherche YouTube (league of legends challenger guide) ; non vérifié indépendamment au 2026-10-21"
+    }
+   ]
+  },
+  {
+   "id": "inven-global",
+   "name": "Inven Global",
+   "author": "Inven Global (média esport)",
+   "url": "https://www.invenglobal.com/lol",
+   "langs": [
+    "en"
+   ],
+   "kind": "media",
+   "format": "article",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Articles publics (HTTP 200, robots.txt autorise la lecture). Ajout ciblé d'interviews de coachs, pas de suivi automatique.",
+    "discovery": {
+     "type": "aucune"
+    }
+   },
+   "credibility": {
+    "level": "moyenne",
+    "why": "Média reconnu ; les conseils viennent de coachs et joueurs professionnels interrogés, souvent dans un contexte de compétition (à transposer avec prudence à la partie classée)."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true,
+   "addedBy": "recherche coachs professionnels 21/10/2026",
+   "expertise": [
+    {
+     "claim": "Média esport anglophone du groupe coréen Inven : interviews de coachs et joueurs de LCK, LEC, LCS",
+     "evidence": "https://www.invenglobal.com/lol",
+     "how": "site consulté le 2026-10-21 ; les propos rapportés sont ceux des coachs et joueurs interrogés"
+    }
+   ]
+  },
+  {
+   "id": "oneesports",
+   "name": "ONE Esports",
+   "author": "ONE Esports",
+   "url": "https://www.oneesports.gg/league-of-legends/",
+   "langs": [
+    "en"
+   ],
+   "kind": "media",
+   "format": "article",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Article public, lecture autorisée (robots.txt). Ajout ciblé, pas de suivi automatique.",
+    "discovery": {
+     "type": "aucune"
+    }
+   },
+   "credibility": {
+    "level": "moyenne",
+    "why": "Analyse d'un ancien pro rapportée par un média ; contexte compétition, à transposer à la partie classée."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true,
+   "addedBy": "chercheur de sources 21/10/2026",
+   "expertise": [
+    {
+     "claim": "Média esport ; l'article rapporte l'analyse d'IWDominate (ancien jungler professionnel, analyste LCS)",
+     "evidence": "https://www.oneesports.gg/league-of-legends/iwdominate-explains-the-importance-of-dragon-set-ups-and-choke-control-in-the-lcs/",
+     "how": "vérifié le 2026-10-21 (HTTP 200, titre conforme) ; niveau déclaré par l'auteur ou le média, non vérifié indépendamment"
+    }
+   ]
+  },
+  {
+   "id": "note-sendo",
+   "name": "sendo (note.com)",
+   "author": "sendo",
+   "url": "https://note.com/light_panda986",
+   "langs": [
+    "ja"
+   ],
+   "kind": "createur",
+   "format": "article",
+   "roles": [
+    "support",
+    "bottom"
+   ],
+   "champions": [],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Article public, lecture autorisée (robots.txt). Ajout ciblé, pas de suivi automatique.",
+    "discovery": {
+     "type": "aucune"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Joueur haut niveau (non professionnel), articles précis sur la voie du bas et les objectifs ; certains horaires datent d'anciens patchs."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true,
+   "addedBy": "chercheur de sources 21/10/2026",
+   "expertise": [
+    {
+     "claim": "Support, rang Master au plus haut (déclaré)",
+     "evidence": "https://note.com/light_panda986",
+     "how": "vérifié le 2026-10-21 (HTTP 200, titre conforme) ; niveau déclaré par l'auteur ou le média, non vérifié indépendamment"
+    }
+   ]
+  },
+  {
+   "id": "note-udyon",
+   "name": "udyon (note.com)",
+   "author": "udyon",
+   "url": "https://note.com/udyon",
+   "langs": [
+    "ja"
+   ],
+   "kind": "createur",
+   "format": "article",
+   "roles": [
+    "top"
+   ],
+   "champions": [],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Article public, lecture autorisée (robots.txt). Ajout ciblé, pas de suivi automatique.",
+    "discovery": {
+     "type": "aucune"
+    }
+   },
+   "credibility": {
+    "level": "à établir",
+    "why": "Joueur haut niveau (non professionnel) ; macro après la phase de ligne vue d'un toplaner."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true,
+   "addedBy": "chercheur de sources 21/10/2026",
+   "expertise": [
+    {
+     "claim": "Toplaner, rang Master au plus haut (déclaré)",
+     "evidence": "https://note.com/udyon/n/n7317befc569b",
+     "how": "vérifié le 2026-10-21 (HTTP 200, titre conforme) ; niveau déclaré par l'auteur ou le média, non vérifié indépendamment"
+    }
+   ]
+  },
+  {
+   "id": "note-drollsnow",
+   "name": "Drollsnow (note.com)",
+   "author": "Drollsnow",
+   "url": "https://note.com/drollsnow_cat",
+   "langs": [
+    "ja"
+   ],
+   "kind": "createur",
+   "format": "article",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Article public, lecture autorisée (robots.txt). Ajout ciblé, pas de suivi automatique.",
+    "discovery": {
+     "type": "aucune"
+    }
+   },
+   "credibility": {
+    "level": "faible",
+    "why": "Auteur non identifié ; principes simples sur les voies de côté, à confirmer par d'autres sources."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true,
+   "addedBy": "chercheur de sources 21/10/2026",
+   "expertise": [
+    {
+     "claim": "Auteur sans rang indiqué",
+     "evidence": "https://note.com/drollsnow_cat/n/n7d389d783202",
+     "how": "vérifié le 2026-10-21 (HTTP 200, titre conforme) ; niveau déclaré par l'auteur ou le média, non vérifié indépendamment"
+    }
+   ]
+  },
+  {
+   "id": "dignitas-articles",
+   "name": "Dignitas (articles)",
+   "author": "Dignitas",
+   "url": "https://dignitas.gg/articles",
+   "langs": [
+    "en"
+   ],
+   "kind": "media",
+   "format": "article",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Article public, lecture autorisée (robots.txt). Ajout ciblé, pas de suivi automatique.",
+    "discovery": {
+     "type": "aucune"
+    }
+   },
+   "credibility": {
+    "level": "faible",
+    "why": "Contributeurs non identifiés, certains articles anciens (2020-2021) : principes à confirmer sur le patch actuel."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true,
+   "addedBy": "chercheur de sources 21/10/2026",
+   "expertise": [
+    {
+     "claim": "Site d'une organisation esport ; articles de contributeurs sous pseudonyme",
+     "evidence": "https://dignitas.gg/articles/how-to-track-the-enemy-jungler",
+     "how": "vérifié le 2026-10-21 (HTTP 200, titre conforme) ; niveau déclaré par l'auteur ou le média, non vérifié indépendamment"
+    }
+   ]
+  },
+  {
+   "id": "inven-board",
+   "name": "Inven — forum LoL",
+   "author": "Inven (forum)",
+   "url": "https://www.inven.co.kr/board/lol/3369",
+   "langs": [
+    "ko"
+   ],
+   "kind": "communaute",
+   "format": "article",
+   "roles": [
+    "all"
+   ],
+   "champions": [],
+   "access": {
+    "mode": "texte-integral",
+    "detail": "Article public, lecture autorisée (robots.txt). Ajout ciblé, pas de suivi automatique.",
+    "discovery": {
+     "type": "aucune"
+    }
+   },
+   "credibility": {
+    "level": "faible",
+    "why": "Message de forum d'un joueur ; analyse d'un match LCK à transposer."
+   },
+   "lastChecked": "2026-10-21",
+   "active": true,
+   "addedBy": "chercheur de sources 21/10/2026",
+   "expertise": [
+    {
+     "claim": "Forum de joueurs ; auteur se disant Master (non vérifié)",
+     "evidence": "https://www.inven.co.kr/board/lol/3369/2308817",
+     "how": "vérifié le 2026-10-21 (HTTP 200, titre conforme) ; niveau déclaré par l'auteur ou le média, non vérifié indépendamment"
     }
    ]
   }
@@ -12396,11 +12683,34 @@
     "patchMentioned": null,
     "basis": "page officielle de Riot sur Locke, champion sans conseils officiels dans Data Dragon"
    },
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Vidéo officielle de Riot : à lire par Gemini.",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "note": "Lue par gemini-3.6-flash le 2026-10-22 : transcription réutilisée depuis le cache de cet ordinateur.",
    "videoAttempts": 1,
-   "videoError": "gemini-3.5-flash HTTP 503 : This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later. (2026-10-21)"
+   "videoError": "gemini-3.5-flash HTTP 503 : This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later. (2026-10-21)",
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-22",
+    "duration": "04:56",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-23",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 0,
+   "alertes": [
+    {
+     "code": "acces-partiel",
+     "detail": "Le contenu provient d'une lecture automatique par Gemini (1 image/sec). Les informations extraites sont de seconde main et nécessitent une relecture humaine."
+    }
+   ],
+   "learn": "Les mécaniques clés du kit de Locke (AP assassin mid) et son interaction spécifique d'ultime contre le Mur de vent de Yasuo.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Présentation officielle du champion par Riot Games, mais l'analyse provient d'une extraction automatique par IA (Gemini) à 1 image par seconde sans patch précis spécifié."
+   }
   },
   {
    "id": "c-riot-champion-insights-naafiri",
@@ -18784,12 +19094,12 @@
    "published": null,
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 2,
-   "note": "File de lecture (rang 2) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash le 2026-10-22 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 16,
     "matched": [
@@ -18799,6 +19109,14 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-22",
+    "duration": "38:54",
+    "reused": true
    }
   },
   {
@@ -18812,18 +19130,26 @@
    "published": null,
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 3,
-   "note": "File de lecture (rang 3) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash le 2026-10-22 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 16,
     "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-22",
+    "duration": "26:38",
+    "reused": true
    }
   },
   {
@@ -18933,6 +19259,531 @@
     "score": 14,
     "matched": [
      "mid",
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-invenglobal-17235",
+   "sourceId": "inven-global",
+   "type": "article",
+   "url": "https://www.invenglobal.com/articles/17235/feature-is-scrimmingsolo-queue-all-lol-esports-pros-do-to-train",
+   "title": "Is scrimming and solo queue all LoL esports pros do to train? Current and former LCK coaches explain",
+   "author": "Inven Global",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "competition",
+    "rank": "pro"
+   },
+   "note": "Interview ou analyse de coachs et joueurs professionnels : à lire et analyser ; les conseils propres à la compétition ne s'appliquent pas tels quels à la partie classée.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "coach",
+     "professionnel"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (coachs professionnels) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-invenglobal-5280",
+   "sourceId": "inven-global",
+   "type": "article",
+   "url": "https://www.invenglobal.com/articles/5280/interview-with-ls-why-he-came-to-korea-his-view-on-coaching-the-game-and-more",
+   "title": "Interview with LS: Why he came to Korea, his view on coaching, the game, and more",
+   "author": "Inven Global",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "competition",
+    "rank": "pro"
+   },
+   "note": "Interview ou analyse de coachs et joueurs professionnels : à lire et analyser ; les conseils propres à la compétition ne s'appliquent pas tels quels à la partie classée.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "coach",
+     "professionnel"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (coachs professionnels) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-invenglobal-13626",
+   "sourceId": "inven-global",
+   "type": "article",
+   "url": "https://www.invenglobal.com/articles/13626/ls-interview-part-1-caster-coach-innovator-leader-of-the-church",
+   "title": "The caster, the content creator, the innovator, the leader of the Church: Talking to T1 LS, part 1",
+   "author": "Inven Global",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "competition",
+    "rank": "pro"
+   },
+   "note": "Interview ou analyse de coachs et joueurs professionnels : à lire et analyser ; les conseils propres à la compétition ne s'appliquent pas tels quels à la partie classée.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "coach",
+     "professionnel"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (coachs professionnels) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-invenglobal-13157",
+   "sourceId": "inven-global",
+   "type": "article",
+   "url": "https://www.invenglobal.com/articles/13157/kt-doran-solo-queue-is-the-mode-thats-all-about-becoming-more-proficient-on-different-champions",
+   "title": "KT Doran: \"Solo queue is the mode that's all about becoming more proficient on different champions\"",
+   "author": "Inven Global",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "competition",
+    "rank": "pro"
+   },
+   "note": "Interview ou analyse de coachs et joueurs professionnels : à lire et analyser ; les conseils propres à la compétition ne s'appliquent pas tels quels à la partie classée.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "coach",
+     "professionnel"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (coachs professionnels) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-invenglobal-15157",
+   "sourceId": "inven-global",
+   "type": "article",
+   "url": "https://labs.invenglobal.com/articles/15157/only-the-game-ahead-of-us-how-yamatocannons-coaching-enabled-fnatic-to-really-be-themselves",
+   "title": "\"Only the game ahead of us\": How YamatoCannon's coaching enabled Fnatic to really be themselves",
+   "author": "Inven Global",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "competition",
+    "rank": "pro"
+   },
+   "note": "Interview ou analyse de coachs et joueurs professionnels : à lire et analyser ; les conseils propres à la compétition ne s'appliquent pas tels quels à la partie classée.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "coach",
+     "professionnel"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (coachs professionnels) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-invenglobal-14668",
+   "sourceId": "inven-global",
+   "type": "article",
+   "url": "https://www.invenglobal.com/articles/14668/quests-musings-vol6-how-one-team-silently-became-the-lck-kings",
+   "title": "Quest's Musings Vol.6: How one team silently became the LCK kings",
+   "author": "Inven Global",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "competition",
+    "rank": "pro"
+   },
+   "note": "Interview ou analyse de coachs et joueurs professionnels : à lire et analyser ; les conseils propres à la compétition ne s'appliquent pas tels quels à la partie classée.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "coach",
+     "professionnel"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (coachs professionnels) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-oneesports-iwd-dragon",
+   "sourceId": "oneesports",
+   "type": "article",
+   "url": "https://www.oneesports.gg/league-of-legends/iwdominate-explains-the-importance-of-dragon-set-ups-and-choke-control-in-the-lcs/",
+   "title": "IWDominate explains the importance of dragon set-ups and choke control in the LCS",
+   "author": "ONE Esports",
+   "lang": "en",
+   "published": "2021-03-11",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "competition",
+    "rank": "pro"
+   },
+   "note": "Proposé par le chercheur de sources (thèmes : objectifs, ganks, voies de côté, vision) ; à lire et analyser, puis contrôle critique.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "objectif",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (chercheur de sources) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-note-sendo-gank",
+   "sourceId": "note-sendo",
+   "type": "article",
+   "url": "https://note.com/light_panda986/n/n8ef0c1e5e6f8",
+   "title": "序盤のガンク回避率を上げる方法①",
+   "author": "sendo",
+   "lang": "ja",
+   "published": "2023-09-16",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "solo",
+    "rank": "haut-niveau"
+   },
+   "note": "Proposé par le chercheur de sources (thèmes : objectifs, ganks, voies de côté, vision) ; à lire et analyser, puis contrôle critique.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "objectif",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (chercheur de sources) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-note-sendo-give",
+   "sourceId": "note-sendo",
+   "type": "article",
+   "url": "https://note.com/light_panda986/n/n82f6b1168e9e",
+   "title": "オブジェクトをギブするときに考えるべきこと",
+   "author": "sendo",
+   "lang": "ja",
+   "published": "2024-08-07",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "solo",
+    "rank": "haut-niveau"
+   },
+   "note": "Proposé par le chercheur de sources (thèmes : objectifs, ganks, voies de côté, vision) ; à lire et analyser, puis contrôle critique.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "objectif",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (chercheur de sources) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-note-sendo-midpush",
+   "sourceId": "note-sendo",
+   "type": "article",
+   "url": "https://note.com/light_panda986/n/naa89acc32dc4",
+   "title": "オブジェクト前にMIDプッシュをする６つの理由",
+   "author": "sendo",
+   "lang": "ja",
+   "published": "2024-05-02",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "solo",
+    "rank": "haut-niveau"
+   },
+   "note": "Proposé par le chercheur de sources (thèmes : objectifs, ganks, voies de côté, vision) ; à lire et analyser, puis contrôle critique.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "objectif",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (chercheur de sources) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-note-udyon-macro",
+   "sourceId": "note-udyon",
+   "type": "article",
+   "url": "https://note.com/udyon/n/n7317befc569b",
+   "title": "LOLソロマスター レーン戦終了後～集団戦までのマクロ編",
+   "author": "udyon",
+   "lang": "ja",
+   "published": "2026-02-15",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "solo",
+    "rank": "haut-niveau"
+   },
+   "note": "Proposé par le chercheur de sources (thèmes : objectifs, ganks, voies de côté, vision) ; à lire et analyser, puis contrôle critique.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "objectif",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (chercheur de sources) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-note-drollsnow-side",
+   "sourceId": "note-drollsnow",
+   "type": "article",
+   "url": "https://note.com/drollsnow_cat/n/n7d389d783202",
+   "title": "LoLにおけるサイドレーンを押す時の常識",
+   "author": "Drollsnow",
+   "lang": "ja",
+   "published": "2025-08-02",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "solo",
+    "rank": "haut-niveau"
+   },
+   "note": "Proposé par le chercheur de sources (thèmes : objectifs, ganks, voies de côté, vision) ; à lire et analyser, puis contrôle critique.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "objectif",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (chercheur de sources) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-dignitas-track-jungler",
+   "sourceId": "dignitas-articles",
+   "type": "article",
+   "url": "https://dignitas.gg/articles/how-to-track-the-enemy-jungler",
+   "title": "How to Track the Enemy Jungler",
+   "author": "Dignitas",
+   "lang": "en",
+   "published": "2025-11-29",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "solo",
+    "rank": "haut-niveau"
+   },
+   "note": "Proposé par le chercheur de sources (thèmes : objectifs, ganks, voies de côté, vision) ; à lire et analyser, puis contrôle critique.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "objectif",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (chercheur de sources) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-dignitas-ganks",
+   "sourceId": "dignitas-articles",
+   "type": "article",
+   "url": "https://dignitas.gg/articles/how-to-stop-dying-to-ganks",
+   "title": "How to Stop Dying to Ganks",
+   "author": "Dignitas",
+   "lang": "en",
+   "published": "2021-04-19",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "solo",
+    "rank": "haut-niveau"
+   },
+   "note": "Proposé par le chercheur de sources (thèmes : objectifs, ganks, voies de côté, vision) ; à lire et analyser, puis contrôle critique.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "objectif",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (chercheur de sources) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-dignitas-baron",
+   "sourceId": "dignitas-articles",
+   "type": "article",
+   "url": "https://dignitas.gg/articles/blogs/Unknown/14549/baron-setup-guide-for-lol-read-this-before-going-for-nashor",
+   "title": "Baron Setup Guide for LoL: Read This Before Going for Nashor!",
+   "author": "Dignitas",
+   "lang": "en",
+   "published": "2020-06-28",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "solo",
+    "rank": "haut-niveau"
+   },
+   "note": "Proposé par le chercheur de sources (thèmes : objectifs, ganks, voies de côté, vision) ; à lire et analyser, puis contrôle critique.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "objectif",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (chercheur de sources) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-inven-board-baron",
+   "sourceId": "inven-board",
+   "type": "article",
+   "url": "https://www.inven.co.kr/board/lol/3369/2308817",
+   "title": "담젠전으로 알아보는 바론 운영 기초 가이드",
+   "author": "Inven (forum)",
+   "lang": "ko",
+   "published": "2022-03-29",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "context": {
+    "queue": "competition",
+    "rank": "pro"
+   },
+   "note": "Proposé par le chercheur de sources (thèmes : objectifs, ganks, voies de côté, vision) ; à lire et analyser, puis contrôle critique.",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "objectif",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (chercheur de sources) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-riot-notes-26-21",
+   "sourceId": "riot-patch-notes",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/fr-fr/news/game-updates/league-of-legends-patch-26-21-notes",
+   "title": "Notes de patch 26.21",
+   "author": "Riot Games",
+   "lang": "fr",
+   "published": "2026-10-20",
+   "retrievedAt": "2026-10-23",
+   "patch": "26.21",
+   "access": "texte-integral",
+   "analysis": "analysee",
+   "analyzedAt": "2026-10-23",
+   "analyst": "Lecture automatique des notes de patch (sans IA)",
+   "scope": "Sections champions, objets et systèmes de la Faille de l'invocateur.",
+   "quality": {
+    "level": "élevée",
+    "why": "Texte officiel."
+   },
+   "learn": "Les valeurs exactes qui changent pour vos champions.",
+   "textSha256": "08efe856d15d8ce6ce8b43347990784897c6dba7237a010bc5d77d18c34cf190"
+  },
+  {
+   "id": "c-yt-z8jp-YjOwI0",
+   "sourceId": "yt-skill-capped",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=z8jp-YjOwI0",
+   "title": "Why YOU SUCK at SUPPORT (And How to Fix It) - Season 16!",
+   "author": "Skill Capped",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-23",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 14,
+   "note": "File de lecture (rang 14) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "support",
      "how to"
     ],
     "entertainment": [],
@@ -19079,7 +19930,7 @@
    "flags": [
     {
      "code": "patch-incompatible",
-     "why": "Valable jusqu'au patch 26.18 ; patch courant 26.20."
+     "why": "Valable jusqu'au patch 26.18 ; patch courant 26.21."
     }
    ]
   },
@@ -19972,6 +20823,10 @@
     {
      "code": "rang-sous-reference",
      "why": "Statistique tirée d'un niveau inférieur à Diamant (solo-emeraude+, solo-tous) : le coach ne prend comme référence que Diamant et plus."
+    },
+    {
+     "code": "patch-incompatible",
+     "why": "Jinx/base modifié au patch 26.21, après 26.20."
     }
    ]
   },
@@ -23522,10 +24377,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Caitlyn/Q modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-caitlyn-e2",
@@ -24330,10 +25191,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Darius/Q modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-darius-a2",
@@ -33683,10 +34550,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Lee Sin/R modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-leesin-a2",
@@ -33798,10 +34671,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Lee Sin/R modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-leesin-e2",
@@ -37954,10 +38833,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Nunu et Willump/R modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-nunu-a3",
@@ -37992,10 +38877,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Nunu et Willump/R modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-nunu-e1",
@@ -38031,10 +38922,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Nunu et Willump/R modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-nunu-e2",
@@ -38070,10 +38967,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Nunu et Willump/R modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-nunu-e3",
@@ -38340,10 +39243,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Orianna/Q modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-orianna-a2",
@@ -40031,10 +40940,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Rammus/W modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-rammus-e1",
@@ -40070,10 +40985,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Rammus/W modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-rammus-e2",
@@ -40109,10 +41030,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Rammus/W modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-reksai-a1",
@@ -41225,10 +42152,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Ryze/Q modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-ryze-a2",
@@ -42533,10 +43466,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Sion/R modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-sion-a2",
@@ -44726,10 +45665,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Taliyah/E modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-taliyah-a2",
@@ -44841,10 +45786,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Taliyah/E modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-taliyah-e2",
@@ -45802,10 +46753,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Tristana/Q modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-tristana-e1",
@@ -45841,10 +46798,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Tristana/Q modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-tristana-e2",
@@ -46417,10 +47380,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Twisted Fate/general modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-twistedfate-e1",
@@ -47149,10 +48118,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Varus/W modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-varus-a2",
@@ -47187,10 +48162,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Varus/Q modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-varus-a3",
@@ -47225,10 +48206,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Varus/Q modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-varus-e1",
@@ -47803,10 +48790,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Vel'Koz/passive modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-velkoz-a2",
@@ -49421,10 +50414,16 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "a-revalider",
    "review": {
     "human": "en attente"
-   }
+   },
+   "flags": [
+    {
+     "code": "patch-incompatible",
+     "why": "Xin Zhao/Q modifié au patch 26.21, après 26.20."
+    }
+   ]
   },
   {
    "id": "u-dd-yasuo-a1",
@@ -51351,6 +52350,224 @@
    "review": {
     "human": "en attente"
    }
+  },
+  {
+   "id": "u-auto-jinx-26-21",
+   "claim": "Patch 26.21 : Jinx change (Stats de base). Dégâts d'attaque : 59 + 3,25/niveau ⇒ 59 + 3/niveau ; PV : 630 + 105/niveau ⇒ 610 + 105/niveau",
+   "champions": [
+    "Jinx"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "patch"
+   ],
+   "patch": {
+    "known": true,
+    "value": "26.21"
+   },
+   "metaDependent": true,
+   "limits": [
+    "Fait officiel relevé automatiquement : l'effet en partie n'est pas encore analysé."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-riot-notes-26-21",
+     "locator": "Champions › Jinx › Stats de base",
+     "lang": "fr",
+     "passage": "Dégâts d'attaque : 59 + 3,25/niveau ⇒ 59 + 3/niveau"
+    },
+    {
+     "content": "c-riot-notes-26-21",
+     "locator": "Champions › Jinx › Stats de base",
+     "lang": "fr",
+     "passage": "PV : 630 + 105/niveau ⇒ 610 + 105/niveau"
+    },
+    {
+     "content": "c-riot-notes-26-21",
+     "locator": "Champions › Jinx",
+     "lang": "fr",
+     "passage": "Comme sa meilleure amie Caitlyn, Jinx domine également la méta, même après le nerf du Runaan lors du dernier patch. Nous ralentissons sa progression afin de rendre un peu plus difficile sa montée en puissance."
+    }
+   ],
+   "published": null,
+   "analyzedAt": "2026-10-23",
+   "status": "exploitable",
+   "review": {
+    "human": "en attente"
+   }
+  },
+  {
+   "id": "u-ai-yt-ynG4T9yLKFs-1",
+   "claim": "Locke est un assassin AP joué au mid dont le style repose sur le snowball et l'élimination rapide des cibles fragiles.",
+   "champions": [
+    "Locke"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "lane"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "limits": [
+    "Analyse basée sur une lecture par IA à 1 image par seconde."
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ynG4T9yLKFs",
+     "locator": "[00:15]",
+     "lang": "en",
+     "passage": "In-game, Locke is an AP assassin who turns early skirmishes into major advantages, snowballing into a devastating weapon against squishy enemy targets."
+    }
+   ],
+   "mentions": [
+    "Ekko (exemple)",
+    "Zed (exemple)",
+    "Shaco (exemple)",
+    "Tahm Kench (exemple)",
+    "Fiddlesticks (exemple)"
+   ],
+   "published": "2026-06-09",
+   "analyzedAt": "2026-10-23",
+   "status": "provisoire",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-ynG4T9yLKFs : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([00:15])."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-ynG4T9yLKFs-2",
+   "claim": "La compétence Z de Locke (Soul Ignition) peut être réactivée pendant qu'il subit un contrôle de foule pour déclencher son soin d'urgence.",
+   "champions": [
+    "Locke"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "survie",
+    "champion"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Être sous contrôle de foule pendant l'activation de la compétence"
+   ],
+   "limits": [
+    "Analyse basée sur une lecture par IA à 1 image par seconde."
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ynG4T9yLKFs",
+     "locator": "[01:19]",
+     "lang": "en",
+     "passage": "Soul Ignition can be recast while crowd controlled, so even if you're out of other options, make sure to heal back up before your opponent sends you to an early grave."
+    }
+   ],
+   "mentions": [],
+   "action": "Réactiver le Z de Locke lorsqu'on est sous contrôle de foule pour récupérer des PV avant de mourir.",
+   "observe": "Vérifier le déclenchement du soin malgré l'état de contrôle de foule. ",
+   "published": "2026-06-09",
+   "analyzedAt": "2026-10-23",
+   "status": "provisoire",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-ynG4T9yLKFs : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([01:19])."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-ynG4T9yLKFs-3",
+   "claim": "Le lancer initial du totem de l'ultime de Locke (Purgatory) traverse le Mur de vent de Yasuo, mais les projectiles émis une fois le totem posé sont bloqués.",
+   "champions": [
+    "Locke",
+    "Yasuo"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "matchup",
+    "champion"
+   ],
+   "matchup": {
+    "vs": "Yasuo"
+   },
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Affrontement contre Yasuo et son Mur de vent"
+   ],
+   "limits": [
+    "Analyse basée sur une lecture par IA à 1 image par seconde."
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ynG4T9yLKFs",
+     "locator": "[02:56]",
+     "lang": "en",
+     "passage": "Abilities like Yasuo's Wind Wall can't block the incoming totem toss, but they can interact with the missiles it throws upon landing."
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer l'ultime de Locke à travers le Mur de vent de Yasuo pour poser le totem derrière lui.",
+   "observe": "Vérifier que le totem se pose correctement au sol malgré le mur.",
+   "published": "2026-06-09",
+   "analyzedAt": "2026-10-23",
+   "status": "provisoire",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-ynG4T9yLKFs : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([02:56])."
+    }
+   ]
   }
  ],
  "glossary": [

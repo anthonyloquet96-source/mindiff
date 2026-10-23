@@ -7962,11 +7962,35 @@
     "patchMentioned": null,
     "basis": "page officielle de Riot sur Locke, champion sans conseils officiels dans Data Dragon"
    },
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Vidéo officielle de Riot : à lire par Gemini.",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "note": "Lue par gemini-3.6-flash le 2026-10-22 : transcription réutilisée depuis le cache de cet ordinateur.",
    "videoAttempts": 1,
-   "videoError": "gemini-3.5-flash HTTP 503 : This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later. (2026-10-21)"
+   "videoError": "gemini-3.5-flash HTTP 503 : This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later. (2026-10-21)",
+   "attempts": 0,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-22",
+    "duration": "04:56",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-23",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 0,
+   "alertes": [
+    {
+     "code": "acces-partiel",
+     "detail": "Le contenu provient d'une lecture automatique par Gemini (1 image/sec). Les informations extraites sont de seconde main et nécessitent une relecture humaine."
+    }
+   ],
+   "learn": "Les mécaniques clés du kit de Locke (AP assassin mid) et son interaction spécifique d'ultime contre le Mur de vent de Yasuo.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Présentation officielle du champion par Riot Games, mais l'analyse provient d'une extraction automatique par IA (Gemini) à 1 image par seconde sans patch précis spécifié."
+   }
   },
   {
    "id": "c-riot-champion-insights-naafiri",
@@ -40253,12 +40277,12 @@
    "published": null,
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 2,
-   "note": "File de lecture (rang 2) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash le 2026-10-22 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 16,
     "matched": [
@@ -40268,6 +40292,15 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "attempts": 0,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-22",
+    "duration": "38:54",
+    "reused": true
    }
   },
   {
@@ -40281,18 +40314,27 @@
    "published": null,
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 3,
-   "note": "File de lecture (rang 3) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash le 2026-10-22 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 16,
     "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "attempts": 0,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-22",
+    "duration": "26:38",
+    "reused": true
    }
   },
   {
@@ -40881,6 +40923,57 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ajout ciblé (chercheur de sources) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-riot-notes-26-21",
+   "sourceId": "riot-patch-notes",
+   "type": "article",
+   "url": "https://www.leagueoflegends.com/fr-fr/news/game-updates/league-of-legends-patch-26-21-notes",
+   "title": "Notes de patch 26.21",
+   "author": "Riot Games",
+   "lang": "fr",
+   "published": "2026-10-20",
+   "retrievedAt": "2026-10-23",
+   "patch": "26.21",
+   "access": "texte-integral",
+   "analysis": "analysee",
+   "analyzedAt": "2026-10-23",
+   "analyst": "Lecture automatique des notes de patch (sans IA)",
+   "scope": "Sections champions, objets et systèmes de la Faille de l'invocateur.",
+   "quality": {
+    "level": "élevée",
+    "why": "Texte officiel."
+   },
+   "learn": "Les valeurs exactes qui changent pour vos champions.",
+   "textSha256": "08efe856d15d8ce6ce8b43347990784897c6dba7237a010bc5d77d18c34cf190"
+  },
+  {
+   "id": "c-yt-z8jp-YjOwI0",
+   "sourceId": "yt-skill-capped",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=z8jp-YjOwI0",
+   "title": "Why YOU SUCK at SUPPORT (And How to Fix It) - Season 16!",
+   "author": "Skill Capped",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-23",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 14,
+   "note": "File de lecture (rang 14) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "support",
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
   }
  ]

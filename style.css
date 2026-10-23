@@ -1228,3 +1228,4 @@ body.has-nav { padding-bottom: calc(var(--nav-h) + 34px + env(safe-area-inset-bo
 .ls-diff.blue { background: rgba(106, 168, 255, .2); color: #8fc0ff; } .ls-diff.red { background: rgba(255, 107, 90, .2); color: #ff8a7c; }
 .ls-note { font-size: 10.5px; color: #7d828d; text-align: center; }
 .livestrip.big { padding: 14px; } .livestrip.big .ls-kills { font-size: 34px; } .livestrip.big .ls-team { font-size: 16px; } .livestrip.big .ls-stat { font-size: 14px; }
+.livestrip.recap { margin: 4px 0 2px; }

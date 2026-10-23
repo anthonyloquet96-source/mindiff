@@ -42,7 +42,7 @@
     "Lancer une collecte": "Run a collection", "Chargement": "Loading", "Rechercher": "Search", "Champion, équipe, patch…": "Champion, team, patch…",
     "La source officielle des matchs LoL n'a pas répondu : les résultats affichés datent de la synchronisation précédente.": "The official LoL match source did not respond: results shown are from the previous sync.",
     "Langue": "Language",
-    "Statistiques en direct…": "Live stats…", "Entre deux parties : le direct reprend au début de la prochaine.": "Between games: live stats resume when the next one starts.", "Tours": "Towers", "Match terminé : le résultat s'affiche à la prochaine mise à jour.": "Match over: the result appears at the next update.", "Inhibiteurs": "Inhibitors", "Terminée": "Finished", "En direct, environ 1 min de décalage · LoL Esports": "Live, about 1 min delay · LoL Esports",
+    "Statistiques en direct…": "Live stats…", "Entre deux parties : le direct reprend au début de la prochaine.": "Between games: live stats resume when the next one starts.", "Tours": "Towers", "Match terminé : le résultat s'affiche à la prochaine mise à jour.": "Match over: the result appears at the next update.", "Inhibiteurs": "Inhibitors", "Terminée": "Finished", "En direct, environ 30 s de décalage · LoL Esports": "Live, about 30 s delay · LoL Esports",
     "Bilan d'une partie : Yone contre Viktor, victoire, 7/2/4, 258 sbires, et l'écart avec l'adversaire en phase de lane (+41 golds à 10 minutes, +677 à 15 minutes)": "Game review: Yone vs Viktor, win, 7/2/4, 258 CS, and the laning gap with the opponent (+41 gold at 10 minutes, +677 at 15 minutes)",
     "Replay de la partie sur la minimap, arrêté sur un moment clé avec ce qui aurait été mieux": "Game replay on the minimap, with the fights and objectives of the moment", "contre": "vs",
     "· Système suisse": "· Swiss stage", "· Phase finale": "· Playoffs", "· Play-ins": "· Play-In", "Play-ins": "Play-In", "Maître Yi": "Master Yi", "K'Santé": "K'Sante", "Nunu et Willump": "Nunu & Willump", "Bientôt disponible": "Coming soon", "Bientôt": "Soon", "Revenir à League of Legends": "Back to League of Legends",
@@ -303,7 +303,7 @@
     [/^équilibrée face à (.+) \((.+?) golds à 10 min\)$/, "even against $1 ($2 gold at 10 min)"],
     [/^(\d+) min, soit (\d+) % de la partie$/, "$1 min, $2% of the game"],
     [/^(Top|Jungle|Mid|ADC|Bot|Support) · contre /, "$1 · vs "], [/^(.+) · toi$/, "$1 · you"], [/^Mes champions en (.+)$/, "My champions as $1"],
-    [/^Bilans · (.+)$/, "Records · $1"], [/^Classement · (.+)$/, "Standings · $1"], [/^(.+) \(officiel\)$/, "$1 (official)"], [/^Version client (.+)$/, "Client version $1"], [/^Partie (\d+) · (.+)$/, "Game $1 · $2"], [/^Partie (\d+) · $/, "Game $1 · "], [/^Patch (\S+) · (.+)$/, "Patch $1 · $2"],
+    [/^Bilans · (.+)$/, "Records · $1"], [/^Classement · (.+)$/, "Standings · $1"], [/^(.+) \(officiel\)$/, "$1 (official)"], [/^Version client (.+)$/, "Client version $1"], [/^Partie (\d+) · (.+)$/, "Game $1 · $2"], [/^Partie (\d+) · $/, "Game $1 · "], [/^Fin · (.+)$/, "End · $1"], [/^Partie (\d+)$/, "Game $1"], [/^Patch (\S+) · (.+)$/, "Patch $1 · $2"],
     [/^(.+) · (\d+) contre (\d+) ·$/, (m, z, a2, b2) => `${ZONE(z)} · ${a2} vs ${b2} ·`], [/^(\d+) parties · (\d+) matchs$/, "$1 games · $2 matches"],
   ];
   const ZONE = z => ({ "ta base": "your base", "base adverse": "enemy base", "rivière": "river", "ta jungle": "your jungle", "jungle adverse": "enemy jungle", "inconnue": "unknown" }[z] || z);

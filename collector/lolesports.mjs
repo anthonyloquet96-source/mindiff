@@ -34,6 +34,7 @@ async function windowAt(gameId, iso) {
   return res.json();
 }
 const roundTo10s = ms => new Date(Math.floor(ms / 10000) * 10000).toISOString();
+const pickFinal = x => ({ totalKills: x.totalKills, totalGold: x.totalGold, towers: x.towers, inhibitors: x.inhibitors, barons: x.barons, dragons: x.dragons || [] });
 
 async function gameDetail(game) {
   const first = await windowAt(game.id);
@@ -64,6 +65,11 @@ async function gameDetail(game) {
     blue: side(meta.blueTeamMetadata), red: side(meta.redTeamMetadata),
     winnerSide: guess,
     kills: last ? { blue: last.blueTeam.totalKills, red: last.redTeam.totalKills } : null,
+    // Bandeau récapitulatif de fin de partie (comme celui de la diffusion)
+    final: last?.gameState === "finished" ? {
+      duration: Math.max(0, Math.round((new Date(last.rfc460Timestamp).getTime() - t0) / 1000)),
+      blue: pickFinal(last.blueTeam), red: pickFinal(last.redTeam),
+    } : null,
     vod: vod?.provider === "youtube" ? `https://www.youtube.com/watch?v=${vod.parameter}&t=${Math.round((vod.startMillis || 0) / 1000)}` : null,
   };
 }
@@ -189,8 +195,11 @@ export async function collectLolEsports(state) {
     }));
 
     // Picks des pros : chaque match terminé n'est analysé qu'une fois (mis en cache)
+    let refreshed = 0;
     for (const m of allMatches.filter(m => m.state === "completed" && (!m.start || daysAgo(m.start) <= 45))) {
-      if (!state.lolMatches[m.id]) {
+      // Relu une fois s'il manque le score final des parties (ajouté le 23/10/2026), au plus 12 matchs par collecte
+      const stale = state.lolMatches[m.id]?.games?.some(g => g.final === undefined) && (refreshed = (refreshed || 0) + 1) <= 12;
+      if (!state.lolMatches[m.id] || stale) {
         try { state.lolMatches[m.id] = await matchDetail(m.id, m.teams); } catch { /* réessayé à la prochaine collecte */ }
       }
       Object.assign(m, state.lolMatches[m.id] || {});

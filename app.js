@@ -416,6 +416,7 @@ function dayLabel(d) {
 
 // day = false seulement quand le jour est déjà donné par l'écran (sélecteur de date de Compétitions → Matchs)
 function matchCard(m, t, { withComp = true, line = false, day = true } = {}) {
+  if (m.state === "unstarted" && LIVE_IDS.has(m.id)) m = { ...m, state: "inProgress" };
   const done = m.state === "completed";
   const hide = done && hidden(m.id);
   const [a, b] = m.teams;
@@ -444,14 +445,18 @@ let liveTimer = null;
 const liveStrip = (id, big = false) => `<span class="livestrip${big ? " big" : ""}" data-live-match="${esc(id)}">${liveStripInner(id)}</span>`;
 const kfmt = n => (n >= 1000 ? `${(n / 1000).toFixed(1).replace(".", ",")}k` : String(n));
 const DRAKE = { infernal: "#ff5a2e", ocean: "#3d9df0", mountain: "#a07a4f", cloud: "#cfd8e3", hextech: "#36c6d6", chemtech: "#6ccf3a", elder: "#b47cff" };
+const mmss = secs => `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
 function liveStripInner(id) {
   const L = LIVE[id];
   if (!L?.f) return `<span class="ls-wait">${L?.over ? "Match terminé : le résultat s'affiche à la prochaine mise à jour." : L?.none ? "Entre deux parties : le direct reprend au début de la prochaine." : "Statistiques en direct…"}</span>`;
   const f = L.f, bm = L.meta?.blueTeamMetadata, rm = L.meta?.redTeamMetadata;
   const team = tid => L.teams?.find(x => x.id === tid) || {};
-  const B = team(bm?.esportsTeamId), R = team(rm?.esportsTeamId), b = f.blueTeam, r = f.redTeam;
   const secs = L.start ? Math.max(0, Math.round((Date.parse(f.rfc460Timestamp) - L.start) / 1000)) : null;
-  const clock = secs == null ? "" : `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
+  const state = f.gameState === "paused" ? "Pause" : f.gameState === "finished" ? "Terminée" : secs == null ? "" : mmss(secs);
+  return scoreStrip(team(bm?.esportsTeamId), team(rm?.esportsTeamId), f.blueTeam, f.redTeam, `${L.gameNo ? `Partie ${L.gameNo} · ` : ""}${state}`, "En direct, environ 30 s de décalage · LoL Esports");
+}
+// Bandeau commun : direct (flux) et récap de fin de partie (score final enregistré par la collecte)
+function scoreStrip(B, R, b, r, clockText, note) {
   const diff = b.totalGold - r.totalGold;
   const drakes = list => (list || []).map(d => `<i class="ls-drake" style="background:${DRAKE[d] || "#999"}" title="${esc(d)}"></i>`).join("");
   const side = (t, x, cls) => `<span class="ls-side ${cls}">
@@ -460,12 +465,17 @@ function liveStripInner(id) {
       <span class="ls-stat" title="Golds">${icon("coin")}${kfmt(x.totalGold)}</span>
       <span class="ls-objs">${drakes(x.dragons)}${x.barons ? `<span class="ls-baron" title="Barons">B${x.barons > 1 ? x.barons : ""}</span>` : ""}${x.inhibitors ? `<span class="ls-inhib" title="Inhibiteurs">I${x.inhibitors > 1 ? x.inhibitors : ""}</span>` : ""}</span>
     </span>`;
-  const state = f.gameState === "paused" ? "Pause" : f.gameState === "finished" ? "Terminée" : clock;
   return `<span class="ls-grid">
     ${side(B, b, "blue")}
-    <span class="ls-mid"><span class="ls-kills">${b.totalKills}<i>–</i>${r.totalKills}</span><span class="ls-clock">${L.gameNo ? `Partie ${L.gameNo} · ` : ""}${esc(state)}</span>${diff ? `<span class="ls-diff ${diff > 0 ? "blue" : "red"}">+${kfmt(Math.abs(diff))} ${esc((diff > 0 ? B : R).code || "")}</span>` : ""}</span>
+    <span class="ls-mid"><span class="ls-kills">${b.totalKills}<i>–</i>${r.totalKills}</span><span class="ls-clock">${esc(clockText)}</span>${diff ? `<span class="ls-diff ${diff > 0 ? "blue" : "red"}">+${kfmt(Math.abs(diff))} ${esc((diff > 0 ? B : R).code || "")}</span>` : ""}</span>
     ${side(R, r, "red")}
-  </span><span class="ls-note">En direct, environ 1 min de décalage · LoL Esports</span>`;
+  </span>${note ? `<span class="ls-note">${esc(note)}</span>` : ""}`;
+}
+// Récap d'une partie terminée, à partir du score final enregistré par la collecte
+function recapStrip(g, m) {
+  if (!g.final) return "";
+  const team = tid => { const x = m.teams.find(y => y.id === tid) || {}; return { name: x.name, code: x.code || x.name, image: x.image }; };
+  return `<span class="livestrip recap">${scoreStrip(team(g.blue.teamId), team(g.red.teamId), g.final.blue, g.final.red, `Fin · ${mmss(g.final.duration)}`, "")}</span>`;
 }
 async function liveTick() {
   liveTimer = null;
@@ -483,16 +493,33 @@ async function liveTick() {
       }
       if (L.game) {
         if (!L.start) { const w0 = await (await fetch(`https://feed.lolesports.com/livestats/v1/window/${L.game}`)).json(); L.start = Date.parse(w0?.frames?.[0]?.rfc460Timestamp) || null; }
-        const t = new Date(Date.now() - 45000); t.setUTCSeconds(Math.floor(t.getUTCSeconds() / 10) * 10, 0);
-        const w = await (await fetch(`https://feed.lolesports.com/livestats/v1/window/${L.game}?startingTime=${t.toISOString()}`)).json();
-        const f = w?.frames?.at(-1);
-        if (f) { L.f = f; L.meta = w.gameMetadata; }
+        for (const lag of [20000, 45000]) {
+          const t = new Date(Date.now() - lag); t.setUTCSeconds(Math.floor(t.getUTCSeconds() / 10) * 10, 0);
+          const res = await fetch(`https://feed.lolesports.com/livestats/v1/window/${L.game}?startingTime=${t.toISOString()}`);
+          const w = res.status === 200 ? await res.json() : null, f = w?.frames?.at(-1);
+          if (f) { L.f = f; L.meta = w.gameMetadata; break; }
+        }
       }
     } catch { /* flux momentanément indisponible : on garde le dernier relevé */ }
     for (const el of document.querySelectorAll(`[data-live-match="${CSS.escape(id)}"]`)) el.innerHTML = liveStripInner(id);
   }
   liveTimer = setTimeout(liveTick, 10000);
 }
+// Matchs qui démarrent entre deux collectes : la liste officielle des matchs en cours est relue chaque minute
+const LIVE_IDS = new Set();
+let liveListAt = 0;
+async function liveList() {
+  if (Date.now() - liveListAt < 60000) return;
+  liveListAt = Date.now();
+  try {
+    const j = await (await fetch("https://esports-api.lolesports.com/persisted/gw/getLive?hl=fr-FR", { headers: { "x-api-key": LOLE_KEY } })).json();
+    const ids = (j?.data?.schedule?.events || []).filter(e => e.type === "match" && e.match?.id && e.state === "inProgress").map(e => e.match.id);
+    const changed = ids.length !== LIVE_IDS.size || ids.some(id => !LIVE_IDS.has(id));
+    LIVE_IDS.clear(); ids.forEach(id => LIVE_IDS.add(id));
+    if (changed) render(false);
+  } catch { /* liste indisponible : on garde l'état de la collecte */ }
+}
+setInterval(() => { if (route.game === "lol" && document.visibilityState === "visible") liveList(); }, 60000);
 
 // --- Tournoi : carte identifiable
 function tournamentCard(t) {
@@ -857,7 +884,8 @@ function tMeta(t) {
 
 // --- Page d'un match
 function matchPage(t, mid) {
-  const m = tMatches(t).find(x => x.id === mid);
+  let m = tMatches(t).find(x => x.id === mid);
+  if (m?.state === "unstarted" && LIVE_IDS.has(m.id)) m = { ...m, state: "inProgress" }; // démarré depuis la dernière collecte
   if (!m) return empty("Match introuvable", "", `<a class="btn" href="${href(t.game, "tournoi", t.id, "matchs")}">Calendrier du tournoi</a>`);
   const done = m.state === "completed";
   const hide = done && hidden(m.id);
@@ -889,6 +917,7 @@ function matchPage(t, mid) {
         ${m.verified === false ? `<p class="note warn">${icon("alert")}<span>Vainqueur de chaque partie non vérifié : le décompte ne correspond pas au score officiel.</span></p>` : ""}
         <div class="games">${m.games.map(g => `<article class="game">
           <div class="game-head"><b>Partie ${g.n}</b>${g.winnerTeamId ? `<span class="chip">Victoire ${esc(name(g.winnerTeamId))}</span>` : ""}${g.kills ? `<span class="fine">${g.kills.blue}–${g.kills.red} kills</span>` : ""}${g.vod ? `<a class="vod" href="${esc(g.vod)}" target="_blank" rel="noopener">${icon("play")}Revoir</a>` : ""}</div>
+          ${recapStrip(g, m)}
           ${["blue", "red"].map(sd => `<div class="draft ${g.winnerTeamId === g[sd].teamId ? "win" : ""}"><span class="draft-team">${esc(name(g[sd].teamId))}</span>
             <div class="draft-picks">${g[sd].picks.map(p => { const ent = entity(t.game, p.champ); return `<a class="pick" href="${sheetHref(t.game, ent.key)}" aria-label="${esc(ent.name)}, ${esc(p.player)}, ${esc(ROLE_LABEL[p.role] || p.role)}">${portrait(ent, "sm")}<small>${esc(p.player.replace(/^\S+\s/, ""))}</small></a>`; }).join("")}</div></div>`).join("")}
         </article>`).join("")}</div></section>` : ""}`) : ""}`;
@@ -1396,6 +1425,7 @@ function render(fromRoute = true) {
   };
   if (dataLoaded) syncSheet();
   if (!liveTimer && document.querySelector("[data-live-match]")) liveTick();
+  if (route.game === "lol") liveList();
   syncTabs();
   if (fromRoute) {
     window.scrollTo(0, 0);

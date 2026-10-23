@@ -28,7 +28,7 @@ const STALE_MIN = 90; // au-delà, la synchronisation est signalée comme en ret
 
 const PREF_KEY = "tm-prefs-v1";
 function loadPrefs() {
-  const base = { game: null, favGames: [], favTeams: [], saved: [], noSpoil: false, visits: {} };
+  const base = { game: null, favGames: [], favTeams: [], saved: [], noSpoil: false, visits: {}, tz: null };
   try {
     const p = JSON.parse(localStorage.getItem(PREF_KEY) || "null");
     if (p) return { ...base, ...p };
@@ -252,11 +252,15 @@ function mentionedEntities(i, e) {
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const fmtDay = d => new Date(d).toLocaleDateString("fr-FR", { day: "numeric", month: "short" });
 const fmtDate = d => new Date(d).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
-const fmtTime = d => new Date(d).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
-const fmtDayTime = d => new Date(d).toLocaleString("fr-FR", { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
-const fmtWeekday = d => new Date(d).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" });
+// Heures des matchs : fuseau de l'appareil, ou celui choisi par l'utilisateur (prefs.tz)
+const tzOpt = () => (prefs.tz ? { timeZone: prefs.tz } : {});
+const fmtTime = d => new Date(d).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit", ...tzOpt() });
+const fmtDayTime = d => new Date(d).toLocaleString("fr-FR", { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", ...tzOpt() });
+const fmtWeekday = d => new Date(d).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", ...tzOpt() });
+// Jour « AAAA-MM-JJ » (déjà dans le bon fuseau) : affiché tel quel
+const fmtDayKey = k => new Date(k + "T12:00:00Z").toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
 const pct = x => (x == null ? "—" : x > 0 && x < .005 ? "< 1 %" : `${Math.round(x * 100)} %`);
-const localDay = d => { const x = new Date(d); return `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, "0")}-${String(x.getDate()).padStart(2, "0")}`; };
+const localDay = d => new Date(d).toLocaleDateString("en-CA", { year: "numeric", month: "2-digit", day: "2-digit", ...tzOpt() });
 function ago(iso) {
   const m = Math.round((Date.now() - new Date(iso)) / 60000);
   if (m < 1) return "à l'instant";
@@ -265,6 +269,19 @@ function ago(iso) {
   return `il y a ${Math.round(m / 1440)} j`;
 }
 const TZ = (() => { try { return Intl.DateTimeFormat().resolvedOptions().timeZone; } catch { return ""; } })();
+// Fuseaux proposés : celui de l'appareil, puis les villes des grandes compétitions
+const TZ_LIST = [["Europe/Paris", "Paris"], ["Europe/London", "Londres"], ["Europe/Berlin", "Berlin"], ["America/Montreal", "Montréal"], ["America/New_York", "New York"], ["America/Los_Angeles", "Los Angeles"], ["America/Sao_Paulo", "São Paulo"], ["Africa/Casablanca", "Casablanca"], ["Indian/Reunion", "La Réunion"], ["Asia/Seoul", "Séoul"], ["Asia/Shanghai", "Shanghai"], ["Asia/Tokyo", "Tokyo"], ["Australia/Sydney", "Sydney"]];
+// « Paris (UTC+2) » : ville et décalage du fuseau affiché
+function tzLabel(at = Date.now()) {
+  const z = prefs.tz || TZ;
+  let off = "";
+  try { off = new Intl.DateTimeFormat("fr-FR", { timeZone: z || undefined, timeZoneName: "shortOffset" }).formatToParts(new Date(at)).find(p => p.type === "timeZoneName")?.value.replace("GMT", "UTC") || ""; } catch { /* navigateur ancien */ }
+  if (off === "UTC") off = "UTC+0";
+  const city = TZ_LIST.find(([id]) => id === z)?.[1] || (z ? z.split("/").pop().replace(/_/g, " ") : "");
+  return city ? `${city}${off ? ` (${off})` : ""}` : off;
+}
+// Rappel du fuseau, avec choix d'un autre fuseau (voyage, VPN, appareil mal réglé)
+const tzPicker = () => `<p class="fine tz">${icon("clock")}<span>Heures de ${esc(tzLabel())}${prefs.tz ? "" : " · fuseau de votre appareil"}</span>${sel("tz", [["", `Automatique${TZ ? ` (${TZ.split("/").pop().replace(/_/g, " ")})` : ""}`], ...TZ_LIST.filter(([id]) => id !== TZ)], prefs.tz || "", "Fuseau horaire")}</p>`;
 const href = (...parts) => "#/" + parts.filter(p => p != null && p !== "").map(encodeURIComponent).join("/");
 const sheetHref = (game, key) => location.hash.replace(/\/fiche\/[^/]*$/, "") + "/fiche/" + encodeURIComponent(key);
 
@@ -276,6 +293,7 @@ const ICONS = {
   compass: '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/>',
   target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/>',
   calendar: '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
   star: '<path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/>',
   bookmark: '<path d="M7 3.5h10a1 1 0 0 1 1 1V21l-6-4-6 4V4.5a1 1 0 0 1 1-1z"/>',
   eye: '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>',
@@ -567,10 +585,10 @@ function matchesTab() {
   for (const x of dayMatches) { if (!byComp.has(x.t.id)) byComp.set(x.t.id, { t: x.t, ms: [] }); byComp.get(x.t.id).ms.push(x.m); }
   const comps = ts.filter(t => tMatches(t).some(m => m.start)).map(t => [t.id, t.name]);
   const noDated = !ts.some(t => tMatches(t).some(m => m.start));
-  const dayLabel = ui.day === today ? "Aujourd'hui" : ui.day === localDay(Date.now() + 864e5) ? "Demain" : ui.day === localDay(Date.now() - 864e5) ? "Hier" : fmtWeekday(ui.day + "T12:00:00");
+  const dayLabel = ui.day === today ? "Aujourd'hui" : ui.day === localDay(Date.now() + 864e5) ? "Demain" : ui.day === localDay(Date.now() - 864e5) ? "Hier" : fmtDayKey(ui.day);
   return `<div class="datebar" role="group" aria-label="Choisir une date">
       <button class="icon-btn" data-action="day" data-id="${prev || ""}" ${prev ? "" : "disabled"} aria-label="Jour de matchs précédent">${icon("left")}</button>
-      <div class="datebar-mid"><span class="datebar-label">${esc(dayLabel)}</span><span class="fine">${ui.day === today ? fmtWeekday(ui.day + "T12:00:00") : `${dayMatches.length} match${dayMatches.length > 1 ? "s" : ""}`}</span></div>
+      <div class="datebar-mid"><span class="datebar-label">${esc(dayLabel)}</span><span class="fine">${ui.day === today ? fmtDayKey(ui.day) : `${dayMatches.length} match${dayMatches.length > 1 ? "s" : ""}`}</span></div>
       <button class="icon-btn" data-action="day" data-id="${next || ""}" ${next ? "" : "disabled"} aria-label="Jour de matchs suivant">${icon("chevron")}</button>
     </div>
     <div class="toolbar">
@@ -579,7 +597,7 @@ function matchesTab() {
       ${comps.length > 1 ? sel("comp", [["", "Toutes les compétitions"], ...comps], ui.comp, "Compétition") : ""}
       ${prefs.favTeams.length ? `<button class="pill-btn ${ui.favOnly ? "on" : ""}" data-action="fav-only" aria-pressed="${ui.favOnly}">${icon("star")}Favoris</button>` : ""}
     </div>
-    <p class="fine tz">Heures dans votre fuseau${TZ ? ` (${esc(TZ)})` : ""} · « En cours » uniquement si la source officielle le confirme.</p>
+    ${tzPicker()}<p class="fine">« En cours » uniquement si la source officielle le confirme.</p>
     ${noDated ? empty("Aucun calendrier disponible", route.game === "val" ? "Le calendrier Valorant n'est pas encore relié à une source automatique. Les résultats des Champions 2026 sont dans l'onglet Tournois." : "Les compétitions suivies ne fournissent pas d'horaires.")
       : byComp.size ? [...byComp.values()].map(({ t, ms }) => `<section class="sec"><div class="sec-head"><a class="comp-link" href="${href(t.game, "tournoi", t.id)}">${esc(t.name)}${icon("chevron")}</a></div><div class="mlist">${ms.map(m => matchCard(m, t, { withComp: false, line: true, day: false })).join("")}</div></section>`).join("")
       : empty("Aucun match ce jour", ui.favOnly ? "Aucun match de vos équipes favorites ce jour-là." : "")}`;
@@ -646,7 +664,8 @@ function tOverview(t) {
       ${done.length ? `<section class="sec">${secHead("Derniers résultats", seeAll(href(t.game, "tournoi", t.id, "matchs"), "Tous les matchs"))}<div class="mlist">${done.map(m => matchCard(m, t, { withComp: false })).join("")}</div></section>` : ""}
     </div>
     <div class="t-col">
-      ${standings.length ? `<section class="sec">${secHead(`Classement · ${esc(st.name)}`, seeAll(href(t.game, "tournoi", t.id, "classement"), "Complet"))}${spoilerGate("t-" + t.id, "Classement", standingsTable(t, standings.slice(0, 6)))}</section>` : ""}
+      ${isSwiss(st) ? `${secHead(`Bilans · ${esc(st.name)}`, seeAll(href(t.game, "tournoi", t.id, "classement"), "Complet"))}${swissCard(t, st)}` : ""}
+      ${standings.length && !isSwiss(st) ? `<section class="sec">${secHead(`Classement · ${esc(st.name)}`, seeAll(href(t.game, "tournoi", t.id, "classement"), "Complet"))}${spoilerGate("t-" + t.id, "Classement", standingsTable(t, standings.slice(0, 6)))}</section>` : ""}
       ${meta.length ? `<section class="sec">${secHead("Méta observée", seeAll(href(t.game, "tournoi", t.id, "meta"), "Statistiques"))}${portraitRow(meta.map(c => ({ id: c.champ, stat: pct(c.presence) })), { game: t.game, stat: x => x.stat, label: "Champions les plus joués" })}<p class="fine">Taux de sélection : part des parties où le champion est choisi.</p></section>` : ""}
       ${a?.resume ? `<section class="sec">${secHead("Le point de la rédaction")}${spoilerGate("t-" + t.id, "Résumé du tournoi", `<p class="summary">${esc(a.resume)}</p>
         ${a.faits_marquants?.length || a.equipes_en_forme?.length || a.a_suivre?.length ? `<details class="more"><summary>Faits marquants, forme et enjeux</summary>
@@ -679,7 +698,33 @@ function tMatches_(t) {
     }
     body = [...days].map(([d, list]) => `<section class="sec"><p class="day">${esc(d)}</p><div class="mlist">${list.map(m => matchCard(m, t, { withComp: false })).join("")}</div></section>`).join("") || empty("Aucun match dans cette phase");
   }
-  return `${stages.length > 1 ? seg("t-stage", stages, ui.tStage, "Phase", "wrap") : ""}${body}`;
+  return `${stages.length > 1 ? seg("t-stage", stages, ui.tStage, "Phase", "wrap") : ""}${isSwiss(stage) ? swissCard(t, stage) : ""}${isBracket ? "" : tzPicker()}${body}`;
+}
+
+// --- Système suisse : explication et groupes par bilan
+const isSwiss = s => /suisse|swiss/i.test(s?.name || "");
+function swissCard(t, stage) {
+  const rows = stage.sections.flatMap(x => x.standings || []);
+  const n = rows.length;
+  const bos = [...new Set(stage.sections.flatMap(x => x.matches.map(m => m.bo)).filter(Boolean))].sort();
+  // 16 équipes et 5 rondes au plus : qualifié à 3 victoires, éliminé à 3 défaites (format des Worlds et du MSI)
+  const cut = n === 16 ? 3 : null;
+  const groups = new Map();
+  for (const r of rows) { const k = `${r.w}–${r.l}`; if (!groups.has(k)) groups.set(k, { w: r.w, l: r.l, teams: [] }); groups.get(k).teams.push(r); }
+  const pools = [...groups.values()].sort((a, b) => b.w - a.w || a.l - b.l);
+  const state = g => (cut && g.w >= cut ? "up" : cut && g.l >= cut ? "down" : "");
+  return `<section class="sec swiss">
+    <details class="more"><summary>${icon("info")}Comment marche le système suisse ?</summary>
+      <p>Pas de groupes fixes : à chaque ronde, une équipe affronte une adversaire <b>qui a le même bilan qu'elle</b> (2 victoires contre 2 victoires, 1–1 contre 1–1…). Les adversaires changent à chaque ronde et ne se croisent pas deux fois.</p>
+      ${cut ? `<p>Ici, ${n} équipes : <b>${cut} victoires et c'est la qualification</b> pour la phase finale, <b>${cut} défaites et c'est l'élimination</b>. Personne ne joue plus de 5 matchs.</p>` : `<p>Une équipe avance dès qu'elle atteint le nombre de victoires requis et sort dès qu'elle atteint le nombre de défaites fixé par le règlement du tournoi.</p>`}
+      ${bos.includes(1) && bos.includes(3) && /^(worlds|msi)$/.test(t.leagueSlug) ? `<p>Les matchs qui décident d'une qualification ou d'une élimination se jouent au meilleur des 3 manches (BO3), les autres en une seule manche (BO1) : un faux pas en BO1 ne condamne pas, mais il oblige à gagner les suivants.</p>` : bos.length === 1 ? `<p>Tous les matchs de cette phase se jouent en BO${bos[0]}.</p>` : ""}
+      ${bos.length > 1 && !/^(worlds|msi)$/.test(t.leagueSlug) ? `<p>Selon la ronde, les matchs se jouent en ${bos.map(b => `BO${b}`).join(" ou ")}.</p>` : ""}
+      <p>Pourquoi ce format : chaque équipe joue plusieurs adversaires de son niveau, et un seul mauvais match ne suffit pas à l'éliminer.</p>
+      ${t.leagueSlug === "worlds" ? `<p class="fine">Règlement des Worlds : <a href="https://liquipedia.net/leagueoflegends/World_Championship/${esc(t.name.match(/20\d\d/)?.[0] || "")}" target="_blank" rel="noopener">format détaillé (Liquipedia)</a>.</p>` : ""}
+    </details>
+    ${n && !hidden("t-" + t.id) ? `<div class="pools">${pools.map(g => `<div class="pool ${state(g)}"><p class="pool-head"><b>${g.w}–${g.l}</b>${state(g) === "up" ? "<span>Qualifiées</span>" : state(g) === "down" ? "<span>Éliminées</span>" : ""}</p>
+      <div class="pool-teams">${g.teams.map(r => `<a href="${href(t.game, "tournoi", t.id, "equipes", r.team)}" title="${esc(r.team)}">${logo(r.team, r.image, "sm")}<span>${esc(r.code || r.team)}</span></a>`).join("")}</div></div>`).join("")}</div>` : ""}
+  </section>`;
 }
 
 function standingsTable(t, rows) {
@@ -697,7 +742,7 @@ function tStandings(t) {
 }
 
 function tTeams(t) {
-  return `<div class="teamgrid">${t.teams.map(x => `<a class="teamcell" href="${href(t.game, "tournoi", t.id, "equipes", x.team)}">${logo(x.team, x.image, "lg")}<span class="teamcell-name">${esc(x.team)}</span>${hidden("t-" + t.id) ? "" : `<span class="fine">${x.w}–${x.l}</span>`}${prefs.favTeams.includes(x.team) ? icon("star", "fav-ic corner") : ""}</a>`).join("")}</div>`;
+  return `<div class="teamgrid">${t.teams.map(x => `<a class="teamcell" href="${href(t.game, "tournoi", t.id, "equipes", x.team)}">${logo(x.team, x.image, "lg")}<span class="teamcell-name">${esc(x.team)}</span>${teamInfo(x.team)?.seed?.[t.id]?.short ? `<span class="fine">${esc(teamInfo(x.team).seed[t.id].short)}</span>` : ""}${hidden("t-" + t.id) ? "" : `<span class="fine">${x.w}–${x.l}</span>`}${prefs.favTeams.includes(x.team) ? icon("star", "fav-ic corner") : ""}</a>`).join("")}</div>`;
 }
 
 function tMeta(t) {
@@ -734,7 +779,7 @@ function matchPage(t, mid) {
       <a class="back" href="${href(t.game, "tournoi", t.id, "matchs")}">${icon("left")}${esc(t.name)}</a>
     </header>
     <section class="scoreboard" aria-label="Score">
-      <p class="sb-meta">${esc(m.block || "")}${m.bo ? ` · Bo${m.bo}` : ""} · ${esc(MATCH_STATE[m.state] || "")}${m.start ? ` · ${fmtDayTime(m.start)}` : ""}</p>
+      <p class="sb-meta">${esc(m.block || "")}${m.bo ? ` · Bo${m.bo}` : ""} · ${esc(MATCH_STATE[m.state] || "")}${m.start ? ` · ${fmtDayTime(m.start)} (heure de ${esc(tzLabel(m.start))})` : ""}</p>
       <div class="sb-row">
         ${side(a)}
         <div class="sb-center">${m.state === "inProgress" ? `<span class="mc-live">En cours</span>` : done ? (hide ? `<button class="btn ghost sm" data-action="reveal" data-id="${esc(m.id)}">${icon("eye")}Afficher le score</button>` : `<span class="sb-score"><b class="${a.outcome === "win" ? "w" : ""}">${a.score ?? "V"}</b><i>–</i><b class="${b.outcome === "win" ? "w" : ""}">${b.score ?? "D"}</b></span>`) : m.start ? `<span class="sb-time">${fmtTime(m.start)}</span>` : ""}</div>
@@ -757,19 +802,94 @@ function matchPage(t, mid) {
         </article>`).join("")}</div></section>` : ""}`) : ""}`;
 }
 
-// --- Page d'une équipe dans un tournoi
+// --- Fiche d'une équipe : identité, présentation rédigée à partir des faits, palmarès, draft
+const COUNTRY = (() => { try { return new Intl.DisplayNames(["fr"], { type: "region" }); } catch { return null; } })();
+const MONTH = d => new Date(d + "T12:00:00Z").toLocaleDateString("fr-FR", { month: "long", year: "numeric", timeZone: "UTC" });
+const ordFr = n => (n === 1 ? "1re" : `${n}e`);
+const listFr = a => (a.length < 2 ? a.join("") : `${a.slice(0, -1).join(", ")} et ${a.at(-1)}`);
+const placeFr = p => (p === 1 ? "vainqueur" : p === 2 ? "finaliste" : `${ordFr(p)} place`);
+// « en France », « au Brésil », « aux États-Unis », « à Taïwan »
+const inCountry = c => (/^(Brésil|Viêt Nam|Vietnam|Japon|Canada|Mexique|Chili|Pérou|Danemark|Portugal|Royaume-Uni|Luxembourg|Maroc)$/.test(c) ? `au ${c}` : /^(États-Unis|Pays-Bas|Émirats arabes unis)$/.test(c) ? `aux ${c}` : /^(Taïwan|Singapour|Hong Kong|Macao)$/.test(c) ? `à ${c}` : `en ${c}`);
+const teamInfo = name => AUTO?.teams?.[name] || null;
+
+// Champions et côtés joués par l'équipe dans ce tournoi (picks officiels de chaque partie)
+function teamDraft(t, x) {
+  const champs = new Map(), sides = { blue: { n: 0, w: 0 }, red: { n: 0, w: 0 } };
+  let n = 0;
+  for (const m of tMatches(t)) {
+    const me = m.teams.find(y => y.name === x.team);
+    if (!me || !m.games?.length) continue;
+    for (const g of m.games) {
+      const side = g.blue?.teamId === me.id ? "blue" : g.red?.teamId === me.id ? "red" : null;
+      if (!side) continue;
+      const won = m.verified !== false && g.winnerTeamId ? g.winnerTeamId === me.id : null;
+      n++; sides[side].n++; if (won) sides[side].w++;
+      for (const p of g[side].picks) { const c = champs.get(p.champ) || { champ: p.champ, role: p.role, n: 0, w: 0 }; c.n++; if (won) c.w++; champs.set(p.champ, c); }
+    }
+  }
+  return { n, sides, champs: [...champs.values()].sort((a, b) => b.n - a.n || b.w - a.w) };
+}
+
+// Présentation courte : uniquement des faits sourcés (API officielle, Liquipedia), reformulés
+function teamBrief(t, x, info, draft) {
+  const out = [];
+  const lq = info?.lq;
+  const country = lq?.country && COUNTRY ? COUNTRY.of(lq.country) : null;
+  const year = lq?.created?.slice(0, 4);
+  if (country || year || info?.league) out.push(`Équipe${country ? ` basée ${inCountry(country)}` : ""}${year ? `, fondée en ${year}` : ""}${info?.league ? `, qui dispute la ${info.league}` : ""}.`);
+  const seed = info?.seed?.[t.id]?.label;
+  if (seed) out.push(`Qualifiée pour ${t.name} : ${seed.charAt(0).toLowerCase() + seed.slice(1)}.`);
+  const W = info?.intl?.worlds, M = info?.intl?.msi;
+  if (W?.titles.length) out.push(`${W.titles.length > 1 ? `${W.titles.length} fois championne du monde` : "Championne du monde"} (${listFr(W.titles.map(String))}).`);
+  else if (W?.finals.length) out.push(`Finaliste des Worlds en ${listFr(W.finals.map(String))}, sans titre mondial.`);
+  else if (W?.apps) out.push(`${W.apps} participation${W.apps > 1 ? "s" : ""} aux Worlds jusqu'en ${W.upTo}, sans finale.`);
+  if (M?.titles.length) out.push(`Vainqueur du MSI en ${listFr(M.titles.map(String))}.`);
+  const res = (lq?.results || []).filter(r => r.place <= 2);
+  const lastTitle = res.find(r => r.place === 1);
+  const recent = res.filter(r => (Date.now() - new Date(r.date)) / 864e5 < 365);
+  if (recent.length) out.push(`Sur les douze derniers mois : ${listFr(recent.slice(0, 3).map(r => `${r.event} (${placeFr(r.place)}, ${MONTH(r.date)})`))}.`);
+  else if (lastTitle) out.push(`Dernier titre : ${lastTitle.event} (${MONTH(lastTitle.date)}).`);
+  if (!hidden("t-" + t.id) && (x.w || x.l)) {
+    const top = draft.champs.slice(0, 3).map(c => entity(t.game, c.champ).name);
+    out.push(`Dans ce tournoi : ${x.w} victoire${x.w > 1 ? "s" : ""} pour ${x.l} défaite${x.l > 1 ? "s" : ""}${top.length && draft.n >= 3 ? ` ; champions les plus choisis : ${listFr(top)}` : ""}.`);
+  }
+  return out;
+}
+
 function teamPage(t, teamName) {
   const x = t.teams?.find(y => y.team === teamName);
   if (!x) return empty("Équipe introuvable", "", `<a class="btn" href="${href(t.game, "tournoi", t.id, "equipes")}">Équipes du tournoi</a>`);
   const ms = tMatches(t).filter(m => m.teams.some(y => y.name === x.team)).sort((a, b) => (b.start || "").localeCompare(a.start || ""));
   const players = (t.stats?.players || []).filter(p => p.team === x.team).sort((a, b) => LOL_ROLES.findIndex(r => r[0] === a.role) - LOL_ROLES.findIndex(r => r[0] === b.role));
   const fav = prefs.favTeams.includes(x.team);
+  const info = teamInfo(x.team), lq = info?.lq, seed = info?.seed?.[t.id];
+  const draft = teamDraft(t, x);
+  const brief = teamBrief(t, x, info, draft);
+  const spoil = hidden("t-" + t.id);
+  const W = info?.intl?.worlds, M = info?.intl?.msi;
+  const podiums = (lq?.results || []).filter(r => r.place <= 3);
+  const roster = (info?.players || []).sort((a, b) => LOL_ROLES.findIndex(r => r[0] === a.role) - LOL_ROLES.findIndex(r => r[0] === b.role));
+  const winTxt = (w, n) => (spoil || !n ? "" : ` · ${w} V – ${n - w} D`);
   return `<header class="t-head">
       <a class="back" href="${href(t.game, "tournoi", t.id, "equipes")}">${icon("left")}${esc(t.name)}</a>
       <div class="t-id">${logo(x.team, x.image, "xl")}<div class="t-id-txt"><h1 class="page-title" tabindex="-1">${esc(x.team)}</h1>
-        <p class="t-meta">${hidden("t-" + t.id) ? "Bilan masqué" : `<b>${x.w}–${x.l}</b><span>en séries</span>${x.gw != null ? `<span>· ${x.gw}–${x.gl} en parties</span>` : ""}`}</p></div>
+        <p class="t-meta">${x.code ? `<span class="chip soft">${esc(x.code)}</span>` : ""}${info?.league ? `<span>${esc(info.league)}</span>` : ""}${seed ? `<span class="chip">${esc(seed.label)}</span>` : ""}</p>
+        <p class="t-meta">${spoil ? "Bilan masqué" : `<b>${x.w}–${x.l}</b><span>en séries</span>${x.gw != null ? `<span>· ${x.gw}–${x.gl} en parties</span>` : ""}`}</p></div>
         <button class="icon-btn ${fav ? "on" : ""}" data-action="fav-team" data-id="${esc(x.team)}" aria-pressed="${fav}" aria-label="${fav ? "Retirer des équipes favorites" : "Ajouter aux équipes favorites"}">${icon("star")}</button></div>
     </header>
+    ${brief.length ? `<section class="sec">${secHead("Présentation")}<p class="summary">${brief.map(esc).join(" ")}</p></section>` : ""}
+    ${W || M || podiums.length ? `<section class="sec">${secHead("Palmarès")}
+      ${W || M?.titles.length ? `<dl class="kpis">${W ? `<div><dt>Titres mondiaux</dt><dd>${W.titles.length}</dd></div><div><dt>Worlds disputés</dt><dd>${W.apps}<small> jusqu'en ${W.upTo}</small></dd></div>` : ""}${M?.titles.length ? `<div><dt>Titres au MSI</dt><dd>${M.titles.length}</dd></div>` : ""}</dl>` : ""}
+      ${podiums.length ? `<ul class="palmares">${podiums.slice(0, 8).map(r => `<li><span class="pl pl-${r.place}">${r.place === 1 ? icon("trophy") : ordFr(r.place)}</span><span><b>${esc(r.event)}</b><small>${esc(MONTH(r.date))}${r.vs ? ` · ${r.place <= 2 ? "finale" : "dernier match"} contre ${esc(r.vs)}${r.score ? ` (${esc(r.score.replace(/\s/g, ""))})` : ""}` : ""}</small></span></li>`).join("")}</ul>
+        ${podiums.length > 8 ? `<details class="more"><summary>${podiums.length - 8} autres podiums</summary><ul class="palmares">${podiums.slice(8).map(r => `<li><span class="pl pl-${r.place}">${r.place === 1 ? icon("trophy") : ordFr(r.place)}</span><span><b>${esc(r.event)}</b><small>${esc(MONTH(r.date))}</small></span></li>`).join("")}</ul></details>` : ""}` : ""}
+      <p class="fine">Podiums des tournois majeurs (rangs S et A). Source : <a href="${esc(lq?.url || W?.url || "https://liquipedia.net/leagueoflegends")}" target="_blank" rel="noopener">Liquipedia</a> (CC BY-SA)${lq?.at ? `, relu le ${fmtDay(lq.at)}` : ""}.</p>
+    </section>` : ""}
+    ${draft.n ? `<section class="sec">${secHead("Draft dans ce tournoi")}
+      <p class="fine">${draft.n} partie${draft.n > 1 ? "s" : ""} · côté bleu ${draft.sides.blue.n}${winTxt(draft.sides.blue.w, draft.sides.blue.n)} · côté rouge ${draft.sides.red.n}${winTxt(draft.sides.red.w, draft.sides.red.n)}</p>
+      <div class="player-picks">${draft.champs.slice(0, 10).map(c => { const ent = entity(t.game, c.champ); return `<a class="pick" href="${sheetHref(t.game, ent.key)}" aria-label="${esc(ent.name)}, ${esc(ROLE_LABEL[c.role] || c.role)}, choisi ${c.n} fois${spoil ? "" : `, ${c.w} victoire${c.w > 1 ? "s" : ""}`}">${portrait(ent, "sm")}<small>×${c.n}${spoil ? "" : ` · ${c.w}V`}</small></a>`; }).join("")}</div>
+      <p class="fine">Champions choisis par l'équipe, du plus fréquent au moins fréquent. Les bannissements ne sont pas fournis par l'API officielle.</p>
+    </section>` : ""}
+    ${!players.length && roster.length ? `<section class="sec">${secHead("Effectif")}<div class="players">${roster.map(p => `<div class="player"><p class="player-head"><b>${esc(p.name)}</b>${seed?.captain && seed.captain.toLowerCase() === p.name.toLowerCase() ? '<span class="chip">Capitaine</span>' : ""}<span class="chip soft">${esc(ROLE_LABEL[p.role] || p.role)}</span></p>${p.first ? `<p class="fine">${esc(`${p.first} ${p.last || ""}`.trim())}</p>` : ""}</div>`).join("")}</div><p class="fine">Effectif déclaré sur LoL Esports (officiel).</p></section>` : ""}
     ${players.length ? `<section class="sec">${secHead("Joueurs et champions joués")}<div class="players">${players.map(p => `<div class="player"><p class="player-head"><b>${esc(p.player)}</b><span class="chip soft">${esc(ROLE_LABEL[p.role] || p.role)}</span></p>
       <div class="player-picks">${Object.entries(p.champs).sort((a, b) => b[1] - a[1]).map(([c, n]) => { const ent = entity(t.game, c); return `<a class="pick" href="${sheetHref(t.game, ent.key)}" aria-label="${esc(ent.name)}, ${n} partie${n > 1 ? "s" : ""}">${portrait(ent, "sm")}<small>×${n}</small></a>`; }).join("")}</div></div>`).join("")}</div></section>` : ""}
     <section class="sec">${secHead("Matchs")}<div class="mlist">${ms.map(m => matchCard(m, t, { withComp: false })).join("")}</div></section>`;
@@ -1239,6 +1359,7 @@ document.addEventListener("change", e => {
   if (a === "comp") { ui.comp = e.target.value; ui.day = null; }
   else if (a === "day-pick") { if (e.target.value) ui.day = e.target.value; }
   else if (a === "t-meta-sort") ui.tMetaSort = e.target.value;
+  else if (a === "tz") { prefs.tz = e.target.value || null; savePrefs(); }
   else return;
   render(false);
 });

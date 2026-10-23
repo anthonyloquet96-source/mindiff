@@ -289,7 +289,28 @@ details.more .label { margin-top: var(--s3); }
 .datebar-mid { display: flex; flex-direction: column; align-items: center; text-align: center; min-width: 0; }
 .datebar-label { font-weight: 800; font-size: var(--fs-md); text-transform: capitalize; letter-spacing: -.01em; }
 .date-pick input { min-height: 38px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--text); font-size: var(--fs-sm); color-scheme: dark; }
-.tz { margin-top: -6px; }
+/* Palmarès d'une équipe */
+.palmares { list-style: none; margin: var(--s3) 0 0; padding: 0; display: grid; gap: var(--s2); }
+.palmares li { display: flex; align-items: center; gap: var(--s3); }
+.palmares li > span:last-child { display: flex; flex-direction: column; }
+.palmares small { color: var(--text-3); font-size: 12px; }
+.pl { flex: none; display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--surface-2); font-size: 12px; font-weight: 800; color: var(--text-2); }
+.pl svg { width: 16px; height: 16px; }
+.pl-1 { background: color-mix(in srgb, var(--warn) 22%, var(--surface)); color: var(--warn); }
+.tz { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); margin-top: -6px; }
+.tz > svg { width: 15px; height: 15px; flex: none; }
+.tz .sel select { min-height: 32px; font-size: var(--fs-sm); }
+/* Système suisse : équipes regroupées par bilan */
+.swiss .more p { color: var(--text-2); }
+.pools { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--s2); margin-top: var(--s3); }
+.pool { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-sm); padding: var(--s2) var(--s3); }
+.pool.up { border-color: color-mix(in srgb, var(--ok) 55%, var(--line)); }
+.pool.down { opacity: .7; }
+.pool-head { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 var(--s2); font-size: var(--fs-sm); }
+.pool-head span { color: var(--text-3); font-size: 12px; }
+.pool.up .pool-head span { color: var(--ok); }
+.pool-teams { display: flex; flex-wrap: wrap; gap: 6px; }
+.pool-teams a { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 700; color: var(--text-2); }
 .comp-link { display: inline-flex; align-items: center; gap: 2px; font-weight: 700; font-size: 14.5px; min-height: 32px; }
 .comp-link .ic { width: 16px; height: 16px; color: var(--text-3); }
 .day { font-size: var(--fs-sm); font-weight: 700; color: var(--text-2); margin: var(--s2) 0 0; text-transform: capitalize; }

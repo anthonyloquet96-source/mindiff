@@ -32,7 +32,8 @@ const STATUS_FR = { exploitable: null, provisoire: ["Provisoire", "warn"], contr
 const ACCESS_FR = { "texte-integral": "Texte lu en entier", "api-json": "Données officielles lues", metadonnees: "Métadonnées seules", transcription: "Transcription analysée", "transcription+visuel": "Transcription et images analysées", inaccessible: "Contenu inaccessible" };
 const accessLabel = c => (c.reader?.kind === "ia" ? `Vidéo lue par IA (parole et images, ${c.reader.fps}/s)` : ACCESS_FR[c.access] || c.access);
 const LANG_FR = { fr: "Français", en: "Anglais", ko: "Coréen" };
-const coachHref = (...p) => href(route.game, "coach", ...p);
+// Ancien coach : son accueil est désormais #/lol/coach/ancien (le nouveau coach a pris #/lol/coach)
+const coachHref = (...p) => href(route.game, "coach", ...(route.game === "lol" && !p.filter(Boolean).length ? ["ancien"] : p));
 // Horodatage d'un passage vidéo (« [07:00] », « 1:02:03 ») → secondes, pour ouvrir la vidéo au bon moment
 function videoStamp(locator) {
   const m = String(locator || "").match(/(?:(\d{1,2}):)?(\d{1,2}):(\d{2})/);
@@ -75,9 +76,12 @@ function coachTabs(cur) {
 }
 
 function viewCoach() {
-  const sub = route.rest[0] || "";
-  // Nouveau coach, en aperçu : #/lol/coach/beta
-  if (route.game === "lol" && sub === "beta" && typeof viewCoach2 === "function") return viewCoach2(route.rest.slice(1));
+  // Nouveau coach : #/lol/coach et ses écrans ; les anciens liens #/lol/coach/beta/… restent valables
+  if (route.game === "lol" && typeof viewCoach2 === "function") {
+    if (route.rest[0] === "beta") return viewCoach2(route.rest.slice(1));
+    if (!route.rest[0] || ["parties", "preparer", "draft", "face", "champions", "bilan", "partie"].includes(route.rest[0])) return viewCoach2(route.rest);
+  }
+  const sub = route.rest[0] === "ancien" ? "" : route.rest[0] || "";
   if (route.game !== "lol") {
     const inner = viewStrats(sub === "strategies" ? route.rest.slice(1) : []);
     return `<header class="page-head"><h1 class="page-title" tabindex="-1">Coach</h1></header>${coachTabs("strategies")}
@@ -253,7 +257,7 @@ function coachHomeCard() {
     return `<a class="cstrip ${fresh ? "hot" : ""}" href="${c2Href()}">${icon("target")}<span class="cstrip-txt"><b>Mon coach</b><span class="fine">${esc(line)}</span></span>${icon("chevron")}</a>`;
   }
   const p = coach.profile;
-  return `<a class="cstrip" href="${href("lol", "coach")}">${icon("target")}<span class="cstrip-txt"><b>Préparer ma session</b><span class="fine">${p ? esc([p.champions[0], CS.label(CS.ROLES, p.role), CS.label(CS.GOALS, p.goal)].filter(Boolean).join(" · ")) : "Un objectif et un plan pour votre prochaine session"}</span></span>${icon("chevron")}</a>`;
+  return `<a class="cstrip" href="${href("lol", "coach")}">${icon("target")}<span class="cstrip-txt"><b>Mon coach</b><span class="fine">Le bilan de tes parties classées, un objectif à la fois</span></span>${icon("chevron")}</a>`;
 }
 // Patch : changements des champions du profil, d'après la lecture des notes officielles
 function coachPatchBlock(patch) {

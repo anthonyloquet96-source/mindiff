@@ -1069,6 +1069,16 @@ button.c2-ready { width: 100%; text-align: left; font: inherit; color: inherit; 
 .c2-enter .c2-lb-t i { animation: c2-grow .7s .25s var(--ease) both; }
 @keyframes c2-grow { from { width: 0; } }
 
+/* Aperçu du coach en ligne (sans clé Riot de production) */
+.c2-show { gap: 14px; }
+.c2-show .label { color: var(--accent-text); }
+.c2-show-title { margin: 0; font-size: var(--fs-lg); font-weight: 700; letter-spacing: -.015em; line-height: 1.25; }
+.c2-show figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.c2-show img { width: 100%; height: auto; border-radius: 14px; background: #1c1c1e; }
+.c2-show figcaption { font-size: var(--fs-sm); color: var(--text-3); }
+.c2-show-list { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: var(--text-2); }
+.c2-show-list b { color: var(--text); }
+
 /* ---------- Replay de la partie ---------- */
 .c2-replay { gap: 12px; }
 .c2-map { border-radius: 16px; }

@@ -1,4 +1,4 @@
-/* MINDIFF — nouveau coach (aperçu) : #/lol/coach/beta
+/* MINDIFF — nouveau coach (aperçu) : #/lol/coach (ancien coach : #/lol/coach/ancien)
    1. Mon coach : compte Riot → rang, dernières parties, un objectif suivi de partie en partie
    2. Bilan d'une partie : faits officiels de Riot (morts, backs, objectifs, écarts), comparés au Diamant+
    3. Face-à-face : mon champion contre le sien, conseils sourcés
@@ -15,7 +15,7 @@ const c2Save = () => { try { localStorage.setItem(C2_KEY, JSON.stringify({ ...C2
 const c2ui = { loading: null, error: null, q: "", live: null, liveAt: 0, liveBusy: false, champ: {} };
 // Service : le serveur local sert l'API ; en ligne, l'adresse du service est fixée par window.MINDIFF_API
 const C2_API = window.MINDIFF_API ?? (/^(localhost|127\.|192\.168\.|10\.)/.test(location.hostname) ? "" : null);
-const c2Href = (...p) => href("lol", "coach", "beta", ...p);
+const c2Href = (...p) => href("lol", "coach", ...p);
 
 const C2_REGIONS = [["euw1", "EUW"], ["eun1", "EUNE"], ["na1", "NA"], ["kr", "KR"], ["br1", "BR"], ["la1", "LAN"], ["la2", "LAS"], ["tr1", "TR"], ["jp1", "JP"], ["oc1", "OCE"], ["me1", "ME"], ["ru", "RU"]];
 const C2_ROLE = { top: "Top", jungle: "Jungle", mid: "Mid", bottom: "ADC", support: "Support" };
@@ -257,7 +257,7 @@ function viewCoach2(rest = []) {
   c2ui.lastTab = ti;
   const nav = `<nav class="tabs c2-tabs" aria-label="Coach">${tabs.map(([k, l, ic, to]) => `<a class="tab" href="${to}" ${k === tab ? 'aria-current="page"' : ""}>${icon(ic)}${l}</a>`).join("")}</nav>`;
   const body = tab === "parties" ? c2GamesTab() : tab === "preparer" ? c2Prepare() : tab === "champions" ? c2Champions() : c2Home();
-  return `<header class="c2-head"><h1 class="page-title" tabindex="-1">Coach</h1><span class="chip soft">Aperçu</span></header>${nav}${screen(body)}<p class="fine c2-foot"><a href="confidentialite.html" style="text-decoration: underline">Confidentialité et conditions</a> · ${RIOT_LEGAL}</p>`;
+  return `<header class="c2-head"><h1 class="page-title" tabindex="-1">Coach</h1></header>${nav}${screen(body)}<p class="fine c2-foot"><a href="${href("lol", "coach", "ancien")}" style="text-decoration: underline">Ancien coach</a> · <a href="confidentialite.html" style="text-decoration: underline">Confidentialité et conditions</a> · ${RIOT_LEGAL}</p>`;
 }
 
 // Onglet « Parties » : toutes les parties lues, filtre par rôle
@@ -280,7 +280,7 @@ function c2Prepare() {
 // Compte connecté et profil chargé, sinon l'écran adapté (connexion, chargement, erreur)
 function c2NeedProfile() {
   if (!C2.account) return c2Connect();
-  if (C2_API == null) return `<p class="note">${icon("info")}<span>La lecture des parties arrive bientôt sur la version en ligne : elle attend la clé Riot de production.</span></p>`;
+  if (C2_API == null) return c2Showcase();
   setTimeout(() => c2LoadProfile(), 0);
   const p = C2.profile;
   if (!p && c2ui.error && !c2ui.loading) return c2Connect();
@@ -301,6 +301,19 @@ function c2Home() {
     <p class="fine c2-foot">Données officielles de Riot Games${p.benchmark ? ` · référence : ${p.benchmark.games} parties ${esc(p.benchmark.level)} (patch ${esc(p.benchmark.patch)})` : ""}</p>`;
 }
 
+// Version en ligne sans clé Riot de production : ce que fera le coach, montré sur une vraie partie (captures de la version de test)
+function c2Showcase() {
+  return `<section class="c2-card c2-show">
+    <p class="label">Bientôt disponible</p>
+    <h2 class="c2-show-title">La lecture de tes parties arrive dès la validation de la clé Riot</h2>
+    <p class="fine">Le coach est prêt et testé. Il attend l'accord de Riot Games pour lire les parties de tout le monde. Voici ce qu'il te montrera, sur une vraie partie.</p>
+    <figure><img src="coach-apercu-bilan.png" alt="Bilan d'une partie : Yone contre Viktor, victoire, 7/2/4, 258 sbires, et l'écart avec l'adversaire en phase de lane (+41 golds à 10 minutes, +677 à 15 minutes)" loading="lazy" width="358" height="338"><figcaption>Chaque partie résumée : tes chiffres et ta phase de lane face à ton adversaire.</figcaption></figure>
+    <figure><img src="coach-apercu-replay.png" alt="Replay de la partie sur la minimap, arrêté sur un moment clé avec ce qui aurait été mieux" loading="lazy"><figcaption>Le replay sur la minimap s'arrête sur tes erreurs et explique ce qui aurait été mieux.</figcaption></figure>
+    <ul class="c2-show-list"><li><b>Ta priorité</b> : l'erreur qui te coûte le plus de parties, avec quoi faire.</li><li><b>Je suis en partie</b> : ton face-à-face, des conseils contre ton adversaire et ton build adapté à son équipe.</li><li><b>Comparé aux meilleurs</b> : tout est mesuré face aux joueurs Diamant et plus de ton poste.</li></ul>
+    <p class="fine">Déjà disponibles : le face-à-face et les fiches champions, dans les onglets Préparer et Champions.</p>
+  </section>`;
+}
+
 function c2Connect(switching = false) {
   const off = C2_API == null;
   const recent = (C2.recent || []).filter(r => r.riotId.toLowerCase() !== (C2.profile?.riotId || "").toLowerCase());
@@ -310,7 +323,7 @@ function c2Connect(switching = false) {
   return `<section class="c2-hero ${switching ? "compact" : ""}">
     <p class="label">${switching ? "Changer de Riot ID" : "Ton coach personnel"}</p>
     ${intro}${chips}
-    ${off ? `<p class="note">${icon("info")}<span>Bientôt disponible en ligne : la connexion des comptes attend la validation de la clé Riot de production. Le face-à-face et les fiches champions fonctionnent déjà.</span></p>` : `<form id="c2-connect" class="c2-form" novalidate>
+    ${off ? c2Showcase() : `<form id="c2-connect" class="c2-form" novalidate>
       <label class="field"><span>Riot ID</span><input name="riotid" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Pseudo#TAG" value="${switching ? "" : esc(C2.account?.riotId || "")}" required></label>
       <label class="field c2-region"><span>Région</span><select name="platform">${C2_REGIONS.map(([v, l]) => `<option value="${v}" ${v === (C2.account?.platform || "euw1") ? "selected" : ""}>${l}</option>`).join("")}</select></label>
       <button class="btn primary" type="submit">${switching ? "Voir ce compte" : "Analyser mes parties"}</button>

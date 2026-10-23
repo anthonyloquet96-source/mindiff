@@ -34,7 +34,7 @@ const TYPES = {
   ".json": "application/json; charset=utf-8", ".svg": "image/svg+xml", ".png": "image/png", ".webmanifest": "application/manifest+json",
 };
 // Seuls ces fichiers sont servis : jamais le collecteur, le cache, node_modules ou .env.
-const PUBLIC = [/^(index|admin|confidentialite)\.html$/, /^(app|coach|coach-select|coach2|admin)\.js$/, /^style\.css$/, /^manifest\.webmanifest$/, /^(icon|logo)\.svg$/, /^(icon-\d+|icon-maskable-512|apple-touch-icon)\.png$/, /^data\/[\w-]+\.(js|json)$/];
+const PUBLIC = [/^(index|admin|confidentialite)\.html$/, /^(app|coach|coach-select|coach2|admin)\.js$/, /^style\.css$/, /^manifest\.webmanifest$/, /^(icon|logo)\.svg$/, /^(icon-\d+|icon-maskable-512|apple-touch-icon|coach-apercu-[a-z]+)\.png$/, /^data\/[\w-]+\.(js|json)$/];
 
 let latest = null;
 let running = false;

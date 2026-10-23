@@ -112,7 +112,7 @@ await t("Bilan de partie (données Riot) : faits exacts, comparaison Diamant+", 
   const fetchImpl = async url => ({ json: async () => (url.includes("versions") ? ["16.21.1"] : { data: { 1001: { name: "Bottes", gold: { total: 300 }, into: ["3006"], tags: ["Boots"] }, 2055: { name: "Balise de contrôle", gold: { total: 75 }, tags: [] } } }) });
   const bench = { patch: "16.20", games: 100, roles: { mid: { cs10: { n: 200, p25: 70, p50: 79, p75: 85 }, deaths30: { n: 200, p25: 4.5, p50: 5.6, p75: 7 }, visionMin: { n: 200, p25: 0.6, p50: 0.73, p75: 0.9 } } } };
   const r = await review(riot, { matchId: "EUW1_1", puuid: parts[0].puuid, region: "europe", benchmarks: bench, fetchImpl });
-  assert(r.deaths.length === 1 && r.deaths[0].killer === "C3" && r.deaths[0].beforeObjective === "Dragon adverse à 12:40", JSON.stringify(r.deaths));
+  assert(r.deaths.length === 1 && r.deaths[0].killer === "C3" && r.deaths[0].beforeObjective === "Dragon pris par l'adversaire à 12:40", JSON.stringify(r.deaths));
   assert(r.bases.length === 3 && r.bases[1].afterDeath && !r.bases[0].afterDeath && r.bases[0].items.join() === "Bottes,Balise de contrôle", JSON.stringify(r.bases));
   assert(r.lane.opponent === "C2" && r.lane.at10.gold === -200 && r.lane.at10.cs === -10, JSON.stringify(r.lane));
   assert(r.findings.length === 3 && r.findings[0].kind === "mort-avant-objectif" && r.findings.some(f => f.kind === "ecart-cs10"), r.findings.map(f => f.kind).join());

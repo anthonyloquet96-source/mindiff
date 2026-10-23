@@ -118,8 +118,9 @@ export function tactics(match, timeline, puuid) {
     if (o.allies === 0) continue;
     // « Absent d'un objectif perdu » retiré au banc d'essai du 21/10 : sans effet au-delà de l'état de la partie (coût médian nul)
     // Disputé en infériorité (combat autour, avec des pertes) ; céder un objectif sans combat n'est pas une erreur
-    if (o.allies < o.enemies && fightView.some(f => Math.abs(f.t - o.t) < 45000 && dist(f, o) < R_OBJ && f.alliesDead > 0)) lessons.push({ kind: "objectif-inferiorite", t: o.t, at: o.at, title: `${o.kind} adverse à ${o.at} : disputé à ${o.allies} contre ${o.enemies}, avec un combat perdu autour`,
-      better: o.absent.some(x => x.dead) ? "Un allié était mort : sans lui, il valait mieux céder l'objectif et prendre une tourelle ou une wave de l'autre côté de la carte." : "En infériorité numérique, cède l'objectif et prends plutôt une tourelle ou une wave de l'autre côté de la carte.",
+    const lostFight = fightView.find(f => Math.abs(f.t - o.t) < 45000 && dist(f, o) < R_OBJ && f.alliesDead > 0);
+    if (o.allies < o.enemies && lostFight) lessons.push({ kind: "objectif-inferiorite", t: o.t, at: o.at, title: `${o.kind} pris par l'adversaire à ${o.at} : disputé à ${o.allies} contre ${o.enemies}, après un combat perdu à ${lostFight.at}`,
+      better: o.absent.some(x => x.me) ? "Tu étais loin : environ une minute avant l'objectif, rejoins ton équipe, ou signale-lui de le laisser et de prendre autre chose." : o.absent.some(x => x.dead) ? "Un allié était mort : sans lui, il valait mieux céder l'objectif et prendre une tourelle ou une wave de l'autre côté de la carte." : "En infériorité numérique, cède l'objectif et prends plutôt une tourelle ou une wave de l'autre côté de la carte.",
       facts: o.absent.length ? [`Absents : ${absents(o.absent)}.`] : [] });
   }
   for (const d of deaths) {
@@ -130,7 +131,7 @@ export function tactics(match, timeline, puuid) {
         : d.enemyHalf ? "Évite d'avancer seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : reste à portée de ton équipe ou replie-toi." : "Aucun allié n'était proche : replie-toi vers ton équipe avant que plusieurs adversaires arrivent.",
       facts: [`Tes adversaires : ${d.attackers.join(", ")}.`, "Aucun allié n'était tout près de toi.", ...lowHp] });
   }
-  for (const f of fightView.filter(f => f.won === false && !f.me && !deadAt(f.t) && !diedBefore(f.t, 60000) && f.allies >= 2 && f.allies < f.enemies && f.myDist < 6000)) lessons.push({ kind: "combat-sans-toi", t: f.t, at: f.at, title: `Combat perdu à ${f.at} (${f.zone}) sans toi, alors que tu étais ${far(f.myDist)}`,
+  for (const f of fightView.filter(f => f.won === false && !f.me && !deadAt(f.t) && !diedBefore(f.t, 60000) && f.allies >= 2 && f.allies < f.enemies && f.myDist < 6000)) lessons.push({ kind: "combat-sans-toi", t: f.t, at: f.at, title: `Combat perdu à ${f.at} (${f.zone}) sans toi ; à ta dernière position connue, tu étais ${far(f.myDist)}`,
     better: "Quand ton équipe se bat près de toi, rejoins-la : un joueur de plus change le rapport de force. Sinon, signale-lui de ne pas engager.", facts: [`${f.allies} de ton équipe contre ${f.enemies} : ${f.alliesDead} perte${f.alliesDead > 1 ? "s" : ""} de ton côté, ${f.enemiesDead ? `${f.enemiesDead} en face` : "aucune en face"}.`] });
   lessons.sort((a, b) => a.t - b.t);
 

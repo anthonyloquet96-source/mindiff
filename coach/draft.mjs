@@ -39,15 +39,15 @@ export function compProfile(mu, ids) {
   const sc = ps.map(scaling).filter(x => x != null);
   const late = sc.length >= 3 ? Math.round((sc.reduce((a, b) => a + b, 0) / sc.length) * 10) / 10 : null;
   const notes = [];
-  if (dmg[0] >= 65) notes.push({ kind: "ad", text: `Dégâts surtout physiques (${dmg[0]} %) : l'adversaire peut se protéger avec de l'armure.` });
+  if (dmg[0] >= 60) notes.push({ kind: "ad", text: `Dégâts surtout physiques (${dmg[0]} %) : l'adversaire peut se protéger avec de l'armure.` });
   else if (dmg[1] >= 55) notes.push({ kind: "ap", text: `Dégâts surtout magiques (${dmg[1]} %) : l'adversaire peut se protéger avec de la résistance magique.` });
   else notes.push({ kind: "mix", text: `Dégâts mixtes (${dmg[0]} % physiques, ${dmg[1]} % magiques) : difficile à contrer avec un seul type de défense.` });
-  if (cc >= 1.25) notes.push({ kind: "cc+", text: `Beaucoup de contrôles : ${Math.round(cc * 100 - 100)} % de plus qu'une équipe moyenne.` });
+  if (cc >= 1.25) notes.push({ kind: "cc+", text: cc >= 1.8 ? `Beaucoup de contrôles (étourdissements, ralentissements…) : environ ${Math.round(cc * 10) / 10 === 2 ? "deux" : String(Math.round(cc * 10) / 10).replace(".", ",")} fois plus qu'une équipe moyenne.` : `Beaucoup de contrôles (étourdissements, ralentissements…) : ${Math.round(cc * 100 - 100)} % de plus qu'une équipe moyenne.` });
   else if (cc <= 0.75) notes.push({ kind: "cc-", text: `Peu de contrôles : ${Math.round(100 - cc * 100)} % de moins qu'une équipe moyenne.` });
   if (tank >= 1.2) notes.push({ kind: "tank+", text: `Équipe qui encaisse beaucoup (+${Math.round(tank * 100 - 100)} % par rapport à la moyenne).` });
   else if (tank <= 0.85) notes.push({ kind: "tank-", text: `Équipe fragile : ${Math.round(100 - tank * 100)} % d'encaissement en moins que la moyenne.` });
-  if (late != null && late >= 4) notes.push({ kind: "late", text: `Plus forte en fin de partie : ses champions gagnent en moyenne ${late} points de plus au-delà de 32 min qu'avant 25 min.` });
-  else if (late != null && late <= -4) notes.push({ kind: "early", text: `Plus forte en début de partie : ses champions perdent en moyenne ${-late} points au-delà de 32 min par rapport aux parties de moins de 25 min.` });
+  if (late != null && late >= 4) notes.push({ kind: "late", text: `Plus forte en fin de partie : elle gagne environ ${Math.round(late)} parties sur 100 de plus quand la partie dépasse 32 min.` });
+  else if (late != null && late <= -4) notes.push({ kind: "early", text: `Plus forte en début de partie : elle gagne environ ${Math.round(-late)} parties sur 100 de moins quand la partie dépasse 32 min. Joue la sécurité avant 20 min.` });
   return { known: ps.length, enough: true, dmg, cc: Math.round(cc * 100) / 100, tank: Math.round(tank * 100) / 100, late, notes };
 }
 

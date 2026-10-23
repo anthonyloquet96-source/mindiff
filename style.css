@@ -149,7 +149,9 @@ img { max-width: 100%; display: block; }
 .icon-btn.on .ic { fill: currentColor; fill-opacity: .2; }
 .icon-btn[aria-current="page"] { color: var(--text); background: var(--surface-2); }
 @media (max-width: 400px) { .brand-name { font-size: 14px; } .top-inner { gap: 6px; } .gs-btn { padding: 0 9px; } .top-actions .icon-btn { width: 36px; } }
-@media (max-width: 385px) { .brand-name { display: none; } }
+/* Sur téléphone, le logo M seul : le mot MINDIFF (plus large en SF Pro qu'en Inter) poussait le bouton de thème hors de l'écran */
+@media (max-width: 480px) { .brand-name { display: none; } .top-inner { gap: 10px; } .top-actions { margin-left: auto; flex: none; } }
+@media (max-width: 340px) { .top-inner { gap: 6px; } .gs-btn { padding: 0 8px; } .top-actions .icon-btn { width: 34px; } }
 
 /* Navigation principale */
 .nav-top { display: none; }

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-24T06:50:12.699Z",
+ "generatedAt": "2026-10-24T13:18:09.468Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -1955,15 +1955,28 @@
     "official": 3,
     "coaching": 0,
     "officialOnly": true
+   },
+   "Briar": {
+    "role": null,
+    "units": 4,
+    "themes": [
+     "champion",
+     "survie",
+     "methode"
+    ],
+    "actions": 2,
+    "official": 4,
+    "coaching": 0,
+    "officialOnly": true
    }
   },
   "themes": {
    "lane": 10,
-   "survie": 5,
+   "survie": 6,
    "teamfight": 2,
    "synergie": 1,
    "matchup": 4,
-   "methode": 2,
+   "methode": 3,
    "vagues": 0,
    "vision": 0,
    "macro": 0,
@@ -12437,8 +12450,17 @@
     "basis": "page officielle de Riot sur Aurora, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2024-06-20 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Écarté : contenu jugé de faible qualité (Article de conception (Champion Insights) centré sur la narration, la direction artistique et l'historique du développement d'Aurora, sans données tactiques, chiffrées ou méthodologiques exploitables pour le coaching.).",
+   "analyzedAt": "2026-10-24",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "quality": {
+    "level": "faible",
+    "why": "Article de conception (Champion Insights) centré sur la narration, la direction artistique et l'historique du développement d'Aurora, sans données tactiques, chiffrées ou méthodologiques exploitables pour le coaching."
+   },
+   "learn": null,
+   "rejectedForQuality": true
   },
   {
    "id": "c-yt-L8Za9xjMg84",
@@ -12547,8 +12569,18 @@
     "basis": "page officielle de Riot sur Briar, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2023-08-30 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Article officiel du 2023-08-30 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "analyzedAt": "2026-10-24",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Briar n'a aucune régénération passive de PV et se soigne en frappant, tandis que son kit repose sur des états de frénésie (Z et R) qu'il faut savoir gérer prudemment ou annuler (avec le E) pour éviter de mourir en overextend.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Article de conception officiel (Champion Insights) fournissant les règles fondamentales du kit de Briar par son designer principal (August), mais sans chiffres précis ni contexte compétitif/ranked particulier."
+   }
   },
   {
    "id": "c-riot-dev-the-latest-on-fiddlesticks-vgu",
@@ -13243,7 +13275,7 @@
    "lang": "en",
    "published": "2025-06-24",
    "retrievedAt": "2026-10-21",
-   "patch": null,
+   "patch": "aucun",
    "champions": [
     "Yunara"
    ],
@@ -13256,9 +13288,37 @@
     "patchMentioned": null,
     "basis": "page officielle de Riot sur Yunara, champion sans conseils officiels dans Data Dragon"
    },
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Vidéo officielle de Riot : à lire par Gemini."
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "note": "Lue par gemini-3.8-flash : transcription et 20 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "sha256": "d07ebb1aff099c65d366dc4e7bc09ac61de09227a5c5aa9853d3ec496d8931ba",
+    "segments": 37,
+    "observations": 20,
+    "duration": "03:10",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 21883
+   },
+   "analyzedAt": "2026-10-24",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 2,
+   "alertes": [
+    {
+     "code": "traduction",
+     "detail": "Les noms des compétences de Yunara (Vow to the First Lands, Cultivation of Spirit, Arc of Judgement, Kanmei's Steps, Transcend One's Self, Arc of Ruin, Untouchable Shadow) sont indiqués en anglais dans la vidéo originale et n'ont pas d'équivalent officiel fr_FR fourni."
+    }
+   ],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "Présentation officielle de Riot Games (Champion Spotlight) décrivant de manière claire et directe le fonctionnement des compétences et le kit mécanique du champion."
+   }
   },
   {
    "id": "c-riot-dev-launching-yuumi-s-rework",
@@ -13385,7 +13445,7 @@
     "basis": "page officielle de Riot sur Zaahen, champion sans conseils officiels dans Data Dragon"
    },
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 19 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "videoAttempts": 0,
    "reader": {
@@ -13400,6 +13460,25 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 21521
+   },
+   "analyzedAt": "2026-10-24",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 3,
+   "alertes": [
+    {
+     "code": "traduction",
+     "detail": "Les noms de compétences sont en version anglaise originale (Cultivation of War, The Darkin Glaive, Dreaded Return, Aureate Rush, Grim Deliverance) car les traductions officielles fr_FR ne sont pas fournies dans le texte."
+    },
+    {
+     "code": "acces-partiel",
+     "detail": "Contenu analysé via une transcription et un échantillonnage visuel IA à 1 image par seconde ; les détails fins d'animation et de timings précis restent provisoires."
+    }
+   ],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "Présentation officielle de kit par Riot Games décrivant clairement chaque compétence et ses mécaniques de jeu, mais sans valeurs numériques précises (ratios, délais) ni mention du numéro de patch."
    }
   },
   {
@@ -17205,7 +17284,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 24
   },
   {
    "id": "c-yt-IgPYxU_VUkU",
@@ -19921,12 +20001,12 @@
    "published": null,
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 14,
-   "note": "File de lecture (rang 14) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 39 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -19936,6 +20016,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "sha256": "ce9f6aea064c73794d59092f4caf00cd4fd86a186d0c0ecdc1df1190ffffd30e",
+    "segments": 32,
+    "observations": 39,
+    "duration": "20:06",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 115211
    }
   },
   {
@@ -19948,13 +20041,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-10-23",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "9.19",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 15,
-   "note": "File de lecture (rang 15) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 21 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [
@@ -19964,6 +20057,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "sha256": "cb2d01741553efb12025050d60d931ba026f20e0bf6c534a459c9ca12d25226f",
+    "segments": 49,
+    "observations": 21,
+    "duration": "14:31",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 85530
    }
   },
   {
@@ -20236,6 +20342,34 @@
      "mid",
      "guide",
      "matchup"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-035a4GhaLOE",
+   "sourceId": "yt-scrubnoob",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=035a4GhaLOE",
+   "title": "RENGAR CLEAR GUIDE 2026 [EDUCATIONAL]",
+   "author": "ScrubNoob",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-24",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 25,
+   "note": "File de lecture (rang 25) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 13,
+    "matched": [
+     "guide",
+     "clear"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -53017,6 +53151,229 @@
     {
      "code": "lecture-ia",
      "why": "c-yt-ynG4T9yLKFs : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([02:56])."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-1",
+   "claim": "Briar ne possède pas de régénération passive de points de vie : elle se soigne uniquement en infligeant des dégâts ou en consommant du sang sur des sbires ou champions, et son auto-guérison augmente à mesure que ses points de vie diminuent.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Infliger des dégâts ou consommer du sang sur des sbires ou champions"
+   ],
+   "limits": [
+    "Briar ne bénéficie d'aucune régénération de PV passive naturelle en dehors des soins par dégâts."
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "Briar also needs to feed, as she has no passive health regen. She only heals when she does damage (or consumes blood) to minions or champions. The lower Briar’s HP, the hangrier she gets. So watch out, because that also means her self-healing is increased."
+    }
+   ],
+   "mentions": [],
+   "published": "2023-08-30",
+   "analyzedAt": "2026-10-24",
+   "status": "provisoire",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-2",
+   "claim": "La compétence E de Briar sert à interrompre son état de frénésie (Z - Coup de folie) afin de reprendre le contrôle de son champion et d'éviter les overextensions mortelles.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Activer le E pendant l'état de frénésie du Z"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "With Briar’s E, the team quickly realized she needed some kind of off-button for her W (Blood Frenzy) so that she had some more control over her fights. That way, every time a player popped her W she wasn’t obligated to commit to the full rampage and overextend."
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser la compétence E pour annuler la frénésie du Z lorsqu'un engagement devient trop risqué ou entraîne un overextend.",
+   "observe": "L'interruption immédiate de la perte de contrôle et de la course effrénée du Z lors de l'activation du E.",
+   "published": "2023-08-30",
+   "analyzedAt": "2026-10-24",
+   "status": "provisoire",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-3",
+   "claim": "L'ultime de Briar projette un skillshot à portée quasi globale qui la propulse obligatoirement sur le premier champion ennemi touché.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Toucher un champion adverse avec le projectile de l'ultime"
+   ],
+   "limits": [
+    "Peut être esquivé car il s'agit d'un skillshot en ligne droite ; le dash vers la cible est garanti et automatique à l'impact."
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "August and the team eventually landed on the current form of the ult—a projectile skillshot that causes Briar to immediately rush to the first champion it hits."
+    },
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "initially, this projectile only had 1000 range. But the team thought that since it was a skillshot, could be dodged like a projectile, and was a guaranteed dive when it landed, there would be enough counterplay to give the projectile nearly global range."
+    }
+   ],
+   "mentions": [],
+   "published": "2023-08-30",
+   "analyzedAt": "2026-10-24",
+   "status": "provisoire",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-4",
+   "claim": "La maîtrise de Briar repose sur une gestion rigoureuse de ses états de frénésie (Z et ultime), une mauvaise décision risquant d'entraîner une perte de contrôle et une mort évitable.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "The best Briar players will be the ones who learn how to manage her frenzy state because she can easily get herself killed with her W and her ultimate if she isn’t careful."
+    }
+   ],
+   "mentions": [
+    "Naafiri (exemple)",
+    "Aatrox (exemple)",
+    "Swain (exemple)",
+    "Sion (exemple)"
+   ],
+   "action": "Évaluer la position des ennemis et les sorties de secours avant de déclencher le Z ou l'ultime pour ne pas s'enfermer dans un plongeon fatal.",
+   "observe": "",
+   "published": "2023-08-30",
+   "analyzedAt": "2026-10-24",
+   "status": "provisoire",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
     }
    ]
   }

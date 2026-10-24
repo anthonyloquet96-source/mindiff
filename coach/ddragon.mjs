@@ -54,10 +54,21 @@ export async function run() {
     });
     champs++;
   }
+  // Conseils copiés d'un champion à l'autre dans Data Dragon (K'Santé reprend ceux de Lee Sin, Milio ceux de Rakan, nom remplacé) :
+  // seul le champion le plus ancien les garde, la copie ne décrit pas le bon kit
+  const champ = Object.fromEntries(Object.values(list.data).map(b => [b.id.toLowerCase(), { key: Number(b.key), name: b.name }]));
+  const who = u => u.id.match(/^u-dd-(.+)-([ae])d+$/);
+  const forms = u => { const [, c, kind] = who(u), t = u.claim.replace(/^Contre [^:]+ : /, ""); return [kind + t.toLowerCase().trim(), kind + t.split(champ[c]?.name || "§").join("§").toLowerCase().trim()]; };
+  const firstSeen = new Set(), copied = new Set();
+  for (const u of [...batch].sort((x, y) => (champ[who(x)[1]]?.key || 0) - (champ[who(y)[1]]?.key || 0))) {
+    const f = forms(u);
+    if (f.some(k => firstSeen.has(k))) copied.add(u.id); else f.forEach(k => firstSeen.add(k));
+  }
+  const kept = batch.filter(u => !copied.has(u.id));
   await writeJson(P.contents, contents);
-  const res = await mergeBatch({ units: batch, analyst: "Lecture automatique de Data Dragon (sans IA)" }, { origin: "data-dragon" });
+  const res = await mergeBatch({ units: kept, analyst: "Lecture automatique de Data Dragon (sans IA)" }, { origin: "data-dragon" });
   await writeJson("coach/kb/ddragon.json", { version, champions: champs, units: res.accepted.length, at: new Date().toISOString() });
-  return [`${champs} champions lus (Data Dragon ${version}) : ${res.accepted.length} conseils officiels enregistrés, ${res.rejected.length} rejetés.`, ...res.rejected.slice(0, 5).map(r => `  ✘ ${r.id} : ${r.reasons.map(x => x.code).join(", ")}`)];
+  return [`${champs} champions lus (Data Dragon ${version}) : ${res.accepted.length} conseils officiels enregistrés, ${res.rejected.length} rejetés, ${copied.size} copiés d'un autre champion écartés.`, ...res.rejected.slice(0, 5).map(r => `  ✘ ${r.id} : ${r.reasons.map(x => x.code).join(", ")}`)];
 }
 
 if (process.argv[1]?.endsWith("ddragon.mjs")) run().then(l => console.log(l.join("\n")), e => { console.error(e.message); process.exit(1); });

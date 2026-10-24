@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-24T16:08:06.871Z",
+ "generatedAt": "2026-10-24T17:53:05.803Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -225,16 +225,14 @@
    },
    "Milio": {
     "role": "support",
-    "units": 6,
+    "units": 2,
     "themes": [
      "synergie",
      "lane",
-     "survie",
-     "champion",
-     "matchup"
+     "survie"
     ],
     "actions": 2,
-    "official": 5,
+    "official": 1,
     "coaching": 1
    },
    "Nami": {
@@ -993,18 +991,6 @@
     ],
     "actions": 0,
     "official": 7,
-    "coaching": 0,
-    "officialOnly": true
-   },
-   "K'Santé": {
-    "role": null,
-    "units": 6,
-    "themes": [
-     "champion",
-     "matchup"
-    ],
-    "actions": 0,
-    "official": 6,
     "coaching": 0,
     "officialOnly": true
    },
@@ -2318,12 +2304,6 @@
    "u-dd-kogmaw-e2",
    "u-dd-kogmaw-e3",
    "u-dd-kogmaw-e4",
-   "u-dd-ksante-a1",
-   "u-dd-ksante-a2",
-   "u-dd-ksante-a3",
-   "u-dd-ksante-e1",
-   "u-dd-ksante-e2",
-   "u-dd-ksante-e3",
    "u-dd-leblanc-a1",
    "u-dd-leblanc-a2",
    "u-dd-leblanc-a3",
@@ -2385,10 +2365,6 @@
    "u-dd-mel-a2",
    "u-dd-mel-e1",
    "u-dd-mel-e2",
-   "u-dd-milio-a2",
-   "u-dd-milio-a3",
-   "u-dd-milio-e1",
-   "u-dd-milio-e2",
    "u-dd-missfortune-a1",
    "u-dd-missfortune-a2",
    "u-dd-missfortune-a3",
@@ -34914,9 +34890,9 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "retire",
    "review": {
-    "human": "en attente"
+    "human": "retirée"
    }
   },
   {
@@ -34952,9 +34928,9 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "retire",
    "review": {
-    "human": "en attente"
+    "human": "retirée"
    }
   },
   {
@@ -34990,9 +34966,9 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "retire",
    "review": {
-    "human": "en attente"
+    "human": "retirée"
    }
   },
   {
@@ -35029,9 +35005,9 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "retire",
    "review": {
-    "human": "en attente"
+    "human": "retirée"
    }
   },
   {
@@ -35068,9 +35044,9 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "retire",
    "review": {
-    "human": "en attente"
+    "human": "retirée"
    }
   },
   {
@@ -35107,9 +35083,9 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "retire",
    "review": {
-    "human": "en attente"
+    "human": "retirée"
    }
   },
   {
@@ -37582,9 +37558,9 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "retire",
    "review": {
-    "human": "en attente"
+    "human": "retirée"
    }
   },
   {
@@ -37620,9 +37596,9 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "retire",
    "review": {
-    "human": "en attente"
+    "human": "retirée"
    }
   },
   {
@@ -37659,9 +37635,9 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "retire",
    "review": {
-    "human": "en attente"
+    "human": "retirée"
    }
   },
   {
@@ -37698,9 +37674,9 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "exploitable",
+   "status": "retire",
    "review": {
-    "human": "en attente"
+    "human": "retirée"
    }
   },
   {

@@ -8619,8 +8619,8 @@
     "basis": "page officielle de Riot sur Zaahen, champion sans conseils officiels dans Data Dragon"
    },
    "access": "transcription+visuel",
-   "analysis": "en-attente",
-   "note": "Lue par gemini-3.6-flash le 2026-10-23 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "analysis": "analysee",
+   "note": "Écarté : contenu jugé de faible qualité (Le contenu est un guide complet portant sur un champion fictif/conceptuel ('Zaahen the Unsundered') qui n'existe pas dans le jeu officiel League of Legends (Data Dragon).).",
    "attempts": 0,
    "lastError": "gemini-3.5-flash HTTP 503 : This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later. (2026-10-21)",
    "videoAttempts": 0,
@@ -8631,7 +8631,16 @@
     "at": "2026-10-23",
     "duration": "15:30",
     "reused": true
-   }
+   },
+   "analyzedAt": "2026-10-24",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "quality": {
+    "level": "faible",
+    "why": "Le contenu est un guide complet portant sur un champion fictif/conceptuel ('Zaahen the Unsundered') qui n'existe pas dans le jeu officiel League of Legends (Data Dragon)."
+   },
+   "learn": null,
+   "rejectedForQuality": true
   },
   {
    "id": "c-yt-S3F9CpeiSNE",
@@ -9353,12 +9362,12 @@
    "lang": "fr",
    "published": "2022-09-28",
    "retrievedAt": "2026-10-21",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "aucun",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "Vous voulez une séance de coaching avec Chreak en tête à tête ? C'est possible ! Deux options s'offrent à vous (70€/session de 1h15) : \nPasser par l'abonnement mensuel sur Patreon pour avoir 1 heure de coaching par mois sur ce lien : https://www.patreon.com/c/ChreakLoL\nContacter directement Chreak p",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -9369,7 +9378,20 @@
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 10
+   "queueRank": 10,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "sha256": "92b4a6d65f520358eb5134f1dd6f62e76738a99fa2786f3629b345bc91d8ee8d",
+    "segments": 84,
+    "observations": 40,
+    "duration": "31:55",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 190282
+   }
   },
   {
    "id": "c-yt-36rK3ZLSdN4",
@@ -12531,11 +12553,11 @@
    "published": "2023-01-05",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "L'ULTIME GUIDE POUR ÊTRE UN EXCELLENT JUNGLER - CHALLENGER POV\n\n🍹 Partenaire LEVLUP avec le code PROMO : TDS : http://www.levlup.de/?ref=1391\n🎁 GIVEAWAYS : https://www.instant-gaming.com/fr/giveaway/SIXEN\n👉 MON PROFIL INSTANT-GAMING : https://www.instant-gaming.com/?igr=sixentv\n🔴 STREAM → https:",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 9,
     "matched": [
@@ -12550,7 +12572,20 @@
     "patchMentioned": null,
     "basis": "ancien guide de Sixen ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 11
+   "queueRank": 11,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "sha256": "07904a51250c8ac6ac0569644dfa760eef511a7ddce1c4d25ef9a991c3ac4bf4",
+    "segments": 22,
+    "observations": 40,
+    "duration": "02:24",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 143618
+   }
   },
   {
    "id": "c-yt-rTjbhsa6msw",
@@ -14334,7 +14369,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 21
   },
   {
    "id": "c-yt-NWnlj6HELSU",
@@ -41103,9 +41139,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "►𝐖𝐄𝐁𝐒𝐈𝐓𝐄: http://www.skill-capped.com/lol#junglemistakes16\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUALLY W",
    "triage": {
-    "score": 5,
+    "score": 4,
     "matched": [
-     "top",
      "guide",
      "mistakes"
     ],
@@ -41131,15 +41166,9 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "►𝐖𝐄𝐁𝐒𝐈𝐓𝐄: https://www.skill-capped.com/lol#onetrickbuilds2621\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUALL",
    "triage": {
-    "score": 14,
+    "score": 5,
     "matched": [
-     "top",
-     "mid",
-     "adc",
      "guide",
-     "how to",
-     "tips",
-     "coaching",
      "build"
     ],
     "entertainment": [],
@@ -41212,12 +41241,9 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "► All Social Links\nhttps://YouTube.com/Doublelift\nhttps://YouTube.com/channel/UCjJHdfeEoetPqM5Fr0gumqA\nhttps://Twitter.com/Doublelift1\nhttps://Twitch.tv/Doublelift\nhttps://www.tiktok.com/@1doublelift\nhttps://Instagram.com/YiliangPeng\nhttps://Discord.com/Doublelift\nhttps://Faceboo",
    "triage": {
-    "score": -5,
+    "score": 1,
     "matched": [],
-    "entertainment": [
-     "clips",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -41317,13 +41343,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Nunu Ultimate got a pretty nice buff to his Ult base damage\n\nGame 1: 0:00\nGame 2: 27:48\nArena: 1:06:28\n\nDiscord: https://discord.gg/3An22PU\nStream: https://goo.gl/d1qAxQ\nTwitter: https://goo.gl/eekF1a\nPekinWoof2 Channel: https://www.youtube.com/channel/UCT0fBcIYwMsp6IRCm5E3eTA\nPe",
    "triage": {
-    "score": -5,
+    "score": -2,
     "matched": [
      "mid"
     ],
     "entertainment": [
-     "stream",
-     "highlights"
+     "stream"
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -41346,23 +41371,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/ CODE KOREA20 FOR 20% DISCOUNT\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter: https://twitt",
    "triage": {
-    "score": -11,
+    "score": 2,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -41384,24 +41397,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/ CODE KOREA20 FOR 20% DISCOUNT\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter: https://twitt",
    "triage": {
-    "score": -10,
+    "score": 3,
     "matched": [
      "adc",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -41423,23 +41424,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/ CODE KOREA20 FOR 20% DISCOUNT\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter: https://twitt",
    "triage": {
-    "score": -11,
+    "score": 2,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -41461,24 +41450,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "CHECK OUT THE VOD CHANNEL HERE➡️https://www.youtube.com/@AloisNLVODs\nMake sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nGET THE BEST DRINKS FOR GAMING➡️https://gamersupps.gg/AloisNL\n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/\n\n➡️VOD Channel: ",
    "triage": {
-    "score": -9,
+    "score": 4,
     "matched": [
      "Nasus",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -41500,23 +41477,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "CHECK OUT THE VOD CHANNEL HERE➡️https://www.youtube.com/@AloisNLVODs\nMake sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nGET THE BEST DRINKS FOR GAMING➡️https://gamersupps.gg/AloisNL\n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/\n\n➡️VOD Channel: ",
    "triage": {
-    "score": -11,
+    "score": 2,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -41594,17 +41559,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "DM me on discord with; BOOTCAMP To access to 2 hours on how to 1v9 individually and play midgame fights & macro \n\nyou'll learn \n\n1. How to win skirmishes consistently (Numbers, Vision, Ultimates, Target selection)\n\n2. What skirmishes are good & bad (Drafting breakdown, Items,  Wi",
    "triage": {
-    "score": 17,
+    "score": 9,
     "matched": [
-     "Twitch",
      "Vi",
      "mid",
      "how to",
      "breakdown",
-     "coaching",
-     "macro",
-     "clear",
-     "climb"
+     "macro"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -41628,14 +41589,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "https://kirei.gg/courses Jungle Courses with Permanent access and updates\nhttps://kirei.gg for personalized 1 on 1 sessions \n\nSign up on bootcamp how to play like a pro individually and how to play midgame - tinyurl.com/2f54hvb7\n\nFree course videos\nSpacing - https://kirei.gg/cour",
    "triage": {
-    "score": 10,
+    "score": 6,
     "matched": [
      "Vi",
      "jungle",
      "mid",
-     "how to",
-     "fundamentals",
-     "coaching"
+     "how to"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -41659,13 +41618,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "https://kirei.gg/courses Jungle Courses with Permanent access and updates\nhttps://kirei.gg for personalized 1 on 1 sessions \n\nFree course videos\nSpacing - https://kirei.gg/courses-archive/champion-mastery-course-diamond-and-below/56337/\nGanking - https://kirei.gg/courses-archive/",
    "triage": {
-    "score": 9,
+    "score": 5,
     "matched": [
      "Vi",
      "jungle",
-     "how to",
-     "fundamentals",
-     "coaching"
+     "how to"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -41689,17 +41646,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "https://kirei.gg/courses Jungle Courses with Permanent access and updates\nhttps://kirei.gg for personalized 1 on 1 sessions \n\nSign up on bootcamp how to play like a pro individually and how to play midgame - tinyurl.com/2f54hvb7\n\nFree course videos\nSpacing - https://kirei.gg/cour",
    "triage": {
-    "score": 17,
+    "score": 7,
     "matched": [
-     "Aatrox",
-     "Ambessa",
-     "Amumu",
+     "Vi",
      "jungle",
      "mid",
-     "how to",
-     "fundamentals",
-     "breakdown",
-     "coaching"
+     "how to"
     ],
     "entertainment": [],
     "patchMentioned": "26.21",
@@ -41723,14 +41675,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "https://kirei.gg/courses Jungle Courses with Permanent access and updates\nhttps://kirei.gg for personalized 1 on 1 sessions \n\nSign up on bootcamp how to play like a pro individually and how to play midgame - tinyurl.com/2f54hvb7\n\nFree course videos\nSpacing - https://kirei.gg/cour",
    "triage": {
-    "score": 10,
+    "score": 6,
     "matched": [
      "Vi",
      "jungle",
      "mid",
-     "how to",
-     "fundamentals",
-     "coaching"
+     "how to"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -41780,20 +41730,14 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Get 1-on-1 coaching, champion guides and more: https://weteachleague.com/\n\n0:00 - Waiting room\n07:50 - Stream start\n12:05 Why is Katarina so OP when you're good at her?\n14:45 General advice for improving discipline\n16:58 Aurelion Sol Jungle\n17:51 Why is Katarina not picked in pro",
    "triage": {
-    "score": 18,
+    "score": 8,
     "matched": [
      "Aurelion Sol",
-     "Diana",
-     "Gangplank",
+     "Katarina",
      "jungle",
-     "mid",
-     "adc",
      "guide",
-     "how to",
-     "tips",
      "vod review",
-     "coaching",
-     "climb"
+     "coaching"
     ],
     "entertainment": [
      "stream"
@@ -41919,24 +41863,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n\n↓ More Info Below ↓ \nFor coaching ➡ DM me on https://discord.gg/2aQnd6J6wE\n\n•Discord ➡ https://discord.gg/2aQnd6J6wE\n•2nd Channel➡https://www.youtube.com/@Hybradge2\n•Twitch ➡ https://www.twitch.tv/hybradge\n•Twitter ➡ ",
    "triage": {
-    "score": -10,
+    "score": 3,
     "matched": [
      "jungle",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "coaching"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -41958,25 +41890,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n\n↓ More Info Below ↓ \nFor coaching ➡https://hybradge.com\n\n•Discord ➡ https://discord.gg/2aQnd6J6wE\n•2nd Channel➡https://www.youtube.com/@Hybradge2\n•Twitch ➡ https://www.twitch.tv/hybradge\n•Twitter ➡ https://x.com/hybra",
    "triage": {
-    "score": -8,
+    "score": 5,
     "matched": [
      "Kindred",
      "jungle",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "coaching"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -41998,24 +41918,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n\n↓ More Info Below ↓ \nFor coaching ➡ DM me on https://discord.gg/2aQnd6J6wE\n\n•Discord ➡ https://discord.gg/2aQnd6J6wE\n•2nd Channel➡https://www.youtube.com/@Hybradge2\n•Twitch ➡ https://www.twitch.tv/hybradge\n•Twitter ➡ ",
    "triage": {
-    "score": -10,
+    "score": 3,
     "matched": [
      "jungle",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "coaching"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42037,25 +41945,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n\n↓ More Info Below ↓ \nFor coaching ➡https://hybradge.com\n\n•Discord ➡ https://discord.gg/2aQnd6J6wE\n•2nd Channel➡https://www.youtube.com/@Hybradge2\n•Twitch ➡ https://www.twitch.tv/hybradge\n•Twitter ➡ https://x.com/hybra",
    "triage": {
-    "score": -9,
+    "score": 4,
     "matched": [
      "jungle",
      "jungler",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "coaching"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42077,25 +41973,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n\n↓ More Info Below ↓ \nFor coaching ➡https://hybradge.com\n\n•Discord ➡ https://discord.gg/2aQnd6J6wE\n•2nd Channel➡https://www.youtube.com/@Hybradge2\n•Twitch ➡ https://www.twitch.tv/hybradge\n•Twitter ➡ https://x.com/hybra",
    "triage": {
-    "score": -7,
+    "score": 6,
     "matched": [
      "Xin Zhao",
-     "guide",
-     "fundamentals",
      "coaching",
-     "macro",
-     "climb",
-     "comment"
+     "climb"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42117,25 +42001,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n\n↓ More Info Below ↓ \nFor coaching ➡https://hybradge.com\n\n•Discord ➡ https://discord.gg/2aQnd6J6wE\n•2nd Channel➡https://www.youtube.com/@Hybradge2\n•Twitch ➡ https://www.twitch.tv/hybradge\n•Twitter ➡ https://x.com/hybra",
    "triage": {
-    "score": -9,
+    "score": 4,
     "matched": [
      "jungle",
      "jungler",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "coaching"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42157,25 +42029,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n\n↓ More Info Below ↓ \nFor coaching ➡https://hybradge.com\n\n•Discord ➡ https://discord.gg/2aQnd6J6wE\n•2nd Channel➡https://www.youtube.com/@Hybradge2\n•Twitch ➡ https://www.twitch.tv/hybradge\n•Twitter ➡ https://x.com/hybra",
    "triage": {
-    "score": -7,
+    "score": 6,
     "matched": [
      "Kindred",
-     "guide",
      "how to",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "coaching"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42197,24 +42057,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n\n↓ More Info Below ↓ \nFor coaching ➡https://hybradge.com\n\n•Discord ➡ https://discord.gg/2aQnd6J6wE\n•2nd Channel➡https://www.youtube.com/@Hybradge2\n•Twitch ➡ https://www.twitch.tv/hybradge\n•Twitter ➡ https://x.com/hybra",
    "triage": {
-    "score": -9,
+    "score": 4,
     "matched": [
      "jungle",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "coaching"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": "26.21",
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42266,26 +42114,14 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "► JUNGLE COURSE - https://sinerias.podia.com/the-complete-climbing-course\n► I ALSO ACCEPT CRYPTO PAYMENTS ► DM me on Discord\n► SOLO COACHING - DM me on Discord\n► Discord - https://discord.gg/we-are-sinerias-664154813453434901\n\n► Business inquiries - Sineriasbusiness@gmx.at\n\n► Str",
    "triage": {
-    "score": -6,
+    "score": 7,
     "matched": [
      "jungle",
-     "guide",
      "how to",
-     "fundamentals",
      "coaching",
-     "macro",
-     "climb",
-     "comment"
+     "climb"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42307,25 +42143,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "► JUNGLE COURSE - https://sinerias.podia.com/the-complete-climbing-course\n► I ALSO ACCEPT CRYPTO PAYMENTS ► DM me on Discord\n► SOLO COACHING - DM me on Discord\n► Discord - https://discord.gg/we-are-sinerias-664154813453434901\n\n► Business inquiries - Sineriasbusiness@gmx.at\n\n► Str",
    "triage": {
-    "score": -8,
+    "score": 5,
     "matched": [
      "jungle",
-     "guide",
-     "fundamentals",
      "coaching",
-     "macro",
-     "climb",
-     "comment"
+     "climb"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42347,23 +42171,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "CLIMB YOURSELF HERE https://sinerias.podia.com/the-complete-climbing-course\n► Training Academy here: https://sinerias.podia.com/the-sinerias-training-academy\n► I ALSO ACCEPT CRYPTO PAYMENTS ► DM me on Discord\n► SOLO COACHING - DM me on Discord\n► Discord - https://discord.gg/we-ar",
    "triage": {
-    "score": 12,
+    "score": 6,
     "matched": [
-     "Bel'Veth",
-     "Vi",
-     "jungle",
-     "jungler",
-     "guide",
      "how to",
      "coaching",
-     "build",
-     "runes",
      "climb"
     ],
-    "entertainment": [
-     "stream",
-     "highlights"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42385,26 +42199,14 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "► JUNGLE COURSE - https://sinerias.podia.com/the-complete-climbing-course\n► I ALSO ACCEPT CRYPTO PAYMENTS ► DM me on Discord\n► SOLO COACHING - DM me on Discord\n► Discord - https://discord.gg/we-are-sinerias-664154813453434901\n\n► Business inquiries - Sineriasbusiness@gmx.at\n\n► Str",
    "triage": {
-    "score": -6,
+    "score": 7,
     "matched": [
      "Talon",
      "jungle",
-     "guide",
-     "fundamentals",
      "coaching",
-     "macro",
-     "climb",
-     "comment"
+     "climb"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42426,24 +42228,14 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "► JUNGLE COURSE - https://sinerias.podia.com/the-complete-climbing-course\n► I ALSO ACCEPT CRYPTO PAYMENTS ► DM me on Discord\n► SOLO COACHING - DM me on Discord\n► Discord - https://discord.gg/we-are-sinerias-664154813453434901\n\n► Business inquiries - Sineriasbusiness@gmx.at\n\n► Str",
    "triage": {
-    "score": -8,
+    "score": 2,
     "matched": [
      "jungle",
-     "guide",
-     "fundamentals",
      "coaching",
-     "macro",
-     "climb",
-     "comment"
+     "climb"
     ],
     "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
+     "stream"
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -42494,25 +42286,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Please like and subscribe and type MAKKOR 🗿in the comments algorithm gang.\n► Become a PatreOrnn and get the Bible -   / makkro  \n► Makkor Twitch -   / makkro0   📺\n► TikTok -   / makkro0  \n► Twitter -   / makkrolol  \n► Instagram -   / makkro0  \n► Discord -   / discord  \n► Spotif",
    "triage": {
-    "score": -7,
+    "score": 4,
     "matched": [
-     "Ornn",
      "Twitch",
-     "guide",
-     "coaching",
-     "macro",
-     "climb",
      "comment"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42534,25 +42313,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Please like and subscribe and type MAKKOR 🗿in the comments algorithm gang.\n► Become a PatreOrnn and get the Bible -   / makkro  \n► Makkor Twitch -   / makkro0   📺\n► TikTok -   / makkro0  \n► Twitter -   / makkrolol  \n► Instagram -   / makkro0  \n► Discord -   / discord  \n► Spotif",
    "triage": {
-    "score": -7,
+    "score": 4,
     "matched": [
-     "Ornn",
      "Twitch",
-     "guide",
-     "coaching",
-     "macro",
-     "climb",
      "comment"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42574,26 +42340,14 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Please like and subscribe and type MAKKOR 🗿in the comments algorithm gang.\n► Become a PatreOrnn and get the Bible - https://www.patreon.com/Makkro\n► Coaching: https://metafy.gg/@makkro\n► Makkor Twitch - https://www.twitch.tv/makkro0 📺\n► TikTok - https://www.tiktok.com/@makkro0\n",
    "triage": {
-    "score": -5,
+    "score": 8,
     "matched": [
      "Elise",
-     "Ornn",
      "Twitch",
-     "guide",
      "coaching",
-     "macro",
-     "climb",
      "comment"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42615,25 +42369,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Please like and subscribe and type MAKKOR 🗿in the comments algorithm gang.\n► Become a PatreOrnn and get the Bible - https://www.patreon.com/Makkro\n► Coaching: https://metafy.gg/@makkro\n► Makkor Twitch - https://www.twitch.tv/makkro0 📺\n► TikTok - https://www.tiktok.com/@makkro0\n",
    "triage": {
-    "score": -7,
+    "score": 6,
     "matched": [
-     "Ornn",
      "Twitch",
-     "guide",
      "coaching",
-     "macro",
-     "climb",
      "comment"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42655,18 +42397,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "🆕Coach K Website (BETA): https://www.coachkarakal.com\n🟣Twitch: https://www.twitch.tv/karakaljr\n➡️ Want to GET BETTER? Go here: https://metafy.gg/@coach-karakal/sessions\n🔵Join my community Discord / AMA: https://discord.gg/pdXEFsYVrn \n\n#leagueoflegends #Educational #Support #Gu",
    "triage": {
-    "score": 8,
+    "score": 3,
     "matched": [
-     "Alistar",
-     "Bard",
-     "Camille",
      "support",
-     "guide",
      "climb"
     ],
-    "entertainment": [
-     "stream"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -42688,12 +42424,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "https://youtu.be/QwXHsqp6x9Y?si=bM2ToqL74GSMKG2L\n@skillcapped \n\n📖 Support Guide: https://coachkarakal.com/drafting\n🔵Join my community Discord / AMA: https://discord.gg/pdXEFsYVrn\n➡️ Want to GET BETTER? Go here: https://metafy.gg/@coach-karakal\n➡️Twitch: https://www.twitch.tv/ka",
    "triage": {
-    "score": 4,
+    "score": 0,
     "matched": [
-     "Vi",
      "support",
-     "guide",
-     "comment"
+     "guide"
     ],
     "entertainment": [
      "reacts"
@@ -42719,19 +42453,15 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Coaching & Information - https://rebrrt.com\nAurora Cheat Sheet & more - https://www.patreon.com/rebirthlol\nTwitch - https://twitch.tv/rebrrt\nDiscord Server -  https://discord.gg/jGxhM25Xa5\nTikTok - https://www.tiktok.com/@rebirthcoaching\nTwitter/X - https://x.com/Rebrrthlol\n\nLive",
    "triage": {
-    "score": 3,
+    "score": 5,
     "matched": [
      "Aurora",
-     "Vi",
      "guide",
      "coaching",
-     "matchup",
-     "runes"
+     "matchup"
     ],
     "entertainment": [
-     "stream",
-     "🔴",
-     "drama"
+     "🔴"
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -42754,19 +42484,15 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Coaching & Information - https://rebrrt.com\nAurora Cheat Sheet & more - https://www.patreon.com/rebirthlol\nTwitch - https://twitch.tv/rebrrt\nDiscord Server -  https://discord.gg/jGxhM25Xa5\nTikTok - https://www.tiktok.com/@rebirthcoaching\nTwitter/X - https://x.com/Rebrrthlol\n\nLive",
    "triage": {
-    "score": 3,
+    "score": 5,
     "matched": [
      "Aurora",
-     "Vi",
      "guide",
      "coaching",
-     "matchup",
-     "runes"
+     "matchup"
     ],
     "entertainment": [
-     "stream",
-     "🔴",
-     "drama"
+     "🔴"
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -42789,11 +42515,9 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Coaching & Information - https://rebrrt.com\nAurora Cheat Sheet & More - https://www.patreon.com/rebirthlol\nTwitch - https://twitch.tv/rebrrt\nDiscord Server -  https://discord.gg/jGxhM25Xa5\nTikTok - https://www.tiktok.com/@rebirthcoaching\nTwitter/X - https://x.com/Rebrrthlol\n\nOP.G",
    "triage": {
-    "score": 6,
+    "score": 2,
     "matched": [
-     "Vi",
-     "coaching",
-     "runes"
+     "coaching"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -42846,12 +42570,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Don't forget to like and subscribe to my channel!\n\nLive on Twitch as well: http://www.twitch.tv/broxah\n\n► Donate: http://streamlabs.com/broxah/tip\n► Memberships: http://youtube.com/broxahlol/join\n\n► Follow me on social media:\nhttp://www.twitter.com/broxahlol\nhttp://www.instagram.",
    "triage": {
-    "score": 3,
+    "score": -1,
     "matched": [
      "Twitch",
      "jungle",
-     "fundamentals",
-     "coaching",
      "climb"
     ],
     "entertainment": [
@@ -42879,12 +42601,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Don't forget to like and subscribe to my channel!\n\nLive on Twitch as well: http://www.twitch.tv/broxah\n\n► Donate: http://streamlabs.com/broxah/tip\n► Memberships: http://youtube.com/broxahlol/join\n\n► Follow me on social media:\nhttp://www.twitter.com/broxahlol\nhttp://www.instagram.",
    "triage": {
-    "score": 3,
+    "score": -1,
     "matched": [
      "Twitch",
      "jungle",
-     "fundamentals",
-     "coaching",
      "climb"
     ],
     "entertainment": [
@@ -42990,13 +42710,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Tu veux monter en elo : https://misanthiel.com/\n\nDiscord : https://discord.gg/E7FEJstsqV\nTwitch : https://www.twitch.tv/misanthiel_lol\nTwitter : https://x.com/Misanthiel_lol\nTiktok : https://www.tiktok.com/@misanthiel\n\n00:00:00 Aatrox\n00:02:23 Akali\n00:04:12 Ambessa\n00:05:05 Aniv",
    "triage": {
-    "score": 9,
+    "score": 7,
     "matched": [
      "Aatrox",
      "Akali",
      "Ambessa",
-     "top",
-     "comment"
+     "top"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -43044,20 +42763,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "👾 I am LIVE on Twitch: https://www.twitch.tv/potent213\n🚨 NEW VOD CHANNEL GO SUBSCRIBE!! :  @Potent213FR  \n⇩ OPEN ME ⇩\n\n\nThank you for watching, BAAAAA ur the goat🐐\n\n►Stream: https://www.twitch.tv/potent213 \n►Discord: https://discord.gg/s3DxmwZrH6\n►Fiora Guide: https://www.moba",
    "triage": {
-    "score": 5,
+    "score": 1,
     "matched": [
-     "Fiora",
      "Twitch",
-     "guide",
-     "coaching",
-     "matchup",
-     "build",
-     "runes"
+     "guide"
     ],
     "entertainment": [
-     "stream",
-     "highlights",
-     "pentakill"
+     "stream"
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -43080,21 +42792,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "🚨 you missed the last VID , CHECK IT OUT : https://youtu.be/VzUPnCX-E6I\n\n\n\n\n\n👾 I am LIVE on Twitch: https://www.twitch.tv/potent213\n🚨 NEW VOD CHANNEL GO SUBSCRIBE!! :  @Potent213FR  \n⇩ OPEN ME ⇩\n\n\nThank you for watching, BAAAAA ur the goat🐐\n\n►Stream: https://www.twitch.tv/pot",
    "triage": {
-    "score": 7,
+    "score": 1,
     "matched": [
-     "Fiora",
      "Twitch",
-     "Vi",
-     "guide",
-     "coaching",
-     "matchup",
-     "build",
-     "runes"
+     "Vi"
     ],
     "entertainment": [
-     "stream",
-     "highlights",
-     "pentakill"
+     "stream"
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -43167,16 +42871,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "📞Book My Coaching On\n→http://www.bizyze.com\n\n☎️Join my amazing Discord and get access to stream schedule & ADC content\nhttps://discord.gg/mQwDEsPzn8\n\n🟣Get FREE OPGG Review & Watch me Do EDU ADC content on http://www.twitch.tv/bizyzelol\n\n🏆 Here is the PROOF of the achievements ",
    "triage": {
-    "score": 10,
+    "score": 2,
     "matched": [
      "Vi",
-     "mid",
      "adc",
-     "support",
-     "tips",
-     "coaching",
-     "climb",
-     "mistakes"
+     "coaching"
     ],
     "entertainment": [
      "stream"
@@ -43202,12 +42901,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Si dejais un LIKE, COMENTARIO Y SUB os lo agradezco infinito :D\n\nChallenger OTP Gwen\nStream: https://www.twitch.tv/sol1xd\nCoaching: https://www.patreon.com/sol1xd\nX: https://x.com/S1XD6XX\nInstagram: https://www.instagram.com/sol1xd\nTikTok: https://www.tiktok.com/@sol1xd/\n\nEditor:",
    "triage": {
-    "score": 4,
+    "score": 1,
     "matched": [
      "Gwen",
-     "top",
-     "coaching",
-     "build"
+     "coaching"
     ],
     "entertainment": [
      "stream"
@@ -43333,11 +43030,9 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Bienvenido a la sección de mi canal de partidas didácticas, donde estaré jugando en todos los rangos y en todas las líneas para que puedan entender los principios y fundamentos de su línea de una manera fácil de entender siendo demostrados por un jugador de rango alto. \n\nTambién ",
    "triage": {
-    "score": 5,
+    "score": 1,
     "matched": [
-     "Vi",
-     "mid",
-     "coaching"
+     "mid"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -43586,11 +43281,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Mathematically Correct HPC Build *ONLY FOR GENIUS?*\n\n🟣TWITCH: https://www.twitch.tv/husumlol\n🔵DISCORD: https://discord.gg/7FEYrJ8z9C\n🔴SWAIN MID MATCHUPS: https://youtu.be/Lt61NAPBUVY\n🟡SWAIN BOT GUIDE: https://youtu.be/JxLVC04CVDc\n🟢SWAIN TOP GUIDE: https://youtu.be/wtIeBFugz6",
    "triage": {
-    "score": 6,
+    "score": 5,
     "matched": [
      "top",
      "mid",
-     "support",
      "guide",
      "matchup",
      "build"
@@ -43619,11 +43313,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "🟣TWITCH: https://www.twitch.tv/husumlol\n🔵DISCORD: https://discord.gg/7FEYrJ8z9C\n🔴SWAIN MID MATCHUPS: https://youtu.be/Lt61NAPBUVY\n🟡SWAIN BOT GUIDE: https://youtu.be/JxLVC04CVDc\n🟢SWAIN TOP GUIDE: https://youtu.be/wtIeBFugz6A\n\n0:00 Start\n11:08 Swain bot vs Kaisa (making video)",
    "triage": {
-    "score": 9,
+    "score": 7,
     "matched": [
-     "Fizz",
-     "Kalista",
      "Swain",
+     "Vi",
      "top",
      "mid",
      "guide",
@@ -43707,11 +43400,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Phantasm — Rank 1 Challenger on both EUW and Korea playing Akshan. Enjoy your stay!\n\n↓ More Info Below ↓\n\n🎥 VODs Channel: https://www.youtube.com/@PhantasmEUW2\n📱 Shorts Channel: https://www.youtube.com/@PhantasmShorts\n\n🔗 Socials\n● Discord: https://discord.gg/aqemx7WD58\n● Twitc",
    "triage": {
-    "score": 6,
+    "score": 4,
     "matched": [
      "Akshan",
-     "Ekko",
-     "Twitch"
+     "Ekko"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -43789,10 +43481,9 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Phantasm — Rank 1 Challenger on both EUW and Korea playing Akshan. Enjoy your stay!\n\n↓ More Info Below ↓\n\n🎥 VODs Channel: https://www.youtube.com/@PhantasmEUW2\n📱 Shorts Channel: https://www.youtube.com/@PhantasmShorts\n\n🔗 Socials\n● Discord: https://discord.gg/aqemx7WD58\n● Twitc",
    "triage": {
-    "score": 4,
+    "score": 2,
     "matched": [
-     "Akshan",
-     "Twitch"
+     "Akshan"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -44077,11 +43768,9 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ\n각종 재판및 1:1 강의신청은 디스코드 DM으로 주세요\n✔디스코드 : https://discord.gg/6wGmyGUz2R\n✔문의&섭외 : tjwltjs8577@naver.com\n✔인스타 : https://www.instagram.com/nara_kyle\n✔투네이션 : https://toon.at/donate/637101224365098625\nㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ\n\n아웃트로 BGM 출처:Track: Sub Urban -",
    "triage": {
-    "score": -3,
+    "score": 0,
     "matched": [],
-    "entertainment": [
-     "stream"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -44404,24 +44093,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Podoba Ci się kontent? Zostaw suba i komentarz co poprawić\n\nStream codziennie 9:30\n♦TWITCH ►https://www.twitch.tv/zwyro\n♦ INSTAGRAM ►https://www.instagram.com/zwyroo.lol/\n♦ TIKTOK►https://www.tiktok.com/@zwyroo\n♦ TWITTER ►https://x.com/Zwyrooo\n\n\n\n\n\n\n\n\n#educational #challenger  #m",
    "triage": {
-    "score": -7,
+    "score": 1,
     "matched": [
      "Galio",
-     "Nasus",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "Nasus"
     ],
     "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
+     "stream"
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -44444,22 +44122,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Podoba Ci się kontent? Zostaw suba i komentarz co poprawić\n\nStream codziennie 9:30\n♦TWITCH ►https://www.twitch.tv/zwyro\n♦ INSTAGRAM ►https://www.instagram.com/zwyroo.lol/\n♦ TIKTOK►https://www.tiktok.com/@zwyroo\n♦ TWITTER ►https://x.com/Zwyrooo\n\n\n\n\n\n\n\n\n#educational #challenger  #m",
    "triage": {
-    "score": -11,
-    "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
-    ],
+    "score": -3,
+    "matched": [],
     "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
+     "stream"
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -44565,12 +44231,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "dostlar ben krugz 5 yıldır euwestte challengerım jungle ve support rollerinde en üst seviyede oynuyorum öğretici videolar için takip etmeyi unutmayın. \ndiscord : https://discord.gg/EGrAFp7agD\n\n\n\n\n\n\n\n#leagueoflegends #lol #riotgames #riot #challenger #challenger #tierlist   #jungl",
    "triage": {
-    "score": 6,
+    "score": 4,
     "matched": [
      "Vi",
      "jungle",
-     "support",
-     "coaching"
+     "support"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -44620,13 +44285,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "dostlar ben krugz 5 yıldır euwestte challengerım jungle ve support rollerinde en üst seviyede oynuyorum öğretici videolar için takip etmeyi unutmayın. \ndiscord : https://discord.gg/EGrAFp7agD\n\n\n\n\n\n\n\n#leagueoflegends #lol #riotgames #riot #challenger #challenger #tierlist   #jungl",
    "triage": {
-    "score": 10,
+    "score": 8,
     "matched": [
      "Evelynn",
      "Vi",
      "jungle",
      "support",
-     "coaching",
      "clear"
     ],
     "entertainment": [],

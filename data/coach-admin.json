@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T18:53:40.248Z",
+ "generatedAt": "2026-10-24T01:05:26.615Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -9,552 +9,552 @@
  "discovery": {
   "wtl-blog": {
    "attempts": 0,
-   "lastOk": "2026-10-23T18:47:04.719Z",
+   "lastOk": "2026-10-24T00:56:34.839Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 2
   },
   "yt-skill-capped": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:04.987Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-24T00:56:35.035Z)",
+   "nextTry": "2026-10-24T01:56:35.035Z",
    "lastCount": 15
   },
   "yt-coach-curtis": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:05.209Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-24T00:56:35.186Z)",
+   "nextTry": "2026-10-24T01:56:35.186Z",
    "lastCount": 15
   },
   "yt-doublelift": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:05.336Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:35.237Z)",
+   "nextTry": "2026-10-24T01:56:35.237Z",
    "lastCount": 15
   },
   "yt-veigar-v2": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:05.450Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:35.283Z)",
+   "nextTry": "2026-10-24T01:56:35.283Z",
    "lastCount": 15
   },
   "yt-pekinwoof": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:05.561Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:35.329Z)",
+   "nextTry": "2026-10-24T01:56:35.329Z",
    "lastCount": 15
   },
   "yt-aloisnl": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:05.671Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:35.416Z)",
+   "nextTry": "2026-10-24T01:56:35.416Z",
    "lastCount": 15
   },
   "yt-chreak": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:05.823Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:35.466Z)",
+   "nextTry": "2026-10-24T01:56:35.466Z",
    "lastCount": 15
   },
   "yt-sixen": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:06.016Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:35.518Z)",
+   "nextTry": "2026-10-24T01:56:35.518Z",
    "lastCount": 15
   },
   "yt-perryjg": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:06.131Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:35.566Z)",
+   "nextTry": "2026-10-24T01:56:35.566Z",
    "lastCount": 15
   },
   "yt-coach-leo": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:06.260Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:35.645Z)",
+   "nextTry": "2026-10-24T01:56:35.645Z",
    "lastCount": 15
   },
   "yt-coach-kirei": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:06.376Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-24T00:56:35.768Z)",
+   "nextTry": "2026-10-24T01:56:35.768Z",
    "lastCount": 15
   },
   "yt-wtl": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:06.487Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:35.808Z)",
+   "nextTry": "2026-10-24T01:56:35.808Z",
    "lastCount": 15
   },
   "yt-ls": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:06.681Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:35.852Z)",
+   "nextTry": "2026-10-24T01:56:35.852Z",
    "lastCount": 15
   },
   "yt-dishake": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:06.844Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:35.923Z)",
+   "nextTry": "2026-10-24T01:56:35.923Z",
    "lastCount": 15
   },
   "yt-gameleap-lol-challenger-guid": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:06.955Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:35.983Z)",
+   "nextTry": "2026-10-24T01:56:35.983Z",
    "lastCount": 15
   },
   "yt-coach-mysterias": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:07.055Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.036Z)",
+   "nextTry": "2026-10-24T01:56:36.036Z",
    "lastCount": 15
   },
   "yt-hybradge": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:07.230Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.091Z)",
+   "nextTry": "2026-10-24T01:56:36.091Z",
    "lastCount": 15
   },
   "yt-ramyaura": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:07.346Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.158Z)",
+   "nextTry": "2026-10-24T01:56:36.158Z",
    "lastCount": 15
   },
   "yt-coach-violet": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:07.465Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.255Z)",
+   "nextTry": "2026-10-24T01:56:36.255Z",
    "lastCount": 15
   },
   "yt-mysteriaslol": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:07.593Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.303Z)",
+   "nextTry": "2026-10-24T01:56:36.303Z",
    "lastCount": 15
   },
   "yt-sinerias": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:07.697Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.355Z)",
+   "nextTry": "2026-10-24T01:56:36.355Z",
    "lastCount": 15
   },
   "yt-coach-chippys": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:07.811Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.401Z)",
+   "nextTry": "2026-10-24T01:56:36.401Z",
    "lastCount": 15
   },
   "yt-makkro": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:07.941Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.450Z)",
+   "nextTry": "2026-10-24T01:56:36.450Z",
    "lastCount": 15
   },
   "yt-coach-k": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:08.040Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.495Z)",
+   "nextTry": "2026-10-24T01:56:36.495Z",
    "lastCount": 15
   },
   "yt-shok": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:08.152Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.547Z)",
+   "nextTry": "2026-10-24T01:56:36.547Z",
    "lastCount": 15
   },
   "yt-rebrrt": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:08.279Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.605Z)",
+   "nextTry": "2026-10-24T01:56:36.605Z",
    "lastCount": 15
   },
   "yt-scrubnoob": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:08.406Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.653Z)",
+   "nextTry": "2026-10-24T01:56:36.653Z",
    "lastCount": 15
   },
   "yt-broxah": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:08.531Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.704Z)",
+   "nextTry": "2026-10-24T01:56:36.705Z",
    "lastCount": 15
   },
   "yt-zen-coaching": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:08.801Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.750Z)",
+   "nextTry": "2026-10-24T01:56:36.750Z",
    "lastCount": 15
   },
   "yt-gaethan-league-of-legends": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:08.931Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-24T00:56:36.914Z)",
+   "nextTry": "2026-10-24T01:56:36.914Z",
    "lastCount": 15
   },
   "yt-misanthiel-coach-toplane": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:09.064Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:36.963Z)",
+   "nextTry": "2026-10-24T01:56:36.963Z",
    "lastCount": 15
   },
   "yt-kyan": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:09.194Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.011Z)",
+   "nextTry": "2026-10-24T01:56:37.011Z",
    "lastCount": 15
   },
   "yt-potent": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:09.309Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.064Z)",
+   "nextTry": "2026-10-24T01:56:37.064Z",
    "lastCount": 15
   },
   "yt-bardinette": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:09.451Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.124Z)",
+   "nextTry": "2026-10-24T01:56:37.124Z",
    "lastCount": 15
   },
   "yt-trayton": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:09.613Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.182Z)",
+   "nextTry": "2026-10-24T01:56:37.182Z",
    "lastCount": 15
   },
   "yt-bizyze-coaching-league-of-le": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:09.735Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.228Z)",
+   "nextTry": "2026-10-24T01:56:37.228Z",
    "lastCount": 15
   },
   "yt-sol1xd": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:09.867Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.281Z)",
+   "nextTry": "2026-10-24T01:56:37.281Z",
    "lastCount": 15
   },
   "yt-titans-coaching": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:09.962Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.357Z)",
+   "nextTry": "2026-10-24T01:56:37.357Z",
    "lastCount": 15
   },
   "yt-el-blu-lol": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:10.066Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.407Z)",
+   "nextTry": "2026-10-24T01:56:37.407Z",
    "lastCount": 15
   },
   "yt-shintalx-coach-de-lol": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:10.192Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.452Z)",
+   "nextTry": "2026-10-24T01:56:37.452Z",
    "lastCount": 15
   },
   "yt-raiko-league-of-legends": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:10.313Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-24T00:56:37.581Z)",
+   "nextTry": "2026-10-24T01:56:37.581Z",
    "lastCount": 15
   },
   "yt-maurogarih": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:10.448Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.624Z)",
+   "nextTry": "2026-10-24T01:56:37.624Z",
    "lastCount": 15
   },
   "yt-odysseus": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:10.566Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.674Z)",
+   "nextTry": "2026-10-24T01:56:37.674Z",
    "lastCount": 15
   },
   "yt-dovahndo": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:10.674Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.734Z)",
+   "nextTry": "2026-10-24T01:56:37.734Z",
    "lastCount": 15
   },
   "yt-husumlol": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:10.777Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.782Z)",
+   "nextTry": "2026-10-24T01:56:37.782Z",
    "lastCount": 15
   },
   "yt-que-aula": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:10.905Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.830Z)",
+   "nextTry": "2026-10-24T01:56:37.830Z",
    "lastCount": 15
   },
   "yt-asteek": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:11.050Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.881Z)",
+   "nextTry": "2026-10-24T01:56:37.881Z",
    "lastCount": 15
   },
   "yt-keshaeuw": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:11.174Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:37.986Z)",
+   "nextTry": "2026-10-24T01:56:37.986Z",
    "lastCount": 15
   },
   "yt-phantasm": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:11.377Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:38.035Z)",
+   "nextTry": "2026-10-24T01:56:38.036Z",
    "lastCount": 15
   },
   "yt-powerofevil": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:11.519Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:38.105Z)",
+   "nextTry": "2026-10-24T01:56:38.105Z",
    "lastCount": 15
   },
   "yt-fl7vob_qbs": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:11.624Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:38.153Z)",
+   "nextTry": "2026-10-24T01:56:38.153Z",
    "lastCount": 15
   },
   "yt-japs-99jh_": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:11.810Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:38.200Z)",
+   "nextTry": "2026-10-24T01:56:38.200Z",
    "lastCount": 15
   },
   "yt-mzthr5qzga": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:11.958Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-24T00:56:38.445Z)",
+   "nextTry": "2026-10-24T01:56:38.445Z",
    "lastCount": 15
   },
   "yt-cq2-jrbuz4": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:12.107Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:38.498Z)",
+   "nextTry": "2026-10-24T01:56:38.498Z",
    "lastCount": 15
   },
   "yt-erhqgfd8dn": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:12.247Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:38.543Z)",
+   "nextTry": "2026-10-24T01:56:38.543Z",
    "lastCount": 15
   },
   "yt-ga52d8qlv3": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:12.388Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:38.603Z)",
+   "nextTry": "2026-10-24T01:56:38.603Z",
    "lastCount": 15
   },
   "yt-6izv_x6edr": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:12.536Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-24T00:56:38.720Z)",
+   "nextTry": "2026-10-24T01:56:38.720Z",
    "lastCount": 15
   },
   "yt-fmmwh9er3z": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:12.673Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-24T00:56:38.840Z)",
+   "nextTry": "2026-10-24T01:56:38.840Z",
    "lastCount": 15
   },
   "yt-dmevbthdzh": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:12.832Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:38.885Z)",
+   "nextTry": "2026-10-24T01:56:38.885Z",
    "lastCount": 15
   },
   "yt-o8todsm2gv": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:13.054Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:38.929Z)",
+   "nextTry": "2026-10-24T01:56:38.929Z",
    "lastCount": 15
   },
   "yt-2-8sga9qex": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:13.173Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:38.990Z)",
+   "nextTry": "2026-10-24T01:56:38.990Z",
    "lastCount": 15
   },
   "yt-6-vilhl-lv": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:13.290Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.045Z)",
+   "nextTry": "2026-10-24T01:56:39.045Z",
    "lastCount": 15
   },
   "yt-9fhrv-_tww": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:13.444Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.096Z)",
+   "nextTry": "2026-10-24T01:56:39.096Z",
    "lastCount": 15
   },
   "yt-guy1cnuajr": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:13.602Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.136Z)",
+   "nextTry": "2026-10-24T01:56:39.136Z",
    "lastCount": 15
   },
   "yt-japanesekoreanug": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:13.733Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.192Z)",
+   "nextTry": "2026-10-24T01:56:39.192Z",
    "lastCount": 15
   },
   "yt-02kyy9q5fy": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:13.847Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.249Z)",
+   "nextTry": "2026-10-24T01:56:39.249Z",
    "lastCount": 15
   },
   "yt-mjdqfb68q1": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:13.964Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.294Z)",
+   "nextTry": "2026-10-24T01:56:39.294Z",
    "lastCount": 15
   },
   "yt-yamato-natsuna-lol-katarina": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:14.130Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.353Z)",
+   "nextTry": "2026-10-24T01:56:39.353Z",
    "lastCount": 15
   },
   "yt-wcnac9zs-i": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:14.256Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-24T00:56:39.482Z)",
+   "nextTry": "2026-10-24T01:56:39.482Z",
    "lastCount": 15
   },
   "yt-iqjmsczied": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:14.362Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.534Z)",
+   "nextTry": "2026-10-24T01:56:39.534Z",
    "lastCount": 15
   },
   "yt-zwyro": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:14.500Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.584Z)",
+   "nextTry": "2026-10-24T01:56:39.584Z",
    "lastCount": 15
   },
   "yt-jankos": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:14.704Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.685Z)",
+   "nextTry": "2026-10-24T01:56:39.685Z",
    "lastCount": 15
   },
   "yt-krugz": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:14.904Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.736Z)",
+   "nextTry": "2026-10-24T01:56:39.736Z",
    "lastCount": 15
   },
   "yt-turkish-taliyah": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:15.047Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.780Z)",
+   "nextTry": "2026-10-24T01:56:39.780Z",
    "lastCount": 15
   },
   "yt-taowb": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:15.196Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.820Z)",
+   "nextTry": "2026-10-24T01:56:39.820Z",
    "lastCount": 15
   },
   "yt-hansuo": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:15.319Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.868Z)",
+   "nextTry": "2026-10-24T01:56:39.868Z",
    "lastCount": 15
   },
   "yt-proguides-challenger-league": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-23T18:47:15.494Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-24T00:56:39.919Z)",
+   "nextTry": "2026-10-24T01:56:39.919Z",
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-10-23T18:47:15.505Z",
+ "lastDiscovery": "2026-10-24T00:56:39.930Z",
  "failures": [],
  "quarantine": [],
  "rejected": [
@@ -601,8 +601,9 @@
   "c-riot-champion-insights-yone",
   "c-riot-dev-launching-yuumi-s-rework",
   "c-riot-dev-yuumi-s-rework",
-  "c-yt-qQNuoySpVMc",
   "c-riot-champion-insights-zeri",
+  "c-yt-_hGNfCMUO6s",
+  "c-yt-fNvRQRe4n00",
   "c-yt-Xc_CS1JFoFc",
   "c-yt-eceSyaVnz3M",
   "c-yt-7a5EBaZ-ems",
@@ -1905,6 +1906,14 @@
     "model": "gemini-3.6-flash",
     "input": 4188,
     "output": 841,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-24T01:05:19.389Z",
+    "content": "c-yt-qQNuoySpVMc",
+    "model": "gemini-3.8-flash",
+    "input": 7312,
+    "output": 1423,
     "usd": 0
    }
   ],

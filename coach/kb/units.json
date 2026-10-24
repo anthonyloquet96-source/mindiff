@@ -48488,7 +48488,289 @@
    },
    "version": 1,
    "firstSeen": "2026-10-23"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-1",
+   "claim": "Briar ne possède pas de régénération passive de points de vie : elle se soigne uniquement en infligeant des dégâts ou en consommant du sang sur des sbires ou champions, et son auto-guérison augmente à mesure que ses points de vie diminuent.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Briar/passive"
+   ],
+   "conditions": [
+    "Infliger des dégâts ou consommer du sang sur des sbires ou champions"
+   ],
+   "limits": [
+    "Briar ne bénéficie d'aucune régénération de PV passive naturelle en dehors des soins par dégâts."
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "Briar also needs to feed, as she has no passive health regen. She only heals when she does damage (or consumes blood) to minions or champions. The lower Briar’s HP, the hangrier she gets. So watch out, because that also means her self-healing is increased."
+    }
+   ],
+   "mentions": [],
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le passage cité confirme explicitement l'absence de régénération passive de PV et le mécanisme d'auto-guérison croissante selon les PV manquants."
+   },
+   "published": "2023-08-30",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-24",
+   "validity": {
+    "checkedAt": "2026-10-24",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-24"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-2",
+   "claim": "La compétence E de Briar sert à interrompre son état de frénésie (Z - Coup de folie) afin de reprendre le contrôle de son champion et d'éviter les overextensions mortelles.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Briar/W",
+    "Briar/E"
+   ],
+   "conditions": [
+    "Activer le E pendant l'état de frénésie du Z"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "With Briar’s E, the team quickly realized she needed some kind of off-button for her W (Blood Frenzy) so that she had some more control over her fights. That way, every time a player popped her W she wasn’t obligated to commit to the full rampage and overextend."
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser la compétence E pour annuler la frénésie du Z lorsqu'un engagement devient trop risqué ou entraîne un overextend.",
+   "observe": "L'interruption immédiate de la perte de contrôle et de la course effrénée du Z lors de l'activation du E.",
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le passage du concepteur confirme fidèlement que la compétence E a été conçue comme un bouton d'arrêt pour le Z afin de maîtriser l'overextension."
+   },
+   "published": "2023-08-30",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-24",
+   "validity": {
+    "checkedAt": "2026-10-24",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-24"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-3",
+   "claim": "L'ultime de Briar projette un skillshot à portée quasi globale qui la propulse obligatoirement sur le premier champion ennemi touché.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Briar/R"
+   ],
+   "conditions": [
+    "Toucher un champion adverse avec le projectile de l'ultime"
+   ],
+   "limits": [
+    "Peut être esquivé car il s'agit d'un skillshot en ligne droite ; le dash vers la cible est garanti et automatique à l'impact."
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "August and the team eventually landed on the current form of the ult—a projectile skillshot that causes Briar to immediately rush to the first champion it hits."
+    },
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "initially, this projectile only had 1000 range. But the team thought that since it was a skillshot, could be dodged like a projectile, and was a guaranteed dive when it landed, there would be enough counterplay to give the projectile nearly global range."
+    }
+   ],
+   "mentions": [],
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le texte officiel d'introduction décrit directement la portée quasi globale du skillshot et la ruée automatique sur le premier champion touché."
+   },
+   "published": "2023-08-30",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-24",
+   "validity": {
+    "checkedAt": "2026-10-24",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-24"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-4",
+   "claim": "La maîtrise de Briar repose sur une gestion rigoureuse de ses états de frénésie (Z et ultime), une mauvaise décision risquant d'entraîner une perte de contrôle et une mort évitable.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Briar/W",
+    "Briar/R"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "The best Briar players will be the ones who learn how to manage her frenzy state because she can easily get herself killed with her W and her ultimate if she isn’t careful."
+    }
+   ],
+   "mentions": [
+    "Naafiri (exemple)",
+    "Aatrox (exemple)",
+    "Swain (exemple)",
+    "Sion (exemple)"
+   ],
+   "action": "Évaluer la position des ennemis et les sorties de secours avant de déclencher le Z ou l'ultime pour ne pas s'enfermer dans un plongeon fatal.",
+   "observe": "",
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le passage cite textuellement la nécessité de gérer l'état de frénésie (Z et R) pour éviter de mourir bêtement en combat."
+   },
+   "published": "2023-08-30",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v1 + critique v1)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v1",
+    "critique": "v1"
+   },
+   "analyzedAt": "2026-10-24",
+   "validity": {
+    "checkedAt": "2026-10-24",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-24"
   }
  ],
- "updatedAt": "2026-10-23T11:02:42.264Z"
+ "updatedAt": "2026-10-24T13:18:08.635Z"
 }

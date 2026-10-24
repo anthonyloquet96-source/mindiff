@@ -7716,8 +7716,17 @@
     "basis": "page officielle de Riot sur Aurora, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2024-06-20 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Écarté : contenu jugé de faible qualité (Article de conception (Champion Insights) centré sur la narration, la direction artistique et l'historique du développement d'Aurora, sans données tactiques, chiffrées ou méthodologiques exploitables pour le coaching.).",
+   "analyzedAt": "2026-10-24",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "quality": {
+    "level": "faible",
+    "why": "Article de conception (Champion Insights) centré sur la narration, la direction artistique et l'historique du développement d'Aurora, sans données tactiques, chiffrées ou méthodologiques exploitables pour le coaching."
+   },
+   "learn": null,
+   "rejectedForQuality": true
   },
   {
    "id": "c-yt-L8Za9xjMg84",
@@ -7826,8 +7835,18 @@
     "basis": "page officielle de Riot sur Briar, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2023-08-30 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Article officiel du 2023-08-30 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "analyzedAt": "2026-10-24",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Briar n'a aucune régénération passive de PV et se soigne en frappant, tandis que son kit repose sur des états de frénésie (Z et R) qu'il faut savoir gérer prudemment ou annuler (avec le E) pour éviter de mourir en overextend.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Article de conception officiel (Champion Insights) fournissant les règles fondamentales du kit de Briar par son designer principal (August), mais sans chiffres précis ni contexte compétitif/ranked particulier."
+   }
   },
   {
    "id": "c-riot-dev-the-latest-on-fiddlesticks-vgu",
@@ -8523,7 +8542,7 @@
    "lang": "en",
    "published": "2025-06-24",
    "retrievedAt": "2026-10-21",
-   "patch": null,
+   "patch": "aucun",
    "champions": [
     "Yunara"
    ],
@@ -8536,9 +8555,37 @@
     "patchMentioned": null,
     "basis": "page officielle de Riot sur Yunara, champion sans conseils officiels dans Data Dragon"
    },
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Vidéo officielle de Riot : à lire par Gemini."
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "note": "Lue par gemini-3.8-flash : transcription et 20 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "sha256": "d07ebb1aff099c65d366dc4e7bc09ac61de09227a5c5aa9853d3ec496d8931ba",
+    "segments": 37,
+    "observations": 20,
+    "duration": "03:10",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 21883
+   },
+   "analyzedAt": "2026-10-24",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 2,
+   "alertes": [
+    {
+     "code": "traduction",
+     "detail": "Les noms des compétences de Yunara (Vow to the First Lands, Cultivation of Spirit, Arc of Judgement, Kanmei's Steps, Transcend One's Self, Arc of Ruin, Untouchable Shadow) sont indiqués en anglais dans la vidéo originale et n'ont pas d'équivalent officiel fr_FR fourni."
+    }
+   ],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "Présentation officielle de Riot Games (Champion Spotlight) décrivant de manière claire et directe le fonctionnement des compétences et le kit mécanique du champion."
+   }
   },
   {
    "id": "c-riot-dev-launching-yuumi-s-rework",
@@ -8667,7 +8714,7 @@
     "basis": "page officielle de Riot sur Zaahen, champion sans conseils officiels dans Data Dragon"
    },
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 19 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "attempts": 0,
    "lastError": "gemini-3.5-flash HTTP 429 : You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 22h21m41.67153404s. (2026-10-21)",
@@ -8684,6 +8731,25 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 21521
+   },
+   "analyzedAt": "2026-10-24",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 3,
+   "alertes": [
+    {
+     "code": "traduction",
+     "detail": "Les noms de compétences sont en version anglaise originale (Cultivation of War, The Darkin Glaive, Dreaded Return, Aureate Rush, Grim Deliverance) car les traductions officielles fr_FR ne sont pas fournies dans le texte."
+    },
+    {
+     "code": "acces-partiel",
+     "detail": "Contenu analysé via une transcription et un échantillonnage visuel IA à 1 image par seconde ; les détails fins d'animation et de timings précis restent provisoires."
+    }
+   ],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "Présentation officielle de kit par Riot Games décrivant clairement chaque compétence et ses mécaniques de jeu, mais sans valeurs numériques précises (ratios, délais) ni mention du numéro de patch."
    }
   },
   {
@@ -15739,7 +15805,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 24
   },
   {
    "id": "c-yt-IgPYxU_VUkU",
@@ -41081,12 +41148,12 @@
    "published": null,
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 14,
-   "note": "File de lecture (rang 14) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 39 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -41096,6 +41163,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "sha256": "ce9f6aea064c73794d59092f4caf00cd4fd86a186d0c0ecdc1df1190ffffd30e",
+    "segments": 32,
+    "observations": 39,
+    "duration": "20:06",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 115211
    }
   },
   {
@@ -41108,13 +41188,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-10-23",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "9.19",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 15,
-   "note": "File de lecture (rang 15) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 21 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [
@@ -41124,6 +41204,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "sha256": "cb2d01741553efb12025050d60d931ba026f20e0bf6c534a459c9ca12d25226f",
+    "segments": 49,
+    "observations": 21,
+    "duration": "14:31",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 85530
    }
   },
   {
@@ -44403,6 +44496,34 @@
      "mid",
      "guide",
      "matchup"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-035a4GhaLOE",
+   "sourceId": "yt-scrubnoob",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=035a4GhaLOE",
+   "title": "RENGAR CLEAR GUIDE 2026 [EDUCATIONAL]",
+   "author": "ScrubNoob",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-24",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 25,
+   "note": "File de lecture (rang 25) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 13,
+    "matched": [
+     "guide",
+     "clear"
     ],
     "entertainment": [],
     "patchMentioned": null,

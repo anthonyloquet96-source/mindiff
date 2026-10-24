@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-24T06:50:12.699Z",
+ "generatedAt": "2026-10-24T13:18:09.468Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -9,7 +9,7 @@
  "discovery": {
   "wtl-blog": {
    "attempts": 0,
-   "lastOk": "2026-10-24T00:56:34.839Z",
+   "lastOk": "2026-10-24T12:45:58.189Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 2
@@ -554,7 +554,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-10-24T06:46:59.467Z",
+ "lastDiscovery": "2026-10-24T12:45:58.223Z",
  "failures": [],
  "quarantine": [],
  "rejected": [
@@ -567,6 +567,77 @@
     }
    ],
    "at": "2026-10-20",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-S3F9CpeiSNE-1",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-S3F9CpeiSNE : « Every attack and ability that hits an enemy champion fills Z… »"
+    },
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-S3F9CpeiSNE : « With full stacks, Zaahen doubles the bonus AD from his Culti… »"
+    }
+   ],
+   "at": "2026-10-24",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-S3F9CpeiSNE-2",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-S3F9CpeiSNE : « After casting, his next attack slashes twice, dealing bonus … »"
+    },
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-S3F9CpeiSNE : « his W is great for multi-stacking his passive in the heat of… »"
+    }
+   ],
+   "at": "2026-10-24",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-S3F9CpeiSNE-3",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-S3F9CpeiSNE : « His E is Aureate Rush. Zaahen dashes a short distance and th… »"
+    },
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-S3F9CpeiSNE : « Zaahen prepares for battle, takes flight, and slams down int… »"
+    }
+   ],
+   "at": "2026-10-24",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-gG09J6Vxbgo-1",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-gG09J6Vxbgo : « She's truly powerful with a fully stacked Q. If Cultivation … »"
+    },
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-gG09J6Vxbgo : « Her mobility is pretty limited most of the time, so opponent… »"
+    }
+   ],
+   "at": "2026-10-24",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-gG09J6Vxbgo-2",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-gG09J6Vxbgo : « She gains a short dash instead of movement speed, and the ul… »"
+    }
+   ],
+   "at": "2026-10-24",
    "origin": "analyse-automatique"
   }
  ],
@@ -581,9 +652,7 @@
   "c-yt-n2Rw0lR96eg",
   "c-yt-VYyfXe5kU-I",
   "c-riot-champion-insights-akshan",
-  "c-riot-champion-insights-aurora",
   "c-riot-champion-insights-bel-veth",
-  "c-riot-champion-insights-briar",
   "c-riot-dev-the-latest-on-fiddlesticks-vgu",
   "c-riot-fiddlesticks-and-volibear-dev-update-1",
   "c-riot-champion-insights-lillia",
@@ -601,7 +670,6 @@
   "c-riot-champion-insights-yone",
   "c-riot-dev-launching-yuumi-s-rework",
   "c-riot-dev-yuumi-s-rework",
-  "c-yt-S3F9CpeiSNE",
   "c-riot-champion-insights-zeri",
   "c-yt-_hGNfCMUO6s",
   "c-yt-fNvRQRe4n00",
@@ -612,7 +680,9 @@
   "c-yt-5o6m5FWMhR0",
   "c-yt-7ZZEBbT_qzQ",
   "c-yt-Y9iqq6Vl4fM",
-  "c-yt-X6dZ1iPt-PY"
+  "c-yt-X6dZ1iPt-PY",
+  "c-yt-z8jp-YjOwI0",
+  "c-yt-9KXgqOimaGc"
  ],
  "review": [
   "u-lucian-2620-ad",
@@ -1445,7 +1515,11 @@
   "u-auto-jinx-26-21",
   "u-ai-yt-ynG4T9yLKFs-1",
   "u-ai-yt-ynG4T9yLKFs-2",
-  "u-ai-yt-ynG4T9yLKFs-3"
+  "u-ai-yt-ynG4T9yLKFs-3",
+  "u-ai-riot-champion-insights-briar-1",
+  "u-ai-riot-champion-insights-briar-2",
+  "u-ai-riot-champion-insights-briar-3",
+  "u-ai-riot-champion-insights-briar-4"
  ],
  "contested": [],
  "retired": [
@@ -1916,6 +1990,62 @@
     "model": "gemini-3.8-flash",
     "input": 7312,
     "output": 1423,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-24T13:04:02.758Z",
+    "content": "c-yt-S3F9CpeiSNE",
+    "model": "gemini-3.8-flash",
+    "input": 3943,
+    "output": 5232,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-24T13:04:53.390Z",
+    "content": "c-yt-S3F9CpeiSNE",
+    "model": "gemini-3.8-flash",
+    "input": 4852,
+    "output": 1376,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-24T13:07:07.038Z",
+    "content": "c-yt-gG09J6Vxbgo",
+    "model": "gemini-3.8-flash",
+    "input": 4015,
+    "output": 1705,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-24T13:08:33.221Z",
+    "content": "c-yt-gG09J6Vxbgo",
+    "model": "gemini-3.8-flash",
+    "input": 3425,
+    "output": 1145,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-24T13:11:59.468Z",
+    "content": "c-riot-champion-insights-aurora",
+    "model": "gemini-3.8-flash",
+    "input": 6384,
+    "output": 3255,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-24T13:15:13.500Z",
+    "content": "c-riot-champion-insights-briar",
+    "model": "gemini-3.8-flash",
+    "input": 5449,
+    "output": 1900,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-24T13:18:02.468Z",
+    "content": "c-riot-champion-insights-briar",
+    "model": "gemini-3.8-flash",
+    "input": 4550,
+    "output": 649,
     "usd": 0
    }
   ],

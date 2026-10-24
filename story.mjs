@@ -9,29 +9,71 @@ const iso10 = ms => { const d = new Date(ms); d.setUTCSeconds(Math.floor(d.getUT
 // Relevé d'une partie terminée (environ 2 requêtes par minute de jeu)
 export async function fetchStory(gameId, fetchImpl = fetch) {
   const get = async u => { try { const r = await fetchImpl(u); return r.status === 200 ? await r.json() : null; } catch { return null; } };
+  const win = ms => get(`${FEED}/window/${gameId}?startingTime=${iso10(ms)}`);
   const w0 = await get(`${FEED}/window/${gameId}`);
   if (!w0?.frames?.length || !w0.gameMetadata) return null;
-  const t0 = Date.parse(w0.frames[0].rfc460Timestamp), meta = w0.gameMetadata;
+  const meta = w0.gameMetadata;
+  // Début du flux : quelques secondes avant l'apparition des champions. Le 0:00 de la partie est la première image
+  // où les joueurs ont leurs 500 golds de départ.
+  const f0 = Date.parse(w0.frames[0].rfc460Timestamp);
+  const early = [w0, await win(f0 + 10000), await win(f0 + 20000)].flatMap(w => w?.frames || []);
+  const t0 = Date.parse((early.find(f => f.blueTeam.totalGold > 0) || w0.frames[0]).rfc460Timestamp);
   const side = (m, s) => m.participantMetadata.map(p => ({ name: p.summonerName, champ: p.championId, role: p.role, side: s, teamId: m.esportsTeamId }));
   const players = [...side(meta.blueTeamMetadata, "blue"), ...side(meta.redTeamMetadata, "red")];
-  const mins = [];
-  let end = null, items = null;
+  const mins = [], frames = [...early], snap = {};
+  let end = null, last = null;
   for (let m = 1; m <= 90; m++) {
-    const at = iso10(t0 + m * 60000);
-    const [w, d] = await Promise.all([get(`${FEED}/window/${gameId}?startingTime=${at}`), get(`${FEED}/details/${gameId}?startingTime=${at}`)]);
+    const at = t0 + m * 60000;
+    const [w, d] = await Promise.all([win(at), get(`${FEED}/details/${gameId}?startingTime=${iso10(at)}`)]);
     const f = w?.frames?.at(-1);
     if (!f) break;
+    frames.push(...w.frames);
     const p = d?.frames?.at(-1)?.participants;
     const t = x => [f.blueTeam[x], f.redTeam[x]];
     mins.push({ m, gold: t("totalGold"), kills: t("totalKills"), towers: t("towers"), inhibs: t("inhibitors"), barons: t("barons"), drakes: t("dragons").map(x => x || []),
       k: p ? p.map(x => [x.kills, x.deaths, x.assists]) : null });
-    if (p) items = p.map(x => x.items || []);
+    if (p) { last = p; if ([10, 15, 20].includes(m)) snap[m] = p.map(x => [x.totalGoldEarned, x.creepScore, x.level]); }
     if (f.gameState === "finished") { end = Math.round((Date.parse(f.rfc460Timestamp) - t0) / 1000); break; }
   }
   if (!end || mins.length < 5) return null; // partie pas encore finie, ou relevé incomplet
+  // Kills à la seconde : chaque fenêtre du flux couvre 10 s. Pour chaque minute où un kill, une mort ou une aide a eu lieu,
+  // on relève les 50 s manquantes, puis on compare les images successives.
+  const kda = f => [...f.blueTeam.participants, ...f.redTeam.participants].map(x => [x.kills, x.deaths, x.assists]);
+  const ts = f => Date.parse(f.rfc460Timestamp);
+  const sameKda = (a, b) => JSON.stringify(kda(a)) === JSON.stringify(kda(b));
+  frames.sort((a, b) => ts(a) - ts(b));
+  const need = new Set();
+  for (let i = 1; i < frames.length; i++) {
+    const a = ts(frames[i - 1]), b = ts(frames[i]);
+    if (b - a > 4000 && !sameKda(frames[i - 1], frames[i])) for (let s = a + 10000; s < b; s += 10000) need.add(s);
+  }
+  const fill = [...need];
+  for (let i = 0; i < fill.length; i += 12) (await Promise.all(fill.slice(i, i + 12).map(win))).forEach(w => frames.push(...(w?.frames || [])));
+  frames.sort((a, b) => ts(a) - ts(b));
+  // ev : [seconde, tueur, victime, [aides]] (indices des joueurs). Tueur null : mort sans tueur identifié (tourelle,
+  // monstre, ou plusieurs kills dans la même image) ; victime null : kill dont la victime n'est pas identifiable.
+  const ev = [];
+  for (let i = 1; i < frames.length; i++) {
+    const a = kda(frames[i - 1]), b = kda(frames[i]), t = Math.max(0, Math.round((ts(frames[i]) - t0) / 1000));
+    const dk = b.map((x, j) => x[0] - a[j][0]), dd = b.map((x, j) => x[1] - a[j][1]), da = b.map((x, j) => x[2] - a[j][2]);
+    if (dk.some(x => x < 0) || dd.some(x => x < 0)) continue; // image en retard sur la précédente
+    const killers = dk.flatMap((n, j) => Array(Math.max(0, n)).fill(j)), victims = dd.flatMap((n, j) => Array(Math.max(0, n)).fill(j));
+    const helpers = da.flatMap((n, j) => n > 0 ? [j] : []);
+    const left = [...victims];
+    for (const k of killers) {
+      const opp = left.filter(v => (v < 5) !== (k < 5));
+      const sure = new Set(killers.filter(x => (x < 5) === (k < 5))).size === 1 && opp.length >= 1 && (opp.length === killers.filter(x => (x < 5) === (k < 5)).length);
+      const v = sure ? opp[0] : null;
+      if (v != null) left.splice(left.indexOf(v), 1);
+      ev.push([t, k, v, helpers.filter(h => (h < 5) === (k < 5) && h !== k)]);
+    }
+    left.forEach(v => ev.push([t, null, v, []]));
+  }
+  const fin = last?.map(x => ({ g: x.totalGoldEarned, cs: x.creepScore, lv: x.level, kp: x.killParticipation, dmg: x.championDamageShare, wp: x.wardsPlaced, wd: x.wardsDestroyed,
+    it: (x.items || []).filter(Boolean), rk: x.perkMetadata?.perks?.[0] ?? null, rs: x.perkMetadata ? [x.perkMetadata.styleId, x.perkMetadata.subStyleId] : null })) || null;
   // Vainqueur déduit de l'image finale (inhibiteurs, puis tours, puis kills) ; la collecte le vérifie avec le score officiel
   const L = mins.at(-1), sc = i => L.inhibs[i] * 100 + L.towers[i] * 10 + L.kills[i] / 100;
-  return { v: 1, gameId, duration: end, winner: sc(0) >= sc(1) ? "blue" : "red", players, mins, items };
+  return { v: 2, gameId, duration: end, winner: sc(0) >= sc(1) ? "blue" : "red", players, mins, snap, fin, ev };
 }
 
 const mmss = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
@@ -84,8 +126,19 @@ export function storyLines(st, { teams, winner, lang = "fr", tagsOf = () => [], 
       ? `Turning point between ${a.m}:00 and ${b.m}:00: ${T(winner)} gains ${k1(best.g, lang)} gold (${kw}–${kl} in kills${bits.length ? `, ${list(bits, lang)}` : ""}).`
       : `Tournant entre ${a.m}:00 et ${b.m}:00 : ${T(winner)} prend ${k1(best.g, lang)} golds d'écart (${kw}–${kl} en kills${bits.length ? `, ${list(bits, lang)}` : ""}).` });
   }
-  // 5. Actions marquantes : au moins 3 kills d'un joueur en une minute (hors tournant déjà raconté)
-  for (let i = 1; i < M.length; i++) {
+  // 5. Actions marquantes. Relevé à la seconde (v2) : multi-kills au sens du jeu (moins de 10 s entre deux kills du même joueur).
+  // Relevé à la minute (v1) : au moins 3 kills d'un joueur en une minute, hors tournant déjà raconté.
+  if (st.ev) {
+    const NAME = [, , "Double kill", "Triple kill", "Quadra kill", "Penta kill"];
+    P.forEach((p, j) => {
+      const ks = st.ev.filter(e => e[1] === j).map(e => e[0]);
+      for (let i = 0; i < ks.length;) {
+        let n = 1; while (i + n < ks.length && ks[i + n] - ks[i + n - 1] <= 10 && n < 5) n++;
+        if (n >= 3) out.push({ k: "multi", s: ks[i], t: en ? `${NAME[n]} for ${who(j)} at ${mmss(ks[i + n - 1])}.` : `${NAME[n]} de ${who(j)} à ${mmss(ks[i + n - 1])}.` });
+        i += n;
+      }
+    });
+  } else for (let i = 1; i < M.length; i++) {
     if (!M[i].k || !M[i - 1].k || (best && i > best.i - 2 && i <= best.i)) continue;
     P.forEach((p, j) => { const n = M[i].k[j][0] - M[i - 1].k[j][0]; if (n >= 3) out.push({ k: "multi", t: en ? `${who(j)}: ${n} kills in one minute around ${M[i].m}:00.` : `${who(j)} : ${n} kills en une minute vers ${M[i].m}:00.` }); });
   }

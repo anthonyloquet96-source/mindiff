@@ -201,7 +201,7 @@ export async function collectLolEsports(state) {
     let refreshed = 0;
     for (const m of allMatches.filter(m => m.state === "completed" && (!m.start || daysAgo(m.start) <= 45))) {
       // Relu une fois s'il manque le score final des parties (ajouté le 23/10/2026), au plus 12 matchs par collecte
-      const stale = state.lolMatches[m.id]?.games?.some(g => g.final === undefined || g.story === undefined) && (refreshed = (refreshed || 0) + 1) <= 12;
+      const stale = state.lolMatches[m.id]?.games?.some(g => g.final === undefined || g.story === undefined || (g.story && g.story.v < 2)) && (refreshed = (refreshed || 0) + 1) <= 12;
       if (!state.lolMatches[m.id] || stale) {
         try { state.lolMatches[m.id] = await matchDetail(m.id, m.teams); } catch { /* réessayé à la prochaine collecte */ }
       }

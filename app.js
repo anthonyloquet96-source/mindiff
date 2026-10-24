@@ -481,17 +481,105 @@ function storyHtml(st, m) {
   const lines = window.storyLines(st, { teams: storyTeams(st, m), winner: st.winner, lang: window.LANG || "fr", tagsOf: c => rosters.lol?.find(x => x.id === c)?.tags || [], champName: c => entity("lol", c).name });
   return `<ul class="story" translate="no">${lines.map(l => `<li class="st-${l.k}">${esc(l.t)}</li>`).join("")}</ul><p class="fine st-note" translate="no">${window.LANG === "en" ? "Facts measured minute by minute in the official LoL Esports feed." : "Faits relevés minute par minute dans le flux officiel de LoL Esports."}</p>`;
 }
+// Relevé le plus complet disponible : celui de la collecte, ou celui calculé sur l'appareil (v2 : kills à la seconde, stats finales)
+const gameStory = (gameId, m) => { const a = m.games?.find(g => g.id === gameId)?.story, b = STORY[gameId]; return (b?.v || 0) > (a?.v || 0) ? b : a || b || null; };
 function storyBox(gameId, m) {
-  const st = m.games?.find(g => g.id === gameId)?.story || STORY[gameId];
-  if (st) return storyHtml(st, m);
+  const st = gameStory(gameId, m);
+  if (st) return st.v >= 2 ? storyHtml(st, m) : `<div data-story="${esc(gameId)}" data-match="${esc(m.id)}" data-upgrade="1">${storyHtml(st, m)}</div>`;
   return `<div class="story-wait" data-story="${esc(gameId)}" data-match="${esc(m.id)}">${window.LANG === "en" ? "Preparing the game summary…" : "Résumé de la partie en préparation…"}</div>`;
 }
 function storyMatchInner(m) {
   const ids = STORY_GAMES[m.id];
   if (!ids) return `<div class="story-wait" data-story-list="${esc(m.id)}">${window.LANG === "en" ? "Preparing the game summary…" : "Résumé de la partie en préparation…"}</div>`;
-  return ids.map((id, i) => `${ids.length > 1 ? `<p class="label">Partie ${i + 1}</p>` : ""}${storyBox(id, m)}`).join("");
+  return ids.map((id, i) => { const st = gameStory(id, m); return `${ids.length > 1 ? `<p class="label">Partie ${i + 1}</p>` : ""}${storyBox(id, m)}${st?.fin ? `${["blue", "red"].map(sd => `<div class="draft ${st.winner === sd ? "win" : ""}"><span class="draft-team">${esc(storyTeams(st, m)[sd].name || "")}</span><div class="draft-picks">${st.players.map((p, j) => p.side === sd ? ppPick(id, j, p.champ, p.name, p.role) : "").join("")}</div></div>`).join("")}${ppPanel(id, m)}` : ""}`; }).join("");
 }
-const STORY_GAMES = {};
+
+// ---------- Fiche d'un joueur dans une partie : stats finales, objets, face à son vis-à-vis, kills et morts à la seconde
+const PP = {}; // partie → joueur ouvert
+let ppData = null, ppLoading = false; // noms des objets et runes (Data Dragon), chargés à la première ouverture
+async function ppLoad() {
+  if (ppData || ppLoading) return;
+  ppLoading = true;
+  const loc = window.LANG === "en" ? "en_US" : "fr_FR";
+  try {
+    const [it, ru] = await Promise.all([fetch(`https://ddragon.leagueoflegends.com/cdn/${lolVersion}/data/${loc}/item.json`).then(r => r.json()), fetch(`https://ddragon.leagueoflegends.com/cdn/${lolVersion}/data/${loc}/runesReforged.json`).then(r => r.json())]);
+    const runes = {};
+    for (const s of ru) { runes[s.id] = { name: s.name, icon: s.icon }; for (const sl of s.slots) for (const r of sl.runes) runes[r.id] = { name: r.name, icon: r.icon }; }
+    ppData = { items: Object.fromEntries(Object.entries(it.data).map(([k, v]) => [k, v.name])), runes };
+    if (Object.values(PP).some(x => x != null)) render(false);
+  } catch { /* noms indisponibles : les icônes restent */ }
+  ppLoading = false;
+}
+// Portrait d'un joueur : ouvre sa fiche de la partie quand le relevé détaillé existe, sinon la fiche du champion
+function ppPick(gameId, idx, champ, player, role) {
+  const ent = entity("lol", champ), short = player.replace(/^\S+\s/, "");
+  const label = `${ent.name}, ${player}${role ? `, ${ROLE_LABEL[role] || role}` : ""}`;
+  if (idx < 0) return `<a class="pick" href="${sheetHref("lol", ent.key)}" aria-label="${esc(label)}">${portrait(ent, "sm")}<small>${esc(short)}</small></a>`;
+  const on = PP[gameId] === idx;
+  return `<button type="button" class="pick ${on ? "on" : ""}" data-action="pp" data-id="${esc(gameId)}|${idx}" aria-pressed="${on}" aria-label="${esc(label)}">${portrait(ent, "sm")}<small>${esc(short)}</small></button>`;
+}
+function ppPanel(gameId, m) {
+  const st = gameStory(gameId, m), i = PP[gameId];
+  if (i == null || !st?.fin?.[i]) return "";
+  if (!ppData) ppLoad();
+  const en = window.LANG === "en", P = st.players, p = P[i], f = st.fin[i], K = st.mins.at(-1).k?.[i] || [0, 0, 0];
+  const nf = n => n.toLocaleString(en ? "en-US" : "fr-FR");
+  const dec = n => n.toLocaleString(en ? "en-US" : "fr-FR", { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+  const mmss = s => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+  const nm = j => P[j].name.replace(/^\S+\s/, ""), ch = j => entity("lol", P[j].champ).name, who = j => `${nm(j)} (${ch(j)})`;
+  const team = storyTeams(st, m), mins = st.duration / 60, ent = entity("lol", p.champ);
+  const ratio = (K[0] + K[2]) / Math.max(1, K[1]);
+  const tile = (v, l, s) => `<div class="pp-stat"><b>${v}</b><span>${esc(l)}</span>${s ? `<small>${esc(s)}</small>` : ""}</div>`;
+  const V = lolVersion;
+  const items = f.it.map(id => `<img src="https://ddragon.leagueoflegends.com/cdn/${esc(V)}/img/item/${esc(id)}.png" alt="${esc(ppData?.items[id] || "")}" title="${esc(ppData?.items[id] || "")}" loading="lazy" width="32" height="32">`).join("");
+  const rk = f.rk && ppData?.runes[f.rk], rs = f.rs?.[1] && ppData?.runes[f.rs[1]];
+  // Vis-à-vis : même rôle dans l'équipe adverse
+  const o = P.findIndex(q => q.side !== p.side && q.role === p.role);
+  const sg = n => `${n > 0 ? "+" : n < 0 ? "−" : ""}${nf(Math.abs(n))}`;
+  const vsRows = o < 0 ? [] : [...[10, 15, 20].filter(t => st.snap?.[t]).map(t => [`${t} min`, st.snap[t][i], st.snap[t][o]]), [en ? "End" : "Fin", [f.g, f.cs, f.lv], [st.fin[o].g, st.fin[o].cs, st.fin[o].lv]]];
+  const vs = vsRows.length ? `<p class="label">${en ? `Against ${esc(who(o))}` : `Face à ${esc(who(o))}`}</p>
+    <div class="pp-vs" role="table"><div role="row" class="pp-vs-h"><span role="columnheader"></span><span role="columnheader">${en ? "Gold" : "Golds"}</span><span role="columnheader">CS</span><span role="columnheader">${en ? "Level" : "Niveau"}</span></div>
+    ${vsRows.map(([l, a, b]) => `<div role="row"><span role="rowheader">${l}</span>${[0, 1, 2].map(k => `<span role="cell" class="${a[k] > b[k] ? "up" : a[k] < b[k] ? "down" : ""}">${sg(a[k] - b[k])}</span>`).join("")}</div>`).join("")}</div>` : "";
+  // Chronologie : kills, morts et aides du joueur, à la seconde
+  const ev = (st.ev || []).filter(e => e[1] === i || e[2] === i || e[3].includes(i));
+  const myKills = (st.ev || []).filter(e => e[1] === i).map(e => e[0]);
+  // Multi-kill (moins de 10 s entre deux kills) : indiqué sur le dernier kill de la série
+  const multi = {};
+  for (let k = 0, n = 1; k < myKills.length; k++, n++) { if (k + 1 < myKills.length && myKills[k + 1] - myKills[k] <= 10) continue; if (n >= 2) multi[k] = n; n = 0; }
+  const MK = [, , "Double kill", "Triple kill", "Quadra kill", "Penta kill"];
+  const help = (a, x) => { const h = a.filter(j => j !== x); return h.length ? (en ? `Assists: ${h.map(nm).join(", ")}` : `Aides : ${h.map(nm).join(", ")}`) : (en ? "No assist" : "Sans aide"); };
+  let kc = 0;
+  const row = e => {
+    const [t, k, v, a] = e;
+    if (k === i) { const kn = kc++; return `<li class="k"><time>${mmss(t)}</time><span><b>${v != null ? (en ? `Kill on ${esc(who(v))}` : `Kill sur ${esc(who(v))}`) : "Kill"}</b>${multi[kn] ? `<em>${MK[Math.min(5, multi[kn])]}</em>` : ""}<small>${esc(help(a, k))}</small></span></li>`; }
+    if (v === i) return `<li class="d"><time>${mmss(t)}</time><span><b>${k != null ? (en ? `Killed by ${esc(who(k))}` : `Tué par ${esc(who(k))}`) : (en ? "Death" : "Mort")}</b><small>${k != null ? esc(help(a, k)) : en ? "No enemy kill recorded at that moment (turret, monster or several kills at once)" : "Aucun kill adverse au même instant (tourelle, monstre ou plusieurs kills à la fois)"}</small></span></li>`;
+    return `<li class="a"><time>${mmss(t)}</time><span><b>${en ? "Assist" : "Aide"}</b><small>${en ? `${esc(who(k))}'s kill${v != null ? ` on ${esc(who(v))}` : ""}` : `Kill de ${esc(who(k))}${v != null ? ` sur ${esc(who(v))}` : ""}`}</small></span></li>`;
+  };
+  const dot = e => `<i class="${e[1] === i ? "k" : e[2] === i ? "d" : "a"}" style="left:${Math.min(100, (e[0] / st.duration) * 100).toFixed(2)}%"></i>`;
+  const ticks = [10, 20, 30, 40, 50].filter(x => x * 60 < st.duration).map(x => `<span style="left:${((x * 60) / st.duration) * 100}%">${x}</span>`).join("");
+  return `<section class="pp" translate="no" aria-label="${esc(`${p.name}, ${ent.name}`)}">
+    <div class="pp-head">${portrait(ent)}<div class="pp-id"><b>${esc(p.name.replace(/^\S+\s/, ""))}</b><span>${esc(team[p.side].name || "")} · ${esc(ROLE_LABEL[p.role] || p.role)} · ${esc(ent.name)}</span></div>
+      <button type="button" class="icon-btn" data-action="pp" data-id="${esc(gameId)}|${i}" aria-label="${en ? "Close" : "Fermer"}">${icon("close")}</button></div>
+    <div class="pp-stats">
+      ${tile(`${K[0]}/${K[1]}/${K[2]}`, "KDA", `${dec(ratio)} ${en ? "ratio" : "de ratio"}`)}
+      ${tile(nf(f.cs), en ? "CS" : "Sbires", `${dec(f.cs / mins)}${en ? "/min" : " par min"}`)}
+      ${tile(f.g >= 1000 ? `${dec(f.g / 1000)}k` : nf(f.g), en ? "Gold" : "Golds", `${nf(Math.round(f.g / mins))}${en ? "/min" : " par min"}`)}
+      ${tile(f.lv, en ? "Level" : "Niveau")}
+      ${f.kp != null ? tile(`${Math.round(f.kp * 100)}${en ? "%" : " %"}`, en ? "Kill participation" : "Participation aux kills") : ""}
+      ${f.dmg != null ? tile(`${Math.round(f.dmg * 100)}${en ? "%" : " %"}`, en ? "Team damage to champions" : "Des dégâts de l'équipe aux champions") : ""}
+      ${f.wp != null ? tile(`${f.wp}<i>·</i>${f.wd}`, en ? "Wards placed · destroyed" : "Wards posées · détruites") : ""}
+    </div>
+    ${items || rk ? `<div class="pp-build">${rk ? `<span class="pp-rune" title="${esc(rk.name)}"><img src="https://ddragon.leagueoflegends.com/cdn/img/${esc(rk.icon)}" alt="" width="32" height="32"><span><b>${esc(rk.name)}</b>${rs ? `<small>${esc(rs.name)}</small>` : ""}</span></span>` : ""}<span class="pp-items" aria-label="${en ? "Final items" : "Objets en fin de partie"}">${items}</span></div>` : ""}
+    ${vs}
+    ${st.ev ? `<p class="label">${en ? "Kills, deaths and assists" : "Kills, morts et aides"}</p>
+      <div class="pp-tbar" aria-hidden="true"><div class="pp-track">${ev.map(dot).join("")}</div><div class="pp-ticks">${ticks}</div></div>
+      ${ev.length ? `<ol class="pp-tl">${ev.map(row).join("")}</ol>` : `<p class="fine">${en ? "No kill, death or assist this game." : "Aucun kill, aucune mort ni aide dans cette partie."}</p>`}
+      <p class="fine">${en ? "Game times computed from the official LoL Esports feed, to the second (a pause in the game shifts the times that follow)." : "Temps de jeu calculés à partir du flux officiel de LoL Esports, à la seconde (une pause dans la partie décale les temps qui suivent)."}</p>`
+    : `<p class="fine">${en ? "Kill timeline being prepared…" : "Chronologie des kills en préparation…"}</p>`}
+    <a class="btn ghost sm" href="${sheetHref("lol", ent.key)}">${en ? `${esc(ent.name)} page` : `Fiche de ${esc(ent.name)}`}</a>
+  </section>`;
+}
+const STORY_GAMES = {}, STORY_TRIED = {};
 let storyBusy = false;
 async function storyFill() {
   if (storyBusy || !window.fetchStory) return;
@@ -507,17 +595,20 @@ async function storyFill() {
       const m = allTournaments().flatMap(tMatches).find(x => x.id === id);
       if (m) document.querySelectorAll(`[data-story-match="${CSS.escape(id)}"]`).forEach(x => { x.innerHTML = storyMatchInner(m); });
     }
+    let changed = false;
     for (const el of [...document.querySelectorAll("[data-story]")]) {
       const gid = el.dataset.story;
-      if (!STORY[gid]) {
+      if ((STORY[gid]?.v || 0) < 2) {
+        if (STORY_TRIED[gid] > Date.now() - 60000) continue; // relevé indisponible il y a moins d'une minute
+        STORY_TRIED[gid] = Date.now();
         const st = await window.fetchStory(gid);
-        if (!st) { el.textContent = window.LANG === "en" ? "Summary not available yet." : "Résumé pas encore disponible."; continue; }
+        if (!st) { if (!el.dataset.upgrade) el.textContent = window.LANG === "en" ? "Summary not available yet." : "Résumé pas encore disponible."; continue; }
         STORY[gid] = st;
         try { const keep = Object.fromEntries(Object.entries(STORY).slice(-30)); localStorage.setItem(STORY_KEY, JSON.stringify(keep)); } catch { /* ignoré */ }
       }
-      const m = allTournaments().flatMap(tMatches).find(x => x.id === el.dataset.match);
-      if (m) el.outerHTML = storyHtml(STORY[gid], m);
+      changed = true;
     }
+    if (changed) { storyBusy = false; render(false); return; }
   } catch { /* flux indisponible : réessayé à l'affichage suivant */ }
   storyBusy = false;
 }
@@ -972,7 +1063,9 @@ function matchPage(t, mid) {
           ${recapStrip(g, m)}
           ${storyBox(g.id, m)}
           ${["blue", "red"].map(sd => `<div class="draft ${g.winnerTeamId === g[sd].teamId ? "win" : ""}"><span class="draft-team">${esc(name(g[sd].teamId))}</span>
-            <div class="draft-picks">${g[sd].picks.map(p => { const ent = entity(t.game, p.champ); return `<a class="pick" href="${sheetHref(t.game, ent.key)}" aria-label="${esc(ent.name)}, ${esc(p.player)}, ${esc(ROLE_LABEL[p.role] || p.role)}">${portrait(ent, "sm")}<small>${esc(p.player.replace(/^\S+\s/, ""))}</small></a>`; }).join("")}</div></div>`).join("")}
+            <div class="draft-picks">${g[sd].picks.map(p => { const st = gameStory(g.id, m); const j = st?.fin ? st.players.findIndex(q => q.side === sd && (q.champ === p.champ || q.name === p.player)) : -1; return ppPick(g.id, j, p.champ, p.player, p.role); }).join("")}</div></div>`).join("")}
+          ${gameStory(g.id, m)?.fin ? `<p class="fine pp-hint">${window.LANG === "en" ? "Tap a player to see their game: KDA, kills to the second, items." : "Touche un joueur pour voir sa partie : KDA, kills à la seconde, objets."}</p>` : ""}
+          ${ppPanel(g.id, m)}
         </article>`).join("")}</div></section>` : ""}`) : ""}`;
 }
 
@@ -1551,6 +1644,7 @@ document.addEventListener("click", e => {
     case "lang": prefs.lang = id; savePrefs(); location.reload(); return;
     case "theme": prefs.theme = { auto: "light", light: "dark", dark: "auto" }[prefs.theme] || "light"; savePrefs(); applyTheme(); break;
     case "reveal": revealed.add(id); break;
+    case "pp": { const [g, j] = id.split("|"); PP[g] = PP[g] === Number(j) ? null : Number(j); break; }
     case "fav-game": prefs.favGames = prefs.favGames.includes(id) ? prefs.favGames.filter(x => x !== id) : [...prefs.favGames, id]; savePrefs(); break;
     case "fav-team": prefs.favTeams = prefs.favTeams.includes(id) ? prefs.favTeams.filter(x => x !== id) : [...prefs.favTeams, id]; savePrefs(); break;
     case "save": prefs.saved = prefs.saved.includes(id) ? prefs.saved.filter(x => x !== id) : [...prefs.saved, id]; savePrefs(); break;

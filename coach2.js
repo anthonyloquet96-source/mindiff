@@ -503,7 +503,7 @@ function c2LiveBuild(b, champ) {
   if (!b?.core && !b?.threats?.length) return "";
   const V = b.ddVersion || COACH.ddragonVersion;
   const img = (id, label) => `<img src="https://ddragon.leagueoflegends.com/cdn/${esc(V)}/img/item/${esc(id)}.png" alt="" title="${esc(label)}" loading="lazy">`;
-  const core = b.core ? `<div class="c2-brow"><span class="label">Build des Diamant+ sur ${esc(c2Name(champ))}</span>
+  const core = b.core ? `<div class="c2-brow"><span class="label">Build des Diamant+ sur ${esc(c2Name(champ))}${b.core.role ? ` ${esc(C2_ROLE[b.core.role] || b.core.role)}` : ""}</span>
       <div class="c2-icons">${[...b.core.items, ...b.core.boots].map(x => `<span class="c2-ic">${img(x.id, x.name)}<i>${x.share} %</i></span>`).join("")}</div>
       <p class="fine">${[...b.core.items, ...b.core.boots].map(x => esc(x.name)).join(" · ")}${b.core.keystone ? ` · rune ${esc(b.core.keystone.name)}` : ""}</p>
       <p class="fine">Pourcentage : part des parties Diamant+ où l'item est dans l'inventaire en fin de partie.</p></div>` : "";
@@ -515,7 +515,7 @@ function c2LiveBuild(b, champ) {
   }).join("");
   return `<div class="c2-livebuild"><p class="label">Ton build pour cette partie</p>${core}
     ${b.threats.length ? `<p class="label">À adapter face à cette équipe${b.shape ? ` · en moyenne ${b.shape.magic} % de dégâts magiques, ${b.shape.phys} % physiques (le reste : dégâts bruts, qui ignorent armure et résistance magique)` : ""}</p>${threats}` : `<p class="fine">Composition adverse sans menace marquée : garde ce build.</p>`}
-    <p class="fine">Mesuré sur ${c2n(b.games)} parties Diamant+ de ce champion${b.core ? `, patch ${esc(b.core.patch)}` : ""}. « Dans X % face à ce type d'équipe » : comparé aux parties sans cette menace, et l'item y répond d'après sa description officielle. « Option déjà jouée » : item qui répond à la menace d'après sa description, sans mesure face à elle.</p></div>`;
+    <p class="fine">Mesuré sur ${c2n(b.games)} parties Diamant+ de ce champion à ce rôle${b.core ? `, patch ${esc(b.core.patch)}` : ""}. « Dans X % face à ce type d'équipe » : comparé aux parties sans cette menace, et l'item y répond d'après sa description officielle. « Option déjà jouée » : item qui répond à la menace d'après sa description, sans mesure face à elle.</p></div>`;
 }
 
 // ---------- Ce que jouent les Diamant+ (items, runes, sorts), d'après de vraies parties
@@ -525,11 +525,16 @@ function c2Builds(id) {
   if (!s) return s === null ? `<div class="c2-card c2-loading">Données Diamant+…</div>` : "";
   if (s.error) return "";
   if (!s.enough) return `<p class="note">${icon("info")}<span>Pas encore assez de parties Diamant+ pour ce champion au patch ${esc(s.patch || "—")} (${s.games} sur ${s.minGames} nécessaires). L'échantillon grandit chaque jour.</span></p>`;
+  return [s, ...(s.others || [])].filter(x => x.enough).map((x, i) => c2BuildRole(x, i === 0 ? s : null)).join("");
+}
+// Un bloc par rôle : les items d'un Pantheon support ne sont pas ceux d'un Pantheon top
+function c2BuildRole(s, all) {
   const V = s.items[0]?.ddVersion || s.spells[0]?.ddVersion || COACH.ddragonVersion;
   const ic = (kind, file, label, share) => `<span class="c2-ic" title="${esc(label)} : ${share} % des parties"><img src="https://ddragon.leagueoflegends.com/cdn/${kind === "rune" ? "img" : `${esc(V)}/img/${kind}`}/${esc(file)}" alt="" loading="lazy"><i>${share} %</i></span>`;
   return `<section class="c2-card c2-builds">
-    <p class="label">Ce que jouent les Diamant+ · patch ${esc(s.patch)}</p>
-    <p class="fine">${s.games} parties · ${s.games >= 100 ? `${c2n(s.winrate)} % de victoires` : "taux de victoire non significatif sous 100 parties"}${s.roles.length ? ` · ${s.roles.map(r => `${esc(C2_ROLE[r.role] || r.role)} ${r.share} %`).join(", ")}` : ""}</p>
+    <p class="label">Ce que jouent les Diamant+ en ${esc(C2_ROLE[s.role] || s.role)} · patch ${esc(s.patch)}</p>
+    <p class="fine">${s.games} parties · ${s.games >= 100 ? `${c2n(s.winrate)} % de victoires` : "taux de victoire non significatif sous 100 parties"}</p>
+    ${all && all.roles.length > 1 ? `<p class="fine">Rôles joués : ${all.roles.map(r => `${esc(C2_ROLE[r.role] || r.role)} ${r.share} %`).join(", ")}</p>` : ""}
     <div class="c2-brow"><span class="label">Rune clé</span><div class="c2-icons">${s.keystones.map(k => ic("rune", k.icon, k.name, k.share)).join("")}</div><p class="fine">${s.keystones.map(k => esc(k.name)).join(" · ")}</p></div>
     <div class="c2-brow"><span class="label">Items</span><div class="c2-icons">${s.items.map(x => ic("item", `${x.id}.png`, x.name, x.share)).join("")}${s.boots.map(x => ic("item", `${x.id}.png`, x.name, x.share)).join("")}</div><p class="fine">${[...s.items, ...s.boots].map(x => esc(x.name)).join(" · ")}</p></div>
     <div class="c2-brow"><span class="label">Sorts</span><div class="c2-icons">${s.spells.slice(0, 2).map(x => `<span class="c2-pair">${x.ids.map((sid, i) => `<img src="https://ddragon.leagueoflegends.com/cdn/${esc(V)}/img/spell/${esc(sid)}.png" alt="${esc(x.names[i])}" title="${esc(x.names[i])}" loading="lazy">`).join("")}<i>${x.share} %</i></span>`).join("")}</div></div>
@@ -600,16 +605,16 @@ function c2BuildCmp(r) {
   const b = r.build;
   if (!b || (!b.items.length && !b.keystone)) return "";
   const V = b.ddVersion || COACH.ddragonVersion;
-  const it = x => `<span class="c2-ic ${x.share < 5 ? "rare" : ""}" title="${esc(x.name)} : ${x.share} % des parties Diamant+"><img src="https://ddragon.leagueoflegends.com/cdn/${esc(V)}/img/item/${esc(x.id)}.png" alt="" loading="lazy"><i>${x.share} %</i></span>`;
-  const rare = b.items.filter(x => x.share < 5);
+  const it = x => `<span class="c2-ic ${x.share == null || x.share < 5 ? "rare" : ""}" title="${esc(x.name)} : ${x.share == null ? "hors des 30 items les plus joués par les Diamant+" : `${x.share} % des parties Diamant+`}"><img src="https://ddragon.leagueoflegends.com/cdn/${esc(V)}/img/item/${esc(x.id)}.png" alt="" loading="lazy"><i>${x.share == null ? "rare" : `${x.share} %`}</i></span>`;
+  const rare = b.items.filter(x => x.share == null || x.share < 5);
   const k = b.keystone;
   return `<section class="sec"><div class="sec-head"><h2 class="sec-title">Ton build face aux Diamant+</h2></div><div class="c2-card c2-buildcmp">
-    ${k ? `<div class="c2-brow"><span class="label">Rune clé</span><p class="c2-kline"><img src="https://ddragon.leagueoflegends.com/cdn/img/${esc(k.icon || "")}" alt="" loading="lazy"><span><b>${esc(k.name)}</b> : ${k.share} % des Diamant+${k.top ? `. La plus jouée : ${esc(k.top.name)} (${k.top.share} %)` : ", c'est la plus jouée"}</span></p></div>` : ""}
+    ${k ? `<div class="c2-brow"><span class="label">Rune clé</span><p class="c2-kline"><img src="https://ddragon.leagueoflegends.com/cdn/img/${esc(k.icon || "")}" alt="" loading="lazy"><span><b>${esc(k.name)}</b> : ${k.share == null ? "rare chez les Diamant+" : `${k.share} % des Diamant+`}${k.top ? `. La plus jouée : ${esc(k.top.name)} (${k.top.share} %)` : ", c'est la plus jouée"}</span></p></div>` : ""}
     ${b.items.length ? `<div class="c2-brow"><span class="label">Tes items terminés</span><div class="c2-icons">${b.items.map(it).join("")}</div><p class="fine">${b.items.map(x => esc(x.name)).join(" · ")}</p></div>` : ""}
-    ${b.missing.length ? `<div class="c2-brow"><span class="label">Très joués par les Diamant+, absents chez toi</span><div class="c2-icons">${b.missing.map(it).join("")}</div><p class="fine">${b.missing.map(x => esc(x.name)).join(" · ")}</p></div>` : ""}
-    ${rare.length ? `<p class="fine">${rare.map(x => esc(x.name)).join(", ")} : rare chez les Diamant+ sur ${esc(c2Name(r.summary.champion))}. Ça peut être un bon choix selon la partie ; compare avec la fiche du champion.</p>` : ""}
+    ${b.missing.length ? `<div class="c2-brow"><span class="label">${b.role ? `Très joués par les Diamant+ en ${esc(C2_ROLE[b.role] || b.role)}, absents chez toi` : "Très joués par les Diamant+, absents chez toi"}</span><div class="c2-icons">${b.missing.map(it).join("")}</div><p class="fine">${b.missing.map(x => esc(x.name)).join(" · ")}</p></div>` : ""}
+    ${rare.length ? `<p class="fine">${rare.map(x => esc(x.name)).join(", ")} : rare chez les Diamant+ sur ${esc(c2Name(r.summary.champion))}${b.role ? ` ${esc(C2_ROLE[b.role] || b.role)}` : ""}. Ça peut être un bon choix selon la partie ; compare avec la fiche du champion.</p>` : ""}
     ${r.summary.patch && b.patch && r.summary.patch !== b.patch ? `<p class="note">${icon("info")}<span>Ta partie date du patch ${esc(r.summary.patch)}, la référence du patch ${esc(b.patch)} : les items ont pu changer entre-temps.</span></p>` : ""}
-    <p class="fine">Part des parties Diamant+ (${b.games} parties, patch ${esc(b.patch)}) où l'item est dans l'inventaire final. <a href="${c2Href("champions", r.summary.champion)}">Voir la fiche ${esc(c2Name(r.summary.champion))}</a></p>
+    <p class="fine">Part des parties Diamant+${b.role ? ` en ${esc(C2_ROLE[b.role] || b.role)}` : ""} (${b.games} parties, patch ${esc(b.patch)}) où l'item est dans l'inventaire final. <a href="${c2Href("champions", r.summary.champion)}">Voir la fiche ${esc(c2Name(r.summary.champion))}</a></p>
   </div></section>`;
 }
 

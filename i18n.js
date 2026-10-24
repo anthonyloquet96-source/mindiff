@@ -253,6 +253,24 @@
   };
   // Motifs : durées, compteurs et dates composées
   const R = [
+    // Références Diamant+ par rôle (coach)
+    [/^Ce que jouent les Diamant\+ en (\S+) · patch ([\d.]+)$/, "What Diamond+ $1 players run · patch $2"], [/^Rôles joués : (.+)$/, (m, x) => `Roles played: ${x.replace(/ %/g, "%")}`],
+    [/^Très joués par les Diamant\+ en (\S+), absents chez toi$/, "Common among Diamond+ $1 players, missing from yours"], [/^Très joués par les Diamant\+, absents chez toi$/, "Common among Diamond+ players, missing from yours"],
+    [/^Part des parties Diamant\+(?: en (\S+))? \(([\d\s,.]+) parties, patch ([\d.]+)\) où l'item est dans l'inventaire final\.$/, (m, r, n, p) => `Share of Diamond+${r ? ` ${r}` : ""} games (${n} games, patch ${p}) where the item is in the final inventory.`],
+    [/^Build des Diamant\+ sur (.+)$/, "Diamond+ build on $1"],
+    [/^:\s*(\d+) % des Diamant\+\. La plus jouée : (.+) \((\d+) %\)$/, ": $1% of Diamond+ players. Most played: $2 ($3%)"], [/^:\s*(\d+) % des Diamant\+, c'est la plus jouée$/, ": $1% of Diamond+ players, the most played"],
+    [/^:\s*rare chez les Diamant\+\. La plus jouée : (.+) \((\d+) %\)$/, ": rare among Diamond+ players. Most played: $1 ($2%)"], [/^:\s*rare chez les Diamant\+, c'est la plus jouée$/, ": rare among Diamond+ players"],
+    [/^Tes items terminés$/, "Your completed items"], [/^Voir la fiche (.+)$/, "See the $1 page"],
+    [/^Ta partie date du patch ([\d.]+), la référence du patch ([\d.]+) : les items ont pu changer entre-temps\.$/, "Your game is from patch $1, the reference from patch $2: items may have changed since."],
+    [/^([\d\s,.]+) parties · ([\d.,]+) % de victoires$/, (m, n, w) => `${n} games · ${w.replace(",", ".")}% wins`], [/^([\d\s,.]+) parties · taux de victoire non significatif sous 100 parties$/, "$1 games · win rate not meaningful under 100 games"],
+    [/^Pas encore assez de parties Diamant\+ pour ce champion au patch (.+) \((\d+) sur (\d+) nécessaires\)\. L'échantillon grandit chaque jour\.$/, "Not enough Diamond+ games for this champion on patch $1 yet ($2 of the $3 needed). The sample grows every day."],
+    [/^chez les Diamant\+ : dans (\d+) % des parties face à ce type d'équipe, contre (\d+) % face aux autres$/, "among Diamond+ players: in $1% of games against this kind of team, versus $2% against others"],
+    [/^option déjà jouée sur (.+) \((\d+) % des parties\)$/, "option already played on $1 ($2% of games)"],
+    [/^Pas d'item de rechange repéré sur (.+) face à cette menace : garde ce build\.$/, "No replacement item found on $1 against this threat: keep this build."],
+    [/^Composition adverse sans menace marquée : garde ce build\.$/, "Enemy team without a clear threat: keep this build."],
+    [/^À adapter face à cette équipe · en moyenne (\d+) % de dégâts magiques, (\d+) % physiques \(le reste : dégâts bruts, qui ignorent armure et résistance magique\)$/, "To adapt against this team · on average $1% magic damage, $2% physical (the rest: true damage, which ignores armor and magic resist)"], [/^À adapter face à cette équipe$/, "To adapt against this team"],
+    [/^(.+) : rare chez les Diamant\+ sur (.+)\. Ça peut être un bon choix selon la partie ; compare avec la fiche du champion\.$/, "$1: rare among Diamond+ players on $2. It can be a good choice depending on the game; compare with the champion page."],
+    [/^Mesuré sur ([\d\s,.]+) parties Diamant\+ de ce champion à ce rôle(.*)$/, (m, n, rest) => `Measured over ${n} Diamond+ games of this champion in this role${rest.replace(/^, patch ([\d.]+)\./, ", patch $1.").replace(" « Dans X % face à ce type d'équipe » : comparé aux parties sans cette menace, et l'item y répond d'après sa description officielle. « Option déjà jouée » : item qui répond à la menace d'après sa description, sans mesure face à elle.", " \"In X% against this kind of team\": compared with games without this threat, and the item answers it according to its official description. \"Option already played\": an item that answers the threat according to its description, not measured against it.")}`],
     [/^il y a (\d+) min$/, "$1 min ago"], [/^il y a (\d+) h$/, "$1 h ago"], [/^il y a (\d+) j$/, "$1 d ago"], [/il y a (\d+) min\b/g, "$1 min ago"], [/il y a (\d+) h\b/g, "$1 h ago"], [/il y a (\d+) j\b/g, "$1 d ago"],
     [/\bà l'instant\b/g, "just now"], [/^Aujourd'hui · /, "Today · "],
     [/^(\d+),(\d)$/, "$1.$2"], [/(\d+),(\d) (sbires|CS) par minute/g, "$1.$2 CS per minute"],

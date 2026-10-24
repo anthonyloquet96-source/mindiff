@@ -220,20 +220,29 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   };
 }
 
-// Items et rune clé du joueur, comparés à ce que jouent les Diamant+ sur le même champion (patch de référence)
+// Relevé Diamant+ d'un champion à un rôle donné (items, runes, sorts de ce rôle seulement), ou null si trop peu de parties
+export function champAtRole(c, role, minGames = 30) {
+  const b = c?.byRole?.[role];
+  return b && b.games >= minGames ? { name: c.name, role, ...b } : null;
+}
+// Rôle principal d'un champion chez les Diamant+
+const mainRoleOf = c => Object.entries(c?.roles || {}).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
+
+// Items et rune clé du joueur, comparés à ce que jouent les Diamant+ sur le même champion au même rôle (patch de référence)
 async function buildVsDiamond(me, champstats, itemDb, fetchImpl) {
-  const c = champstats?.champions?.[me.championId];
-  if (!c || c.games < (champstats.minGames || 30)) return null;
   const role = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "bottom", UTILITY: "support" }[me.teamPosition];
-  if (role && (c.roles?.[role] || 0) / c.games < 0.3) return null; // champion joué à un autre poste chez les Diamant+ : les items ne sont pas comparables
+  // Un Pantheon support ne se construit pas comme un Pantheon top : sans assez de parties à ce rôle, pas de comparaison
+  const c = champAtRole(champstats?.champions?.[me.championId], role, champstats?.minGames || 30);
+  if (!c) return null;
   const nm = await ddNames(fetchImpl);
-  const share = (list, id) => Math.round(((list.find(x => String(x.id) === String(id))?.games || 0) / c.games) * 100);
+  // Hors des 30 items les plus joués à ce rôle : part inconnue (null), affichée comme « rare », jamais comme 0 %
+  const share = (list, id) => { const x = list.find(y => String(y.id) === String(id)); return x ? Math.round((x.games / c.games) * 100) : null; };
   const big = id => itemDb[id]?.gold >= 2000 && !itemDb[id]?.boots;
   const mine = [me.item0, me.item1, me.item2, me.item3, me.item4, me.item5].map(String).filter(big);
   const ks = me.perks?.styles?.[0]?.selections?.[0]?.perk;
   const topKs = c.keystones[0];
   return {
-    games: c.games, patch: champstats.patch, ddVersion: nm.v,
+    games: c.games, role, patch: champstats.patch, ddVersion: nm.v,
     items: mine.map(id => ({ id, name: itemDb[id].name, share: share(c.items, id) })),
     keystone: ks ? { name: nm.perk[ks]?.name || String(ks), icon: nm.perk[ks]?.icon, share: share(c.keystones, ks), top: topKs && String(topKs.id) !== String(ks) ? { name: nm.perk[topKs.id]?.name, icon: nm.perk[topKs.id]?.icon, share: Math.round((topKs.games / c.games) * 100) } : null } : null,
     // Items les plus joués par les Diamant+ absents de l'inventaire final (seulement si la partie a duré assez pour finir 3 items)
@@ -254,19 +263,27 @@ export async function ddNames(fetchImpl = fetch) {
   return namesCache;
 }
 const margin = (w, n) => Math.round(1.96 * Math.sqrt((w / n) * (1 - w / n) / n) * 1000) / 10;
-export async function championCard(c, champstats, fetchImpl = fetch) {
+// role : rôle demandé (partie en cours) ; sinon le rôle principal. Les objets, runes et sorts sont ceux de ce rôle seulement ;
+// les autres rôles assez joués sont listés dans « builds » pour la fiche du champion.
+export async function championCard(c, champstats, fetchImpl = fetch, role = null) {
   const base = { patch: champstats?.patch || null, level: "Diamant et plus", minGames: champstats?.minGames || 30 };
   if (!c || c.games < base.minGames) return { ...base, games: c?.games || 0, enough: false };
+  const want = role || mainRoleOf(c);
+  const r = champAtRole(c, want, base.minGames);
+  if (!r) return { ...base, games: c.byRole?.[want]?.games || 0, role: want, enough: false };
   const [it, nm] = await Promise.all([items(fetchImpl), ddNames(fetchImpl)]);
-  const pct = x => ({ games: x.games, share: Math.round((x.games / c.games) * 100), winrate: Math.round((x.wins / x.games) * 1000) / 10 });
+  const pct = x => ({ games: x.games, share: Math.round((x.games / r.games) * 100), winrate: Math.round((x.wins / x.games) * 1000) / 10 });
+  const others = role ? [] : Object.keys(c.byRole || {}).filter(x => x !== want && champAtRole(c, x, base.minGames)).sort((a, b) => c.byRole[b].games - c.byRole[a].games);
   return {
-    ...base, enough: true, games: c.games, winrate: Math.round((c.wins / c.games) * 1000) / 10, margin: margin(c.wins, c.games),
-    roles: Object.entries(c.roles).sort((a, b) => b[1] - a[1]).map(([r, n]) => ({ role: r, share: Math.round((n / c.games) * 100) })).filter(r => r.share >= 10),
-    items: c.items.filter(x => it[x.id]?.gold >= 2000 && !it[x.id]?.boots).slice(0, 6).map(x => ({ id: x.id, name: it[x.id].name, ddVersion: nm.v, ...pct(x) })),
-    boots: c.items.filter(x => it[x.id]?.boots && it[x.id]?.gold > 300).slice(0, 2).map(x => ({ id: x.id, name: it[x.id].name, ddVersion: nm.v, ...pct(x) })),
-    keystones: c.keystones.map(x => ({ id: x.id, name: nm.perk[x.id]?.name || x.id, icon: nm.perk[x.id]?.icon, ...pct(x) })),
-    trees: c.trees.map(x => { const [a, b] = x.id.split("-"); return { name: `${nm.tree[a] || a} + ${nm.tree[b] || b}`, ...pct(x) }; }),
-    spells: c.spells.map(x => ({ names: x.id.split("-").map(k => nm.spell[k]?.name || k), ids: x.id.split("-").map(k => nm.spell[k]?.id), ddVersion: nm.v, ...pct(x) })),
+    ...base, enough: true, role: want, games: r.games, winrate: Math.round((r.wins / r.games) * 1000) / 10, margin: margin(r.wins, r.games),
+    allGames: c.games,
+    roles: Object.entries(c.roles).sort((a, b) => b[1] - a[1]).map(([x, n]) => ({ role: x, share: Math.round((n / c.games) * 100) })).filter(x => x.share >= 10),
+    others: await Promise.all(others.map(x => championCard(c, champstats, fetchImpl, x))),
+    items: r.items.filter(x => it[x.id]?.gold >= 2000 && !it[x.id]?.boots).slice(0, 6).map(x => ({ id: x.id, name: it[x.id].name, ddVersion: nm.v, ...pct(x) })),
+    boots: r.items.filter(x => it[x.id]?.boots && it[x.id]?.gold > 300).slice(0, 2).map(x => ({ id: x.id, name: it[x.id].name, ddVersion: nm.v, ...pct(x) })),
+    keystones: r.keystones.slice(0, 3).map(x => ({ id: x.id, name: nm.perk[x.id]?.name || x.id, icon: nm.perk[x.id]?.icon, ...pct(x) })),
+    trees: r.trees.map(x => { const [a, b] = x.id.split("-"); return { name: `${nm.tree[a] || a} + ${nm.tree[b] || b}`, ...pct(x) }; }),
+    spells: r.spells.map(x => ({ names: x.id.split("-").map(k => nm.spell[k]?.name || k), ids: x.id.split("-").map(k => nm.spell[k]?.id), ddVersion: nm.v, ...pct(x) })),
   };
 }
 
@@ -330,10 +347,11 @@ export async function live(riot, { puuid, platform, champstats, builds = null, f
 // Variante « mesurée » : item nettement plus acheté par les Diamant+ face à cette menace (coach/builds.mjs).
 // Sinon, « option » : item déjà joué sur ce champion (au moins 5 % des parties) dont la description officielle répond à la menace.
 async function liveBuild(mine, enemies, champstats, builds, dd, fetchImpl) {
-  const card = await championCard(champstats?.champions?.[mine.championId], champstats, fetchImpl);
-  const advice = adviseBuild(builds, mine.championId, enemies.map(p => p.championId));
+  const card = await championCard(champstats?.champions?.[mine.championId], champstats, fetchImpl, mine.role || null);
+  const advice = adviseBuild(builds, mine.championId, enemies.map(p => p.championId), mine.role || null);
   const name = c => dd[c]?.id || String(c);
-  const cs = champstats?.champions?.[mine.championId];
+  const all = champstats?.champions?.[mine.championId];
+  const cs = champAtRole(all, mine.role, champstats?.minGames || 30) || all; // options : items du rôle quand il est assez joué
   const threats = (advice?.threats || []).map(t => {
     const options = t.measured ? [] : (cs?.items || [])
       .filter(x => x.games / cs.games >= 0.05 && THREATS[t.key].answers.some(a => builds.items[x.id]?.tags.includes(a)))
@@ -341,7 +359,7 @@ async function liveBuild(mine, enemies, champstats, builds, dd, fetchImpl) {
     return { ...t, champions: t.champions.map(name), options };
   });
   return {
-    core: card.enough ? { items: card.items.slice(0, 4), boots: card.boots.slice(0, 1), keystone: card.keystones[0] || null, games: card.games, patch: card.patch } : null,
+    core: card.enough ? { items: card.items.slice(0, 4), boots: card.boots.slice(0, 1), keystone: card.keystones[0] || null, games: card.games, patch: card.patch, role: card.role } : null,
     shape: advice?.shape || null, threats, games: advice?.games || 0, ddVersion: builds?.ddVersion || null,
     note: "Build habituel : items les plus présents en fin de partie chez les Diamant+ sur ce champion. Variantes : mesurées en comparant les parties avec et sans la menace ; l'item doit y répondre d'après sa description officielle.",
   };

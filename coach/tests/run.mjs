@@ -135,13 +135,14 @@ await t("Bilan : retard en ligne, plaques, build face aux Diamant+ ; objectif pa
   const riot = async url => (url.endsWith("/timeline") ? tl : match);
   const itemData = { 3031: { name: "Lame d'infini", gold: { total: 3450 }, tags: [] }, 6672: { name: "Tueur de krakens", gold: { total: 3000 }, tags: [] }, 3006: { name: "Grèves", gold: { total: 1100 }, tags: ["Boots"] }, 3153: { name: "Lame du roi déchu", gold: { total: 3200 }, tags: [] } };
   const fetchImpl = async url => ({ json: async () => (url.includes("versions") ? ["16.21.1"] : url.includes("runesReforged") ? [{ id: 8000, name: "Précision", slots: [{ runes: [{ id: 8008, name: "Tempo mortel", icon: "a.png" }, { id: 8010, name: "Conquérant", icon: "b.png" }] }] }] : url.includes("summoner") ? { data: {} } : { data: itemData }) });
-  const champstats = { patch: "16.20", minGames: 30, champions: { 1: { games: 100, roles: { top: 90 }, items: [{ id: "3153", games: 70 }, { id: "3031", games: 60 }, { id: "3006", games: 50 }], keystones: [{ id: "8010", games: 80 }, { id: "8008", games: 20 }] } } };
+  const champstats = { patch: "16.20", minGames: 30, champions: { 1: { games: 100, roles: { top: 90 }, items: [{ id: "3153", games: 70 }, { id: "3031", games: 60 }, { id: "3006", games: 50 }], keystones: [{ id: "8010", games: 80 }, { id: "8008", games: 20 }],
+    byRole: { top: { games: 90, wins: 45, items: [{ id: "3153", games: 63 }, { id: "3031", games: 54 }, { id: "3006", games: 45 }], keystones: [{ id: "8010", games: 72 }, { id: "8008", games: 18 }], trees: [], spells: [] } } } } };
   const r = await review(riot, { matchId: "EUW1_2", puuid: parts[0].puuid, region: "europe", benchmarks: null, champstats, fetchImpl });
   assert(r.lane.platesLost === 3 && r.lane.platesTaken === 1, JSON.stringify(r.lane));
   assert(r.findings[0]?.kind === "retard-en-ligne" && /^1.200 golds/.test(r.findings[0].title) && r.findings[0].facts.some(f => f.includes("1 mort contre C2")), JSON.stringify(r.findings[0]));
   assert(r.summary.deadSeconds === 120, "temps passé mort");
   const b = r.build;
-  assert(b && b.items.map(x => `${x.id}:${x.share}`).join() === "3031:60,6672:0" && b.keystone.share === 20 && b.keystone.top.name === "Conquérant" && b.missing.map(x => x.id).join() === "3153", JSON.stringify(b));
+  assert(b && b.items.map(x => `${x.id}:${x.share}`).join() === "3031:60,6672:null" && b.keystone.share === 20 && b.keystone.top.name === "Conquérant" && b.missing.map(x => x.id).join() === "3153", JSON.stringify(b));
   // Objectif par rôle : calculé seulement avec au moins une partie sur deux sous la référence
   const g = (role, cs10) => ({ id: `G${cs10}`, role, metrics: { cs10, deaths30: 5 } });
   const bench = { roles: { top: { cs10: { n: 100, p25: 60, p50: 70, p75: 80 }, deaths30: { n: 100, p25: 4, p50: 5, p75: 6 } } } };
@@ -458,7 +459,7 @@ await t("Build adapté : variante mesurée seulement si l'objet répond à la me
   const { computeBuilds, adviseBuild } = await import("../builds.mjs");
   // Catalogue : 1 = résistance magique, 2 = armure, 3 = objet offensif sans rapport ; champion 10 = moi, 20 = mage, 30 et 40 = combattants physiques
   const cat = { version: "x", items: { 1: { name: "RM", tags: ["resistance-magique"] }, 2: { name: "Armure", tags: ["armure"] }, 3: { name: "Attaque", tags: [] } } };
-  const row = (c, t, items, magic) => ({ c, t, items, dmg: magic ? [1000, 20000, 0] : c === 40 ? [21000, 0, 0] : [20000, 1000, 0], cc: 10, tank: 20000 });
+  const row = (c, t, items, magic) => ({ c, t, role: "mid", items, dmg: magic ? [1000, 20000, 0] : c === 40 ? [21000, 0, 0] : [20000, 1000, 0], cc: 10, tank: 20000 });
   const matches = [];
   for (let i = 0; i < 400; i++) {
     const ap = i % 2 === 0;
@@ -468,14 +469,32 @@ await t("Build adapté : variante mesurée seulement si l'objet répond à la me
     matches.push({ patch: "1.1", d: 30, rows: [row(10, 100, mine, false), row(30, 100, [], false), row(30, 100, [], false), row(40, 100, [], false), row(40, 100, [], false), ...foes] });
   }
   const b = computeBuilds({ matches }, cat, { patch: "1.1" });
-  const adv = adviseBuild(b, 10, [20, 20, 20, 20, 20]);
+  const adv = adviseBuild(b, 10, [20, 20, 20, 20, 20], "mid");
   const ap = adv.threats.find(x => x.key === "ap");
   assert(ap, "menace magique non détectée");
   assert(ap.measured?.items.some(x => x.id === "1"), "l'objet de résistance magique n'est pas proposé");
   assert(!ap.measured.items.some(x => x.id === "3"), "un objet sans rapport avec la menace est proposé");
-  const calm = adviseBuild(b, 10, [40, 40, 40, 30, 30]);
+  const calm = adviseBuild(b, 10, [40, 40, 40, 30, 30], "mid");
+  assert(!adviseBuild(b, 10, [20, 20, 20, 20, 20], "support").threats.find(x => x.key === "ap").measured, "variante d'un autre rôle proposée");
   assert(!calm.threats.some(x => x.key === "ap"), "menace magique inventée face à une équipe physique");
   return `variante RM : ${ap.measured.items[0].on} % contre ${ap.measured.items[0].off} %, objet sans rapport écarté.`;
+});
+
+await t("Référence Diamant+ par rôle : un champion joué top et support n'a pas le même build", "fixture", async () => {
+  const { compute } = await import("../benchmarks.mjs");
+  const { champAtRole } = await import("../review.mjs");
+  const at = Date.now();
+  // Champion 80 : 60 parties top (objets 1 et 2), 40 parties support (objets 9 et 1)
+  const r = (role, items) => ({ c: "80", n: "Pantheon", role, win: 1, items, ks: 1, prim: 8000, sec: 8400, spells: [4, 12], m: {} });
+  const matches = [...Array.from({ length: 60 }, () => ({ at, patch: "1.1", d: 30, rows: [r("top", [1, 2])] })), ...Array.from({ length: 40 }, () => ({ at, patch: "1.1", d: 30, rows: [r("support", [9, 1])] }))];
+  const { champstats } = compute({ platform: "euw1", matches });
+  const c = champstats.champions["80"];
+  assert(c.items[0].id === "1", "relevé global inattendu");
+  const sup = champAtRole(c, "support", 30), top = champAtRole(c, "top", 30);
+  assert(sup && sup.games === 40 && sup.items.some(x => x.id === "9") && !sup.items.some(x => x.id === "2"), "le support reçoit des objets du top");
+  assert(top && !top.items.some(x => x.id === "9"), "le top reçoit l'objet du support");
+  assert(champAtRole(c, "jungle", 30) === null, "rôle sans parties accepté");
+  return "support : 40 parties, objets du support seulement ; top : 60 parties.";
 });
 
 await t("Build adapté en partie : tanks, critiques et soigneurs détectés depuis les profils exportés", "fixture", async () => {

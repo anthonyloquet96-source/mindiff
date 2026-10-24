@@ -113,7 +113,7 @@ function threatsOf(shape, cuts) {
   return out;
 }
 
-// 3. Taux d'achat par champion, avec et sans chaque menace
+// 3. Taux d'achat par champion et par rôle (clé « champion|rôle »), avec et sans chaque menace
 export function computeBuilds(sample, cat, { patch = null } = {}) {
   const matches = sample.matches.filter(m => m.rows.some(r => r.dmg));
   const prof = championProfiles(matches, cat);
@@ -125,7 +125,8 @@ export function computeBuilds(sample, cat, { patch = null } = {}) {
     if (patch && m.patch !== patch) continue;
     const th = { 100: threatsOf(teamShape(m.rows.filter(r => r.t === 200).map(r => r.c), prof), cuts), 200: threatsOf(teamShape(m.rows.filter(r => r.t === 100).map(r => r.c), prof), cuts) };
     for (const r of m.rows) {
-      const c = (champs[r.c] ||= { games: 0, items: {}, by: {} });
+      if (!r.role) continue;
+      const c = (champs[`${r.c}|${r.role}`] ||= { games: 0, items: {}, by: {} });
       const its = [...new Set(r.items.map(String))].filter(i => useful.has(i));
       c.games++;
       for (const i of its) c.items[i] = (c.items[i] || 0) + 1;
@@ -160,12 +161,12 @@ export function computeBuilds(sample, cat, { patch = null } = {}) {
     method: "Taux d'achat des items par champion, avec et sans chaque menace adverse ; variante retenue si l'écart est d'au moins 5 points, statistiquement net, et si la description officielle de l'item répond à la menace." };
 }
 
-// Conseils pour une partie : menaces de l'équipe adverse et variantes mesurées pour mon champion
-export function adviseBuild(builds, myChamp, enemyChamps) {
+// Conseils pour une partie : menaces de l'équipe adverse et variantes mesurées pour mon champion à mon rôle
+export function adviseBuild(builds, myChamp, enemyChamps, role = null) {
   if (!builds?.profiles) return null;
   const shape = teamShape(enemyChamps.map(String), builds.profiles);
   const threats = threatsOf(shape, builds.cuts);
-  const mine = builds.champions[String(myChamp)];
+  const mine = role ? builds.champions[`${myChamp}|${role}`] : null;
   const name = id => builds.items[id]?.name || id;
   const dmgs = Object.values(builds.profiles).map(p => p.dmg).sort((a, b) => a - b), dmgMed = dmgs[Math.floor(dmgs.length / 2)] || 0;
   const why = k => {

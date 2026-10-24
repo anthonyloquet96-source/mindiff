@@ -66,7 +66,7 @@ export function compute(sample) {
   const top = (obj, n) => Object.entries(obj).sort((a, b) => b[1].g - a[1].g).slice(0, n).map(([k, v]) => ({ id: k, games: v.g, wins: v.w }));
   for (const m of recent) {
     for (const r of m.rows) {
-      const c = (champs[r.c] ||= { name: r.n, games: 0, wins: 0, roles: {}, rolesAll: {}, items: {}, ks: {}, trees: {}, spells: {} });
+      const c = (champs[r.c] ||= { name: r.n, games: 0, wins: 0, roles: {}, rolesAll: {}, items: {}, ks: {}, trees: {}, spells: {}, byRole: {} });
       c.rolesAll[r.role] = (c.rolesAll[r.role] || 0) + 1; // rôles : tous patchs récents (sert à deviner les rôles en direct)
       if (m.patch !== patch) continue;
       c.games++; c.wins += r.win;
@@ -74,9 +74,17 @@ export function compute(sample) {
       const add = (o, k) => { if (k == null) return; o[k] ||= { g: 0, w: 0 }; o[k].g++; o[k].w += r.win; };
       for (const it of new Set(r.items)) add(c.items, it);
       add(c.ks, r.ks); add(c.trees, `${r.prim}-${r.sec}`); add(c.spells, r.spells.join("-"));
+      // Même relevé par rôle : un Pantheon support ne se construit pas comme un Pantheon top
+      if (r.role) {
+        const b = (c.byRole[r.role] ||= { games: 0, wins: 0, items: {}, ks: {}, trees: {}, spells: {} });
+        b.games++; b.wins += r.win;
+        for (const it of new Set(r.items)) add(b.items, it);
+        add(b.ks, r.ks); add(b.trees, `${r.prim}-${r.sec}`); add(b.spells, r.spells.join("-"));
+      }
     }
   }
-  const champstats = { level: "Diamant et plus", patch, at: bench.at, minGames: 30, champions: Object.fromEntries(Object.entries(champs).map(([id, c]) => [id, { name: c.name, games: c.games, wins: c.wins, roles: c.roles, rolesAll: c.rolesAll, items: top(c.items, 12), keystones: top(c.ks, 3), trees: top(c.trees, 3), spells: top(c.spells, 3) }])) };
+  const champstats = { level: "Diamant et plus", patch, at: bench.at, minGames: 30, champions: Object.fromEntries(Object.entries(champs).map(([id, c]) => [id, { name: c.name, games: c.games, wins: c.wins, roles: c.roles, rolesAll: c.rolesAll, items: top(c.items, 12), keystones: top(c.ks, 3), trees: top(c.trees, 3), spells: top(c.spells, 3),
+    byRole: Object.fromEntries(Object.entries(c.byRole).filter(([, b]) => b.games >= 10).map(([role, b]) => [role, { games: b.games, wins: b.wins, items: top(b.items, 30), keystones: top(b.ks, 8), trees: top(b.trees, 3), spells: top(b.spells, 3) }])) }])) };
   return { bench, champstats };
 }
 

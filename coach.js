@@ -115,7 +115,7 @@ function coachProfileForm() {
   const radios = (name, list, value, mark = () => "") => `<div class="radios" role="radiogroup">${list.map(([v, l]) => `<label class="radio-pill"><input type="radio" name="${name}" value="${esc(v)}" ${String(v) === String(value) ? "checked" : ""} ${mark(v) === "off" ? "disabled" : ""}><span>${esc(l)}${mark(v) === "pilote" ? " ·" : ""}</span></label>`).join("")}</div>`;
   return `<form id="coach-profile" class="cform" novalidate>
     <p class="fine">Ces informations sont des <b>déclarations</b> : elles restent sur cet appareil, sans compte. Sans partie ni replay analysés, le coach ne connaît pas vos erreurs.</p>
-    <fieldset><legend>Rôle principal</legend>${radios("role", CS.ROLES, p.role)}<p class="fine">Couverts par le pilote : ${pilotRoles.map(r => CS.label(CS.ROLES, r)).join(" et ")}. Les autres rôles ne reçoivent que des conseils de méthode.</p></fieldset>
+    <fieldset><legend>Rôle principal</legend>${radios("role", CS.ROLES, p.role)}<p class="fine">Couverts par le pilote : ${pilotRoles.map(r => CS.label(CS.ROLES, r)).join(", ").replace(/, ([^,]*)$/, " et $1")}. Les autres rôles ne reçoivent que des conseils de méthode.</p></fieldset>
     <label class="field"><span>Rôle secondaire (facultatif)</span><select name="role2"><option value="">Aucun</option>${CS.ROLES.map(([v, l]) => `<option value="${v}" ${p.role2 === v ? "selected" : ""}>${l}</option>`).join("")}</select></label>
     <label class="field"><span>Rang déclaré</span><select name="rank">${CS.RANKS.map(([v, l]) => `<option value="${v}" ${p.rank === v ? "selected" : ""}>${l}</option>`).join("")}</select></label>
     <fieldset><legend>Champions principaux (3 au maximum)</legend>

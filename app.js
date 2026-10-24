@@ -1088,9 +1088,11 @@ function matchPage(t, mid) {
 // --- Fiche d'une équipe : identité, présentation rédigée à partir des faits, palmarès, draft
 const COUNTRY = (() => { try { return new Intl.DisplayNames(["fr"], { type: "region" }); } catch { return null; } })();
 const MONTH = d => new Date(d + "T12:00:00Z").toLocaleDateString("fr-FR", { month: "long", year: "numeric", timeZone: "UTC" });
-const ordFr = n => (n === 1 ? "1re" : `${n}e`);
-const listFr = a => (a.length < 2 ? a.join("") : `${a.slice(0, -1).join(", ")} et ${a.at(-1)}`);
-const placeFr = p => (p === 1 ? "vainqueur" : p === 2 ? "finaliste" : `${ordFr(p)} place`);
+// Site anglais (window.LANG = "en") : ces phrases sont construites en un seul paragraphe, on les écrit directement en anglais
+const EN = () => window.LANG === "en";
+const ordFr = n => (EN() ? `${n}${["th", "st", "nd", "rd"][(n % 100 > 10 && n % 100 < 14) || n % 10 > 3 ? 0 : n % 10]}` : n === 1 ? "1re" : `${n}e`);
+const listFr = a => (a.length < 2 ? a.join("") : `${a.slice(0, -1).join(", ")} ${EN() ? "and" : "et"} ${a.at(-1)}`);
+const placeFr = p => (EN() ? (p === 1 ? "winner" : p === 2 ? "runner-up" : `${ordFr(p)} place`) : p === 1 ? "vainqueur" : p === 2 ? "finaliste" : `${ordFr(p)} place`);
 // « en France », « au Brésil », « aux États-Unis », « à Taïwan »
 const inCountry = c => (/^(Brésil|Viêt Nam|Vietnam|Japon|Canada|Mexique|Chili|Pérou|Danemark|Portugal|Royaume-Uni|Luxembourg|Maroc)$/.test(c) ? `au ${c}` : /^(États-Unis|Pays-Bas|Émirats arabes unis)$/.test(c) ? `aux ${c}` : /^(Taïwan|Singapour|Hong Kong|Macao)$/.test(c) ? `à ${c}` : `en ${c}`);
 const teamInfo = name => AUTO?.teams?.[name] || null;
@@ -1119,22 +1121,25 @@ function teamBrief(t, x, info, draft) {
   const lq = info?.lq;
   const country = lq?.country && COUNTRY ? COUNTRY.of(lq.country) : null;
   const year = lq?.created?.slice(0, 4);
-  if (country || year || info?.league) out.push(`Équipe${country ? ` basée ${inCountry(country)}` : ""}${year ? `, fondée en ${year}` : ""}${info?.league ? `, qui dispute la ${info.league}` : ""}.`);
+  const en = EN();
+  if (country || year || info?.league) out.push(en ? `Team${country ? ` based in ${country}` : ""}${year ? `, founded in ${year}` : ""}${info?.league ? `, playing in the ${info.league}` : ""}.`
+    : `Équipe${country ? ` basée ${inCountry(country)}` : ""}${year ? `, fondée en ${year}` : ""}${info?.league ? `, qui dispute la ${info.league}` : ""}.`);
   const seed = info?.seed?.[t.id]?.label;
-  if (seed) out.push(`Qualifiée pour ${t.name} : ${seed.charAt(0).toLowerCase() + seed.slice(1)}.`);
+  if (seed) out.push(en ? `Qualified for ${t.name}: ${window.i18nTr ? window.i18nTr(seed) : seed}.` : `Qualifiée pour ${t.name} : ${seed.charAt(0).toLowerCase() + seed.slice(1)}.`);
   const W = info?.intl?.worlds, M = info?.intl?.msi;
-  if (W?.titles.length) out.push(`${W.titles.length > 1 ? `${W.titles.length} fois championne du monde` : "Championne du monde"} (${listFr(W.titles.map(String))}).`);
-  else if (W?.finals.length) out.push(`Finaliste des Worlds en ${listFr(W.finals.map(String))}, sans titre mondial.`);
-  else if (W?.apps) out.push(`${W.apps} participation${W.apps > 1 ? "s" : ""} aux Worlds jusqu'en ${W.upTo}, sans finale.`);
-  if (M?.titles.length) out.push(`Vainqueur du MSI en ${listFr(M.titles.map(String))}.`);
+  if (W?.titles.length) out.push(en ? `${W.titles.length > 1 ? `${W.titles.length}-time world champion` : "World champion"} (${listFr(W.titles.map(String))}).` : `${W.titles.length > 1 ? `${W.titles.length} fois championne du monde` : "Championne du monde"} (${listFr(W.titles.map(String))}).`);
+  else if (W?.finals.length) out.push(en ? `Worlds finalist in ${listFr(W.finals.map(String))}, without a world title.` : `Finaliste des Worlds en ${listFr(W.finals.map(String))}, sans titre mondial.`);
+  else if (W?.apps) out.push(en ? `${W.apps} Worlds appearance${W.apps > 1 ? "s" : ""} up to ${W.upTo}, no final.` : `${W.apps} participation${W.apps > 1 ? "s" : ""} aux Worlds jusqu'en ${W.upTo}, sans finale.`);
+  if (M?.titles.length) out.push(en ? `MSI winner in ${listFr(M.titles.map(String))}.` : `Vainqueur du MSI en ${listFr(M.titles.map(String))}.`);
   const res = (lq?.results || []).filter(r => r.place <= 2);
   const lastTitle = res.find(r => r.place === 1);
   const recent = res.filter(r => (Date.now() - new Date(r.date)) / 864e5 < 365);
-  if (recent.length) out.push(`Sur les douze derniers mois : ${listFr(recent.slice(0, 3).map(r => `${r.event} (${placeFr(r.place)}, ${MONTH(r.date)})`))}.`);
-  else if (lastTitle) out.push(`Dernier titre : ${lastTitle.event} (${MONTH(lastTitle.date)}).`);
+  if (recent.length) out.push(`${en ? "Over the last twelve months:" : "Sur les douze derniers mois :"} ${listFr(recent.slice(0, 3).map(r => `${r.event} (${placeFr(r.place)}, ${MONTH(r.date)})`))}.`);
+  else if (lastTitle) out.push(`${en ? "Last title:" : "Dernier titre :"} ${lastTitle.event} (${MONTH(lastTitle.date)}).`);
   if (!hidden("t-" + t.id) && (x.w || x.l)) {
     const top = draft.champs.slice(0, 3).map(c => entity(t.game, c.champ).name);
-    out.push(`Dans ce tournoi : ${x.w} victoire${x.w > 1 ? "s" : ""} pour ${x.l} défaite${x.l > 1 ? "s" : ""}${top.length && draft.n >= 3 ? ` ; champions les plus choisis : ${listFr(top)}` : ""}.`);
+    out.push(en ? `In this tournament: ${x.w} win${x.w === 1 ? "" : "s"} and ${x.l} loss${x.l === 1 ? "" : "es"}${top.length && draft.n >= 3 ? `; most picked champions: ${listFr(top)}` : ""}.`
+      : `Dans ce tournoi : ${x.w} victoire${x.w > 1 ? "s" : ""} pour ${x.l} défaite${x.l > 1 ? "s" : ""}${top.length && draft.n >= 3 ? ` ; champions les plus choisis : ${listFr(top)}` : ""}.`);
   }
   return out;
 }
@@ -1152,7 +1157,7 @@ function teamPage(t, teamName) {
   const W = info?.intl?.worlds, M = info?.intl?.msi;
   const podiums = (lq?.results || []).filter(r => r.place <= 3);
   const roster = (info?.players || []).sort((a, b) => LOL_ROLES.findIndex(r => r[0] === a.role) - LOL_ROLES.findIndex(r => r[0] === b.role));
-  const winTxt = (w, n) => (spoil || !n ? "" : ` · ${w} V – ${n - w} D`);
+  const winTxt = (w, n) => (spoil || !n ? "" : EN() ? ` · ${w} W – ${n - w} L` : ` · ${w} V – ${n - w} D`);
   return `<header class="t-head">
       <a class="back" href="${href(t.game, "tournoi", t.id, "equipes")}">${icon("left")}${esc(t.name)}</a>
       <div class="t-id">${logo(x.team, x.image, "xl")}<div class="t-id-txt"><h1 class="page-title" tabindex="-1">${esc(x.team)}</h1>
@@ -1163,12 +1168,12 @@ function teamPage(t, teamName) {
     ${brief.length ? `<section class="sec">${secHead("Présentation")}<p class="summary">${brief.map(esc).join(" ")}</p></section>` : ""}
     ${W || M || podiums.length ? `<section class="sec">${secHead("Palmarès")}
       ${W || M?.titles.length ? `<dl class="kpis">${W ? `<div><dt>Titres mondiaux</dt><dd>${W.titles.length}</dd></div><div><dt>Worlds disputés</dt><dd>${W.apps}<small> jusqu'en ${W.upTo}</small></dd></div>` : ""}${M?.titles.length ? `<div><dt>Titres au MSI</dt><dd>${M.titles.length}</dd></div>` : ""}</dl>` : ""}
-      ${podiums.length ? `<ul class="palmares">${podiums.slice(0, 8).map(r => `<li><span class="pl pl-${r.place}">${r.place === 1 ? icon("trophy") : ordFr(r.place)}</span><span><b>${esc(r.event)}</b><small>${esc(MONTH(r.date))}${r.vs ? ` · ${r.place <= 2 ? "finale" : "dernier match"} contre ${esc(r.vs)}${r.score ? ` (${esc(r.score.replace(/\s/g, ""))})` : ""}` : ""}</small></span></li>`).join("")}</ul>
+      ${podiums.length ? `<ul class="palmares">${podiums.slice(0, 8).map(r => `<li><span class="pl pl-${r.place}">${r.place === 1 ? icon("trophy") : ordFr(r.place)}</span><span><b>${esc(r.event)}</b><small>${esc(MONTH(r.date))}${r.vs ? ` · ${EN() ? (r.place <= 2 ? "final" : "last match") : r.place <= 2 ? "finale" : "dernier match"} ${EN() ? "vs" : "contre"} ${esc(r.vs)}${r.score ? ` (${esc(r.score.replace(/\s/g, ""))})` : ""}` : ""}</small></span></li>`).join("")}</ul>
         ${podiums.length > 8 ? `<details class="more"><summary>${podiums.length - 8} autres podiums</summary><ul class="palmares">${podiums.slice(8).map(r => `<li><span class="pl pl-${r.place}">${r.place === 1 ? icon("trophy") : ordFr(r.place)}</span><span><b>${esc(r.event)}</b><small>${esc(MONTH(r.date))}</small></span></li>`).join("")}</ul></details>` : ""}` : ""}
-      <p class="fine">Podiums des tournois majeurs (rangs S et A). Source : <a href="${esc(lq?.url || W?.url || "https://liquipedia.net/leagueoflegends")}" target="_blank" rel="noopener">Liquipedia</a> (CC BY-SA)${lq?.at ? `, relu le ${fmtDay(lq.at)}` : ""}.</p>
+      <p class="fine">${EN() ? "Podiums of major tournaments (S and A tiers). Source:" : "Podiums des tournois majeurs (rangs S et A). Source :"} <a href="${esc(lq?.url || W?.url || "https://liquipedia.net/leagueoflegends")}" target="_blank" rel="noopener">Liquipedia</a> (CC BY-SA)${lq?.at ? `, ${EN() ? "checked on" : "relu le"} ${fmtDay(lq.at)}` : ""}.</p>
     </section>` : ""}
     ${draft.n ? `<section class="sec">${secHead("Draft dans ce tournoi")}
-      <p class="fine">${draft.n} partie${draft.n > 1 ? "s" : ""} · côté bleu ${draft.sides.blue.n}${winTxt(draft.sides.blue.w, draft.sides.blue.n)} · côté rouge ${draft.sides.red.n}${winTxt(draft.sides.red.w, draft.sides.red.n)}</p>
+      <p class="fine">${EN() ? `${draft.n} game${draft.n > 1 ? "s" : ""} · blue side ${draft.sides.blue.n}${winTxt(draft.sides.blue.w, draft.sides.blue.n)} · red side ${draft.sides.red.n}${winTxt(draft.sides.red.w, draft.sides.red.n)}` : `${draft.n} partie${draft.n > 1 ? "s" : ""} · côté bleu ${draft.sides.blue.n}${winTxt(draft.sides.blue.w, draft.sides.blue.n)} · côté rouge ${draft.sides.red.n}${winTxt(draft.sides.red.w, draft.sides.red.n)}`}</p>
       <div class="player-picks">${draft.champs.slice(0, 10).map(c => { const ent = entity(t.game, c.champ); return `<a class="pick" href="${sheetHref(t.game, ent.key)}" aria-label="${esc(ent.name)}, ${esc(ROLE_LABEL[c.role] || c.role)}, choisi ${c.n} fois${spoil ? "" : `, ${c.w} victoire${c.w > 1 ? "s" : ""}`}">${portrait(ent, "sm")}<small>×${c.n}${spoil ? "" : ` · ${c.w}V`}</small></a>`; }).join("")}</div>
       <p class="fine">Champions choisis par l'équipe, du plus fréquent au moins fréquent. Les bannissements ne sont pas fournis par l'API officielle.</p>
     </section>` : ""}

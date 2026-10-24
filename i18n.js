@@ -161,7 +161,8 @@
     "Composition adverse sans menace marquée : garde ce build.": "Enemy team has no clear threat: keep this build.", "À adapter face à cette équipe": "To adapt against this team",
     // ---- Coach : bilan de partie et replay
     "Sbires": "CS", "Par min": "Per min", "KDA": "KDA", "Golds": "Gold", "XP": "XP", "Phase de lane": "Laning phase", "L'essentiel": "Overview", "Replay": "Replay", "Chiffres": "Numbers", "Vue": "View",
-    "En bref": "In short", "À travailler": "To work on", "Point fort": "Strength", "Ce qui a pesé": "What mattered", "Constat": "Finding", "Toi face aux bons joueurs": "You vs good players",
+    "Pas de conseil sur cette partie : tu semblais absent (aucun kill ni assist, presque aucun dégât ni sbire). Elle ne compte pas dans tes objectifs ni dans ton bilan.": "No advice for this game: you seem to have been away (no kills or assists, almost no damage or minions). It doesn't count towards your goals or your report.",
+    "En bref": "In short","À travailler": "To work on", "Point fort": "Strength", "Ce qui a pesé": "What mattered", "Constat": "Finding", "Toi face aux bons joueurs": "You vs good players",
     "Aucun écart net avec la référence Diamant+ sur cette partie.": "No clear gap with the Diamond+ reference in this game.", "à revoir en replay": "to rewatch in replay",
     "La partie rejouée sur la minimap, avec ce qui aurait été mieux": "The game replayed on the minimap, with what would have been better", "Ton build face aux Diamant+": "Your build vs Diamond+",
     "Voir la fiche": "See the page", "La partie en replay": "Game replay",
@@ -186,7 +187,8 @@
     "Conseils officiels de Riot et avis attribués de coachs, contrôlés avant publication. Les statistiques de matchup ne sont pas encore publiées.": "Official Riot tips and attributed coach advice, checked before publishing. Matchup stats are not published yet.",
     "Les statistiques de matchups arrivent avec la version en ligne du coach.": "Matchup stats arrive with the online version of the coach.",
     "Duels par lane · joueurs Diamant+": "Lane matchups · Diamond+ players", "Bot lane à 2 contre 2": "Bot lane 2v2", "dans cette partie": "in this game", "Compositions": "Team comps",
-    "Mes champions dans cette partie": "My champions in this game", "Mon rôle": "My role", "Mon équipe": "My team", "Analyser": "Analyze", "Tout effacer": "Clear all",
+    "Mes champions dans cette partie": "My champions in this game", "aucune donnée": "no data", "Ton équipe": "Your team", "Ton support contre leur ADC": "Your support vs their ADC", "Ton ADC contre leur support": "Your ADC vs their support", "Votre duo ADC + support ensemble": "Your ADC + support duo together", "Face à leurs champions": "Against their champions", "Avec tes alliés": "With your allies",
+    "Le point, c'est toi sur cette partie. La zone claire montre où se situe la moitié des joueurs Diamant et plus à ton poste, et le trait leur niveau habituel. Vert : mieux qu'eux ; rouge : en dessous.": "The dot is you in this game. The light band shows where half of Diamond+ players in your role sit, and the line their usual level. Green: better than them; red: below.", "Mon rôle": "My role", "Mon équipe": "My team", "Analyser": "Analyze", "Tout effacer": "Clear all",
     "Renseigne les champions au fil de la sélection : l'analyse se met à jour avec ce qui est connu.": "Fill in champions during champ select: the analysis updates with what is known.",
     "Mes champions en": "My champions in", "Ajouter": "Add", "Ajouter un champion": "Add a champion", "Joués récemment :": "Played recently:",
     "Ajoute les champions que tu joues dans ce rôle : le coach les compare pour chaque partie.": "Add the champions you play in this role: the coach compares them for each game.",
@@ -253,6 +255,26 @@
   };
   // Motifs : durées, compteurs et dates composées
   const R = [
+    [/^(\d+) parties? : pas assez$/, (m, n) => `${n} game${n === "1" ? "" : "s"}: not enough`],
+    [/^(.+) dans cette partie$/, "$1 in this game"],
+    // Compositions (coach/draft.mjs) et pied de la draft
+    [/^Dégâts surtout physiques \((\d+) %\) : l'adversaire peut se protéger avec de l'armure\.$/, "Mostly physical damage ($1%): the enemy can protect themselves with armor."],
+    [/^Dégâts surtout magiques \((\d+) %\) : l'adversaire peut se protéger avec de la résistance magique\.$/, "Mostly magic damage ($1%): the enemy can protect themselves with magic resist."],
+    [/^Dégâts mixtes \((\d+) % physiques, (\d+) % magiques\) : difficile à contrer avec un seul type de défense\.$/, "Mixed damage ($1% physical, $2% magic): hard to counter with a single type of defense."],
+    [/^Peu de contrôles : (\d+) % de moins qu'une équipe moyenne\.$/, "Little crowd control: $1% less than an average team."],
+    [/^Équipe qui encaisse beaucoup \(\+(\d+) % par rapport à la moyenne\)\.$/, "Team that soaks a lot of damage (+$1% vs average)."],
+    [/^Équipe fragile : (\d+) % d'encaissement en moins que la moyenne\.$/, "Fragile team: soaks $1% less damage than average."],
+    [/^Plus forte en fin de partie : elle gagne environ (\d+) parties sur 100 de plus quand la partie dépasse 32 min\.$/, "Stronger late: wins about $1 more games out of 100 when the game goes past 32 min."],
+    [/^Plus forte en début de partie : elle gagne environ (\d+) parties sur 100 de moins quand la partie dépasse 32 min\. Joue la sécurité avant 20 min\.$/, "Stronger early: wins about $1 fewer games out of 100 when the game goes past 32 min. Play safe before 20 min."],
+    [/^Statistiques sur ([\d,]+) parties classées Diamant\+ \(EUW\) des (\d+) derniers jours\. Sous (\d+) parties, le coach ne donne pas de verdict\.$/, "Stats from $1 Diamond+ ranked games (EUW) over the last $2 days. Under $3 games, the coach gives no verdict."],
+    [/^Détail : (\d+) morts?, (\d+) backs$/, (m, d, b) => `Details: ${d} death${d === "1" ? "" : "s"}, ${b} backs`],
+    [/^([\d.,]+) sbires à 10 min$/, "$1 CS at 10 min"],
+    // Mesures d'une partie (« Toi face aux bons joueurs »)
+    [/^([\d.,]+) sbires par minute$/, "$1 CS per minute"], [/^([\d.,]+) morts par tranche de 30 min$/, "$1 deaths per 30 min"],
+    [/^([\d.,]+) de score de vision par minute$/, "$1 vision score per minute"], [/^([\d.,]+) wards? de contrôle par partie$/, (m, n) => `${n} control ward${n === "1" ? "" : "s"} per game`],
+    [/^([\d.,]+) % des kills de ton équipe$/, "$1% of your team's kills"],
+    [/^Contre (.+) : ce qu'en disent les coachs$/, "Against $1: what coaches say"],
+    [/^Tous rôles confondus : un champion peut profiter d'une composition sans dépendre de son vis-à-vis\. Taux de victoire Diamant\+ (?:d'|de )(.+) :$/, "All roles combined: a champion can benefit from a team comp regardless of its lane opponent. $1's Diamond+ winrate:"],
     // Références Diamant+ par rôle (coach)
     [/^Ce que jouent les Diamant\+ en (\S+) · patch ([\d.]+)$/, "What Diamond+ $1 players run · patch $2"], [/^Rôles joués : (.+)$/, (m, x) => `Roles played: ${x.replace(/ %/g, "%")}`],
     [/^Très joués par les Diamant\+ en (\S+), absents chez toi$/, "Common among Diamond+ $1 players, missing from yours"], [/^Très joués par les Diamant\+, absents chez toi$/, "Common among Diamond+ players, missing from yours"],
@@ -407,7 +429,7 @@
     [/^\(tu avais environ (\d+) golds juste avant\)$/, "(you had about $1 gold just before)"],
     [/^adverse, présent sur (\d+) de tes morts$/, "enemy, involved in $1 of your deaths"],
     [/^(\d+) victoires? sur (\d+) en duel$/, "$1 of $2 matchups won"],
-    [/^sur (\d+) parties(, chiffre encore incertain)?$/, (m, n, u) => `over ${n} games${u ? ", still uncertain" : ""}`],
+    [/^sur ([\d,]+) parties(, chiffre encore incertain)?$/, (m, n, u) => `over ${n} games${u ? ", still uncertain" : ""}`],
     [/^(even|favorable|unfavorable|équilibré|favorable|défavorable) · à 10 min, ton champion a en moyenne ([+−-]?[\d,.]+) sbires$/, (m, v, n) => `${({ "équilibré": "even", "défavorable": "unfavorable" })[v] || v} · at 10 min, your champion averages ${n.replace(",", ".")} CS`],
     [/^Beaucoup de contrôles \(étourdissements, ralentissements…\) : environ (.+) fois plus qu'une équipe moyenne\.$/, (m, n) => `Lots of crowd control (stuns, slows…): about ${n === "deux" ? "twice" : n.replace(",", ".") + " times"} as much as an average team.`],
     [/^Beaucoup de contrôles \(étourdissements, ralentissements…\) : (\d+) % de plus qu'une équipe moyenne\.$/, "Lots of crowd control (stuns, slows…): $1% more than an average team."],
@@ -463,13 +485,17 @@
   function tr(s) {
     const t0 = s.trim(), t = t0.replace(/[\s\u00a0\u202f]+/g, " "); // espaces insécables normalisés
     if (/^\d+,\d+$/.test(t)) return s.replace(t0, t.replace(",", "."));
+    if (/^\d+(?:[.,]\d+)? %$/.test(t)) return s.replace(t0, t.replace(",", ".").replace(" %", "%"));
     if (!t || !/[A-Za-zÀ-ÿ]/.test(t)) return s;
     const en = v => v.replace(/^\s+([:;,.!?)])/, "$1").replace(/ ([:;!?])(?=\s|$)/g, "$1");
     if (T[t] != null) return en(s.replace(t0, T[t]));
+    if (Object.hasOwn(NAMES, t) && !t.startsWith("~")) return s.replace(t0, NAMES[t]);
     // Motifs appliqués au texte sans ses espaces de bord (les nœuds de texte gardent souvent un espace autour)
     let r = t;
     for (const [re, rep] of R) r = r.replace(re, rep);
     r = r === t ? s : en(s.replace(t0, r));
+    // Noms d'objets et de runes du coach (servis en français) : remplacés par leur nom officiel anglais
+    if (NAME_RE) r = r.replace(NAME_RE, m => NAMES[m]);
     // Pas de remplacement par morceaux : il mélangeait les langues dans les phrases du coach (« Combat lost à 13:47 »)
     return r;
   }
@@ -486,6 +512,40 @@
     }
   }
   window.i18nTr = tr;
+  // Noms officiels Riot (Data Dragon fr_FR → en_US) des objets, runes et sorts : chargés seulement pour le coach, gardés par patch
+  let NAMES = {}, NAME_RE = null, namesLoading = false;
+  const setNames = map => {
+    NAMES = map;
+    // Dans une phrase : objets et runes seulement (les sorts « Soins », « Fantôme »… sont aussi des mots courants)
+    const list = Object.keys(map).filter(k => !map["~" + k] && k.length >= 4 && !k.startsWith("~")).sort((x, y) => y.length - x.length);
+    NAME_RE = list.length ? new RegExp(`(?<![\\p{L}'’])(?:${list.map(k => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})(?![\\p{L}'’])`, "gu") : null;
+  };
+  async function loadNames() {
+    if (namesLoading || NAME_RE || !/coach/.test(location.hash)) return;
+    namesLoading = true;
+    try {
+      const v = (await fetch("https://ddragon.leagueoflegends.com/api/versions.json").then(r => r.json()))[0];
+      let map = null;
+      try { const c = JSON.parse(localStorage.getItem("tm-names-en") || "null"); if (c?.v === v) map = c.map; } catch (e) { /* ignoré */ }
+      if (!map) {
+        const get = (l, f) => fetch(`https://ddragon.leagueoflegends.com/cdn/${v}/data/${l}/${f}.json`).then(r => r.json());
+        const [fi, ei, fr, er, fs, es] = await Promise.all([get("fr_FR", "item"), get("en_US", "item"), get("fr_FR", "runesReforged"), get("en_US", "runesReforged"), get("fr_FR", "summoner"), get("en_US", "summoner")]);
+        map = {};
+        const add = (f, e, spell) => { if (f && e && f !== e) { map[f] = e; if (spell) map["~" + f] = 1; } };
+        for (const id in fi.data) add(fi.data[id].name, ei.data[id]?.name);
+        const runes = list => Object.fromEntries(list.flatMap(t => [[t.id, t.name], ...t.slots.flatMap(sl => sl.runes.map(x => [x.id, x.name]))]));
+        const rf = runes(fr), re = runes(er);
+        for (const id in rf) add(rf[id], re[id]);
+        for (const k in fs.data) add(fs.data[k].name, es.data[k]?.name, true);
+        try { localStorage.setItem("tm-names-en", JSON.stringify({ v, map })); } catch (e) { /* ignoré */ }
+      }
+      setNames(map);
+      walk(document.body);
+    } catch (e) { /* noms restés en français */ }
+    namesLoading = false;
+  }
+  window.addEventListener("hashchange", loadNames);
+  loadNames();
   const start = () => {
     walk(document.body);
     new MutationObserver(ms => { for (const m of ms) { if (m.type === "characterData") walk(m.target); else if (m.type === "attributes") walk(m.target); else m.addedNodes.forEach(walk); } })

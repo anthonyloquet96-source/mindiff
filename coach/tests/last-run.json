@@ -1,13 +1,13 @@
 {
- "at": "2026-10-23T12:01:02.499Z",
- "ok": 35,
- "total": 35,
+ "at": "2026-10-24T14:01:35.218Z",
+ "ok": 37,
+ "total": 37,
  "results": [
   {
    "name": "1. Source récente compatible avec le patch",
    "kind": "réel",
    "ok": true,
-   "detail": "u-lucian-2620-ad : patch 26.20 (courant 26.20), exploitable, passages retrouvés dans les notes officielles."
+   "detail": "u-lucian-2620-ad : patch 26.20 (courant 26.21), exploitable, passages retrouvés dans les notes officielles."
   },
   {
    "name": "2. Source ancienne devenue incompatible",
@@ -79,7 +79,7 @@
    "name": "Tout le jeu : socle officiel pour chaque champion",
    "kind": "réel",
    "ok": true,
-   "detail": "803 conseils officiels, 147 champions ; Lee Sin (jungle) reçoit ses conseils officiels avec la mention de couverture ; 146 adversaires proposables."
+   "detail": "803 conseils officiels, 147 champions ; Lee Sin (jungle) reçoit ses conseils officiels avec la mention de couverture ; 145 adversaires proposables."
   },
   {
    "name": "4b. Deux créateurs qui se contredisent",
@@ -115,7 +115,7 @@
    "name": "8b. Source en panne pendant la découverte",
    "kind": "réel (réseau coupé simulé)",
    "ok": true,
-   "detail": "78 sources en échec, 1494 contenus conservés, nouvel essai planifié (2026-10-23T13:01)."
+   "detail": "78 sources en échec, 1618 contenus conservés, nouvel essai planifié (2026-10-24T15:01)."
   },
   {
    "name": "9. Citation qui ne soutient pas le conseil",
@@ -193,7 +193,7 @@
    "name": "Vidéo lue par IA : au mieux provisoire, patch futur signalé",
    "kind": "fixture",
    "ok": true,
-   "detail": "Passage lu par Gemini → provisoire jusqu'à vérification humaine ; patch 26.21 (non sorti) → signalé comme prévision."
+   "detail": "Passage lu par Gemini → provisoire jusqu'à vérification humaine ; patch 26.22 (non sorti) → signalé comme prévision."
   },
   {
    "name": "Vidéos réellement lues : durée conforme et passages retrouvés",
@@ -209,10 +209,22 @@
    "detail": "variante RM : 80 % contre 0 %, objet sans rapport écarté."
   },
   {
+   "name": "Référence Diamant+ par rôle : un champion joué top et support n'a pas le même build",
+   "kind": "fixture",
+   "ok": true,
+   "detail": "support : 40 parties, objets du support seulement ; top : 60 parties."
+  },
+  {
    "name": "Build adapté en partie : tanks, critiques et soigneurs détectés depuis les profils exportés",
    "kind": "fixture",
    "ok": true,
    "detail": "menaces détectées : tanks, crit, heal."
+  },
+  {
+   "name": "Joueur absent (AFK) : partie reconnue et sortie des objectifs",
+   "kind": "fixture",
+   "ok": true,
+   "detail": "absence reconnue ; une mauvaise partie (0/9/1) reste analysée."
   }
  ]
 }

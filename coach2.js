@@ -570,10 +570,11 @@ function c2Game(id) {
       ${r.comparisons.length ? `<section class="sec"><div class="sec-head"><h2 class="sec-title">Toi face aux bons joueurs</h2></div><div class="c2-card">${r.comparisons.map(c2Bar).join("")}<p class="fine">Le point, c'est toi sur cette partie. La zone claire montre où se situe la moitié des joueurs Diamant et plus à ton poste, et le trait leur niveau habituel. Vert : mieux qu'eux ; rouge : en dessous.</p></div></section>` : ""}
       ${c2BuildCmp(r)}
       ${c2GameDraft(r, id)}` : `${c2Brief(r, id)}
-      <section class="sec"><div class="sec-head"><h2 class="sec-title">Ce qui a pesé</h2></div>
+      ${r.absent ? `<p class="note">${icon("alert")}<span>Pas de conseil sur cette partie : tu semblais absent (aucun kill ni assist, presque aucun dégât ni sbire). Elle ne compte pas dans tes objectifs ni dans ton bilan.</span></p>` : ""}
+      ${r.absent ? "" : `<section class="sec"><div class="sec-head"><h2 class="sec-title">Ce qui a pesé</h2></div>
         ${r.findings.length ? r.findings.map((f, i) => `<article class="c2-card c2-finding"><p class="label">Constat ${i + 1}</p><h3 class="c2-f-title">${esc(f.title)}</h3>${bullets(f.facts)}
           ${f.metric || C2_KIND_TIP[f.kind] ? `<details class="more"${i === 0 ? " open" : ""}><summary>Ce qu'il faut faire</summary>${C2_KIND_TIP[f.kind] || !f.metric ? `<p>${esc(c2TipOf(f))}</p>` : ""}${f.metric ? c2LessonsHtml(f.metric, s.role, s.champion, !C2_KIND_TIP[f.kind]) : ""}</details>` : ""}</article>`).join("") : `<p class="inline-empty">Aucun écart net avec la référence Diamant+ sur cette partie.</p>`}
-      </section>
+      </section>`}
       ${r.tactics?.lessons?.length ? `<button class="c2-ready" data-action="c2-gview" data-id="carte">${icon("compass")}<span><b>${r.tactics.lessons.length} moment${r.tactics.lessons.length > 1 ? "s" : ""} clé${r.tactics.lessons.length > 1 ? "s" : ""} à revoir en replay</b><span class="fine">La partie rejouée sur la minimap, avec ce qui aurait été mieux</span></span>${icon("chevron")}</button>` : ""}`}
     <p class="fine c2-foot">${esc(r.note)}${r.benchmark ? ` Référence : ${r.benchmark.games} parties ${esc(r.benchmark.level)}, patch ${esc(r.benchmark.patch)}.` : ""}</p>`;
 }
@@ -591,7 +592,7 @@ function c2Brief(r, id) {
   if (r.strengths[0]) rows.push(["up", "Point fort", esc(r.strengths[0])]);
   if (s.deadSeconds != null && s.deadSeconds / (r.duration || 1) >= 0.1) rows.push(["down", "Temps passé mort", `${Math.round(s.deadSeconds / 60)} min, soit ${Math.round((s.deadSeconds / r.duration) * 100)} % de la partie`]);
   // Objectif du joueur dans ce rôle : réussi ou non sur cette partie
-  const g = C2.profile && s.role ? c2GoalState(C2.profile, s.role) : null;
+  const g = C2.profile && s.role && !r.absent ? c2GoalState(C2.profile, s.role) : null;
   const v = g?.t ? s.metrics?.[g.t.metric] : null;
   if (v != null) {
     const ok = g.t.better === "high" ? v >= g.target : v <= g.target;
@@ -880,7 +881,21 @@ function c2TipsFor(name) {
     against: units.filter(u => u.matchup?.vs === name),
   };
 }
-const c2Tip = u => `<li class="c2-tip">${esc(u.claim.replace(/^Contre [^:]+ : /, ""))}<span class="fine">${u.nature === "officiel" ? "Riot Games" : esc(contentOf(u.evidence[0]?.content)?.author || "")}${u.status === "provisoire" ? " · provisoire" : ""}</span></li>`;
+// Conseils officiels Riot sur le site anglais : texte anglais de Data Dragon (Riot publie les mêmes conseils, dans le même ordre)
+const C2_TIP_EN = {};
+function c2TipText(u) {
+  const fr = u.claim.replace(/^Contre [^:]+ : /, "");
+  const m = window.LANG === "en" && u.id?.match(/^u-dd-(.+)-([ae])(\d+)$/);
+  const champ = m && c2ChampList().find(c => c.id.toLowerCase() === m[1]);
+  if (!champ) return fr;
+  if (!(champ.id in C2_TIP_EN)) {
+    C2_TIP_EN[champ.id] = null;
+    fetch(`https://ddragon.leagueoflegends.com/cdn/${COACH.ddragonVersion}/data/en_US/champion/${champ.id}.json`).then(r => r.json())
+      .then(j => { const x = j.data[champ.id]; C2_TIP_EN[champ.id] = { a: x.allytips, e: x.enemytips }; render(false); }).catch(() => {});
+  }
+  return C2_TIP_EN[champ.id]?.[m[2]]?.[m[3] - 1] || fr;
+}
+const c2Tip = u => `<li class="c2-tip">${esc(c2TipText(u))}<span class="fine">${u.nature === "officiel" ? "Riot Games" : esc(contentOf(u.evidence[0]?.content)?.author || "")}${u.status === "provisoire" ? " · provisoire" : ""}</span></li>`;
 function c2VideosFor(name) {
   const re = new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
   return COACH.contents.filter(c => c.type === "video" && ["fr", "en"].includes(c.lang) && (re.test(c.title) || c.champions?.includes(name)) && !(c.triage?.entertainment || []).length).slice(0, 4);

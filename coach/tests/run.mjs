@@ -510,6 +510,20 @@ await t("Build adapté en partie : tanks, critiques et soigneurs détectés depu
   return `menaces détectées : ${keys.join(", ")}.`;
 });
 
+await t("Joueur absent (AFK) : partie reconnue et sortie des objectifs", "fixture", async () => {
+  const { summarize, goalFor } = await import("../review.mjs");
+  const player = (o = {}) => ({ puuid: "moi", teamId: 100, teamPosition: "TOP", championName: "Sett", championId: 875, win: false, kills: 3, deaths: 4, assists: 5, totalMinionsKilled: 180, neutralMinionsKilled: 4, totalDamageDealtToChampions: 15000, visionScore: 18, goldEarned: 10000, challenges: {}, ...o });
+  const match = me => ({ metadata: { matchId: "EUW1_1" }, info: { gameDuration: 1890, gameVersion: "26.20.1", queueId: 420, gameStartTimestamp: 0, participants: [me] } });
+  const afk = summarize(match(player({ kills: 0, deaths: 0, assists: 0, totalMinionsKilled: 2, neutralMinionsKilled: 0, totalDamageDealtToChampions: 727, visionScore: 0 })), "moi");
+  const played = summarize(match(player()), "moi");
+  const badGame = summarize(match(player({ kills: 0, deaths: 9, assists: 1, totalMinionsKilled: 90, totalDamageDealtToChampions: 5000 })), "moi");
+  assert(afk.absent === true, "partie AFK non reconnue");
+  assert(!played.absent && !badGame.absent, "partie jouée (même mauvaise) prise pour une absence");
+  const goal = goalFor([afk, played, played], "top", { roles: {} });
+  assert(goal.games === 2, "la partie AFK compte dans les objectifs");
+  return "absence reconnue ; une mauvaise partie (0/9/1) reste analysée.";
+});
+
 // ---------- Rapport
 const ok = results.filter(r => r.ok).length;
 for (const r of results) console.log(`${r.skipped ? "–" : r.ok ? "✔" : "✘"} ${r.name} [${r.kind}]\n    ${r.detail}`);

@@ -52,9 +52,13 @@ export function summarize(match, puuid) {
   const role = POS[me.teamPosition] || null;
   const opp = role ? info.participants.find(p => p.teamId !== me.teamId && p.teamPosition === me.teamPosition) : null;
   const ch = me.challenges || {};
+  // Joueur absent (AFK, déconnecté) : ni kill ni assist, presque aucun dégât, presque aucun sbire (ou aucune vision en support).
+  // Sur les 1 600 parties du banc d'essai : 2 cas, tous les autres joueurs dépassent nettement ces seuils.
+  const absent = info.gameDuration >= 900 && me.kills + me.assists === 0 && (me.totalDamageDealtToChampions || 0) / minutes < 100
+    && (role === "support" ? (me.visionScore || 0) < 5 : (me.totalMinionsKilled + me.neutralMinionsKilled) / minutes < 1.5);
   return {
     id: match.metadata.matchId, at: info.gameStartTimestamp, queue: QUEUES[info.queueId] || `File ${info.queueId}`, queueId: info.queueId,
-    patch: info.gameVersion.split(".").slice(0, 2).join("."), minutes: r1(minutes), remake: info.gameDuration < 300 || me.gameEndedInEarlySurrender,
+    patch: info.gameVersion.split(".").slice(0, 2).join("."), minutes: r1(minutes), remake: info.gameDuration < 300 || me.gameEndedInEarlySurrender, absent,
     champion: me.championName, championId: me.championId, role, win: me.win, k: me.kills, d: me.deaths, a: me.assists,
     cs: me.totalMinionsKilled + me.neutralMinionsKilled, opponent: opp?.championName || null,
     metrics: metricsOf(me, minutes),
@@ -209,8 +213,10 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
 
   return {
     textVersion: 2, // textes revus après la relecture « joueur Argent » du 23/10/2026 (les bilans gardés sur le téléphone sont relus)
-    summary: { ...s, deadSeconds: me.totalTimeSpentDead ?? null }, lane, deaths, bases, objectives, comparisons, findings: findings.slice(0, 3), findingsAll: findings.map(f => f.kind), habits, strengths,
-    build: await buildVsDiamond(me, champstats, itemDb, fetchImpl),
+    // Partie où le joueur était absent : faits gardés, aucun conseil (ils n'auraient pas de sens)
+    absent: s.absent, summary: { ...s, deadSeconds: me.totalTimeSpentDead ?? null }, lane, deaths, bases, objectives,
+    comparisons: s.absent ? [] : comparisons, findings: s.absent ? [] : findings.slice(0, 3), findingsAll: s.absent ? [] : findings.map(f => f.kind), habits, strengths: s.absent ? [] : strengths,
+    build: s.absent ? null : await buildVsDiamond(me, champstats, itemDb, fetchImpl),
     // Compositions : champions et rôles (aucun Riot ID des autres joueurs)
     // Relecture tactique : minimap, combats, objectifs, morts, interactions, ce qui aurait été mieux (coach/tactics.mjs)
     tactics: tac,
@@ -395,7 +401,7 @@ export async function profile(riot, { gameName, tagLine, platform, benchmarks, c
 // Objectif d'un rôle : l'indicateur le plus souvent sous la référence Diamant+ (au moins une partie sur deux)
 export function goalFor(games, role, benchmarks) {
   const bench = benchmarks?.roles?.[role];
-  const inRole = games.filter(g => g.role === role);
+  const inRole = games.filter(g => g.role === role && !g.absent);
   const tally = Object.keys(METRICS).filter(k => METRICS[k].roles.includes(role)).map(k => {
     const cmp = inRole.map(g => compare(k, g.metrics[k], bench)).filter(Boolean);
     const sous = cmp.filter(c => c.level === "sous").length;
@@ -415,7 +421,7 @@ export async function selectGames(riot, { puuid, region, role = null, champion =
   const out = [];
   for (const id of ids) {
     const s = await riot(`https://${region}.api.riotgames.com/lol/match/v5/matches/${id}`).then(m => summarize(m, puuid)).catch(e => { if (e.status === 401 || e.status === 403) throw e; return null; });
-    if (s && !s.remake && (!role || s.role === role) && (!champion || s.champion.toLowerCase() === champion.toLowerCase())) out.push(s);
+    if (s && !s.remake && !s.absent && (!role || s.role === role) && (!champion || s.champion.toLowerCase() === champion.toLowerCase())) out.push(s);
   }
   return { scanned: ids.length, games: out };
 }
@@ -430,7 +436,7 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
   }
   const reviews = [];
   for (const id of ids.slice(0, limit)) {
-    try { reviews.push(await review(riot, { matchId: id, puuid, region, benchmarks, champstats })); } catch (e) { if (e.status === 401 || e.status === 403) throw e; }
+    try { const r = await review(riot, { matchId: id, puuid, region, benchmarks, champstats }); if (!r.absent) reviews.push(r); } catch (e) { if (e.status === 401 || e.status === 403) throw e; }
   }
   const n = reviews.length;
   if (!n) return { games: 0, plus: [], minus: [], champions: [], matchups: [] };

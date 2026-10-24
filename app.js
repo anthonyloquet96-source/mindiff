@@ -540,6 +540,21 @@ function ppPanel(gameId, m) {
   const vs = vsRows.length ? `<p class="label">${en ? `Against ${esc(who(o))}` : `Face à ${esc(who(o))}`}</p>
     <div class="pp-vs" role="table"><div role="row" class="pp-vs-h"><span role="columnheader"></span><span role="columnheader">${en ? "Gold" : "Golds"}</span><span role="columnheader">CS</span><span role="columnheader">${en ? "Level" : "Niveau"}</span></div>
     ${vsRows.map(([l, a, b]) => `<div role="row"><span role="rowheader">${l}</span>${[0, 1, 2].map(k => `<span role="cell" class="${a[k] > b[k] ? "up" : a[k] < b[k] ? "down" : ""}">${sg(a[k] - b[k])}</span>`).join("")}</div>`).join("")}</div>` : "";
+  // Champion pool : parties officielles du joueur dans les tournois suivis (vainqueur vérifié pour le bilan)
+  const pool = {};
+  const tours = new Set();
+  for (const t of allTournaments()) if (t.game === "lol") for (const mm of tMatches(t)) if (mm.state === "completed") for (const g of mm.games || []) for (const sd of ["blue", "red"]) {
+    const pk = g[sd]?.picks?.find(x => x.player === p.name);
+    if (!pk) continue;
+    const c = (pool[pk.champ] ||= { n: 0, w: 0, l: 0 });
+    c.n++; tours.add(t.name);
+    if (mm.verified !== false && g.winnerTeamId) g.winnerTeamId === g[sd].teamId ? c.w++ : c.l++;
+  }
+  const poolRows = Object.entries(pool).sort((a, b) => b[1].n - a[1].n || b[1].w - a[1].w);
+  const total = poolRows.reduce((s, [, c]) => s + c.n, 0);
+  const poolHtml = poolRows.length ? `<p class="label">Champion pool</p>
+    <ul class="pp-pool">${poolRows.map(([c, x]) => { const e2 = entity("lol", c), known = x.w + x.l; return `<li><a href="${sheetHref("lol", e2.key)}">${portrait(e2, "sm")}<span class="pp-pn"><b>${esc(e2.name)}</b><small>${x.n} ${en ? (x.n > 1 ? "games" : "game") : (x.n > 1 ? "parties" : "partie")}${known ? ` · ${x.w}${en ? "W" : " V"} – ${x.l}${en ? "L" : " D"}` : ""}</small></span>${known >= 3 ? `<i class="${x.w / known >= .5 ? "up" : "down"}">${Math.round((x.w / known) * 100)}${en ? "%" : " %"}</i>` : ""}</a></li>`; }).join("")}</ul>
+    <p class="fine">${en ? `${total} official ${total > 1 ? "games" : "game"} tracked by MINDIFF (${esc([...tours].join(", "))}). Win rate shown from 3 games.` : `${total} ${total > 1 ? "parties officielles suivies" : "partie officielle suivie"} par MINDIFF (${esc([...tours].join(", "))}). Taux de victoire affiché à partir de 3 parties.`}</p>` : "";
   // Chronologie : kills, morts et aides du joueur, à la seconde
   const ev = (st.ev || []).filter(e => e[1] === i || e[2] === i || e[3].includes(i));
   const myKills = (st.ev || []).filter(e => e[1] === i).map(e => e[0]);
@@ -566,11 +581,12 @@ function ppPanel(gameId, m) {
       ${tile(f.g >= 1000 ? `${dec(f.g / 1000)}k` : nf(f.g), en ? "Gold" : "Golds", `${nf(Math.round(f.g / mins))}${en ? "/min" : " par min"}`)}
       ${tile(f.lv, en ? "Level" : "Niveau")}
       ${f.kp != null ? tile(`${Math.round(f.kp * 100)}${en ? "%" : " %"}`, en ? "Kill participation" : "Participation aux kills") : ""}
-      ${f.dmg != null ? tile(`${Math.round(f.dmg * 100)}${en ? "%" : " %"}`, en ? "Team damage to champions" : "Des dégâts de l'équipe aux champions") : ""}
+      ${f.dmg != null ? tile(`${Math.round(f.dmg * 100)}${en ? "%" : " %"}`, en ? "Of team damage" : "Des dégâts de l'équipe") : ""}
       ${f.wp != null ? tile(`${f.wp}<i>·</i>${f.wd}`, en ? "Wards placed · destroyed" : "Wards posées · détruites") : ""}
     </div>
     ${items || rk ? `<div class="pp-build">${rk ? `<span class="pp-rune" title="${esc(rk.name)}"><img src="https://ddragon.leagueoflegends.com/cdn/img/${esc(rk.icon)}" alt="" width="32" height="32"><span><b>${esc(rk.name)}</b>${rs ? `<small>${esc(rs.name)}</small>` : ""}</span></span>` : ""}<span class="pp-items" aria-label="${en ? "Final items" : "Objets en fin de partie"}">${items}</span></div>` : ""}
     ${vs}
+    ${poolHtml}
     ${st.ev ? `<p class="label">${en ? "Kills, deaths and assists" : "Kills, morts et aides"}</p>
       <div class="pp-tbar" aria-hidden="true"><div class="pp-track">${ev.map(dot).join("")}</div><div class="pp-ticks">${ticks}</div></div>
       ${ev.length ? `<ol class="pp-tl">${ev.map(row).join("")}</ol>` : `<p class="fine">${en ? "No kill, death or assist this game." : "Aucun kill, aucune mort ni aide dans cette partie."}</p>`}

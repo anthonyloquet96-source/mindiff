@@ -1292,3 +1292,11 @@ button.pick { background: none; border: 0; padding: 0; font: inherit; color: inh
 .pp-tl em { font-style: normal; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--accent); background: rgba(var(--accent-rgb), .14); padding: 2px 7px; border-radius: 99px; }
 .pp-tl small { flex-basis: 100%; font-size: 12.5px; color: var(--text-3); }
 .pp .btn { align-self: flex-start; }
+.pp-pool { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
+.pp-pool a { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 12px; background: var(--surface); color: inherit; text-decoration: none; }
+.pp-pool .pp-pn { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.pp-pool b { font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pp-pool small { font-size: 11.5px; color: var(--text-3); }
+.pp-pool i { font-style: normal; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pp-pool i.up { color: var(--ok); }
+.pp-pool i.down { color: var(--bad); }

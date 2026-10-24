@@ -27,6 +27,37 @@ async function draftApi(params, matchups) {
   return rename(res);
 }
 
+// Tier list ranked Diamant+ (même forme que TIERLISTS dans data/meta.js). Au moins 200 parties au poste ;
+// lettres sur le taux corrigé (250 victoires et 250 défaites ajoutées), qui ramène les petits échantillons vers 50 %.
+const TL_MIN = 200, TL_PRIOR = 250, TL_TIERS = [["S", 52], ["A", 51], ["B", 50]];
+const TL_GROUPS = [["top", "Top"], ["jungle", "Jungle"], ["mid", "Mid"], ["bottom", "ADC"], ["support", "Support"]];
+const frPct = x => `${x.toFixed(1).replace(".", ",")} %`;
+const frInt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+function tierList(cs) {
+  const picks = Object.values(cs.champions).reduce((s, c) => s + c.games, 0);
+  const games = Math.round(picks / 10);
+  const patch = String(cs.patch).replace(/^16\./, "26.");
+  const groups = TL_GROUPS.map(([role, name]) => {
+    const rows = Object.entries(cs.champions).map(([, c]) => ({ c, s: c.byRole?.[role] })).filter(x => x.s?.games >= TL_MIN)
+      .map(({ c, s }) => ({ name: c.name, games: s.games, wr: 100 * s.wins / s.games, adj: 100 * (s.wins + TL_PRIOR) / (s.games + 2 * TL_PRIOR) }))
+      .sort((a, b) => b.adj - a.adj);
+    const tiers = {};
+    for (const r of rows) {
+      const t = TL_TIERS.find(([, min]) => r.adj >= min)?.[0];
+      if (t) (tiers[t] ||= []).push({ id: r.name, stat: frPct(r.wr), note: `${frInt(r.games)} parties au poste` });
+    }
+    return { name, tiers };
+  });
+  return {
+    game: "lol", title: `Solo queue — patch ${patch}`, roster: "lol", status: "confirme", source: "diamant",
+    scope: "ranked", patch, context: `Solo queue · Diamant et plus · ${frInt(games)} parties`, updated: String(cs.at).slice(0, 10),
+    basis: `Taux de victoire sur ${frInt(games)} parties classées Diamant et plus (EUW, patch ${patch}), relevées par MINDIFF avec l'API officielle de Riot. Seuls les champions joués au moins ${TL_MIN} fois au poste sont classés. Les lettres tiennent compte de la taille de l'échantillon : un champion peu joué doit gagner plus pour monter. S : 52 % corrigé et plus, A : 51 à 52 %, B : 50 à 51 %.`,
+    groups,
+    warnings: ["Un écart de 1 ou 2 points entre deux champions peut venir du hasard, même sur plusieurs centaines de parties."],
+    sources: [{ name: `MINDIFF : ${frInt(games)} parties classées Diamant+ (EUW)`, kind: "media" }],
+  };
+}
+
 let riot = null, riotKey = null;
 const hits = new Map(); // limite par visiteur : 30 requêtes par 5 minutes
 
@@ -41,6 +72,10 @@ export async function coachApi(path, params, { key, benchmarks, champstats, matc
   if (path === "/api/coach/draft") {
     if (!matchups) return { status: 503, body: { error: "Statistiques de matchups indisponibles pour l'instant." } };
     return { status: 200, body: await draftApi(params, matchups) };
+  }
+  if (path === "/api/coach/tierlist") {
+    if (!champstats) return { status: 503, body: { error: "Statistiques Diamant+ indisponibles pour l'instant." } };
+    return { status: 200, body: tierList(champstats) };
   }
   if (!key) return { status: 503, body: { error: "Service Riot non configuré : la connexion des comptes arrive bientôt." } };
   if (key !== riotKey) { riot = createRiot(key); riotKey = key; }

@@ -181,7 +181,7 @@ const STRATS = [
     ],
   },
   {
-    id: "lol-botlane-2620", game: "lol", kind: "Bot lane", nature: "Statistiques ranked", status: "confirme",
+    id: "lol-botlane-2620", prive: "riot-dev", game: "lol", kind: "Bot lane", nature: "Statistiques ranked", status: "confirme",
     title: "Patch 26.20 : Smolder et Milio en bot lane, ce qu'en disent les Diamant+",
     patch: "26.20", updated: "2026-10-24",
     context: { "Rôles": "ADC + support", "Mode": "Solo queue · Diamant et plus (EUW)" },

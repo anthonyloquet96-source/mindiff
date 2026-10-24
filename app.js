@@ -357,6 +357,21 @@ async function loadRosters() {
   render(false);
 }
 
+// Statistiques Diamant+ relevées avec la clé Riot de développement : affichées seulement là où l'API du coach répond
+// (serveur local, puis service en ligne une fois la clé de production obtenue). Sinon la tier list des sources reste.
+const DIAMOND_API = typeof C2_API === "undefined" ? null : C2_API;
+if (DIAMOND_API == null) for (let i = STRATS.length - 1; i >= 0; i--) if (STRATS[i].prive) STRATS.splice(i, 1);
+async function loadDiamond() {
+  if (DIAMOND_API == null) return;
+  try {
+    const r = await fetch(`${DIAMOND_API}/api/coach/tierlist`);
+    if (!r.ok) return;
+    const tl = await r.json(), i = TIERLISTS.findIndex(t => t.game === "lol" && t.scope === "ranked");
+    if (i >= 0) TIERLISTS[i] = tl; else TIERLISTS.unshift(tl);
+    render(false);
+  } catch { /* la tier list des sources reste affichée */ }
+}
+
 const STEAM_ART = { cs2: 730, rl: 252950 };
 function gameArt(id) {
   if (STEAM_ART[id]) return `https://cdn.cloudflare.steamstatic.com/steam/apps/${STEAM_ART[id]}/library_600x900_2x.jpg`;
@@ -382,7 +397,7 @@ const empty = (title, text = "", action = "") => `<div class="empty"><p class="e
 const KIND_LABEL = { officiel: "Officiel", media: "Média", communaute: "Communauté", suspect: "Douteux" };
 function sourceList(srcs, extra = "") {
   if (!srcs?.length) return "";
-  return `<div class="sources"><p class="label">Sources${extra}</p><ul>${srcs.map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener"><span class="src-kind ${s.kind}">${KIND_LABEL[s.kind] || ""}</span><span class="src-name">${esc(s.name)}</span>${icon("external", "ext")}</a></li>`).join("")}</ul></div>`;
+  return `<div class="sources"><p class="label">Sources${extra}</p><ul>${srcs.map(s => (s.url ? `<li><a href="${esc(s.url)}" target="_blank" rel="noopener"><span class="src-kind ${s.kind}">${KIND_LABEL[s.kind] || ""}</span><span class="src-name">${esc(s.name)}</span>${icon("external", "ext")}</a></li>` : `<li><span class="src-kind ${s.kind}">${KIND_LABEL[s.kind] || ""}</span><span class="src-name">${esc(s.name)}</span></li>`)).join("")}</ul></div>`;
 }
 const notes = ws => (ws || []).map(w => `<p class="note warn">${icon("alert")}<span>${esc(w)}</span></p>`).join("");
 const secHead = (title, link = "") => `<div class="sec-head"><h2 class="sec-title">${title}</h2>${link}</div>`;
@@ -1279,6 +1294,8 @@ function rankedBlock(g, tl) {
   const tiers = {};
   for (const gr of groups) for (const [k, ents] of Object.entries(gr.tiers)) { tiers[k] ||= []; for (const e of ents) if (!tiers[k].some(x => entKey(x) === entKey(e))) tiers[k].push(e); }
   if (g === "val" && ui.metaRole !== "all") for (const k of Object.keys(tiers)) tiers[k] = tiers[k].filter(e => norm(entity("val", entKey(e)).sub) === norm(ui.metaRole));
+  // Tous les rôles : un champion classé à plusieurs postes n'apparaît qu'à sa meilleure lettre
+  if (ui.metaRole === "all") { const seen = new Set(); for (const k of ["S", "A", "B", "C", "D"].filter(k => tiers[k])) tiers[k] = tiers[k].filter(e => !seen.has(entKey(e)) && seen.add(entKey(e))); }
   const stale = tl.updated && (Date.now() - new Date(tl.updated)) / 864e5 > 14;
   const filled = Object.entries(tiers).filter(([, e]) => e.length);
   return `<section class="tierlist">
@@ -1286,7 +1303,7 @@ function rankedBlock(g, tl) {
       <p class="tl-meta">${tl.patch ? chip(`Patch ${tl.patch}`) : ""}${tl.status && tl.status !== "confirme" ? chip(natureOf({ status: tl.status }).label, natureOf({ status: tl.status }).cls) : ""}<span class="fine">${esc(tl.context || "")} · relevé le ${fmtDay(tl.updated)}</span></p>
       ${stale ? `<p class="note warn">${icon("alert")}<span>Données de plus de deux semaines.</span></p>` : ""}</div>
     ${filled.length ? filled.map(([k, ents]) => `<div class="tier"><span class="tier-letter t-${k}">${k}</span>${portraitRow(ents, { game: g, stat: x => x.stat || "", label: `Tier ${k}` }).replace('class="prow"', 'class="prow wrap"')}</div>`).join("") : `<p class="inline-empty">Aucun élément pour ce filtre.</p>`}
-    <details class="more"><summary>Comment est établie cette tier list ?</summary><p>${esc(tl.basis)}</p><p>Les lettres reprennent le classement des sources citées ; touchez un ${g === "lol" ? "champion" : "agent"} pour voir le chiffre et la raison.</p></details>
+    <details class="more"><summary>Comment est établie cette tier list ?</summary><p>${esc(tl.basis)}</p><p>${tl.source === "diamant" ? "Touchez un champion pour voir son taux de victoire et le nombre de parties." : `Les lettres reprennent le classement des sources citées ; touchez un ${g === "lol" ? "champion" : "agent"} pour voir le chiffre et la raison.`}</p></details>
     ${notes(tl.warnings)}${sourceList(tl.sources)}
   </section>`;
 }
@@ -1462,7 +1479,7 @@ function sheetHtml(game, key) {
       ${places.length ? `<section class="sec">${secHead("Classements")}${places.map(({ list, group, tier, e }) => `<div class="place">${list.scope === "pro" ? `<span class="tier-letter rate">${esc(e.stat || "—")}</span>` : `<span class="tier-letter t-${tier}">${tier}</span>`}<div><p class="place-title">${list.scope === "pro" ? "Les plus joués · " + esc(list.title.replace(/^Pros*—s*/, "")) : esc(list.title)}${group && list.groups.length > 1 ? ` · ${esc(group)}` : ""}</p>
         <p class="fine">${list.patch ? `Patch ${esc(list.patch)} · ` : ""}${esc(list.context || "")}</p>
         <p class="place-why">${esc([e.stat ? `${e.stat} de victoires` : "", e.note].filter(Boolean).join(" · ") || "Classement de la source, sans justification chiffrée.")}</p>
-        <p class="fine">Source : ${list.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>`).join(", ")}</p></div></div>`).join("")}</section>` : ""}
+        <p class="fine">Source : ${list.sources.map(s => s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a>` : esc(s.name)).join(", ")}</p></div></div>`).join("")}</section>` : ""}
       ${pro.length ? `<section class="sec">${secHead("Chez les pros")}${pro.map(({ t, c }) => `<a class="prostat" href="${href(game, "tournoi", t.id, "meta")}"><span class="prostat-name">${esc(t.name)}</span>
         <span class="prostat-nums"><span><b>${c.picks}</b> pick${c.picks > 1 ? "s" : ""}</span><span><b>${pct(c.presence)}</b> des parties</span><span>${c.known >= 3 && !hidden("t-" + t.id) ? `<b>${pct(c.winrate)}</b> victoires (${c.known})` : "victoires : —"}</span></span></a>`).join("")}<p class="fine">Parties officielles LoL Esports.</p></section>` : ""}
       ${patches.length ? `<section class="sec">${secHead("Cité dans les notes de patch")}${patches.map(({ i, e }) => `<a class="link-row" href="${href(game, "actus", keyOf(i))}"><span><b>${esc(e.titre)}</b><span class="fine">${fmtDay(pubDate(i))}</span></span>${icon("chevron")}</a>`).join("")}</section>` : ""}
@@ -1729,3 +1746,4 @@ route = parseRoute();
 render();
 loadData().then(() => { lastBase = ""; onRoute(); connectLive(); });
 loadRosters();
+loadDiamond();

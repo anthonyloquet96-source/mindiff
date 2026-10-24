@@ -31,14 +31,46 @@ function sourceId(name, channelId, sources) {
   return id;
 }
 
-// Score d'une vidéo : niveau de la chaîne, nature pédagogique, durée raisonnable, fraîcheur, audience
-export function scoreVideo(v, tier) {
-  let s = { A: 6, B: 4, C: 1 }[tier] || 0;
-  if (GUIDE.test(v.title)) s += 3;
+// Connaissance de jeu durable (consigne d'Anthony, 24/10) : décisions, macro, lane, vision, objectifs, jungle, combats, toutes langues.
+// C'est ce que le coach relie aux erreurs mesurées (morts avant objectif, phase de lane, farm, vision, backs).
+const CONCEPT = new RegExp([
+  "macro", "micro", "wave", "freez", "slow ?push", "crash", "back ?tim", "recall", "tempo", "vision", "ward", "objective", "dragon", "baron", "herald", "grubs", "void", "rotat", "map awareness", "minimap",
+  "decision", "fundamental", "concept", "principle", "mindset", "trading", "lane control", "priority", "prio\\b", "matchup", "counter ?jungl", "tracking", "path", "clear", "gank", "invade", "teamfight", "positioning",
+  "side ?lan", "split ?push", "win ?con", "snowball", "comeback", "throw", "late game", "early game", "mid ?game", "laning phase", "cs(ing)?\\b", "last hit", "farming", "roam", "power spike", "level 1", "lvl ?1", "vod review", "breakdown", "analysis",
+  "gestion des vagues", "vagues?", "vision", "objectifs?", "rotations?", "fondamentaux", "d[ée]cisions?", "placement", "combat d'[ée]quipe", "phase de lane", "timing", "lecture de (la )?map", "erreurs?",
+  "oleadas?", "visi[oó]n", "objetivos?", "rotaci", "fundamentos", "toma de decisi", "macrojuego", "vis[aã]o", "rota[cç]",
+  "운영", "라인 ?관리", "웨이브", "시야", "오브젝트", "한타", "동선", "갱", "판단", "기본기", "마크로", "マクロ", "ウェーブ", "視界", "オブジェクト", "集団戦", "ガンク", "立ち回り", "判断", "基礎",
+  "makro", "dalga", "g[öo]r[üu]ş", "obje", "wellen", "sicht", "fale", "wizj", "t[aầ]m nh[iì]n", "l[ốo]i đ[aá]nh",
+].join("|"), "i");
+// Vite périmé ou déjà couvert par nos données Diamant+ (builds, méta, tier lists, nouveautés d'un patch)
+const PERISHABLE = /tier ?list|best (champions?|picks?|junglers?|supports?|adcs?|mid ?laners?|top ?laners?)|op (champ|pick)|broken|patch \d|\b(1[0-6]|2[0-6])\.\d{1,2}\b|new (item|champion|patch|season)|itemiz|nouveaux? (objets?|champion)|meilleurs? champions|builds?\b|runes?\b|items? explained|all items|preseason/i;
+// Divertissement ou partie commentée sans fil pédagogique
+const ENTERTAIN = /\brag(e|es|ing)\b|insane|crazy|craziest|funny|troll|\bvs\b.*\bvs\b|1v9|pentakill|outplay|i (learned|tried)|\bft\b|podcast|stream|🔴|going for|road to|cheese|pet|ranked (game|reset)/i;
+
+// Score d'une vidéo : nature de l'enseignement d'abord, puis niveau de la chaîne, durée, audience ; la fraîcheur compte peu pour les principes
+export function scoreVideo(v, tier, champs = null) {
+  const t = v.title;
+  const concept = CONCEPT.test(t);
+  let s = { A: 4, B: 3, C: 1 }[tier] || 0;
+  if (concept) s += 6;
+  if (GUIDE.test(t)) s += 2;
+  if (PERISHABLE.test(t)) s -= 5;
+  if (ENTERTAIN.test(t)) s -= 3;
+  // Guide d'un seul champion : utile, mais moins qu'un principe valable pour tous ; un matchup ou un concept garde sa place
+  if (champs?.test(t)) s -= concept ? 1 : 2;
   if (v.min >= 8 && v.min <= 40) s += 2; else if (v.min < 8) s -= 1;
-  if (v.age <= 6) s += 2; else if (v.age <= 12) s += 1;
-  s += Math.min(3, Math.log10(Math.max(1, num(v.views))) / 2);
+  if (!concept) { if (v.age <= 6) s += 1.5; else if (v.age > 18) s -= 1; }
+  s += Math.min(2, Math.log10(Math.max(1, num(v.views))) / 3);
   return Math.round(s * 10) / 10;
+}
+// Noms des champions (Data Dragon, anglais et français) pour repérer les guides d'un seul champion
+async function championRe() {
+  try {
+    const v = (await fetch("https://ddragon.leagueoflegends.com/api/versions.json").then(r => r.json()))[0];
+    const names = new Set();
+    for (const l of ["en_US", "fr_FR"]) for (const c of Object.values((await fetch(`https://ddragon.leagueoflegends.com/cdn/${v}/data/${l}/champion.json`).then(r => r.json())).data)) { names.add(c.name); names.add(c.id); }
+    return new RegExp(`\\b(${[...names].map(n => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})\\b`, "i");
+  } catch { return null; }
 }
 
 // Ordre final : score, avec une pénalité par vidéo déjà prise sur la même chaîne (diversité des voix et des langues)
@@ -47,7 +79,7 @@ export function order(items) {
   const left = [...items];
   while (left.length) {
     let best = 0, bestScore = -Infinity;
-    for (let i = 0; i < left.length; i++) { const s = left[i].score - 1.5 * (taken.get(left[i].channelId) || 0); if (s > bestScore) { bestScore = s; best = i; } }
+    for (let i = 0; i < left.length; i++) { const s = left[i].score - 0.6 * (taken.get(left[i].channelId) || 0); if (s > bestScore) { bestScore = s; best = i; } }
     const [it] = left.splice(best, 1);
     taken.set(it.channelId, (taken.get(it.channelId) || 0) + 1);
     out.push(it);
@@ -63,6 +95,7 @@ export async function build({ perChannel = 25, months = 24 } = {}) {
   const cand = new Map((inv.candidates || []).map(c => [c.channelId, c]));
   const byChannel = new Map(reg.sources.filter(s => s.channelId).map(s => [s.channelId, s]));
   const items = [], added = [];
+  const champs = await championRe();
   for (const id of ids) {
     const ch = inv.channels?.[id];
     if (!ch?.list?.length) continue;
@@ -86,19 +119,19 @@ export async function build({ perChannel = 25, months = 24 } = {}) {
       };
       reg.sources.push(src); byChannel.set(id, src); added.push(src.name);
     }
-    for (const v of vids.sort((a, b) => scoreVideo(b, tier) - scoreVideo(a, tier)).slice(0, perChannel))
-      items.push({ id: `c-yt-${v.id}`, videoId: v.id, channelId: id, sourceId: src.id, title: v.title, min: v.min, ageMonths: v.age, views: v.views, tier, score: scoreVideo(v, tier) });
+    for (const v of vids.sort((a, b) => scoreVideo(b, tier, champs) - scoreVideo(a, tier, champs)).slice(0, perChannel))
+      items.push({ id: `c-yt-${v.id}`, videoId: v.id, channelId: id, sourceId: src.id, title: v.title, min: v.min, ageMonths: v.age, views: v.views, tier, score: scoreVideo(v, tier, champs) });
   }
   // Vidéos déjà au registre, pas encore lues et pédagogiques : elles entrent dans le même classement
   const known = new Set(items.map(i => i.id));
   for (const c of contents.contents.filter(c => c.type === "video" && c.access === "metadonnees" && !known.has(c.id) && (c.videoAttempts || 0) < 3)) {
     const src = reg.sources.find(s => s.id === c.sourceId);
-    if (!src || !(c.backfill || (TEACH.test(c.title) && !DROP.test(c.title))) || LOW.test(c.title)) continue;
+    if (!src || src.kind === "officiel" || !(c.backfill || (TEACH.test(c.title) && !DROP.test(c.title))) || LOW.test(c.title)) continue;
     const age = c.published ? (Date.now() - Date.parse(c.published)) / (30 * 864e5) : 12;
     items.push({ id: c.id, videoId: c.url.split("v=")[1], channelId: src.channelId || src.id, sourceId: src.id, title: c.title, min: 20, ageMonths: Math.round(age), views: c.views || "", tier: "A", score: c.backfill
       // Anciens guides ciblés à la demande d'Anthony (ex. Chreak : « même les anciens, les guides sont universels ») : l'ancienneté ne les pénalise pas
-      ? scoreVideo({ title: c.title, min: 20, age: 6, views: c.views }, "A") + 2
-      : scoreVideo({ title: c.title, min: 20, age, views: c.views }, "A") });
+      ? scoreVideo({ title: c.title, min: 20, age: 6, views: c.views }, "A", champs) + 2
+      : scoreVideo({ title: c.title, min: 20, age, views: c.views }, "A", champs) });
   }
   const queue = order(items).map((it, i) => ({ rank: i + 1, ...it }));
   await writeJson(P.sources, reg);
@@ -112,6 +145,9 @@ export async function refill(contents, sources, { ahead = 12 } = {}) {
   if (!q?.queue?.length) return [];
   const byId = new Map(contents.contents.map(c => [c.id, c]));
   const log = [];
+  // Rangs remis à jour après chaque nouveau classement : une vidéo déjà inscrite garde la place que lui donne la liste actuelle
+  const rankOf = new Map(q.queue.map(it => [it.id, it.rank]));
+  for (const c of contents.contents) if (c.queueRank && c.access === "metadonnees") { if (rankOf.has(c.id)) c.queueRank = rankOf.get(c.id); else delete c.queueRank; }
   let pending = 0;
   for (const it of q.queue) {
     const c = byId.get(it.id);

@@ -331,7 +331,8 @@ await t("10. Contenu externe avec instruction malveillante", "fixture", async ()
   const cacheFile = join(ROOT, P.cache, `${fx.injection.id}.txt`);
   try {
     const cs = JSON.parse(await readFile(join(ROOT, P.contents), "utf8"));
-    // Priorité maximale : le contenu piégé doit passer avant les vrais contenus en attente
+    // Seul contenu en attente dans la copie de travail (restaurée ensuite) : le contenu piégé passe forcément par l'analyse
+    for (const c of cs.contents) if (c.analysis === "en-attente") c.analysis = "suspendu-par-test";
     cs.contents.push({ ...fx.injection, text: undefined, analysis: "en-attente", triage: { score: 999 } });
     await writeFile(join(ROOT, P.contents), JSON.stringify(cs));
     // Quota du jour remis à zéro dans la copie de travail (restaurée ensuite) : la vraie analyse du même passage a pu l'épuiser

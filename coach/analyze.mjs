@@ -118,9 +118,13 @@ export async function run() {
   // Offre gratuite de Gemini : coût nul, les tokens sont tout de même relevés
   const price = provider === "gemini" ? { input: 0, output: 0 } : config.pricesUsdPerMTok[model];
   const log = [];
+  // Ordre (consigne d'Anthony, 24/10) : d'abord les vidéos de stratégie déjà lues, dans l'ordre de la file de lecture ;
+  // les contenus officiels de Riot (présentations de champions) passent après
+  const official = new Set((await readJson(P.sources)).sources.filter(s => s.kind === "officiel").map(s => s.id));
+  const tier = c => (official.has(c.sourceId) ? 2 : c.type === "video" ? 0 : 1);
   const queue = contents.contents
     .filter(c => c.analysis === "en-attente" && (c.attempts || 0) < config.discovery.maxAttempts)
-    .sort((a, b) => (b.triage?.score || 0) - (a.triage?.score || 0) || String(b.published).localeCompare(String(a.published)));
+    .sort((a, b) => tier(a) - tier(b) || (a.queueRank || 1e9) - (b.queueRank || 1e9) || (b.triage?.score || 0) - (a.triage?.score || 0) || String(b.published).localeCompare(String(a.published)));
   const pendingVideos = contents.contents.filter(c => c.type === "video" && c.access === "metadonnees").length;
   if (pendingVideos) log.push(`· ${pendingVideos} vidéo(s) en métadonnées seules : pas encore lues.`);
   if (!queue.length) { log.push("Aucun contenu en attente d'analyse."); return log; }

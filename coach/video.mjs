@@ -42,7 +42,9 @@ export async function run() {
   const only = arg("only");
   // File de lecture (coach/queue.mjs) : les prochaines vidéos classées entrent au registre juste avant d'être lues
   if (!only) log.push(...await refill(contents, (await readJson(P.sources)).sources).catch(e => [`· File de lecture non rechargée : ${e.message}`]));
-  const ready = contents.contents.filter(c => c.type === "video" && (only ? c.id === only : c.access === "metadonnees" && (c.triage?.score || 0) >= V.minTriage && (c.videoAttempts || 0) < V.maxAttempts));
+  // Vidéos officielles de Riot (présentations de champions) : leurs conseils existent déjà en texte, le quota va aux vidéos de stratégie
+  const official = new Set((await readJson(P.sources)).sources.filter(s => s.kind === "officiel").map(s => s.id));
+  const ready = contents.contents.filter(c => c.type === "video" && (only ? c.id === only : !official.has(c.sourceId) && c.access === "metadonnees" && (c.triage?.score || 0) >= V.minTriage && (c.videoAttempts || 0) < V.maxAttempts));
   const byScore = (a, b) => (b.triage?.score || 0) - (a.triage?.score || 0) || String(b.published).localeCompare(String(a.published));
   // Deux vidéos de la file (ordre de pertinence) pour une vidéo récente des flux RSS (nouveautés des chaînes suivies)
   const fromQueue = ready.filter(c => c.queueRank).sort((a, b) => a.queueRank - b.queueRank), fresh = ready.filter(c => !c.queueRank).sort(byScore);

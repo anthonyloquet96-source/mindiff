@@ -9342,7 +9342,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 3
   },
   {
    "id": "c-yt-L5b2uBZMTkE",
@@ -9556,7 +9557,7 @@
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 23
+   "queueRank": 768
   },
   {
    "id": "c-yt-SxZepH5RkfY",
@@ -12124,7 +12125,7 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 20
+   "queueRank": 1332
   },
   {
    "id": "c-yt-oH06KS_HsRY",
@@ -12563,7 +12564,7 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 18
+   "queueRank": 1543
   },
   {
    "id": "c-yt-Sn8IgiUpLOI",
@@ -12899,7 +12900,7 @@
     "patchMentioned": null,
     "basis": "ancien guide de perryjg ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 17
+   "queueRank": 150
   },
   {
    "id": "c-yt-m4Ww5Itl0CI",
@@ -13254,11 +13255,11 @@
    "published": "2024-05-12",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "feel it by d4vd. thank me later -ryan\n\n⬇️⬇️⬇️\n\n*CONNECT WITH ME*\n*Metafy* https://metafy.gg/@perrylol/sessions\n*Patreon* https://www.patreon.com/PerryJG\n*Join the Discord* https://discord.gg/H8h9ZSnXCB\n\n*SOCIALS*\n*Twitch* https://www.twitch.tv/perryjg\n*Twitter* https://twitter.com/perryjglol\n*Tiktok",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash le 2026-10-24 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 9,
     "matched": [
@@ -13270,6 +13271,16 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de perryjg ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "queueRank": 2,
+   "attempts": 0,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "duration": "01:02:00",
+    "reused": true
    }
   },
   {
@@ -13788,7 +13799,6 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 12,
    "videoSkipped": "environ 155 min : au-delà de 90 min (vidéo pédagogique trop longue)",
    "videoAttempts": 3
   },
@@ -13894,7 +13904,6 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 7,
    "videoSkipped": "environ 137 min : au-delà de 90 min (vidéo pédagogique trop longue)",
    "videoAttempts": 3
   },
@@ -14452,7 +14461,7 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 21
+   "queueRank": 1305
   },
   {
    "id": "c-yt-NWnlj6HELSU",
@@ -15642,11 +15651,11 @@
    "lang": "en",
    "published": "2026-10-01",
    "retrievedAt": "2026-10-21",
-   "patch": null,
+   "patch": "aucun",
    "views": 18915,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.6-flash : transcription et 24 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "📈If you want to speed up your climb and get coached by me: https://wtl.lol/mysterias \n✅Use code: TIM10 for $10 off\n\n\n0:00 How to climb on Ahri\n6:40 Runes & Build\n12:00 Vods breakdown, what are we covering?\n14:04 Ahri educational commentary: how to win and carry on Ahri\n42:04 Ahr",
    "triage": {
     "score": 16,
@@ -15663,6 +15672,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "sha256": "d1a1eaa7b70b06db189ebd890ca1bc1c00627ede3148dfd0b745f79416358d3b",
+    "segments": 20,
+    "observations": 24,
+    "duration": "01:08:58",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 380525
    }
   },
   {
@@ -15806,7 +15828,7 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 24
+   "queueRank": 1707
   },
   {
    "id": "c-yt-IgPYxU_VUkU",
@@ -17365,7 +17387,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 12
   },
   {
    "id": "c-yt-tNpcXCr2NrY",
@@ -18050,7 +18073,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 10
   },
   {
    "id": "c-yt-fLecYbOSmEI",
@@ -22028,7 +22052,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 7
   },
   {
    "id": "c-yt-HvNMyHL9k-s",
@@ -41234,7 +41259,7 @@
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 16,
+   "queueRank": 1583,
    "note": "File de lecture (rang 16) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 16,
@@ -44461,7 +44486,7 @@
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 19,
+   "queueRank": 113,
    "note": "File de lecture (rang 19) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 14,
@@ -44488,7 +44513,7 @@
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 22,
+   "queueRank": 23,
    "note": "File de lecture (rang 22) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 14,
@@ -44517,13 +44542,216 @@
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 25,
+   "queueRank": 203,
    "note": "File de lecture (rang 25) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 13,
     "matched": [
      "guide",
      "clear"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-ZzKpPJ_BNHM",
+   "sourceId": "yt-skill-capped",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=ZzKpPJ_BNHM",
+   "title": "Why You SUCK at FARMING (And How to Fix It) - League of Legends",
+   "author": "Skill Capped",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-24",
+   "patch": null,
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 1,
+   "note": "Lue par gemini-3.8-flash le 2026-10-24 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "attempts": 0,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "duration": "29:20",
+    "reused": true
+   }
+  },
+  {
+   "id": "c-yt-V-0395F1evY",
+   "sourceId": "yt-aloisnl",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=V-0395F1evY",
+   "title": "BAUSENLAW + FUNDAMENTALS = MUNDO PUSH",
+   "author": "AloisNL",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-24",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 4,
+   "note": "File de lecture (rang 4) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "fundamentals"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-zziK5rQefTc",
+   "sourceId": "yt-coach-leo",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=zziK5rQefTc",
+   "title": "How To DOMINATE Your First Clear EVERY GAME - Complete Jungle Guide - League of Legends",
+   "author": "Coach Leo (JungleGap)",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-24",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 5,
+   "note": "File de lecture (rang 5) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "jungle",
+     "guide",
+     "how to",
+     "clear"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Qb5YWQxgmzY",
+   "sourceId": "yt-coach-kirei",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=Qb5YWQxgmzY",
+   "title": "Which Jungle Pet Should You Pick? The ONLY Guide You Need (Secret pet mechanics as well)",
+   "author": "Coach Kirei",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-24",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 6,
+   "note": "File de lecture (rang 6) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "jungle",
+     "guide"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-YLgMgbuZ0Zk",
+   "sourceId": "yt-dishake",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=YLgMgbuZ0Zk",
+   "title": "Your ELO is hardstuck because of this: The wave management mistake you always make",
+   "author": "Dishake",
+   "lang": "es",
+   "published": null,
+   "retrievedAt": "2026-10-24",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 9,
+   "note": "File de lecture (rang 9) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "wave"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-34kHa32NIKQ",
+   "sourceId": "yt-skill-capped",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=34kHa32NIKQ",
+   "title": "Why YOU SUCK at MACRO (And How to Fix It) - League of Legends",
+   "author": "Skill Capped",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-24",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 11,
+   "note": "File de lecture (rang 11) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "how to",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-8L38kT34MpI",
+   "sourceId": "yt-aloisnl",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=8L38kT34MpI",
+   "title": "FUNDAMENTALS + BAUSENLAW + MUNDO PUSHING = FOUNTAIN DIVE",
+   "author": "AloisNL",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-24",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 13,
+   "note": "File de lecture (rang 13) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "fundamentals"
     ],
     "entertainment": [],
     "patchMentioned": null,

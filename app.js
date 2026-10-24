@@ -471,6 +471,56 @@ function scoreStrip(B, R, b, r, clockText, note) {
     ${side(R, r, "red")}
   </span>${note ? `<span class="ls-note">${esc(note)}</span>` : ""}`;
 }
+// ---------- Résumé d'une partie : faits relevés minute par minute dans le flux officiel (story.mjs), sans texte inventé
+// Déjà calculé par la collecte (g.story), sinon calculé ici dès la fin de la partie, puis gardé sur l'appareil
+const STORY = {}, STORY_KEY = "mindiff-stories-v1";
+try { Object.assign(STORY, JSON.parse(localStorage.getItem(STORY_KEY) || "{}")); } catch { /* ignoré */ }
+const storyTeams = (st, m) => Object.fromEntries(["blue", "red"].map(s => { const id = st.players.find(p => p.side === s)?.teamId; const x = m.teams.find(y => y.id === id) || {}; return [s, { name: x.name, code: x.code || x.name }]; }));
+function storyHtml(st, m) {
+  if (!window.storyLines) return "";
+  const lines = window.storyLines(st, { teams: storyTeams(st, m), winner: st.winner, lang: window.LANG || "fr", tagsOf: c => rosters.lol?.find(x => x.id === c)?.tags || [], champName: c => entity("lol", c).name });
+  return `<ul class="story" translate="no">${lines.map(l => `<li class="st-${l.k}">${esc(l.t)}</li>`).join("")}</ul><p class="fine st-note" translate="no">${window.LANG === "en" ? "Facts measured minute by minute in the official LoL Esports feed." : "Faits relevés minute par minute dans le flux officiel de LoL Esports."}</p>`;
+}
+function storyBox(gameId, m) {
+  const st = m.games?.find(g => g.id === gameId)?.story || STORY[gameId];
+  if (st) return storyHtml(st, m);
+  return `<div class="story-wait" data-story="${esc(gameId)}" data-match="${esc(m.id)}">${window.LANG === "en" ? "Preparing the game summary…" : "Résumé de la partie en préparation…"}</div>`;
+}
+function storyMatchInner(m) {
+  const ids = STORY_GAMES[m.id];
+  if (!ids) return `<div class="story-wait" data-story-list="${esc(m.id)}">${window.LANG === "en" ? "Preparing the game summary…" : "Résumé de la partie en préparation…"}</div>`;
+  return ids.map((id, i) => `${ids.length > 1 ? `<p class="label">Partie ${i + 1}</p>` : ""}${storyBox(id, m)}`).join("");
+}
+const STORY_GAMES = {};
+let storyBusy = false;
+async function storyFill() {
+  if (storyBusy || !window.fetchStory) return;
+  storyBusy = true;
+  try {
+    // Match terminé que la collecte n'a pas encore détaillé : liste officielle de ses parties
+    for (const el of document.querySelectorAll("[data-story-list]")) {
+      const id = el.dataset.storyList;
+      if (!STORY_GAMES[id]) {
+        const ev = await (await fetch(`https://esports-api.lolesports.com/persisted/gw/getEventDetails?hl=fr-FR&id=${encodeURIComponent(id)}`, { headers: { "x-api-key": LOLE_KEY } })).json();
+        STORY_GAMES[id] = (ev?.data?.event?.match?.games || []).filter(g => g.state === "completed").map(g => g.id);
+      }
+      const m = allTournaments().flatMap(tMatches).find(x => x.id === id);
+      if (m) document.querySelectorAll(`[data-story-match="${CSS.escape(id)}"]`).forEach(x => { x.innerHTML = storyMatchInner(m); });
+    }
+    for (const el of [...document.querySelectorAll("[data-story]")]) {
+      const gid = el.dataset.story;
+      if (!STORY[gid]) {
+        const st = await window.fetchStory(gid);
+        if (!st) { el.textContent = window.LANG === "en" ? "Summary not available yet." : "Résumé pas encore disponible."; continue; }
+        STORY[gid] = st;
+        try { const keep = Object.fromEntries(Object.entries(STORY).slice(-30)); localStorage.setItem(STORY_KEY, JSON.stringify(keep)); } catch { /* ignoré */ }
+      }
+      const m = allTournaments().flatMap(tMatches).find(x => x.id === el.dataset.match);
+      if (m) el.outerHTML = storyHtml(STORY[gid], m);
+    }
+  } catch { /* flux indisponible : réessayé à l'affichage suivant */ }
+  storyBusy = false;
+}
 // Récap d'une partie terminée, à partir du score final enregistré par la collecte
 function recapStrip(g, m) {
   if (!g.final) return "";
@@ -908,10 +958,11 @@ function matchPage(t, mid) {
     </section>
     ${m.state === "inProgress" && t.game === "lol" && !prefs.noSpoil ? liveStrip(m.id, true) : ""}
     ${!done && t.sources?.[0] ? `<a class="btn ghost" href="${esc(t.sources[0].url)}" target="_blank" rel="noopener">${icon("play")}Suivre sur ${esc(t.sources[0].name)}</a>` : ""}
+    ${done && !hide && !m.games?.length && t.game === "lol" ? `<section class="sec">${secHead("Résumé de la partie")}<div data-story-match="${esc(m.id)}">${storyMatchInner(m)}</div></section>` : ""}
     ${done ? (hide ? spoilerGate(m.id, "Résumé et détails", "") : `
       <section class="sec">${secHead("Résumé")}<p class="summary">${esc(e?.resume || m.summary || autoSummary(m))}</p>
         ${e?.cles?.length ? `<p class="label">Moments clés</p>${bullets(e.cles)}` : ""}
-        ${e?.analyse ? `<details class="more"><summary>Analyse esport</summary><p>${esc(e.analyse)}</p><p class="fine">Interprétation de la rédaction à partir des picks, kills et scores officiels.</p></details>` : `<p class="fine">Analyse en cours de rédaction · résumé calculé à partir des données officielles.</p>`}
+        ${e?.analyse ? `<details class="more"><summary>Analyse esport</summary><p>${esc(e.analyse)}</p><p class="fine">Interprétation de la rédaction à partir des picks, kills et scores officiels.</p></details>` : `<p class="fine">${t.game === "lol" ? "Le déroulé de chaque partie (tournant, objectifs, joueurs décisifs) est détaillé ci-dessous, d'après les données officielles." : "Analyse en cours de rédaction · résumé calculé à partir des données officielles."}</p>`}
       </section>
       ${m.maps ? `<section class="sec">${secHead("Cartes")}<div class="maps">${m.maps.map(([n, x, y]) => `<span class="map"><span>${esc(n)}</span><b>${x}–${y}</b></span>`).join("")}</div></section>` : ""}
       ${m.games?.length ? `<section class="sec">${secHead("Partie par partie")}
@@ -919,6 +970,7 @@ function matchPage(t, mid) {
         <div class="games">${m.games.map(g => `<article class="game">
           <div class="game-head"><b>Partie ${g.n}</b>${g.winnerTeamId ? `<span class="chip">Victoire ${esc(name(g.winnerTeamId))}</span>` : ""}${g.kills ? `<span class="fine">${g.kills.blue}–${g.kills.red} kills</span>` : ""}${g.vod ? `<a class="vod" href="${esc(g.vod)}" target="_blank" rel="noopener">${icon("play")}Revoir</a>` : ""}</div>
           ${recapStrip(g, m)}
+          ${storyBox(g.id, m)}
           ${["blue", "red"].map(sd => `<div class="draft ${g.winnerTeamId === g[sd].teamId ? "win" : ""}"><span class="draft-team">${esc(name(g[sd].teamId))}</span>
             <div class="draft-picks">${g[sd].picks.map(p => { const ent = entity(t.game, p.champ); return `<a class="pick" href="${sheetHref(t.game, ent.key)}" aria-label="${esc(ent.name)}, ${esc(p.player)}, ${esc(ROLE_LABEL[p.role] || p.role)}">${portrait(ent, "sm")}<small>${esc(p.player.replace(/^\S+\s/, ""))}</small></a>`; }).join("")}</div></div>`).join("")}
         </article>`).join("")}</div></section>` : ""}`) : ""}`;
@@ -1426,6 +1478,7 @@ function render(fromRoute = true) {
   };
   if (dataLoaded) syncSheet();
   if (!liveTimer && document.querySelector("[data-live-match]")) liveTick();
+  if (document.querySelector("[data-story], [data-story-list]")) setTimeout(storyFill, 0);
   if (route.game === "lol") liveList();
   syncTabs();
   if (fromRoute) {

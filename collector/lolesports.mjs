@@ -2,6 +2,7 @@
 // et champions joués par les pros dans chaque partie (flux livestats officiel).
 
 import { fetchJson } from "./lib.mjs";
+import { fetchStory } from "../story.mjs";
 import { LOL_LEAGUES } from "./sources.mjs";
 
 const KEY = { "x-api-key": "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z" }; // clé publique du site lolesports.com
@@ -70,6 +71,8 @@ async function gameDetail(game) {
       duration: Math.max(0, Math.round((new Date(last.rfc460Timestamp).getTime() - t0) / 1000)),
       blue: pickFinal(last.blueTeam), red: pickFinal(last.redTeam),
     } : null,
+    // Relevé minute par minute pour le résumé de la partie (story.mjs)
+    story: await fetchStory(game.id).catch(() => null),
     vod: vod?.provider === "youtube" ? `https://www.youtube.com/watch?v=${vod.parameter}&t=${Math.round((vod.startMillis || 0) / 1000)}` : null,
   };
 }
@@ -198,7 +201,7 @@ export async function collectLolEsports(state) {
     let refreshed = 0;
     for (const m of allMatches.filter(m => m.state === "completed" && (!m.start || daysAgo(m.start) <= 45))) {
       // Relu une fois s'il manque le score final des parties (ajouté le 23/10/2026), au plus 12 matchs par collecte
-      const stale = state.lolMatches[m.id]?.games?.some(g => g.final === undefined) && (refreshed = (refreshed || 0) + 1) <= 12;
+      const stale = state.lolMatches[m.id]?.games?.some(g => g.final === undefined || g.story === undefined) && (refreshed = (refreshed || 0) + 1) <= 12;
       if (!state.lolMatches[m.id] || stale) {
         try { state.lolMatches[m.id] = await matchDetail(m.id, m.teams); } catch { /* réessayé à la prochaine collecte */ }
       }

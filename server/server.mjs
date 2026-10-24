@@ -30,11 +30,11 @@ const INTERVAL_MIN = Number(process.env.COLLECT_INTERVAL_MIN || 30);
 const LOG_FILE = join(ROOT, "collector", "collect.log");
 
 const TYPES = {
-  ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8",
+  ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".mjs": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8",
   ".json": "application/json; charset=utf-8", ".svg": "image/svg+xml", ".png": "image/png", ".webmanifest": "application/manifest+json",
 };
 // Seuls ces fichiers sont servis : jamais le collecteur, le cache, node_modules ou .env.
-const PUBLIC = [/^(index|admin|confidentialite)\.html$/, /^(i18n|app|coach|coach-select|coach2|admin)\.js$/, /^style\.css$/, /^manifest\.webmanifest$/, /^(icon|logo)\.svg$/, /^(icon-\d+|icon-maskable-512|apple-touch-icon|coach-apercu-[a-z-]+)\.png$/, /^data\/[\w-]+\.(js|json)$/];
+const PUBLIC = [/^(index|admin|confidentialite)\.html$/, /^(i18n|app|coach|coach-select|coach2|admin)\.js$/, /^story\.mjs$/, /^style\.css$/, /^manifest\.webmanifest$/, /^(icon|logo)\.svg$/, /^(icon-\d+|icon-maskable-512|apple-touch-icon|coach-apercu-[a-z-]+)\.png$/, /^data\/[\w-]+\.(js|json)$/];
 
 let latest = null;
 let running = false;

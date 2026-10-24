@@ -282,8 +282,10 @@ await t("7. Champion ou rôle non couvert", "réel", async () => {
   assert(/pas encore couvert/.test(r.coverage.note), "pas d'avertissement");
   assert(r.plan.every(x => !x.unit.champions.length) && r.goal.unit.roles.includes("all"), "conseil d'un autre champion proposé");
   const r2 = CS.prepare(KB, { role: "jungle", rank: "or", champions: ["Lee Sin"], mode: "solo", goal: "jungle", time: 15 });
-  assert(/conseils officiels/.test(r2.coverage.note) && /aucun conseil analysé/i.test(r2.goalNote || ""), "couverture de Lee Sin mal annoncée");
-  return `${none} (aucun conseil) : avertissement, méthode seulement. Lee Sin : « conseils officiels seulement » et objectif jungle déclaré non couvert.`;
+  // Objectif jungle : un conseil analysé sur la jungle (vidéos de coachs) est proposé ; sans lui, le manque est annoncé
+  const jungleGoal = r2.goal?.unit.themes.includes("jungle");
+  assert(/conseils officiels/.test(r2.coverage.note) && (jungleGoal ? !r2.goalNote : /aucun conseil analysé/i.test(r2.goalNote || "")), "couverture de Lee Sin mal annoncée");
+  return `${none} (aucun conseil) : avertissement, méthode seulement. Lee Sin : « conseils officiels seulement » ; objectif jungle ${jungleGoal ? "tiré d'un conseil analysé" : "déclaré non couvert"}.`;
 });
 await t("8a. Source indisponible (accès refusé)", "réel", async () => {
   const got = await acquireText({ id: "test-mobalytics", type: "article", url: "https://mobalytics.gg/blog/lol-essential-skills-to-master-for-adcs/", access: "texte-integral" });

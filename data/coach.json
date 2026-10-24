@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T18:53:40.248Z",
+ "generatedAt": "2026-10-24T01:05:26.615Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -13339,8 +13339,8 @@
     "basis": "page officielle de Riot sur Zaahen, champion sans conseils officiels dans Data Dragon"
    },
    "access": "transcription+visuel",
-   "analysis": "en-attente",
-   "note": "Lue par gemini-3.6-flash le 2026-10-23 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "analysis": "analysee",
+   "note": "Écarté : contenu jugé de faible qualité (Le contenu est un guide complet portant sur un champion fictif/conceptuel ('Zaahen the Unsundered') qui n'existe pas dans le jeu officiel League of Legends (Data Dragon).).",
    "videoAttempts": 0,
    "reader": {
     "kind": "ia",
@@ -13349,7 +13349,16 @@
     "at": "2026-10-23",
     "duration": "15:30",
     "reused": true
-   }
+   },
+   "analyzedAt": "2026-10-24",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "quality": {
+    "level": "faible",
+    "why": "Le contenu est un guide complet portant sur un champion fictif/conceptuel ('Zaahen the Unsundered') qui n'existe pas dans le jeu officiel League of Legends (Data Dragon)."
+   },
+   "learn": null,
+   "rejectedForQuality": true
   },
   {
    "id": "c-yt-S3F9CpeiSNE",
@@ -13648,12 +13657,12 @@
    "lang": "fr",
    "published": "2022-09-28",
    "retrievedAt": "2026-10-21",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "aucun",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "Vous voulez une séance de coaching avec Chreak en tête à tête ? C'est possible ! Deux options s'offrent à vous (70€/session de 1h15) : \nPasser par l'abonnement mensuel sur Patreon pour avoir 1 heure de coaching par mois sur ce lien : https://www.patreon.com/c/ChreakLoL\nContacter directement Chreak p",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -13664,7 +13673,20 @@
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 10
+   "queueRank": 10,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "sha256": "92b4a6d65f520358eb5134f1dd6f62e76738a99fa2786f3629b345bc91d8ee8d",
+    "segments": 84,
+    "observations": 40,
+    "duration": "31:55",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 190282
+   }
   },
   {
    "id": "c-yt-36rK3ZLSdN4",
@@ -15606,11 +15628,11 @@
    "published": "2023-01-05",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "L'ULTIME GUIDE POUR ÊTRE UN EXCELLENT JUNGLER - CHALLENGER POV\n\n🍹 Partenaire LEVLUP avec le code PROMO : TDS : http://www.levlup.de/?ref=1391\n🎁 GIVEAWAYS : https://www.instant-gaming.com/fr/giveaway/SIXEN\n👉 MON PROFIL INSTANT-GAMING : https://www.instant-gaming.com/?igr=sixentv\n🔴 STREAM → https:",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 9,
     "matched": [
@@ -15625,7 +15647,20 @@
     "patchMentioned": null,
     "basis": "ancien guide de Sixen ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 11
+   "queueRank": 11,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "sha256": "07904a51250c8ac6ac0569644dfa760eef511a7ddce1c4d25ef9a991c3ac4bf4",
+    "segments": 22,
+    "observations": 40,
+    "duration": "02:24",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 143618
+   }
   },
   {
    "id": "c-yt-rTjbhsa6msw",
@@ -16463,6 +16498,34 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
+  },
+  {
+   "id": "c-yt-f6VOIvxsZXI",
+   "sourceId": "yt-dishake",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=f6VOIvxsZXI",
+   "title": "Guía completa para subir a DIAMANTE jugando Toplane | League of Legends 2026",
+   "author": "Dishake - League of Legends Coach",
+   "lang": "es",
+   "published": "2026-10-03",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 14656,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "Guía para ADULTOS OCUPADOS que quieren subir a DIAMANTE con POCAS RANKED\n\n0:00 Cómo subir de liga en TOP sin depender del equipo\n1:16 El error con la wave que te hace perder la línea\n3:12 Buscar revancha: cómo una muerte se convierte en dos\n5:42 Vas 3/0: cómo convertir tu ventaja",
+   "triage": {
+    "score": 3,
+    "matched": [
+     "top",
+     "wave"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "queueRank": 21
   },
   {
    "id": "c-yt-Xc_CS1JFoFc",
@@ -19916,13 +19979,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "https://kirei.gg/courses Jungle Courses with Permanent access and updates\nhttps://kirei.gg for personalized 1 on 1 sessions \n\nFree course videos\nSpacing - https://kirei.gg/courses-archive/champion-mastery-course-diamond-and-below/56337/\nGanking - https://kirei.gg/courses-archive/",
    "triage": {
-    "score": 9,
+    "score": 5,
     "matched": [
      "Vi",
      "jungle",
-     "how to",
-     "fundamentals",
-     "coaching"
+     "how to"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -19982,6 +20043,34 @@
    }
   },
   {
+   "id": "c-yt-o3Ku89IpkrM",
+   "sourceId": "yt-hybradge",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/o3Ku89IpkrM",
+   "title": "How to PREDICT KINDRED MARKS 🎯 🧠",
+   "author": "hybradge",
+   "lang": "en",
+   "published": "2026-10-21",
+   "retrievedAt": "2026-10-23",
+   "patch": null,
+   "views": 9801,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n\n↓ More Info Below ↓ \nFor coaching ➡https://hybradge.com\n\n•Discord ➡ https://discord.gg/2aQnd6J6wE\n•2nd Channel➡https://www.youtube.com/@Hybradge2\n•Twitch ➡ https://www.twitch.tv/hybradge\n•Twitter ➡ https://x.com/hybra",
+   "triage": {
+    "score": 6,
+    "matched": [
+     "Kindred",
+     "how to",
+     "coaching"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
    "id": "c-yt-gpc7HJh4VU0",
    "sourceId": "yt-mysteriaslol",
    "type": "video",
@@ -20004,6 +20093,63 @@
      "how to",
      "fundamentals",
      "explained",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Smpr9mCNNE0",
+   "sourceId": "yt-sinerias",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/Smpr9mCNNE0",
+   "title": "HOW TO WIN EVERY TEAMFIGHT",
+   "author": "Sinerias",
+   "lang": "en",
+   "published": "2026-10-23",
+   "retrievedAt": "2026-10-23",
+   "patch": null,
+   "views": 586,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "► JUNGLE COURSE - https://sinerias.podia.com/the-complete-climbing-course\n► I ALSO ACCEPT CRYPTO PAYMENTS ► DM me on Discord\n► SOLO COACHING - DM me on Discord\n► Discord - https://discord.gg/we-are-sinerias-664154813453434901\n\n► Business inquiries - Sineriasbusiness@gmx.at\n\n► Str",
+   "triage": {
+    "score": 7,
+    "matched": [
+     "jungle",
+     "how to",
+     "coaching",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-dCL_tC1X_Zs",
+   "sourceId": "yt-sinerias",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=dCL_tC1X_Zs",
+   "title": "How To WIN with THREE LOSING LANES",
+   "author": "Sinerias",
+   "lang": "en",
+   "published": "2026-10-22",
+   "retrievedAt": "2026-10-23",
+   "patch": null,
+   "views": 6053,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "CLIMB YOURSELF HERE https://sinerias.podia.com/the-complete-climbing-course\n► Training Academy here: https://sinerias.podia.com/the-sinerias-training-academy\n► I ALSO ACCEPT CRYPTO PAYMENTS ► DM me on Discord\n► SOLO COACHING - DM me on Discord\n► Discord - https://discord.gg/we-ar",
+   "triage": {
+    "score": 6,
+    "matched": [
+     "how to",
+     "coaching",
      "climb"
     ],
     "entertainment": [],

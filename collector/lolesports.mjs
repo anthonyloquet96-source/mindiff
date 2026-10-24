@@ -157,6 +157,8 @@ function standingsFromMatches(matches) {
 // ---------- Collecte principale ----------
 
 export async function collectLolEsports(state) {
+  // Matchs déjà en cache relus pour compléter leur relevé : 6 min au plus par collecte, tous tournois confondus (limite de 25 min du workflow)
+  const refreshUntil = Date.now() + 6 * 60000;
   state.lolMatches ||= {};
   const ids = Object.values(LOL_LEAGUES).join(",");
   const first = (await api(`getSchedule?leagueId=${ids}`)).data.schedule;
@@ -198,10 +200,9 @@ export async function collectLolEsports(state) {
     }));
 
     // Picks des pros : chaque match terminé n'est analysé qu'une fois (mis en cache)
-    let refreshed = 0;
     for (const m of allMatches.filter(m => m.state === "completed" && (!m.start || daysAgo(m.start) <= 45))) {
-      // Relu une fois s'il manque le score final des parties (ajouté le 23/10/2026), au plus 12 matchs par collecte
-      const stale = state.lolMatches[m.id]?.games?.some(g => g.final === undefined || g.story === undefined || (g.story && g.story.v < 2)) && (refreshed = (refreshed || 0) + 1) <= 25;
+      // Relu s'il manque le score final ou le relevé détaillé des parties, tant que le budget de temps le permet
+      const stale = Date.now() < refreshUntil && state.lolMatches[m.id]?.games?.some(g => g.final === undefined || g.story === undefined || (g.story && g.story.v < 2));
       if (!state.lolMatches[m.id] || stale) {
         try { state.lolMatches[m.id] = await matchDetail(m.id, m.teams); } catch { /* réessayé à la prochaine collecte */ }
       }

@@ -674,6 +674,102 @@ await t("COACH-002 Normaliseur : champs absents à null, instant T par timestamp
   return "null pour les champs absents et les divisions par zéro, 10:00 lue à 10:00 (+236 ms), frame manquante signalée par sa précision, adversaire ambigu refusé.";
 });
 
+// Partie synthétique pour les tickets COACH-006 à 008 : joueur 1 mid (équipe 100) contre 2, jungler 3 contre 5
+function v1Game({ id = "EUW1_1", start = 1000, cs10 = 70, deaths = 1, kills = 3, assists = 4, teamKills = 14, vision = 18, role = "MIDDLE", queue = 420, duration = 1800, timeline = true, win = true } = {}) {
+  const P = (pid, team, pos, x = {}) => ({ participantId: pid, puuid: `p${pid}`, teamId: team, teamPosition: pos, championName: `C${pid}`, win: team === 100 ? win : !win, kills: 1, deaths: 1, assists: 1, totalMinionsKilled: 200, neutralMinionsKilled: 10, goldEarned: 10000, totalDamageDealtToChampions: 15000, visionScore: 20, wardsPlaced: 10, ...x });
+  const parts = [P(1, 100, role, { kills, assists, visionScore: vision }), P(2, 200, "MIDDLE"), P(3, 100, "JUNGLE"), P(5, 200, "JUNGLE")];
+  const pf = m => ({ 1: { minionsKilled: Math.round(cs10 * m / 10), jungleMinionsKilled: 0, totalGold: 500 + 350 * m, xp: 450 * m }, 2: { minionsKilled: 7 * m, jungleMinionsKilled: 0, totalGold: 500 + 300 * m, xp: 430 * m }, 3: { minionsKilled: 0, jungleMinionsKilled: 6 * m, totalGold: 500, xp: 400 * m }, 5: { minionsKilled: 0, jungleMinionsKilled: 6 * m, totalGold: 500, xp: 400 * m } });
+  const frames = Array.from({ length: Math.floor(duration / 60) + 1 }, (_, m) => ({ timestamp: m * 60000 + (m ? 200 : 0), participantFrames: pf(m), events: [] }));
+  for (let i = 0; i < deaths; i++) frames[3 + i].events.push({ type: "CHAMPION_KILL", victimId: 1, killerId: 2, assistingParticipantIds: [], timestamp: (3 + i) * 60000 + 5000 });
+  frames[20]?.events.push({ type: "ELITE_MONSTER_KILL", monsterType: "DRAGON", killerId: 3, killerTeamId: 100, assistingParticipantIds: [1], timestamp: 20 * 60000 + 100 });
+  const match = { metadata: { matchId: id }, info: { queueId: queue, gameVersion: "16.21.1.1", gameStartTimestamp: start, gameEndTimestamp: start + duration * 1000, gameDuration: duration, participants: parts, teams: [{ teamId: 100, win, objectives: { champion: { kills: teamKills } } }, { teamId: 200, win: !win, objectives: { champion: { kills: 9 } } }] } };
+  return { match, timeline: timeline ? { info: { frameInterval: 60000, frames } } : null };
+}
+
+await t("COACH-006 Catalogue de métriques : formules, null, adversaire, validité de la partie", "fixture", async () => {
+  const { computeMetrics, CATALOG } = await import("../metrics.mjs");
+  const g = v1Game({ cs10: 72, deaths: 2, kills: 4, assists: 3, teamKills: 14 });
+  const m = computeMetrics(g.match, g.timeline, "p1");
+  assert(m.valid && m.role === "MIDDLE" && m.metric_version === "metrics-1", "partie valide mal reconnue");
+  assert(m.metrics.cs_at_10.value === 72 && m.metrics.cs_at_10.precision_ms === 200, "sbires à 10 min mal lus");
+  assert(m.metrics.early_deaths.value === 2, "morts avant 14 min");
+  assert(m.metrics.kill_participation.value === 0.5, "participation aux kills");
+  assert(Math.abs(m.metrics.cs_per_min.value - 7) < 1e-9, "sbires par minute");
+  assert(m.metrics.gold_diff_at_15.value === 750 && m.metrics.gold_diff_at_15.opponent_confidence === "haute", "écart d'or à 15 min");
+  assert(m.metrics.objective_participation.value === 1, "participation aux objectifs");
+  // Sans timeline : les métriques de timeline sont nulles, les autres restent
+  const nt = computeMetrics(g.match, null, "p1");
+  assert(nt.metrics.cs_at_10.value === null && nt.metrics.early_deaths.value === null && nt.metrics.cs_per_min.value != null, "métrique de timeline inventée sans timeline");
+  // Équipe sans kills : participation nulle (division par zéro)
+  assert(computeMetrics(v1Game({ teamKills: 0, kills: 0, assists: 0 }).match, null, "p1").metrics.kill_participation.value === null, "division par zéro");
+  // Partie de 12 min : sbires à 15 min absents ; partie non classée, remake, poste vide : non valides
+  assert(computeMetrics(v1Game({ duration: 720 }).match, v1Game({ duration: 720 }).timeline, "p1").metrics.cs_at_15.value === null, "sbires à 15 min dans une partie de 12 min");
+  assert(computeMetrics(v1Game({ queue: 450 }).match, null, "p1").invalid_reason === "file-non-classee", "ARAM accepté");
+  assert(computeMetrics(v1Game({ role: "" }).match, null, "p1").invalid_reason === "role-inconnu", "poste vide accepté");
+  // Seules les métriques avec exercice sont entraînables ; dégâts : diagnostic seulement
+  assert(Object.values(CATALOG).every(c => !c.trainable || typeof c.exercise === "function") && !CATALOG.damage_per_min.trainable, "métrique entraînable sans exercice");
+  return "formules du brief vérifiées (sbires 72 à 10:00 lus à +200 ms, KP 50 %, écart d'or 750) ; null sans timeline, division par zéro et partie trop courte ; files et postes non valides écartés.";
+});
+
+await t("COACH-007 Choix de l'objectif : reproductible, sans LLM, éligibilité et score S = 100·G·I·F·A·C", "fixture", async () => {
+  const { computeMetrics } = await import("../metrics.mjs");
+  const { prioritize, proposeGoal } = await import("../goals.mjs");
+  // 12 parties mid : farm faible (58 à 64 à 10 min), peu de morts, bonne participation
+  const games = Array.from({ length: 12 }, (_, i) => { const g = v1Game({ id: `EUW1_${i}`, start: 1e6 - i, cs10: 58 + (i % 7), deaths: 1, kills: 6, assists: 4, teamKills: 16 }); return computeMetrics(g.match, g.timeline, "p1"); });
+  const a = proposeGoal(games, "MIDDLE", { now: 5 }), b = proposeGoal(games, "MIDDLE", { now: 5 });
+  assert(JSON.stringify(a) === JSON.stringify(b), "deux diagnostics différents sur les mêmes parties");
+  assert(a.goal.metric === "cs_at_10" && a.goal.status === "proposed" && a.goal.version === "coach-v1", `objectif inattendu : ${a.goal?.metric}`);
+  assert(a.goal.baseline === 60.5 && a.goal.target > a.goal.baseline && a.goal.target <= 70, `marche de progrès incohérente : ${a.goal.baseline} → ${a.goal.target}`);
+  assert(a.goal.reference.source === "seuil-pedagogique" && /Vise \d+ sbires à 10:00/.test(a.goal.exercise), "référence ou exercice absent");
+  const row = a.diagnostic.find(r => r.metric === "cs_at_10"), f = row.factors;
+  assert(Math.abs(row.score - 100 * f.G * f.I * f.F * f.A * f.C) < 0.05, "score différent de 100·G·I·F·A·C");
+  // Moins de 8 parties : aucun objectif
+  assert(proposeGoal(games.slice(0, 7), "MIDDLE").goal === null, "objectif proposé avec 7 parties");
+  // Moins de 70 % d'observations valides (timeline absente) : la métrique de timeline n'est pas éligible
+  const noTl = Array.from({ length: 10 }, (_, i) => { const g = v1Game({ id: `EUW1_n${i}`, cs10: 50 }); return computeMetrics(g.match, i < 4 ? g.timeline : null, "p1"); });
+  assert(prioritize(noTl, "MIDDLE").find(r => r.metric === "cs_at_10").eligible === false, "métrique éligible avec 40 % d'observations");
+  // Référence mesurée (échantillon suffisant) préférée au seuil pédagogique ; échantillon trop petit ignoré
+  const refs = { MIDDLE: { cs_at_10: { n: 8000, p50: 78, level: "Diamant et plus" } } };
+  assert(proposeGoal(games, "MIDDLE", { references: refs }).goal.reference.source === "metric_references", "référence mesurée ignorée");
+  assert(proposeGoal(games, "MIDDLE", { references: { MIDDLE: { cs_at_10: { n: 50, p50: 78 } } } }).goal.reference.source === "seuil-pedagogique", "petit échantillon utilisé comme référence");
+  return `objectif reproductible : sbires à 10 min, ${a.goal.baseline} → ${a.goal.target} (référence ${a.goal.reference.value}) ; pas d'objectif sous 8 parties ni sous 70 % d'observations ; référence mesurée seulement avec un échantillon suffisant.`;
+});
+
+await t("COACH-008 Cycle de vie : proposé → actif → en évaluation → réussi / raté / inconclusif → archivé", "fixture", async () => {
+  const { computeMetrics } = await import("../metrics.mjs");
+  const { transition, evaluateGoal, assertSingleActive, proposeGoal } = await import("../goals.mjs");
+  const goal = transition({ id: "g", metric: "cs_at_10", role: "MIDDLE", direction: "higher", baseline: 60, target: 65, evaluation_games: 5, minimum_valid_games: 4, success_required: 3, status: "proposed", created_at: 0 }, "active", 100);
+  const G = (i, cs10, x = {}) => { const g = v1Game({ id: `EUW1_e${i}`, start: 1000 + i, cs10, ...x }); return computeMetrics(g.match, x.noTl ? null : g.timeline, "p1"); };
+  // 3 cibles atteintes sur 5, en perdant ces parties : réussite (victoire ≠ réussite)
+  const won = evaluateGoal(goal, [G(1, 66, { win: false }), G(2, 60, { win: false }), G(3, 67, { win: false }), G(4, 65, { win: false }), G(5, 50)]);
+  assert(won.outcome === "achieved" && won.goal.status === "achieved", "réussite non reconnue");
+  // 2 cibles sur 5 en gagnant : échec
+  assert(evaluateGoal(goal, [G(1, 66), G(2, 60), G(3, 61), G(4, 70), G(5, 50)]).outcome === "failed", "échec non reconnu");
+  // Seulement 3 observations valides sur 5 (timelines absentes) : inconclusif
+  assert(evaluateGoal(goal, [G(1, 66), G(2, 66, { noTl: true }), G(3, 66, { noTl: true }), G(4, 70), G(5, 70)]).outcome === "inconclusive", "données insuffisantes non signalées");
+  // 5 parties à un autre rôle avant toute partie mid : inconclusif ; parties non classées ignorées ; 2 parties : en évaluation
+  assert(evaluateGoal(goal, [1, 2, 3, 4, 5].map(i => G(i, 80, { role: "TOP" }))).outcome === "inconclusive", "changement de rôle non signalé");
+  const mid = evaluateGoal(goal, [G(1, 70), G(2, 70, { queue: 450 }), G(3, 70)]);
+  assert(mid.outcome === null && mid.goal.status === "evaluating" && mid.goal.progress.counted === 2, "partie non classée comptée ou état intermédiaire faux");
+  // Parties d'avant l'activation ignorées
+  assert(evaluateGoal(goal, [G(-950, 90), G(-920, 90)]).goal.progress.counted === 0, "partie antérieure à l'objectif comptée");
+  // Transitions interdites, archivage, un seul objectif ouvert
+  let bad = false; try { transition(goal, "achieved"); } catch (e) { bad = e.code === "transition-interdite"; }
+  assert(bad, "active → achieved sans évaluation");
+  assert(transition(won.goal, "archived").status === "archived", "archivage impossible");
+  let multi = false; try { assertSingleActive([goal, { ...goal, id: "h" }]); } catch (e) { multi = e.code === "objectif-multiple"; }
+  assert(multi, "deux objectifs ouverts acceptés");
+  // Après deux échecs de suite sur la même métrique, elle est mise de côté au diagnostic suivant
+  const games = Array.from({ length: 12 }, (_, i) => G(100 + i, 58 + (i % 7), { deaths: 4 }));
+  const past = [{ metric: "cs_at_10", role: "MIDDLE", status: "archived", outcome: "failed", created_at: 2 }, { metric: "cs_at_10", role: "MIDDLE", status: "archived", outcome: "failed", created_at: 1 }];
+  const next = proposeGoal(games, "MIDDLE", { pastGoals: past });
+  assert(next.goal && next.goal.metric !== "cs_at_10", "métrique ratée deux fois reproposée");
+  const once = proposeGoal(games, "MIDDLE", { pastGoals: past.slice(0, 1) });
+  const fresh = proposeGoal(games, "MIDDLE");
+  assert(once.goal.metric === "cs_at_10" && fresh.goal.metric === "cs_at_10" ? once.goal.target <= fresh.goal.target : true, "marche non réduite après un échec");
+  return "réussite à 3/5 même en perdant, échec à 2/5 même en gagnant, inconclusif sous 4 valides ou après un changement de rôle ; transitions contrôlées, un seul objectif ouvert, métrique ratée deux fois mise de côté.";
+});
+
 await t("COACH-002 Normaliseur sur de vraies parties anonymisées (cache privé)", "réel", async () => {
   const { normalizeMatch, participantAt, laneOpponent } = await import("../normalize.mjs");
   const { readdir, readFile } = await import("node:fs/promises");

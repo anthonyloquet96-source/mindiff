@@ -546,6 +546,7 @@ function c2Rhythm(r) {
     <p class="fine">Diamant+ sur ${who} · ${c2n(r.n)} parties</p></div>`;
 }
 function c2PlanCard(champ, role) {
+  if (C2_API == null) return ""; // version publiée sans serveur du coach : pas de plan
   setTimeout(() => c2LoadPlan(champ, role), 0);
   const res = c2ui.plan?.[`${champ}|${role}`];
   if (!res || res.loading) return `<div class="c2-card c2-loading">Plan de jeu…</div>`;

@@ -538,8 +538,11 @@ await t("Vidéos réellement lues : durée conforme et passages retrouvés", "r�
   if (!vids.length) throw Object.assign(new Error("ignoré : aucune vidéo lue"), { skip: true });
   const units = L.units.units.filter(u => u.evidence.some(e => vids.some(v => v.id === e.content)));
   for (const u of units) for (const e of u.evidence) { const txt = await need(e.content); assert(normText(txt).includes(normText(e.passage)), `${u.id} : passage absent de la transcription`); }
-  assert(units.every(u => ev(u).status !== "exploitable"), "une unité vidéo non vérifiée est exploitable");
-  return `${vids.length} vidéos lues (${vids.map(v => v.reader.duration).join(", ")}), ${units.length} unités, toutes au mieux provisoires, passages retrouvés.`;
+  // Règles v1.2 : un passage lu par IA n'est exploitable que confirmé par une personne ou par la seconde lecture de l'extrait
+  const checked = u => u.evidence.some(e => e.humanChecked || (e.autoChecked?.said && e.autoChecked?.supported));
+  assert(units.every(u => ev(u).status !== "exploitable" || checked(u)), "une unité vidéo non vérifiée est exploitable");
+  const ok = units.filter(u => ev(u).status === "exploitable").length;
+  return `${vids.length} vidéos lues (${vids.map(v => v.reader.duration).join(", ")}), ${units.length} unités, passages retrouvés ; ${ok} exploitable(s), toutes confirmées par une seconde lecture ou une personne.`;
 });
 
 await t("Build adapté : variante mesurée seulement si l'objet répond à la menace", "fixture", async () => {

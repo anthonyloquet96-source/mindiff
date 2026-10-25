@@ -454,3 +454,8 @@ Demande d'Anthony : faire attention aux faux conseils et à ceux qui ne sont plu
 - **Suite de l'audit (même soir)** :
   - la carte « partie en cours » passe d'environ 1 500 px à environ 630 px sur téléphone. Le duel tient sur une ligne. Seul le premier conseil contre l'adversaire est affiché, les autres sont repliés. Le build est replié, avec les icônes et le nombre d'items à adapter dans le résumé. Les boutons sont côte à côte, et l'état ouvert ou fermé des blocs est gardé ;
   - les pastilles de l'historique gardent leur taille, mais leur zone de toucher passe à 44 px (vérifié : un toucher à 18 px du centre atteint la pastille).
+
+## 25/10/2026 — Veille de 19 h 45 : test vidéo aligné sur les règles v1.2
+
+- La veille a lu 3 nouvelles vidéos (gemini-3-flash-preview, gemini-3.6-flash) et accepté 9 unités, mais le test « Vidéos réellement lues » a échoué : il exigeait encore qu'aucune unité vidéo ne soit exploitable, alors que les règles v1.2 autorisent une unité confirmée par la seconde lecture de l'extrait. Rien n'a été enregistré.
+- Le test vérifie désormais qu'une unité vidéo exploitable a bien un passage confirmé (personne ou seconde lecture : dit et soutenu). Veille relancée à la main.

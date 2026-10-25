@@ -366,3 +366,21 @@ Défaut commun : le joueur ne voit que la phrase du conseil. Les champs `conditi
    Chaque champ `situation`, `commentFaire` et `pourQui` doit être appuyé par un passage.
 3. Affichage dans l'appli : sous chaque conseil de coach, une ligne repliable « Quand l'utiliser · Comment ».
 4. Après validation : réanalyser les 15 vidéos déjà analysées avec la v2, au rythme du quota gratuit.
+
+## 2026-10-25 — analyse v2 validée et mise en service (délégation d'Anthony)
+
+Anthony : « il faut que tu puisses la valider toi-même […] j'aimerais qu'il y ait des centaines de milliers de conseils exploitables ». Claude Code valide donc les règles et les instructions, signe le verrou et note chaque changement ici.
+
+- **Règles v1.2, extraction v2, critique v2** : verrou signé « Claude Code (délégation d'Anthony du 25/10/2026) ». Le verrou couvre maintenant toutes les instructions de `coach/prompts/`.
+- **Contexte d'usage** de chaque conseil : `use.when`, `use.why`, `use.who`, `use.how`, `use.notWhen`. Dans l'appli, il apparaît sous « Quand l'utiliser · Comment ».
+- **Seconde lecture de l'extrait** de la vidéo (de −20 s à +40 s autour de l'horodatage) :
+  - passage non entendu : conseil rejeté ;
+  - conseil plus fort que l'auteur : conseil provisoire ;
+  - raison ou contre-indication que l'auteur ne donne pas : retirée.
+- **Test réel** sur « The SECRET to Carrying Even the WORST Supports » (Skill Capped) :
+  - 4 conseils, tous confirmés par la seconde lecture ;
+  - situation, pour qui et gestes justes ;
+  - mais certaines contre-indications étaient inventées (« l'aide du jungler ») : d'où la vérification de `pourquoi` et `ne_pas_appliquer` ;
+  - 4 autres conseils rejetés à cause de citations coupées par « [...] » : ces coupes sont désormais vérifiées morceau par morceau.
+- **Réanalyse** : les vidéos et contenus analysés en v1 sont remis dans la file (`reanalyse: "v2"`).
+- **Volume** : au quota gratuit de Gemini (environ 16 analyses par jour, et la vérification consomme aussi des requêtes), on reste à quelques dizaines de conseils par jour. Viser des centaines de milliers demande l'offre payante et une file de contenus beaucoup plus large.

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-25T13:24:34.946Z",
+ "generatedAt": "2026-10-25T14:30:24.417Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -6911,7 +6911,7 @@
    "patch": "26.20",
    "views": 134984,
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "►𝐖𝐄𝐁𝐒𝐈𝐓𝐄: https://www.skill-capped.com/lol/browse#solocarry2620\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUA",
    "triage": {
@@ -6954,7 +6954,8 @@
    "quality": {
     "level": "faible",
     "why": "Le script présente de graves erreurs factuelles et de rigueur : citation d'un équipement de Wild Rift inexistant sur PC ('Gluttonous Greaves' sur Xayah), attribution d'une amélioration d'Ornn ('Endless Hunger') comme troisième item standard de Fiora, confusion de version entre tournois et ranked, et statistiques d'agrégateur non contextualisées."
-   }
+   },
+   "reanalyse": "v2"
   },
   {
    "id": "c-yt-QXIlupvG0z8",
@@ -12545,7 +12546,7 @@
     "basis": "page officielle de Riot sur Briar, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "note": "Article officiel du 2023-08-30 : les valeurs et intentions décrites peuvent avoir changé depuis.",
    "analyzedAt": "2026-10-24",
    "analyst": "gemini-3.8-flash",
@@ -12556,7 +12557,8 @@
    "quality": {
     "level": "moyenne",
     "why": "Article de conception officiel (Champion Insights) fournissant les règles fondamentales du kit de Briar par son designer principal (August), mais sans chiffres précis ni contexte compétitif/ranked particulier."
-   }
+   },
+   "reanalyse": "v2"
   },
   {
    "id": "c-riot-dev-the-latest-on-fiddlesticks-vgu",
@@ -12692,7 +12694,7 @@
     "basis": "page officielle de Riot sur Locke, champion sans conseils officiels dans Data Dragon"
    },
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "note": "Lue par gemini-3.6-flash le 2026-10-22 : transcription réutilisée depuis le cache de cet ordinateur.",
    "videoAttempts": 1,
    "videoError": "gemini-3.5-flash HTTP 503 : This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later. (2026-10-21)",
@@ -12718,7 +12720,8 @@
    "quality": {
     "level": "moyenne",
     "why": "Présentation officielle du champion par Riot Games, mais l'analyse provient d'une extraction automatique par IA (Gemini) à 1 image par seconde sans patch précis spécifié."
-   }
+   },
+   "reanalyse": "v2"
   },
   {
    "id": "c-riot-champion-insights-naafiri",
@@ -13265,7 +13268,7 @@
     "basis": "page officielle de Riot sur Yunara, champion sans conseils officiels dans Data Dragon"
    },
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "note": "Lue par gemini-3.8-flash : transcription et 20 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "reader": {
     "kind": "ia",
@@ -13294,7 +13297,8 @@
    "quality": {
     "level": "élevée",
     "why": "Présentation officielle de Riot Games (Champion Spotlight) décrivant de manière claire et directe le fonctionnement des compétences et le kit mécanique du champion."
-   }
+   },
+   "reanalyse": "v2"
   },
   {
    "id": "c-riot-dev-launching-yuumi-s-rework",
@@ -13421,7 +13425,7 @@
     "basis": "page officielle de Riot sur Zaahen, champion sans conseils officiels dans Data Dragon"
    },
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "note": "Lue par gemini-3.8-flash : transcription et 19 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "videoAttempts": 0,
    "reader": {
@@ -13455,7 +13459,8 @@
    "quality": {
     "level": "moyenne",
     "why": "Présentation officielle de kit par Riot Games décrivant clairement chaque compétence et ses mécaniques de jeu, mais sans valeurs numériques précises (ratios, délais) ni mention du numéro de patch."
-   }
+   },
+   "reanalyse": "v2"
   },
   {
    "id": "c-riot-champion-insights-zeri",
@@ -16334,7 +16339,7 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "descriptionExcerpt": "feel it by d4vd. thank me later -ryan\n\n⬇️⬇️⬇️\n\n*CONNECT WITH ME*\n*Metafy* https://metafy.gg/@perrylol/sessions\n*Patreon* https://www.patreon.com/PerryJG\n*Join the Discord* https://discord.gg/H8h9ZSnXCB\n\n*SOCIALS*\n*Twitch* https://www.twitch.tv/perryjg\n*Twitter* https://twitter.com/perryjglol\n*Tiktok",
    "backfill": true,
    "note": "Lue par gemini-3.8-flash le 2026-10-24 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -16373,7 +16378,8 @@
    "quality": {
     "level": "élevée",
     "why": "Session de coaching concrète et détaillée en partie classée Diamant avec démonstrations en direct et conseils macro/micro structurés."
-   }
+   },
+   "reanalyse": "v2"
   },
   {
    "id": "c-yt-4uSpPbgW-E0",
@@ -19377,7 +19383,7 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 1,
@@ -19423,7 +19429,8 @@
    "quality": {
     "level": "moyenne",
     "why": "Contenu didactique clair avec des démonstrations en jeu ciblées par palier, mais aucun patch officiel n'est précisé et l'analyse provient d'une lecture IA par échantillonnage."
-   }
+   },
+   "reanalyse": "v2"
   },
   {
    "id": "c-yt-7a5EBaZ-ems",
@@ -19437,7 +19444,7 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 2,
@@ -19474,7 +19481,8 @@
    "quality": {
     "level": "moyenne",
     "why": "Guide informatif avec démonstrations en outil d'entraînement et en partie réelle, mais très dépendant de l'avis subjectif d'un créateur (Drututt) sur un build de niche joué sur un patch ancien (14.16)."
-   }
+   },
+   "reanalyse": "v2"
   },
   {
    "id": "c-yt-fOQBQn0X54M",
@@ -20560,7 +20568,7 @@
    "retrievedAt": "2026-10-24",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 1,
@@ -20600,7 +20608,8 @@
    "quality": {
     "level": "moyenne",
     "why": "Guide pédagogique structuré avec de bons exemples de calculs de coût d'opportunité (or et tempo), mais basé sur des séquences vidéo de saison 14 lues par IA avec une transcription partielle."
-   }
+   },
+   "reanalyse": "v2"
   },
   {
    "id": "c-yt-V-0395F1evY",
@@ -21976,7 +21985,7 @@
    "flags": [
     {
      "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   },
@@ -22037,7 +22046,7 @@
    "flags": [
     {
      "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   },
@@ -22092,7 +22101,7 @@
    "flags": [
     {
      "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   },
@@ -22137,7 +22146,7 @@
    "flags": [
     {
      "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   },
@@ -22205,7 +22214,7 @@
     },
     {
      "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   },
@@ -22273,7 +22282,7 @@
     },
     {
      "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   },
@@ -22330,7 +22339,7 @@
     },
     {
      "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   },
@@ -22387,7 +22396,7 @@
     },
     {
      "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   },
@@ -53946,7 +53955,7 @@
     },
     {
      "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   },
@@ -54018,7 +54027,7 @@
     },
     {
      "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   },
@@ -54089,7 +54098,7 @@
     },
     {
      "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   },
@@ -54144,12 +54153,8 @@
      "why": "c-yt-RIro7KcXJP8 : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo (00:02:48)."
     },
     {
-     "code": "contenu-ancien",
-     "why": "c-yt-RIro7KcXJP8 publié le 2024-05-12 : à confirmer sur le kit et la méta actuels."
-    },
-    {
      "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   }

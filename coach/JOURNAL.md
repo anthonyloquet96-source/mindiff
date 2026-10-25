@@ -459,3 +459,14 @@ Demande d'Anthony : faire attention aux faux conseils et à ceux qui ne sont plu
 
 - La veille a lu 3 nouvelles vidéos (gemini-3-flash-preview, gemini-3.6-flash) et accepté 9 unités, mais le test « Vidéos réellement lues » a échoué : il exigeait encore qu'aucune unité vidéo ne soit exploitable, alors que les règles v1.2 autorisent une unité confirmée par la seconde lecture de l'extrait. Rien n'a été enregistré.
 - Le test vérifie désormais qu'une unité vidéo exploitable a bien un passage confirmé (personne ou seconde lecture : dit et soutenu). Veille relancée à la main.
+
+## 25/10/2026 — Instructions d'analyse v3 : conseils généraux, erreurs à éviter
+
+Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs : un champion non cité (19 fois), un champion seulement donné en exemple (6), une citation reformulée (5), un passage non entendu à la relecture (4), des parties de bas niveau (5). Le plus souvent, l'IA étiquetait un conseil général (vague, macro) avec les champions visibles à l'écran.
+- `extraction.v3.md` :
+  - un conseil général ne porte aucun champion ; un champion n'est retenu que si le conseil en dépend et s'il est nommé dans un passage ;
+  - les conseils tirés de parties Émeraude ou moins deviennent des erreurs à éviter (`usage: correction`) ;
+  - les citations sont recopiées mot pour mot.
+- `critique.v3.md` : mêmes consignes pour la seconde vérification.
+- `analyze.mjs` : un champion nommé ni dans les passages, ni dans le titre, ni dans l'énoncé est retiré de l'étiquette au lieu de faire rejeter le conseil.
+- Règles inchangées. Empreintes re-signées par délégation. Les 6 vidéos sont remises en analyse.

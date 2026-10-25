@@ -6,7 +6,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { P, ROOT, readJson, writeJson, cachedText, saveText, today } from "./lib.mjs";
+import { P, ROOT, readJson, writeJson, cachedText, saveText, today, normText } from "./lib.mjs";
 import { htmlToText } from "./patch.mjs";
 import { detectInjection, THEMES } from "./critic.mjs";
 import { mergeBatch, rulesLockStatus, loadContext } from "./kb.mjs";
@@ -16,8 +16,9 @@ import { gemini, hasGeminiKey, QuotaError } from "./gemini.mjs";
 const forGemini = o => (Array.isArray(o) ? o.map(forGemini) : o && typeof o === "object" ? Object.fromEntries(Object.entries(o).filter(([k]) => k !== "additionalProperties").map(([k, v]) => [k, forGemini(v)])) : o);
 
 const DRY = process.argv.includes("--dry-run");
-// Version des instructions d'analyse (v2 du 25/10/2026 : contexte d'usage de chaque conseil)
-export const PROMPT_V = "v2";
+// Version des instructions d'analyse (v2 du 25/10/2026 : contexte d'usage de chaque conseil ;
+// v3 du même jour : conseils généraux sans champion, erreurs à éviter tirées des parties de bas niveau, citations mot pour mot)
+export const PROMPT_V = "v3";
 const UA = "MINDIFF-coach/1.0 (+https://anthonyloquet96-source.github.io/mindiff/)";
 
 const EXTRACT_SCHEMA = {
@@ -214,10 +215,12 @@ export async function run() {
       const ex = await ask(`${pExtract}\n\n---\n${rules}`, `${meta}\n\n<contenu>\n${text}\n</contenu>`, EXTRACT_SCHEMA);
       if (ex.alertes.some(a => a.code === "injection")) { Object.assign(c, { analysis: "quarantaine", note: "Le modèle a signalé une instruction dans le contenu." }); (state.quarantine ||= []).push({ id: c.id, at: today(), match: ex.alertes }); continue; }
       const cr = ex.units.length ? await ask(`${pCritique}\n\n---\n${rules}`, `${meta}\n\nUnités proposées :\n${JSON.stringify(ex.units, null, 1)}\n\nUnités existantes liées :\n${JSON.stringify(related, null, 1)}`, CRITIQUE_SCHEMA) : { reviews: [] };
+      // Conseil général : un champion vu à l'écran mais nommé ni dans les passages, ni dans le titre, ni dans l'énoncé n'est pas le sujet du conseil
+      const named = (ch, x) => [c.title, x.claim, ...x.evidence.map(e => e.passage)].some(t => normText(t).includes(normText(ch)));
       const units = ex.units.map((x, i) => ({ x, r: cr.reviews.find(r => r.index === i) })).filter(({ r }) => r?.verdict !== "rejeter").map(({ x, r }, i) => ({
         id: `u-ai-${c.id.replace(/^c-/, "")}-${i + 1}`,
         claim: attribute(r?.verdict === "corriger" && r.correction_claim ? r.correction_claim : x.claim, natureFor(x.nature, c), c),
-        champions: x.champions, roles: x.roles, themes: x.themes,
+        champions: x.champions.filter(ch => named(ch, x)), roles: x.roles, themes: x.themes,
         ...(x.matchup_vs ? { matchup: { vs: x.matchup_vs } } : {}),
         ...(x.synergy_with.length ? { synergy: { with: x.synergy_with, kind: x.nature === "opinion" ? "avis" : x.nature === "statistique" ? "statistique" : "theorique" } } : {}),
         context: { queue: x.queue, rank: x.rank, region: x.region },

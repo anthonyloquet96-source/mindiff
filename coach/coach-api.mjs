@@ -10,6 +10,7 @@
 
 import { createRiot, profile, review, live, championCard, parseRiotId, PLATFORMS, ddChampions, report } from "./review.mjs";
 import { analyzeDraft } from "./draft.mjs";
+import { planLines } from "./styles.mjs";
 
 const ROLES = ["top", "jungle", "mid", "bottom", "support"];
 // Draft : identifiants Data Dragon (« Ahri ») ↔ numéros des agrégats
@@ -61,17 +62,27 @@ function tierList(cs) {
 let riot = null, riotKey = null;
 const hits = new Map(); // limite par visiteur : 30 requêtes par 5 minutes
 
-export async function coachApi(path, params, { key, benchmarks, champstats, matchups = null, builds = null, situations = null, visitor = "?" }) {
+export async function coachApi(path, params, { key, benchmarks, champstats, matchups = null, builds = null, situations = null, styles = null, visitor = "?" }) {
   const now = Date.now();
   const h = (hits.get(visitor) || []).filter(t => now - t < 300e3);
   // La draft ne coûte aucune requête Riot : limite plus large
-  const cap = path === "/api/coach/draft" ? 120 : 30;
+  const cap = path === "/api/coach/draft" || path === "/api/coach/plan" ? 120 : 30;
   if (h.length >= cap) return { status: 429, body: { error: "Trop de demandes : réessayez dans quelques minutes." } };
   hits.set(visitor, [...h, now]);
   if (hits.size > 5000) hits.clear();
   if (path === "/api/coach/draft") {
     if (!matchups) return { status: 503, body: { error: "Statistiques de matchups indisponibles pour l'instant." } };
     return { status: 200, body: await draftApi(params, matchups) };
+  }
+  // Plan de jeu d'un champion à un poste : traits mesurés sur les parties Diamant+ et rythme d'objets (cache privé du serveur)
+  if (path === "/api/coach/plan") {
+    const champion = String(params.get("champion") || ""), role = String(params.get("role") || "");
+    if (!/^[A-Za-z]{2,20}$/.test(champion) || !ROLES.includes(role)) return { status: 400, body: { error: "Champion ou poste invalide." } };
+    if (!styles && !situations) return { status: 503, body: { error: "Plans de jeu indisponibles pour l'instant." } };
+    const name = String(params.get("name") || champion).replace(/[^\p{L}\p{N} '.&-]/gu, "").slice(0, 30) || champion;
+    const k = `${champion}|${role}`, p = styles?.byChamp?.[k];
+    const rhythm = situations?.byChamp?.[k] ? { level: "champion", ...situations.byChamp[k] } : situations?.byRole?.[role] ? { level: "poste", ...situations.byRole[role] } : null;
+    return { status: 200, body: { champion, role, n: p?.n || 0, minGames: styles?.minChamp || null, games: styles?.games || null, lines: p ? planLines(k, p, name).slice(0, 4).map(({ key, text }) => ({ key, text })) : [], rhythm } };
   }
   if (path === "/api/coach/tierlist") {
     if (!champstats) return { status: 503, body: { error: "Statistiques Diamant+ indisponibles pour l'instant." } };

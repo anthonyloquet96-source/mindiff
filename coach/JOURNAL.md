@@ -486,3 +486,15 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
   - Yone mid : farm, roame peu, joue seul en fin de partie, sa part des dégâts distingue les victoires ;
   - Talon jungle : farm.
 - Sortie privée (`coach/cache/styles.json`), non branchée dans l'application.
+
+## 25/10/2026 — Plans de jeu, tour 1 de la boucle
+
+- **Nouvelles mesures :** avance de sbires sur l'adversaire direct à 10 min, kills et morts avant 10 min, temps seul sur une side lane après 20 min, kills en 1 contre 1, part des dégâts aux tourelles, plaques détruites par le joueur (événements), wards posées et détruites.
+- **Revue des 157 couples champion-poste**, défauts corrigés :
+  - le compteur de plaques était celui de l'équipe ;
+  - les contrôles infligés, dictés par le kit, sont retirés ;
+  - plus de farm ni de tourelles pour les supports, plus de vision pour les ADC et les mids ;
+  - un écart n'est retenu que s'il dépasse trois fois son incertitude ;
+  - « ce qui distingue les victoires » est limité aux comportements (farm à 10 min, roams, vision, side lane), car les dégâts, kills et tourelles suivent surtout l'issue de la partie.
+- **Résultat :** 91 couples ont un plan, d'une à quatre lignes.
+- **Route** `/api/coach/plan` sur le serveur local seulement (données de la clé de développement), et nouveau test des plans.

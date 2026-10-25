@@ -614,6 +614,28 @@ await t("Joueur absent (AFK) : partie reconnue et sortie des objectifs", "fixtur
   return "absence reconnue ; une mauvaise partie (0/9/1) reste analysée.";
 });
 
+await t("Plans de jeu : seuls les écarts nets et sûrs, rien d'absurde selon le poste, pas de résultat pris pour un conseil", "fixture", async () => {
+  const { planLines } = await import("../styles.mjs");
+  const tr = (gap, sure = true, win = null) => ({ label: "mesure", my: "ta mesure", value: "8,0", roleValue: "7,5", gap, gapSure: sure, win });
+  const curve = [{ n: 0 }, { n: 0 }, { n: 0 }];
+  // Mid qui farme, roame peu, fait des team fights et split push : une seule ligne de fin de partie (la plus marquée)
+  const mid = planLines("Orianna|mid", { traits: { csMin: tr(.5), roam: tr(-.3), otherLanes: tr(-.3), lateKp: tr(.6), side: tr(.4) }, curve });
+  assert(mid.filter(l => l.key === "fin").length === 1 && mid.find(l => l.key === "fin").text.startsWith("Champion de team fight"), "team fight et split push en même temps");
+  assert(mid.some(l => l.key === "roam") && mid.some(l => l.key === "farm"), "trait net absent");
+  // Écart non sûr ou trop faible : aucune ligne
+  assert(!planLines("X|mid", { traits: { csMin: tr(.5, false), lateKp: tr(.1) }, curve }).length, "écart incertain ou faible retenu");
+  // Support : ni farm, ni tourelles ; ADC : pas de vision
+  assert(!planLines("Thresh|support", { traits: { csMin: tr(-.6), buildings: tr(.6) }, curve }).length, "farm ou tourelles proposés à un support");
+  assert(!planLines("Jinx|bottom", { traits: { wardsKilled: tr(.6), wards: tr(.6) }, curve }).length, "vision proposée à un ADC");
+  // Lien avec la victoire : un comportement (farm à 10 min) oui, un résultat (part des dégâts) non
+  const win = { champ: 25, role: 10, own: 15, sure: true };
+  const w = planLines("Ahri|mid", { traits: { cs10: tr(0, true, win), dmg: tr(0, true, win) }, curve });
+  assert(w.length === 1 && w[0].key === "gagne-cs10", "un résultat de partie présenté comme ce qui fait gagner");
+  // Nom affiché du champion
+  assert(planLines("Kaisa|bottom", { traits: { csMin: tr(.5) }, curve }, "Kai'Sa")[0].text.includes("Kai'Sa"), "nom affiché absent");
+  return "écarts incertains écartés, une seule ligne de fin de partie, rien d'absurde selon le poste, liens avec la victoire limités aux comportements.";
+});
+
 // ---------- Rapport
 const ok = results.filter(r => r.ok).length;
 for (const r of results) console.log(`${r.skipped ? "–" : r.ok ? "✔" : "✘"} ${r.name} [${r.kind}]\n    ${r.detail}`);

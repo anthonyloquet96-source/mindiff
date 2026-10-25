@@ -337,3 +337,32 @@ Consigne d'Anthony : le coach doit couvrir tout le jeu, s'appuyer sur des vidéo
 - **Quota gratuit de Gemini épuisé vers 02 h** : environ 20 requêtes par jour et par modèle, remise à zéro vers 9 h (heure de Paris). Désormais, un quota épuisé arrête la lecture et l'analyse sans compter d'essai, et `gemini-3.6-flash` sert de modèle de repli supplémentaire. Pour un usage régulier, l'offre gratuite est trop juste : il faudrait l'offre payante de Google, ce qui est votre décision.
 - **Transcriptions réutilisées** : une vidéo déjà lue sur ce PC n'est plus relue si la veille distante a réinitialisé son état.
 - **Limite connue** : les transcriptions restent dans le cache privé de la machine qui a lu la vidéo. Une vidéo lue sur GitHub sera donc relue si elle doit être analysée sur ce PC, et inversement. Cela coûte du quota gratuit, mais aucune transcription n'est publiée.
+
+## 2026-10-25 — relecture des conseils tirés des vidéos : le contexte d'usage
+
+Consigne d'Anthony : « analyse bien, comprends bien le contexte des conseils, il faut savoir comment l'utiliser ».
+
+**Relecture des 4 conseils entrés le 25/10** (tous provisoires) :
+- `u-ai-yt-ZzKpPJ_BNHM-1` (demi-décalage en mid) : la condition « vague poussée sous la tourelle ennemie » n'est pas dans le passage cité. Celui-ci dit seulement : « jusqu'à mi-rivière sans perdre la vague suivante ».
+- `u-ai-yt-ZzKpPJ_BNHM-2` (temps mort du jungler) : l'action dit « **uniquement** après avoir vidé les camps », alors que la source dit « moment le plus rentable ». C'est un durcissement.
+- `u-ai-yt-7a5EBaZ-ems-3` (combo Kai'Sa) : il manque le contexte essentiel, à savoir un build AP en top, pick hors méta d'un streamer. Le combo vaut pour Kai'Sa avec le Z évolué, quel que soit son poste, mais pas le classement « top ».
+- `u-ai-yt-RIro7KcXJP8-3` (pings du jungler) : l'action est tronquée (« un mouv. ») et la condition « en permanence » est trop large.
+
+Défaut commun : le joueur ne voit que la phrase du conseil. Les champs `conditions` et `action` existent, mais ils ne sont pas affichés et ils ne sont pas contrôlés contre la citation.
+
+**Proposé pour validation (non appliqué, instructions verrouillées)** :
+1. `extraction.v2` : pour chaque conseil, rendre obligatoires :
+   - `situation` : le moment de partie observable qui déclenche le conseil, par exemple « ta vague vient d'arriver sous la tourelle adverse, ton adversaire est encore en vie » ;
+   - `pourquoi` : la raison donnée par l'auteur, sans en inventer ;
+   - `pourQui` : le poste, le champion, le build ou le style concernés, avec la mention « pick hors méta » ou « build inhabituel » quand c'est le cas ;
+   - `commentFaire` : 1 à 3 gestes concrets ;
+   - `erreurs` : quand le conseil ne s'applique pas, si la source le dit.
+
+   Interdits : ajouter « toujours », « uniquement » ou « jamais » si la source ne le dit pas ; écrire une condition qui n'est pas dans un passage cité ; donner une étiquette de poste à une mécanique qui vaut pour tous les postes.
+2. `critique.v2` : deux nouveaux signalements :
+   - `contexte-manquant` : sans situation déclenchante claire, le conseil reste provisoire et n'est pas montré comme consigne ;
+   - `sur-generalisation` : une condition ou une action plus forte que la citation est corrigée ou rejetée.
+
+   Chaque champ `situation`, `commentFaire` et `pourQui` doit être appuyé par un passage.
+3. Affichage dans l'appli : sous chaque conseil de coach, une ligne repliable « Quand l'utiliser · Comment ».
+4. Après validation : réanalyser les 15 vidéos déjà analysées avec la v2, au rythme du quota gratuit.

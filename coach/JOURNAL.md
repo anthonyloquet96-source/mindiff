@@ -392,3 +392,26 @@ Les journaux de la veille montrent que le quota gratuit de Google est épuisé p
 - **Lecture des vidéos** : les 3 modèles sont ajoutés en fin de liste, les « lite » en dernier. Jusqu'à 4 vidéos par passage (3 avant).
 - **Analyse** : `gemini-3-flash-preview` et `gemini-3.5-flash-lite` sont ajoutés en fin de liste. Jusqu'à 6 analyses par passage et 24 par jour (4 et 16 avant). Une analyse faite par un modèle « lite » passe par la même critique et par la même seconde lecture de l'extrait.
 - **Écarté** : transformer les statistiques Diamant+ en « conseils ». Le coach les exploite déjà (fiche champion par rôle, build adapté, draft, durée de partie). Les recopier en unités gonflerait le compteur sans rien apprendre de plus au joueur.
+
+## 25/10/2026 — Claude Code lit les articles de stratégie
+
+Les articles de la file sont lus par Claude Code, pendant la session, avec les mêmes règles que l'analyse automatique (FIABILITE v1.2, instructions v2) et sans utiliser le quota Gemini :
+- le texte est récupéré par `acquireText` (robots.txt respecté, aucun contournement) ;
+- chaque conseil passe par `mergeBatch`, donc par la critique, le contrôle des citations et le calcul du statut.
+
+Les lots sont gardés dans `coach/kb/batches/2026-10-25-claude-*.mjs`.
+
+- **Lus et analysés (8 articles)** :
+  - Dignitas : suivre le jungler adverse, éviter les ganks, préparer le Baron ;
+  - IWDominate (ONE Esports) : le dragon dans un match de LCS, marqué « compétition » ;
+  - sendo (support, maître) : ganks du début de partie, laisser un objectif, pousser le mid avant un objectif ;
+  - udyon (top, maître) : le top après la phase de lane ;
+  - Drollsnow : pousser une lane de côté.
+- **Résultat** : 39 conseils acceptés, dont 25 exploitables. Les autres sont provisoires ou à revalider, avec leur raison :
+  - articles de plus d'un an qui citent des champions ;
+  - horaires de jungle du patch 13.18 ;
+  - dépendance à la Téléportation.
+- **Écartés à la relecture** :
+  - un conseil sur Urgot : l'article l'écrit « アーゴット », donc aucun passage ne prouve le champion ;
+  - deux listes de champions que j'avais classées par erreur comme « exemples », corrigées.
+- **Pour le forum Inven** (texte récupéré, 28 000 caractères) : remis en file pour l'analyse automatique.

@@ -49073,7 +49073,2869 @@
    },
    "version": 1,
    "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-track-jungler-1",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : après son premier retour à la base, le jungler adverse reprend souvent ses camps dans le même ordre que sa première tournée. Sers-toi de son premier chemin pour prévoir de quel côté il sera.",
+   "roles": [
+    "jungle",
+    "all"
+   ],
+   "themes": [
+    "jungle",
+    "macro",
+    "methode"
+   ],
+   "published": "2025-11-29",
+   "evidence": [
+    {
+     "content": "c-dignitas-track-jungler",
+     "locator": "First Recall",
+     "lang": "en",
+     "passage": "After returning to base, it’s likely the enemy Jungler will path to the first camp they took."
+    },
+    {
+     "content": "c-dignitas-track-jungler",
+     "locator": "First Recall",
+     "lang": "en",
+     "passage": "This concept is referred to as sequencing, which is the idea that a Jungler is likely to repeat their first clear in the same order to stay efficient."
+    }
+   ],
+   "use": {
+    "when": "Le jungler adverse vient de faire son premier retour à la base et tu as vu (ou déduit) par quel camp il avait commencé.",
+    "why": "Un jungler tend à refaire sa première tournée dans le même ordre pour rester efficace.",
+    "who": "Jungler, et tout joueur qui prévient ses alliés.",
+    "how": [
+     "Repère le camp par lequel le jungler adverse a commencé.",
+     "Après son retour à la base, attends-le de ce côté-là de la carte.",
+     "Ping tes alliés de ce côté pour qu'ils évitent le gank."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-track-jungler-2",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Le compte de sbires par camp cité (4 par camp, 24 pour une tournée complète) dépend de l'équilibrage du moment."
+   ],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : si tu repères le jungler adverse après une tournée complète (en train de ganker ou de prendre le carapateur), il a très probablement commencé du côté opposé de la carte. Tab te montre combien de camps il a pris.",
+   "roles": [
+    "jungle",
+    "all"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "dependsOn": [
+    "system:camps-de-jungle"
+   ],
+   "published": "2025-11-29",
+   "evidence": [
+    {
+     "content": "c-dignitas-track-jungler",
+     "locator": "Typical Jungle Strategy",
+     "lang": "en",
+     "passage": "You can also press tab to determine how many camps they’ve taken. Each camp counts as 4 cs so a full clear would be 24 cs and then 28 cs after the Scuttle Crab."
+    },
+    {
+     "content": "c-dignitas-track-jungler",
+     "locator": "Typical Jungle Strategy",
+     "lang": "en",
+     "passage": "Based on where the enemy Jungler appears after a clear, you can infer that they started on the opposite side."
+    }
+   ],
+   "use": {
+    "when": "Tu n'as pas vu le départ du jungler adverse et il apparaît pour la première fois après sa tournée (gank ou carapateur).",
+    "why": "Après une tournée complète, il finit du côté opposé à celui où il a commencé.",
+    "who": "Jungler, et les joueurs de lane qui suivent le jungler adverse.",
+    "how": [
+     "Appuie sur Tab et regarde le nombre de sbires du jungler adverse.",
+     "Si le total correspond à une tournée complète, déduis qu'il a commencé de l'autre côté.",
+     "Préviens les lanes de ce côté pour sa prochaine tournée."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-track-jungler-3",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : au niveau 1, place (ou demande à ton mid de placer) une ward sur les raptors ou sur un buff adverse pour savoir de quel côté le jungler adverse commence.",
+   "roles": [
+    "jungle",
+    "mid"
+   ],
+   "themes": [
+    "vision",
+    "jungle"
+   ],
+   "published": "2025-11-29",
+   "evidence": [
+    {
+     "content": "c-dignitas-track-jungler",
+     "locator": "The First Minute",
+     "lang": "en",
+     "passage": "I would start by pinging your mid laner to ward Raptors at Level 1 or simply doing it yourself."
+    },
+    {
+     "content": "c-dignitas-track-jungler",
+     "locator": "Typical Jungle Strategy",
+     "lang": "en",
+     "passage": "Through warding either the raptor camp or one of their buffs, you can figure out what side of the map a Jungler started."
+    }
+   ],
+   "use": {
+    "when": "Début de partie, au niveau 1, avant la première tournée des junglers.",
+    "why": "Connaître le côté de départ du jungler adverse permet de prévoir où il ira ensuite.",
+    "who": "Jungler et mid laner.",
+    "how": [
+     "Ping ton mid pour qu'il ward les raptors adverses, ou fais-le toi-même.",
+     "Regarde quel camp le jungler adverse attaque en premier.",
+     "Annonce à ton équipe de quel côté il a commencé."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-track-jungler-4",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : un allié qui a poussé sa vague loin de sa tourelle est le joueur le plus facile à ganker. Préviens-le d'un ping et, en jungle, reste près de sa lane pour contre-ganker.",
+   "roles": [
+    "jungle",
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "jungle",
+    "survie"
+   ],
+   "published": "2025-11-29",
+   "evidence": [
+    {
+     "content": "c-dignitas-track-jungler",
+     "locator": "Lane States",
+     "lang": "en",
+     "passage": "Pushing lanes happen when one laner has killed the enemy laner’s minions and have overextended towards their opponent’s side. This is when a laner is most vulnerable, as they are far from their tower and can be easily ganked."
+    },
+    {
+     "content": "c-dignitas-track-jungler",
+     "locator": "Lane States",
+     "lang": "en",
+     "passage": "If your laner is pushed up, make sure to ping them to be careful and potentially hover their lane to countergank."
+    }
+   ],
+   "use": {
+    "when": "Un de tes alliés a poussé sa vague jusque chez l'adversaire et se trouve loin de sa tourelle.",
+    "why": "Loin de sa tourelle, il est le plus vulnérable aux ganks.",
+    "who": "Jungler, et tout joueur qui voit la carte.",
+    "how": [
+     "Ping l'allié qui a poussé pour qu'il soit prudent.",
+     "En jungle, rapproche-toi de sa lane.",
+     "Contre-gank si le jungler adverse vient."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-track-jungler-5",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : quand les laners adverses se mettent soudain à jouer très agressif ou très sûrs d'eux, c'est souvent que leur jungler est tout près.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "jungle",
+    "lane"
+   ],
+   "published": "2025-11-29",
+   "evidence": [
+    {
+     "content": "c-dignitas-track-jungler",
+     "locator": "Lane States",
+     "lang": "en",
+     "passage": "Other ways to identify the enemy Jungler’s location is to recognize when enemy laners are playing extremely aggressive or confident. This could indicate the enemy Jungler is nearby based on the way a laner is playing."
+    }
+   ],
+   "use": {
+    "when": "Pendant la phase de lane, ton vis-à-vis change d'attitude et joue soudain très agressif.",
+    "why": "Ce changement de comportement peut trahir la présence du jungler adverse.",
+    "who": "Tous les postes.",
+    "how": [
+     "Observe le comportement de ton vis-à-vis.",
+     "S'il devient soudain très agressif, recule et considère que le jungler adverse est proche.",
+     "Préviens ton équipe."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-ganks-1",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : au mid, place tes wards sur les rampes vers la jungle rouge des deux équipes. S'il faut choisir un côté, prends celui du buff que le jungler adverse fera en second : les ganks les plus courants arrivent après les deux buffs et un camp, au niveau 3.",
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vision",
+    "survie",
+    "lane"
+   ],
+   "published": "2021-04-19",
+   "evidence": [
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Simple Wards",
+     "lang": "en",
+     "passage": "Regardless of whether you are blue side or red side though, it’s best to ward the ramps from both your red-side jungle, and the enemy’s red-side jungle."
+    },
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Simple Wards",
+     "lang": "en",
+     "passage": "When you have to pick one side to ward over the other in the early game, it’s best to do it based on whatever buff (red or blue) the enemy jungler will be clearing second because the most common ganks occur after clearing two buffs and a camp to get level 3."
+    }
+   ],
+   "use": {
+    "when": "Phase de lane au mid, en début de partie, avant le niveau 3 du jungler adverse.",
+    "why": "Le mid peut être ganké des deux côtés, et le gank le plus courant arrive juste après les deux buffs.",
+    "who": "Mid laner.",
+    "how": [
+     "Ward les rampes vers la jungle rouge de ton équipe et celle de l'équipe adverse.",
+     "Si tu n'as qu'une ward, mets-la du côté du second buff du jungler adverse."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-ganks-3",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [],
+   "limits": [],
+   "mentions": [
+    "Evelynn (citée « Evelyn » par l'auteur)",
+    "Kha'Zix"
+   ],
+   "champions": [
+    "Shaco",
+    "Rengar"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : contre un jungler qui devient invisible (Shaco, Evelynn, Kha'Zix, Rengar), ward entre ses camps de jungle : il ne peut pas les tuer invisible, tu vois donc son chemin, sa vie et son mana.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vision",
+    "survie",
+    "jungle"
+   ],
+   "published": "2021-04-19",
+   "evidence": [
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Knowing What Type of Jungler They Have",
+     "lang": "en",
+     "passage": "Shaco, Evelyn, Kha’zix, and Rengar are all junglers that are potent in solo queue for their ability to stealth into your lane and assassinate you in an instant."
+    },
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Knowing What Type of Jungler They Have",
+     "lang": "en",
+     "passage": "None of these champions can clear their jungle while being invisible. Since that is the case, the best way to know where they are and what they are planning, is to ward between their jungle camps to see how they path between them."
+    },
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Knowing What Type of Jungler They Have",
+     "lang": "en",
+     "passage": "Even more importantly, you’ll be able to see their health and mana pool"
+    }
+   ],
+   "use": {
+    "when": "Le jungler adverse est un champion qui devient invisible (Shaco, Evelynn, Kha'Zix, Rengar).",
+    "why": "Il ne peut pas tuer ses camps en restant invisible : entre ses camps, il est visible.",
+    "who": "Tous les postes face à un jungler qui devient invisible.",
+    "how": [
+     "En plus des wards habituelles, place des wards entre ses camps de jungle.",
+     "Regarde vers où il se dirige après chaque camp.",
+     "Regarde sa vie et son mana : s'il est bas, il n'est pas une menace."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 3,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-ganks-4",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [],
+   "limits": [
+    "Horaires de 2021 : l'apparition du carapateur et la vitesse des tournées ont pu changer depuis."
+   ],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : place ta ward de début de partie vers 2 min 30 au plus tard contre un jungler qui cherche les ganks, et vers 3 min 10 contre un jungler qui farme.",
+   "roles": [
+    "top",
+    "mid",
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "vision",
+    "survie",
+    "lane"
+   ],
+   "published": "2021-04-19",
+   "dependsOn": [
+    "system:apparition-du-carapateur"
+   ],
+   "evidence": [
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "How to Play the First Four Minutes",
+     "lang": "en",
+     "passage": "Ganking junglers tend to be looking for that gank before the Scuttle spawns after they have cleared both buffs, so the latest you should be warding to be ready for that gank is at 2:30 into the game."
+    },
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "How to Play the First Four Minutes",
+     "lang": "en",
+     "passage": "Against farming junglers, a good time to ward those standard positions is around 3:10 into the game."
+    }
+   ],
+   "use": {
+    "when": "Les quatre premières minutes de la phase de lane.",
+    "why": "Les premiers ganks, souvent les plus décisifs, arrivent avant 4 minutes, juste après les deux buffs.",
+    "who": "Laners (top, mid, bot).",
+    "how": [
+     "En sélection, décide si le jungler adverse est plutôt un ganker ou un farmer.",
+     "Contre un ganker, place ta ward avant 2:30.",
+     "Contre un farmer, place-la vers 3:10."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-ganks-5",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : place ta ward quand ta vague te rend vulnérable, c'est-à-dire quand l'adversaire freeze devant sa tourelle ou que tu as poussé jusqu'à sa tourelle. Ne la gaspille pas quand le jungler adverse vient d'être vu de l'autre côté de la carte.",
+   "roles": [
+    "top",
+    "mid",
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "vision",
+    "vagues",
+    "survie"
+   ],
+   "published": "2021-04-19",
+   "evidence": [
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Warding Based on What You Know",
+     "lang": "en",
+     "passage": "If your lane matchup has the lane frozen, you’re going to be vulnerable to ganks if you walk up. Or if you are pushed to their tower, you are vulnerable to ganks."
+    },
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Warding Based on What You Know",
+     "lang": "en",
+     "passage": "For example, if playing bot lane, and the enemy jungler is currently ganking top, there is absolutely no reason to ward bush for a jungle gank."
+    }
+   ],
+   "use": {
+    "when": "Ta vague est freezée par l'adversaire, ou tu es poussé jusqu'à sa tourelle (ou tu vas l'être).",
+    "why": "Dans ces deux états de vague, tu es le plus exposé aux ganks.",
+    "who": "Laners et supports.",
+    "how": [
+     "Regarde l'état de ta vague.",
+     "Si elle est freezée chez l'adversaire ou poussée jusqu'à sa tourelle, va placer ta ward avant que le jungler arrive.",
+     "Si le jungler adverse vient d'être vu sur une autre lane, garde ta ward pour plus tard."
+    ],
+    "notWhen": "Quand le jungler adverse vient d'être vu ailleurs, par exemple en train de ganker le top alors que tu joues bot."
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-ganks-6",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : avec peu de vie ou de mana, sans Flash ou après avoir lancé toutes tes compétences, attends-toi à un gank : plus tu es vulnérable, plus il est probable.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "lane"
+   ],
+   "published": "2021-04-19",
+   "evidence": [
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Warding Based on What You Know",
+     "lang": "en",
+     "passage": "If you are low on health or mana, have no Flash, or recently used all your abilities, you are practically a sitting duck waiting to be pounced on."
+    },
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Warding Based on What You Know",
+     "lang": "en",
+     "passage": "The more vulnerable you are to a gank, the more you should expect a gank."
+    }
+   ],
+   "use": {
+    "when": "Pendant la phase de lane, tu es bas en vie ou en mana, sans Flash, ou tu viens de lancer toutes tes compétences.",
+    "why": "Dans cet état, tu es une cible facile pour le jungler adverse.",
+    "who": "Tous les postes en lane.",
+    "how": [
+     "Vérifie ta vie, ton mana et ton Flash.",
+     "Si tu es vulnérable, recule et joue prudemment.",
+     "Quand tu es en forme et bien informé, tu peux jouer plus agressif."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-ganks-7",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : quand tu n'as pas de ward, surveille ton vis-à-vis. Juste avant un gank, il change souvent d'attitude : il avance d'un coup, recule soudain ou se met à farmer passivement.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "lane"
+   ],
+   "published": "2021-04-19",
+   "evidence": [
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Seeing Ganks Coming",
+     "lang": "en",
+     "passage": "More often than not, when a gank is coming the first couple of seconds before you see the jungler you will see a shift in the laner’s behaviour that should indicate your incoming threat."
+    },
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Seeing Ganks Coming",
+     "lang": "en",
+     "passage": "Whether it’s aggressively walking toward you, suddenly retreating or passively CSing, there is usually a tell-tale sign of a gank that you should keep an eye out for."
+    }
+   ],
+   "use": {
+    "when": "Phase de lane sans ward active.",
+    "why": "Le changement d'attitude du laner adverse précède souvent l'arrivée du jungler de quelques secondes.",
+    "who": "Tous les postes en lane.",
+    "how": [
+     "Garde un œil sur les mouvements de ton vis-à-vis.",
+     "S'il avance d'un coup, recule soudain ou farme passivement, recule vers ta tourelle."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-ganks-8",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : quand tu te fais ganker, bois ta potion tout de suite. Beaucoup de joueurs meurent à quelques points de vie après s'être presque échappés.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie"
+   ],
+   "published": "2021-04-19",
+   "dependsOn": [
+    "item:Potion de soin"
+   ],
+   "evidence": [
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Escaping Ganks",
+     "lang": "en",
+     "passage": "First, perhaps most often forgotten, drink those potions!"
+    },
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Escaping Ganks",
+     "lang": "en",
+     "passage": "If you have one and are getting ganked, it’s probably the first thing you should do."
+    }
+   ],
+   "use": {
+    "when": "Tu te fais ganker et tu as une potion de soin dans l'inventaire.",
+    "why": "Une potion soigne sur la durée et peut faire la différence pendant la fuite.",
+    "who": "Tous les postes.",
+    "how": [
+     "Bois ta potion dès que le gank commence.",
+     "Utilise ensuite ta compétence de fuite ou de contrôle."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-baron-1",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : avant de lancer le Baron, compte les joueurs en vie de chaque côté et surveille les temps de réapparition adverses. Si ton jungler est mort, le Smite du jungler adverse peut vous le voler.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "teamfight"
+   ],
+   "published": "2020-06-28",
+   "evidence": [
+    {
+     "content": "c-dignitas-baron",
+     "locator": "How Many of My Teammates Are Alive?",
+     "lang": "en",
+     "passage": "If your jungler is not alive, you are at risk of losing Baron to the enemy jungler's Smite if they show up to contest."
+    },
+    {
+     "content": "c-dignitas-baron",
+     "locator": "How Many of My Enemies Are alive?",
+     "lang": "en",
+     "passage": "If your enemies are mostly dead, keep an eye on their respawn timers, since they could respawn before you defeat Baron and come to contest."
+    }
+   ],
+   "use": {
+    "when": "Milieu et fin de partie, le Baron est disponible et ton équipe hésite à le lancer.",
+    "why": "Si les adversaires sont plus nombreux ou réapparaissent à temps, ils peuvent contester et gagner le combat ou voler le Baron.",
+    "who": "Toute l'équipe, en particulier le jungler.",
+    "how": [
+     "Compte les alliés et les adversaires en vie.",
+     "Vérifie que ton jungler est vivant pour le Smite.",
+     "Regarde les temps de réapparition adverses avant de commencer."
+    ],
+    "notWhen": "Quand ton jungler est mort et que le jungler adverse peut venir : le risque de vol est fort."
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-baron-2",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : lance le Baron quand tes sbires assiègent une tourelle adverse au mid. L'adversaire doit alors choisir entre te contester et sauver sa tourelle, surtout si c'est une tourelle d'inhibiteur.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vagues"
+   ],
+   "published": "2020-06-28",
+   "evidence": [
+    {
+     "content": "c-dignitas-baron",
+     "locator": "An Opportune Moment",
+     "lang": "en",
+     "passage": "If you have the advantage over midlane, and your minions are sieging on the enemy's turret, then it is the perfect window of time to engage Baron. Your enemies will have to choose between stopping you or saving their turret, and this is especially effective if it is an inhibitor or an inhibitor turret."
+    }
+   ],
+   "use": {
+    "when": "Le Baron est disponible et ta vague du mid est en train d'attaquer une tourelle adverse.",
+    "why": "L'adversaire doit choisir entre contester le Baron et sauver sa tourelle.",
+    "who": "Toute l'équipe.",
+    "how": [
+     "Pousse d'abord la vague du mid jusqu'à la tourelle adverse.",
+     "Lance le Baron pendant que les sbires attaquent la tourelle."
+    ],
+    "notWhen": "Si tu n'as pas l'avantage au mid : l'adversaire peut alors pousser sur tes tourelles pendant que tu fais le Baron."
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-baron-3",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : pendant le Baron, ton top peut pousser la lane du bas, la plus éloignée de la fosse, à condition d'avoir sa Téléportation pour rejoindre le combat.",
+   "roles": [
+    "top",
+    "all"
+   ],
+   "themes": [
+    "macro"
+   ],
+   "published": "2020-06-28",
+   "dependsOn": [
+    "system:Téléportation"
+   ],
+   "evidence": [
+    {
+     "content": "c-dignitas-baron",
+     "locator": "How Many of My Enemies Are alive?",
+     "lang": "en",
+     "passage": "If you want to apply pressure during a Baron engage, you could have your top laner push the bottom lane of the map, furthest away from the Baron Pit, as long as they have Teleport available."
+    }
+   ],
+   "use": {
+    "when": "Ton équipe lance le Baron et ton top a sa Téléportation disponible.",
+    "why": "La poussée de la lane du bas met la pression ailleurs, et la Téléportation permet de revenir si un combat éclate.",
+    "who": "Top laner (ou le joueur qui pousse une lane à l'écart).",
+    "how": [
+     "Va pousser la lane du bas pendant que l'équipe fait le Baron.",
+     "Garde ta Téléportation pour rejoindre le combat."
+    ],
+    "notWhen": "Sans Téléportation, sauf si plusieurs adversaires sont morts : l'auteur dit que tu ne pourrais pas aider ton équipe à temps."
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-baron-4",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : si un combat éclate pendant le Baron et qu'il a encore beaucoup de vie, arrête de le taper et concentre-toi sur l'équipe adverse.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "teamfight",
+    "macro"
+   ],
+   "published": "2020-06-28",
+   "evidence": [
+    {
+     "content": "c-dignitas-baron",
+     "locator": "An Opportune Moment",
+     "lang": "en",
+     "passage": "If Baron is still at high health, remove your focus from him and onto the enemy team."
+    }
+   ],
+   "use": {
+    "when": "Ton équipe fait le Baron, les adversaires arrivent, et le Baron a encore beaucoup de vie.",
+    "why": "Gagner le combat d'abord donne ensuite bien plus de chances de prendre le Baron.",
+    "who": "Toute l'équipe.",
+    "how": [
+     "Arrête de taper le Baron.",
+     "Combats l'équipe adverse.",
+     "Reprends le Baron après le combat, si ton équipe a encore assez de vie."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-baron-5",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : avec le buff du Baron, pousse le plus possible sans t'engager dans des combats d'équipe : vise les tourelles et les inhibiteurs, et passe d'une lane à l'autre pour forcer l'adversaire à s'occuper des sbires.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vagues"
+   ],
+   "published": "2020-06-28",
+   "evidence": [
+    {
+     "content": "c-dignitas-baron",
+     "locator": "An Opportune Moment",
+     "lang": "en",
+     "passage": "Always prioritize destroying inhibitors over engaging in team fights once you have Baron buff, as a fight can easily turn in your enemy's favor and completely waste your efforts."
+    },
+    {
+     "content": "c-dignitas-baron",
+     "locator": "An Opportune Moment",
+     "lang": "en",
+     "passage": "You will want to weave in and out of lanes to apply the Baron buff and force your enemy to focus the minions rather than your allies."
+    }
+   ],
+   "use": {
+    "when": "Ton équipe vient de prendre le Baron et a encore de la vie et du mana.",
+    "why": "Un combat peut tourner en faveur de l'adversaire et gâcher le buff ; les sbires renforcés obligent l'adversaire à défendre.",
+    "who": "Toute l'équipe.",
+    "how": [
+     "Pousse les vagues avec le buff, de préférence vers les inhibiteurs.",
+     "Passe d'une lane à l'autre pour étaler la pression.",
+     "Évite d'engager un combat d'équipe."
+    ],
+    "notWhen": "Si ton équipe a peu de vie ou de mana après le Baron : l'auteur conseille alors de rentrer à la base pour se regrouper."
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-track-jungler-6",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [],
+   "limits": [
+    "La force d'un champion au niveau 1 dépend de l'équilibrage : les exemples de l'auteur peuvent avoir changé."
+   ],
+   "mentions": [],
+   "champions": [
+    "Graves",
+    "Olaf",
+    "Bel'Veth",
+    "Amumu",
+    "Hecarim",
+    "Evelynn"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : n'envahis la jungle adverse au niveau 1 que si ton champion est plus fort que le jungler adverse à ce niveau et que tu te sens sûr de toi ; l'invasion peut mettre l'adversaire en retard, mais aussi te coûter la partie.",
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "matchup"
+   ],
+   "published": "2025-11-29",
+   "evidence": [
+    {
+     "content": "c-dignitas-track-jungler",
+     "locator": "The First Minute",
+     "lang": "en",
+     "passage": "Strong Level 1 Junglers include Champions such as Graves, Olaf, or Bel’Veth."
+    },
+    {
+     "content": "c-dignitas-track-jungler",
+     "locator": "The First Minute",
+     "lang": "en",
+     "passage": "If you’re a strong Level 1 Champion you can also decide to invade the enemy Jungler who has a weaker early game. Champions such as Amumu, Hecarim, or Evelynn have weak Level 1s and can be punished."
+    },
+    {
+     "content": "c-dignitas-track-jungler",
+     "locator": "The First Minute",
+     "lang": "en",
+     "passage": "Invading early game is one of the most effective ways to put the enemy Jungler behind. However, it can also cost you the game if you’re not careful."
+    }
+   ],
+   "use": {
+    "when": "Sélection terminée, avant le niveau 1 : tu compares ton jungler au jungler adverse.",
+    "why": "Envahir un jungler faible au niveau 1 est l'un des moyens les plus efficaces de le mettre en retard.",
+    "who": "Jungler avec un champion fort au niveau 1 (l'auteur cite Graves, Olaf, Bel'Veth) contre un jungler faible à ce niveau (il cite Amumu, Hecarim, Evelynn).",
+    "how": [
+     "Vérifie que ton champion est plus fort au niveau 1 que le jungler adverse.",
+     "Va prendre ses camps en début de partie.",
+     "Ne le fais que si tu maîtrises ton champion."
+    ],
+    "notWhen": "Si tu ne te sens pas sûr du champion que tu joues : l'auteur dit que l'invasion peut aussi coûter la partie."
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-dignitas-ganks-2",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [],
+   "limits": [
+    "Liste de champions de 2021 : leurs kits ont pu changer depuis."
+   ],
+   "mentions": [],
+   "champions": [
+    "Hecarim",
+    "Rammus",
+    "Skarner",
+    "Nunu et Willump",
+    "Udyr"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Dignitas : contre un jungler très rapide qui gank en ligne droite (Hecarim, Rammus, Skarner, Nunu, Udyr, ou tout champion avec Prédateur), la ward dans le buisson de la rivière ne laisse pas assez de temps : ward plus loin sur son chemin, vers le dragon ou le Baron en top et bot.",
+   "roles": [
+    "top",
+    "bottom",
+    "support",
+    "mid"
+   ],
+   "themes": [
+    "vision",
+    "survie"
+   ],
+   "published": "2021-04-19",
+   "evidence": [
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Knowing What Type of Jungler They Have",
+     "lang": "en",
+     "passage": "For example, warding the river bush when playing top lane on blue side is not good enough if the enemy jungler is a Hecarim."
+    },
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Knowing What Type of Jungler They Have",
+     "lang": "en",
+     "passage": "He is just too fast for that river bush ward to provide you with enough time to react to the gank that is coming. Other champions that gank in this quick linear fashion include Rammus, Skarner, Nunu, and Udyr (also any champion with Predator)."
+    },
+    {
+     "content": "c-dignitas-ganks",
+     "locator": "Knowing What Type of Jungler They Have",
+     "lang": "en",
+     "passage": "For top and bot, a good idea is to ward further into the river near the dragon or baron pit."
+    }
+   ],
+   "use": {
+    "when": "Phase de lane, quand le jungler adverse est un champion très rapide qui gank en ligne droite.",
+    "why": "Il arrive trop vite pour qu'une ward dans le buisson de la rivière te laisse le temps de réagir.",
+    "who": "Laners face à Hecarim, Rammus, Skarner, Nunu, Udyr ou à un jungler avec Prédateur.",
+    "how": [
+     "Repère en sélection si le jungler adverse gank vite et en ligne droite.",
+     "Place ta ward plus loin dans la rivière, vers le dragon ou le Baron (top et bot).",
+     "Au mid, couvre les deux côtés ou place-toi du côté où tu as la vision."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-oneesports-iwd-dragon-1",
+   "context": {
+    "queue": "competition",
+    "rank": "pro (LCS)",
+    "region": "NA"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [
+    "Tiré d'un match de compétition : à transposer avec prudence en solo queue."
+   ],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "pro",
+   "usage": "reference",
+   "claim": "Selon IWDominate (ancien joueur de LCS, analyse d'un match pro) : avant un combat au dragon, le jungler et le support doivent arriver ensemble, pour retirer la vision adverse et créer des poches de vision à leur avantage.",
+   "roles": [
+    "jungle",
+    "support"
+   ],
+   "themes": [
+    "vision",
+    "macro",
+    "synergie"
+   ],
+   "published": "2021-03-11",
+   "evidence": [
+    {
+     "content": "c-oneesports-iwd-dragon",
+     "locator": "Analyse de TSM contre Dignitas",
+     "lang": "en",
+     "passage": "[They] work together not only to deny vision but also create vision pockets so that, going into these dragon fights, they have massive advantages."
+    },
+    {
+     "content": "c-oneesports-iwd-dragon",
+     "locator": "Analyse de TSM contre Dignitas",
+     "lang": "en",
+     "passage": "With the dragon a minute away from respawning, Jungler Mingyi"
+    }
+   ],
+   "use": {
+    "when": "Environ une minute avant l'apparition du dragon.",
+    "why": "En retirant la vision adverse et en créant leurs propres zones de vision, ils abordent le combat avec un gros avantage.",
+    "who": "Jungler et support (exemple tiré d'un match de LCS).",
+    "how": [
+     "Jungler : termine ta tournée pour être prêt avant l'apparition du dragon.",
+     "Va placer la vision avec ton support plutôt que chacun de son côté.",
+     "Retirez ensemble les wards adverses autour de la fosse."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-oneesports-iwd-dragon-2",
+   "context": {
+    "queue": "competition",
+    "rank": "pro (LCS)",
+    "region": "NA"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [
+    "Tiré d'un match de compétition : à transposer avec prudence en solo queue."
+   ],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "pro",
+   "usage": "reference",
+   "claim": "Selon IWDominate (analyse d'un match pro) : quand ton équipe contrôle la rivière avant le dragon, combats l'adversaire au passage étroit qu'il doit emprunter, surtout s'il arrive sans Flash.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "teamfight",
+    "macro"
+   ],
+   "published": "2021-03-11",
+   "evidence": [
+    {
+     "content": "c-oneesports-iwd-dragon",
+     "locator": "Analyse de TSM contre Dignitas",
+     "lang": "en",
+     "passage": "Dom points out that Dignitas should not be able to go through the small pathway, and would actually have to push through the mid lane and use the wider line brush to contest the dragon."
+    },
+    {
+     "content": "c-oneesports-iwd-dragon",
+     "locator": "Analyse de TSM contre Dignitas",
+     "lang": "en",
+     "passage": "The streamer also highlighted that Dignitas had four Flash-less players entering the chokepoint"
+    }
+   ],
+   "use": {
+    "when": "Avant le dragon, ton équipe contrôle la rivière et l'adversaire doit passer par un chemin étroit pour contester.",
+    "why": "Au passage étroit, l'adversaire est regroupé et vulnérable, plus encore sans Flash.",
+    "who": "Toute l'équipe (exemple tiré d'un match de LCS).",
+    "how": [
+     "Tiens la rivière avec la vision.",
+     "Attends l'adversaire au passage étroit.",
+     "Engage dès qu'il s'y engouffre, surtout si plusieurs adversaires n'ont pas Flash."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-sendo-gank-1",
+   "context": {
+    "queue": "solo",
+    "rank": "maître (meilleur rang de l'auteur)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": true,
+    "value": "13.18"
+   },
+   "metaDependent": true,
+   "conditions": [],
+   "limits": [
+    "Horaires du patch 13.18 : la vitesse des tournées a changé depuis.",
+    "Selon l'auteur, plus le niveau monte, plus les junglers décalent leurs ganks pour éviter ces moments attendus."
+   ],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon sendo (support, maître) : retiens les moments habituels des premiers ganks : vers 2 min après un seul camp, entre 2 min 30 et 2 min 50 après trois camps, vers 3 min 15 après une tournée complète, et vers 4 min 30 après une tournée et un retour à la base.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "jungle",
+    "vision"
+   ],
+   "published": "2023-09-16",
+   "dependsOn": [
+    "system:camps-de-jungle"
+   ],
+   "evidence": [
+    {
+     "content": "c-note-sendo-gank",
+     "locator": "「序盤の」ガンクの基礎知識",
+     "lang": "ja",
+     "passage": "１キャンプガンク：2分前後"
+    },
+    {
+     "content": "c-note-sendo-gank",
+     "locator": "「序盤の」ガンクの基礎知識",
+     "lang": "ja",
+     "passage": "フルクリアガンク：3分15秒前後"
+    },
+    {
+     "content": "c-note-sendo-gank",
+     "locator": "「序盤の」ガンクの基礎知識",
+     "lang": "ja",
+     "passage": "フルクリア→リコール後にガンク：4分30秒前後"
+    }
+   ],
+   "use": {
+    "when": "Les cinq premières minutes de la partie, en lane.",
+    "why": "Le jungler doit tuer des camps pour monter de niveau, donc ses premiers ganks arrivent à des moments assez prévisibles.",
+    "who": "Tous les laners, et le support qui place la vision.",
+    "how": [
+     "Devine le chemin du jungler adverse (buff rouge ou bleu au départ).",
+     "Place ta ward juste avant ces moments-là.",
+     "Joue plus prudemment autour de ces horaires."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-sendo-gank-2",
+   "context": {
+    "queue": "solo",
+    "rank": "maître (meilleur rang de l'auteur)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon sendo (support, maître) : avant de placer une ward, regarde l'état de ta vague maintenant et dans les secondes qui viennent, et où se trouve le jungler adverse. S'il gank le top, une ward posée au bot devant le dragon gaspille 30 secondes à 1 minute de vision.",
+   "roles": [
+    "support",
+    "bottom",
+    "all"
+   ],
+   "themes": [
+    "vision",
+    "vagues"
+   ],
+   "published": "2023-09-16",
+   "evidence": [
+    {
+     "content": "c-note-sendo-gank",
+     "locator": "敵ジャングラーのガンクルート予測",
+     "lang": "ja",
+     "passage": "①自分たちはいまプッシュウェーブなのか、プルウェーブなのか"
+    },
+    {
+     "content": "c-note-sendo-gank",
+     "locator": "敵ジャングラーのガンクルート予測",
+     "lang": "ja",
+     "passage": "③敵ジャングルはいまどこにいるのか"
+    },
+    {
+     "content": "c-note-sendo-gank",
+     "locator": "敵ジャングラーのガンクルート予測",
+     "lang": "ja",
+     "passage": "そうなると、いまワードを置いてしまうと 30秒～１分近く視界情報を無駄にしてしまう のです。"
+    }
+   ],
+   "use": {
+    "when": "Phase de lane, au moment de placer une ward.",
+    "why": "Une ward a une durée limitée : posée trop tôt, elle ne voit plus rien quand le jungler arrive.",
+    "who": "Supports surtout, et tous les laners.",
+    "how": [
+     "Regarde si ta vague pousse ou recule, et ce qu'elle fera ensuite.",
+     "Regarde sur la carte où le jungler adverse a été vu pour la dernière fois.",
+     "S'il est de l'autre côté, garde ta ward pour plus tard."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-sendo-gank-3",
+   "context": {
+    "queue": "solo",
+    "rank": "maître (meilleur rang de l'auteur)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon sendo (support, maître) : au bot, quand ta vague est tirée vers ta tourelle ou à l'équilibre, une ward proche suffit. Quand elle pousse, ward plus loin pour voir le jungler tôt, et ping ton ADC pour qu'il recule pendant que tu pars poser la ward.",
+   "roles": [
+    "support",
+    "bottom"
+   ],
+   "themes": [
+    "vision",
+    "vagues",
+    "survie"
+   ],
+   "published": "2023-09-16",
+   "evidence": [
+    {
+     "content": "c-note-sendo-gank",
+     "locator": "②オーソドックスなガンクレーン",
+     "lang": "ja",
+     "passage": "プルウェーブ/イーブンウェーブの場合はタワーにすぐ逃げ込めるためそこまで奥にワーディングをする必要がありません。"
+    },
+    {
+     "content": "c-note-sendo-gank",
+     "locator": "②オーソドックスなガンクレーン",
+     "lang": "ja",
+     "passage": "プッシュウェーブの際は逃げるのに時間が掛かるため 敵を早期発見することが重要 です。"
+    },
+    {
+     "content": "c-note-sendo-gank",
+     "locator": "②オーソドックスなガンクレーン",
+     "lang": "ja",
+     "passage": "その際ワードを置くときは 必ずADCにBackPINGを出す ようにしてください。"
+    }
+   ],
+   "use": {
+    "when": "Phase de lane au bot, au moment de placer la vision contre un gank.",
+    "why": "Vague tirée : la tourelle est proche, inutile d'aller loin. Vague qui pousse : la fuite est longue, il faut voir le jungler plus tôt.",
+    "who": "Support (et ADC qui doit reculer).",
+    "how": [
+     "Vague tirée ou à l'équilibre : ward proche, sans quitter ton ADC.",
+     "Vague qui pousse : va warder plus loin sur le chemin du jungler.",
+     "Avant de partir, ping ton ADC pour qu'il recule."
+    ],
+    "notWhen": "Vague tirée ou à l'équilibre : aller warder loin fait mourir ton ADC ou lui fait perdre des sbires, selon l'auteur."
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-sendo-gank-4",
+   "context": {
+    "queue": "solo",
+    "rank": "maître (meilleur rang de l'auteur)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon sendo (support, maître) : contre un jungler qui saute par-dessus les murs (il cite Jarvan IV, Lee Sin, Rek'Sai, Nidalee, Kayn), évite d'assiéger la tourelle adverse si tu n'as pas de ward devant son buff bleu : il peut contourner et arriver par derrière.",
+   "roles": [
+    "support",
+    "bottom"
+   ],
+   "themes": [
+    "vision",
+    "survie",
+    "vagues"
+   ],
+   "published": "2023-09-16",
+   "evidence": [
+    {
+     "content": "c-note-sendo-gank",
+     "locator": "③ブリンクを持ったジャングラーのガンクレーン",
+     "lang": "ja",
+     "passage": "上記のガンクルートはブリンクを持った敵のジャングルルートです。敵がJ4・リーシン・レクサイ・ニダリー・ケインなどの場合です。"
+    },
+    {
+     "content": "c-note-sendo-gank",
+     "locator": "③ブリンクを持ったジャングラーのガンクレーン",
+     "lang": "ja",
+     "passage": "ブリンクが強力なジャングラーの場合、 前提として最強ワードが置けていない場合はタワーシージを控えたほうがよい でしょう。"
+    }
+   ],
+   "use": {
+    "when": "Ta vague est poussée jusqu'à la tourelle adverse et le jungler adverse a un saut ou un déplacement à travers les murs.",
+    "why": "Ces junglers savent contourner pour ganker par derrière.",
+    "who": "Duo du bot face à un jungler avec un saut (Jarvan IV, Lee Sin, Rek'Sai, Nidalee, Kayn selon l'auteur).",
+    "how": [
+     "Avant d'assiéger, place une ward devant le buff bleu adverse.",
+     "Sans cette ward, ne reste pas sous la tourelle adverse.",
+     "Si tu veux vraiment assiéger, place au moins une ward sur le chemin de contournement."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-sendo-give-1",
+   "context": {
+    "queue": "solo",
+    "rank": "maître (meilleur rang de l'auteur)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon sendo (support, maître) : quand ton équipe décide de laisser le dragon, pousse le mid en te décalant vers le haut de la carte. Inutile de warder côté bot : l'adversaire y est regroupé et peut te piéger.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vision",
+    "vagues"
+   ],
+   "published": "2024-08-07",
+   "evidence": [
+    {
+     "content": "c-note-sendo-give",
+     "locator": "パターン①　ミッドプッシュ",
+     "lang": "ja",
+     "passage": "その場合は ポジションを上に寄せながらMIDプッシュ をしましょう。もし1stタワーが折れていないのであれば、取れる可能性があります。"
+    },
+    {
+     "content": "c-note-sendo-give",
+     "locator": "パターン①　ミッドプッシュ",
+     "lang": "ja",
+     "passage": "その際、BOT側にワードは必要ありません。"
+    }
+   ],
+   "use": {
+    "when": "Ton équipe a décidé de ne pas contester le dragon (adversaire plus fort, déjà en place, ou combat perdu d'avance).",
+    "why": "L'adversaire est regroupé au dragon : aller warder côté bot, c'est risquer de se faire attraper.",
+    "who": "Toute l'équipe.",
+    "how": [
+     "Pousse la vague du mid.",
+     "Décale-toi vers le haut de la carte.",
+     "Si la première tourelle du mid adverse est debout, tente de la prendre."
+    ],
+    "notWhen": "Si l'objectif peut être pris ou disputé : l'auteur insiste pour ne pas abandonner un objectif jouable."
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-sendo-give-2",
+   "context": {
+    "queue": "solo",
+    "rank": "maître (meilleur rang de l'auteur)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon sendo (support, maître) : si l'adversaire met du monde au dragon, prends l'objectif de l'autre côté (Baron ou Héraut) : il y a peu de vision adverse à ce moment-là.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro"
+   ],
+   "published": "2024-08-07",
+   "evidence": [
+    {
+     "content": "c-note-sendo-give",
+     "locator": "パターン②　バロン/ヘラルドへのアクション",
+     "lang": "ja",
+     "passage": "敵がBOTに人数をかけているのなら、こっちは 反対側のオブジェクトを取る。"
+    },
+    {
+     "content": "c-note-sendo-give",
+     "locator": "パターン②　バロン/ヘラルドへのアクション",
+     "lang": "ja",
+     "passage": "敵は下にいるし、ドラゴンの準備をしていたために上サイドにはワードが少ないハズです。"
+    }
+   ],
+   "use": {
+    "when": "L'adversaire se regroupe au dragon et ton équipe ne le conteste pas.",
+    "why": "L'adversaire a préparé la vision du côté du dragon : le haut de la carte est peu surveillé.",
+    "who": "Toute l'équipe.",
+    "how": [
+     "Va vers l'objectif du haut de la carte.",
+     "Prends-le, ou retourne-toi pour combattre si l'adversaire vient."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-sendo-give-3",
+   "context": {
+    "queue": "solo",
+    "rank": "maître (meilleur rang de l'auteur)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon sendo (support, maître) : quand ton équipe laisse un objectif, va prendre la vision du côté opposé de la carte. C'est l'avantage que le support peut gagner en échange.",
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "vision",
+    "macro"
+   ],
+   "published": "2024-08-07",
+   "evidence": [
+    {
+     "content": "c-note-sendo-give",
+     "locator": "パターン③　逆サイドの視界を確保",
+     "lang": "ja",
+     "passage": "どんな時でもサポートは 逆サイドの視界を取りに行きましょう。"
+    },
+    {
+     "content": "c-note-sendo-give",
+     "locator": "パターン③　逆サイドの視界を確保",
+     "lang": "ja",
+     "passage": "こちらが失った１つのオブジェクトの代わりに、視界という有利を取れるのがサポートです。"
+    }
+   ],
+   "use": {
+    "when": "Ton équipe vient de décider de laisser un objectif à l'adversaire.",
+    "why": "Même sans tourelle ni objectif à prendre, la vision du côté opposé est un avantage facile à obtenir.",
+    "who": "Support.",
+    "how": [
+     "Quitte la zone de l'objectif laissé.",
+     "Va placer tes wards de l'autre côté de la carte.",
+     "Si c'est impossible, prépare la vision contre les ganks qui suivront l'objectif."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-sendo-give-4",
+   "context": {
+    "queue": "solo",
+    "rank": "maître (meilleur rang de l'auteur)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon sendo (support, maître) : si aller voir le dragon te met à 2 contre 4 sans renfort possible, n'y va pas, même pas pour le warder.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "macro"
+   ],
+   "published": "2024-08-07",
+   "evidence": [
+    {
+     "content": "c-note-sendo-give",
+     "locator": "応用編",
+     "lang": "ja",
+     "passage": "→ドラゴンを見に行っても 2 vs 4の状況、味方も寄れない状況なら見に行くのやめて下さい。"
+    },
+    {
+     "content": "c-note-sendo-give",
+     "locator": "応用編",
+     "lang": "ja",
+     "passage": "ドラゴンにワードすら要りません。"
+    }
+   ],
+   "use": {
+    "when": "Plusieurs adversaires ont disparu de la carte près du dragon, et tes alliés ne peuvent pas te rejoindre.",
+    "why": "À 2 contre 4, aller voir le dragon ne rapporte rien et te fait mourir.",
+    "who": "Tous les postes, en particulier le duo du bot.",
+    "how": [
+     "Compte les adversaires invisibles près du dragon.",
+     "Si tu serais en infériorité sans renfort, ne t'approche pas.",
+     "Prépare plutôt la vision contre les ganks d'après-dragon ou tire ta vague."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-sendo-midpush-1",
+   "context": {
+    "queue": "solo",
+    "rank": "maître (meilleur rang de l'auteur)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon sendo (support, maître) : pousse le mid avant un objectif. Tes sbires te donnent la vision du côté adverse, et si l'adversaire va nettoyer la vague, tu as quelques secondes en surnombre pour attraper un joueur mal placé.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vagues",
+    "vision"
+   ],
+   "published": "2024-05-02",
+   "evidence": [
+    {
+     "content": "c-note-sendo-midpush",
+     "locator": "①【大前提】敵側の視界が取れる",
+     "lang": "ja",
+     "passage": "MIDをプッシュすることで味方のミニオンが敵陣まで押せるため、 敵陣の情報を一方的に得ること ができます。"
+    },
+    {
+     "content": "c-note-sendo-midpush",
+     "locator": "②敵がMIDプッシュの対応に行くと一時的に人数差を作り出せるためキャッチが狙える",
+     "lang": "ja",
+     "passage": "敵がMIDのミニオン処理に向かっている際、 一時的に人数差が生まれます。キャッチをするならこの場面。"
+    }
+   ],
+   "use": {
+    "when": "Avant un dragon ou un Baron, quand ton équipe peut pousser le mid.",
+    "why": "La vague te donne des informations, et l'adversaire qui va la nettoyer laisse ses alliés en infériorité.",
+    "who": "Toute l'équipe, en premier le mid et le jungler.",
+    "how": [
+     "Pousse la vague du mid jusque chez l'adversaire.",
+     "Regarde ce que voient tes sbires.",
+     "Si un adversaire part nettoyer la vague, profites-en pour attraper un joueur mal placé."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-sendo-midpush-2",
+   "context": {
+    "queue": "solo",
+    "rank": "maître (meilleur rang de l'auteur)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon sendo (support, maître) : la priorité au mid te donne les entrées de la rivière. C'est le chemin le plus large pour commencer le dragon ou le Baron, et il permet d'esquiver plus facilement les sorts de zone.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "teamfight"
+   ],
+   "published": "2024-05-02",
+   "evidence": [
+    {
+     "content": "c-note-sendo-midpush",
+     "locator": "④リバーの入り口という有利なポジションを取ることができる",
+     "lang": "ja",
+     "passage": "MIDをプッシュするとMIDの主導権を取ることができ、リバーの入り口を独占することができます。"
+    },
+    {
+     "content": "c-note-sendo-midpush",
+     "locator": "④リバーの入り口という有利なポジションを取ることができる",
+     "lang": "ja",
+     "passage": "このルートは他のどのルートよりも広くポジションを取ることが出来るため、ファイトが起こった際に敵のAOEスキルを避けやすかったり比較的自由なスペースを使うことができます。"
+    }
+   ],
+   "use": {
+    "when": "Avant un objectif, surtout si l'adversaire a pris position le premier près de la fosse.",
+    "why": "L'entrée de la rivière par le mid laisse plus de place pour se positionner en combat.",
+    "who": "Toute l'équipe.",
+    "how": [
+     "Pousse le mid pour en prendre la priorité.",
+     "Entre dans la rivière par ce côté.",
+     "Garde de l'espace pour esquiver les sorts de zone adverses."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-sendo-midpush-3",
+   "context": {
+    "queue": "solo",
+    "rank": "maître (meilleur rang de l'auteur)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon sendo (support, maître) : pousser le mid avant un objectif est une assurance. Si tu perds le combat, tu ne perds que le dragon ou le Baron, et pas la tourelle du mid en plus.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vagues"
+   ],
+   "published": "2024-05-02",
+   "evidence": [
+    {
+     "content": "c-note-sendo-midpush",
+     "locator": "⑥オブジェクトファイトで負けてしまった場合の保険になる",
+     "lang": "ja",
+     "passage": "オブジェクトファイトに負ける→ドラゴン(バロン)が取られる→そのままMIDプッシュされてタワーも取られる"
+    },
+    {
+     "content": "c-note-sendo-midpush",
+     "locator": "⑥オブジェクトファイトで負けてしまった場合の保険になる",
+     "lang": "ja",
+     "passage": "もし、MIDをプッシュできていれば最悪ドラゴン(バロン)を渡すだけで済むことになるでしょう。"
+    }
+   ],
+   "use": {
+    "when": "Avant un combat autour d'un objectif.",
+    "why": "Sans vague poussée, l'adversaire qui gagne le combat enchaîne avec la tourelle du mid.",
+    "who": "Toute l'équipe.",
+    "how": [
+     "Pousse le mid avant de te rendre à l'objectif.",
+     "En cas de défaite, l'adversaire n'a pas de vague pour prendre ta tourelle."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-sendo-midpush-4",
+   "context": {
+    "queue": "solo",
+    "rank": "maître (meilleur rang de l'auteur)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon sendo (support, maître) : si l'adversaire ne répond pas à ta poussée du mid parce qu'il est déjà installé sur l'objectif, et que tu perdrais le combat (composition, or ou niveaux), continue de pousser pour prendre la tourelle. Assiège-la en te tenant du côté opposé à l'adversaire.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vagues"
+   ],
+   "published": "2024-05-02",
+   "evidence": [
+    {
+     "content": "c-note-sendo-midpush",
+     "locator": "⑤相手のタワーにプレッシャーをかけられる",
+     "lang": "ja",
+     "passage": "戦っても負けるようなチーム構成・金額差・レベル差の場合はそのままMIDプッシュを継続することで敵のタワーを破壊することができます。"
+    },
+    {
+     "content": "c-note-sendo-midpush",
+     "locator": "⑤相手のタワーにプレッシャーをかけられる",
+     "lang": "ja",
+     "passage": "※敵タワーを破壊する際は、敵がいるであろう場所とは逆側に身体を寄せながらシージしましょう。"
+    }
+   ],
+   "use": {
+    "when": "Tu pousses le mid, personne ne vient nettoyer la vague, et l'adversaire a déjà pris position sur l'objectif.",
+    "why": "L'adversaire a fait de l'objectif sa priorité : la zone autour est dangereuse, mais sa tourelle est libre.",
+    "who": "Toute l'équipe.",
+    "how": [
+     "Continue de pousser la vague du mid.",
+     "Assiège la tourelle en te tenant du côté opposé à l'objectif.",
+     "N'entre pas dans la zone de l'objectif."
+    ],
+    "notWhen": "Si ta composition, ton or et tes niveaux te permettent de gagner le combat : ce conseil vaut quand le combat serait perdu."
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-udyon-macro-1",
+   "context": {
+    "queue": "solo",
+    "rank": "diamant 2 (maître au mieux)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon udyon (top, maître au mieux) : après avoir pris la première tourelle du top, pousse ta vague lentement à l'attaque de base jusqu'à la deuxième tourelle adverse. Ton adversaire ne peut plus prendre la vague et perd de l'expérience, ou doit partir roam.",
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "published": "2026-02-15",
+   "evidence": [
+    {
+     "content": "c-note-udyon-macro",
+     "locator": "・レーン勝利時の立ち位置",
+     "lang": "ja",
+     "passage": "基本的な動きとしてはミニオンを敵セカンドタワーに押し付ける。"
+    },
+    {
+     "content": "c-note-udyon-macro",
+     "locator": "・レーン勝利時の立ち位置",
+     "lang": "ja",
+     "passage": "ここではスキルを使わずにＡＡ（オートアタック）で基本ミニオンを食べてゆっくり押しましょう。なぜなら相手がウェーブを食べれない+相手はやることがなく経験値ロスト及びロームするしかなくなるからです。"
+    }
+   ],
+   "use": {
+    "when": "Tu as gagné ta lane au top et détruit la première tourelle adverse.",
+    "why": "L'adversaire ne peut plus farmer sa vague : il perd de l'expérience ou doit quitter la lane.",
+    "who": "Top laner qui a gagné sa lane.",
+    "how": [
+     "Tue les sbires à l'attaque de base, sans tes compétences.",
+     "Laisse la vague avancer lentement jusqu'à la deuxième tourelle.",
+     "Reste prêt à fuir si le jungler ou le support adverse vient."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-udyon-macro-2",
+   "context": {
+    "queue": "solo",
+    "rank": "diamant 2 (maître au mieux)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon udyon (top, maître au mieux) : quand le dragon apparaît dans 1 minute à 30 secondes, quitte ta pression sur la tourelle et rejoins le dragon.",
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "macro"
+   ],
+   "published": "2026-02-15",
+   "evidence": [
+    {
+     "content": "c-note-udyon-macro",
+     "locator": "・レーン勝利時の立ち位置",
+     "lang": "ja",
+     "passage": "この動きをドラゴンが始まる１分～３０秒まで繰り返す。"
+    },
+    {
+     "content": "c-note-udyon-macro",
+     "locator": "・レーン勝利時の立ち位置",
+     "lang": "ja",
+     "passage": "ドラゴンまでの時間が１分～３０秒になったらドラゴンに寄るようにする。"
+    }
+   ],
+   "use": {
+    "when": "Tu mets la pression sur la deuxième tourelle du top et le dragon apparaît dans 1 minute à 30 secondes.",
+    "why": "Ta pression au top a attiré l'adversaire : le côté du dragon est moins surveillé, et il faut y être à temps.",
+    "who": "Top laner.",
+    "how": [
+     "Surveille le minuteur du dragon.",
+     "Entre 1 minute et 30 secondes avant, quitte la lane.",
+     "Rejoins ton équipe autour du dragon."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-udyon-macro-3",
+   "context": {
+    "queue": "solo",
+    "rank": "diamant 2 (maître au mieux)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon udyon (top, maître au mieux) : après la phase de lane, la répartition habituelle est la suivante : le duo du bot va au mid, le mid au top, et le top au bot, grâce à sa Téléportation et à sa résistance. Pousse les lanes où il n'y a personne plutôt que d'attendre tous au mid.",
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vagues"
+   ],
+   "published": "2026-02-15",
+   "dependsOn": [
+    "system:Téléportation"
+   ],
+   "evidence": [
+    {
+     "content": "c-note-udyon-macro",
+     "locator": "❷レーンスワップタイミング",
+     "lang": "ja",
+     "passage": "基本的にはMIDレーナーはTOPが側、TOPレーナーはBOT側に行くのがセオリーだ。なぜTOPレーナーはBOTに行くかは単純にテレポートと体が硬いからだ。"
+    },
+    {
+     "content": "c-note-udyon-macro",
+     "locator": "❷レーンスワップタイミング",
+     "lang": "ja",
+     "passage": "BOT２人はMIDレーン、MIDはTOPレーン、TOPはBOTレーンに行く構図となる。"
+    }
+   ],
+   "use": {
+    "when": "Entre 15 et 20 minutes, quand les premières tourelles tombent et que la phase de lane se termine.",
+    "why": "Le duo du bot au mid peut voir le dragon et le Baron ; le top, résistant et avec sa Téléportation, tient la lane du bot.",
+    "who": "Toute l'équipe.",
+    "how": [
+     "Duo du bot : va au mid.",
+     "Mid : va au top ; top : va au bot.",
+     "Pousse la lane où personne ne te fait face au lieu d'attendre au mid."
+    ],
+    "notWhen": "Avant d'avoir terminé ta quête de rôle, selon l'auteur (règle de sa saison)."
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-udyon-macro-4",
+   "context": {
+    "queue": "solo",
+    "rank": "diamant 2 (maître au mieux)",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "claim": "Selon udyon (top, maître au mieux) : en lane de côté, ne dépasse la rivière vers le camp adverse que si ton équipe a l'avantage, si les adversaires sont visibles sur la carte, ou si une ward te montre que la zone est vide. Sinon, tu risques de mourir et de faire perdre un objectif.",
+   "roles": [
+    "top",
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "macro",
+    "vision"
+   ],
+   "published": "2026-02-15",
+   "evidence": [
+    {
+     "content": "c-note-udyon-macro",
+     "locator": "❸ＴＯＰレーンからＢＯＴレーンスワップ後の動き",
+     "lang": "ja",
+     "passage": "これは防衛ラインだ。このラインよりも相手陣地に行くのは"
+    },
+    {
+     "content": "c-note-udyon-macro",
+     "locator": "❸ＴＯＰレーンからＢＯＴレーンスワップ後の動き",
+     "lang": "ja",
+     "passage": "上記のような条件がないときに森に行くのは無謀であり、死ぬリスクが非常に高くなる。"
+    }
+   ],
+   "use": {
+    "when": "Milieu de partie, tu pousses une lane de côté seul.",
+    "why": "Mourir en lane de côté peut coûter un dragon ou un Baron à ton équipe.",
+    "who": "Joueurs qui poussent une lane de côté, surtout le top.",
+    "how": [
+     "Vérifie si ton équipe a l'avantage.",
+     "Regarde si les adversaires sont visibles sur la carte, ou si une ward montre que la zone est vide.",
+     "Sans aucune de ces conditions, reste de ton côté de la rivière."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-drollsnow-side-1",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Drollsnow : en split push, la règle de base est de partir avant de mourir. L'idéal est d'obliger l'adversaire à envoyer du monde contre toi tout en restant en vie.",
+   "roles": [
+    "top",
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "survie"
+   ],
+   "published": "2025-08-02",
+   "evidence": [
+    {
+     "content": "c-note-drollsnow-side",
+     "locator": "①サイドレーンに出るなら死ぬな",
+     "lang": "ja",
+     "passage": "スプリットプッシュの基本は死ぬ前に退くこと。"
+    },
+    {
+     "content": "c-note-drollsnow-side",
+     "locator": "①サイドレーンに出るなら死ぬな",
+     "lang": "ja",
+     "passage": "もちろん浮いた味方を倒す為に敵はリソースを消費するんだけど、ここで出来るだけリソースを使わせて、なおかつ自分は生存しているのが一番理想形。"
+    }
+   ],
+   "use": {
+    "when": "Milieu et fin de partie, tu pousses seul une lane de côté.",
+    "why": "Mourir en lane de côté fait perdre la tourelle, les camps et parfois d'autres objectifs.",
+    "who": "Joueurs qui split push.",
+    "how": [
+     "Pousse ta lane en surveillant la carte.",
+     "Dès que plusieurs adversaires disparaissent ou viennent vers toi, recule.",
+     "Oblige-les à venir à plusieurs, puis échappe-toi."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
+  },
+  {
+   "id": "u-cl-note-drollsnow-side-2",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Drollsnow : ne split push pas sans Téléportation à l'opposé de l'objectif que ton équipe veut prendre. Si un combat éclate sans toi, il se joue à 4 contre 4, et la défaite coûte l'objectif et quatre kills, contre une seule tourelle de ton côté.",
+   "roles": [
+    "top",
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "teamfight"
+   ],
+   "published": "2025-08-02",
+   "dependsOn": [
+    "system:Téléportation"
+   ],
+   "evidence": [
+    {
+     "content": "c-note-drollsnow-side",
+     "locator": "③スプリットするならオブジェクト意識を持て",
+     "lang": "ja",
+     "passage": "TPを持たずに欲しいオブジェクトとは逆サイドに走ってデスします"
+    },
+    {
+     "content": "c-note-drollsnow-side",
+     "locator": "③スプリットするならオブジェクト意識を持て",
+     "lang": "ja",
+     "passage": "仮にオブジェクトファイトが起きても味方は寄ってこないので、4vs4になるので有利どころか下手をすると不利を背負って集団戦で負けます。"
+    }
+   ],
+   "use": {
+    "when": "Un dragon ou un Baron approche et tu hésites à partir pousser une lane de côté.",
+    "why": "Sans toi, ton équipe perd son avantage numérique au moment du combat.",
+    "who": "Joueurs qui split push, en particulier le top.",
+    "how": [
+     "Regarde quel objectif ton équipe veut prendre.",
+     "Sans Téléportation, ne pars pas à l'opposé de cet objectif.",
+     "Rejoins ton équipe avant le combat."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-25)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-25",
+   "validity": {
+    "checkedAt": "2026-10-25",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-25"
   }
  ],
- "updatedAt": "2026-10-25T13:24:34.009Z"
+ "updatedAt": "2026-10-25T16:44:54.634Z"
 }

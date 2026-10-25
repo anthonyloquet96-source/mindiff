@@ -816,6 +816,108 @@ await t("COACH-003 Base Supabase : RLS (lecture du propriétaire seulement, aucu
   return "chaque utilisateur ne lit que ses joueurs, parties, métriques, objectifs et évaluations ; rien sans connexion ; aucune écriture client ; un seul objectif ouvert ; suppression du joueur en cascade.";
 });
 
+await t("COACH-004 Client Riot : routes en liste blanche, limites lues dans les en-têtes, Retry-After, 5xx, requêtes identiques regroupées", "fixture", async () => {
+  const { createRiotV1, parseLimits } = await import("../v1/riot.mjs");
+  assert(JSON.stringify(parseLimits("20:1,100:120")) === JSON.stringify([{ limit: 20, windowMs: 1000 }, { limit: 100, windowMs: 120000 }]), "lecture des limites");
+  let clock = 0; const slept = [];
+  const sleep = async ms => { slept.push(ms); clock += ms; };
+  const calls = [];
+  const res = (status, body, headers = {}) => ({ ok: status < 300, status, json: async () => body, headers: { get: k => headers[k.toLowerCase()] ?? null } });
+  let script = [];
+  const fetchImpl = async (url, o) => { calls.push({ url, key: o.headers["X-Riot-Token"] }); await new Promise(r => setTimeout(r, 1)); return script.shift() || res(200, { ok: 1 }, { "x-app-rate-limit": "2:10" }); };
+  const riot = createRiotV1("CLE-TEST", { fetchImpl, now: () => clock, sleep });
+  // Liste blanche : route et région inconnues refusées, sans appel réseau
+  for (const bad of [() => riot.call("anything", { platform: "euw1" }), () => riot.call("match", { platform: "evil.com/", matchId: "x" })]) { let e = null; try { await bad(); } catch (x) { e = x; } assert(e && e.status === 400, "requête hors liste blanche acceptée"); }
+  assert(calls.length === 0, "appel réseau pour une requête refusée");
+  // URL construite ici, cluster régional pour match-v5, plateforme pour league-v4
+  await riot.call("match", { platform: "euw1", matchId: "EUW1_1" });
+  await riot.call("league", { platform: "euw1", puuid: "abc" });
+  assert(calls[0].url === "https://europe.api.riotgames.com/lol/match/v5/matches/EUW1_1" && calls[1].url.startsWith("https://euw1.api.riotgames.com/lol/league/v4/"), "routage plateforme / région");
+  // Limite apprise « 2 par 10 s » sur l'hôte europe : la 3e requête vers cet hôte attend la fin de la fenêtre
+  await riot.call("match", { platform: "euw1", matchId: "EUW1_2" });
+  assert(!slept.length, "attente avant d'atteindre la limite");
+  await riot.call("match", { platform: "euw1", matchId: "EUW1_3" });
+  assert(slept.length && slept.at(-1) >= 9000, "limite de l'application ignorée");
+  // 429 avec Retry-After 3 s puis succès
+  script = [res(429, {}, { "retry-after": "3", "x-rate-limit-type": "method" }), res(200, { ok: 2 })];
+  const before = clock;
+  assert((await riot.call("timeline", { platform: "euw1", matchId: "EUW1_9" })).ok === 2 && clock - before >= 3000, "Retry-After ignoré");
+  // 503 puis succès : recul exponentiel ; 404 : erreur normalisée ; 401 : clé refusée
+  script = [res(503, {}), res(200, { ok: 3 })];
+  assert((await riot.call("match", { platform: "euw1", matchId: "EUW1_10" })).ok === 3, "pas de nouvel essai après 503");
+  script = [res(404, {})]; let e404 = null; try { await riot.call("match", { platform: "euw1", matchId: "EUW1_11" }); } catch (e) { e404 = e; }
+  assert(e404?.code === "introuvable" && e404.status === 404, "404 mal normalisé");
+  // Deux demandes identiques en même temps : un seul appel à Riot
+  const n = calls.length;
+  await Promise.all([riot.call("match", { platform: "euw1", matchId: "EUW1_12" }), riot.call("match", { platform: "euw1", matchId: "EUW1_12" })]);
+  assert(calls.length === n + 1, "requêtes identiques en vol non regroupées");
+  assert(calls.every(c => c.key === "CLE-TEST"), "clé absente");
+  return "liste blanche (route et région), routage plateforme/région, limite « 2 par 10 s » respectée, Retry-After, recul sur 503, 404 normalisé, une seule requête pour deux demandes identiques.";
+});
+
+await t("COACH-005 Synchronisation : aucune partie traitée deux fois, recalcul sans Riot, objectif proposé puis évalué", "fixture", async () => {
+  const { createStore } = await import("../v1/store.mjs");
+  const { handleV1, createQueue, syncWorker } = await import("../v1/api.mjs");
+  const { mkdtemp } = await import("node:fs/promises");
+  const { tmpdir } = await import("node:os");
+  const dir = await mkdtemp(`${tmpdir()}/coach-v1-`);
+  const store = createStore({ file: `${dir}/store.json`, rawDir: `${dir}/raw` });
+  // Faux Riot : 12 parties mid au farm faible, puis 5 nouvelles parties
+  let ids = Array.from({ length: 12 }, (_, i) => `EUW1_${100 + i}`);
+  const games = {};
+  const mk = (id, start, cs10) => { const g = v1Game({ id, start, cs10, deaths: 1, kills: 6, assists: 4, teamKills: 16 }); games[id] = g; };
+  ids.forEach((id, i) => mk(id, 1000 + (12 - i), 58 + (i % 7)));
+  const counts = {};
+  const riot = { call: async (route, p) => {
+    counts[route] = (counts[route] || 0) + 1;
+    if (route === "account") return { puuid: "p1", gameName: "Testeur", tagLine: "EUW" };
+    if (route === "matchIds") return ids;
+    if (route === "match") return games[p.matchId].match;
+    if (route === "timeline") return games[p.matchId].timeline;
+  } };
+  const ctx = { store, riot, references: null };
+  ctx.queue = createQueue(syncWorker(ctx));
+  const r = await handleV1({ method: "GET", path: "/api/v1/players/resolve", query: { riot_id: "Testeur#EUW", platform: "euw1" } }, ctx);
+  assert(r.status === 200 && r.body.player_id, "résolution du Riot ID");
+  const pid = r.body.player_id;
+  const s1 = await handleV1({ method: "POST", path: `/api/v1/players/${pid}/sync` }, ctx);
+  const s1b = await handleV1({ method: "POST", path: `/api/v1/players/${pid}/sync` }, ctx);
+  assert(s1.status === 202 && s1b.body.job_id === s1.body.job_id && s1b.body.already_running, "deux synchronisations ouvertes en même temps");
+  await ctx.queue.idle();
+  assert((await store.getJob(s1.body.job_id)).status === "done", "synchronisation non terminée");
+  assert(counts.match === 12 && counts.timeline === 12, "parties non téléchargées");
+  // Deuxième synchronisation sans nouvelle partie : aucun téléchargement
+  await handleV1({ method: "POST", path: `/api/v1/players/${pid}/sync` }, ctx); await ctx.queue.idle();
+  assert(counts.match === 12, "partie téléchargée deux fois");
+  const active = await handleV1({ method: "GET", path: `/api/v1/players/${pid}/goals/active` }, ctx);
+  assert(active.body.goal?.status === "proposed" && active.body.goal.metric === "cs_at_10", "objectif non proposé");
+  const st = await handleV1({ method: "POST", path: `/api/v1/players/${pid}/goals/${active.body.goal.id}/start` }, ctx);
+  assert(st.body.goal.status === "active", "objectif non démarré");
+  // Cinq nouvelles parties après le démarrage, cible atteinte 4 fois : réussite, archivage, objectif suivant proposé
+  const target = st.body.goal.target, t0 = Date.now() + 1000;
+  const fresh = Array.from({ length: 5 }, (_, i) => `EUW1_${200 + i}`);
+  fresh.forEach((id, i) => mk(id, t0 + i * 1000, i === 4 ? target - 10 : target + 2));
+  ids = [...fresh.reverse(), ...ids];
+  await handleV1({ method: "POST", path: `/api/v1/players/${pid}/sync` }, ctx); await ctx.queue.idle();
+  assert(counts.match === 17, "nouvelles parties mal comptées");
+  const prog = await handleV1({ method: "GET", path: `/api/v1/players/${pid}/progress` }, ctx);
+  assert(prog.body.goals.length === 1 && prog.body.goals[0].outcome === "achieved" && prog.body.goals[0].status === "archived", "réussite non archivée");
+  const next = await handleV1({ method: "GET", path: `/api/v1/players/${pid}/goals/active` }, ctx);
+  assert(next.body.goal?.status === "proposed" && next.body.goal.id !== active.body.goal.id, "objectif suivant absent");
+  // Nouvelle version des métriques : recalcul depuis le JSON brut, sans rappeler Riot
+  const all = await store.listMetrics(pid);
+  for (const m of all) await store.putMetrics(pid, { ...m, metric_version: "ancienne" });
+  const { syncPlayer } = await import("../v1/sync.mjs");
+  const re = await syncPlayer({ store, riot, playerId: pid });
+  assert(re.recomputed === 17 && re.fetched === 0 && counts.match === 17, "recalcul en rappelant Riot");
+  // Erreurs normalisées et suppression RGPD
+  const bad = await handleV1({ method: "GET", path: "/api/v1/players/pas-un-id/matches" }, ctx);
+  assert(bad.status === 400 && bad.body.error.code === "joueur-invalide", "identifiant non validé");
+  assert((await handleV1({ method: "DELETE", path: `/api/v1/players/${pid}` }, ctx)).status === 204 && (await store.listMetrics(pid)).length === 0 && (await store.listGoals(pid)).length === 0, "suppression incomplète");
+  await store.flush();
+  return "Riot ID résolu, une seule synchronisation ouverte, 12 parties téléchargées une fois, objectif proposé puis démarré, réussi sur les 5 parties suivantes, archivé et remplacé ; recalcul de 17 parties sans Riot ; suppression complète.";
+});
+
 await t("COACH-002 Normaliseur sur de vraies parties anonymisées (cache privé)", "réel", async () => {
   const { normalizeMatch, participantAt, laneOpponent } = await import("../normalize.mjs");
   const { readdir, readFile } = await import("node:fs/promises");

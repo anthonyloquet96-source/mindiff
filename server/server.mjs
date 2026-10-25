@@ -36,6 +36,21 @@ const TYPES = {
 // Seuls ces fichiers sont servis : jamais le collecteur, le cache, node_modules ou .env.
 const PUBLIC = [/^(index|admin|confidentialite)\.html$/, /^(i18n|app|coach|coach-select|coach2|admin)\.js$/, /^story\.mjs$/, /^style\.css$/, /^manifest\.webmanifest$/, /^(icon|logo)\.svg$/, /^(icon-\d+|icon-maskable-512|apple-touch-icon|coach-apercu-[a-z-]+)\.png$/, /^data\/[\w-]+\.(js|json)$/];
 
+// Coach V1 : créé une fois (stockage, client Riot avec la clé du .env, file de synchronisation)
+let v1 = null;
+async function coachV1() {
+  if (v1) return v1;
+  const { createStore } = await import("../coach/v1/store.mjs");
+  const { createRiotV1 } = await import("../coach/v1/riot.mjs");
+  const { handleV1, createQueue, syncWorker } = await import("../coach/v1/api.mjs");
+  const key = process.env.RIOT_API_KEY?.trim();
+  const refs = await readFile(join(ROOT, "coach", "cache", "metric-references.json"), "utf8").then(j => JSON.parse(j).references).catch(() => null);
+  const ctx = { store: createStore({ file: join(ROOT, "coach", "cache", "v1", "store.json"), rawDir: join(ROOT, "coach", "cache", "v1", "raw") }), riot: key ? createRiotV1(key) : null, references: refs };
+  ctx.queue = createQueue(syncWorker(ctx));
+  v1 = { ...ctx, handle: q => handleV1(q, ctx) };
+  return v1;
+}
+
 let latest = null;
 let running = false;
 let lastRun = null;
@@ -85,6 +100,14 @@ const server = http.createServer(async (req, res) => {
     return latest ? send(res, 200, latest) : send(res, 503, JSON.stringify({ error: "Première collecte en cours" }));
   }
   if (path === "/api/status" && req.method === "GET") return send(res, 200, JSON.stringify(statusPayload()));
+  // Coach V1 (COACH-004/005) : routes métier, stockage fichier local (même contrat que Supabase), file de synchronisation
+  if (path.startsWith("/api/v1/")) {
+    const ctx = await coachV1();
+    let body = null;
+    if (req.method === "POST") { let raw = ""; for await (const c of req) { raw += c; if (raw.length > 20000) break; } try { body = raw ? JSON.parse(raw) : null; } catch { return send(res, 400, JSON.stringify({ error: { code: "json-invalide", message: "Corps JSON invalide." } })); } }
+    const r = await ctx.handle({ method: req.method, path, query: Object.fromEntries(url.searchParams), body });
+    return send(res, r.status, r.body == null ? "" : JSON.stringify(r.body));
+  }
   if (path === "/api/stream" && req.method === "GET") {
     res.writeHead(200, { "Content-Type": "text/event-stream", "Cache-Control": "no-cache", Connection: "keep-alive" });
     res.write(`event: status\ndata: ${JSON.stringify(statusPayload())}\n\n`);

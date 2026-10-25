@@ -498,3 +498,12 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
   - « ce qui distingue les victoires » est limité aux comportements (farm à 10 min, roams, vision, side lane), car les dégâts, kills et tourelles suivent surtout l'issue de la partie.
 - **Résultat :** 91 couples ont un plan, d'une à quatre lignes.
 - **Route** `/api/coach/plan` sur le serveur local seulement (données de la clé de développement), et nouveau test des plans.
+
+## 25/10/2026 — Plans de jeu, tour 2 : branchement
+
+- **Astuces de la fiche officielle Riot** (`u-dd-*`) retirées du coach : face-à-face, draft, carte en partie, bilan d'une partie. Elles restent sur la fiche du champion. Anthony les juge trop évidentes (« attention à l'ult de Garen »).
+- **Préparer :**
+  - verdict en une phrase sur le pool : les écarts sont comparés à la marge de leur différence ;
+  - carte « Ton plan » du champion choisi (lignes mesurées et rythme : 1er retour, retours avant 14 min, 1er grand item).
+- **Carte partie en cours :** prochain repère selon le chrono et première ligne du plan, les autres repliées.
+- Capture du téléphone faite pour Préparer. Carte en partie à capturer quand un joueur suivi sera en partie.

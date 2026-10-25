@@ -506,6 +506,8 @@ function c2Live(p) {
   const me = l.me, op = l.opponent;
   const opName = op ? c2Name(op.champion) : null;
   const tips = opName ? c2TipsFor(opName).against.slice(0, 3) : [];
+  setTimeout(() => c2LoadPlan(me.champion, me.role), 0);
+  const plan = c2ui.plan?.[`${me.champion}|${me.role}`]?.data;
   const g = p.goal && p.mainRole === me.role ? p.goal : null;
   const ORDER = ["top", "jungle", "mid", "bottom", "support"];
   const team = (list, side) => `<div class="c2-team ${side}">${[...list].sort((a, b) => ORDER.indexOf(a.role) - ORDER.indexOf(b.role)).map(x => `<span class="c2-tm ${x.champion === me.champion && side === "ally" ? "me" : ""}">${c2Img(x.champion)}<i>${esc(C2_ROLE[x.role] || "")}${x.sure ? "" : "?"}</i></span>`).join("")}</div>`;
@@ -514,12 +516,56 @@ function c2Live(p) {
     <div class="c2-duel compact">${c2Img(me.champion, "c2-av lg")}<p class="c2-live-title">${esc(c2Name(me.champion))} ${esc(C2_ROLE[me.role] || "")}${op ? `<span class="muted"> contre </span>${esc(opName)}` : ""}</p>${op ? c2Img(op.champion, "c2-av lg") : c2Img(null, "c2-av lg")}</div>
     ${!me.sure || (op && !op.sure) ? `<p class="fine">Rôles estimés : Riot ne les donne pas pendant la partie.</p>` : ""}
     ${g ? `<div class="c2-remind"><p class="label">Ton objectif</p><p><b>${esc(g.label)}</b> : ${g.better === "high" ? "au moins" : "au plus"} ${c2n(g.target)}${esc(g.unit)}</p></div>` : ""}
-    ${tips.length ? `<div><p class="label">Contre ${esc(opName)}</p><ul class="c2-tiplist">${c2Tip(tips[0])}</ul>${tips.length > 1 ? `<details class="more c2-fold" data-fold="live-tips"${c2ui.fold?.["live-tips"] ? " open" : ""}><summary>${tips.length - 1} autre${tips.length > 2 ? "s" : ""} conseil${tips.length > 2 ? "s" : ""} contre ${esc(opName)}</summary><ul class="c2-tiplist">${tips.slice(1).map(c2Tip).join("")}</ul></details>` : ""}</div>` : ""}
+    ${c2PlanLive(plan, mins, me.champion)}
+    ${tips.length ? `<div><p class="label">Coachs sur ce duel</p><ul class="c2-tiplist">${c2Tip(tips[0])}</ul>${tips.length > 1 ? `<details class="more c2-fold" data-fold="live-tips"${c2ui.fold?.["live-tips"] ? " open" : ""}><summary>${tips.length - 1} autre${tips.length > 2 ? "s" : ""} conseil${tips.length > 2 ? "s" : ""} contre ${esc(opName)}</summary><ul class="c2-tiplist">${tips.slice(1).map(c2Tip).join("")}</ul></details>` : ""}</div>` : ""}
     <div class="c2-live-teams">${team(l.allies, "ally")}${team(l.enemies, "enemy")}</div>
     ${c2LiveBuild(l.build, me.champion)}
     <div class="c2-actions"><a class="btn primary" href="${c2Href("draft")}" data-action="c2-draft-live">Compositions</a>
     ${op ? `<a class="btn ghost" href="${c2Href("face")}" data-action="c2-face-live" data-me="${esc(c2Name(me.champion))}" data-vs="${esc(opName)}">Face-à-face</a>` : ""}</div>
   </section>`;
+}
+
+// ---------- Plan de jeu d'un champion à un poste (mesuré sur les parties Diamant+, serveur du coach)
+async function c2LoadPlan(champ, role) {
+  const k = `${champ}|${role}`;
+  if (!champ || !role || C2_API == null || c2ui.plan?.[k]) return;
+  (c2ui.plan ||= {})[k] = { loading: true };
+  try { c2ui.plan[k] = { data: await c2Fetch("plan", { champion: champ, role, name: c2Name(champ) }) }; } catch (e) { c2ui.plan[k] = { error: e.message }; }
+  render(false);
+}
+// Minutes décimales en m:ss (3,9 → 3:54)
+const c2Min = m => c2Clock(Math.round(m * 60) * 1000);
+// Rythme : premier retour, retours avant 14 min, premier grand item (médiane et trois quarts)
+function c2Rhythm(r) {
+  if (!r) return "";
+  const who = r.level === "champion" ? "ce champion à ce poste" : "ce poste";
+  return `<div class="c2-rhythm">
+    <div><b>${c2Min(r.firstBack.p50)}</b><span>1er retour en base${r.firstBackGold ? `, avec environ ${c2n(Math.round(r.firstBackGold / 10) * 10)} or` : ""}</span></div>
+    <div><b>×${c2n(r.backs14)}</b><span>retours avant 14 min</span></div>
+    <div><b>${c2Min(r.legendaryMin.p50)}</b><span>1er grand item ; les trois quarts l'ont avant ${c2Min(r.legendaryMin.p75)}</span></div>
+    <p class="fine">Diamant+ sur ${who} · ${c2n(r.n)} parties</p></div>`;
+}
+function c2PlanCard(champ, role) {
+  setTimeout(() => c2LoadPlan(champ, role), 0);
+  const res = c2ui.plan?.[`${champ}|${role}`];
+  if (!res || res.loading) return `<div class="c2-card c2-loading">Plan de jeu…</div>`;
+  if (res.error || !res.data) return "";
+  const d = res.data;
+  return `<section class="c2-card c2-plan"><p class="label">Ton plan sur ${esc(c2Name(champ))} ${esc(C2_ROLE[role] || "")}</p>
+    ${d.lines.length ? `<ul class="c2-planlist">${d.lines.map(l => `<li>${esc(l.text)}</li>`).join("")}</ul>` : `<p class="fine">Pas encore assez de parties Diamant+ pour décrire un style propre à ce champion (${c2n(d.n)} parties, il en faut ${c2n(d.minGames || 80)} et des écarts nets).</p>`}
+    ${d.rhythm ? `<p class="label">Ton rythme</p>${c2Rhythm(d.rhythm)}` : ""}
+  </section>`;
+}
+// En partie : le prochain repère selon le chrono (Riot ne donne ni l'or ni les items), puis la ligne de plan la plus marquée
+function c2PlanLive(d, mins, champ) {
+  if (!d) return "";
+  const r = d.rhythm;
+  const next = !r ? null : mins < r.firstBack.p50 ? { at: r.firstBack.p50, what: "1er retour en base" } : mins < r.legendaryMin.p75 ? { at: r.legendaryMin.p50, what: "1er grand item", note: `les trois quarts l'ont avant ${c2Min(r.legendaryMin.p75)}` } : null;
+  const pct = next ? Math.min(100, Math.round(100 * mins / next.at)) : 0;
+  return `${next ? `<div class="c2-next"><p class="label">Prochain repère</p><div class="c2-next-bar"><span style="width:${pct}%"></span></div>
+      <p><b>${c2Min(next.at)}</b> · ${esc(next.what)}${next.note ? ` <span class="fine">(${esc(next.note)})</span>` : ""}</p>
+      <p class="fine">Médiane des Diamant+ sur ${r.level === "champion" ? esc(c2Name(champ)) + " à ce poste" : "ce poste"}.</p></div>` : ""}
+    ${d.lines.length ? `<div><p class="label">Ton plan</p><ul class="c2-planlist"><li>${esc(d.lines[0].text)}</li></ul>${d.lines.length > 1 ? `<details class="more c2-fold" data-fold="live-plan"${c2ui.fold?.["live-plan"] ? " open" : ""}><summary>${d.lines.length - 1} autre${d.lines.length > 2 ? "s" : ""} point${d.lines.length > 2 ? "s" : ""} du plan</summary><ul class="c2-planlist">${d.lines.slice(1).map(l => `<li>${esc(l.text)}</li>`).join("")}</ul></details>` : ""}</div>` : ""}`;
 }
 
 // ---------- Build pour la partie en cours : build habituel, puis ce qui change face à cette équipe adverse
@@ -901,8 +947,10 @@ function c2Timeline(r) {
 }
 
 // ---------- Face-à-face et fiches champions (base du coach, sans compte)
-function c2TipsFor(name) {
-  const units = COACH.units.filter(u => ["exploitable", "provisoire"].includes(u.status) && u.usage !== "correction");
+// Les astuces de la fiche officielle (Data Dragon, « attention à son ultime ») sont trop évidentes pour le coach :
+// elles ne restent que sur la fiche du champion (withRiot)
+function c2TipsFor(name, withRiot = false) {
+  const units = COACH.units.filter(u => ["exploitable", "provisoire"].includes(u.status) && u.usage !== "correction" && (withRiot || !u.id?.startsWith("u-dd-")));
   return {
     play: units.filter(u => u.champions?.includes(name) && !u.matchup),
     against: units.filter(u => u.matchup?.vs === name),
@@ -954,7 +1002,7 @@ function c2Face() {
     ${b ? `<section class="c2-card"><p class="label">Contre ${esc(vsName)}</p>${b.against.length ? `<ul class="c2-tiplist">${b.against.map(c2Tip).join("")}</ul>` : `<p class="fine">Aucun conseil vérifié pour affronter ${esc(vsName)} pour l'instant.</p>`}</section>` : ""}
     ${a ? `<section class="c2-card"><p class="label">Bien jouer ${esc(meName)}</p>${a.play.length ? `<ul class="c2-tiplist">${a.play.slice(0, 6).map(c2Tip).join("")}</ul>` : `<p class="fine">Aucun conseil vérifié pour ${esc(meName)} pour l'instant.</p>`}</section>` : ""}
     ${vids.length ? `<section class="sec"><div class="sec-head"><h2 class="sec-title">Vidéos de coachs</h2></div>${c2VideoList(vids)}</section>` : ""}
-    <p class="fine c2-foot">Conseils officiels de Riot et avis attribués de coachs, contrôlés avant publication. Les statistiques de ce duel sont dans « Ma partie (draft) ».</p>`;
+    <p class="fine c2-foot">Avis attribués de coachs et notes de patch, contrôlés avant publication ; les astuces de base de Riot sont sur la fiche du champion. Les statistiques de ce duel sont dans « Ma partie (draft) ».</p>`;
 }
 
 function c2Champions() {
@@ -965,7 +1013,7 @@ function c2Champions() {
 }
 function c2Champion(id) {
   const name = c2Name(id);
-  const t = c2TipsFor(name);
+  const t = c2TipsFor(name, true);
   const coaching = t.play.filter(u => u.nature !== "officiel");
   const vids = c2VideosFor(name);
   setTimeout(() => c2LoadChamp(id), 0);
@@ -1011,11 +1059,19 @@ function c2DraftResult(d, { myRole = null, compact = false } = {}) {
   const comps = `<section class="c2-card"><p class="label">Compositions</p><div class="c2-comps">${comp(d.comps.allies, "Ton équipe")}${comp(d.comps.enemies, "Adversaires")}</div><p class="c2-legend fine"><span><i class="lg ad"></i>physiques</span><span><i class="lg ap"></i>magiques</span><span><i class="lg tr"></i>bruts</span></p></section>`;
   // Conseils vérifiés de la base pour ton duel
   const tips = myLane ? c2TipsFor(c2Name(myLane.enemy)).against.slice(0, 3) : [];
-  const kb = tips.length ? `<section class="c2-card"><p class="label">Contre ${esc(c2Name(myLane.enemy))} : ce qu'en disent les coachs</p><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></section>` : "";
-  const pool = !compact && d.pool.length ? `<section class="c2-card"><p class="label">Mes champions dans cette partie</p><ul class="c2-mu">${d.pool.map((x, i) => `<li class="${i === 0 && (x.lane?.enough || x.vsComp?.enough) ? "me" : ""}"><span class="c2-mu-duel">${c2Img(x.c, "c2-av sm")}<b>${esc(c2Name(x.c))}</b></span>
+  const kb = tips.length ? `<section class="c2-card"><p class="label">Coachs sur le duel contre ${esc(c2Name(myLane.enemy))}</p><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></section>` : "";
+  // Verdict en une phrase : si tous les écarts tiennent dans la marge, rien ne départage les champions du pool
+  const sure = d.pool.filter(x => x.vsComp?.enough);
+  const spread = sure.length > 1 ? Math.max(...sure.map(x => x.vsComp.winrate)) - Math.min(...sure.map(x => x.vsComp.winrate)) : null;
+  // Écart entre le premier et le dernier comparé à la marge de leur différence (les deux marges se combinent)
+  const even = spread != null && spread <= Math.hypot(sure[0].vsComp.margin, sure.at(-1).vsComp.margin);
+  const verdict = !compact && sure.length > 1 ? `<div class="c2-verdict"><p><b>${even ? `Tes ${sure.length} champions se valent face à cette équipe.` : `${esc(c2Name(sure[0].c))} s'en sort le mieux face à cette équipe.`}</b></p>
+      <p>${even ? `Chez les Diamant+, leurs taux de victoire face à cette composition vont de ${c2n(Math.min(...sure.map(x => x.vsComp.winrate)))} à ${c2n(Math.max(...sure.map(x => x.vsComp.winrate)))} %, dans la marge d'erreur. Prends celui que tu maîtrises le mieux.` : `Chez les Diamant+ : ${c2n(sure[0].vsComp.winrate)} % face à cette composition, contre ${c2n(sure.at(-1).vsComp.winrate)} % pour ${esc(c2Name(sure.at(-1).c))}.`}</p></div>` : "";
+  const pool = !compact && d.pool.length ? `${verdict}<section class="c2-card"><p class="label">Mes champions dans cette partie</p><ul class="c2-mu">${d.pool.map((x, i) => `<li class="${i === 0 && (x.lane?.enough || x.vsComp?.enough) ? "me" : ""}"><span class="c2-mu-duel">${c2Img(x.c, "c2-av sm")}<b>${esc(c2Name(x.c))}</b></span>
       <span class="c2-mu-stat"><span class="fine">duel</span>${x.lane ? c2Rate(x.lane, true) : `<span class="c2-rate none">—</span>`}<span class="fine">contre leur compo</span>${c2Rate(x.vsComp, true)}</span></li>`).join("")}</ul>
       <p class="fine">Classés du plus sûr au moins sûr. Sans assez de parties, aucun champion n'est mis en avant.</p></section>` : "";
-  return `${lanes}${bot}${me}${kb}${comps}${pool}<p class="fine c2-foot">Statistiques sur ${c2n(d.games)} parties classées Diamant+ (EUW) des ${d.days} derniers jours. Sous ${d.minGames} parties, le coach ne donne pas de verdict.</p>`;
+  const plan = !compact && d.me ? c2PlanCard(d.me.c, myRole) : "";
+  return `${pool}${plan}${lanes}${bot}${me}${kb}${comps}<p class="fine c2-foot">Statistiques sur ${c2n(d.games)} parties classées Diamant+ (EUW) des ${d.days} derniers jours. Sous ${d.minGames} parties, le coach ne donne pas de verdict.</p>`;
 }
 
 // ---------- Préparer ma partie : draft (saisie libre ou partie en cours), pool de champions

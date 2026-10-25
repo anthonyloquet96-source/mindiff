@@ -10,7 +10,7 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 - [x] COACH-008 Cycle de vie (`coach/goals.mjs`)
 
 ## À faire, dans l'ordre
-1. [ ] Batterie de tests sur de vrais joueurs (clé de développement, privé) : historique de 30 ranked mid/jungle, diagnostic, objectif, évaluation rejouée sur les parties suivantes. Noter chaque incohérence et corriger.
+1. [x] Batterie de tests sur de vrais joueurs (clé de développement, privé) : historique de 30 ranked mid/jungle, diagnostic, objectif, évaluation rejouée sur les parties suivantes. Noter chaque incohérence et corriger.
 2. [x] Brancher l'ancien code sur le normaliseur (review.mjs, situations.mjs, styles.mjs, tactics.mjs lisent `frames[i]`).
 3. [x] COACH-003 Migration Supabase (SQL + RLS) et tests d'autorisation locaux (Postgres embarqué), sans compte.
 4. [x] COACH-004/005 Routes `/api/v1` : d'abord dans le serveur local avec un stockage fichier (même contrat que le Worker), file de synchronisation idempotente, limite de débit Riot (en-têtes, Retry-After), puis le Worker.
@@ -36,6 +36,8 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 
 - 00:25 — Répartition des objectifs (séries 1 et 2 rejouées, 28 objectifs) : sbires 14 (10 min 10, 15 min 3, par minute 1), vision 7, morts 6, participation 1 ; la domination de « sbires à 10 min » s'est réduite avec la marche au quart supérieur. Les trois métriques de sbires forment désormais une famille : deux échecs de suite mettent de côté toute la famille, pas une seule métrique.
 
+- 01:00 — Séries 1 et 2 terminées (60 joueurs, Fer → Challenger), rejouées avec le moteur actuel : 52 objectifs ; 18 réussis, 25 ratés, 2 inconclusifs, 7 en cours, 8 sans objectif (tous « moins de 8 parties au même poste » sur l'historique de test). Les cibles sont atteintes dans 25 à 50 % des parties passées du joueur (médiane 41 %) : ni trop faciles, ni hors de portée. Réussite sans suivre le coach : 42 % des objectifs tranchés. Objectifs : sbires 29 (10 min 19, 15 min 7, par minute 3), morts 11, vision 10, participation 2.
+
 ## Pistes suivantes (à trier)
-- Relancer la batterie complète avec les corrections (nouvelle série) et suivre le taux de réussite par palier.
+- Worker Cloudflare + stockage Supabase : écrire et tester avec des réponses simulées (sans compte), brancher quand Anthony aura créé les comptes.
 - Worker Cloudflare avec stockage Supabase (bloqué : comptes à créer par Anthony).

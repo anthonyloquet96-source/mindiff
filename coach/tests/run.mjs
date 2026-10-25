@@ -770,6 +770,52 @@ await t("COACH-008 Cycle de vie : proposé → actif → en évaluation → réu
   return "réussite à 3/5 même en perdant, échec à 2/5 même en gagnant, inconclusif sous 4 valides ou après un changement de rôle ; transitions contrôlées, un seul objectif ouvert, métrique ratée deux fois mise de côté.";
 });
 
+await t("COACH-003 Base Supabase : RLS (lecture du propriétaire seulement, aucune écriture client), un objectif ouvert, suppression RGPD", "fixture", async () => {
+  const { PGlite } = await import("@electric-sql/pglite");
+  const { readFile } = await import("node:fs/promises");
+  const db = new PGlite();
+  // Ce que Supabase fournit : schéma auth, auth.uid() lu dans le jeton, rôles, droits par défaut (la RLS fait le tri)
+  await db.exec(`create schema auth; create table auth.users (id uuid primary key);
+    create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('request.jwt.claim.sub', true), '')::uuid $$;
+    create role anon nologin; create role authenticated nologin; grant usage on schema public, auth to anon, authenticated; grant execute on function auth.uid() to anon, authenticated;`);
+  await db.exec(await readFile(new URL("../../supabase/migrations/20261026000000_coach_v1.sql", import.meta.url), "utf8"));
+  await db.exec(`grant select, insert, update, delete on all tables in schema public to anon, authenticated;`);
+  const A = "00000000-0000-0000-0000-00000000000a", B = "00000000-0000-0000-0000-00000000000b";
+  await db.exec(`insert into auth.users values ('${A}'), ('${B}');
+    insert into public.players (id, puuid, platform, user_id) values ('10000000-0000-0000-0000-00000000000a', 'puuid-a', 'euw1', '${A}'), ('10000000-0000-0000-0000-00000000000b', 'puuid-b', 'euw1', '${B}');
+    insert into public.matches (match_id, platform, timeline_status, normalizer_version) values ('EUW1_1', 'euw1', 'ok', 'normalize-1'), ('EUW1_2', 'euw1', 'ok', 'normalize-1');
+    insert into public.match_metrics (match_id, player_id, role, valid, metrics, metric_version) values ('EUW1_1', '10000000-0000-0000-0000-00000000000a', 'MIDDLE', true, '{}', 'metrics-1'), ('EUW1_2', '10000000-0000-0000-0000-00000000000b', 'JUNGLE', true, '{}', 'metrics-1');
+    insert into public.coaching_goals (id, player_id, metric, role, direction, baseline, target, version, status) values ('20000000-0000-0000-0000-00000000000a', '10000000-0000-0000-0000-00000000000a', 'cs_at_10', 'MIDDLE', 'higher', 60, 65, 'coach-v1', 'active');
+    insert into public.goal_evaluations (goal_id, match_id, counted, value, met) values ('20000000-0000-0000-0000-00000000000a', 'EUW1_1', true, 66, true);
+    insert into public.metric_references (role, metric, metric_version, level, region, n, p50) values ('MIDDLE', 'cs_at_10', 'metrics-1', 'Diamant et plus', 'EUW', 8008, 78);`);
+  const as = async (user, sql) => { await db.exec(`set role ${user ? "authenticated" : "anon"}; select set_config('request.jwt.claim.sub', '${user || ""}', false);`); try { return await db.query(sql); } finally { await db.exec("reset role;"); } };
+  const count = async (user, table) => (await as(user, `select count(*)::int n from public.${table}`)).rows[0].n;
+  for (const tb of ["players", "matches", "match_metrics", "coaching_goals", "goal_evaluations"]) {
+    assert(await count(A, tb) === 1, `${tb} : A ne voit pas exactement ses lignes`);
+    assert(await count(null, tb) === 0, `${tb} : visible sans connexion`);
+  }
+  assert((await as(B, "select match_id from public.matches")).rows[0].match_id === "EUW1_2", "B voit une partie de A");
+  assert(await count(B, "coaching_goals") === 0 && await count(B, "goal_evaluations") === 0, "B voit l'objectif de A");
+  assert(await count(B, "metric_references") === 1, "références agrégées illisibles");
+  // Aucune écriture côté client, même sur ses propres lignes
+  let denied = 0;
+  for (const sql of [`insert into public.coaching_goals (player_id, metric, role, direction, baseline, target, version, status) values ('10000000-0000-0000-0000-00000000000a', 'cs_at_10', 'MIDDLE', 'higher', 1, 2, 'x', 'proposed')`,
+    `update public.coaching_goals set status = 'achieved'`, `delete from public.players`]) {
+    try { const r = await as(A, sql); if (!r.affectedRows) denied++; } catch { denied++; }
+  }
+  assert(denied === 3, "un client peut écrire");
+  // Un seul objectif ouvert par joueur
+  let unique = false;
+  try { await db.exec(`insert into public.coaching_goals (player_id, metric, role, direction, baseline, target, version, status) values ('10000000-0000-0000-0000-00000000000a', 'early_deaths', 'MIDDLE', 'lower', 3, 2, 'coach-v1', 'evaluating')`); } catch { unique = true; }
+  assert(unique, "deux objectifs ouverts acceptés");
+  // Suppression RGPD : le joueur et tout ce qui le concerne
+  await db.exec(`delete from public.players where puuid = 'puuid-a'`);
+  const left = (await db.query(`select (select count(*) from public.match_metrics where player_id = '10000000-0000-0000-0000-00000000000a')::int + (select count(*) from public.coaching_goals)::int + (select count(*) from public.goal_evaluations)::int n`)).rows[0].n;
+  assert(left === 0, "données restantes après suppression du joueur");
+  await db.close();
+  return "chaque utilisateur ne lit que ses joueurs, parties, métriques, objectifs et évaluations ; rien sans connexion ; aucune écriture client ; un seul objectif ouvert ; suppression du joueur en cascade.";
+});
+
 await t("COACH-002 Normaliseur sur de vraies parties anonymisées (cache privé)", "réel", async () => {
   const { normalizeMatch, participantAt, laneOpponent } = await import("../normalize.mjs");
   const { readdir, readFile } = await import("node:fs/promises");

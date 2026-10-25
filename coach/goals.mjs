@@ -87,7 +87,10 @@ export function prioritize(games, role, { references = null, exclude = [], stepF
 export function proposeGoal(games, role, { references = null, pastGoals = [], now = Date.now() } = {}) {
   // Deux échecs de suite sur une métrique : on la met de côté ; un seul échec : même métrique, marche réduite de moitié
   const last = pastGoals.filter(g => ["achieved", "failed", "inconclusive", "archived"].includes(g.status) && g.role === role).sort((a, b) => b.created_at - a.created_at);
-  const exclude = [...new Set(last.filter((g, i) => g.outcome === "failed" && last[i + 1]?.outcome === "failed" && last[i + 1]?.metric === g.metric).map(g => g.metric))];
+  // Une même compétence (famille : sbires à 10 min, à 15 min, par minute) compte comme une seule métrique
+  const fam = k => CATALOG[k]?.family || k;
+  const failedFam = [...new Set(last.filter((g, i) => g.outcome === "failed" && last[i + 1]?.outcome === "failed" && fam(last[i + 1]?.metric) === fam(g.metric)).map(g => fam(g.metric)))];
+  const exclude = Object.keys(CATALOG).filter(k => failedFam.includes(fam(k)));
   const failedOnce = last[0]?.outcome === "failed" && !exclude.includes(last[0].metric) ? last[0].metric : null;
   let rows = prioritize(games, role, { references, exclude });
   if (failedOnce) {

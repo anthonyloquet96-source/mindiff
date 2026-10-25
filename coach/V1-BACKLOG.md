@@ -34,7 +34,8 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 
 - 00:20 — Série 1 terminée (30 joueurs Fer → Challenger). Rejouée avec le moteur corrigé : tous les joueurs Master+ ont maintenant un objectif (marche au quart supérieur). Bilan : 7 réussis, 13 ratés, 1 inconclusif, 4 en cours, 5 sans objectif. À lire avec prudence : ces joueurs ne suivaient pas le coach ; avec une cible au 65e centile personnel, la réussite « par hasard » (3 parties sur 5) tourne autour de 25 %, ce qui correspond à ce qu'on observe (35 %). Ajout : progrès minimal d'un quart d'écart typique (0,504 → 0,51 de vision était atteint sans effort). Série 2 lancée (40 parties, rôle principal réel).
 
+- 00:25 — Répartition des objectifs (séries 1 et 2 rejouées, 28 objectifs) : sbires 14 (10 min 10, 15 min 3, par minute 1), vision 7, morts 6, participation 1 ; la domination de « sbires à 10 min » s'est réduite avec la marche au quart supérieur. Les trois métriques de sbires forment désormais une famille : deux échecs de suite mettent de côté toute la famille, pas une seule métrique.
+
 ## Pistes suivantes (à trier)
 - Relancer la batterie complète avec les corrections (nouvelle série) et suivre le taux de réussite par palier.
-- « Sbires à 10 min » domine : vérifier si I × A favorise trop cette métrique.
 - Worker Cloudflare avec stockage Supabase (bloqué : comptes à créer par Anthony).

@@ -768,7 +768,7 @@ await t("COACH-008 Cycle de vie : proposé → actif → en évaluation → réu
   const games = Array.from({ length: 12 }, (_, i) => G(100 + i, 58 + (i % 7), { deaths: 4 }));
   const past = [{ metric: "cs_at_10", role: "MIDDLE", status: "archived", outcome: "failed", created_at: 2 }, { metric: "cs_at_10", role: "MIDDLE", status: "archived", outcome: "failed", created_at: 1 }];
   const next = proposeGoal(games, "MIDDLE", { pastGoals: past });
-  assert(next.goal && next.goal.metric !== "cs_at_10", "métrique ratée deux fois reproposée");
+  assert(next.goal && !["cs_at_10", "cs_at_15", "cs_per_min"].includes(next.goal.metric), "compétence ratée deux fois reproposée (même famille)");
   const once = proposeGoal(games, "MIDDLE", { pastGoals: past.slice(0, 1) });
   const fresh = proposeGoal(games, "MIDDLE");
   assert(once.goal.metric === "cs_at_10" && fresh.goal.metric === "cs_at_10" ? once.goal.target <= fresh.goal.target : true, "marche non réduite après un échec");

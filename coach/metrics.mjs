@@ -12,17 +12,17 @@ const MIN = 60000;
 // Valeurs prudentes, arrondies, à remplacer par les références mesurées dès qu'elles passent leur seuil d'échantillon.
 export const CATALOG = {
   cs_at_10: {
-    label: "Sbires à 10 min", unit: "sbires", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.8, actionability: 0.9,
+    label: "Sbires à 10 min", family: "farm", unit: "sbires", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.8, actionability: 0.9,
     pedagogical: { MIDDLE: 70, TOP: 65, BOTTOM: 70, JUNGLE: 55 }, decimals: 0, kbThemes: ["lane", "vagues"],
     exercise: t => `Vise ${t} sbires à 10:00. Repère intermédiaire : environ ${Math.round(t / 2)} à 5:00 ; si tu es en dessous, ne force pas d'échange qui te fait rater des sbires.`,
   },
   cs_at_15: {
-    label: "Sbires à 15 min", unit: "sbires", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.7, actionability: 0.8,
+    label: "Sbires à 15 min", family: "farm", unit: "sbires", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.7, actionability: 0.8,
     pedagogical: { MIDDLE: 110, TOP: 100, BOTTOM: 110, JUNGLE: 90 }, decimals: 0, kbThemes: ["lane", "vagues"],
     exercise: t => `Vise ${t} sbires à 15:00 : après chaque retour en base, reviens prendre la wave avant de chercher un combat.`,
   },
   cs_per_min: {
-    label: "Sbires par minute", unit: "/min", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.6, actionability: 0.7,
+    label: "Sbires par minute", family: "farm", unit: "/min", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.6, actionability: 0.7,
     pedagogical: { MIDDLE: 7, TOP: 6.5, BOTTOM: 7, JUNGLE: 5.5 }, decimals: 1, kbThemes: ["lane", "vagues"],
     exercise: t => `Vise ${String(t).replace(".", ",")} sbires par minute sur toute la partie : entre deux combats, prends les waves proches de toi.`,
   },

@@ -15,7 +15,7 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 3. [x] COACH-003 Migration Supabase (SQL + RLS) et tests d'autorisation locaux (Postgres embarqué), sans compte.
 4. [x] COACH-004/005 Routes `/api/v1` : d'abord dans le serveur local avec un stockage fichier (même contrat que le Worker), file de synchronisation idempotente, limite de débit Riot (en-têtes, Retry-After), puis le Worker.
 5. [x] COACH-009 Tableau de bord de l'objectif (accueil du coach) ; Préparer et la carte en partie masqués derrière un drapeau.
-6. [ ] Exercices tirés de la base de conseils (conseils sourcés par thème de la métrique) et des plans de jeu.
+6. [x] Exercices tirés de la base de conseils (conseils sourcés par thème de la métrique) et des plans de jeu.
 7. [ ] COACH-010 Tuteur IA (cite le diagnostic, admet ses limites).
 
 ## À faire par Anthony (plus tard)
@@ -28,3 +28,4 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 - 00:05 — COACH-004/005 : `coach/v1/` (client Riot avec limites lues dans les en-têtes, Retry-After, recul sur 5xx, liste blanche ; stockage fichier au contrat Supabase ; synchronisation idempotente ; routes /api/v1 dans le serveur local). Essai réel : 30 parties synchronisées, objectif vision en support 1,66 → 2,00. Le Worker reprendra api.mjs avec un stockage Supabase quand le projet existera.
 - 00:20 — COACH-009 : carte « Mon objectif » en tête de Mon suivi (synchronisation automatique, objectif proposé avec repère et exercice, « Je commence », 5 pastilles d'évaluation, résultat du précédent). Onglet Préparer et carte en partie masqués (localStorage mindiff-extras = 1 pour les revoir). Vérifié par capture téléphone sur un vrai compte.
 - 00:35 — Batterie (12 joueurs Fer → Or) : la cible « médiane + un écart typique » n'était atteinte que dans 8 à 33 % des parties du joueur lui-même, 5 objectifs tranchés sur 6 ratés. Cible recalée sur le 65e centile personnel (60e après un échec), plafonnée à la référence. Rejeu : 2 réussis, 2 ratés (dont un joueur à 0/5 en net recul), cibles 64→65, 71→76, 53→56. Constat : la moitié des joueurs n'ont pas 8 parties au même poste sur 20 ; « sbires à 10 min » domine.
+- 00:50 — Tâche 6 : la carte d'objectif ajoute « Ce qu'en disent les coachs » (2 conseils sourcés de la base, du thème de la métrique et du poste, ceux qui parlent du geste en premier, sélection stable). Vérifié : vision en support → Dignitas et sendo, avec quand / comment / pourquoi.

@@ -378,14 +378,27 @@ function c2V1Card(p) {
   const head = `<p class="label">${g.status === "proposed" ? "Ton prochain objectif" : "Ton objectif en cours"} · ${esc(C2_V1_ROLE[g.role] || g.role)}</p>
     <h3 class="c2-v1-title">${esc(g.label)} : ${g.direction === "lower" ? "au plus" : "au moins"} <b>${esc(g.target_text)}</b></h3>
     <p class="fine">Aujourd'hui : ${esc(g.baseline_text)} (médiane de tes dernières parties). ${ref}</p>`;
+  const tips = c2V1Tips(g);
+  const tipsHtml = tips.length ? `<details class="more c2-fold" data-fold="v1-tips"${c2ui.fold?.["v1-tips"] ? " open" : ""}><summary>Ce qu'en disent les coachs (${tips.length})</summary><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></details>` : "";
   const body = g.status === "proposed"
-    ? `${g.exercise ? `<p class="c2-v1-ex">${esc(g.exercise)}</p>` : ""}<p class="fine">Réussi si tu atteins la cible dans ${g.success_required} de tes ${g.evaluation_games} prochaines ranked à ce poste. Gagner ou perdre ne compte pas.</p>
+    ? `${g.exercise ? `<p class="c2-v1-ex">${esc(g.exercise)}</p>` : ""}${tipsHtml}<p class="fine">Réussi si tu atteins la cible dans ${g.success_required} de tes ${g.evaluation_games} prochaines ranked à ce poste. Gagner ou perdre ne compte pas.</p>
       <button class="btn primary" data-action="c2-v1-start" data-id="${esc(g.id)}">Je commence</button>`
     : `<div class="c2-v1-dots" aria-label="${evs.filter(e => e.met).length} cibles atteintes sur ${evs.length} parties">${dots}</div>
       <p class="fine">${evs.filter(e => e.met).length} / ${g.success_required} réussites nécessaires · ${evs.length} / ${g.evaluation_games} parties jouées</p>
-      ${g.exercise ? `<p class="c2-v1-ex">${esc(g.exercise)}</p>` : ""}
+      ${g.exercise ? `<p class="c2-v1-ex">${esc(g.exercise)}</p>` : ""}${tipsHtml}
       <button class="btn ghost sm" data-action="c2-v1-sync"${V.busy ? " disabled" : ""}>${V.busy ? "Mise à jour…" : "Mettre à jour mes parties"}</button>`;
   return `<section class="c2-card c2-v1">${lastTxt}${head}${body}${V.error ? `<p class="fine">${esc(V.error)}</p>` : ""}</section>`;
+}
+// Exercice sourcé : conseils de coachs vérifiés de notre base sur le thème de la métrique (même sélection que « Comment
+// progresser », sans la mémoire de page pour rester stable d'un affichage à l'autre) ; ceux qui parlent du geste passent devant
+const C2_V1_LEARN = { cs_at_10: "cs10", cs_at_15: "cs10", cs_per_min: "csMin", early_deaths: "deaths30", vision_per_min: "visionMin", kill_participation: "kp" };
+function c2V1Tips(g) {
+  const L = C2_LEARN[C2_V1_LEARN[g.metric]], role = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "bottom", UTILITY: "support" }[g.role];
+  if (!L || !COACH) return [];
+  return COACH.units.filter(u => ["exploitable", "provisoire"].includes(u.status) && u.usage !== "correction" && u.nature !== "officiel" && !u.champions?.length && u.use?.when
+      && u.context?.queue !== "competition" && u.themes?.some(t => L.themes.includes(t)) && (u.roles?.includes("all") || u.roles?.includes(role)))
+    .map(u => ({ u, hit: L.re.test(`${u.claim} ${u.use.when}`) ? 1 : 0 }))
+    .sort((a, b) => b.hit - a.hit || (a.u.status !== "exploitable") - (b.u.status !== "exploitable") || a.u.id.localeCompare(b.u.id)).slice(0, 2).map(x => x.u);
 }
 const c2V1Fmt = (g, v) => (v == null ? "—" : g.unit === "%" ? `${Math.round(v * 100)} %` : (Math.round(v * 100) / 100).toString().replace(".", ","));
 

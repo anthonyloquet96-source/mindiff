@@ -49,22 +49,35 @@ export function checkUnit(u, ctx) {
   if (!u.patch || typeof u.patch.known !== "boolean") flag("schema", "Patch non renseigné (même inconnu, il doit être déclaré).", true);
 
   const ev = u.evidence || [];
+  const autoOk = ev.some(e => e.autoChecked?.said && e.autoChecked?.supported);
+  const fundamental = !u.metaDependent && !(u.champions || []).length && !(u.dependsOn || []).some(d => d.includes("/") || d.startsWith("item:"))
+    && (u.themes || []).some(t => ["vagues", "vision", "macro", "methode"].includes(t)) && !(u.themes || []).some(t => ["champion", "build", "matchup", "synergie", "patch"].includes(t));
+  // Contexte d'usage (v2) : un joueur doit savoir quand, pour qui et comment appliquer le conseil
+  const useComplete = !!(u.use?.when && u.use?.who && u.use?.how?.length);
   for (const e of ev) {
     const c = ctx.contents.get(e.content);
     if (!c) { flag("source-inconnue", `Contenu ${e.content} absent du registre.`, true); continue; }
     if (c.access === "metadonnees" || c.access === "inaccessible") flag("titre-pas-preuve", `${e.content} : seules les métadonnées ont été examinées, elles ne prouvent pas le contenu.`, true);
     if (c.analysis === "quarantaine") flag("injection", `${e.content} est en quarantaine.`, true);
-    // Transcription ou images lues par une IA : passage de seconde main, à vérifier sur la vidéo
-    if (c.reader?.kind === "ia" && !e.humanChecked) flag("lecture-ia", `${e.content} : lu par ${c.reader.tool} (${c.reader.fps} image/s) ; passage à vérifier sur la vidéo (${e.locator}).`, false, "provisoire");
-    // Contenu ancien (ex. article de sortie d'un champion) : le kit a pu changer depuis, la date du patch ne suffit pas à le savoir
+    // Transcription ou images lues par une IA : passage de seconde main. Confirmé par une personne (humanChecked)
+    // ou par une seconde lecture de l'extrait autour de l'horodatage (autoChecked, règles v1.2)
+    const a = e.autoChecked;
+    if (c.reader?.kind === "ia" && !e.humanChecked) {
+      if (a && !a.said) flag("citation-non-entendue", `${e.content} : passage absent de l'extrait ${a.window} relu par ${a.by}.`, true);
+      else if (a && !a.supported) flag("sur-generalisation", `${e.content} : l'extrait ${a.window} ne dit pas exactement cela${a.gap ? ` (${a.gap})` : ""}.`, false, "provisoire");
+      else if (!a && !autoOk) flag("lecture-ia", `${e.content} : lu par ${c.reader.tool} (${c.reader.fps} image/s) ; passage à vérifier sur la vidéo (${e.locator}).`, false, "provisoire");
+    }
+    // Contenu ancien (ex. article de sortie d'un champion) : le kit a pu changer depuis, la date du patch ne suffit pas à le savoir.
+    // Un principe général (vagues, vision, jungle), sans champion, objet ni méta, ne vieillit pas avec le kit
     const maxAge = ctx.config.freshness?.maxContentAgeDays;
-    if (maxAge && c.published && !e.humanChecked && (Date.now() - Date.parse(c.published)) / 864e5 > maxAge) flag("contenu-ancien", `${e.content} publié le ${c.published} : à confirmer sur le kit et la méta actuels.`, false, "provisoire");
+    if (maxAge && c.published && !e.humanChecked && !fundamental && (Date.now() - Date.parse(c.published)) / 864e5 > maxAge) flag("contenu-ancien", `${e.content} publié le ${c.published} : à confirmer sur le kit et la méta actuels.`, false, "provisoire");
     if ((e.passage || "").length > cfg.maxPassageChars) flag("citation-trop-longue", `Passage de plus de ${cfg.maxPassageChars} caractères : résumer plutôt que republier.`, true);
     if (detectInjection(e.passage).length) flag("injection", `Le passage cité contient une instruction : ${detectInjection(e.passage)[0]}`, true);
     const text = ctx.texts.get(e.content);
     // Sans le texte (cache privé absent, ex. machine distante), on garde la vérification faite à la fusion
     if (text == null) { if (!u.verified?.passages) flag("citation-non-verifiable", `Texte de ${e.content} absent du cache : passage non vérifié.`, false, "provisoire"); }
-    else if (!normText(text).includes(normText(e.passage))) flag("citation-introuvable", `Passage introuvable dans ${e.content} : « ${e.passage.slice(0, 60)}… »`, true);
+    // Passage coupé (« [...] », « … ») : chaque morceau doit se trouver dans le texte
+    else if (!String(e.passage).split(/\s*(?:\[\s*(?:\.\.\.|…)\s*\]|\.\.\.|…)\s*/).filter(x => x.trim().length > 8).every(part => normText(text).includes(normText(part)))) flag("citation-introuvable", `Passage introuvable dans ${e.content} : « ${e.passage.slice(0, 60)}… »`, true);
     if (SMURF.test(e.passage || "") || e.flags?.includes("une-partie") || e.flags?.includes("smurf")) flag("une-partie", "Tiré d'une seule partie ou d'un contexte de smurf.", false, "provisoire");
   }
 
@@ -118,7 +131,15 @@ export function checkUnit(u, ctx) {
   // Deux chaînes d'une même organisation (ex. blog et YouTube de We Teach League) ne comptent que pour une
   const independent = new Set(ev.map(e => { const c = ctx.contents.get(e.content); return ctx.sources.get(c?.sourceId)?.organization || c?.sourceId; })).size;
   if (u.nature === "statistique" && independent < 2) flag("source-unique", "Statistique d'une seule source.", false, "provisoire");
-  if (u.nature === "opinion") flag("source-unique", "Avis d'une seule personne : présenté comme tel.", false, "provisoire");
+  // Avis attribué d'un coach (règles v1.2) : exploitable s'il est présenté comme tel, avec un contexte d'usage complet et sans dépendre de la méta
+  if (u.nature === "opinion") flag("source-unique", useComplete && !u.metaDependent ? "Avis d'une seule personne : présenté comme tel." : "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta.", false, useComplete && !u.metaDependent ? null : "provisoire");
+  if (u.promptVersions?.extraction >= "v2" && u.origin === "analyse-automatique" && !u.use?.when) flag("contexte-manquant", "Aucune situation de partie reconnaissable : ce n'est pas une consigne applicable.", false, "provisoire");
+  const aiFlags = (u.aiReview?.flags || []).filter(f => ["contexte-manquant", "sur-generalisation"].includes(f));
+  if (aiFlags.length) flag(aiFlags[0], `Contrôle critique : ${u.aiReview.why || aiFlags.join(", ")}`, false, "provisoire");
+  // Formulation absolue que l'auteur n'emploie pas
+  const ABS = /(^|[^\p{L}])(toujours|uniquement|jamais|systématiquement|à chaque fois|seulement)([^\p{L}]|$)/iu, ABS_SRC = /\b(always|only|never|every ?time|each time|must|have to|toujours|uniquement|jamais|seulement|systématiquement|il faut)\b/i;
+  const said = [u.claim.replace(/^(Selon|D'après) [^:]+ : /, ""), u.action, u.use?.when, ...(u.use?.how || [])].filter(Boolean).join(" ");
+  if (u.nature !== "officiel" && ABS.test(said) && !ev.some(e => ABS_SRC.test(e.passage || ""))) flag("sur-generalisation", "Formulation absolue (« toujours », « uniquement »…) absente des passages cités.", false, "provisoire");
   const tiers = full.map(e => ({ t: tierOf(e.passage), c: e.context || "" })).filter(x => x.t);
   if (tiers.length > 1) {
     const r = tiers.map(x => TIER_RANK[x.t]);

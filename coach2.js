@@ -895,7 +895,9 @@ function c2TipText(u) {
   }
   return C2_TIP_EN[champ.id]?.[m[2]]?.[m[3] - 1] || fr;
 }
-const c2Tip = u => `<li class="c2-tip">${esc(c2TipText(u))}<span class="fine">${u.nature === "officiel" ? "Riot Games" : esc(contentOf(u.evidence[0]?.content)?.author || "")}${u.status === "provisoire" ? " · provisoire" : ""}</span></li>`;
+// Contexte d'usage d'un conseil de coach (analyse v2) : quand, pour qui, comment, pourquoi, à éviter
+const c2Use = u => (u.use?.when ? `<details class="c2-use"><summary>Quand l'utiliser · Comment</summary><p><b>Quand :</b> ${esc(u.use.when)}</p>${u.use.who ? `<p><b>Pour qui :</b> ${esc(u.use.who)}</p>` : ""}${u.use.how?.length ? `<ol>${u.use.how.map(h => `<li>${esc(h)}</li>`).join("")}</ol>` : ""}${u.use.why ? `<p><b>Pourquoi :</b> ${esc(u.use.why)}</p>` : ""}${u.use.notWhen ? `<p><b>À éviter :</b> ${esc(u.use.notWhen)}</p>` : ""}</details>` : "");
+const c2Tip = u => `<li class="c2-tip">${esc(c2TipText(u))}${c2Use(u)}<span class="fine">${u.nature === "officiel" ? "Riot Games" : esc(contentOf(u.evidence[0]?.content)?.author || "")}${u.status === "provisoire" ? " · provisoire" : ""}</span></li>`;
 function c2VideosFor(name) {
   const re = new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
   return COACH.contents.filter(c => c.type === "video" && ["fr", "en"].includes(c.lang) && (re.test(c.title) || c.champions?.includes(name)) && !(c.triage?.entertainment || []).length).slice(0, 4);

@@ -1,7 +1,7 @@
 // Base de connaissances : chargement du contexte, fusion d'un lot, recalcul des statuts, corrections humaines.
 // Toutes les écritures passent par ici, quelle que soit leur origine (personne, agent Claude Code, analyse automatique).
 
-import { readFile, mkdir, writeFile } from "node:fs/promises";
+import { readFile, readdir, mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { P, ROOT, readJson, writeJson, cachedText, sha256, today } from "./lib.mjs";
 import { checkUnit } from "./critic.mjs";
@@ -126,7 +126,8 @@ export async function appendCorrection(entry) {
 }
 
 export async function rulesLockStatus() {
-  const files = ["coach/rules/FIABILITE.md", "coach/prompts/extraction.v1.md", "coach/prompts/critique.v1.md", "coach/prompts/recommandation.v1.md"];
+  // Toutes les instructions de coach/prompts (v1, v2…) sont verrouillées, pas seulement celles en service
+  const files = ["coach/rules/FIABILITE.md", ...(await readdir(join(ROOT, "coach/prompts"))).filter(f => f.endsWith(".md")).sort().map(f => `coach/prompts/${f}`)];
   const lock = await readJson(P.lock, { files: {} });
   const now = {};
   for (const f of files) now[f] = sha256((await readFile(join(ROOT, f), "utf8")).replace(/\r\n/g, "\n"));

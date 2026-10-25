@@ -449,6 +449,25 @@ await t("Vidéo lue par IA : au mieux provisoire, patch futur signalé", "fixtur
   assert(!ok.flags.some(f => f.code === "lecture-ia"), "vérification humaine ignorée");
   return `Passage lu par Gemini → provisoire jusqu'à vérification humaine ; patch ${future} (non sorti) → signalé comme prévision.`;
 });
+await t("Analyse v2 : contexte d'usage, seconde lecture de l'extrait, sur-généralisation", "fixture", () => {
+  const c2 = { ...fxCtx, contents: new Map([...fxCtx.contents, ["fx-video", { id: "fx-video", sourceId: "yt-skill-capped", type: "video", title: "Vidéo (fixture)", access: "transcription+visuel", analysis: "analysee", reader: { kind: "ia", tool: "gemini (fixture)", fps: 1 } }]]), texts: new Map([...fxCtx.texts, ["fx-video", "[07:00] (parole) Engage supports need space to engage."]]) };
+  const use = { when: "Ton support d'engagement cherche un angle en lane.", who: "Supports d'engagement", how: ["Laisse-lui de l'espace devant les sbires"], why: "", notWhen: "" };
+  const base = { id: "fx-v2", claim: "Selon Skill Capped : un support d'engagement a besoin d'espace.", champions: [], roles: ["bottom"], themes: ["lane"], context: { queue: "solo" }, patch: { known: false }, nature: "opinion", translation: { term: "engage", note: "engager" }, use, origin: "analyse-automatique", promptVersions: { extraction: "v2" } };
+  const ev = auto => [{ content: "fx-video", locator: "[07:00]", lang: "en", passage: "Engage supports need space to engage.", ...(auto ? { autoChecked: auto } : {}) }];
+  const verified = checkUnit({ ...base, evidence: ev({ by: "fx", window: "400-460s", said: true, supported: true }) }, c2);
+  assert(!verified.blocking && verified.status === "exploitable", `vérifié et complet → ${verified.status} (${verified.flags.map(f => f.code)})`);
+  const unheard = checkUnit({ ...base, evidence: ev({ by: "fx", window: "400-460s", said: false, supported: false }) }, c2);
+  assert(unheard.blocking && unheard.flags.some(f => f.code === "citation-non-entendue"), "passage non entendu accepté");
+  const stronger = checkUnit({ ...base, claim: "Selon Skill Capped : un support d'engagement a toujours besoin d'espace.", evidence: ev({ by: "fx", window: "400-460s", said: true, supported: true }) }, c2);
+  assert(stronger.status === "provisoire" && stronger.flags.some(f => f.code === "sur-generalisation"), "« toujours » ajouté non détecté");
+  const noWhen = checkUnit({ ...base, use: { ...use, when: "" }, evidence: ev({ by: "fx", window: "400-460s", said: true, supported: true }) }, c2);
+  assert(noWhen.status === "provisoire" && noWhen.flags.some(f => f.code === "contexte-manquant"), "conseil sans situation exploitable");
+  const unchecked = checkUnit({ ...base, evidence: ev(null) }, c2);
+  assert(unchecked.status === "provisoire" && unchecked.flags.some(f => f.code === "lecture-ia"), "lecture IA non vérifiée exploitable");
+  const cut = checkUnit({ ...base, evidence: [{ ...ev({ by: "fx", window: "400-460s", said: true, supported: true })[0], passage: "Engage supports need [...] to engage." }] }, { ...c2, texts: new Map([...c2.texts, ["fx-video", "[07:00] (parole) Engage supports need a lot of space to engage."]]) });
+  assert(!cut.flags.some(f => f.code === "citation-introuvable"), "passage coupé par « [...] » refusé à tort");
+  return "Vérifié sur l'extrait et contexte complet → exploitable ; passage coupé « [...] » retrouvé morceau par morceau ; passage non entendu → rejeté ; « toujours » ajouté ou situation absente → provisoire.";
+});
 await t("Vidéos réellement lues : durée conforme et passages retrouvés", "réel", async () => {
   const vids = L.contents.contents.filter(c => c.reader?.kind === "ia");
   if (!vids.length) throw Object.assign(new Error("ignoré : aucune vidéo lue"), { skip: true });

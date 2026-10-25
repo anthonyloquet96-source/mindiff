@@ -918,6 +918,30 @@ await t("COACH-005 Synchronisation : aucune partie traitée deux fois, recalcul 
   return "Riot ID résolu, une seule synchronisation ouverte, 12 parties téléchargées une fois, objectif proposé puis démarré, réussi sur les 5 parties suivantes, archivé et remplacé ; recalcul de 17 parties sans Riot ; suppression complète.";
 });
 
+await t("COACH-010 Tuteur : n'invente aucun chiffre, cite des conseils existants, nature de chaque phrase, quota", "fixture", async () => {
+  const { tutor, tutorContext, checkAnswer } = await import("../v1/tutor.mjs");
+  const goal = { metric: "cs_at_10", role: "MIDDLE", status: "evaluating", baseline: 61, target: 66, direction: "higher", evaluation_games: 5, success_required: 3, reference: { value: 78, source: "metric_references", n: 8008, level: "Diamant et plus" }, exercise: "Vise 66 sbires à 10:00." };
+  const ctx = tutorContext({ goal, evaluations: [{ counted: true, value: 68, met: true }, { counted: true, value: 59, met: false }], tips: [{ id: "u-cl-1", claim: "Pousse ta wave avant de rentrer.", use: { when: "avant un back", how: ["pousse"] } }] });
+  // Réponse fidèle : acceptée
+  const good = { phrases: [{ texte: "Tu as fait 68 sbires à 10 min dans ta 1re partie : cible de 66 atteinte.", nature: "observé" }, { texte: "Pousse ta wave avant de rentrer.", nature: "inféré" }], conseils_cites: ["u-cl-1"], limites: "" };
+  const ok = await tutor({ question: "Comment je progresse ?", context: ctx, ask: async () => good });
+  assert(ok.status === 200 && !ok.body.refused, "réponse fidèle refusée");
+  // Chiffre inventé (« 85 % des pros ») ou conseil inconnu : réponse écartée
+  assert(checkAnswer({ phrases: [{ texte: "85 % des pros font 90 sbires.", nature: "observé" }], conseils_cites: [] }, ctx).length === 2, "chiffres inventés non détectés");
+  const bad = await tutor({ question: "?", context: ctx, ask: async () => ({ phrases: [{ texte: "Vise 90 sbires.", nature: "inféré" }], conseils_cites: ["u-faux"], limites: "" }) });
+  assert(bad.body.refused && bad.body.problems.length === 2 && !JSON.stringify(bad.body.phrases).includes("90"), "réponse inventée transmise");
+  // Formats français (« 2,00 », « 1 500 ») reconnus ; contexte ne contient que ce que le coach a calculé
+  assert(checkAnswer({ phrases: [{ texte: "Repère : 8 008 parties, cible 66.", nature: "observé" }], conseils_cites: [] }, ctx).length === 0, "nombre du contexte refusé");
+  assert(!JSON.stringify(ctx).includes("puuid") && ctx.objectif.cible === "66", "contexte incomplet ou trop large");
+  // Modèle indisponible : message clair ; quota quotidien ; question vide
+  assert((await tutor({ question: "x", context: ctx, ask: async () => { throw Object.assign(new Error("q"), { quota: true }); } })).body.error.code === "quota-ia", "panne du modèle mal signalée");
+  const usage = {};
+  for (let i = 0; i < 20; i++) await tutor({ question: "x", context: ctx, ask: async () => good, usage, playerId: "p" });
+  assert((await tutor({ question: "x", context: ctx, ask: async () => good, usage, playerId: "p" })).status === 429, "quota quotidien absent");
+  assert((await tutor({ question: "  ", context: ctx, ask: async () => good })).status === 400, "question vide acceptée");
+  return "réponse fidèle acceptée ; chiffre ou conseil inventé → réponse écartée ; formats français reconnus ; panne et quota signalés.";
+});
+
 await t("COACH-002 Normaliseur sur de vraies parties anonymisées (cache privé)", "réel", async () => {
   const { normalizeMatch, participantAt, laneOpponent } = await import("../normalize.mjs");
   const { readdir, readFile } = await import("node:fs/promises");

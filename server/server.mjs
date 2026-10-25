@@ -47,6 +47,12 @@ async function coachV1() {
   const refs = await readFile(join(ROOT, "coach", "cache", "metric-references.json"), "utf8").then(j => JSON.parse(j).references).catch(() => null);
   const ctx = { store: createStore({ file: join(ROOT, "coach", "cache", "v1", "store.json"), rawDir: join(ROOT, "coach", "cache", "v1", "raw") }), riot: key ? createRiotV1(key) : null, references: refs };
   ctx.queue = createQueue(syncWorker(ctx));
+  // Tuteur (COACH-010) : offre gratuite de Gemini, réponse JSON courte ; conseils sourcés de la base publiée
+  const { chatHandler } = await import("../coach/v1/tutor.mjs");
+  const { gemini, hasGeminiKey } = await import("../coach/gemini.mjs");
+  const cfg = JSON.parse(await readFile(join(ROOT, "coach", "config.json"), "utf8"));
+  const units = await readFile(join(ROOT, "data", "coach.json"), "utf8").then(j => JSON.parse(j).units).catch(() => []);
+  if (hasGeminiKey()) ctx.chat = chatHandler({ units, ask: async (system, user, schema) => (await gemini({ models: cfg.analysis.geminiModels, system, parts: [{ text: user }], schema, maxOutputTokens: 1200, timeoutMs: 60000 })).json });
   v1 = { ...ctx, handle: q => handleV1(q, ctx) };
   return v1;
 }

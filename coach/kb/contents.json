@@ -19472,7 +19472,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 16
   },
   {
    "id": "c-yt-NtBv87KC0ms",
@@ -44656,13 +44657,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-10-24",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.14",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 5,
-   "note": "File de lecture (rang 5) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -44674,6 +44675,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-25",
+    "sha256": "d9f91ca15d0a1b0f17ff015e5f2fd84384d16a5ad242231b3188b64f449c49a9",
+    "segments": 75,
+    "observations": 40,
+    "duration": "25:08",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 150632
    }
   },
   {
@@ -44687,12 +44701,12 @@
    "published": null,
    "retrievedAt": "2026-10-24",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 6,
-   "note": "File de lecture (rang 6) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -44702,6 +44716,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-25",
+    "sha256": "dbf4036f8544a67ad45ab69ab8ae1533c2427d54b3da0fb75e9e186cf4d4ba56",
+    "segments": 9,
+    "observations": 40,
+    "duration": "14:48",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 91645
    }
   },
   {
@@ -44803,12 +44830,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "https://kirei.gg/courses Jungle Courses with Permanent access and updates\nhttps://kirei.gg for personalized 1 on 1 sessions \n\nFree course videos\nSpacing - https://kirei.gg/courses-archive/champion-mastery-course-diamond-and-below/56337/\nGanking - https://kirei.gg/courses-archive/",
    "triage": {
-    "score": 7,
+    "score": 3,
     "matched": [
      "Vi",
-     "jungle",
-     "fundamentals",
-     "coaching"
+     "jungle"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -44832,17 +44857,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "DM me on discord with; BOOTCAMP To access to 2 hours on how to 1v9 individually and play midgame fights & macro \n\nyou'll learn \n\n1. How to win skirmishes consistently (Numbers, Vision, Ultimates, Target selection)\n\n2. What skirmishes are good & bad (Drafting breakdown, Items,  Wi",
    "triage": {
-    "score": 17,
+    "score": 9,
     "matched": [
-     "Twitch",
      "Vi",
      "mid",
      "how to",
      "breakdown",
-     "coaching",
-     "macro",
-     "clear",
-     "climb"
+     "macro"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -44868,14 +44889,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "https://kirei.gg/courses Jungle Courses with Permanent access and updates\nhttps://kirei.gg for personalized 1 on 1 sessions \n\nSign up on bootcamp how to play like a pro individually and how to play midgame - tinyurl.com/2f54hvb7\n\nFree course videos\nSpacing - https://kirei.gg/cour",
    "triage": {
-    "score": 10,
+    "score": 6,
     "matched": [
      "Vi",
      "jungle",
      "mid",
-     "how to",
-     "fundamentals",
-     "coaching"
+     "how to"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -44904,6 +44923,34 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-e9SSpRzFwo4",
+   "sourceId": "yt-coach-leo",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=e9SSpRzFwo4",
+   "title": "What 2200LP Jungle Fundamentals Actually Look Like (rank 1 KR review)",
+   "author": "Coach Leo (JungleGap)",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-25",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 18,
+   "note": "File de lecture (rang 18) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "jungle",
+     "fundamentals"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
   }
  ]

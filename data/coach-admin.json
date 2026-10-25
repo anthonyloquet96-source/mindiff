@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-25T06:54:20.739Z",
+ "generatedAt": "2026-10-25T13:24:34.946Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -9,7 +9,7 @@
  "discovery": {
   "wtl-blog": {
    "attempts": 0,
-   "lastOk": "2026-10-25T00:48:05.369Z",
+   "lastOk": "2026-10-25T12:45:29.114Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 2
@@ -86,7 +86,7 @@
   },
   "yt-coach-kirei": {
    "attempts": 0,
-   "lastOk": "2026-10-25T00:48:06.269Z",
+   "lastOk": "2026-10-25T12:45:29.412Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
@@ -282,7 +282,7 @@
   },
   "yt-el-blu-lol": {
    "attempts": 0,
-   "lastOk": "2026-10-25T00:48:08.056Z",
+   "lastOk": "2026-10-25T12:45:29.541Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
@@ -471,7 +471,7 @@
   },
   "yt-02kyy9q5fy": {
    "attempts": 0,
-   "lastOk": "2026-10-25T00:48:09.926Z",
+   "lastOk": "2026-10-25T12:45:29.686Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
@@ -554,7 +554,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-10-25T06:47:25.965Z",
+ "lastDiscovery": "2026-10-25T12:45:29.708Z",
  "failures": [],
  "quarantine": [],
  "rejected": [
@@ -693,17 +693,6 @@
    "origin": "analyse-automatique"
   },
   {
-   "id": "u-ai-yt-ZzKpPJ_BNHM-2",
-   "reasons": [
-    {
-     "code": "citation-insuffisante",
-     "why": "Statistique sans chiffre dans les passages cités."
-    }
-   ],
-   "at": "2026-10-24",
-   "origin": "analyse-automatique"
-  },
-  {
    "id": "u-ai-yt-7a5EBaZ-ems-1",
    "reasons": [
     {
@@ -734,6 +723,167 @@
     }
    ],
    "at": "2026-10-24",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-eceSyaVnz3M-1",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-eceSyaVnz3M : « In bot lane, you will hit level 2 on the second wave after t… »"
+    },
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Thresh."
+    },
+    {
+     "code": "rang-sous-reference",
+     "why": "Contenu tiré de parties de niveau argent : utilisable seulement comme erreur à corriger, pas comme référence."
+    }
+   ],
+   "at": "2026-10-25",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-eceSyaVnz3M-2",
+   "reasons": [
+    {
+     "code": "rang-sous-reference",
+     "why": "Contenu tiré de parties de niveau argent : utilisable seulement comme erreur à corriger, pas comme référence."
+    }
+   ],
+   "at": "2026-10-25",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-eceSyaVnz3M-3",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-eceSyaVnz3M : « All you're doing is pushing a minion wave as deep into the e… »"
+    },
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Wukong."
+    },
+    {
+     "code": "rang-sous-reference",
+     "why": "Contenu tiré de parties de niveau argent : utilisable seulement comme erreur à corriger, pas comme référence."
+    }
+   ],
+   "at": "2026-10-25",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-eceSyaVnz3M-4",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-eceSyaVnz3M : « When you're playing a split pusher, you want to look for sit… »"
+    },
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-eceSyaVnz3M : « pressuring a tower before your teammates have a chance to di… »"
+    },
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Diana."
+    },
+    {
+     "code": "rang-sous-reference",
+     "why": "Contenu tiré de parties de niveau platine : utilisable seulement comme erreur à corriger, pas comme référence."
+    }
+   ],
+   "at": "2026-10-25",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-eceSyaVnz3M-5",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-eceSyaVnz3M : « When you keep multiple options in fights or even in macro op… »"
+    },
+    {
+     "code": "rang-sous-reference",
+     "why": "Contenu tiré de parties de niveau emeraude : utilisable seulement comme erreur à corriger, pas comme référence."
+    }
+   ],
+   "at": "2026-10-25",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-ZzKpPJ_BNHM-3",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-ZzKpPJ_BNHM : « A common mistake players make here is tunneling on this kill… »"
+    },
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-ZzKpPJ_BNHM : « At the same time, with Fizz this low, Tristana is under no t… »"
+    }
+   ],
+   "at": "2026-10-25",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-ZzKpPJ_BNHM-4",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-ZzKpPJ_BNHM : « In the mid game, Tryndamere can push a side lane into then f… »"
+    },
+    {
+     "code": "citation-insuffisante",
+     "why": "Statistique sans chiffre dans les passages cités."
+    }
+   ],
+   "at": "2026-10-25",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-7a5EBaZ-ems-1",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-7a5EBaZ-ems : « 850 gold is the sweet spot. If you don't get it, you might a… »"
+    }
+   ],
+   "at": "2026-10-25",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-7a5EBaZ-ems-2",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-7a5EBaZ-ems : « Is that also because of runes though? It's also because of r… »"
+    }
+   ],
+   "at": "2026-10-25",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-RIro7KcXJP8-1",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Hecarim."
+    }
+   ],
+   "at": "2026-10-25",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-RIro7KcXJP8-2",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Hecarim."
+    }
+   ],
+   "at": "2026-10-25",
    "origin": "analyse-automatique"
   }
  ],
@@ -770,11 +920,10 @@
   "c-yt-Fcb6lbPuclA",
   "c-yt-_hGNfCMUO6s",
   "c-yt-fNvRQRe4n00",
-  "c-yt-RIro7KcXJP8",
   "c-yt-Xc_CS1JFoFc",
   "c-yt-BnwE5CD1-qA",
-  "c-yt-eceSyaVnz3M",
-  "c-yt-7a5EBaZ-ems",
+  "c-yt-tiTAC_t2Tns",
+  "c-yt--I7iBIabOok",
   "c-yt-fOQBQn0X54M",
   "c-yt-5o6m5FWMhR0",
   "c-yt-7ZZEBbT_qzQ",
@@ -782,10 +931,10 @@
   "c-yt-X6dZ1iPt-PY",
   "c-yt-z8jp-YjOwI0",
   "c-yt-9KXgqOimaGc",
-  "c-yt-ZzKpPJ_BNHM",
   "c-yt-V-0395F1evY",
   "c-yt-zziK5rQefTc",
-  "c-yt-Qb5YWQxgmzY"
+  "c-yt-Qb5YWQxgmzY",
+  "c-yt-YLgMgbuZ0Zk"
  ],
  "review": [
   "u-lucian-2620-ad",
@@ -1612,7 +1761,11 @@
   "u-ai-riot-champion-insights-briar-1",
   "u-ai-riot-champion-insights-briar-2",
   "u-ai-riot-champion-insights-briar-3",
-  "u-ai-riot-champion-insights-briar-4"
+  "u-ai-riot-champion-insights-briar-4",
+  "u-ai-yt-ZzKpPJ_BNHM-1",
+  "u-ai-yt-ZzKpPJ_BNHM-2",
+  "u-ai-yt-7a5EBaZ-ems-3",
+  "u-ai-yt-RIro7KcXJP8-3"
  ],
  "contested": [],
  "retired": [
@@ -2060,22 +2213,6 @@
   "month": 0,
   "calls": [
    {
-    "at": "2026-10-20T22:36:35.770Z",
-    "content": "c-yt-5un5rVpQpf8",
-    "model": "gemini-3.7-flash",
-    "input": 5133,
-    "output": 6351,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-20T22:39:12.508Z",
-    "content": "c-yt-5un5rVpQpf8",
-    "model": "gemini-3.5-flash",
-    "input": 4534,
-    "output": 2018,
-    "usd": 0
-   },
-   {
     "at": "2026-10-22T06:56:09.841Z",
     "content": "c-riot-champion-insights-aurora",
     "model": "gemini-3.8-flash",
@@ -2409,6 +2546,70 @@
     "model": "gemini-3.7-flash",
     "input": 14172,
     "output": 6369,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-25T13:13:06.104Z",
+    "content": "c-yt-eceSyaVnz3M",
+    "model": "gemini-3.8-flash",
+    "input": 14172,
+    "output": 5991,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-25T13:13:42.333Z",
+    "content": "c-yt-eceSyaVnz3M",
+    "model": "gemini-3.8-flash",
+    "input": 5783,
+    "output": 2366,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-25T13:15:46.336Z",
+    "content": "c-yt-ZzKpPJ_BNHM",
+    "model": "gemini-3.8-flash",
+    "input": 8065,
+    "output": 5227,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-25T13:17:10.582Z",
+    "content": "c-yt-ZzKpPJ_BNHM",
+    "model": "gemini-3.8-flash",
+    "input": 6012,
+    "output": 2355,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-25T13:20:18.288Z",
+    "content": "c-yt-7a5EBaZ-ems",
+    "model": "gemini-3.8-flash",
+    "input": 5818,
+    "output": 3438,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-25T13:23:45.596Z",
+    "content": "c-yt-7a5EBaZ-ems",
+    "model": "gemini-3.6-flash",
+    "input": 5294,
+    "output": 2302,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-25T13:24:10.892Z",
+    "content": "c-yt-RIro7KcXJP8",
+    "model": "gemini-3.6-flash",
+    "input": 5138,
+    "output": 4101,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-25T13:24:27.837Z",
+    "content": "c-yt-RIro7KcXJP8",
+    "model": "gemini-3.6-flash",
+    "input": 4859,
+    "output": 1862,
     "usd": 0
    }
   ],

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-25T10:29:58.839Z",
+ "generatedAt": "2026-10-25T13:24:34.946Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -840,15 +840,15 @@
    },
    "Kai'Sa": {
     "role": null,
-    "units": 6,
+    "units": 7,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "teamfight"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 6,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Kalista": {
     "role": null,
@@ -1957,16 +1957,16 @@
    }
   },
   "themes": {
-   "lane": 10,
+   "lane": 11,
    "survie": 6,
-   "teamfight": 2,
+   "teamfight": 3,
    "synergie": 1,
    "matchup": 4,
-   "methode": 3,
-   "vagues": 0,
+   "methode": 4,
+   "vagues": 1,
    "vision": 0,
-   "macro": 0,
-   "jungle": 0
+   "macro": 3,
+   "jungle": 2
   },
   "partial": [
    "Ashe"
@@ -15566,7 +15566,7 @@
    "published": "2026-10-20",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 25199,
+   "views": 25539,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -15594,7 +15594,7 @@
    "published": "2026-10-16",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 28962,
+   "views": 29332,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -16334,7 +16334,7 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "feel it by d4vd. thank me later -ryan\n\n⬇️⬇️⬇️\n\n*CONNECT WITH ME*\n*Metafy* https://metafy.gg/@perrylol/sessions\n*Patreon* https://www.patreon.com/PerryJG\n*Join the Discord* https://discord.gg/H8h9ZSnXCB\n\n*SOCIALS*\n*Twitch* https://www.twitch.tv/perryjg\n*Twitter* https://twitter.com/perryjglol\n*Tiktok",
    "backfill": true,
    "note": "Lue par gemini-3.8-flash le 2026-10-24 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -16358,6 +16358,21 @@
     "at": "2026-10-24",
     "duration": "01:02:00",
     "reused": true
+   },
+   "analyzedAt": "2026-10-25",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 2,
+   "alertes": [
+    {
+     "code": "acces-partiel",
+     "detail": "Analyse basée sur une lecture IA par échantillonnage d'images à 1 image par seconde et transcription horodatée."
+    }
+   ],
+   "learn": "Ce contenu enseigne comment optimiser la séquence de sorts d'Hecarim en combat, éviter le retard d'équipement causé par des composants superflus et guider son équipe en jungle via un pinguage proactif.",
+   "quality": {
+    "level": "élevée",
+    "why": "Session de coaching concrète et détaillée en partie classée Diamant avec démonstrations en direct et conseils macro/micro structurés."
    }
   },
   {
@@ -18906,9 +18921,9 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "views": 88230,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.8-flash : transcription et 11 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "Tu veux monter en elo ? https://misanthiel.com/",
    "triage": {
     "score": 3,
@@ -18920,7 +18935,20 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 7
+   "queueRank": 7,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-25",
+    "sha256": "0c35b3fc35fe40666587d854eb76d221a4a364209b00553d597883d7531d7b0c",
+    "segments": 16,
+    "observations": 11,
+    "duration": "01:02",
+    "videoKind": "court",
+    "gameplayShown": true,
+    "tokens": 8292
+   }
   },
   {
    "id": "c-yt-KtUuTclOBe4",
@@ -19083,11 +19111,11 @@
    "lang": "en",
    "published": "2025-07-25",
    "retrievedAt": "2026-10-21",
-   "patch": null,
+   "patch": "non spécifié",
    "views": 2655,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.6-flash : transcription et 23 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "Subscribe to the channel, like the video and leave a comment ;)\n\nIf you're interested in my personal coaching:\nhttps://www.fiverr.com/kyanleague/coach-you-in-league-of-legends\n\nIf you're interested in seeing me live: \nhttps://www.twitch.tv/mynameiskyan\n\nVladimir build guide video",
    "triage": {
     "score": 16,
@@ -19104,7 +19132,47 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-25",
+    "sha256": "fbfc10f98f3fd6acddf85daf5dca3ca64809eb4abefcf4219d036343e810ad37",
+    "segments": 175,
+    "observations": 23,
+    "duration": "53:52",
+    "videoKind": "guide",
+    "gameplayShown": false,
+    "tokens": 315513
    }
+  },
+  {
+   "id": "c-yt-KlxfrJiUtQw",
+   "sourceId": "yt-titans-coaching",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=KlxfrJiUtQw",
+   "title": "GUÍA AVANZADA DE OBJETOS E ITEMIZACIÓN EN EL NUEVO SPLIT DE LEAGUE OF LEGENDS",
+   "author": "Titans Coaching | League of Legends Coach",
+   "lang": "es",
+   "published": "2026-07-16",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 1040,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "👉 Inscríbete en mi comunidad de Skool para subir a Challenger: https://titanscoaching.cl/academia-de-league-of-legends-page\n\n✅ Si quieres subir a Challenger, agenda una llamada aquí: https://titanscoaching.cl/challenger\n\n➡ Si quieres subir a Maestro en 90 días, accede a mi siste",
+   "triage": {
+    "score": 2,
+    "matched": [
+     "coaching"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "queueRank": 20
   },
   {
    "id": "c-yt-ONI_cWtMfL8",
@@ -19309,7 +19377,7 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 1,
@@ -19336,6 +19404,25 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 158860
+   },
+   "analyzedAt": "2026-10-25",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 5,
+   "alertes": [
+    {
+     "code": "acces-partiel",
+     "detail": "Contenu vidéo analysé via une retranscription Gemini et des captures d'images échantillonnées à 1 seconde ; nécessite une vérification humaine pour les actions dynamiques."
+    },
+    {
+     "code": "autre",
+     "detail": "Aucun patch de League of Legends n'est mentionné dans la vidéo ou la transcription."
+    }
+   ],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "Contenu didactique clair avec des démonstrations en jeu ciblées par palier, mais aucun patch officiel n'est précisé et l'analyse provient d'une lecture IA par échantillonnage."
    }
   },
   {
@@ -19350,7 +19437,7 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 2,
@@ -19372,6 +19459,21 @@
     "at": "2026-10-22",
     "duration": "38:54",
     "reused": true
+   },
+   "analyzedAt": "2026-10-25",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 2,
+   "alertes": [
+    {
+     "code": "autre",
+     "detail": "Le contenu mentionne un objet nommé 'Doran's Bow' ('D-Bow') qui n'existe pas dans la boutique officielle standard de la Faille de l'invocateur (possible surnom local ou artefact d'un autre mode/traduction)."
+    }
+   ],
+   "learn": "En jouant Kai'Sa poke en voie du haut, il faut respecter sa grande faiblesse aux niveaux 1 à 3, sécuriser un premier rappel à 850 PO pour Abatteur et Larme afin d'atteindre le palier d'évolution du A, puis exécuter le combo Z-R-Z en vol.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Guide informatif avec démonstrations en outil d'entraînement et en partie réelle, mais très dépendant de l'avis subjectif d'un créateur (Drututt) sur un build de niche joué sur un patch ancien (14.16)."
    }
   },
   {
@@ -20178,7 +20280,7 @@
    "published": "2026-10-22",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 18450,
+   "views": 18740,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20458,7 +20560,7 @@
    "retrievedAt": "2026-10-24",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 1,
@@ -20479,6 +20581,25 @@
     "at": "2026-10-24",
     "duration": "29:20",
     "reused": true
+   },
+   "analyzedAt": "2026-10-25",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 2,
+   "alertes": [
+    {
+     "code": "acces-partiel",
+     "detail": "Contenu analysé via transcription et échantillonnage visuel IA (1 image/seconde), limitant la vérification fine des timings de jeu."
+    },
+    {
+     "code": "autre",
+     "detail": "Le contenu fait référence à la saison 14 (patch 14), antérieur au patch 26.21 courant du ranked."
+    }
+   ],
+   "learn": "Optimiser son farm repose principalement sur l'exploitation des temps morts entre deux vagues ou après avoir vidé ses camps, plutôt que sur la pure mécanique de coup de grâce en phase de voies.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Guide pédagogique structuré avec de bons exemples de calculs de coût d'opportunité (or et tempo), mais basé sur des séquences vidéo de saison 14 lues par IA avec une transcription partielle."
    }
   },
   {
@@ -20615,13 +20736,13 @@
    "lang": "es",
    "published": null,
    "retrievedAt": "2026-10-24",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "none",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 9,
-   "note": "File de lecture (rang 9) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 39 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -20630,6 +20751,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-25",
+    "sha256": "e2e643e26497d7126dc71ae520fc5d5ec2a5a77d8ebbc533c1039d7021790063",
+    "segments": 113,
+    "observations": 39,
+    "duration": "16:11",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 99434
    }
   },
   {
@@ -20709,6 +20843,35 @@
     "matched": [
      "jungle",
      "fundamentals"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Ex6YzrsAHjg",
+   "sourceId": "yt-coach-kirei",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=Ex6YzrsAHjg",
+   "title": "ALL Jungle Fundamentals explained - How far are you from master?",
+   "author": "Coach Kirei",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-25",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 19,
+   "note": "File de lecture (rang 19) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "jungle",
+     "fundamentals",
+     "explained"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -53713,6 +53876,280 @@
     {
      "code": "contenu-ancien",
      "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-ZzKpPJ_BNHM-1",
+   "claim": "Selon Skill Capped : pour décaler sans perdre de sbires sur la voie centrale, il convient d'effectuer un demi-décalage vers le milieu de la rivière après avoir poussé la vague : cela permet d'évaluer la faisabilité de l'action tout en garantissant le retour à temps si la situation est défavorable.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "macro",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir poussé la vague de sbires sous la tourelle ennemie avant de se déplacer"
+   ],
+   "limits": [
+    "Ne s'applique qu'aux décalages sur des voies adjacentes durant l'intervalle de 30 secondes entre deux vagues"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "[10:31] (parole)",
+     "lang": "en",
+     "passage": "So instead, you should imagine that around halfway into the river is how far you can roam to without losing minions on the next wave."
+    },
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "[10:42] (parole)",
+     "lang": "en",
+     "passage": "A half roam looks like this: you push to enter dead time, then go halfway, check the state of the nearby lanes, if they're gankable you commit, if not, you head back to lane."
+    }
+   ],
+   "mentions": [
+    "Fizz (exemple)"
+   ],
+   "action": "Après avoir poussé la vague, s'avancer au maximum au milieu de la rivière ; rebrousser chemin immédiatement si la voie ciblée ne présente pas une opportunité nette afin de capter l'intégralité de la vague suivante.",
+   "observe": "Nombre de sbires manqués sur la vague suivante lors des tentatives de décalage.",
+   "published": null,
+   "analyzedAt": "2026-10-25",
+   "status": "provisoire",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-ZzKpPJ_BNHM : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([10:31] (parole))."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-ZzKpPJ_BNHM : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([10:42] (parole))."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-ZzKpPJ_BNHM-2",
+   "claim": "Selon Skill Capped : un jungler doit concentrer ses initiatives de combat et d'objectifs pendant son temps mort (lorsque ses camps sont nettoyés) afin de minimiser le coût d'opportunité en or et conserver un avantage de tempo sur son adversaire.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Camps de jungle personnels nettoyés ou en délai de réapparition"
+   ],
+   "limits": [
+    "Ne dispense pas d'intervenir en urgence pour contrer une action adverse décisive"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "[04:13] (parole)",
+     "lang": "en",
+     "passage": "The reason why it's so valuable is that any play she makes during this time has much lower risk, since if it doesn't work out, she didn't give up any farm to do it. It's basically the most efficient time for you to fight."
+    },
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "[06:00] (parole)",
+     "lang": "en",
+     "passage": "Good players look to get past this farming time as fast as possible to maximize the amount of dead time they have to then look for plays."
+    }
+   ],
+   "mentions": [
+    "Taliyah (exemple)",
+    "Karthus (exemple)"
+   ],
+   "action": "Planifier ses ganks et prises d'objectifs neutres uniquement après avoir vidé les camps disponibles de son quart de carte pour ne pas risquer d'or garanti en cas d'échec.",
+   "observe": "Différence de CS/min et de timing sur les objectifs neutres par rapport au jungler adverse.",
+   "published": null,
+   "analyzedAt": "2026-10-25",
+   "status": "provisoire",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-ZzKpPJ_BNHM : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([04:13] (parole))."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-ZzKpPJ_BNHM : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([06:00] (parole))."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-7a5EBaZ-ems-3",
+   "claim": "Selon AloisNL : pour exécuter le combo d'engagement à distance avec Kai'Sa AP, il convient de toucher le Rayon du Néant (Z), puis de lancer l'Instinct meurtrier (R) tout en réactivant le Z en plein vol vers la cible pour enchaîner à l'arrivée avec une attaque de base et la Pluie d'Icathia (A).",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "champion",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.16"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir le Rayon du Néant (Z) évolué pour bénéficier de la réduction de délai de récupération à l'impact",
+    "Avoir la portée d'ultime sur une cible marquée par le plasma"
+   ],
+   "limits": [
+    "Si le premier Z échoue, le champion perd sa réduction de délai et ne doit pas engager"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-7a5EBaZ-ems",
+     "locator": "[03:19]",
+     "lang": "en",
+     "passage": "It refunds your cooldown evo, you wait a bit, then you R W. You can W in the air when you're like flying towards an enemy, so the second you arrive, it's very fast."
+    },
+    {
+     "content": "c-yt-7a5EBaZ-ems",
+     "locator": "[17:27]",
+     "lang": "en",
+     "passage": "The way you do the combo is you W, then you R W, and then once you arrive and your W is done, you auto Q."
+    }
+   ],
+   "mentions": [],
+   "action": "Pré-lancer le second Z pendant le trajet du R vers la cible marquée, puis compléter l'enchaînement avec une attaque automatique et le A.",
+   "observe": "Constater si le Z touche immédiatement à l'atterrissage sans laisser de temps de réaction pour esquiver.",
+   "published": null,
+   "analyzedAt": "2026-10-25",
+   "status": "provisoire",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-7a5EBaZ-ems : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([03:19])."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-7a5EBaZ-ems : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([17:27])."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-RIro7KcXJP8-3",
+   "claim": "Selon perryjg : un jungler doit utiliser activement les pings pour communiquer à ses alliés ses déplacements et intentions de farm afin de prévenir leurs erreurs d'anticipation.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "macro",
+    "jungle"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "Diamond II",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.9"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "En permanence pendant les rotations de jungle"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-RIro7KcXJP8",
+     "locator": "00:02:48",
+     "lang": "en",
+     "passage": "If they're pinging on the way, ping them danger. Let them know you're doing camps. Let them know what you're doing. Yeah, yeah, you need to communicate with these guys."
+    }
+   ],
+   "mentions": [],
+   "action": "Signaler par des pings de danger ou d'intention le début d'un camp de jungle dès qu'un laner initie un mouv.",
+   "observe": "Diminution des prises de risques inutiles des laners pendant le nettoyage des camps.",
+   "published": "2024-05-12",
+   "analyzedAt": "2026-10-25",
+   "status": "provisoire",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-RIro7KcXJP8 : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo (00:02:48)."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-RIro7KcXJP8 publié le 2024-05-12 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
     }
    ]
   }

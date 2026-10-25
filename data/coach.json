@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-24T19:03:26.085Z",
+ "generatedAt": "2026-10-25T00:58:53.157Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -13610,12 +13610,12 @@
    "lang": "fr",
    "published": "2024-08-18",
    "retrievedAt": "2026-10-21",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.8",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "Vous voulez une séance de coaching avec Chreak en tête à tête ? C'est possible ! Deux options s'offrent à vous (70€/session de 1h15) : \nPasser par l'abonnement mensuel sur Patreon pour avoir 1 heure de coaching par mois sur ce lien : https://www.patreon.com/c/ChreakLoL\nContacter directement Chreak p",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 48 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -13628,7 +13628,20 @@
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 3
+   "queueRank": 3,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-25",
+    "sha256": "98e08970dce80954c65b73bbaac8652a82cef18e02cbc6c8bd1d6f290a97b00b",
+    "segments": 93,
+    "observations": 48,
+    "duration": "30:48",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 186197
+   }
   },
   {
    "id": "c-yt-L5b2uBZMTkE",
@@ -15553,7 +15566,7 @@
    "published": "2026-10-20",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 22969,
+   "views": 25199,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -15581,7 +15594,7 @@
    "published": "2026-10-16",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 28116,
+   "views": 28962,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20164,7 +20177,7 @@
    "published": "2026-10-22",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 15442,
+   "views": 18450,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20478,12 +20491,12 @@
    "published": null,
    "retrievedAt": "2026-10-24",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 4,
-   "note": "File de lecture (rang 4) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 27 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -20492,6 +20505,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-25",
+    "sha256": "4428333a98583ff27783b4ee424af96c19df08a5003ec9389d55f71ced43bd64",
+    "segments": 146,
+    "observations": 27,
+    "duration": "03:37",
+    "videoKind": "autre",
+    "gameplayShown": true,
+    "tokens": 192384
    }
   },
   {

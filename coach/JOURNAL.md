@@ -470,3 +470,19 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - `critique.v3.md` : mêmes consignes pour la seconde vérification.
 - `analyze.mjs` : un champion nommé ni dans les passages, ni dans le titre, ni dans l'énoncé est retiré de l'étiquette au lieu de faire rejeter le conseil.
 - Règles inchangées. Empreintes re-signées par délégation. Les 6 vidéos sont remises en analyse.
+
+## 25/10/2026 — Plans de jeu par champion mesurés (essai)
+
+- Nouveau `coach/styles.mjs`. Sur les parties Diamant+, il mesure par couple champion-poste :
+  - le farm ;
+  - le temps hors de sa lane entre 3 et 14 min, d'après les positions minute par minute ;
+  - les kills sur les autres lanes ;
+  - la participation aux kills après 20 min ;
+  - la part des dégâts, les objectifs et la vision.
+- Chaque mesure est comparée à la moyenne du poste.
+- Les liens avec la victoire sont corrigés par celui du poste et retenus au-delà de 3 écarts-types, car il y a environ 1 400 essais.
+- Essai sur 3 champions :
+  - Orianna mid : farm, roame peu, team fight ;
+  - Yone mid : farm, roame peu, joue seul en fin de partie, sa part des dégâts distingue les victoires ;
+  - Talon jungle : farm.
+- Sortie privée (`coach/cache/styles.json`), non branchée dans l'application.

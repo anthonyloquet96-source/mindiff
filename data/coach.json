@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-25T19:50:15.351Z",
+ "generatedAt": "2026-10-25T20:06:42.918Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -13576,12 +13576,12 @@
    "lang": "fr",
    "published": "2023-12-02",
    "retrievedAt": "2026-10-21",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "13.19",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "Vous voulez une séance de coaching avec Chreak en tête à tête ? C'est possible ! Deux options s'offrent à vous (70€/session de 1h15) : \nPasser par l'abonnement mensuel sur Patreon pour avoir 1 heure de coaching par mois sur ce lien : https://www.patreon.com/c/ChreakLoL\nContacter directement Chreak p",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 30 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -13594,7 +13594,20 @@
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 14
+   "queueRank": 14,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-25",
+    "sha256": "67c1963b87e4f969dd9bd0a104c50f5579f75e79ff064809804b71bc56def7cf",
+    "segments": 126,
+    "observations": 30,
+    "duration": "10:58",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 67466
+   }
   },
   {
    "id": "c-yt-Tn7_zcfqnBg",
@@ -13666,10 +13679,10 @@
    "retrievedAt": "2026-10-21",
    "patch": "14.8",
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "descriptionExcerpt": "Vous voulez une séance de coaching avec Chreak en tête à tête ? C'est possible ! Deux options s'offrent à vous (70€/session de 1h15) : \nPasser par l'abonnement mensuel sur Patreon pour avoir 1 heure de coaching par mois sur ce lien : https://www.patreon.com/c/ChreakLoL\nContacter directement Chreak p",
    "backfill": true,
-   "note": "Lue par gemini-3.6-flash : transcription et 48 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
+   "note": "Réanalyse avec les instructions v3 (conseils généraux sans champion, erreurs à éviter).",
    "triage": {
     "score": 12,
     "matched": [
@@ -16398,10 +16411,10 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "descriptionExcerpt": "feel it by d4vd. thank me later -ryan\n\n⬇️⬇️⬇️\n\n*CONNECT WITH ME*\n*Metafy* https://metafy.gg/@perrylol/sessions\n*Patreon* https://www.patreon.com/PerryJG\n*Join the Discord* https://discord.gg/H8h9ZSnXCB\n\n*SOCIALS*\n*Twitch* https://www.twitch.tv/perryjg\n*Twitter* https://twitter.com/perryjglol\n*Tiktok",
    "backfill": true,
-   "note": "Lue par gemini-3.8-flash le 2026-10-24 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "note": "Réanalyse avec les instructions v3 (conseils généraux sans champion, erreurs à éviter).",
    "triage": {
     "score": 9,
     "matched": [
@@ -17166,11 +17179,11 @@
    "lang": "en",
    "published": "2026-10-16",
    "retrievedAt": "2026-10-21",
-   "patch": null,
+   "patch": "non",
    "views": 5323,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 19 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "📈If you want to speed up your climb: https://wtl.lol/coachmysterias\n✅Use code: TIM10 for $10 off (All Roles)\n\n\nIf you want to watch educational mid lane content:  @Mysteriaslol  \nIf you want to watch me play live: www.twitch.tv/mysteriaslol\n\n\n\n\n\n#leagueoflegends #coachmysterias ",
    "triage": {
     "score": 5,
@@ -17183,7 +17196,20 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 15
+   "queueRank": 15,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-25",
+    "sha256": "69af92420446de9a220e1c2745ad793b9cfef4316a8ab0bfaff3c44f7ce9916a",
+    "segments": 585,
+    "observations": 19,
+    "duration": "00:35:39",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 330242
+   }
   },
   {
    "id": "c-yt-3SaCUA8xHiA",
@@ -17663,7 +17689,9 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "videoSkipped": "environ 105 min : au-delà de 90 min (vidéo pédagogique trop longue)",
+   "videoAttempts": 3
   },
   {
    "id": "c-yt-WO5Vc9BCNZU",
@@ -19455,11 +19483,11 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 1,
-   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
+   "note": "Réanalyse avec les instructions v3 (conseils généraux sans champion, erreurs à éviter).",
    "triage": {
     "score": 16,
     "matched": [
@@ -19507,11 +19535,11 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 2,
-   "note": "Lue par gemini-3.8-flash le 2026-10-22 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "note": "Réanalyse avec les instructions v3 (conseils généraux sans champion, erreurs à éviter).",
    "triage": {
     "score": 16,
     "matched": [
@@ -19554,11 +19582,11 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 3,
-   "note": "Lue par gemini-3.8-flash le 2026-10-22 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "note": "Réanalyse avec les instructions v3 (conseils généraux sans champion, erreurs à éviter).",
    "triage": {
     "score": 16,
     "matched": [],
@@ -20708,11 +20736,11 @@
    "retrievedAt": "2026-10-24",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "analysee",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 1,
-   "note": "Lue par gemini-3.8-flash le 2026-10-24 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "note": "Réanalyse avec les instructions v3 (conseils généraux sans champion, erreurs à éviter).",
    "triage": {
     "score": 16,
     "matched": [
@@ -20952,13 +20980,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-10-24",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "null",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 13,
-   "note": "File de lecture (rang 13) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 9 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -20967,6 +20995,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-25",
+    "sha256": "9ea5791b5e4c53605cefcb3b7c37fc7d1c7078a1bf881cb6e26735d0f1c97c5d",
+    "segments": 228,
+    "observations": 9,
+    "duration": "28:44",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 165790
    }
   },
   {
@@ -21100,6 +21141,60 @@
     "matched": [
      "macro",
      "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-cFMt7wVSBdo",
+   "sourceId": "yt-skill-capped",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=cFMt7wVSBdo",
+   "title": "EVERYTHING You NEED to know about MACRO in SEASON 16!",
+   "author": "Skill Capped",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-25",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 24,
+   "note": "File de lecture (rang 24) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-VqVHnFbGylI",
+   "sourceId": "yt-coach-curtis",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=VqVHnFbGylI",
+   "title": "Here's How The Rank 1 Kayle Wins With MACRO",
+   "author": "Curtis Morgan",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-25",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 25,
+   "note": "File de lecture (rang 25) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "macro"
     ],
     "entertainment": [],
     "patchMentioned": null,

@@ -1331,3 +1331,18 @@ button.pick { background: none; border: 0; padding: 0; font: inherit; color: inh
 .c2-next-bar span { display: block; height: 100%; background: var(--accent); }
 .c2-verdict { background: var(--accent-soft); border-radius: var(--r-sm); padding: var(--s3) var(--s4); display: flex; flex-direction: column; gap: var(--s1); margin-bottom: var(--s3); }
 .c2-verdict p { margin: 0; line-height: 1.45; }
+
+/* Draft : cases par portrait, étapes */
+.c2-prepsteps { display: flex; gap: 6px; flex-wrap: wrap; font-size: var(--fs-sm); font-weight: 600; margin-bottom: var(--s3); }
+.c2-prepsteps span { background: var(--surface); color: var(--text-3); border-radius: 999px; padding: 5px 11px; }
+.c2-prepsteps span.on { background: var(--accent); color: var(--on-accent); }
+.c2-prow { display: flex; justify-content: space-between; gap: 4px; }
+.c2-pslot { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 44px; padding: 4px 0; border: 0; background: none; color: var(--text-3); font: inherit; font-size: 11px; cursor: pointer; }
+.c2-pslot .c2-av, .c2-pempty { width: 44px; height: 44px; border-radius: 10px; }
+.c2-pempty { display: flex; align-items: center; justify-content: center; border: 1.5px dashed var(--surface-3); box-sizing: border-box; font-size: 18px; }
+.c2-pslot.me .c2-pempty, .c2-pslot.me .c2-av { border: 2px solid var(--accent); font-size: 13px; font-weight: 700; color: var(--text); }
+.c2-pslot.on .c2-pempty, .c2-pslot.on .c2-av { outline: 2px solid var(--accent); outline-offset: 2px; }
+.c2-pslot.on > span:last-child { color: var(--accent-text); font-weight: 700; }
+.c2-foe { color: var(--bad); }
+.c2-slotq { display: flex; gap: var(--s2); }
+.c2-slotq input { flex: 1; min-width: 0; min-height: 44px; border-radius: var(--r-sm); border: 1px solid var(--line); background: var(--surface-2); padding: 0 var(--s3); font-size: var(--fs); color: var(--text); }

@@ -1047,7 +1047,7 @@ function c2DraftResult(d, { myRole = null, compact = false } = {}) {
   const myLane = d.lanes.find(l => l.role === myRole);
   const lanes = d.lanes.length ? `<section class="c2-card"><p class="label">Duels par lane · joueurs Diamant+</p><ul class="c2-mu">${d.lanes.map(l => `<li class="${l.role === myRole ? "me" : ""}">
       <span class="c2-mu-role">${esc(C2_ROLE[l.role])}</span><span class="c2-mu-duel">${vsTxt(l.ally, l.enemy)}</span>
-      <span class="c2-mu-stat">${c2Rate(l)}${l.enough ? `<span class="fine">${C2_VERDICT[l.verdict]}${l.cs10 != null ? ` · à 10 min, ton champion a en moyenne ${l.cs10 > 0 ? "+" : ""}${c2n(l.cs10)} sbires` : ""}</span>` : ""}</span></li>`).join("")}</ul>
+      <span class="c2-mu-stat">${c2Rate(l, true)}<span class="fine">${l.enough ? C2_VERDICT[l.verdict] : `${c2n(l.games)} parties`}</span></span></li>`).join("")}</ul>
       <p class="fine">Part des parties gagnées par le champion de ton équipe dans chaque duel, chez les joueurs Diamant et plus.</p></section>` : "";
   const BOT = { "support-bottom": "Ton support contre leur ADC", "bottom-support": "Ton ADC contre leur support", duo: "Votre duo ADC + support ensemble" };
   const bot = d.bot.length ? `<section class="c2-card"><p class="label">Bot lane à 2 contre 2</p><ul class="c2-mu">${d.bot.map(b => `<li><span class="c2-mu-role wide">${BOT[b.kind]}</span><span class="c2-mu-duel">${b.kind === "duo" ? `${c2Img(b.ally, "c2-av sm")}<span class="c2-vs-sep">+</span>${c2Img(b.enemy, "c2-av sm")}` : vsTxt(b.ally, b.enemy)}</span><span class="c2-mu-stat">${c2Rate(b)}</span></li>`).join("")}</ul></section>` : "";
@@ -1069,7 +1069,7 @@ function c2DraftResult(d, { myRole = null, compact = false } = {}) {
   const verdict = !compact && sure.length > 1 ? `<div class="c2-verdict"><p><b>${even ? `Tes ${sure.length} champions se valent face à cette équipe.` : `${esc(c2Name(sure[0].c))} s'en sort le mieux face à cette équipe.`}</b></p>
       <p>${even ? `Chez les Diamant+, leurs taux de victoire face à cette composition vont de ${c2n(Math.min(...sure.map(x => x.vsComp.winrate)))} à ${c2n(Math.max(...sure.map(x => x.vsComp.winrate)))} %, dans la marge d'erreur. Prends celui que tu maîtrises le mieux.` : `Chez les Diamant+ : ${c2n(sure[0].vsComp.winrate)} % face à cette composition, contre ${c2n(sure.at(-1).vsComp.winrate)} % pour ${esc(c2Name(sure.at(-1).c))}.`}</p></div>` : "";
   const pool = !compact && d.pool.length ? `${verdict}<section class="c2-card"><p class="label">Mes champions dans cette partie</p><ul class="c2-mu">${d.pool.map((x, i) => `<li class="${i === 0 && (x.lane?.enough || x.vsComp?.enough) ? "me" : ""}"><span class="c2-mu-duel">${c2Img(x.c, "c2-av sm")}<b>${esc(c2Name(x.c))}</b></span>
-      <span class="c2-mu-stat"><span class="fine">duel</span>${x.lane ? c2Rate(x.lane, true) : `<span class="c2-rate none">—</span>`}<span class="fine">contre leur compo</span>${c2Rate(x.vsComp, true)}</span></li>`).join("")}</ul>
+      <span class="c2-mu-stat">${c2Rate(x.vsComp, true)}<span class="fine">face à leur équipe${x.lane?.enough ? ` · duel ${c2n(x.lane.winrate)} %` : ""}</span></span></li>`).join("")}</ul>
       <p class="fine">Classés du plus sûr au moins sûr. Sans assez de parties, aucun champion n'est mis en avant.</p></section>` : "";
   const plan = !compact && d.me ? c2PlanCard(d.me.c, myRole) : "";
   return `${pool}${plan}${lanes}${bot}${me}${kb}${comps}<p class="fine c2-foot">Statistiques sur ${c2n(d.games)} parties classées Diamant+ (EUW) des ${d.days} derniers jours. Sous ${d.minGames} parties, le coach ne donne pas de verdict.</p>`;
@@ -1081,18 +1081,24 @@ function c2Draft() {
   const role = D.role;
   const pool = (C2.pool ||= {})[role] || [];
   const names = c2ChampList();
-  const slot = (side, r) => `<label class="c2-slot ${side === "allies" && r === role ? "me" : ""}"><span>${esc(C2_ROLE[r])}${side === "allies" && r === role ? " · toi" : ""}</span><input name="${side}-${r}" list="c2-champs" autocomplete="off" placeholder="—" value="${esc(D[side][r] ? c2Name(D[side][r]) : "")}"></label>`;
+  // Une case par champion ; la case choisie reçoit la recherche (deux lettres suffisent avec la liste)
+  const sel = c2ui.slot || { side: "enemies", role };
+  const slot = (side, r) => { const c = D[side][r], me = side === "allies" && r === role, on = sel.side === side && sel.role === r;
+    return `<button type="button" class="c2-pslot${me ? " me" : ""}${on ? " on" : ""}" data-action="c2-slot" data-side="${side}" data-role="${r}" aria-pressed="${on}" aria-label="${side === "allies" ? (me ? "Toi" : "Ton") : "Leur"} ${esc(C2_ROLE[r])}${c ? ` : ${esc(c2Name(c))}` : ""}">${c ? c2Img(c, "c2-av") : `<span class="c2-pempty">${me ? "toi" : "+"}</span>`}<span>${esc(C2_ROLE[r])}</span></button>`; };
+  const step = D.allies[role] ? 2 : 1;
   const params = { me: D.allies[role] ? `${role}:${D.allies[role]}` : "", allies: c2Pick(D.allies), enemies: c2Pick(D.enemies), pool: pool.join(",") };
   const key = JSON.stringify(params);
   const any = Object.keys(D.allies).length + Object.keys(D.enemies).length + pool.length;
   if (any && C2_API != null) setTimeout(() => c2LoadDraft(key, params), 0);
   const res = c2ui.draft?.[key];
   return `<datalist id="c2-champs">${names.map(c => `<option value="${esc(c.name)}">`).join("")}</datalist>
+    <div class="c2-prepsteps" aria-label="Étapes"><span class="${step === 1 ? "on" : ""}">1 · Choisir</span><span class="${step === 2 ? "on" : ""}">2 · Mon plan</span><span>3 · En partie</span></div>
     <form id="c2-draft" class="c2-card" novalidate>
       <div class="c2-roles" role="group" aria-label="Mon rôle">${C2_ORDER.map(r => `<button type="button" class="pill-btn ${r === role ? "on" : ""}" data-action="c2-draft-role" data-role="${r}" aria-pressed="${r === role}">${esc(C2_ROLE[r])}</button>`).join("")}</div>
-      <div class="c2-teams"><fieldset><legend>Mon équipe</legend>${C2_ORDER.map(r => slot("allies", r)).join("")}</fieldset><fieldset><legend>Adversaires</legend>${C2_ORDER.map(r => slot("enemies", r)).join("")}</fieldset></div>
-      <div class="c2-goalbtns"><button class="btn primary" type="submit">Analyser</button><button class="btn ghost" type="button" data-action="c2-draft-clear">Tout effacer</button></div>
-      <p class="fine">Renseigne les champions au fil de la sélection : l'analyse se met à jour avec ce qui est connu.</p>
+      <p class="label c2-foe">Leur équipe</p><div class="c2-prow">${C2_ORDER.map(r => slot("enemies", r)).join("")}</div>
+      <p class="label">Mon équipe</p><div class="c2-prow">${C2_ORDER.map(r => slot("allies", r)).join("")}</div>
+      <div class="c2-slotq"><input id="c2-slotq" list="c2-champs" autocomplete="off" enterkeyhint="done" aria-label="Champion pour la case choisie" placeholder="${sel.side === "allies" ? (sel.role === role ? "Ton champion" : `Ton ${esc(C2_ROLE[sel.role])}`) : `Leur ${esc(C2_ROLE[sel.role])}`} : tape 2 lettres…">${D[sel.side][sel.role] ? `<button type="button" class="btn ghost sm" data-action="c2-slot-clear">Retirer</button>` : ""}</div>
+      <p class="fine">Touche une case puis tape le champion. Tout est facultatif : chaque champion ajouté affine le conseil. <button type="button" class="linkish" data-action="c2-draft-clear">Tout effacer</button></p>
     </form>
     <section class="c2-card"><p class="label">Mes champions en ${esc(C2_ROLE[role])}</p>
       <div class="c2-chiprow">${pool.map(c => `<span class="c2-cchip">${c2Img(c, "c2-av xs")}${esc(c2Name(c))}<button class="linkish" data-action="c2-pool-del" data-c="${esc(c)}" aria-label="Retirer ${esc(c2Name(c))}">×</button></span>`).join("") || `<span class="fine">Ajoute les champions que tu joues dans ce rôle : le coach les compare pour chaque partie.</span>`}</div>
@@ -1259,15 +1265,18 @@ document.addEventListener("input", e => {
 
 // Préparer ma partie : saisie de la draft, pool de champions
 function c2DraftRead(form) {
-  const D = C2.draft;
-  for (const side of ["allies", "enemies"]) for (const r of C2_ORDER) {
-    const v = form.elements[`${side}-${r}`]?.value.trim();
-    const id = v ? c2Id(v) : null;
-    if (id) D[side][r] = id; else delete D[side][r];
-  }
+  const D = C2.draft, q = form.querySelector("#c2-slotq"), id = q?.value.trim() ? c2Id(q.value.trim()) : null;
+  if (!id) return;
+  const sel = c2ui.slot || { side: "enemies", role: D.role };
+  D[sel.side][sel.role] = id;
+  // Case suivante : d'abord les adversaires, puis ton équipe, en sautant les cases remplies
+  const order = [...C2_ORDER.map(r => ["enemies", r]), ...C2_ORDER.map(r => ["allies", r])];
+  const next = order.find(([s, r]) => !D[s][r]);
+  c2ui.slot = next ? { side: next[0], role: next[1] } : sel;
   c2Save(); render(false);
+  setTimeout(() => document.getElementById("c2-slotq")?.focus(), 0);
 }
-document.addEventListener("change", e => { const f = e.target.closest?.("#c2-draft"); if (f && e.target.name) c2DraftRead(f); });
+document.addEventListener("change", e => { if (e.target.id === "c2-slotq") c2DraftRead(e.target.closest("#c2-draft")); });
 document.addEventListener("submit", e => {
   if (e.target.id === "c2-draft") { e.preventDefault(); c2DraftRead(e.target); }
   if (e.target.id === "c2-pool") {
@@ -1293,7 +1302,9 @@ document.addEventListener("click", e => {
   if (act === "c2-report-role") { c2ui.reportRole = a.dataset.id || a.dataset.role; c2ui.reportChamp = null; render(false); }
   if (act === "c2-report-champ") { const c = a.dataset.id || a.dataset.c; c2ui.reportChamp = c2ui.reportChamp === c ? null : c; render(false); }
   if (act === "c2-report-retry") { c2ui.report = null; render(false); }
-  if (act === "c2-draft-clear") { D.allies = {}; D.enemies = {}; c2Save(); render(false); }
+  if (act === "c2-draft-clear") { D.allies = {}; D.enemies = {}; c2ui.slot = null; c2Save(); render(false); }
+  if (act === "c2-slot") { c2ui.slot = { side: a.dataset.side, role: a.dataset.role }; render(false); setTimeout(() => document.getElementById("c2-slotq")?.focus(), 0); }
+  if (act === "c2-slot-clear" && c2ui.slot) { delete D[c2ui.slot.side][c2ui.slot.role]; c2Save(); render(false); }
   if (act === "c2-pool-del" || act === "c2-pool-add") {
     const list = ((C2.pool ||= {})[D.role] ||= []);
     C2.pool[D.role] = act === "c2-pool-del" ? list.filter(c => c !== a.dataset.c) : [...new Set([...list, a.dataset.c])];

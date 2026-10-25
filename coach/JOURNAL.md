@@ -507,3 +507,11 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
   - carte « Ton plan » du champion choisi (lignes mesurées et rythme : 1er retour, retours avant 14 min, 1er grand item).
 - **Carte partie en cours :** prochain repère selon le chrono et première ligne du plan, les autres repliées.
 - Capture du téléphone faite pour Préparer. Carte en partie à capturer quand un joueur suivi sera en partie.
+
+## 25/10/2026 — Plans de jeu, tour 3 : Préparer comme la maquette
+
+- **Saisie de la draft par portraits :** dix cases (leur équipe, puis la tienne), une seule recherche pour la case choisie, et passage automatique à la case vide suivante. Fini les dix champs texte.
+- **Étapes** « 1 · Choisir », « 2 · Mon plan », « 3 · En partie ». Classe `c2-prepsteps`, car `c2-steps` existait déjà pour les objectifs.
+- **Mes champions :** taux face à leur équipe, et duel seulement s'il y a assez de parties.
+- **Duels par lane :** taux et verdict seulement.
+- Préparer passe d'environ 4 500 à environ 2 900 px sur téléphone (capture CDP).

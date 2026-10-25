@@ -515,3 +515,18 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - **Mes champions :** taux face à leur équipe, et duel seulement s'il y a assez de parties.
 - **Duels par lane :** taux et verdict seulement.
 - Préparer passe d'environ 4 500 à environ 2 900 px sur téléphone (capture CDP).
+
+## 25/10/2026 — Coach V1 : brief d'Anthony, COACH-001 et COACH-002 (branche coach-v1)
+
+- **Cap décidé avec Anthony :** prendre le meilleur du brief (objectif unique mesurable, historique personnel d'abord, Worker + Supabase, clé de production) et du travail existant (base de conseils et plans de jeu = exercices des objectifs, références Diamant+ = `metric_references` plus tard). Préparer et la carte en partie seront masqués en V1, pas supprimés.
+- **COACH-001 (audit) :** aucune clé Riot ni Gemini dans le repo ni son historique. Points d'attention :
+  - les stats live des Worlds viennent d'une API lolesports non documentée ;
+  - la limite de débit Riot est gérée seulement par visiteur ;
+  - les objectifs sont gardés dans le navigateur ;
+  - le code lit les timelines par indice de frame.
+- **COACH-002 :** `coach/normalize.mjs`.
+  - Absent = null, division par zéro = null.
+  - F(p,T) = dernière frame ≤ T + 5 s, avec l'instant observé et la précision. Riot enregistre la frame de 10:00 de 64 à 354 ms après 10:00 (200 parties mesurées) : sans tolérance, on lirait 9:00.
+  - Adversaire de lane avec confiance « haute » ou « faible ».
+  - Statut de la timeline : ok, absente ou invalide.
+  - Tests sur des cas limites, et sur 300 vraies parties anonymisées : 10:00 à 354 ms près au pire, adversaire sûr pour 100 % des joueurs.

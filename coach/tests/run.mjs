@@ -636,6 +636,71 @@ await t("Plans de jeu : seuls les écarts nets et sûrs, rien d'absurde selon le
   return "écarts incertains écartés, une seule ligne de fin de partie, rien d'absurde selon le poste, liens avec la victoire limités aux comportements.";
 });
 
+await t("COACH-002 Normaliseur : champs absents à null, instant T par timestamp, adversaire de lane prudent", "fixture", async () => {
+  const { normalizeMatch, frameAt, participantAt, laneOpponent, ratio } = await import("../normalize.mjs");
+  const P = (id, team, pos, extra = {}) => ({ participantId: id, puuid: `p${id}`, teamId: team, teamPosition: pos, championName: `C${id}`, win: team === 100, kills: 1, deaths: 2, assists: 3, totalMinionsKilled: 100, neutralMinionsKilled: 4, ...extra });
+  const match = { metadata: { matchId: "EUW1_42" }, info: { queueId: 420, gameVersion: "16.21.734.1234", gameStartTimestamp: 1, gameEndTimestamp: 2, gameDuration: 1800,
+    participants: [P(1, 100, "MIDDLE"), P(2, 200, "MIDDLE", { visionScore: undefined, kills: null }), P(3, 100, "JUNGLE"), P(4, 200, ""), P(5, 200, "JUNGLE"), P(6, 200, "JUNGLE")],
+    teams: [{ teamId: 100, win: true, objectives: { champion: { kills: 10 } } }, { teamId: 200, win: false, objectives: {} }] } };
+  const pf = (m, extra = {}) => Object.fromEntries([1, 2, 3, 4, 5, 6].map(i => [String(i), { minionsKilled: 8 * m, jungleMinionsKilled: 0, totalGold: 500 + 400 * m, xp: 300 * m, level: 1 + m, position: { x: 1000, y: 1000 }, ...extra }]));
+  // Frames enregistrées un peu après la minute ronde, comme chez Riot ; la frame de 7:00 manque
+  const frames = [0, 1, 2, 3, 4, 5, 6, 8, 9, 10].map(m => ({ timestamp: m * 60000 + (m ? 236 : 0), participantFrames: pf(m), events: [] }));
+  const tl = { info: { frameInterval: 60000, frames } };
+  const n = normalizeMatch(match, tl);
+  assert(n.duration_s === 1800 && n.patch === "16.21" && n.platform === "euw1" && n.timeline_status === "ok", "en-tête de partie mal lu");
+  const p2 = n.participants.find(p => p.participant_id === 2);
+  assert(p2.kills === null && p2.vision_score === null, "champ absent transformé en 0");
+  assert(n.teams[1].champion_kills === null && n.teams[0].champion_kills === 10, "objectif d'équipe absent transformé en 0");
+  assert(n.participants.find(p => p.participant_id === 4).role === null, "poste vide deviné");
+  // Ancienne durée en millisecondes (pas de gameEndTimestamp)
+  assert(normalizeMatch({ metadata: {}, info: { ...match.info, gameEndTimestamp: undefined, gameDuration: 1800000 } }).duration_s === 1800, "durée en millisecondes non convertie");
+  // F(p,T) : 10:00 lue sur la frame de 10:00 (236 ms après), pas sur celle de 9:00 ; 7:00 absente → 6:00 avec sa précision
+  const f10 = frameAt(tl, 600000);
+  assert(f10.observed_at_ms === 600236 && f10.precision_ms === 236, "frame de 10:00 mal choisie");
+  const f7 = frameAt(tl, 420000);
+  assert(f7.observed_at_ms === 360236 && f7.precision_ms === 59764, "frame manquante non signalée par la précision");
+  assert(frameAt(tl, -1) === null && frameAt(null, 600000) === null, "instant impossible non refusé");
+  assert(participantAt(tl, 1, 600000).cs === 80 && participantAt(tl, 99, 600000) === null, "participant absent ou mal indexé");
+  assert(participantAt({ info: { frames: [{ timestamp: 600000, participantFrames: { 1: { minionsKilled: 80 } } }] } }, 1, 600000).cs === null, "farm de jungle absent compté comme 0");
+  // Adversaire : mid unique → haute ; poste vide → faible ; deux junglers en face → faible et aucun adversaire
+  assert(laneOpponent(n, 1).participant_id === 2 && laneOpponent(n, 1).confidence === "haute", "adversaire de mid non trouvé");
+  assert(laneOpponent(n, 4).confidence === "faible" && laneOpponent(n, 3).participant_id === null, "adversaire ambigu accepté");
+  // Division par zéro et timeline incohérente
+  assert(ratio(5, 0) === null && ratio(null, 3) === null && ratio(6, 3) === 2, "division par zéro non nulle");
+  assert(normalizeMatch(match, { info: { frames: [{ timestamp: 0, participantFrames: { 1: {} } }] } }).timeline_status === "invalide", "timeline d'une autre partie acceptée");
+  assert(normalizeMatch(match).timeline_status === "absente", "timeline absente non signalée");
+  let threw = false; try { normalizeMatch({}); } catch (e) { threw = e.code === "match-invalide"; }
+  assert(threw, "réponse vide acceptée");
+  return "null pour les champs absents et les divisions par zéro, 10:00 lue à 10:00 (+236 ms), frame manquante signalée par sa précision, adversaire ambigu refusé.";
+});
+
+await t("COACH-002 Normaliseur sur de vraies parties anonymisées (cache privé)", "réel", async () => {
+  const { normalizeMatch, participantAt, laneOpponent } = await import("../normalize.mjs");
+  const { readdir, readFile } = await import("node:fs/promises");
+  const { gunzipSync } = await import("node:zlib");
+  const dir = new URL("../cache/timelines/", import.meta.url);
+  const files = (await readdir(dir).catch(() => [])).filter(f => f.endsWith(".json.gz")).slice(0, 300);
+  if (files.length < 50) throw Object.assign(new Error("ignoré : chronologies absentes du cache privé"), { skip: true });
+  let games = 0, sure = 0, roles = 0, worst = 0;
+  for (const f of files) {
+    const g = JSON.parse(gunzipSync(await readFile(new URL(f, dir))).toString());
+    const n = normalizeMatch(g.match, g.timeline);
+    assert(n.timeline_status === "ok", `${f} : timeline jugée invalide`);
+    assert(n.participants.every(p => Object.values(p).every(v => v === null || typeof v !== "number" || Number.isFinite(v))), `${f} : valeur non finie`);
+    if (n.duration_s < 900) continue;
+    games++;
+    for (const p of n.participants) {
+      const at = participantAt(g.timeline, p.participant_id, 600000);
+      assert(at && at.cs != null, `${f} : état à 10:00 absent`);
+      worst = Math.max(worst, at.precision_ms);
+      if (p.role) { roles++; if (laneOpponent(n, p.participant_id).confidence === "haute") sure++; }
+    }
+  }
+  assert(worst < 1000, `10:00 lue à ${worst} ms près`);
+  assert(sure / roles > .95, `adversaire sûr dans seulement ${Math.round(100 * sure / roles)} % des cas`);
+  return `${games} parties : 10:00 lue à ${worst} ms près au pire, adversaire de lane sûr pour ${Math.round(1000 * sure / roles) / 10} % des joueurs.`;
+});
+
 // ---------- Rapport
 const ok = results.filter(r => r.ok).length;
 for (const r of results) console.log(`${r.skipped ? "–" : r.ok ? "✔" : "✘"} ${r.name} [${r.kind}]\n    ${r.detail}`);

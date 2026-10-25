@@ -42,16 +42,20 @@
       "gemini-3.8-flash",
       "gemini-3.7-flash",
       "gemini-3.6-flash",
-      "gemini-3.5-flash"
+      "gemini-3.5-flash",
+      "gemini-3-flash-preview",
+      "gemini-3.5-flash-lite",
+      "gemini-3.1-flash-lite"
     ],
     "fps": 1,
-    "maxPerRun": 3,
+    "maxPerRun": 4,
     "maxHoursPerDay": 6,
     "maxMinutes": 40,
     "maxMinutesLong": 90,
     "minTriage": 1,
     "maxAttempts": 3,
-    "tokensPerSecond": 90
+    "tokensPerSecond": 90,
+    "_modelsDoc": "Chaque modèle a son propre quota gratuit (environ 20 requêtes par jour) : la lecture passe au suivant quand l’un est épuisé. Les « lite » viennent en dernier (lecture moins fine)."
   },
   "riot": {
     "_doc": "Statistiques calculées sur de vraies parties classées (API officielle de Riot). publish=false tant que le produit n'a pas de clé personnelle ou de production : une clé de développement est réservée au prototypage.",
@@ -104,12 +108,14 @@
       "gemini-3.8-flash",
       "gemini-3.7-flash",
       "gemini-3.6-flash",
-      "gemini-3.5-flash"
+      "gemini-3.5-flash",
+      "gemini-3-flash-preview",
+      "gemini-3.5-flash-lite"
     ],
     "model": "claude-opus-5-5",
     "effort": "medium",
-    "maxPerRun": 4,
-    "maxPerDay": 16,
+    "maxPerRun": 6,
+    "maxPerDay": 24,
     "budgetUsdPerDay": 1,
     "budgetUsdPerMonth": 15,
     "maxInputChars": 60000,

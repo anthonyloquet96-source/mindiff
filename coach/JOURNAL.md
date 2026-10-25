@@ -384,3 +384,11 @@ Anthony : « il faut que tu puisses la valider toi-même […] j'aimerais qu'il 
   - 4 autres conseils rejetés à cause de citations coupées par « [...] » : ces coupes sont désormais vérifiées morceau par morceau.
 - **Réanalyse** : les vidéos et contenus analysés en v1 sont remis dans la file (`reanalyse: "v2"`).
 - **Volume** : au quota gratuit de Gemini (environ 16 analyses par jour, et la vérification consomme aussi des requêtes), on reste à quelques dizaines de conseils par jour. Viser des centaines de milliers demande l'offre payante et une file de contenus beaucoup plus large.
+
+## 25/10/2026 — Plus de modèles Gemini gratuits
+
+Les journaux de la veille montrent que le quota gratuit de Google est épuisé presque à chaque passage, sur les 4 modèles déjà utilisés. Trois autres modèles répondent avec la même clé, et chacun a son propre quota gratuit : `gemini-3-flash-preview`, `gemini-3.5-flash-lite` et `gemini-3.1-flash-lite`. Je les ai testés le 25/10.
+
+- **Lecture des vidéos** : les 3 modèles sont ajoutés en fin de liste, les « lite » en dernier. Jusqu'à 4 vidéos par passage (3 avant).
+- **Analyse** : `gemini-3-flash-preview` et `gemini-3.5-flash-lite` sont ajoutés en fin de liste. Jusqu'à 6 analyses par passage et 24 par jour (4 et 16 avant). Une analyse faite par un modèle « lite » passe par la même critique et par la même seconde lecture de l'extrait.
+- **Écarté** : transformer les statistiques Diamant+ en « conseils ». Le coach les exploite déjà (fiche champion par rôle, build adapté, draft, durée de partie). Les recopier en unités gonflerait le compteur sans rien apprendre de plus au joueur.

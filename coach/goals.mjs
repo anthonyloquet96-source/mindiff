@@ -23,9 +23,16 @@ const clamp01 = x => Math.max(0, Math.min(1, x));
 const round = (v, d) => Math.round(v * 10 ** d) / 10 ** d;
 
 // Référence d'une métrique pour un rôle : mesurée si l'échantillon suffit, sinon seuil pédagogique
-export function referenceFor(key, role, references = null) {
+// Joueur déjà au niveau de la médiane : marche suivante = le quart supérieur de la même référence (p75, ou p25 quand
+// « plus bas = mieux »), pour qu'un joueur Diamant+ ait aussi un objectif mesuré
+export function referenceFor(key, role, references = null, baseline = null) {
   const r = references?.[role]?.[key];
-  if (r && r.n >= RULES.minRefSample && r.p50 != null) return { value: r.p50, source: "metric_references", n: r.n, level: r.level || null };
+  if (r && r.n >= RULES.minRefSample && r.p50 != null) {
+    const dir = CATALOG[key]?.direction === "lower" ? -1 : 1;
+    const upper = dir > 0 ? r.p75 : r.p25;
+    if (baseline != null && dir * (r.p50 - baseline) <= 0 && upper != null && dir * (upper - baseline) > 0) return { value: upper, source: "metric_references", quantile: dir > 0 ? "p75" : "p25", n: r.n, level: r.level || null };
+    return { value: r.p50, source: "metric_references", quantile: "p50", n: r.n, level: r.level || null };
+  }
   const p = CATALOG[key]?.pedagogical?.[role];
   return p == null ? null : { value: p, source: "seuil-pedagogique", n: null, level: null };
 }
@@ -43,11 +50,11 @@ export function prioritize(games, role, { references = null, exclude = [], stepF
     if (comparable.length < RULES.minGames) { out.push({ ...row, reason: `moins de ${RULES.minGames} parties comparables` }); continue; }
     if (share < RULES.minValidShare) { out.push({ ...row, reason: `moins de ${Math.round(RULES.minValidShare * 100)} % d'observations valides` }); continue; }
     if (exclude.includes(key)) { out.push({ ...row, reason: "deux échecs de suite : mise de côté jusqu'au prochain diagnostic" }); continue; }
-    const ref = referenceFor(key, role, references);
-    if (!ref) { out.push({ ...row, reason: "aucune référence pour ce rôle" }); continue; }
     const dir = c.direction === "higher" ? 1 : -1;
     const recent = valid.slice(0, RULES.baselineGames);
     const baseline = median(recent);
+    const ref = referenceFor(key, role, references, baseline);
+    if (!ref) { out.push({ ...row, reason: "aucune référence pour ce rôle" }); continue; }
     const s = Math.max(1.4826 * mad(recent), FLOOR[key] ?? 0);
     const gap = dir * (ref.value - baseline);
     const G = clamp01(Math.max(0, gap) / (2 * s));
@@ -65,6 +72,9 @@ export function prioritize(games, role, { references = null, exclude = [], stepF
     let target = dir > 0 ? Math.min(ref.value, Math.max(personal, baseline + unit)) : Math.max(ref.value, Math.min(personal, baseline - unit));
     target = c.direction === "lower" ? Math.floor(target + 1e-9) : round(target, dec);
     if (dir * (target - baseline) <= 0) target = round(baseline + dir * unit, dec);
+    // L'arrondi ne doit pas faire passer la cible au-delà de la référence (0,5187 arrondi à 0,52)
+    if (dir > 0 && target > ref.value) target = Math.floor(ref.value * 10 ** dec + 1e-9) / 10 ** dec;
+    if (dir < 0 && target < ref.value) target = Math.ceil(ref.value * 10 ** dec - 1e-9) / 10 ** dec;
     out.push({ ...row, eligible: gap > 0, reason: gap > 0 ? null : "déjà au niveau de la référence", baseline: round(baseline, 3), spread: round(s, 3), reference: ref, target,
       factors: { G: round(G, 3), I: c.impact, F: round(F, 3), A: c.actionability, C: round(C, 3) }, score: round(score, 2) });
   }

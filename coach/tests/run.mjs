@@ -732,6 +732,11 @@ await t("COACH-007 Choix de l'objectif : reproductible, sans LLM, éligibilité 
   const refs = { MIDDLE: { cs_at_10: { n: 8000, p50: 78, level: "Diamant et plus" } } };
   assert(proposeGoal(games, "MIDDLE", { references: refs }).goal.reference.source === "metric_references", "référence mesurée ignorée");
   assert(proposeGoal(games, "MIDDLE", { references: { MIDDLE: { cs_at_10: { n: 50, p50: 78 } } } }).goal.reference.source === "seuil-pedagogique", "petit échantillon utilisé comme référence");
+  // Joueur au-dessus de la médiane mesurée : marche suivante = quart supérieur ; cible jamais au-delà de la référence
+  const high = proposeGoal(games, "MIDDLE", { references: { MIDDLE: { cs_at_10: { n: 8000, p25: 50, p50: 55, p75: 63.4, level: "Diamant et plus" } } } });
+  const hr = high.diagnostic.find(r => r.metric === "cs_at_10");
+  assert(hr.eligible && hr.reference.quantile === "p75" && hr.target <= 63.4, "pas de marche au-dessus de la médiane, ou cible au-delà de la référence");
+  ` `;
   return `objectif reproductible : sbires à 10 min, ${a.goal.baseline} → ${a.goal.target} (référence ${a.goal.reference.value}) ; pas d'objectif sous 8 parties ni sous 70 % d'observations ; référence mesurée seulement avec un échantillon suffisant.`;
 });
 

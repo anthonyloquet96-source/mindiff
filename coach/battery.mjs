@@ -13,7 +13,7 @@ import { computeMetrics, CATALOG } from "./metrics.mjs";
 import { proposeGoal, transition, evaluateGoal, prioritize } from "./goals.mjs";
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? Number(process.argv[i + 1]) : d; };
-const PER_TIER = arg("--par-palier", 3), GAMES = arg("--parties", 30), EVAL = 10;
+const PER_TIER = arg("--par-palier", 3), GAMES = arg("--parties", 40), EVAL = 10;
 const TIERS = [["IRON", "II"], ["BRONZE", "II"], ["SILVER", "II"], ["GOLD", "II"], ["PLATINUM", "II"], ["EMERALD", "II"], ["DIAMOND", "II"], ["MASTER", "I"], ["GRANDMASTER", "I"], ["CHALLENGER", "I"]];
 const OUT = "coach/cache/battery";
 const hash = s => createHash("sha256").update(s).digest("hex").slice(0, 12);
@@ -28,7 +28,8 @@ async function playersOf(riot, tier, division) {
 // Rejoue le coach : objectif choisi avec l'historique, évalué sur les parties qui suivent
 export function replay(games, references) {
   const byRole = {};
-  for (const g of games) if (g.valid && ["MIDDLE", "JUNGLE"].includes(g.role)) byRole[g.role] = (byRole[g.role] || 0) + 1;
+  // Rôle principal sur tous les postes, comme le coach (coach/v1/sync.mjs)
+  for (const g of games) if (g.valid && g.role) byRole[g.role] = (byRole[g.role] || 0) + 1;
   const role = Object.entries(byRole).sort((a, b) => b[1] - a[1])[0]?.[0];
   if (!role) return { skipped: "ni mid ni jungle" };
   const chrono = [...games].sort((a, b) => a.start_ms - b.start_ms);

@@ -16,7 +16,7 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 4. [x] COACH-004/005 Routes `/api/v1` : d'abord dans le serveur local avec un stockage fichier (même contrat que le Worker), file de synchronisation idempotente, limite de débit Riot (en-têtes, Retry-After), puis le Worker.
 5. [x] COACH-009 Tableau de bord de l'objectif (accueil du coach) ; Préparer et la carte en partie masqués derrière un drapeau.
 6. [x] Exercices tirés de la base de conseils (conseils sourcés par thème de la métrique) et des plans de jeu.
-7. [ ] COACH-010 Tuteur IA (cite le diagnostic, admet ses limites).
+7. [x] COACH-010 Tuteur IA (cite le diagnostic, admet ses limites).
 
 ## À faire par Anthony (plus tard)
 - Créer le projet Supabase (Europe) et le compte Cloudflare ; poser les clés hors du chat.
@@ -29,3 +29,10 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 - 00:20 — COACH-009 : carte « Mon objectif » en tête de Mon suivi (synchronisation automatique, objectif proposé avec repère et exercice, « Je commence », 5 pastilles d'évaluation, résultat du précédent). Onglet Préparer et carte en partie masqués (localStorage mindiff-extras = 1 pour les revoir). Vérifié par capture téléphone sur un vrai compte.
 - 00:35 — Batterie (12 joueurs Fer → Or) : la cible « médiane + un écart typique » n'était atteinte que dans 8 à 33 % des parties du joueur lui-même, 5 objectifs tranchés sur 6 ratés. Cible recalée sur le 65e centile personnel (60e après un échec), plafonnée à la référence. Rejeu : 2 réussis, 2 ratés (dont un joueur à 0/5 en net recul), cibles 64→65, 71→76, 53→56. Constat : la moitié des joueurs n'ont pas 8 parties au même poste sur 20 ; « sbires à 10 min » domine.
 - 00:50 — Tâche 6 : la carte d'objectif ajoute « Ce qu'en disent les coachs » (2 conseils sourcés de la base, du thème de la métrique et du poste, ceux qui parlent du geste en premier, sélection stable). Vérifié : vision en support → Dignitas et sendo, avec quand / comment / pourquoi.
+- 01:00 — COACH-010 : tuteur (coach/v1/tutor.mjs), route POST /api/v1/coach/chat. Essai réel impossible ce soir : quota gratuit Gemini épuisé (réponse 503 propre). À refaire après la remise à zéro (~9 h).
+- 01:10 — Batterie, 20 joueurs Fer → Diamant : la moitié sans objectif, mais surtout un défaut de la batterie (20 parties d'historique, rôle forcé mid/jungle même pour un joueur qui n'y joue presque pas) → 40 parties et rôle principal sur tous les postes. Défauts du coach corrigés : cible arrondie au-delà de la référence (0,5187 → 0,52) ; joueur déjà au-dessus de la médiane Diamant+ sans objectif possible → marche suivante = quart supérieur (p75, p25 pour les morts).
+
+## Pistes suivantes (à trier)
+- Relancer la batterie complète avec les corrections (nouvelle série) et suivre le taux de réussite par palier.
+- « Sbires à 10 min » domine : vérifier si I × A favorise trop cette métrique.
+- Worker Cloudflare avec stockage Supabase (bloqué : comptes à créer par Anthony).

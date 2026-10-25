@@ -15,7 +15,7 @@ import { proposeGoal, transition, evaluateGoal, prioritize } from "./goals.mjs";
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? Number(process.argv[i + 1]) : d; };
 const PER_TIER = arg("--par-palier", 3), GAMES = arg("--parties", 40), EVAL = 10;
 const TIERS = [["IRON", "II"], ["BRONZE", "II"], ["SILVER", "II"], ["GOLD", "II"], ["PLATINUM", "II"], ["EMERALD", "II"], ["DIAMOND", "II"], ["MASTER", "I"], ["GRANDMASTER", "I"], ["CHALLENGER", "I"]];
-const OUT = "coach/cache/battery";
+const OUT = process.argv.includes("--serie") ? `coach/cache/battery-${process.argv[process.argv.indexOf("--serie") + 1]}` : "coach/cache/battery";
 const hash = s => createHash("sha256").update(s).digest("hex").slice(0, 12);
 
 async function playersOf(riot, tier, division) {

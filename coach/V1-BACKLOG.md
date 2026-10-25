@@ -32,6 +32,8 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 - 01:00 — COACH-010 : tuteur (coach/v1/tutor.mjs), route POST /api/v1/coach/chat. Essai réel impossible ce soir : quota gratuit Gemini épuisé (réponse 503 propre). À refaire après la remise à zéro (~9 h).
 - 01:10 — Batterie, 20 joueurs Fer → Diamant : la moitié sans objectif, mais surtout un défaut de la batterie (20 parties d'historique, rôle forcé mid/jungle même pour un joueur qui n'y joue presque pas) → 40 parties et rôle principal sur tous les postes. Défauts du coach corrigés : cible arrondie au-delà de la référence (0,5187 → 0,52) ; joueur déjà au-dessus de la médiane Diamant+ sans objectif possible → marche suivante = quart supérieur (p75, p25 pour les morts).
 
+- 00:20 — Série 1 terminée (30 joueurs Fer → Challenger). Rejouée avec le moteur corrigé : tous les joueurs Master+ ont maintenant un objectif (marche au quart supérieur). Bilan : 7 réussis, 13 ratés, 1 inconclusif, 4 en cours, 5 sans objectif. À lire avec prudence : ces joueurs ne suivaient pas le coach ; avec une cible au 65e centile personnel, la réussite « par hasard » (3 parties sur 5) tourne autour de 25 %, ce qui correspond à ce qu'on observe (35 %). Ajout : progrès minimal d'un quart d'écart typique (0,504 → 0,51 de vision était atteint sans effort). Série 2 lancée (40 parties, rôle principal réel).
+
 ## Pistes suivantes (à trier)
 - Relancer la batterie complète avec les corrections (nouvelle série) et suivre le taux de réussite par palier.
 - « Sbires à 10 min » domine : vérifier si I × A favorise trop cette métrique.

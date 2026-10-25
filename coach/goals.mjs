@@ -69,7 +69,9 @@ export function prioritize(games, role, { references = null, exclude = [], stepF
     const pq = stepFactor < 1 ? 0.6 : 0.65;
     const sorted = [...recent].sort((x, y) => x - y);
     const personal = c.direction === "higher" ? sorted[Math.floor(pq * (sorted.length - 1))] : sorted[Math.ceil((1 - pq) * (sorted.length - 1))];
-    let target = dir > 0 ? Math.min(ref.value, Math.max(personal, baseline + unit)) : Math.max(ref.value, Math.min(personal, baseline - unit));
+    // Progrès minimal : un quart d'écart typique (sinon 0,504 → 0,51 de vision, atteint par hasard)
+    const minStep = Math.max(unit, 0.25 * s);
+    let target = dir > 0 ? Math.min(ref.value, Math.max(personal, baseline + minStep)) : Math.max(ref.value, Math.min(personal, baseline - minStep));
     target = c.direction === "lower" ? Math.floor(target + 1e-9) : round(target, dec);
     if (dir * (target - baseline) <= 0) target = round(baseline + dir * unit, dec);
     // L'arrondi ne doit pas faire passer la cible au-delà de la référence (0,5187 arrondi à 0,52)

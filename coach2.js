@@ -15,6 +15,9 @@ const c2Save = () => { try { localStorage.setItem(C2_KEY, JSON.stringify({ ...C2
 const c2ui = { loading: null, error: null, q: "", live: null, liveAt: 0, liveBusy: false, champ: {} };
 // Service : le serveur local sert l'API ; en ligne, l'adresse du service est fixée par window.MINDIFF_API
 const C2_API = window.MINDIFF_API ?? (/^(localhost|127\.|192\.168\.|10\.)/.test(location.hostname) ? "" : null);
+// Coach V1 : après la partie seulement. Préparer et la carte « partie en cours » restent dans le code, masqués ;
+// localStorage « mindiff-extras » = « 1 » les réaffiche (tests, version suivante)
+const C2_EXTRAS = (() => { try { return localStorage.getItem("mindiff-extras") === "1"; } catch { return false; } })();
 const c2Href = (...p) => href("lol", "coach", ...p);
 
 const C2_REGIONS = [["euw1", "EUW"], ["eun1", "EUNE"], ["na1", "NA"], ["kr", "KR"], ["br1", "BR"], ["la1", "LAN"], ["la2", "LAS"], ["tr1", "TR"], ["jp1", "JP"], ["oc1", "OCE"], ["me1", "ME"], ["ru", "RU"]];
@@ -281,7 +284,7 @@ function viewCoach2(rest = []) {
   const tab = { parties: "parties", preparer: "preparer", draft: "preparer", face: "preparer", champions: "champions" }[sub] || "suivi";
   if (sub === "face") c2ui.prep = "face";
   if (sub === "draft") c2ui.prep = "draft";
-  const tabs = [["suivi", "Mon suivi", "target", c2Href()], ["parties", "Mes parties", "list", c2Href("parties")], ["preparer", "Préparer", "bracket", c2Href("preparer")], ["champions", "Champions", "users", c2Href("champions")]];
+  const tabs = [["suivi", "Mon suivi", "target", c2Href()], ["parties", "Mes parties", "list", c2Href("parties")], ["preparer", "Préparer", "bracket", c2Href("preparer")], ["champions", "Champions", "users", c2Href("champions")]].filter(t => C2_EXTRAS || t[0] !== "preparer");
   const ti = tabs.findIndex(x => x[0] === tab);
   if (enter && c2ui.lastTab != null && c2ui.lastTab !== ti) slide = ti > c2ui.lastTab ? " c2-from-r" : " c2-from-l";
   c2ui.lastTab = ti;
@@ -323,13 +326,68 @@ function c2Home() {
   const p = c2NeedProfile();
   if (typeof p === "string") return p;
   const err = c2ui.error ? `<div class="note warn">${icon("alert")}<span>${esc(c2ui.error)}</span><button class="btn ghost sm" data-action="c2-refresh">Réessayer</button></div>` : "";
-  setTimeout(() => c2LoadLive(), 0);
+  if (C2_EXTRAS) setTimeout(() => c2LoadLive(), 0);
   const recent = p.games.slice(0, 3);
-  return `${c2ui.switching ? c2Connect(true) : ""}${err}${c2ProfileCard(p)}${c2Live(p)}${c2Ready(p)}${c2Goal(p)}
+  return `${c2ui.switching ? c2Connect(true) : ""}${err}${c2ProfileCard(p)}${C2_EXTRAS ? c2Live(p) : ""}${c2V1Card(p)}${c2Ready(p)}${C2_EXTRAS ? c2Goal(p) : ""}
     <a class="c2-ready c2-bilan-link" href="${c2Href("bilan")}">${icon("tiers")}<span><b>Mon bilan complet</b><span class="fine">Tes erreurs qui reviennent, tes forces et les adversaires à préparer, sur une vingtaine de tes dernières parties</span></span>${icon("chevron")}</a>
     ${recent.length ? `<section class="sec">${secHead("Dernières parties", seeAll(c2Href("parties"), "Toutes"))}${c2Games({ ...p, games: recent })}</section>` : ""}
     <p class="fine c2-foot">Données officielles de Riot Games${p.benchmark ? ` · référence : ${c2n(p.benchmark.games)} parties ${esc(p.benchmark.level)} (patch ${esc(c2Patch(p.benchmark.patch))})` : ""}</p>`;
 }
+
+// ---------- Coach V1 : un objectif mesurable à la fois (routes /api/v1, calcul côté serveur, sans IA)
+async function c2V1(path, method = "GET") {
+  const r = await fetch(`${C2_API}/api/v1${path}`, { method }).catch(() => null);
+  if (!r) throw new Error("Pas de connexion au service du coach.");
+  const j = r.status === 204 ? {} : await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.error?.message || `Erreur ${r.status}`);
+  return j;
+}
+async function c2V1Load(force = false) {
+  const V = (c2ui.v1 ||= {});
+  if (!C2.account?.riotId || V.busy || (!force && V.forId === C2.account.riotId)) return;
+  V.busy = true; V.forId = C2.account.riotId; V.error = null; render(false);
+  try {
+    if (!V.pid || V.pidFor !== C2.account.riotId) { const r = await c2V1(`/players/resolve?riot_id=${encodeURIComponent(C2.account.riotId)}&platform=${encodeURIComponent(C2.account.platform || "euw1")}`); V.pid = r.player_id; V.pidFor = C2.account.riotId; }
+    // Synchronisation : nouvelles ranked, métriques, objectif (évalué ou proposé)
+    V.syncing = true; render(false);
+    const job = await c2V1(`/players/${V.pid}/sync`, "POST");
+    for (let i = 0; i < 100; i++) { const j = await c2V1(`/jobs/${job.job_id}`); if (j.status === "done" || j.status === "failed") { if (j.status === "failed") V.error = j.error === "riot-cle-refusee" ? "Clé Riot refusée ou expirée : les parties ne peuvent pas être mises à jour." : "La mise à jour des parties a échoué."; break; } await new Promise(r => setTimeout(r, 2000)); }
+    V.syncing = false;
+    const [active, progress, diag] = await Promise.all([c2V1(`/players/${V.pid}/goals/active`), c2V1(`/players/${V.pid}/progress`), c2V1(`/players/${V.pid}/diagnostic`)]);
+    Object.assign(V, { goal: active.goal, evaluations: active.evaluations, history: progress.goals, series: progress.series, diagnostic: diag });
+  } catch (e) { V.error = e.message; V.syncing = false; }
+  V.busy = false; render(false);
+}
+const C2_V1_ROLE = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "ADC", UTILITY: "support" };
+function c2V1Card(p) {
+  if (C2_API == null) return "";
+  setTimeout(() => c2V1Load(), 0);
+  const V = c2ui.v1 || {};
+  if (V.error && !V.goal) return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p><p class="note warn">${icon("alert")}<span>${esc(V.error)}</span></p><button class="btn ghost sm" data-action="c2-v1-sync">Réessayer</button></section>`;
+  if (!V.goal && (V.busy || !V.diagnostic)) return `<section class="c2-card c2-v1 c2-loading">${V.syncing ? "Lecture de tes dernières ranked…" : "Ton objectif…"}</section>`;
+  const last = V.history?.[0];
+  const lastTxt = last ? `<p class="c2-v1-last ${last.outcome}">${last.outcome === "achieved" ? "Objectif précédent réussi" : last.outcome === "failed" ? "Objectif précédent pas encore atteint" : "Objectif précédent sans verdict"} : ${esc(last.label)}, cible ${esc(last.target_text)} (${last.progress?.met ?? "?"}/${last.progress?.counted ?? "?"} parties).</p>` : "";
+  const g = V.goal;
+  if (!g) {
+    const why = V.diagnostic?.rows?.find(r => r.reason)?.reason;
+    return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${why ? `Pas encore d'objectif : ${esc(why)}.` : "Pas encore d'objectif : joue quelques ranked de plus."}</p><p class="fine">Il faut au moins 8 parties classées au même poste.</p></section>`;
+  }
+  const ref = g.reference?.source === "metric_references" ? `Repère : ${esc(g.reference.level || "Diamant+")} à ce poste, médiane ${esc(c2V1Fmt(g, g.reference.value))} (${c2n(g.reference.n)} parties).` : "Repère pédagogique du coach, en attendant assez de données mesurées.";
+  const evs = (V.evaluations || []).filter(e => e.counted);
+  const dots = Array.from({ length: g.evaluation_games }, (_, i) => { const e = evs[i]; return `<span class="c2-v1-dot ${!e ? "todo" : e.met ? "ok" : e.met === false ? "ko" : "na"}" title="${e ? (e.value == null ? "donnée manquante" : esc(c2V1Fmt(g, e.value))) : "à jouer"}"></span>`; }).join("");
+  const head = `<p class="label">${g.status === "proposed" ? "Ton prochain objectif" : "Ton objectif en cours"} · ${esc(C2_V1_ROLE[g.role] || g.role)}</p>
+    <h3 class="c2-v1-title">${esc(g.label)} : ${g.direction === "lower" ? "au plus" : "au moins"} <b>${esc(g.target_text)}</b></h3>
+    <p class="fine">Aujourd'hui : ${esc(g.baseline_text)} (médiane de tes dernières parties). ${ref}</p>`;
+  const body = g.status === "proposed"
+    ? `${g.exercise ? `<p class="c2-v1-ex">${esc(g.exercise)}</p>` : ""}<p class="fine">Réussi si tu atteins la cible dans ${g.success_required} de tes ${g.evaluation_games} prochaines ranked à ce poste. Gagner ou perdre ne compte pas.</p>
+      <button class="btn primary" data-action="c2-v1-start" data-id="${esc(g.id)}">Je commence</button>`
+    : `<div class="c2-v1-dots" aria-label="${evs.filter(e => e.met).length} cibles atteintes sur ${evs.length} parties">${dots}</div>
+      <p class="fine">${evs.filter(e => e.met).length} / ${g.success_required} réussites nécessaires · ${evs.length} / ${g.evaluation_games} parties jouées</p>
+      ${g.exercise ? `<p class="c2-v1-ex">${esc(g.exercise)}</p>` : ""}
+      <button class="btn ghost sm" data-action="c2-v1-sync"${V.busy ? " disabled" : ""}>${V.busy ? "Mise à jour…" : "Mettre à jour mes parties"}</button>`;
+  return `<section class="c2-card c2-v1">${lastTxt}${head}${body}${V.error ? `<p class="fine">${esc(V.error)}</p>` : ""}</section>`;
+}
+const c2V1Fmt = (g, v) => (v == null ? "—" : g.unit === "%" ? `${Math.round(v * 100)} %` : (Math.round(v * 100) / 100).toString().replace(".", ","));
 
 // Version en ligne sans clé Riot de production : ce que fera le coach, montré sur une vraie partie (captures de la version de test)
 function c2Showcase() {
@@ -1318,4 +1376,14 @@ document.addEventListener("click", e => {
   }
 });
 
+document.addEventListener("click", async e => {
+  const a = e.target.closest?.("[data-action^=c2-v1-]");
+  if (!a) return;
+  const V = (c2ui.v1 ||= {});
+  if (a.dataset.action === "c2-v1-sync") c2V1Load(true);
+  if (a.dataset.action === "c2-v1-start" && V.pid) {
+    try { V.goal = (await c2V1(`/players/${V.pid}/goals/${a.dataset.id}/start`, "POST")).goal; V.evaluations = []; } catch (err) { V.error = err.message; }
+    render(false);
+  }
+});
 document.addEventListener("toggle", e => { const k = e.target?.dataset?.fold; if (k) (c2ui.fold ||= {})[k] = e.target.open; }, true);

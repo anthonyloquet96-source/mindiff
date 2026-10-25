@@ -14,7 +14,7 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 2. [x] Brancher l'ancien code sur le normaliseur (review.mjs, situations.mjs, styles.mjs, tactics.mjs lisent `frames[i]`).
 3. [x] COACH-003 Migration Supabase (SQL + RLS) et tests d'autorisation locaux (Postgres embarqué), sans compte.
 4. [x] COACH-004/005 Routes `/api/v1` : d'abord dans le serveur local avec un stockage fichier (même contrat que le Worker), file de synchronisation idempotente, limite de débit Riot (en-têtes, Retry-After), puis le Worker.
-5. [ ] COACH-009 Tableau de bord de l'objectif (accueil du coach) ; Préparer et la carte en partie masqués derrière un drapeau.
+5. [x] COACH-009 Tableau de bord de l'objectif (accueil du coach) ; Préparer et la carte en partie masqués derrière un drapeau.
 6. [ ] Exercices tirés de la base de conseils (conseils sourcés par thème de la métrique) et des plans de jeu.
 7. [ ] COACH-010 Tuteur IA (cite le diagnostic, admet ses limites).
 
@@ -26,3 +26,4 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 (rempli au fil des tours)
 - 23:35 — Bilan (review.mjs) et plans de jeu (styles.mjs) lisent les minutes par horodatage via le normaliseur ; situations et tactics lisent déjà la dernière frame avant l'instant (floor), inchangés. Batterie de vrais joueurs relancée (erreurs par joueur tolérées).
 - 00:05 — COACH-004/005 : `coach/v1/` (client Riot avec limites lues dans les en-têtes, Retry-After, recul sur 5xx, liste blanche ; stockage fichier au contrat Supabase ; synchronisation idempotente ; routes /api/v1 dans le serveur local). Essai réel : 30 parties synchronisées, objectif vision en support 1,66 → 2,00. Le Worker reprendra api.mjs avec un stockage Supabase quand le projet existera.
+- 00:20 — COACH-009 : carte « Mon objectif » en tête de Mon suivi (synchronisation automatique, objectif proposé avec repère et exercice, « Je commence », 5 pastilles d'évaluation, résultat du précédent). Onglet Préparer et carte en partie masqués (localStorage mindiff-extras = 1 pour les revoir). Vérifié par capture téléphone sur un vrai compte.

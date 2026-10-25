@@ -1346,3 +1346,17 @@ button.pick { background: none; border: 0; padding: 0; font: inherit; color: inh
 .c2-foe { color: var(--bad); }
 .c2-slotq { display: flex; gap: var(--s2); }
 .c2-slotq input { flex: 1; min-width: 0; min-height: 44px; border-radius: var(--r-sm); border: 1px solid var(--line); background: var(--surface-2); padding: 0 var(--s3); font-size: var(--fs); color: var(--text); }
+
+/* Coach V1 : objectif en cours */
+.c2-v1 { gap: var(--s3); }
+.c2-v1-title { margin: 0; font-size: var(--fs-lg); line-height: 1.3; }
+.c2-v1-title b { color: var(--accent-text); }
+.c2-v1-ex { margin: 0; background: var(--surface-2); border-radius: var(--r-sm); padding: var(--s3); line-height: 1.45; }
+.c2-v1-dots { display: flex; gap: var(--s2); }
+.c2-v1-dot { width: 28px; height: 28px; border-radius: 50%; background: var(--surface-3); }
+.c2-v1-dot.ok { background: var(--ok); }
+.c2-v1-dot.ko { background: var(--bad); }
+.c2-v1-dot.na { background: transparent; border: 2px dashed var(--text-3); box-sizing: border-box; }
+.c2-v1-dot.todo { background: transparent; border: 2px solid var(--surface-3); box-sizing: border-box; }
+.c2-v1-last { margin: 0; font-size: var(--fs-sm); padding: var(--s2) var(--s3); border-radius: var(--r-sm); background: var(--surface-2); }
+.c2-v1-last.achieved { background: rgba(var(--ok-rgb), .16); }

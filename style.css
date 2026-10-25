@@ -750,7 +750,8 @@ a.sb-team:hover .sb-name { text-decoration: underline; text-underline-offset: 3p
 .c2-goal-title, .c2-f-title { margin: 0; font-size: var(--fs-lg); font-weight: 800; letter-spacing: -.015em; line-height: 1.25; }
 .c2-f-title { font-size: var(--fs-md); }
 .c2-dots { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.c2-dot { width: 22px; height: 22px; border-radius: 50%; background: var(--surface-3); border: 2px solid var(--bad); transition: transform .15s; }
+.c2-dot { position: relative; width: 22px; height: 22px; border-radius: 50%; background: var(--surface-3); border: 2px solid var(--bad); transition: transform .15s; }
+.c2-dot::after, .c2-sp-dot::after { content: ""; position: absolute; left: 50%; top: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); border-radius: 50%; }
 .c2-dot.ok { background: var(--ok); border-color: var(--ok); }
 .c2-dot:hover { transform: scale(1.12); }
 .c2-dots .fine { margin-left: 4px; }
@@ -818,6 +819,17 @@ a.sb-team:hover .sb-name { text-decoration: underline; text-underline-offset: 3p
 .c2-vs-sep { font-weight: 800; color: var(--text-3); font-size: var(--fs-sm); padding-bottom: 12px; }
 .c2-duel { display: flex; align-items: center; justify-content: center; gap: var(--s4); padding: var(--s2) 0; }
 .c2-duel .c2-vs-sep { padding: 0; font-size: var(--fs-lg); color: var(--accent); }
+.c2-duel.compact { justify-content: space-between; gap: var(--s3); padding: 0; }
+.c2-duel.compact .c2-live-title { flex: 1; min-width: 0; font-size: var(--fs-md, 17px); line-height: 1.25; }
+.c2-live-teams { display: grid; gap: 6px; }
+.c2-actions { display: flex; gap: var(--s2); flex-wrap: wrap; }
+.c2-actions .btn { flex: 1 1 140px; justify-content: center; }
+.c2-fold { padding: 0 var(--s3); background: var(--surface-2); }
+.c2-fold > summary { gap: var(--s2); }
+.c2-fold-head { display: flex; flex-direction: column; gap: 4px; padding: var(--s2) 0; min-width: 0; }
+.c2-icons.mini { display: flex; gap: 4px; }
+.c2-icons.mini img { width: 24px; height: 24px; border-radius: 6px; background: var(--surface-3); }
+.c2-livebuild[open] > summary { border-bottom: 1px solid var(--line); margin-bottom: var(--s3); }
 .c2-tiplist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--s3); }
 .c2-tip { display: flex; flex-direction: column; gap: 2px; padding-left: var(--s3); border-left: 2px solid var(--surface-3); }
 .c2-nuance { margin: var(--s1) 0 0; padding-left: 10px; border-left: 2px solid var(--line, currentColor); font-size: 13px; color: var(--text-2); }
@@ -845,7 +857,7 @@ a.sb-team:hover .sb-name { text-decoration: underline; text-underline-offset: 3p
 .c2-tm i { font-style: normal; font-size: 11px; color: var(--text-3); }
 .c2-brow { display: flex; flex-direction: column; gap: 6px; }
 /* Build de la partie en cours */
-.c2-livebuild { display: flex; flex-direction: column; gap: var(--s3); padding-top: var(--s3); border-top: 1px solid var(--line); }
+.c2-livebuild[open] { display: flex; flex-direction: column; gap: var(--s3); padding-bottom: var(--s3); }
 .c2-threat { display: flex; flex-direction: column; gap: var(--s2); }
 .c2-threat > p { margin: 0; font-size: var(--fs-sm); color: var(--text-2); }
 .c2-swap { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s2); }

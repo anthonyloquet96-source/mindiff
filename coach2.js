@@ -511,15 +511,14 @@ function c2Live(p) {
   const team = (list, side) => `<div class="c2-team ${side}">${[...list].sort((a, b) => ORDER.indexOf(a.role) - ORDER.indexOf(b.role)).map(x => `<span class="c2-tm ${x.champion === me.champion && side === "ally" ? "me" : ""}">${c2Img(x.champion)}<i>${esc(C2_ROLE[x.role] || "")}${x.sure ? "" : "?"}</i></span>`).join("")}</div>`;
   return `<section class="c2-card c2-live">
     <p class="label"><span class="live-dot"></span>Partie en cours · ${esc(l.queue)} · ${mins} min</p>
-    <div class="c2-duel">${c2Img(me.champion, "c2-av xl")}<span class="c2-vs-sep">VS</span>${op ? c2Img(op.champion, "c2-av xl") : c2Img(null, "c2-av xl")}</div>
-    <p class="c2-live-title">${esc(c2Name(me.champion))} ${esc(C2_ROLE[me.role] || "")}${op ? ` contre ${esc(opName)}` : ""}</p>
+    <div class="c2-duel compact">${c2Img(me.champion, "c2-av lg")}<p class="c2-live-title">${esc(c2Name(me.champion))} ${esc(C2_ROLE[me.role] || "")}${op ? `<span class="muted"> contre </span>${esc(opName)}` : ""}</p>${op ? c2Img(op.champion, "c2-av lg") : c2Img(null, "c2-av lg")}</div>
     ${!me.sure || (op && !op.sure) ? `<p class="fine">Rôles estimés : Riot ne les donne pas pendant la partie.</p>` : ""}
     ${g ? `<div class="c2-remind"><p class="label">Ton objectif</p><p><b>${esc(g.label)}</b> : ${g.better === "high" ? "au moins" : "au plus"} ${c2n(g.target)}${esc(g.unit)}</p></div>` : ""}
-    ${tips.length ? `<div><p class="label">Contre ${esc(opName)}</p><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></div>` : ""}
-    ${team(l.allies, "ally")}${team(l.enemies, "enemy")}
+    ${tips.length ? `<div><p class="label">Contre ${esc(opName)}</p><ul class="c2-tiplist">${c2Tip(tips[0])}</ul>${tips.length > 1 ? `<details class="more c2-fold" data-fold="live-tips"${c2ui.fold?.["live-tips"] ? " open" : ""}><summary>${tips.length - 1} autre${tips.length > 2 ? "s" : ""} conseil${tips.length > 2 ? "s" : ""} contre ${esc(opName)}</summary><ul class="c2-tiplist">${tips.slice(1).map(c2Tip).join("")}</ul></details>` : ""}</div>` : ""}
+    <div class="c2-live-teams">${team(l.allies, "ally")}${team(l.enemies, "enemy")}</div>
     ${c2LiveBuild(l.build, me.champion)}
-    <a class="btn primary" href="${c2Href("draft")}" data-action="c2-draft-live">Analyser les compositions</a>
-    ${op ? `<a class="btn ghost" href="${c2Href("face")}" data-action="c2-face-live" data-me="${esc(c2Name(me.champion))}" data-vs="${esc(opName)}">Face-à-face complet</a>` : ""}
+    <div class="c2-actions"><a class="btn primary" href="${c2Href("draft")}" data-action="c2-draft-live">Compositions</a>
+    ${op ? `<a class="btn ghost" href="${c2Href("face")}" data-action="c2-face-live" data-me="${esc(c2Name(me.champion))}" data-vs="${esc(opName)}">Face-à-face</a>` : ""}</div>
   </section>`;
 }
 
@@ -538,9 +537,12 @@ function c2LiveBuild(b, champ) {
     return `<div class="c2-threat"><p><b>${esc(t.label)}</b> : ${esc(t.why)}${t.champions.length ? ` (${t.champions.map(c => esc(c2Name(c))).join(", ")})` : ""}.</p>
       ${list ? `<ul class="c2-swap">${list}</ul>` : `<p class="fine">Pas d'item de rechange repéré sur ${esc(c2Name(champ))} face à cette menace : garde ce build.</p>`}</div>`;
   }).join("");
-  return `<div class="c2-livebuild"><p class="label">Ton build pour cette partie</p>${core}
+  // Replié par défaut : le résumé montre les items et ce qu'il faut adapter, le détail s'ouvre au toucher
+  const preview = b.core ? `<span class="c2-icons mini">${[...b.core.items, ...b.core.boots].slice(0, 5).map(x => img(x.id, x.name)).join("")}</span>` : "";
+  const swaps = b.threats.reduce((n, t) => n + (t.measured?.items.length || t.options.length || 0), 0);
+  return `<details class="more c2-fold c2-livebuild" data-fold="live-build"${c2ui.fold?.["live-build"] ? " open" : ""}><summary><span class="c2-fold-head"><span>Ton build pour cette partie</span>${preview}<span class="fine">${swaps ? `${swaps} item${swaps > 1 ? "s" : ""} à adapter face à cette équipe` : "Rien à adapter face à cette équipe"}</span></span></summary>${core}
     ${b.threats.length ? `<p class="label">À adapter face à cette équipe${b.shape ? ` · en moyenne ${b.shape.magic} % de dégâts magiques, ${b.shape.phys} % physiques (le reste : dégâts bruts, qui ignorent armure et résistance magique)` : ""}</p>${threats}` : `<p class="fine">Composition adverse sans menace marquée : garde ce build.</p>`}
-    <p class="fine">Mesuré sur ${c2n(b.games)} parties Diamant+ de ce champion à ce rôle${b.core ? `, patch ${esc(c2Patch(b.core.patch))}` : ""}. « Dans X % face à ce type d'équipe » : comparé aux parties sans cette menace, et l'item y répond d'après sa description officielle. « Option déjà jouée » : item qui répond à la menace d'après sa description, sans mesure face à elle.</p></div>`;
+    <p class="fine">Mesuré sur ${c2n(b.games)} parties Diamant+ de ce champion à ce rôle${b.core ? `, patch ${esc(c2Patch(b.core.patch))}` : ""}. « Dans X % face à ce type d'équipe » : comparé aux parties sans cette menace, et l'item y répond d'après sa description officielle. « Option déjà jouée » : item qui répond à la menace d'après sa description, sans mesure face à elle.</p></details>`;
 }
 
 // ---------- Ce que jouent les Diamant+ (items, runes, sorts), d'après de vraies parties
@@ -1247,3 +1249,5 @@ document.addEventListener("click", e => {
     c2Save();
   }
 });
+
+document.addEventListener("toggle", e => { const k = e.target?.dataset?.fold; if (k) (c2ui.fold ||= {})[k] = e.target.open; }, true);

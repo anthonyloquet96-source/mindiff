@@ -451,3 +451,6 @@ Demande d'Anthony : faire attention aux faux conseils et à ceux qui ne sont plu
   - mêmes définitions dans les situations et le bilan ;
   - seuil par champion ;
   - aucune donnée de la clé de développement dans ce qui est publié.
+- **Suite de l'audit (même soir)** :
+  - la carte « partie en cours » passe d'environ 1 500 px à environ 630 px sur téléphone. Le duel tient sur une ligne. Seul le premier conseil contre l'adversaire est affiché, les autres sont repliés. Le build est replié, avec les icônes et le nombre d'items à adapter dans le résumé. Les boutons sont côte à côte, et l'état ouvert ou fermé des blocs est gardé ;
+  - les pastilles de l'historique gardent leur taille, mais leur zone de toucher passe à 44 px (vérifié : un toucher à 18 px du centre atteint la pastille).

@@ -7,6 +7,7 @@
 // Usage : node coach/styles.mjs [Champion|poste …]
 
 import { readdir, readFile, writeFile } from "node:fs/promises";
+import { frameAt as readFrame } from "./normalize.mjs";
 import { gunzipSync } from "node:zlib";
 import { MIN_CHAMP } from "./situations.mjs";
 
@@ -38,10 +39,10 @@ export function styleLines(match, timeline) {
     const late = kills.filter(e => e.timestamp > 20 * 60000);
     const lateTeam = late.filter(e => team(e.killerId) === p.teamId).length;
     const objTeam = elite.filter(e => (e.killerTeamId ?? team(e.killerId)) === p.teamId);
-    const f10 = frames[10]?.participantFrames[pid];
+    const f10 = readFrame(timeline, 600000)?.frame.participantFrames[pid];
     // Adversaire direct (même poste, autre équipe) : écart de sbires à 10 min
     const opp = info.participants.find(o => o.teamPosition === p.teamPosition && o.teamId !== p.teamId);
-    const o10 = opp && frames[10]?.participantFrames[opp.participantId];
+    const o10 = opp && readFrame(timeline, 600000)?.frame.participantFrames[opp.participantId];
     // Side lane après 20 min : sur la lane du haut ou du bas, hors base, avec au moins trois alliés à plus de 4 000 unités
     let side = 0, lateSeen = 0;
     for (let m = 20; m < frames.length - 1; m++) {

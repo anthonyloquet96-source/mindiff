@@ -2,6 +2,7 @@
 // Module sans dépendance (fetch uniquement) : utilisé par le serveur local et par le service en ligne (Cloudflare Worker).
 // Comparaisons : uniquement au niveau Diamant et plus, par rôle (coach/cache/benchmarks.json, construit par coach/benchmarks.mjs).
 import { tactics } from "./tactics.mjs";
+import { frameAt as readFrame } from "./normalize.mjs";
 import { adviseBuild, THREATS } from "./builds.mjs";
 
 export const PLATFORMS = {
@@ -114,7 +115,10 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   const byId = Object.fromEntries(info.participants.map(p => [p.participantId, p]));
   const oppId = info.participants.find(p => p.teamId !== me.teamId && p.teamPosition === me.teamPosition && me.teamPosition)?.participantId;
   const events = timeline.info.frames.flatMap(f => f.events);
-  const frameAt = min => timeline.info.frames[Math.min(min, timeline.info.frames.length - 1)]?.participantFrames || {};
+  // Instant lu par horodatage (coach/normalize.mjs), pas par indice : une frame manquante ne décale plus les minutes
+  // (anciennes données de test sans horodatage : indice de minute, comme avant)
+  const stamped = timeline.info.frames.some(f => typeof f.timestamp === "number");
+  const frameAt = min => (stamped ? readFrame(timeline, min * 60000)?.frame : timeline.info.frames[Math.min(min, timeline.info.frames.length - 1)])?.participantFrames || {};
 
   // Morts du joueur
   const deaths = events.filter(e => e.type === "CHAMPION_KILL" && e.victimId === pid).map(e => ({

@@ -11,7 +11,7 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 
 ## À faire, dans l'ordre
 1. [ ] Batterie de tests sur de vrais joueurs (clé de développement, privé) : historique de 30 ranked mid/jungle, diagnostic, objectif, évaluation rejouée sur les parties suivantes. Noter chaque incohérence et corriger.
-2. [ ] Brancher l'ancien code sur le normaliseur (review.mjs, situations.mjs, styles.mjs, tactics.mjs lisent `frames[i]`).
+2. [x] Brancher l'ancien code sur le normaliseur (review.mjs, situations.mjs, styles.mjs, tactics.mjs lisent `frames[i]`).
 3. [ ] COACH-003 Migration Supabase (SQL + RLS) et tests d'autorisation locaux (Postgres embarqué), sans compte.
 4. [ ] COACH-004/005 Routes `/api/v1` : d'abord dans le serveur local avec un stockage fichier (même contrat que le Worker), file de synchronisation idempotente, limite de débit Riot (en-têtes, Retry-After), puis le Worker.
 5. [ ] COACH-009 Tableau de bord de l'objectif (accueil du coach) ; Préparer et la carte en partie masqués derrière un drapeau.
@@ -24,3 +24,4 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 
 ## Journal de nuit
 (rempli au fil des tours)
+- 23:35 — Bilan (review.mjs) et plans de jeu (styles.mjs) lisent les minutes par horodatage via le normaliseur ; situations et tactics lisent déjà la dernière frame avant l'instant (floor), inchangés. Batterie de vrais joueurs relancée (erreurs par joueur tolérées).

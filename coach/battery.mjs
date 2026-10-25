@@ -81,6 +81,7 @@ async function main() {
     if (n >= PER_TIER) continue;
     for (const e of await playersOf(riot, tier, div)) {
       if (n >= PER_TIER) break;
+      try {
       const ids = await riot(`https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${e.puuid}/ids?queue=420&count=${GAMES}`);
       if (ids.length < 18) continue;
       // Sondage : une partie suffit à écarter un joueur qui ne joue ni mid ni jungle
@@ -99,6 +100,11 @@ async function main() {
       await writeFile(`${OUT}/${tier}-${n}.json`, JSON.stringify({ ...row, detail: games.map(g => ({ ...g, start_ms: g.start_ms })) }));
       n++;
       console.log(`${tier} ${n}/${PER_TIER} : ${row.role || row.skipped} · ${row.references?.metric || "pas d'objectif"} ${row.references?.baseline ?? ""} → ${row.references?.target ?? ""} (${row.references?.outcome || "…"}) ${row.references?.flags?.join(", ") || ""}`);
+      } catch (err) {
+        // Un joueur en échec n'arrête pas la batterie ; une clé refusée, si
+        if (/clé Riot/.test(err.message)) throw err;
+        console.log(`${tier} : joueur écarté (${err.message || err.code || err})`);
+      }
     }
   }
   const rows = [];
@@ -108,4 +114,4 @@ async function main() {
   console.log(JSON.stringify(rep, null, 1));
 }
 
-if (process.argv[1]?.endsWith("battery.mjs")) main().catch(e => { console.error(e.message); process.exit(1); });
+if (process.argv[1]?.endsWith("battery.mjs")) main().catch(e => { console.error(e.stack || e); process.exit(1); });

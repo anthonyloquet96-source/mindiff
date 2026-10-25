@@ -88,12 +88,30 @@ export function compute(sample) {
   return { bench, champstats };
 }
 
+const ARCHIVE = "coach/cache/riot-archive";
+async function archive(matches) {
+  const { mkdir, readFile: rf } = await import("node:fs/promises");
+  const { gzipSync, gunzipSync } = await import("node:zlib");
+  await mkdir(ARCHIVE, { recursive: true });
+  const byMonth = {};
+  for (const m of matches) (byMonth[new Date(m.at).toISOString().slice(0, 7)] ||= []).push(m);
+  for (const [month, list] of Object.entries(byMonth)) {
+    const f = `${ARCHIVE}/${month}.json.gz`;
+    const prev = await rf(f).then(b => JSON.parse(gunzipSync(b).toString())).catch(() => []);
+    await writeFile(f, gzipSync(JSON.stringify([...prev, ...list])));
+  }
+}
+
 export async function run() {
   if (!process.env.RIOT_API_KEY?.trim()) return ["· RIOT_API_KEY absente."];
   const config = await readJson(P.config);
   const R = config.riot;
   const want = arg("matches", 120);
   const sample = await readJson(SAMPLE, { platform: R.platform, seen: [], matches: [] });
+  // Les parties de plus de 30 jours sortent des statistiques du moment, mais ne sont jamais jetées (consigne d'Anthony, 25/10) :
+  // elles rejoignent l'archive privée (un fichier compressé par mois de jeu), pour les comparaisons entre patchs
+  const old = sample.matches.filter(m => Date.now() - m.at > DAYS * 864e5);
+  if (old.length) await archive(old);
   sample.matches = sample.matches.filter(m => Date.now() - m.at <= DAYS * 864e5);
   const seen = new Set(sample.seen);
   const tiers = [["challengerleagues", null], ["grandmasterleagues", null], ["masterleagues", null], ["DIAMOND", "I"], ["DIAMOND", "II"], ["DIAMOND", "III"], ["DIAMOND", "IV"]];

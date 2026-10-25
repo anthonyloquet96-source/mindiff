@@ -100,7 +100,7 @@ export function compare(metric, value, bench) {
 }
 
 // Bilan d'une partie : chronologie des morts, backs, objectifs ; constats comparés au Diamant+
-export async function review(riot, { matchId, puuid, region, benchmarks, champstats = null, fetchImpl = fetch }) {
+export async function review(riot, { matchId, puuid, region, benchmarks, champstats = null, situations = null, fetchImpl = fetch }) {
   const [match, timeline, itemDb] = await Promise.all([
     riot(`https://${region}.api.riotgames.com/lol/match/v5/matches/${matchId}`),
     riot(`https://${region}.api.riotgames.com/lol/match/v5/matches/${matchId}/timeline`),
@@ -181,7 +181,7 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   const tac = (() => { try { return tactics(match, timeline, puuid); } catch { return null; } })(); // données incomplètes : le bilan reste disponible sans la relecture
   const onMap = d => tac?.lessons?.some(l => Math.abs(l.t - d.t) < 60000);
   const lateObj = deaths.filter(d => d.beforeObjective);
-  if (lateObj.length) findings.push({ kind: "mort-avant-objectif", family: "decision", weight: 3 + lateObj.length, title: `${lateObj.length} mort${lateObj.length > 1 ? "s" : ""} juste avant un objectif adverse`, facts: lateObj.map(d => `${d.at} : tué par ${d.killer}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}, puis ${d.beforeObjective}${onMap(d) ? " (à revoir dans le Replay)" : ""}`), metric: "deaths30" });
+  if (lateObj.length >= 2) findings.push({ kind: "mort-avant-objectif", family: "decision", weight: 3 + lateObj.length, title: `${lateObj.length} mort${lateObj.length > 1 ? "s" : ""} juste avant un objectif adverse`, facts: lateObj.map(d => `${d.at} : tué par ${d.killer}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}, puis ${d.beforeObjective}${onMap(d) ? " (à revoir dans le Replay)" : ""}`), metric: "deaths30" });
   const earlyDeaths = deaths.filter(d => d.t < 14 * 60000);
   if (earlyDeaths.length >= 3) findings.push({ kind: "morts-phase-de-ligne", family: "decision", weight: 1 + earlyDeaths.length, title: `${earlyDeaths.length} morts avant 14 min`, facts: earlyDeaths.map(d => `${d.at} : tué par ${d.killer}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}${d.enemyHalf ? ", dans la moitié adverse" : ""}`), metric: "deaths30" });
   for (const c of comparisons.filter(c => c.level === "sous")) findings.push({ kind: `ecart-${c.metric}`, family: "niveau", weight: 1 + c.gap, title: `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, moins bien que les bons joueurs (${METRICS[c.metric].say(c.p50)})`, facts: [`Les bons joueurs à ton poste (Diamant et plus) : ${METRICS[c.metric].say(c.p50)}.`], metric: c.metric });
@@ -203,8 +203,16 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   const long = s.minutes >= 20;
   if (!support && long && wardKills20 === 0) findings.push({ kind: "aucune-balise-detruite", family: "niveau", weight: 1.2, title: "Aucune ward adverse détruite avant 20 min", facts: ["Les bons joueurs détruisent en moyenne 1 à 2 wards adverses avant 20 min (d'après 800 parties analysées, de Fer à Challenger)."], metric: "visionMin" });
   if (!support && backs14 <= 1) findings.push({ kind: "peu-de-retours", family: "niveau", weight: 1.1, title: `${backs14 ? "Un seul retour" : "Aucun retour"} volontaire à la base avant 14 min`, facts: ["Les bons joueurs rentrent environ 3 fois avant 14 min, au bon moment (d'après 800 parties analysées, de Fer à Challenger)."], metric: null });
-  if (!support && (legendaryMin == null ? s.minutes >= 14 : legendaryMin > 14)) findings.push({ kind: "premier-objet-tardif", family: "niveau", weight: 1, title: legendaryMin != null ? `Premier grand item terminé à ${fr(legendaryMin)} min` : "Aucun grand item terminé", facts: ["Les bons joueurs terminent leur premier grand item vers 11 min (d'après 800 parties analysées, de Fer à Challenger)."], metric: "csMin" });
+  // Référence du rythme d'objets : Diamant+ du même champion au même poste (chronologies, coach/situations.mjs), sinon du poste, sinon 14 min
+  const sitChamp = situations?.byChamp?.[`${s.champion}|${s.role}`], sitRole = situations?.byRole?.[s.role];
+  const legRef = sitChamp?.legendaryMin?.p50 != null ? sitChamp : sitRole?.legendaryMin?.p50 != null ? sitRole : null;
+  const legLimit = legRef ? legRef.legendaryMin.p75 + 1 : 14;
+  const legFact = legRef ? `Les Diamant+ ${legRef === sitChamp ? "qui jouent ce champion à ce poste" : "à ce poste"} terminent leur premier grand item vers ${fr(legRef.legendaryMin.p50)} min, et les trois quarts avant ${fr(legRef.legendaryMin.p75)} min (${legRef.n} parties récentes).` : "Les bons joueurs terminent leur premier grand item vers 11 min (d'après 800 parties analysées, de Fer à Challenger).";
+  if (!support && (legendaryMin == null ? s.minutes >= legLimit : legendaryMin > legLimit)) findings.push({ kind: "premier-objet-tardif", family: "niveau", weight: 1, title: legendaryMin != null ? `Premier grand item terminé à ${fr(legendaryMin)} min` : "Aucun grand item terminé", facts: [legFact], metric: "csMin" });
   if (long && ((s.role === "jungle" && control20 === 0) || (support && control20 <= 1))) findings.push({ kind: "balises-controle", family: "niveau", weight: 1.1, title: `${control20 ? "Une seule ward" : "Aucune ward"} de contrôle posée avant 20 min`, facts: [s.role === "jungle" ? "En jungle, les bons joueurs en posent au moins une avant 20 min pour sécuriser leurs camps et les objectifs." : "En support, les bons joueurs en posent au moins 2 avant 20 min."], metric: "controlWards" });
+  // Farm à 10 min et farm sur la partie : un seul constat, avec les deux chiffres
+  const cs10 = findings.find(f => f.kind === "ecart-cs10"), csMin = findings.find(f => f.kind === "ecart-csMin");
+  if (cs10 && csMin) { csMin.facts = [cs10.title, ...csMin.facts]; csMin.weight = Math.max(csMin.weight, cs10.weight); findings.splice(findings.indexOf(cs10), 1); }
   if (findings.some(f => f.kind === "morts-phase-de-ligne")) { const i = findings.findIndex(f => f.kind === "ecart-deaths30"); if (i >= 0) findings.splice(i, 1); }
   findings.sort((a, b) => b.weight - a.weight);
   const strengths = comparisons.filter(c => c.level === "au-dessus" && c.p50 > 0).map(c => `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, au niveau des meilleurs`);

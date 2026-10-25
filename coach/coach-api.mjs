@@ -61,7 +61,7 @@ function tierList(cs) {
 let riot = null, riotKey = null;
 const hits = new Map(); // limite par visiteur : 30 requêtes par 5 minutes
 
-export async function coachApi(path, params, { key, benchmarks, champstats, matchups = null, builds = null, visitor = "?" }) {
+export async function coachApi(path, params, { key, benchmarks, champstats, matchups = null, builds = null, situations = null, visitor = "?" }) {
   const now = Date.now();
   const h = (hits.get(visitor) || []).filter(t => now - t < 300e3);
   // La draft ne coûte aucune requête Riot : limite plus large
@@ -107,7 +107,7 @@ export async function coachApi(path, params, { key, benchmarks, champstats, matc
     if (path === "/api/coach/review") {
       const matchId = String(params.get("match") || ""), puuid = String(params.get("puuid") || "");
       if (!/^[A-Z0-9]+_\d+$/.test(matchId) || !/^[\w-]{40,90}$/.test(puuid)) return { status: 400, body: { error: "Partie ou joueur invalide." } };
-      return { status: 200, body: await review(riot, { matchId, puuid, region: PLATFORMS[platform][0], benchmarks, champstats }) };
+      return { status: 200, body: await review(riot, { matchId, puuid, region: PLATFORMS[platform][0], benchmarks, champstats, situations }) };
     }
     return { status: 404, body: { error: "Introuvable" } };
   } catch (e) {

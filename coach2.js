@@ -59,6 +59,8 @@ function c2ChampList() {
 const c2Name = id => c2ChampList().find(c => c.id === id)?.name || id;
 const c2Id = name => c2ChampList().find(c => c.name.toLowerCase() === String(name).toLowerCase() || c.id.toLowerCase() === String(name).toLowerCase())?.id || null;
 const c2Img = (id, cls = "c2-av") => id ? `<img class="${cls}" src="https://ddragon.leagueoflegends.com/cdn/${esc(COACH?.ddragonVersion || "16.21.1")}/img/champion/${esc(id)}.png" alt="" loading="lazy" width="40" height="40">` : `<span class="${cls} c2-av-empty"></span>`;
+// Version du client (16.20) → numéro de patch affiché par Riot (26.20)
+const c2Patch = p => String(p ?? "").replace(/^1([56])./, "2$1.");
 const c2n = v => (typeof v === "number" ? v.toLocaleString("fr-FR") : v ?? "—");
 const c2Ago = t => { const h = (Date.now() - t) / 36e5; return h < 1 / 12 ? "à l'instant" : h < 1 ? `il y a ${Math.round(h * 60)} min` : h < 24 ? `il y a ${Math.round(h)} h` : `il y a ${Math.round(h / 24)} j`; };
 
@@ -205,20 +207,30 @@ function c2Videos(metric, role, champ = null) {
 }
 // Conseils de coachs de la base (sans champion) sur le thème de l'indicateur et pour le poste du joueur : 2 au plus,
 // les exploitables d'abord, les conseils anciens nuancés en dernier ; un conseil n'apparaît qu'une fois par page
-function c2CoachTips(metric, role) {
+const C2_KIND_TOPIC = {
+  "mort-avant-objectif": /dragon|baron|héraut|objectif/i, "objectif-inferiorite": /dragon|baron|héraut|objectif|en vie|nombre/i,
+  "morts-phase-de-ligne": /gank|jungler|ward/i, "mort-isolee": /lane de côté|split|seul|carte/i, "combat-sans-toi": /combat|rejoin|regroup/i,
+  "retard-en-ligne": /vague|gank|jungler/i, "peu-de-retours": /retour|base/i, "premier-objet-tardif": /retour|vague|farm|sbires/i,
+  "ecart-visionMin": /ward|vision/i, "ecart-controlWards": /ward|vision/i, "balises-controle": /ward|vision/i, "aucune-balise-detruite": /ward|vision/i,
+  "ecart-cs10": /vague|sbires|farm/i, "ecart-csMin": /vague|sbires|farm|pousse/i, "ecart-kp": /combat|rejoin|objectif/i,
+};
+function c2CoachTips(metric, role, kind = null) {
   const L = C2_LEARN[metric];
   if (!L || !COACH) return [];
   const seen = (c2ui.tipSeen ||= new Set());
   const list = COACH.units.filter(u => ["exploitable", "provisoire"].includes(u.status) && u.usage !== "correction" && u.nature !== "officiel" && !u.champions?.length && u.use?.when
       && u.context?.queue !== "competition" && u.themes?.some(t => L.themes.includes(t)) && (!role || u.roles?.includes("all") || u.roles?.includes(role)) && !seen.has(u.id))
-    .sort((a, b) => (a.status !== "exploitable") - (b.status !== "exploitable") || !!a.nuance - !!b.nuance).slice(0, 2);
+    .map(u => ({ u, hit: C2_KIND_TOPIC[kind]?.test(`${u.claim} ${u.use?.when || ""}`) ? 1 : 0 }))
+    // Avec un constat précis, seuls les conseils qui parlent de sa situation ; sinon, les plus sûrs du thème
+    .filter(x => !C2_KIND_TOPIC[kind] || x.hit)
+    .sort((a, b) => b.hit - a.hit || (a.u.status !== "exploitable") - (b.u.status !== "exploitable") || !!a.u.nuance - !!b.u.nuance).slice(0, 2).map(x => x.u);
   list.forEach(u => seen.add(u.id));
   return list;
 }
 // « Comment progresser » : des actions concrètes, puis une ou deux vidéos (sans détail de provenance : il reste dans la page de contrôle)
-function c2LessonsHtml(metric, role, champ = null, steps = true) {
+function c2LessonsHtml(metric, role, champ = null, steps = true, kind = null) {
   const P = steps ? C2_PLAIN[metric] : null;
-  const vids = c2Videos(metric, role, champ), tips = c2CoachTips(metric, role);
+  const vids = c2Videos(metric, role, champ), tips = c2CoachTips(metric, role, kind);
   return `<div class="c2-lessons">
     ${P ? `<ol class="c2-howto">${P.steps(role).map(x => `<li>${esc(x)}</li>`).join("")}</ol>` : ""}
     ${tips.length ? `<p class="label">Conseils de coachs</p><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul>` : ""}
@@ -316,7 +328,7 @@ function c2Home() {
   return `${c2ui.switching ? c2Connect(true) : ""}${err}${c2ProfileCard(p)}${c2Live(p)}${c2Ready(p)}${c2Goal(p)}
     <a class="c2-ready c2-bilan-link" href="${c2Href("bilan")}">${icon("tiers")}<span><b>Mon bilan complet</b><span class="fine">Tes erreurs qui reviennent, tes forces et les adversaires à préparer, sur une vingtaine de tes dernières parties</span></span>${icon("chevron")}</a>
     ${recent.length ? `<section class="sec">${secHead("Dernières parties", seeAll(c2Href("parties"), "Toutes"))}${c2Games({ ...p, games: recent })}</section>` : ""}
-    <p class="fine c2-foot">Données officielles de Riot Games${p.benchmark ? ` · référence : ${p.benchmark.games} parties ${esc(p.benchmark.level)} (patch ${esc(p.benchmark.patch)})` : ""}</p>`;
+    <p class="fine c2-foot">Données officielles de Riot Games${p.benchmark ? ` · référence : ${c2n(p.benchmark.games)} parties ${esc(p.benchmark.level)} (patch ${esc(c2Patch(p.benchmark.patch))})` : ""}</p>`;
 }
 
 // Version en ligne sans clé Riot de production : ce que fera le coach, montré sur une vraie partie (captures de la version de test)
@@ -528,7 +540,7 @@ function c2LiveBuild(b, champ) {
   }).join("");
   return `<div class="c2-livebuild"><p class="label">Ton build pour cette partie</p>${core}
     ${b.threats.length ? `<p class="label">À adapter face à cette équipe${b.shape ? ` · en moyenne ${b.shape.magic} % de dégâts magiques, ${b.shape.phys} % physiques (le reste : dégâts bruts, qui ignorent armure et résistance magique)` : ""}</p>${threats}` : `<p class="fine">Composition adverse sans menace marquée : garde ce build.</p>`}
-    <p class="fine">Mesuré sur ${c2n(b.games)} parties Diamant+ de ce champion à ce rôle${b.core ? `, patch ${esc(b.core.patch)}` : ""}. « Dans X % face à ce type d'équipe » : comparé aux parties sans cette menace, et l'item y répond d'après sa description officielle. « Option déjà jouée » : item qui répond à la menace d'après sa description, sans mesure face à elle.</p></div>`;
+    <p class="fine">Mesuré sur ${c2n(b.games)} parties Diamant+ de ce champion à ce rôle${b.core ? `, patch ${esc(c2Patch(b.core.patch))}` : ""}. « Dans X % face à ce type d'équipe » : comparé aux parties sans cette menace, et l'item y répond d'après sa description officielle. « Option déjà jouée » : item qui répond à la menace d'après sa description, sans mesure face à elle.</p></div>`;
 }
 
 // ---------- Ce que jouent les Diamant+ (items, runes, sorts), d'après de vraies parties
@@ -537,7 +549,7 @@ function c2Builds(id) {
   const s = c2ui.champ[id];
   if (!s) return s === null ? `<div class="c2-card c2-loading">Données Diamant+…</div>` : "";
   if (s.error) return "";
-  if (!s.enough) return `<p class="note">${icon("info")}<span>Pas encore assez de parties Diamant+ pour ce champion au patch ${esc(s.patch || "—")} (${s.games} sur ${s.minGames} nécessaires). L'échantillon grandit chaque jour.</span></p>`;
+  if (!s.enough) return `<p class="note">${icon("info")}<span>Pas encore assez de parties Diamant+ pour ce champion au patch ${esc(c2Patch(s.patch || "—"))} (${s.games} sur ${s.minGames} nécessaires). L'échantillon grandit chaque jour.</span></p>`;
   return [s, ...(s.others || [])].filter(x => x.enough).map((x, i) => c2BuildRole(x, i === 0 ? s : null)).join("");
 }
 // Un bloc par rôle : les items d'un Pantheon support ne sont pas ceux d'un Pantheon top
@@ -545,7 +557,7 @@ function c2BuildRole(s, all) {
   const V = s.items[0]?.ddVersion || s.spells[0]?.ddVersion || COACH.ddragonVersion;
   const ic = (kind, file, label, share) => `<span class="c2-ic" title="${esc(label)} : ${share} % des parties"><img src="https://ddragon.leagueoflegends.com/cdn/${kind === "rune" ? "img" : `${esc(V)}/img/${kind}`}/${esc(file)}" alt="" loading="lazy"><i>${share} %</i></span>`;
   return `<section class="c2-card c2-builds">
-    <p class="label">Ce que jouent les Diamant+ en ${esc(C2_ROLE[s.role] || s.role)} · patch ${esc(s.patch)}</p>
+    <p class="label">Ce que jouent les Diamant+ en ${esc(C2_ROLE[s.role] || s.role)} · patch ${esc(c2Patch(s.patch))}</p>
     <p class="fine">${s.games} parties · ${s.games >= 100 ? `${c2n(s.winrate)} % de victoires` : "taux de victoire non significatif sous 100 parties"}</p>
     ${all && all.roles.length > 1 ? `<p class="fine">Rôles joués : ${all.roles.map(r => `${esc(C2_ROLE[r.role] || r.role)} ${r.share} %`).join(", ")}</p>` : ""}
     <div class="c2-brow"><span class="label">Rune clé</span><div class="c2-icons">${s.keystones.map(k => ic("rune", k.icon, k.name, k.share)).join("")}</div><p class="fine">${s.keystones.map(k => esc(k.name)).join(" · ")}</p></div>
@@ -574,7 +586,7 @@ function c2Game(id) {
   // Barre d'écart : centrée sur 0, vers la droite quand tu es devant (échelle propre à chaque mesure)
   const bar = (what, at, v, scale) => `<div class="c2-lb ${v > 0 ? "up" : v < 0 ? "down" : ""}"><span class="c2-lb-l">${what} à ${at} min</span><span class="c2-lb-t" aria-hidden="true"><i style="--w:${Math.min(50, (Math.abs(v) / scale) * 50).toFixed(1)}%"></i></span><span class="c2-k">${v > 0 ? "+" : ""}${c2n(v)}</span></div>`;
   return `<section class="c2-card c2-match ${s.win ? "win" : "loss"}">
-      <div class="c2-prow">${c2Img(s.champion, "c2-av lg")}<div><p class="c2-name">${esc(c2Name(s.champion))}${s.opponent ? ` <span class="muted">contre</span> ${esc(c2Name(s.opponent))}` : ""}</p><p class="fine">${esc(C2_ROLE[s.role] || "")} · ${Math.round(s.minutes)} min · patch ${esc(s.patch)}</p></div><span class="c2-res ${s.win ? "win" : "loss"}">${s.win ? "Victoire" : "Défaite"}</span></div>
+      <div class="c2-prow">${c2Img(s.champion, "c2-av lg")}<div><p class="c2-name">${esc(c2Name(s.champion))}${s.opponent ? ` <span class="muted">contre</span> ${esc(c2Name(s.opponent))}` : ""}</p><p class="fine">${esc(C2_ROLE[s.role] || "")} · ${Math.round(s.minutes)} min · patch ${esc(c2Patch(s.patch))}</p></div><span class="c2-res ${s.win ? "win" : "loss"}">${s.win ? "Victoire" : "Défaite"}</span></div>
       <div class="c2-stats"><div><span class="label">KDA</span><b class="c2-k">${s.k}/${s.d}/${s.a}</b></div><div><span class="label">Sbires</span><b class="c2-k">${s.cs}</b></div><div><span class="label">Par min</span><b>${String(Math.round((s.cs / Math.max(1, s.minutes)) * 10) / 10).replace(".", ",")}</b></div></div>
       ${r.lane.at10 ? `<div class="c2-lanebars"><p class="label">${s.role === "jungle" ? "Début de partie" : "Phase de lane"} · écart avec ${esc(vsName)}</p>${bar("Golds", 10, r.lane.at10.gold, 1000)}${r.lane.at10.cs != null ? bar(s.role === "jungle" ? "Sbires et monstres" : "Sbires", 10, r.lane.at10.cs, 20) : ""}${r.lane.at15 ? bar("Golds", 15, r.lane.at15.gold, 2000) : ""}${r.lane.at15 ? bar("XP", 15, r.lane.at15.xp, 1500) : ""}</div>` : ""}
     </section>
@@ -586,10 +598,10 @@ function c2Game(id) {
       ${r.absent ? `<p class="note">${icon("alert")}<span>Pas de conseil sur cette partie : tu semblais absent (aucun kill ni assist, presque aucun dégât ni sbire). Elle ne compte pas dans tes objectifs ni dans ton bilan.</span></p>` : ""}
       ${r.absent ? "" : `<section class="sec"><div class="sec-head"><h2 class="sec-title">Ce qui a pesé</h2></div>
         ${r.findings.length ? r.findings.map((f, i) => `<article class="c2-card c2-finding"><p class="label">Constat ${i + 1}</p><h3 class="c2-f-title">${esc(f.title)}</h3>${bullets(f.facts)}
-          ${f.metric || C2_KIND_TIP[f.kind] ? `<details class="more"${i === 0 ? " open" : ""}><summary>Ce qu'il faut faire</summary>${C2_KIND_TIP[f.kind] || !f.metric ? `<p>${esc(c2TipOf(f))}</p>` : ""}${f.metric ? c2LessonsHtml(f.metric, s.role, s.champion, !C2_KIND_TIP[f.kind]) : ""}</details>` : ""}</article>`).join("") : `<p class="inline-empty">Aucun écart net avec la référence Diamant+ sur cette partie.</p>`}
+          ${f.metric || C2_KIND_TIP[f.kind] ? `<details class="more"${i === 0 ? " open" : ""}><summary>Ce qu'il faut faire</summary>${C2_KIND_TIP[f.kind] || !f.metric ? `<p>${esc(c2TipOf(f))}</p>` : ""}${f.metric ? c2LessonsHtml(f.metric, s.role, s.champion, !C2_KIND_TIP[f.kind], f.kind) : ""}</details>` : ""}</article>`).join("") : `<p class="inline-empty">Aucun écart net avec la référence Diamant+ sur cette partie.</p>`}
       </section>`}
       ${r.tactics?.lessons?.length ? `<button class="c2-ready" data-action="c2-gview" data-id="carte">${icon("compass")}<span><b>${r.tactics.lessons.length} moment${r.tactics.lessons.length > 1 ? "s" : ""} clé${r.tactics.lessons.length > 1 ? "s" : ""} à revoir en replay</b><span class="fine">La partie rejouée sur la minimap, avec ce qui aurait été mieux</span></span>${icon("chevron")}</button>` : ""}`}
-    <p class="fine c2-foot">${esc(r.note)}${r.benchmark ? ` Référence : ${r.benchmark.games} parties ${esc(r.benchmark.level)}, patch ${esc(r.benchmark.patch)}.` : ""}</p>`;
+    <p class="fine c2-foot">${esc(r.note)}${r.benchmark ? ` Référence : ${c2n(r.benchmark.games)} parties ${esc(r.benchmark.level)}, patch ${esc(c2Patch(r.benchmark.patch))}.` : ""}</p>`;
 }
 
 // L'essentiel de la partie en quatre lignes : phase de lane, point clé, point fort, objectif
@@ -627,8 +639,8 @@ function c2BuildCmp(r) {
     ${b.items.length ? `<div class="c2-brow"><span class="label">Tes items terminés</span><div class="c2-icons">${b.items.map(it).join("")}</div><p class="fine">${b.items.map(x => esc(x.name)).join(" · ")}</p></div>` : ""}
     ${b.missing.length ? `<div class="c2-brow"><span class="label">${b.role ? `Très joués par les Diamant+ en ${esc(C2_ROLE[b.role] || b.role)}, absents chez toi` : "Très joués par les Diamant+, absents chez toi"}</span><div class="c2-icons">${b.missing.map(it).join("")}</div><p class="fine">${b.missing.map(x => esc(x.name)).join(" · ")}</p></div>` : ""}
     ${rare.length ? `<p class="fine">${rare.map(x => esc(x.name)).join(", ")} : rare chez les Diamant+ sur ${esc(c2Name(r.summary.champion))}${b.role ? ` ${esc(C2_ROLE[b.role] || b.role)}` : ""}. Ça peut être un bon choix selon la partie ; compare avec la fiche du champion.</p>` : ""}
-    ${r.summary.patch && b.patch && r.summary.patch !== b.patch ? `<p class="note">${icon("info")}<span>Ta partie date du patch ${esc(r.summary.patch)}, la référence du patch ${esc(b.patch)} : les items ont pu changer entre-temps.</span></p>` : ""}
-    <p class="fine">Part des parties Diamant+${b.role ? ` en ${esc(C2_ROLE[b.role] || b.role)}` : ""} (${b.games} parties, patch ${esc(b.patch)}) où l'item est dans l'inventaire final. <a href="${c2Href("champions", r.summary.champion)}">Voir la fiche ${esc(c2Name(r.summary.champion))}</a></p>
+    ${r.summary.patch && b.patch && r.summary.patch !== b.patch ? `<p class="note">${icon("info")}<span>Ta partie date du patch ${esc(c2Patch(r.summary.patch))}, la référence du patch ${esc(c2Patch(b.patch))} : les items ont pu changer entre-temps.</span></p>` : ""}
+    <p class="fine">Part des parties Diamant+${b.role ? ` en ${esc(C2_ROLE[b.role] || b.role)}` : ""} (${c2n(b.games)} parties, patch ${esc(c2Patch(b.patch))}) où l'item est dans l'inventaire final. <a href="${c2Href("champions", r.summary.champion)}">Voir la fiche ${esc(c2Name(r.summary.champion))}</a></p>
   </div></section>`;
 }
 
@@ -1127,7 +1139,7 @@ function c2Report() {
     : (d.minus.length ? [["decision", "Ce qui t'a coûté des parties", "Des erreurs qui font souvent perdre la partie où elles arrivent."], ["niveau", "Les habitudes des bons joueurs qui te manquent", "Plus rares chez les Diamant et plus : à travailler dans le temps, partie après partie."]].map(([fam, title, sub]) => {
         const list = d.minus.filter(m => (m.family || "decision") === fam);
         return list.length ? `<section class="sec">${secHead(title)}<p class="fine">${sub}</p>${list.map(m => `<article class="c2-card c2-finding ${fam}"><h3 class="c2-f-title">${esc(m.title)}</h3><p class="fine">${esc(m.detail)}</p>${m.evidence ? `<p class="c2-evidence">${esc(m.evidence)}</p>` : ""}${dots(m.games)}
-        <details class="more"><summary>Ce qu'il faut faire</summary>${C2_KIND_TIP[m.kind] || !m.metric ? `<p>${esc(c2TipOf(m))}</p>` : ""}${m.metric ? c2LessonsHtml(m.metric, role, d.champions[0]?.champion, !C2_KIND_TIP[m.kind]) : ""}</details></article>`).join("")}</section>` : "";
+        <details class="more"><summary>Ce qu'il faut faire</summary>${C2_KIND_TIP[m.kind] || !m.metric ? `<p>${esc(c2TipOf(m))}</p>` : ""}${m.metric ? c2LessonsHtml(m.metric, role, d.champions[0]?.champion, !C2_KIND_TIP[m.kind], m.kind) : ""}</details></article>`).join("")}</section>` : "";
       }).join("") : `<p class="inline-empty">Aucun point faible qui revient dans plusieurs parties.</p>`);
   return `${pick}
     ${c2Synthesis(d, { role, champ })}

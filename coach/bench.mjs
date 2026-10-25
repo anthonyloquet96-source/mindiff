@@ -101,13 +101,14 @@ async function replay() {
   const { gunzipSync } = await import("node:zlib");
   const benchmarks = JSON.parse(await readFile("coach/cache/benchmarks.json", "utf8"));
   const champstats = JSON.parse(await readFile("coach/cache/champstats.json", "utf8"));
+  const situations = process.argv.includes("--sans-situations") ? null : JSON.parse(await readFile("coach/cache/situations.json", "utf8").catch(() => "null"));
   const data = JSON.parse(await readFile(OUT, "utf8"));
   const files = (await readdir(RAW).catch(() => [])).filter(f => f.endsWith(".json.gz"));
   const games = [];
   for (const f of files) {
     const g = JSON.parse(gunzipSync(await readFile(`${RAW}/${f}`)).toString());
     const stub = async url => (url.endsWith("/timeline") ? g.timeline : g.match);
-    try { games.push({ ...record(g.tier, await review(stub, { matchId: g.match.metadata.matchId, puuid: g.me, region: "europe", benchmarks, champstats })), raw: f.replace(".json.gz", "") }); } catch (e) { console.error(`${f} : ${e.message}`); }
+    try { games.push({ ...record(g.tier, await review(stub, { matchId: g.match.metadata.matchId, puuid: g.me, region: "europe", benchmarks, champstats, situations })), raw: f.replace(".json.gz", "") }); } catch (e) { console.error(`${f} : ${e.message}`); }
   }
   // Les parties sans copie (premier passage) gardent leur ancienne analyse
   const kept = data.games.filter(x => !x.raw || !files.includes(`${x.raw}.json.gz`));

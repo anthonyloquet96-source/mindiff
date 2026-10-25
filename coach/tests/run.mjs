@@ -115,12 +115,13 @@ await t("Bilan de partie (données Riot) : faits exacts, comparaison Diamant+", 
   assert(r.deaths.length === 1 && r.deaths[0].killer === "C3" && r.deaths[0].beforeObjective === "Dragon pris par l'adversaire à 12:40", JSON.stringify(r.deaths));
   assert(r.bases.length === 3 && r.bases[1].afterDeath && !r.bases[0].afterDeath && r.bases[0].items.join() === "Bottes,Balise de contrôle", JSON.stringify(r.bases));
   assert(r.lane.opponent === "C2" && r.lane.at10.gold === -200 && r.lane.at10.cs === -10, JSON.stringify(r.lane));
-  assert(r.findings.length === 3 && r.findings[0].kind === "mort-avant-objectif" && r.findings.some(f => f.kind === "ecart-cs10"), r.findings.map(f => f.kind).join());
+  // Une seule mort avant un objectif reste datée dans la liste des morts ; le constat demande au moins 2 morts (banc d'essai du 25/10/2026)
+  assert(!r.findings.some(f => f.kind === "mort-avant-objectif") && r.findings.some(f => f.kind === "ecart-cs10"), r.findings.map(f => f.kind).join());
   assert(r.bases[0].goldBefore === 2600, "or en poche avant le retour");
   assert(!r.findings.some(f => f.kind === "ecart-deaths30"), "6 morts/30 min jugées sous la référence alors qu'elles sont dans la moyenne Diamant+");
   assert(compare("cs10", 82, null) === null && compare("cs10", 82, { cs10: { n: 10, p25: 1, p50: 2, p75: 3 } }) === null, "comparaison sans référence suffisante");
   assert(parseRiotId("Pseudo#EUW")?.tagLine === "EUW" && !parseRiotId("Pseudo"), "Riot ID");
-  return "Mort à 12:00 suivie d'un dragon adverse à 12:40 → signalée ; achats après la mort distingués d'un retour ; écarts à 10 min exacts ; référence Diamant+ exigée (30 joueurs au moins).";
+  return "Mort à 12:00 suivie d'un dragon adverse à 12:40 → datée dans les morts (constat à partir de 2) ; achats après la mort distingués d'un retour ; écarts à 10 min exacts ; référence Diamant+ exigée (30 joueurs au moins).";
 });
 await t("Bilan : retard en ligne, plaques, build face aux Diamant+ ; objectif par rôle", "fixture", async () => {
   const { review, goalFor } = await import("../review.mjs");
@@ -372,6 +373,18 @@ await t("Plusieurs contenus de même origine", "fixture", () => {
   assert(r.flags.some(f => f.code === "meme-origine"), "non signalé");
   return "MOBA Trainer (fusion op.gg) + page op.gg : signalés comme une même origine.";
 });
+await t("Données de la clé de développement Riot jamais publiées", "réel", async () => {
+  // riot.publish faux : ni mesure privée (dataCheck riot-dev), ni chiffre des chronologies, ni stratégie marquée privée dans ce qui part en ligne
+  const cfg = JSON.parse(await readFile(join(ROOT, "coach/config.json"), "utf8"));
+  if (cfg.riot?.publish) throw Object.assign(new Error("ignoré : publication autorisée"), { skip: true });
+  const pub = await readFile(join(ROOT, "data/coach.json"), "utf8");
+  assert(!/"source":\s*"riot-dev"/.test(pub), "une mesure de la clé de développement est dans data/coach.json");
+  assert(!/"dataCheck"/.test(pub), "une vérification par nos données est publiée");
+  assert(!/byChamp|dragonEqualGold|"situations"/.test(pub), "des références des chronologies sont publiées");
+  const kb = await readFile(join(ROOT, "coach/kb/units.json"), "utf8");
+  assert(!/"source":\s*"riot-dev"/.test(kb), "une mesure de la clé de développement est versionnée dans units.json");
+  return "data/coach.json et units.json ne contiennent aucune mesure de la clé de développement (dataCheck, chronologies).";
+});
 await t("Chaque recommandation renvoie à ses preuves", "réel", async () => {
   const r = CS.prepare(KB, { role: "bottom", rank: "or", champions: ["Lucian"], mode: "duo", goal: "lane", time: 30 });
   const all = [...r.changes, r.goal.unit, ...r.plan.map(x => x.unit)];
@@ -490,6 +503,35 @@ await t("Règles v1.3 : durée de vie, nuance des conseils anciens, sources comm
   const red = checkUnit({ ...base, id: "fx-v13-e", themes: ["vision", "vagues"], evidence: [{ content: "fx-reddit", locator: "post", lang: "en", passage: "Ward the river brush when your wave is pushed." }] }, c3);
   assert(red.status === "provisoire" && red.flags.some(f => f.code === "rang-non-verifie"), `source communautaire seule → ${red.status}`);
   return "Principe général ancien → gardé tel quel ; conseil ancien lié à un système → provisoire avec « ce qui a pu changer » ; confirmé par nos données → nuance levée ; contredit → provisoire avec la mesure ; source communautaire seule → provisoire.";
+});
+await t("Situations Diamant+ : mêmes définitions que le bilan, rythme d'objets comparé au même champion", "fixture", async () => {
+  const { review } = await import("../review.mjs");
+  const { playerLines } = await import("../situations.mjs");
+  const P = (id, team, pos) => ({ participantId: id, puuid: `p${id}`.padEnd(60, "x"), teamId: team, teamPosition: pos, championName: `C${id}`, championId: id, win: team === 100, kills: 2, deaths: 1, assists: 3, totalMinionsKilled: 150, neutralMinionsKilled: 10, gameEndedInEarlySurrender: false, challenges: { laneMinionsFirst10Minutes: 70, visionScorePerMinute: 0.7, killParticipation: 0.5, teamDamagePercentage: 0.2, controlWardsPlaced: 2 } });
+  const parts = [P(1, 100, "MIDDLE"), P(2, 200, "MIDDLE"), P(3, 200, "JUNGLE")];
+  const match = { metadata: { matchId: "EUW1_2" }, info: { gameDuration: 1800, gameStartTimestamp: 0, queueId: 420, gameVersion: "16.21.1.1", participants: parts } };
+  const frames = Array.from({ length: 31 }, (_, m) => ({ participantFrames: { 1: { totalGold: 500 * m, minionsKilled: 8 * m, jungleMinionsKilled: 0, xp: 400 * m, currentGold: 300 }, 2: { totalGold: 500 * m, minionsKilled: 8 * m, jungleMinionsKilled: 0, xp: 400 * m, currentGold: 300 }, 3: { totalGold: 500 * m, minionsKilled: 0, jungleMinionsKilled: 6 * m, xp: 400 * m, currentGold: 300 } }, events: [] }));
+  frames[4].events.push({ type: "ITEM_PURCHASED", participantId: 1, itemId: 1001, timestamp: 250000 });
+  frames[8].events.push({ type: "CHAMPION_KILL", victimId: 1, killerId: 3, assistingParticipantIds: [], timestamp: 500000, position: { x: 7000, y: 7000 } });
+  frames[8].events.push({ type: "ITEM_PURCHASED", participantId: 1, itemId: 1001, timestamp: 530000 }); // après une mort : pas un retour choisi
+  frames[11].events.push({ type: "ITEM_PURCHASED", participantId: 1, itemId: 3089, timestamp: 690000 });
+  const tl = { info: { participants: parts.map(p => ({ participantId: p.participantId, puuid: p.puuid })), frames } };
+  const db = { 1001: { name: "Bottes", gold: { total: 300 }, into: ["3006"], tags: ["Boots"] }, 3089: { name: "Coiffe", gold: { total: 3600 }, tags: [] } };
+  const fetchImpl = async url => ({ json: async () => (url.includes("versions") ? ["16.21.1"] : { data: db }) });
+  const riot = async url => (url.endsWith("/timeline") ? tl : match);
+  // Même lecture des retours et du premier grand item que le bilan
+  const itemDb = Object.fromEntries(Object.entries(db).map(([id, it]) => [id, { name: it.name, gold: it.gold.total, final: !it.into?.length && it.gold.total >= 2000, boots: it.tags?.includes("Boots") }]));
+  const line = playerLines(match, tl, itemDb).find(l => l.champion === "C1");
+  const plain = await review(riot, { matchId: "EUW1_2", puuid: parts[0].puuid, region: "europe", benchmarks: null, fetchImpl });
+  assert(line.backs14 === plain.habits.backs14 && Math.abs(line.legendaryMin - plain.habits.legendaryMin) < 0.1, `définitions divergentes : situations ${line.backs14} retours / ${line.legendaryMin} min, bilan ${plain.habits.backs14} / ${plain.habits.legendaryMin}`);
+  assert(line.firstBack > 4 && line.firstBack < 4.3, `premier retour ${line.firstBack}`);
+  // 11,5 min : dans la norme générale (14 min), en retard pour ce champion chez les Diamant+ (médiane 9, trois quarts avant 10)
+  assert(!plain.findings.some(f => f.kind === "premier-objet-tardif"), "seuil général : 11,5 min signalé à tort");
+  const sit = { byRole: { mid: { n: 1500, legendaryMin: { p50: 11.4, p75: 12.6 } } }, byChamp: { "C1|mid": { n: 120, legendaryMin: { p50: 9, p75: 10 } } } };
+  const withRef = await review(riot, { matchId: "EUW1_2", puuid: parts[0].puuid, region: "europe", benchmarks: null, situations: sit, fetchImpl });
+  const f = withRef.findings.find(f => f.kind === "premier-objet-tardif");
+  assert(f && /ce champion à ce poste.*9 min.*120 parties/.test(f.facts[0]), `référence du champion non utilisée : ${JSON.stringify(f)}`);
+  return "Retours et premier grand item lus de la même façon que le bilan ; 11,5 min accepté au seuil général, signalé face aux Diamant+ du même champion (médiane 9 min, 120 parties).";
 });
 await t("Vidéos réellement lues : durée conforme et passages retrouvés", "réel", async () => {
   const vids = L.contents.contents.filter(c => c.reader?.kind === "ia");

@@ -431,3 +431,23 @@ Demande d'Anthony : faire attention aux faux conseils et à ceux qui ne sont plu
   - Elle nuance sendo (horaires de 2023) et Dignitas (ward à 3:10, posée après une partie des ganks).
 - **Appli** : les sections « Comment progresser » du bilan proposent désormais jusqu'à 2 conseils de coachs sans champion, sur le thème de l'indicateur et pour le poste du joueur. Avant, les conseils de stratégie n'apparaissaient nulle part, puisque l'appli ne montrait les conseils que par champion.
 - **Collecte des chronologies Diamant+** (`coach/timelines.mjs`) : positions, or et événements minute par minute, anonymisés et gardés sans limite de durée dans le cache privé. Elle est prête, mais attend une clé Riot valide : celle de développement a expiré.
+
+## 25/10/2026 (soir) — Chronologies Diamant+, test sur de vrais joueurs, audit d'ergonomie
+
+- **Situations Diamant+** (`coach/situations.mjs`) : mesurées sur les chronologies (positions, or, événements minute par minute). Les définitions sont celles du bilan : retour, retours avant 14 min, premier grand item, premier gank réussi. Références par poste, et par champion au poste dès 80 parties. Un test vérifie que situations et bilan comptent pareil. Les données sont privées (`coach/cache/situations.json`).
+- **Rythme d'objets par champion** : le constat « premier grand item tardif » se compare aux Diamant+ du même champion au même poste, et non plus à un seuil fixe de 14 min. Au banc d'essai (1 600 parties) :
+  - joueurs faibles et bons joueurs : 25 % et 10 % (contre 20 % et 9 % avec le seuil fixe) ;
+  - victoires avec et sans le constat : 33 % et 47 % (contre 38 % et 47 %). La règle repère mieux une vraie erreur.
+- **Fausse piste écartée** : à or presque égal, l'équipe la plus présente près de la fosse 30 s avant l'apparition du dragon ne le prend pas plus souvent (48 à 51 %, 626 cas). L'effet apparent venait de l'or. Aucun conseil n'en est tiré.
+- **« Mort avant un objectif »** : le constat demande désormais au moins 2 morts. Il passe de 64 % à 33 % des parties et vise un peu mieux les joueurs faibles (36 % contre 29 %). Une seule mort reste datée dans la liste des morts.
+- **Farm** : « farm à 10 min » et « farm sur la partie » forment un seul constat avec les deux chiffres.
+- **Test sur de vrais joueurs** (20 comptes du Fer au Challenger, 40 parties, 4 bilans de rôle) : aucune erreur, build comparé dans les 40 parties. Les constats les plus fréquents (mort avant un objectif, objectif disputé en infériorité, morts avant 14 min) sont liés à la défaite plus qu'au niveau : ils apparaissent aussi chez les Challenger.
+- **Audit d'ergonomie** (écran de téléphone, compte Or réel, local) :
+  - le patch s'affichait en version du client (16.20) : il s'affiche maintenant en numéro de patch (26.20) ;
+  - les milliers sont séparés (48 536) ;
+  - les conseils de coachs proposés sous un constat parlent de sa situation (dragon et Baron pour une mort avant un objectif, par exemple), et non plus seulement de son thème.
+  - Restent à traiter : la carte de la partie en cours est très longue sur téléphone, et les petites cibles tactiles (pastilles de l'historique, moins de 40 px).
+- **Tests** : 41 au total. Trois sont nouveaux :
+  - mêmes définitions dans les situations et le bilan ;
+  - seuil par champion ;
+  - aucune donnée de la clé de développement dans ce qui est publié.

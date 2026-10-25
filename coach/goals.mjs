@@ -54,12 +54,17 @@ export function prioritize(games, role, { references = null, exclude = [], stepF
     const F = valid.filter(v => dir * (ref.value - v) > 0).length / valid.length;
     const C = share * Math.min(1, valid.length / 20);
     const score = 100 * G * c.impact * F * c.actionability * C;
-    // Marche suivante : au plus s (réduite après un échec), sans dépasser la référence, et toujours un vrai progrès
-    const unit = 10 ** -(c.percent ? 2 : c.decimals ?? 0);
-    const step = Math.max(Math.min(gap, s * stepFactor), unit);
-    let target = round(baseline + dir * step, c.percent ? 2 : c.decimals ?? 0);
-    // Métrique « plus bas = mieux » (morts) : nombre entier, jamais plus exigeant que la référence
-    if (c.direction === "lower") target = Math.max(ref.value, Math.floor(baseline - step + 1e-9));
+    // Marche suivante, calée sur le joueur lui-même : le niveau qu'il atteint déjà dans environ une partie sur trois
+    // (65e centile de ses parties récentes ; 60e après un échec), au moins une unité de mieux que sa médiane, jamais au-delà
+    // de la référence. Batterie du 26/10 sur de vrais joueurs : « médiane + un écart typique » n'était atteint que dans
+    // 8 à 33 % de leurs propres parties, et 5 objectifs tranchés sur 6 étaient ratés.
+    const unit = 10 ** -(c.percent ? 2 : c.decimals ?? 0), dec = c.percent ? 2 : c.decimals ?? 0;
+    const pq = stepFactor < 1 ? 0.6 : 0.65;
+    const sorted = [...recent].sort((x, y) => x - y);
+    const personal = c.direction === "higher" ? sorted[Math.floor(pq * (sorted.length - 1))] : sorted[Math.ceil((1 - pq) * (sorted.length - 1))];
+    let target = dir > 0 ? Math.min(ref.value, Math.max(personal, baseline + unit)) : Math.max(ref.value, Math.min(personal, baseline - unit));
+    target = c.direction === "lower" ? Math.floor(target + 1e-9) : round(target, dec);
+    if (dir * (target - baseline) <= 0) target = round(baseline + dir * unit, dec);
     out.push({ ...row, eligible: gap > 0, reason: gap > 0 ? null : "déjà au niveau de la référence", baseline: round(baseline, 3), spread: round(s, 3), reference: ref, target,
       factors: { G: round(G, 3), I: c.impact, F: round(F, 3), A: c.actionability, C: round(C, 3) }, score: round(score, 2) });
   }

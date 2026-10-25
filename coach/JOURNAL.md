@@ -415,3 +415,19 @@ Les lots sont gardés dans `coach/kb/batches/2026-10-25-claude-*.mjs`.
   - un conseil sur Urgot : l'article l'écrit « アーゴット », donc aucun passage ne prouve le champion ;
   - deux listes de champions que j'avais classées par erreur comme « exemples », corrigées.
 - **Pour le forum Inven** (texte récupéré, 28 000 caractères) : remis en file pour l'analyse automatique.
+
+## 25/10/2026 — Règles v1.3 : nuancer plutôt que supprimer
+
+Demande d'Anthony : faire attention aux faux conseils et à ceux qui ne sont plus valables après les patchs. Il ne veut pas les supprimer, mais les filtrer et les nuancer. Règles validées par Claude Code (délégation), verrou signé.
+
+- **Durée de vie** de chaque conseil, calculée par la critique :
+  - `intemporel` : vagues, vision, macro ou méthode, sans champion ni objet ni méta ;
+  - `systeme` : dépend d'un système de jeu (Téléportation, camps, horaires) ;
+  - `meta` : tout le reste.
+- **Nuance** : un conseil `systeme` ou `meta` de plus d'un an (ou d'un patch trop ancien) reste visible, avec sa date et ce qu'il faut revérifier. Dans l'appli, la nuance s'affiche sous le conseil, et les conseils nuancés passent après les autres.
+- **Sources communautaires** (`trust: "communaute"` dans sources.json, par exemple Reddit) : le rang de l'auteur est déclaré, pas vérifié. Un conseil qui n'a que cette source reste provisoire tant qu'une autre source ou nos données ne le confirment pas.
+- **Vérification croisée par nos données** (`dataCheck` : confirme, nuance ou contredit). Les mesures faites avec la clé de développement restent dans le cache privé (`coach/cache/datachecks.json`) et ne comptent qu'une fois `riot.publish` autorisé.
+  - Première mesure : le premier gank réussi, sur 589 parties Diamant+ des patchs 26.18 à 26.21. Le pic se situe entre 3:00 et 3:30 (tournée complète), seuls 9 % des junglers gankent avant 2:30, et 17 % avant 3:00.
+  - Elle nuance sendo (horaires de 2023) et Dignitas (ward à 3:10, posée après une partie des ganks).
+- **Appli** : les sections « Comment progresser » du bilan proposent désormais jusqu'à 2 conseils de coachs sans champion, sur le thème de l'indicateur et pour le poste du joueur. Avant, les conseils de stratégie n'apparaissaient nulle part, puisque l'appli ne montrait les conseils que par champion.
+- **Collecte des chronologies Diamant+** (`coach/timelines.mjs`) : positions, or et événements minute par minute, anonymisés et gardés sans limite de durée dans le cache privé. Elle est prête, mais attend une clé Riot valide : celle de développement a expiré.

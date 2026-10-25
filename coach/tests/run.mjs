@@ -468,6 +468,29 @@ await t("Analyse v2 : contexte d'usage, seconde lecture de l'extrait, sur-géné
   assert(!cut.flags.some(f => f.code === "citation-introuvable"), "passage coupé par « [...] » refusé à tort");
   return "Vérifié sur l'extrait et contexte complet → exploitable ; passage coupé « [...] » retrouvé morceau par morceau ; passage non entendu → rejeté ; « toujours » ajouté ou situation absente → provisoire.";
 });
+await t("Règles v1.3 : durée de vie, nuance des conseils anciens, sources communautaires, vérification par nos données", "fixture", () => {
+  const old = { id: "fx-createur-a", ...fxCtx.contents.get("fx-createur-a"), published: "2021-04-19" };
+  const c3 = { ...fxCtx, contents: new Map([...fxCtx.contents, ["fx-createur-a", old], ["fx-reddit", { id: "fx-reddit", sourceId: "fx-communaute", type: "article", title: "Post (fixture)", access: "texte-integral", analysis: "analysee", published: "2026-10-01" }]]),
+    texts: new Map([...fxCtx.texts, ["fx-reddit", "Ward the river brush when your wave is pushed."]]), sources: new Map([...fxCtx.sources, ["fx-communaute", { id: "fx-communaute", trust: "communaute" }]]) };
+  const use = { when: "Ta vague est poussée chez l'adversaire.", who: "Laners", how: ["Place une ward dans le buisson de la rivière"], why: "", notWhen: "" };
+  const base = { claim: "Selon un créateur : conseil.", champions: [], roles: ["bottom"], context: { queue: "solo" }, patch: { known: false }, nature: "opinion", levelContext: "diamant", use };
+  // Principe général ancien : ni provisoire ni nuancé
+  const timeless = checkUnit({ ...base, id: "fx-v13-a", themes: ["vision", "vagues"], evidence: [{ content: "fx-createur-a", locator: "§1", lang: "fr", passage: "montez Prison aqueuse en premier" }] }, c3);
+  assert(timeless.lifespan === "intemporel" && !timeless.nuance && !timeless.flags.some(f => f.code === "contenu-ancien"), `principe général ancien pénalisé (${timeless.lifespan}, ${timeless.nuance})`);
+  // Conseil ancien lié à un système de jeu : gardé, provisoire, avec la nuance de ce qui a pu changer
+  const sys = checkUnit({ ...base, id: "fx-v13-b", themes: ["survie"], dependsOn: ["system:camps-de-jungle"], evidence: [{ content: "fx-createur-a", locator: "§1", lang: "fr", passage: "montez Prison aqueuse en premier" }] }, c3);
+  assert(sys.lifespan === "systeme" && /2021.*revérifier.*camps de jungle/.test(sys.nuance || "") && sys.status === "provisoire", `nuance absente : ${sys.lifespan} / ${sys.nuance}`);
+  // Confirmé par nos données récentes : l'âge ne compte plus
+  const ok = checkUnit({ ...base, id: "fx-v13-c", themes: ["survie"], dependsOn: ["system:camps-de-jungle"], dataCheck: { result: "confirme", sample: "640 parties Diamant+", note: "" }, evidence: [{ content: "fx-createur-a", locator: "§1", lang: "fr", passage: "montez Prison aqueuse en premier" }] }, c3);
+  assert(!ok.nuance && !ok.flags.some(f => f.code === "contenu-ancien"), "confirmation par nos données ignorée");
+  // Contredit par nos données : provisoire, et la nuance donne la mesure
+  const ko = checkUnit({ ...base, id: "fx-v13-d", themes: ["survie"], dataCheck: { result: "contredit", sample: "640 parties Diamant+", note: "Aujourd'hui, le premier gank arrive plutôt vers 3:00." }, evidence: [{ content: "fx-createur-a", locator: "§1", lang: "fr", passage: "montez Prison aqueuse en premier" }] }, c3);
+  assert(ko.status === "provisoire" && ko.flags.some(f => f.code === "donnees-contredisent") && /3:00/.test(ko.nuance), "contradiction par nos données non signalée");
+  // Source communautaire (rang déclaré) : jamais exploitable seule
+  const red = checkUnit({ ...base, id: "fx-v13-e", themes: ["vision", "vagues"], evidence: [{ content: "fx-reddit", locator: "post", lang: "en", passage: "Ward the river brush when your wave is pushed." }] }, c3);
+  assert(red.status === "provisoire" && red.flags.some(f => f.code === "rang-non-verifie"), `source communautaire seule → ${red.status}`);
+  return "Principe général ancien → gardé tel quel ; conseil ancien lié à un système → provisoire avec « ce qui a pu changer » ; confirmé par nos données → nuance levée ; contredit → provisoire avec la mesure ; source communautaire seule → provisoire.";
+});
 await t("Vidéos réellement lues : durée conforme et passages retrouvés", "réel", async () => {
   const vids = L.contents.contents.filter(c => c.reader?.kind === "ia");
   if (!vids.length) throw Object.assign(new Error("ignoré : aucune vidéo lue"), { skip: true });

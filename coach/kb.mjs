@@ -16,9 +16,11 @@ export async function loadContext() {
   const contentMap = new Map(contents.contents.map(c => [c.id, c]));
   const texts = new Map();
   for (const c of contents.contents) texts.set(c.id, await cachedText(c.id));
+  // Vérifications croisées par nos parties (règles v1.3) : privées (cache non versionné) tant que la clé de production manque
+  const datachecks = new Map(Object.entries(await readJson("coach/cache/datachecks.json", {})));
   return {
     config, sources, contents, units, corrections, glossary, changesDoc: changes,
-    ctx: { config, glossary, contents: contentMap, texts, sources: new Map(sources.sources.map(s => [s.id, s])), current: changes.current, changes: changes.patches },
+    ctx: { config, glossary, contents: contentMap, texts, datachecks, sources: new Map(sources.sources.map(s => [s.id, s])), current: changes.current, changes: changes.patches },
   };
 }
 
@@ -40,6 +42,7 @@ export function evaluate(u, ctx, corrections) {
   const hs = humanState(corrections, u.id);
   const fixed = { ...u };
   for (const f of hs.fields) fixed[f.field] = f.after;
+  if (!fixed.dataCheck && ctx.datachecks?.has(u.id)) fixed.dataCheck = ctx.datachecks.get(u.id);
   const res = checkUnit(fixed, ctx);
   let status = res.status;
   // Un contrôle bloquant apparu après la fusion (règle durcie, source modifiée) : à revalider, jamais exploitable
@@ -51,6 +54,8 @@ export function evaluate(u, ctx, corrections) {
     status,
     flags: res.flags.map(({ code, why }) => ({ code, why })),
     independentSources: res.independentSources,
+    lifespan: res.lifespan,
+    ...(res.nuance ? { nuance: res.nuance } : {}),
     review: { human: hs.retired ? "retirée" : hs.contested ? "contestée" : hs.approved ? "validée" : "en attente", by: (hs.retired || hs.contested || hs.approved)?.by || null, at: (hs.retired || hs.contested || hs.approved)?.at || null, reason: (hs.retired || hs.contested)?.reason || null },
     blocking: res.blocking ? res.flags.filter(f => f.blocking).map(f => f.code) : [],
   };

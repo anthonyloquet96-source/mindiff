@@ -54,6 +54,8 @@ export async function run() {
     const t = tu[u.id];
     if (t && rest.claim.endsWith(t.riot)) rest.claim = rest.claim.slice(0, -t.riot.length) + t.tu;
     if (!rest.conditions?.length) delete rest.conditions;
+    // Mesure faite avec la clé de développement : jamais publiée (riot.publish)
+    if (rest.dataCheck?.source === "riot-dev" && !L.config.riot?.publish) delete rest.dataCheck;
     if (rest.context?.queue === "tous" && rest.context?.rank === "tous") delete rest.context;
     return { ...rest, review: { human: u.review.human }, ...(flags.length ? { flags: flags.map(f => ({ code: f.code, why: f.why })) } : {}) };
   };

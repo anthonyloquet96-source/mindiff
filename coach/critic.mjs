@@ -52,6 +52,14 @@ export function checkUnit(u, ctx) {
   const autoOk = ev.some(e => e.autoChecked?.said && e.autoChecked?.supported);
   const fundamental = !u.metaDependent && !(u.champions || []).length && !(u.dependsOn || []).some(d => d.includes("/") || d.startsWith("item:"))
     && (u.themes || []).some(t => ["vagues", "vision", "macro", "methode"].includes(t)) && !(u.themes || []).some(t => ["champion", "build", "matchup", "synergie", "patch"].includes(t));
+  // Durée de vie (règles v1.3) : « intemporel » (principe général), « systeme » (dépend d'un système de jeu : Téléportation,
+  // camps, horaires d'objectifs) ou « meta » (champion, objet, compétence, équilibrage). Elle décide de la nuance affichée.
+  const deps = u.dependsOn || [];
+  const kitBound = (u.champions || []).length || deps.some(d => d.includes("/") || d.startsWith("item:")) || (u.themes || []).some(t => ["champion", "build", "matchup", "synergie", "patch"].includes(t));
+  const lifespan = fundamental ? "intemporel" : !kitBound && deps.some(d => d.startsWith("system:")) ? "systeme" : "meta";
+  // Vérification croisée par nos données (v1.3) : une mesure sur des parties Diamant+ récentes confirme, nuance ou contredit le conseil
+  // Mesure faite avec la clé de développement de Riot : privée, elle ne compte qu'une fois la publication autorisée (riot.publish)
+  const dc = u.dataCheck?.result && (ctx.config.riot?.publish || u.dataCheck.source !== "riot-dev") ? u.dataCheck : null;
   // Contexte d'usage (v2) : un joueur doit savoir quand, pour qui et comment appliquer le conseil
   const useComplete = !!(u.use?.when && u.use?.who && u.use?.how?.length);
   for (const e of ev) {
@@ -70,7 +78,7 @@ export function checkUnit(u, ctx) {
     // Contenu ancien (ex. article de sortie d'un champion) : le kit a pu changer depuis, la date du patch ne suffit pas à le savoir.
     // Un principe général (vagues, vision, jungle), sans champion, objet ni méta, ne vieillit pas avec le kit
     const maxAge = ctx.config.freshness?.maxContentAgeDays;
-    if (maxAge && c.published && !e.humanChecked && !fundamental && (Date.now() - Date.parse(c.published)) / 864e5 > maxAge) flag("contenu-ancien", `${e.content} publié le ${c.published} : à confirmer sur le kit et la méta actuels.`, false, "provisoire");
+    if (maxAge && c.published && !e.humanChecked && lifespan !== "intemporel" && dc?.result !== "confirme" && (Date.now() - Date.parse(c.published)) / 864e5 > maxAge) flag("contenu-ancien", `${e.content} publié le ${c.published} : à confirmer sur le kit et la méta actuels.`, false, "provisoire");
     if ((e.passage || "").length > cfg.maxPassageChars) flag("citation-trop-longue", `Passage de plus de ${cfg.maxPassageChars} caractères : résumer plutôt que republier.`, true);
     if (detectInjection(e.passage).length) flag("injection", `Le passage cité contient une instruction : ${detectInjection(e.passage)[0]}`, true);
     const text = ctx.texts.get(e.content);
@@ -131,6 +139,11 @@ export function checkUnit(u, ctx) {
   // Deux chaînes d'une même organisation (ex. blog et YouTube de We Teach League) ne comptent que pour une
   const independent = new Set(ev.map(e => { const c = ctx.contents.get(e.content); return ctx.sources.get(c?.sourceId)?.organization || c?.sourceId; })).size;
   if (u.nature === "statistique" && independent < 2) flag("source-unique", "Statistique d'une seule source.", false, "provisoire");
+  // Source communautaire (v1.3) : le rang de l'auteur est déclaré, pas vérifié. Jamais exploitable seule :
+  // il faut une autre source indépendante ou une confirmation par nos données
+  const community = ev.some(e => ctx.sources.get(ctx.contents.get(e.content)?.sourceId)?.trust === "communaute");
+  if (community && independent < 2 && dc?.result !== "confirme") flag("rang-non-verifie", "Source communautaire (rang déclaré, non vérifié) : à confirmer par une autre source indépendante ou par nos données.", false, "provisoire");
+  if (dc?.result === "contredit") flag("donnees-contredisent", `Nos données (${dc.sample}) : ${dc.note}`, false, "provisoire");
   // Avis attribué d'un coach (règles v1.2) : exploitable s'il est présenté comme tel, avec un contexte d'usage complet et sans dépendre de la méta
   if (u.nature === "opinion") flag("source-unique", useComplete && !u.metaDependent ? "Avis d'une seule personne : présenté comme tel." : "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta.", false, useComplete && !u.metaDependent ? null : "provisoire");
   if (u.promptVersions?.extraction >= "v2" && u.origin === "analyse-automatique" && !u.use?.when) flag("contexte-manquant", "Aucune situation de partie reconnaissable : ce n'est pas une consigne applicable.", false, "provisoire");
@@ -162,7 +175,8 @@ export function checkUnit(u, ctx) {
   if (!patchStatus && u.patch?.known && cur && patchCmp(u.patch.value, cur) > 0) flag("patch-futur", `Porte sur le patch ${u.patch.value}, pas encore en vigueur (patch courant ${cur}) : prévision, à confirmer à sa sortie.`, false, "provisoire");
   const since = u.patch?.known ? u.patch.value : u.validity?.checkedPatch;
   if (!patchStatus && u.metaDependent && u.patch?.known) {
-    const gap = patchGap(u.patch.value, cur);
+    // Revalidé par nos données sur un patch récent : la distance se compte depuis la mesure
+    const gap = patchGap(dc && dc.result !== "contredit" && dc.patch ? dc.patch : u.patch.value, cur);
     if (gap > ctx.config.freshness.metaDependentMaxPatches) { patchStatus = "a-revalider"; flag("patch-incompatible", `Dépend de la méta, patch ${u.patch.value} : ${gap} patchs de retard.`, false, "a-revalider"); }
   }
   if (!patchStatus && since) {
@@ -173,7 +187,18 @@ export function checkUnit(u, ctx) {
     }
   }
 
+  // Nuance (v1.3) : un conseil ancien n'est pas supprimé ; il est montré avec ce qui a pu changer depuis
+  let nuance = null;
+  const maxAgeDays = ctx.config.freshness?.maxContentAgeDays;
+  const pubDate = ev.map(e => ctx.contents.get(e.content)?.published).filter(Boolean).sort()[0] || null;
+  const old = (maxAgeDays && pubDate && (Date.now() - Date.parse(pubDate)) / 864e5 > maxAgeDays) || (u.patch?.known && cur && patchGap(u.patch.value, cur) > ctx.config.freshness.metaDependentMaxPatches);
+  if (u.nature !== "officiel" && lifespan !== "intemporel" && old && dc?.result !== "confirme") {
+    const when = `Conseil de ${pubDate ? pubDate.slice(0, 4) : "date inconnue"}${u.patch?.known ? ` (patch ${u.patch.value})` : ""}`;
+    const sys = deps.filter(d => d.startsWith("system:")).map(d => d.slice(7).replace(/-/g, " "));
+    nuance = lifespan === "systeme" && sys.length ? `${when} : à revérifier sur le jeu actuel (${sys.join(", ")}).` : kitBound || u.metaDependent ? `${when} : l'équilibrage a changé depuis, vérifie que ça s'applique encore.` : `${when} : le jeu a pu changer depuis, vérifie que ça s'applique encore.`;
+  }
+  if (dc && dc.result !== "confirme" && dc.note) nuance = dc.note;
   const computed = worst("exploitable", ...flags.map(f => f.status));
   // proposedStatus : statut voulu par l'auteur de l'unité ; le calcul ne peut que le durcir
-  return { flags, blocking: flags.some(f => f.blocking), status: worst(u.proposedStatus || "exploitable", computed), independentSources: independent };
+  return { flags, blocking: flags.some(f => f.blocking), status: worst(u.proposedStatus || "exploitable", computed), independentSources: independent, lifespan, nuance };
 }

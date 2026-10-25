@@ -22,12 +22,12 @@ const C2_ROLE = { top: "Top", jungle: "Jungle", mid: "Mid", bottom: "ADC", suppo
 const C2_TIER = { IRON: "Fer", BRONZE: "Bronze", SILVER: "Argent", GOLD: "Or", PLATINUM: "Platine", EMERALD: "Émeraude", DIAMOND: "Diamant", MASTER: "Maître", GRANDMASTER: "Grand Maître", CHALLENGER: "Challenger" };
 // Comment progresser sur chaque indicateur : thèmes de la base et mots-clés des vidéos de coachs
 const C2_LEARN = {
-  cs10: { themes: ["lane"], re: /wave|vague|trading|farm|\bcs\b|last ?hit|clear|jungle path|tempo/i, tip: "Vise la référence Diamant+ à 10 min : chaque wave perdue, ce sont 6 sbires et leur or." },
-  csMin: { themes: ["lane"], re: /wave|vague|farm|\bcs\b|tempo/i, tip: "Après la phase de lane, continue à prendre les waves proches de toi entre deux combats." },
+  cs10: { themes: ["lane", "vagues"], re: /wave|vague|trading|farm|\bcs\b|last ?hit|clear|jungle path|tempo/i, tip: "Vise la référence Diamant+ à 10 min : chaque wave perdue, ce sont 6 sbires et leur or." },
+  csMin: { themes: ["lane", "vagues"], re: /wave|vague|farm|\bcs\b|tempo/i, tip: "Après la phase de lane, continue à prendre les waves proches de toi entre deux combats." },
   deaths30: { themes: ["survie", "methode"], re: /mort|death|dying|surviv|position|dans la t[eê]te|mistake|erreur/i, tip: "Pour chaque mort, note ce que tu ne voyais pas (adversaires absents de la minimap, vision) : ouvre le bilan de la partie, chaque mort y est datée." },
-  visionMin: { themes: ["methode"], re: /vision|ward|balise|track/i, tip: "Pose une ward à chaque retour et utilise ton trinket dès qu'il est rechargé." },
-  controlWards: { themes: ["methode"], re: /vision|\bwards?\b|balise|control ward|pink ward/i, tip: "Une control ward à chaque back : c'est 75 golds, et souvent un objectif sauvé." },
-  kp: { themes: ["teamfight"], re: /roam|gank|tempo|teamfight|skirmish|escarmouche|jungle/i, tip: "Après avoir poussé ta wave, regarde la minimap : rejoins les combats qui ont lieu près de toi." },
+  visionMin: { themes: ["methode", "vision"], re: /vision|ward|balise|track/i, tip: "Pose une ward à chaque retour et utilise ton trinket dès qu'il est rechargé." },
+  controlWards: { themes: ["methode", "vision"], re: /vision|\bwards?\b|balise|control ward|pink ward/i, tip: "Une control ward à chaque back : c'est 75 golds, et souvent un objectif sauvé." },
+  kp: { themes: ["teamfight", "macro"], re: /roam|gank|tempo|teamfight|skirmish|escarmouche|jungle/i, tip: "Après avoir poussé ta wave, regarde la minimap : rejoins les combats qui ont lieu près de toi." },
 };
 // Conseil de méthode propre à chaque type de constat (plus précis que celui de l'indicateur)
 const C2_KIND_TIP = {
@@ -203,12 +203,25 @@ function c2Videos(metric, role, champ = null) {
   list.forEach(c => seen.add(c.id)); // une vidéo n'apparaît qu'une fois par page
   return list;
 }
+// Conseils de coachs de la base (sans champion) sur le thème de l'indicateur et pour le poste du joueur : 2 au plus,
+// les exploitables d'abord, les conseils anciens nuancés en dernier ; un conseil n'apparaît qu'une fois par page
+function c2CoachTips(metric, role) {
+  const L = C2_LEARN[metric];
+  if (!L || !COACH) return [];
+  const seen = (c2ui.tipSeen ||= new Set());
+  const list = COACH.units.filter(u => ["exploitable", "provisoire"].includes(u.status) && u.usage !== "correction" && u.nature !== "officiel" && !u.champions?.length && u.use?.when
+      && u.context?.queue !== "competition" && u.themes?.some(t => L.themes.includes(t)) && (!role || u.roles?.includes("all") || u.roles?.includes(role)) && !seen.has(u.id))
+    .sort((a, b) => (a.status !== "exploitable") - (b.status !== "exploitable") || !!a.nuance - !!b.nuance).slice(0, 2);
+  list.forEach(u => seen.add(u.id));
+  return list;
+}
 // « Comment progresser » : des actions concrètes, puis une ou deux vidéos (sans détail de provenance : il reste dans la page de contrôle)
 function c2LessonsHtml(metric, role, champ = null, steps = true) {
   const P = steps ? C2_PLAIN[metric] : null;
-  const vids = c2Videos(metric, role, champ);
+  const vids = c2Videos(metric, role, champ), tips = c2CoachTips(metric, role);
   return `<div class="c2-lessons">
     ${P ? `<ol class="c2-howto">${P.steps(role).map(x => `<li>${esc(x)}</li>`).join("")}</ol>` : ""}
+    ${tips.length ? `<p class="label">Conseils de coachs</p><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul>` : ""}
     ${vids.length ? `<p class="label">Pour aller plus loin</p><ul class="c2-videos">${vids.map(c => `<li><a href="${esc(c.url)}" target="_blank" rel="noopener">${icon("play")}<span><b>${esc(c.title)}</b><span class="fine">Vidéo ${C2_LANG[c.lang] || ""} · ${esc(c.author)}</span></span></a></li>`).join("")}</ul>` : ""}
   </div>`;
 }
@@ -897,7 +910,7 @@ function c2TipText(u) {
 }
 // Contexte d'usage d'un conseil de coach (analyse v2) : quand, pour qui, comment, pourquoi, à éviter
 const c2Use = u => (u.use?.when ? `<details class="c2-use"><summary>Quand l'utiliser · Comment</summary><p><b>Quand :</b> ${esc(u.use.when)}</p>${u.use.who ? `<p><b>Pour qui :</b> ${esc(u.use.who)}</p>` : ""}${u.use.how?.length ? `<ol>${u.use.how.map(h => `<li>${esc(h)}</li>`).join("")}</ol>` : ""}${u.use.why ? `<p><b>Pourquoi :</b> ${esc(u.use.why)}</p>` : ""}${u.use.notWhen ? `<p><b>À éviter :</b> ${esc(u.use.notWhen)}</p>` : ""}</details>` : "");
-const c2Tip = u => `<li class="c2-tip">${esc(c2TipText(u))}${c2Use(u)}<span class="fine">${u.nature === "officiel" ? "Riot Games" : esc(contentOf(u.evidence[0]?.content)?.author || "")}${u.status === "provisoire" ? " · provisoire" : ""}</span></li>`;
+const c2Tip = u => `<li class="c2-tip">${esc(c2TipText(u))}${u.nuance ? `<p class="c2-nuance">${esc(u.nuance)}</p>` : ""}${c2Use(u)}<span class="fine">${u.nature === "officiel" ? "Riot Games" : esc(contentOf(u.evidence[0]?.content)?.author || "")}${u.status === "provisoire" ? " · provisoire" : ""}</span></li>`;
 function c2VideosFor(name) {
   const re = new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
   return COACH.contents.filter(c => c.type === "video" && ["fr", "en"].includes(c.lang) && (re.test(c.title) || c.champions?.includes(name)) && !(c.triage?.entertainment || []).length).slice(0, 4);

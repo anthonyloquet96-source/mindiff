@@ -47,8 +47,12 @@ export async function run() {
   coverage.generic = usable.filter(u => u.roles.includes("all")).map(u => u.id);
 
   // Version publiée allégée : les champs de travail restent dans coach/kb et dans la page de contrôle
+  // Conseils Riot affichés au « tu » (coach/kb/tutoiement.json), seulement si le texte de Riot n'a pas changé depuis la réécriture
+  const tu = (await readJson("coach/kb/tutoiement.json", { tips: {} })).tips;
   const pub = u => {
     const { blocking, origin, validity, verified, firstSeen, version, analyst, proposedStatus, promptVersions, independentSources, dependsOn, flags, aiReview, ...rest } = u;
+    const t = tu[u.id];
+    if (t && rest.claim.endsWith(t.riot)) rest.claim = rest.claim.slice(0, -t.riot.length) + t.tu;
     if (!rest.conditions?.length) delete rest.conditions;
     if (rest.context?.queue === "tous" && rest.context?.rank === "tous") delete rest.context;
     return { ...rest, review: { human: u.review.human }, ...(flags.length ? { flags: flags.map(f => ({ code: f.code, why: f.why })) } : {}) };

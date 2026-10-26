@@ -15,6 +15,13 @@ import { parseCaptions } from "../import-transcript.mjs";
 import { acquireText } from "../analyze.mjs";
 
 const results = [];
+// Toutes les migrations Supabase, dans l'ordre (Postgres embarqué)
+async function applyMigrations(db) {
+  const { readdir } = await import("node:fs/promises");
+  const dir = new URL("../../supabase/migrations/", import.meta.url);
+  for (const f of (await readdir(dir)).filter(f => f.endsWith(".sql")).sort()) await db.exec(await readFile(new URL(f, dir), "utf8"));
+}
+
 const t = async (name, kind, fn) => {
   try { const detail = await fn(); results.push({ name, kind, ok: true, detail }); }
   catch (e) { results.push({ name, kind, ok: !!e.skip, skipped: !!e.skip, detail: e.message }); }
@@ -711,68 +718,91 @@ await t("COACH-006 Catalogue de métriques : formules, null, adversaire, validit
   return "formules du brief vérifiées (sbires 72 à 10:00 lus à +200 ms, KP 50 %, écart d'or 750) ; null sans timeline, division par zéro et partie trop courte ; files et postes non valides écartés.";
 });
 
-await t("COACH-007 Choix de l'objectif : reproductible, sans LLM, éligibilité et score S = 100·G·I·F·A·C", "fixture", async () => {
+await t("COACH-007 Choix de l'objectif (goals-2) : reproductible, sans LLM, score S inchangé, cible au 55e centile, morts non proposées", "fixture", async () => {
   const { computeMetrics } = await import("../metrics.mjs");
-  const { prioritize, proposeGoal } = await import("../goals.mjs");
-  // 12 parties mid : farm faible (58 à 64 à 10 min), peu de morts, bonne participation
-  const games = Array.from({ length: 12 }, (_, i) => { const g = v1Game({ id: `EUW1_${i}`, start: 1e6 - i, cs10: 58 + (i % 7), deaths: 1, kills: 6, assists: 4, teamKills: 16 }); return computeMetrics(g.match, g.timeline, "p1"); });
+  const { prioritize, proposeGoal, RULES } = await import("../goals.mjs");
+  // 20 parties mid : farm faible (58 à 64 à 10 min), 3 morts avant 14 min, bonne participation
+  const games = Array.from({ length: 20 }, (_, i) => { const g = v1Game({ id: `EUW1_${i}`, start: 1e6 - i, cs10: 58 + (i % 7), deaths: 3, kills: 6, assists: 4, teamKills: 16 }); return computeMetrics(g.match, g.timeline, "p1"); });
   const a = proposeGoal(games, "MIDDLE", { now: 5 }), b = proposeGoal(games, "MIDDLE", { now: 5 });
   assert(JSON.stringify(a) === JSON.stringify(b), "deux diagnostics différents sur les mêmes parties");
-  assert(a.goal.metric === "cs_at_10" && a.goal.status === "proposed" && a.goal.version === "coach-v1", `objectif inattendu : ${a.goal?.metric}`);
-  assert(a.goal.baseline === 60.5 && a.goal.target > a.goal.baseline && a.goal.target <= 70, `marche de progrès incohérente : ${a.goal.baseline} → ${a.goal.target}`);
-  assert(a.goal.reference.source === "seuil-pedagogique" && /Vise \d+ sbires à 10:00/.test(a.goal.exercise), "référence ou exercice absent");
+  assert(a.goal.metric === "cs_at_10" && a.goal.status === "proposed" && a.goal.version === "goals-2" && a.goal.cycle === 1, `objectif inattendu : ${a.goal?.metric}`);
+  // Cible : 55e centile personnel, au moins une unité de mieux que la médiane, jamais au-delà de la référence
+  const vals = games.map(g => g.metrics.cs_at_10.value).sort((x, y) => x - y), p55 = vals[Math.floor(0.55 * 19)];
+  assert(a.goal.target === Math.max(p55, a.goal.baseline + 1) && a.goal.target_quantile === 0.55 && a.goal.target <= 70, `cible ${a.goal.target}, attendu ${Math.max(p55, a.goal.baseline + 1)}`);
+  // Fenêtre de départ datée et garde-fous du poste (sans la métrique visée)
+  assert(a.goal.baseline_window.games === 20 && a.goal.baseline_window.to_ms === 1e6 && Object.keys(a.goal.guardrails).join() === "xp_at_10,kill_participation", `fenêtre ou garde-fous : ${Object.keys(a.goal.guardrails)}`);
   const row = a.diagnostic.find(r => r.metric === "cs_at_10"), f = row.factors;
   assert(Math.abs(row.score - 100 * f.G * f.I * f.F * f.A * f.C) < 0.05, "score différent de 100·G·I·F·A·C");
-  // Moins de 8 parties : aucun objectif
-  assert(proposeGoal(games.slice(0, 7), "MIDDLE").goal === null, "objectif proposé avec 7 parties");
+  // Morts avant 14 min : au diagnostic, jamais proposées automatiquement (même seules en cause)
+  const deaths = a.diagnostic.find(r => r.metric === "early_deaths");
+  assert(deaths && !deaths.eligible && /suspendu/.test(deaths.reason), "morts proposées automatiquement");
+  const onlyDeaths = Array.from({ length: 20 }, (_, i) => { const g = v1Game({ id: `EUW1_d${i}`, start: 1e6 - i, cs10: 90, deaths: 4, kills: 9, assists: 6, teamKills: 16, vision: 40 }); return computeMetrics(g.match, g.timeline, "p1"); });
+  assert(proposeGoal(onlyDeaths, "MIDDLE").goal?.metric !== "early_deaths", "objectif de morts proposé");
+  // Moins de 15 parties : aucun objectif
+  assert(RULES.minGames === 15 && proposeGoal(games.slice(0, 14), "MIDDLE").goal === null, "objectif proposé avec 14 parties");
   // Moins de 70 % d'observations valides (timeline absente) : la métrique de timeline n'est pas éligible
-  const noTl = Array.from({ length: 10 }, (_, i) => { const g = v1Game({ id: `EUW1_n${i}`, cs10: 50 }); return computeMetrics(g.match, i < 4 ? g.timeline : null, "p1"); });
+  const noTl = Array.from({ length: 16 }, (_, i) => { const g = v1Game({ id: `EUW1_n${i}`, cs10: 50 }); return computeMetrics(g.match, i < 6 ? g.timeline : null, "p1"); });
   assert(prioritize(noTl, "MIDDLE").find(r => r.metric === "cs_at_10").eligible === false, "métrique éligible avec 40 % d'observations");
   // Référence mesurée (échantillon suffisant) préférée au seuil pédagogique ; échantillon trop petit ignoré
-  const refs = { MIDDLE: { cs_at_10: { n: 8000, p50: 78, level: "Diamant et plus" } } };
-  assert(proposeGoal(games, "MIDDLE", { references: refs }).goal.reference.source === "metric_references", "référence mesurée ignorée");
+  assert(proposeGoal(games, "MIDDLE", { references: { MIDDLE: { cs_at_10: { n: 8000, p50: 78, level: "Diamant et plus" } } } }).goal.reference.source === "metric_references", "référence mesurée ignorée");
   assert(proposeGoal(games, "MIDDLE", { references: { MIDDLE: { cs_at_10: { n: 50, p50: 78 } } } }).goal.reference.source === "seuil-pedagogique", "petit échantillon utilisé comme référence");
-  // Joueur au-dessus de la médiane mesurée : marche suivante = quart supérieur ; cible jamais au-delà de la référence
-  const high = proposeGoal(games, "MIDDLE", { references: { MIDDLE: { cs_at_10: { n: 8000, p25: 50, p50: 55, p75: 63.4, level: "Diamant et plus" } } } });
-  const hr = high.diagnostic.find(r => r.metric === "cs_at_10");
-  assert(hr.eligible && hr.reference.quantile === "p75" && hr.target <= 63.4, "pas de marche au-dessus de la médiane, ou cible au-delà de la référence");
-  ` `;
-  return `objectif reproductible : sbires à 10 min, ${a.goal.baseline} → ${a.goal.target} (référence ${a.goal.reference.value}) ; pas d'objectif sous 8 parties ni sous 70 % d'observations ; référence mesurée seulement avec un échantillon suffisant.`;
+  // Cible plafonnée à la référence ; après une maîtrise de la même métrique, 60e centile
+  const capped = prioritize(games, "MIDDLE", { references: { MIDDLE: { cs_at_10: { n: 8000, p25: 50, p50: 61.2, p75: 70, level: "Diamant et plus" } } } }).find(r => r.metric === "cs_at_10");
+  assert(capped.target <= 61.2, `cible au-delà de la référence : ${capped.target}`);
+  const after = proposeGoal(games, "MIDDLE", { pastGoals: [{ metric: "cs_at_10", role: "MIDDLE", status: "archived", outcome: "achieved", created_at: 1 }] }).goal;
+  assert(after.metric === "cs_at_10" && after.target_quantile === 0.6 && after.target >= a.goal.target, "60e centile après une maîtrise");
+  return `sbires à 10 min ${a.goal.baseline} → ${a.goal.target} (55e centile) ; 60e après maîtrise ; plafond à la référence ; morts au diagnostic seulement ; pas d'objectif sous 15 parties.`;
 });
 
-await t("COACH-008 Cycle de vie : proposé → actif → en évaluation → réussi / raté / inconclusif → archivé", "fixture", async () => {
+await t("COACH-008 Cycle de vie (goals-2) : maîtrise, progrès, stable, alerte, échec après deux cycles, garde-fous, chronologie", "fixture", async () => {
   const { computeMetrics } = await import("../metrics.mjs");
-  const { transition, evaluateGoal, assertSingleActive, proposeGoal } = await import("../goals.mjs");
-  const goal = transition({ id: "g", metric: "cs_at_10", role: "MIDDLE", direction: "higher", baseline: 60, target: 65, evaluation_games: 5, minimum_valid_games: 4, success_required: 3, status: "proposed", created_at: 0 }, "active", 100);
-  const G = (i, cs10, x = {}) => { const g = v1Game({ id: `EUW1_e${i}`, start: 1000 + i, cs10, ...x }); return computeMetrics(g.match, x.noTl ? null : g.timeline, "p1"); };
-  // 3 cibles atteintes sur 5, en perdant ces parties : réussite (victoire ≠ réussite)
-  const won = evaluateGoal(goal, [G(1, 66, { win: false }), G(2, 60, { win: false }), G(3, 67, { win: false }), G(4, 65, { win: false }), G(5, 50)]);
-  assert(won.outcome === "achieved" && won.goal.status === "achieved", "réussite non reconnue");
-  // 2 cibles sur 5 en gagnant : échec
-  assert(evaluateGoal(goal, [G(1, 66), G(2, 60), G(3, 61), G(4, 70), G(5, 50)]).outcome === "failed", "échec non reconnu");
-  // Seulement 3 observations valides sur 5 (timelines absentes) : inconclusif
-  assert(evaluateGoal(goal, [G(1, 66), G(2, 66, { noTl: true }), G(3, 66, { noTl: true }), G(4, 70), G(5, 70)]).outcome === "inconclusive", "données insuffisantes non signalées");
-  // 5 parties à un autre rôle avant toute partie mid : inconclusif ; parties non classées ignorées ; 2 parties : en évaluation
-  assert(evaluateGoal(goal, [1, 2, 3, 4, 5].map(i => G(i, 80, { role: "TOP" }))).outcome === "inconclusive", "changement de rôle non signalé");
-  const mid = evaluateGoal(goal, [G(1, 70), G(2, 70, { queue: 450 }), G(3, 70)]);
+  const { transition, evaluateGoal, assertSingleActive, proposeGoal, checkGuardrails } = await import("../goals.mjs");
+  const base = { id: "g", chain_id: "g", cycle: 1, metric: "cs_at_10", role: "MIDDLE", direction: "higher", baseline: 60, target: 65, personal_sd: 4, evaluation_games: 5, minimum_valid_games: 4, success_required: 3, status: "proposed", created_at: 0,
+    baseline_window: { games: 20, from_ms: 10, to_ms: 50 }, guardrails: { kill_participation: { median: 0.625, sd: 0.05, low: 0.6, n: 20 } } };
+  const goal = transition(base, "active", 100);
+  const G = (i, cs10, x = {}) => { const g = v1Game({ id: `EUW1_e${i}`, start: 1000 + i, cs10, kills: 6, assists: 4, teamKills: 16, ...x }); return computeMetrics(g.match, x.noTl ? null : g.timeline, "p1"); };
+  const ev = (games, g = goal) => evaluateGoal(g, games);
+  // 3 cibles sur 5, en perdant : maîtrise (victoire ≠ réussite)
+  const won = ev([G(1, 66, { win: false }), G(2, 60, { win: false }), G(3, 67, { win: false }), G(4, 65, { win: false }), G(5, 50)]);
+  assert(won.outcome === "achieved" && won.goal.status === "achieved", "maîtrise non reconnue");
+  // 2 cibles sur 5 mais médiane en hausse d'au moins 0,25·s : progrès (pas un échec)
+  const imp = ev([G(1, 66), G(2, 62), G(3, 61), G(4, 70), G(5, 55)]);
+  assert(imp.outcome === "improving" && imp.goal.progress.delta_sd === 0.5, `progrès : ${imp.outcome} ${imp.goal.progress.delta_sd}`);
+  // Ni maîtrise ni progrès au premier cycle : stable (pas un échec) ; au deuxième cycle stable de suite : échec
+  const flat = [G(1, 66), G(2, 60), G(3, 60), G(4, 70), G(5, 55)];
+  assert(ev(flat).outcome === "stable", `premier cycle sans progrès : ${ev(flat).outcome}`);
+  assert(ev(flat, { ...goal, cycle: 2, previous_outcome: "stable" }).outcome === "failed", "deux cycles sans progrès non comptés comme échec");
+  assert(ev(flat, { ...goal, cycle: 2, previous_outcome: "improving" }).outcome === "stable", "échec après un cycle de progrès");
+  // Recul d'au moins 0,25·s : alerte
+  assert(ev([G(1, 66), G(2, 55), G(3, 58), G(4, 66), G(5, 50)]).outcome === "needs_review", "recul non signalé");
+  // Garde-fou dégradé (participation aux kills 62 % → 25 %) : alerte, même avec la cible atteinte 5 fois sur 5
+  const passive = ev([1, 2, 3, 4, 5].map(i => G(i, 70, { kills: 2, assists: 2 })));
+  assert(passive.outcome === "needs_review" && passive.goal.progress.guardrails.kill_participation.breach && /garde-fou/.test(passive.goal.progress.review), "garde-fou dégradé validé");
+  // Une seule mauvaise partie ne suffit pas
+  const one = checkGuardrails(base.guardrails, [G(1, 70, { kills: 1, assists: 1 }), G(2, 70), G(3, 70), G(4, 70), G(5, 70)]);
+  assert(!one.kill_participation.breach, "une seule mauvaise partie déclenche l'alerte");
+  // Données insuffisantes, changement de rôle, partie non classée, état intermédiaire
+  assert(ev([G(1, 66), G(2, 66, { noTl: true }), G(3, 66, { noTl: true }), G(4, 70), G(5, 70)]).outcome === "inconclusive", "données insuffisantes non signalées");
+  assert(ev([1, 2, 3, 4, 5].map(i => G(i, 80, { role: "TOP" }))).outcome === "inconclusive", "changement de rôle non signalé");
+  const mid = ev([G(1, 70), G(2, 70, { queue: 450 }), G(3, 70)]);
   assert(mid.outcome === null && mid.goal.status === "evaluating" && mid.goal.progress.counted === 2, "partie non classée comptée ou état intermédiaire faux");
-  // Parties d'avant l'activation ignorées
-  assert(evaluateGoal(goal, [G(-950, 90), G(-920, 90)]).goal.progress.counted === 0, "partie antérieure à l'objectif comptée");
-  // Transitions interdites, archivage, un seul objectif ouvert
+  // Chronologie : partie d'évaluation antérieure ou égale à la fin de la fenêtre de départ → refus
+  let leak = false; try { evaluateGoal({ ...goal, baseline_window: { to_ms: 1003 } }, [G(1, 70), G(2, 70), G(3, 70)]); } catch (e) { leak = e.code === "fuite-chronologique"; }
+  assert(leak, "fuite chronologique acceptée");
+  // Transitions, archivage, un seul objectif ouvert
   let bad = false; try { transition(goal, "achieved"); } catch (e) { bad = e.code === "transition-interdite"; }
-  assert(bad, "active → achieved sans évaluation");
-  assert(transition(won.goal, "archived").status === "archived", "archivage impossible");
+  assert(bad && transition(imp.goal, "archived").status === "archived", "transitions");
   let multi = false; try { assertSingleActive([goal, { ...goal, id: "h" }]); } catch (e) { multi = e.code === "objectif-multiple"; }
   assert(multi, "deux objectifs ouverts acceptés");
-  // Après deux échecs de suite sur la même métrique, elle est mise de côté au diagnostic suivant
-  const games = Array.from({ length: 12 }, (_, i) => G(100 + i, 58 + (i % 7), { deaths: 4 }));
-  const past = [{ metric: "cs_at_10", role: "MIDDLE", status: "archived", outcome: "failed", created_at: 2 }, { metric: "cs_at_10", role: "MIDDLE", status: "archived", outcome: "failed", created_at: 1 }];
-  const next = proposeGoal(games, "MIDDLE", { pastGoals: past });
-  assert(next.goal && !["cs_at_10", "cs_at_15", "cs_per_min"].includes(next.goal.metric), "compétence ratée deux fois reproposée (même famille)");
-  const once = proposeGoal(games, "MIDDLE", { pastGoals: past.slice(0, 1) });
-  const fresh = proposeGoal(games, "MIDDLE");
-  assert(once.goal.metric === "cs_at_10" && fresh.goal.metric === "cs_at_10" ? once.goal.target <= fresh.goal.target : true, "marche non réduite après un échec");
-  return "réussite à 3/5 même en perdant, échec à 2/5 même en gagnant, inconclusif sous 4 valides ou après un changement de rôle ; transitions contrôlées, un seul objectif ouvert, métrique ratée deux fois mise de côté.";
+  // Après improving ou stable : nouveau cycle du même objectif (même cible, même départ) ; après un échec ou une alerte : famille mise de côté
+  const games = Array.from({ length: 20 }, (_, i) => G(100 + i, 58 + (i % 7), { deaths: 4 }));
+  const cont = proposeGoal(games, "MIDDLE", { pastGoals: [{ ...imp.goal, status: "archived", created_at: 3 }], now: 9 }).goal;
+  assert(cont.metric === "cs_at_10" && cont.cycle === 2 && cont.target === 65 && cont.chain_id === "g" && cont.previous_outcome === "improving" && cont.baseline_window.to_ms === 50, "cycle suivant mal construit");
+  for (const outcome of ["failed", "needs_review"]) {
+    const next = proposeGoal(games, "MIDDLE", { pastGoals: [{ metric: "cs_at_15", role: "MIDDLE", status: "archived", outcome, created_at: 2 }] }).goal;
+    assert(!next || !["cs_at_10", "cs_at_15", "cs_per_min"].includes(next.metric), `famille reproposée après ${outcome}`);
+  }
+  return "maîtrise 3/5 même en perdant ; progrès ≥ 0,25·s ; stable au 1er cycle, échec au 2e cycle stable ; recul ou garde-fou dégradé → alerte ; une seule mauvaise partie ignorée ; fuite chronologique refusée ; cycle suivant ou famille mise de côté.";
 });
 
 await t("COACH-003 Base Supabase : RLS (lecture du propriétaire seulement, aucune écriture client), un objectif ouvert, suppression RGPD", "fixture", async () => {
@@ -783,7 +813,7 @@ await t("COACH-003 Base Supabase : RLS (lecture du propriétaire seulement, aucu
   await db.exec(`create schema auth; create table auth.users (id uuid primary key);
     create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('request.jwt.claim.sub', true), '')::uuid $$;
     create role anon nologin; create role authenticated nologin; grant usage on schema public, auth to anon, authenticated; grant execute on function auth.uid() to anon, authenticated;`);
-  await db.exec(await readFile(new URL("../../supabase/migrations/20261026000000_coach_v1.sql", import.meta.url), "utf8"));
+  await applyMigrations(db);
   await db.exec(`grant select, insert, update, delete on all tables in schema public to anon, authenticated;`);
   const A = "00000000-0000-0000-0000-00000000000a", B = "00000000-0000-0000-0000-00000000000b";
   await db.exec(`insert into auth.users values ('${A}'), ('${B}');
@@ -867,11 +897,11 @@ await t("COACH-005 Synchronisation : aucune partie traitée deux fois, recalcul 
   const { tmpdir } = await import("node:os");
   const dir = await mkdtemp(`${tmpdir()}/coach-v1-`);
   const store = createStore({ file: `${dir}/store.json`, rawDir: `${dir}/raw` });
-  // Faux Riot : 12 parties mid au farm faible, puis 5 nouvelles parties
-  let ids = Array.from({ length: 12 }, (_, i) => `EUW1_${100 + i}`);
+  // Faux Riot : 16 parties mid au farm faible, puis 5 nouvelles parties
+  let ids = Array.from({ length: 16 }, (_, i) => `EUW1_${100 + i}`);
   const games = {};
   const mk = (id, start, cs10) => { const g = v1Game({ id, start, cs10, deaths: 1, kills: 6, assists: 4, teamKills: 16 }); games[id] = g; };
-  ids.forEach((id, i) => mk(id, 1000 + (12 - i), 58 + (i % 7)));
+  ids.forEach((id, i) => mk(id, 1000 + (16 - i), 58 + (i % 7)));
   const counts = {};
   const riot = { call: async (route, p) => {
     counts[route] = (counts[route] || 0) + 1;
@@ -890,10 +920,10 @@ await t("COACH-005 Synchronisation : aucune partie traitée deux fois, recalcul 
   assert(s1.status === 202 && s1b.body.job_id === s1.body.job_id && s1b.body.already_running, "deux synchronisations ouvertes en même temps");
   await ctx.queue.idle();
   assert((await store.getJob(s1.body.job_id)).status === "done", "synchronisation non terminée");
-  assert(counts.match === 12 && counts.timeline === 12, "parties non téléchargées");
+  assert(counts.match === 16 && counts.timeline === 16, "parties non téléchargées");
   // Deuxième synchronisation sans nouvelle partie : aucun téléchargement
   await handleV1({ method: "POST", path: `/api/v1/players/${pid}/sync` }, ctx); await ctx.queue.idle();
-  assert(counts.match === 12, "partie téléchargée deux fois");
+  assert(counts.match === 16, "partie téléchargée deux fois");
   const active = await handleV1({ method: "GET", path: `/api/v1/players/${pid}/goals/active` }, ctx);
   assert(active.body.goal?.status === "proposed" && active.body.goal.metric === "cs_at_10", "objectif non proposé");
   const st = await handleV1({ method: "POST", path: `/api/v1/players/${pid}/goals/${active.body.goal.id}/start` }, ctx);
@@ -904,7 +934,7 @@ await t("COACH-005 Synchronisation : aucune partie traitée deux fois, recalcul 
   fresh.forEach((id, i) => mk(id, t0 + i * 1000, i === 4 ? target - 10 : target + 2));
   ids = [...fresh.reverse(), ...ids];
   await handleV1({ method: "POST", path: `/api/v1/players/${pid}/sync` }, ctx); await ctx.queue.idle();
-  assert(counts.match === 17, "nouvelles parties mal comptées");
+  assert(counts.match === 21, "nouvelles parties mal comptées");
   const prog = await handleV1({ method: "GET", path: `/api/v1/players/${pid}/progress` }, ctx);
   assert(prog.body.goals.length === 1 && prog.body.goals[0].outcome === "achieved" && prog.body.goals[0].status === "archived", "réussite non archivée");
   const next = await handleV1({ method: "GET", path: `/api/v1/players/${pid}/goals/active` }, ctx);
@@ -914,13 +944,13 @@ await t("COACH-005 Synchronisation : aucune partie traitée deux fois, recalcul 
   for (const m of all) await store.putMetrics(pid, { ...m, metric_version: "ancienne" });
   const { syncPlayer } = await import("../v1/sync.mjs");
   const re = await syncPlayer({ store, riot, playerId: pid });
-  assert(re.recomputed === 17 && re.fetched === 0 && counts.match === 17, "recalcul en rappelant Riot");
+  assert(re.recomputed === 21 && re.fetched === 0 && counts.match === 21, "recalcul en rappelant Riot");
   // Erreurs normalisées et suppression RGPD
   const bad = await handleV1({ method: "GET", path: "/api/v1/players/pas-un-id/matches" }, ctx);
   assert(bad.status === 400 && bad.body.error.code === "joueur-invalide", "identifiant non validé");
   assert((await handleV1({ method: "DELETE", path: `/api/v1/players/${pid}` }, ctx)).status === 204 && (await store.listMetrics(pid)).length === 0 && (await store.listGoals(pid)).length === 0, "suppression incomplète");
   await store.flush();
-  return "Riot ID résolu, une seule synchronisation ouverte, 12 parties téléchargées une fois, objectif proposé puis démarré, réussi sur les 5 parties suivantes, archivé et remplacé ; recalcul de 17 parties sans Riot ; suppression complète.";
+  return "Riot ID résolu, une seule synchronisation ouverte, 16 parties téléchargées une fois, objectif proposé puis démarré, réussi sur les 5 parties suivantes, archivé et remplacé ; recalcul de 17 parties sans Riot ; suppression complète.";
 });
 
 await t("COACH-010 Tuteur : n'invente aucun chiffre, cite des conseils existants, nature de chaque phrase, quota", "fixture", async () => {
@@ -990,7 +1020,7 @@ await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur 
   const { handleV1, createQueue, syncWorker } = await import("../v1/api.mjs");
   const db = new PGlite();
   await db.exec(`create schema auth; create table auth.users (id uuid primary key); create function auth.uid() returns uuid language sql stable as $$ select null::uuid $$; create role anon nologin; create role authenticated nologin;`);
-  await db.exec(await readFile(new URL("../../supabase/migrations/20261026000000_coach_v1.sql", import.meta.url), "utf8"));
+  await applyMigrations(db);
   // PostgREST minimal (ce que le stockage utilise) traduit en SQL sur le vrai schéma
   const objects = new Map();
   const rest = async (method, path, { body, prefer } = {}) => {
@@ -1011,10 +1041,10 @@ await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur 
     } catch (e) { throw Object.assign(new Error(e.message), { code: e.code === "23505" ? "conflit" : "supabase-erreur", status: e.code === "23505" ? 409 : 502 }); }
   };
   const store = createSupabaseStore({ rest, putObject: async (k, b) => objects.set(k, b), getObject: async k => objects.get(k) || null });
-  let ids = Array.from({ length: 12 }, (_, i) => `EUW1_${300 + i}`);
+  let ids = Array.from({ length: 16 }, (_, i) => `EUW1_${300 + i}`);
   const games = {};
   const mk = (id, start, cs10) => { games[id] = v1Game({ id, start, cs10, deaths: 1, kills: 6, assists: 4, teamKills: 16 }); };
-  ids.forEach((id, i) => mk(id, 1000 + (12 - i), 58 + (i % 7)));
+  ids.forEach((id, i) => mk(id, 1000 + (16 - i), 58 + (i % 7)));
   const counts = {};
   const riot = { call: async (route, p) => { counts[route] = (counts[route] || 0) + 1; return route === "account" ? { puuid: "p1", gameName: "Testeur", tagLine: "EUW" } : route === "matchIds" ? ids : route === "match" ? games[p.matchId].match : games[p.matchId].timeline; } };
   const ctx = { store, riot, references: null };
@@ -1022,7 +1052,7 @@ await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur 
   const pid = (await handleV1({ method: "GET", path: "/api/v1/players/resolve", query: { riot_id: "Testeur#EUW", platform: "euw1" } }, ctx)).body.player_id;
   await handleV1({ method: "POST", path: `/api/v1/players/${pid}/sync` }, ctx); await ctx.queue.idle();
   await handleV1({ method: "POST", path: `/api/v1/players/${pid}/sync` }, ctx); await ctx.queue.idle();
-  assert(counts.match === 12 && objects.size === 12, "parties téléchargées deux fois ou JSON bruts absents");
+  assert(counts.match === 16 && objects.size === 16, "parties téléchargées deux fois ou JSON bruts absents");
   const g = (await handleV1({ method: "GET", path: `/api/v1/players/${pid}/goals/active` }, ctx)).body.goal;
   assert(g?.status === "proposed" && g.metric === "cs_at_10", "objectif non proposé sur Supabase");
   const st = (await handleV1({ method: "POST", path: `/api/v1/players/${pid}/goals/${g.id}/start` }, ctx)).body.goal;
@@ -1040,12 +1070,12 @@ await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur 
   const { syncPlayer } = await import("../v1/sync.mjs");
   for (const m of await store.listMetrics(pid)) await store.putMetrics(pid, { ...m, metric_version: "ancienne" });
   const re = await syncPlayer({ store, riot, playerId: pid });
-  assert(re.recomputed === 17 && counts.match === 17, "recalcul sans le JSON brut");
+  assert(re.recomputed === 21 && counts.match === 21, "recalcul sans le JSON brut");
   await handleV1({ method: "DELETE", path: `/api/v1/players/${pid}` }, ctx);
   const left = (await db.query("select (select count(*) from public.match_metrics)::int + (select count(*) from public.coaching_goals)::int + (select count(*) from public.goal_evaluations)::int + (select count(*) from public.sync_jobs)::int n")).rows[0].n;
   assert(left === 0, "données restantes après suppression");
   await db.close();
-  return "parcours complet sur le vrai schéma : 12 parties une seule fois, JSON bruts compressés, objectif proposé, démarré, réussi et archivé ; second objectif ouvert refusé par la base ; recalcul sans Riot ; suppression en cascade.";
+  return "parcours complet sur le vrai schéma : 16 parties une seule fois, JSON bruts compressés, objectif proposé, démarré, réussi et archivé ; second objectif ouvert refusé par la base ; recalcul sans Riot ; suppression en cascade.";
 });
 
 await t("COACH-004 Worker : jeton vérifié, joueurs d'un autre compte invisibles, liaison unique, quotas, CORS", "fixture", async () => {
@@ -1054,7 +1084,7 @@ await t("COACH-004 Worker : jeton vérifié, joueurs d'un autre compte invisible
   const { createV1Worker, QUOTAS } = await import("../../worker/v1.mjs");
   const db = new PGlite();
   await db.exec(`create schema auth; create table auth.users (id uuid primary key); create function auth.uid() returns uuid language sql stable as $$ select null::uuid $$; create role anon nologin; create role authenticated nologin;`);
-  await db.exec(await readFile(new URL("../../supabase/migrations/20261026000000_coach_v1.sql", import.meta.url), "utf8"));
+  await applyMigrations(db);
   const A = "00000000-0000-0000-0000-00000000000a", B = "00000000-0000-0000-0000-00000000000b";
   await db.exec(`insert into auth.users values ('${A}'), ('${B}');`);
   const rest = async (method, path, { body, prefer } = {}) => {

@@ -4,7 +4,10 @@
 // JSON Riot bruts : bucket privé « riot-raw » de Supabase Storage, gzip, avec empreinte SHA-256.
 
 const TS = ["created_at", "active_at", "evaluating_at", "achieved_at", "failed_at", "inconclusive_at", "archived_at"];
-const GOAL_COLS = ["id", "player_id", "metric", "role", "direction", "baseline", "target", "reference", "evaluation_games", "minimum_valid_games", "success_required", "version", "status", "outcome", "score", "factors", "exercise", ...TS.slice(1)];
+const GOAL_COLS = ["id", "player_id", "metric", "role", "direction", "baseline", "target", "reference", "evaluation_games", "minimum_valid_games", "success_required", "version", "status", "outcome", "score", "factors", "exercise", ...TS.slice(1),
+  // goals-2 (migration 20261027000000)
+  "chain_id", "cycle", "target_quantile", "personal_sd", "baseline_window", "baseline_end_ms", "guardrails", "engine_version"];
+const NUM = ["baseline", "target", "score", "target_quantile", "personal_sd", "baseline_end_ms"];
 const toIso = v => (v == null ? null : new Date(v).toISOString());
 const toMs = v => (v == null ? null : Date.parse(v));
 
@@ -34,9 +37,9 @@ export function createSupabaseStore(sb) {
   const goalIn = (playerId, g) => {
     const row = Object.fromEntries(GOAL_COLS.filter(k => k in g).map(k => [k, TS.includes(k) ? toIso(g[k]) : g[k]]));
     const extra = Object.fromEntries(Object.entries(g).filter(([k]) => !GOAL_COLS.includes(k) && k !== "created_at" && k !== "player_id"));
-    return { ...row, player_id: playerId, created_at: toIso(g.created_at) || new Date().toISOString(), extra };
+    return { ...row, player_id: playerId, created_at: toIso(g.created_at) || new Date().toISOString(), extra, ...(g.baseline_window?.to_ms != null ? { baseline_end_ms: g.baseline_window.to_ms } : {}) };
   };
-  const goalOut = r => r && ({ ...(r.extra || {}), ...Object.fromEntries(Object.entries(r).filter(([k]) => k !== "extra").map(([k, v]) => [k, TS.includes(k) ? toMs(v) : ["baseline", "target", "score"].includes(k) && v != null ? Number(v) : v])) });
+  const goalOut = r => r && ({ ...(r.extra || {}), ...Object.fromEntries(Object.entries(r).filter(([k]) => k !== "extra").map(([k, v]) => [k, TS.includes(k) ? toMs(v) : NUM.includes(k) && v != null ? Number(v) : v])) });
   const metricsOut = r => r && ({ ...(r.extra || {}), match_id: r.match_id, player_id: r.player_id, role: r.role, champion: r.champion, won: r.won, valid: r.valid, invalid_reason: r.invalid_reason, metrics: r.metrics, metric_version: r.metric_version, start_ms: r.start_ms == null ? null : Number(r.start_ms) });
   return {
     getPlayer: id => one(`players?id=eq.${q(id)}&select=*`),
@@ -69,7 +72,7 @@ export function createSupabaseStore(sb) {
         .catch(e => { throw e.code === "conflit" ? Object.assign(new Error("Un objectif est déjà en cours."), { code: "objectif-multiple", status: 409 }) : e; });
       return goalOut(r[0]);
     },
-    putEvaluations: async (goalId, rows) => { if (rows.length) await sb.rest("POST", "goal_evaluations?on_conflict=goal_id,match_id", { body: rows.map(r => ({ goal_id: goalId, match_id: r.match_id, counted: !!r.counted, value: r.value ?? null, met: r.met ?? null, reason: r.reason ?? null })), prefer: "resolution=merge-duplicates" }); },
+    putEvaluations: async (goalId, rows) => { if (rows.length) await sb.rest("POST", "goal_evaluations?on_conflict=goal_id,match_id", { body: rows.map(r => ({ goal_id: goalId, match_id: r.match_id, counted: !!r.counted, value: r.value ?? null, met: r.met ?? null, reason: r.reason ?? null, guardrail_values: r.guardrail_values ?? null, guardrail_breach: r.guardrail_breach ?? null })), prefer: "resolution=merge-duplicates" }); },
     listEvaluations: async goalId => (await sb.rest("GET", `goal_evaluations?goal_id=eq.${q(goalId)}&select=*&order=evaluated_at.asc`)).map(e => ({ ...e, value: e.value == null ? null : Number(e.value) })),
     async openJob(playerId) {
       const open = await one(`sync_jobs?player_id=eq.${q(playerId)}&status=in.(queued,running)&select=*`);

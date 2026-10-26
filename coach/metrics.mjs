@@ -39,6 +39,8 @@ export const CATALOG = {
   xp_diff_at_15: { label: "Écart d'XP à 15 min face à ton adversaire", unit: "XP", direction: "higher", roles: ["MIDDLE", "TOP", "BOTTOM"], trainable: false, impact: 0.7, actionability: 0.4, decimals: 0, needsOpponent: true },
   early_deaths: {
     label: "Morts avant 14 min", unit: "morts", direction: "lower", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM", "UTILITY"], trainable: true, impact: 0.9, actionability: 0.8,
+    // Suspendu comme objectif automatique (correctifs du 26/10) : viser moins de morts pousse au jeu passif ; reste au diagnostic
+    autoPropose: false,
     // Médiane mesurée chez les Diamant+ : 2 morts avant 14 min (3 pour les ADC), sur 8 008 joueurs par rôle (25/10/2026)
     pedagogical: { MIDDLE: 2, JUNGLE: 2, TOP: 2, BOTTOM: 3, UTILITY: 2 }, decimals: 0, kbThemes: ["survie", "methode"],
     kbMatch: /gank|\bmort|mourir|meurs|survi|recul|jungler adverse|track|danger|flash|minimap|dispara|\bmia\b|missing/i, kbAvoid: LATE,
@@ -63,6 +65,17 @@ export const CATALOG = {
   // Présence aux objectifs du jungler : participation (kill ou assist) aux dragons, Barons, Héraut et larves prises par son équipe.
   // Prudence : être là ne veut pas dire que l'objectif était un bon choix
   objective_participation: { label: "Participation aux objectifs de ton équipe", unit: "%", direction: "higher", roles: ["JUNGLE"], trainable: false, impact: 0.6, actionability: 0.5, percent: true, decimals: 0 },
+};
+
+// Garde-fous anti-passivité (coach/goals.mjs, checkGuardrails) : surveillés pendant tout objectif ; une dégradation nette
+// refuse la validation. Sbires et XP à 10 min pour la phase de lane, activité selon le poste (validés par Anthony, 26/10).
+// L'XP à 10 min est calculée à tous les postes, même si elle n'est un indicateur de diagnostic qu'en jungle et au mid.
+export const GUARDRAILS = {
+  TOP: ["cs_at_10", "xp_at_10", "kill_participation"],
+  MIDDLE: ["cs_at_10", "xp_at_10", "kill_participation"],
+  BOTTOM: ["cs_at_10", "xp_at_10", "kill_participation"],
+  JUNGLE: ["cs_at_10", "xp_at_10", "kill_participation", "objective_participation"],
+  UTILITY: ["xp_at_10", "kill_participation", "vision_per_min"],
 };
 
 // Une partie compte pour le coach : classée solo (420), pas de remake, au moins 15 min, rôle connu

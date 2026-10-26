@@ -15,7 +15,7 @@
 
 import { PLATFORMS } from "./riot.mjs";
 import { syncPlayer, mainRole } from "./sync.mjs";
-import { prioritize, transition, GOAL_VERSION } from "../goals.mjs";
+import { prioritize, transition, GOAL_VERSION, OUTCOMES } from "../goals.mjs";
 import { CATALOG, METRIC_VERSION, formatMetric } from "../metrics.mjs";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
@@ -79,7 +79,7 @@ export async function handleV1({ method, path, query = {}, body = null }, ctx) {
       return { status: 200, body: { goal: withLabels(await store.putGoal(player.id, transition(g, "active", Date.now()))) } };
     }
     if (sub === "/progress" && method === "GET") {
-      const history = await Promise.all(goals.filter(g => g.status === "archived" || ["achieved", "failed", "inconclusive"].includes(g.status)).map(async g => ({ ...withLabels(g), evaluations: await store.listEvaluations(g.id) })));
+      const history = await Promise.all(goals.filter(g => g.status === "archived" || OUTCOMES.includes(g.status)).map(async g => ({ ...withLabels(g), evaluations: await store.listEvaluations(g.id) })));
       const timeline = {};
       for (const k of new Set(goals.map(g => g.metric))) timeline[k] = metrics.filter(m => m.valid && m.metrics[k]?.value != null).slice(0, 30).map(m => ({ start_ms: m.start_ms, value: m.metrics[k].value, role: m.role })).reverse();
       return { status: 200, body: { goals: history, series: timeline } };

@@ -54400,7 +54400,1490 @@
    },
    "version": 1,
    "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Y9iqq6Vl4fM-3",
+   "claim": "Selon Coach Leo : diana et Gwen sont des champions de farm intensif qui demandent une grande maîtrise mécanique, notamment sur l'espacement (spacing) et la connaissance des limites de dégâts.",
+   "champions": [
+    "Diana",
+    "Gwen"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "build",
+    "jungle"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Diamond, Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.18"
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "Build orienté dégâts (AP)",
+    "Maîtrise du spacing"
+   ],
+   "limits": [
+    "Plus fragiles que leurs anciennes versions tanks"
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Y9iqq6Vl4fM",
+     "locator": "03:26",
+     "lang": "en",
+     "passage": "Diana and Gwen are like full clear champions, but the problem is is that they're way more mechanically intensive than like an Amumu or a Fiddlesticks. That's a big difference. Lots more about spacing, lots more about limit testing",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "186-246s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pratiquer le spacing en combat pour maximiser les dégâts tout en évitant les retours de bâton.",
+   "observe": "La capacité à survivre en combat rapproché malgré un build fragile.",
+   "use": {
+    "when": "Tu joues Diana ou Gwen avec un build de dégâts et tu dois engager un combat.",
+    "why": "Depuis qu'elles ne se jouent plus tank, leur survie dépend uniquement de la précision mécanique et du positionnement.",
+    "who": "Joueurs de niveau Diamant ou plus.",
+    "how": [
+     "Optimiser le farm pour atteindre rapidement tes objets de dégâts.",
+     "Tester tes limites de dégâts en escarmouche (limit testing).",
+     "Maintenir une distance optimale (spacing) pour ne pas subir de burst inutile."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "L'unité se base sur un patch obsolète (14.18) et demande une mise à jour de contexte."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-YLgMgbuZ0Zk-1",
+   "claim": "Selon Dishake : la vague de sbires possède trois états uniques : elle pousse vers toi, elle est neutre, ou elle pousse vers l'équipe ennemie. Identifier cet état est la première étape indispensable avant toute manipulation.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Observer la position et le nombre de sbires sur la voie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YLgMgbuZ0Zk",
+     "locator": "[00:45]",
+     "lang": "es",
+     "passage": "La oleada tiene estados que son: pushea hacia mí, está neutra, o pushea hacia el otro equipo. No hay más opciones.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "25-85s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Regarde ta voie et identifie si la vague pousse vers toi, est neutre ou pousse vers l'ennemi avant de faire une action.",
+   "observe": "L'état de la vague de sbires sur la minicarte ou à l'écran.",
+   "use": {
+    "when": "Tu es sur une voie et tu observes les vagues de sbires s'affronter.",
+    "why": "Pour savoir si tu peux agresser, défendre ou manipuler la vague.",
+    "who": "Tous les joueurs sur les voies (top, mid, bot).",
+    "how": [
+     "Observe le sens du mouvement des vagues de sbires.",
+     "Conclus si la vague pousse vers toi, est au milieu ou pousse chez l'adversaire."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement fidèle à la source, intemporelle et son contexte d'usage est complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-YLgMgbuZ0Zk-2",
+   "claim": "Selon Dishake : pour congeler (freezer) une vague de sbires, il faut maintenir un excédent de sbires ennemis : quatre sbires d'avance font geler près de la tour, tandis qu'un ou deux sbires d'avance maintiennent le gel plus haut sur la voie.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir un score de sbires ennemis légèrement supérieur pour stabiliser la vague"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YLgMgbuZ0Zk",
+     "locator": "[02:58]",
+     "lang": "es",
+     "passage": "O sea, si hay cuatro minions de ventaja, la oleada se puede congelar acá. Y muchas veces puede que te la tengas que tanquear un poquito para que no entre en la torre.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "158-218s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Laisse quatre sbires adverses de plus que les tiens pour geler la vague près de ta tour.",
+   "observe": "Le décompte des sbires ennemis par rapport aux tiens.",
+   "use": {
+    "when": "La vague adverse arrive avec un petit nombre de sbires excédentaires que tu souhaites stabiliser.",
+    "why": "Pour obtenir un positionnement sûr et denier du farm à l'adversaire.",
+    "who": "Tous les joueurs sur les voies en situation de contrôle.",
+    "how": [
+     "Laisse survivre un nombre précis de sbires ennemis (2 à 4).",
+     "Ne tape les sbires que pour conserver l'équilibre sans les tuer trop vite."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le principe du gel de vague et le nombre de sbires s'appuient directement sur la transcription et les passages cités."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-YLgMgbuZ0Zk-3",
+   "claim": "Selon Dishake : congeler la vague est particulièrement utile lorsque l'adversaire est absent de la ligne, car il perd or et expérience pendant que tu sécurises ta position.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "L'adversaire n'est pas en ligne (mort ou roaming)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YLgMgbuZ0Zk",
+     "locator": "[04:43]",
+     "lang": "es",
+     "passage": "¿Cuándo es muy beneficioso congelar? Cuando el rival no está en línea también. Ese es uno de los mejores usos del freezeo hoy en día.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "263-323s",
+      "said": true,
+      "supported": true,
+      "gap": "La contre-indication sur un score de 7/0 n'est pas mentionnée par l'auteur dans l'extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Maintiens la vague gelée de ton côté si ton vis-à-vis quitte la voie ou meurt.",
+   "observe": "L'absence de l'adversaire direct sur la voie.",
+   "use": {
+    "when": "Ton adversaire direct quitte la ligne ou vient d'être éliminé.",
+    "why": "Pour lui faire perdre un maximum de sbires et d'expérience pendant son absence.",
+    "who": "Tous les joueurs sur les voies.",
+    "how": [
+     "Ne pousse pas la vague vers la tour ennemie lorsque l'adversaire est absent.",
+     "Maintiens l'équilibre pour que les vagues se rencontrent près de ta zone de sécurité."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil sur l'utilisation du freeze lorsque l'adversaire est absent est correctement sourcé et intemporel."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-YLgMgbuZ0Zk-4",
+   "claim": "Selon Dishake : le slowpush permet d'accumuler une grande quantité de sbires pour s'assurer que la vague finisse par s'écraser sous la tour ennemie et t'offre un meilleur tempo.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tu veux faire s'écraser une grosse vague sans risquer de rester bloqué au milieu de la voie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YLgMgbuZ0Zk",
+     "locator": "[10:33]",
+     "lang": "es",
+     "passage": "Entonces cuando no sabés si vas a poder terminar de chocar la oleada, te conviene muchísimo slowpushear, pero muchísimo.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "613-673s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Tue uniquement les sbires nécessaires pour créer un tas de sbires qui progressera lentement.",
+   "observe": "La taille de ta vague de sbires par rapport à celle de l'adversaire.",
+   "use": {
+    "when": "Tu veux pousser mais tu penses ne pas avoir assez de puissance pour atteindre la tour directement.",
+    "why": "Pour garantir que la vague arrive sous la tour ennemie et te donne du temps pour un retour en base ou une rotation.",
+    "who": "Tous les joueurs sur les voies.",
+    "how": [
+     "Ne tape les sbires qu'au dernier moment (last-hit) au début de l'accumulation.",
+     "Laisse tes sbires s'empiler pour former une vague compacte."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'explication du slowpush correspond fidèlement au passage de la vidéo et fournit un contexte d'usage clair."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-2",
+   "claim": "Selon Chreak : pour poser tes balises de vision (trinket) au pixel près dans les buissons étroits (comme le pixel bush de la rivière) sans les rater ou les placer à côté, configure un Normal Cast sur ta trinket (par exemple Maj + 4) : l'indicateur devient vert lorsque ton curseur se trouve dans le buisson.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vision"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Vouloir placer une balise dans un buisson précis"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[02:11]",
+     "lang": "fr",
+     "passage": "Cependant, vous voyez là je pose une trinket, cependant je l'ai bind de sorte à ce que si je fais Maj + 4, je puisse avoir le non-smart cast.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "111-171s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[03:00]",
+     "lang": "fr",
+     "passage": "Ce qui est intéressant avec le Maj + 4 pour moi c'est que lorsque vous posez votre balise, vous avez vu votre indicateur est normal et si vous passez dans le bush vous allez avoir un indicateur qui devient vert."
+    }
+   ],
+   "mentions": [],
+   "action": "Lier le placement de la balise en Normal Cast sur une touche avec modificateur (ex: Maj + 4) et vérifier que l'indicateur devient vert dans le buisson.",
+   "observe": "L'indicateur de la balise qui change de couleur pour devenir vert dans les buissons.",
+   "use": {
+    "when": "tu souhaites poser une balise de vision dans un buisson stratégique de manière millimétrée",
+    "why": "pour éviter de rater le placement de la balise et garantir qu'elle offre la vision optimale",
+    "who": "tous les postes",
+    "how": [
+     "Assigner le non-smart cast de la trinket sur une touche secondaire (ex: Maj + 4)",
+     "Viser le buisson avec cette touche jusqu'à ce que l'indicateur devienne vert",
+     "Cliquer pour poser la balise au pixel près"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est précise, vérifiée par les passages et relève d'un réglage intemporel utile."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-3",
+   "claim": "Selon Chreak : pour éviter de cibler accidentellement des sbires lors d'un dive sous tourelle ou d'un combat au milieu d'une vague, active le paramètre 'Target Champions Only' en mode interrupteur (toggle) sur un bouton latéral de ta souris.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Combattre ou dive un champion adverse au milieu d'une vague de sbires"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[04:36]",
+     "lang": "fr",
+     "passage": "Moi Target Champion Only je l'ai bind sur ma touche de la souris, vous devez la voir c'est cette touche là là sur le côté.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "256-316s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[05:35]",
+     "lang": "fr",
+     "passage": "Faites en sorte que le Target Champion Only ce soit considéré comme une touche on/off tout simplement."
+    }
+   ],
+   "mentions": [
+    "Tristana (exemple)",
+    "Lucian (exemple)"
+   ],
+   "action": "Configurer 'Target Champions Only' en mode toggle sur un bouton facile d'accès de la souris et l'activer lors des dives.",
+   "observe": "Le curseur affichant un point rouge central lorsque l'option est activée.",
+   "use": {
+    "when": "tu t'apprêtes à attaquer ou lancer un sort sur un champion adverse qui se trouve au milieu de sbires ou sous la tourelle ennemie",
+    "why": "pour empêcher tes attaques ou compétences de cibler les sbires par erreur",
+    "who": "tous les rôles, particulièrement les ADC et les mages en situation de dive",
+    "how": [
+     "Assigner 'Target Champions Only' à un bouton de la souris",
+     "Cocher l'option 'Treat Target Champions Only as a toggle' dans l'onglet Game",
+     "Activer l'option (point rouge sur le curseur) lorsque tu veux cibler uniquement des champions"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil sur Target Champions Only est parfaitement sourcé et intemporel."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-4",
+   "claim": "Selon Chreak : pour surveiller l'état des vagues, la santé de tes coéquipiers et anticiper les ganks ou les interventions sans bouger ta caméra principale, utilise les touches F1 à F4 pour centrer instantanément ta vue sur tes alliés.",
+   "champions": [],
+   "roles": [
+    "jungle",
+    "mid",
+    "support",
+    "top"
+   ],
+   "themes": [
+    "macro",
+    "vision"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Être en partie et vouloir collecter des informations sur les autres lignes"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[10:41]",
+     "lang": "fr",
+     "passage": "Les F-keys ça vous permet de bloquer votre caméra sur votre teammate. Imaginons que ça c'est mon top, ça va faire que si j'appuie sur F1 ça va bouger ma caméra comme ça",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "621-681s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[12:05]",
+     "lang": "fr",
+     "passage": "Ce que vous allez faire c'est que vous allez débind le Self et juste déplacer F1, F2, F3, F4 sur ceux d'en dessous."
+    }
+   ],
+   "mentions": [],
+   "action": "Assigner F1, F2, F3 et F4 aux alliés 1 à 4 (en supprimant le centrage sur soi) et les faire défiler régulièrement en partie.",
+   "observe": "La caméra qui se déplace instantanément sur les différents coéquipiers lors de l'appui sur les touches F.",
+   "use": {
+    "when": "tu es en phase de lane ou en plein nettoyage de jungle et tu souhaites savoir ce qui se passe sur les autres voies",
+    "why": "pour obtenir des informations sur l'état des vagues et les risques de dive de tes coéquipiers afin de construire ton plan de jeu",
+    "who": "tous les rôles, en particulier junglers, midlaners et supports",
+    "how": [
+     "Retirer le raccourci 'Select Self' des touches F",
+     "Assigner F1, F2, F3, F4 aux alliés de haut en bas",
+     "Appuyer régulièrement sur ces touches pour observer les autres voies"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'utilisation des touches F pour la macro est un conseil classique et intemporel parfaitement étayé."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-6",
+   "claim": "Selon Chreak : pour améliorer la visibilité des sorts alliés et ennemis (comme rendre le A de Singed bleu au lieu de vert) et gagner en clarté visuelle, active le mode daltonien ('Colorblind mode') dans les options vidéo.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "patch"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jouer à League of Legends avec les graphismes par défaut"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[17:12]",
+     "lang": "fr",
+     "passage": "Avec le colorblind mode, il devient bleu son A. Et beaucoup de sorts sont affectés justement par le colorblind mode, ce qui fait qu'en l'activant vous ne faites que gagner de la visibilité sur les sorts adverses et les sorts alliés.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "1012-1072s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Singed (exemple)",
+    "Zed (exemple)"
+   ],
+   "action": "Activer l'option 'Color blind mode' dans les paramètres vidéo.",
+   "observe": "La modification de la couleur de certains sorts (comme le poison de Singed devenant bleu).",
+   "use": {
+    "when": "tu es en jeu et tu veux mieux distinguer les effets de sorts au sol lors des combats d'équipe",
+    "why": "pour rendre les couleurs de certains sorts plus visibles et distinctes par rapport au décor",
+    "who": "tous les joueurs",
+    "how": [
+     "Ouvrir les options du jeu",
+     "Aller dans l'onglet Vidéo",
+     "Cocher l'option 'Color blind mode'"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'activation du mode daltonien pour la visibilité des sorts est fidèle à la source."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-7",
+   "claim": "Selon Chreak : pour développer ta vision de jeu globale (map awareness) et repérer les ganks et les mouvements ennemis avant qu'ils ne se produisent, augmente temporairement l'échelle de la minimap à 100 pour t'entraîner.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vision",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Souhaiter améliorer sa conscience de la carte et ses réflexes de lecture de minimap"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[22:11]",
+     "lang": "fr",
+     "passage": "En jouant avec la minimap à 100 vous allez comprendre à quel point c'est, vous savez très bien à quel point c'est important la minimap, c'est sûrement la chose qui peut le plus vous augmenter votre niveau actuellement",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "1311-1371s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[23:33]",
+     "lang": "fr",
+     "passage": "Donc je vous conseille de jouer quelques games à 100 puis de baisser petit à petit jusqu'à que vous arriviez à toujours rester concentré sur votre minimap"
+    }
+   ],
+   "mentions": [],
+   "action": "Monter le curseur 'Minimap Scale' à 100 pour quelques parties d'entraînement puis l'ajuster.",
+   "observe": "Une mini-carte considérablement agrandie dans le coin inférieur droit de l'écran.",
+   "use": {
+    "when": "tu constates que tu rates souvent les mouvements ennemis sur la carte et que tu manques de map awareness",
+    "why": "pour forcer ton attention à regarder régulièrement les informations de la carte et anticiper les ganks",
+    "who": "tous les joueurs cherchant à monter en elo",
+    "how": [
+     "Ouvrir les options dans l'onglet Interface",
+     "Monter le curseur 'Minimap Scale' à 100",
+     "Jouer quelques parties pour s'habituer à surveiller la grande carte puis ajuster si nécessaire"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'agrandissement de la minimap pour l'apprentissage est un conseil intemporel valide."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-8",
+   "claim": "Selon Chreak : pour être immédiatement alerté lorsque tu subis des dégâts ou un effet de contrôle alors que ta caméra est déplacée sur une autre partie de la carte, active les options 'Screen Flash on damage' et 'Screen Flash on loss of control'.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Regarder une autre ligne avec les F-keys ou déplacer sa caméra hors de son champion"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[24:48]",
+     "lang": "fr",
+     "passage": "Combien de fois j'ai été sauvé par ces trois catégories qui m'ont fait un screen flash sur les bords de l'écran qui font justement que je sais que je prends des dégâts ?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "1468-1528s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[25:19]",
+     "lang": "fr",
+     "passage": "Donc je vous conseille de le garder malgré le fait que c'est de la pollution visuelle pour beaucoup."
+    }
+   ],
+   "mentions": [],
+   "action": "Activer 'Show Loss of Control UI', 'Screen Flash on loss of control' et 'Screen Flash on damage' dans les paramètres d'interface.",
+   "observe": "Des éclairs lumineux rouges apparaissant sur les bords de l'écran lorsque le champion prend des dégâts hors champ.",
+   "use": {
+    "when": "tu inspectes une autre lane avec les touches F ou ta caméra et ton champion se fait attaquer par surprise dans la forêt ou sur sa lane",
+    "why": "pour réagir à temps et pouvoir utiliser un sort de fuite ou un Saut Éclair (Flash) avant de mourir",
+    "who": "tous les joueurs",
+    "how": [
+     "Ouvrir les options dans l'onglet Interface",
+     "Activer les cases correspondantes aux alertes visuelles de dégâts et de perte de contrôle"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Les alertes visuelles de dégâts hors champ sont fidèlement retranscrites."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-9",
+   "claim": "Selon Chreak : pour savoir instantanément si tu disposes de assez de mana pour lancer une suite complète de sorts sans être à court (OOM), active l'affichage des coûts en mana des compétences ('Show Spell costs') dans l'interface.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Gérer ses ressources en mana pendant les phases de combat ou de poussée de vagues"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[25:49]",
+     "lang": "fr",
+     "passage": "Spell costs : je ne peux pas comprendre comment il y a des gens qui jouent à League of Legends sans les spell costs affichés ici.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "1529-1589s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[26:40]",
+     "lang": "fr",
+     "passage": "Ça vous permet de calculer si vous êtes, si vous avez un niveau CM2 en mathématiques, de faire une addition pour voir si vous avez assez de mana sur vos sorts pour pouvoir les utiliser, ultra important."
+    }
+   ],
+   "mentions": [
+    "Zoé (exemple)",
+    "Syndra (exemple)"
+   ],
+   "action": "Cocher la case 'Show Spell costs' sous l'affichage des compétences dans l'interface.",
+   "observe": "Le coût en mana numérique affiché directement sur l'icône de chaque sort dans la barre de compétences.",
+   "use": {
+    "when": "tu veux évaluer tes ressources en plein échange pour savoir si tu peux lancer tous tes sorts sans tomber à court de mana",
+    "why": "pour éviter de se retrouver bloqué au milieu d'un échange sans assez de mana pour lancer un sort décisif",
+    "who": "tous les joueurs utilisant des champions à mana",
+    "how": [
+     "Aller dans l'onglet Interface des options",
+     "Cocher la case 'Show Spell costs'"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'affichage des coûts en mana est un paramètre essentiel et intemporel parfaitement décrit."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-34kHa32NIKQ-2",
+   "claim": "Selon Skill Capped : le « rage splitting », consistant à pousser continuellement une lane latérale même en étant en retard ou en mourant souvent, prive l'adversaire de vagues pour progresser et constitue une excellente stratégie de remontée en solo queue.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "tu es en retard et tu as peu de valeur en or"
+   ],
+   "limits": [
+    "uniquement en solo queue"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-34kHa32NIKQ",
+     "locator": "08:14",
+     "lang": "en",
+     "passage": "Rage splitting makes it so you keep your farm up while denying the enemy team from getting stuff done on the map.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "474-534s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Dr. Mundo (exemple)",
+    "Aurora (exemple)"
+   ],
+   "action": "Pousse constamment ta wave en side lane même si tu meurs, pour forcer l'adversaire à venir la chercher et nier sa pression globale.",
+   "observe": "Regarde si l'équipe adverse perd du temps à venir t'arrêter en side lane.",
+   "use": {
+    "when": "tu as accumulé des morts et tu es en retard dans la partie",
+    "why": "ta mort ne rapporte plus beaucoup d'or et cela empêche l'ennemi de progresser sur la carte",
+    "who": "les joueurs en position de faiblesse en solo queue",
+    "how": [
+     "Va dans une lane latérale",
+     "Pousse les vagues de sbires agressivement jusqu'à la tourelle adverse"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Stratégie de split push en position de retard clairement expliquée et fidèle au passage."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-34kHa32NIKQ-3",
+   "claim": "Selon Skill Capped : prends deux secondes supplémentaires pour finir la vague de sbires avant de rejoindre un combat si c'est possible, afin d'éviter de concéder la priorité mid.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "il reste quelques sbires ennemis sur le point de mourir sur ta lane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-34kHa32NIKQ",
+     "locator": "14:14",
+     "lang": "en",
+     "passage": "As Kai'Sa, even if you see your Ornn engaging, you have to make the tough call. Take two extra seconds to finish that wave off. Yes, you're going to sometimes be late to the fight, but it's worth it to save yourself from all the advantages that mid push gives your opponents.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "834-894s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Kai'Sa (exemple)",
+    "Ornn (exemple)",
+    "Gwen (exemple)",
+    "Zyra (exemple)"
+   ],
+   "action": "Prends deux secondes supplémentaires pour nettoyer la dernière vague de sbires au mid avant de bouger.",
+   "observe": "Vérifie qu'aucun sbire ennemi ne survit pour donner la vision à l'adversaire.",
+   "use": {
+    "when": "ton équipe s'engage dans un combat au milieu de la carte et il reste quelques sbires ennemis à tuer sur ta lane",
+    "why": "pour empêcher l'adversaire de conserver la priorité, d'obtenir de la vision gratuite et de mettre une pression directe sur ta tourelle",
+    "who": "les joueurs évoluant sur la lane du milieu ou y défendant",
+    "how": [
+     "Achève les derniers sbires de la vague",
+     "Rejoins ensuite le combat ou le positionnement de ton équipe"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "L'énoncé initial disait de ne jamais quitter une vague, alors que l'auteur précise qu'il faut faire un arbitrage en prenant deux secondes pour finir la vague."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-34kHa32NIKQ-4",
+   "claim": "Selon Skill Capped : lorsque tu joues en retard, n'hésite pas à concéder les deux ou trois premiers dragons car leur bonus individuel est faible, et attends l'accumulation d'or passive (environ 10 000 pièces toutes les 5 minutes) pour réduire la valeur relative de l'avance en or de l'adversaire avant de combattre.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "ton équipe est en retard en or"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-34kHa32NIKQ",
+     "locator": "15:46",
+     "lang": "en",
+     "passage": "This means that if you're playing from behind, you shouldn't mind giving up two or even three dragons before you fight your opponents.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "926-986s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur parle d'une accumulation d'or globale pour l'équipe (10000 toutes les 5 minutes), ce qui n'est pas le calcul en pourcentage d'or relatif de l'analyse."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Cède les premiers dragons pour farmer et accumuler de l'or afin de combler l'écart en pourcentage.",
+   "observe": "Vérifie l'écart d'or global avant de t'engager sur l'objectif.",
+   "use": {
+    "when": "ton équipe accuse un retard en or et le dragon réapparaît sur la carte",
+    "why": "la valeur relative de l'avance en or de l'ennemi diminue à mesure que le temps passe et que les deux équipes gagnent de l'or de base",
+    "who": "les équipes en position défavorable",
+    "how": [
+     "Laisse l'adversaire prendre le premier ou le second dragon",
+     "Concentre-toi sur le farm des vagues et des camps pour réduire l'écart d'or en pourcentage"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil macro sur la gestion des dragons en retard cohérent avec la transcription."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-fNvRQRe4n00-2",
+   "claim": "Selon Sixen : plutôt que d'effectuer un full clear systématique de ta jungle en ignorant la carte, saute des camps (comme les loups) pour foncer sur une ligne où un gank est rendu possible par des adversaires avancés et sans mobilité.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro",
+    "lane"
+   ],
+   "synergy": {
+    "with": [
+     "Nautilus"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "equipe",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Les adversaires sont avancés sur une ligne longue",
+    "Ton coéquipier possède les contrôles nécessaires"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-fNvRQRe4n00",
+     "locator": "[01:44]",
+     "lang": "fr",
+     "passage": "Beaucoup de perso... enfin de joueurs Silver ou Gold, ils auraient continué leur full clear. Et pourquoi ils auraient fait ça, c'est parce que vous êtes bloqués sur votre vision de votre perso et vous regardez pas la mini-map.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "84-144s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-fNvRQRe4n00",
+     "locator": "[02:30]",
+     "lang": "fr",
+     "passage": "Donc là en gros, c'est important de regarder la map et de se dire : « Écoute, les loups j'en ai pas besoin, ce qu'on va faire, c'est courir bot et on va essayer de les sanctionner, tu vois. »"
+    }
+   ],
+   "mentions": [
+    "Udyr (exemple)",
+    "Nautilus (exemple)",
+    "Xayah (exemple)"
+   ],
+   "action": "Interromps ton cheminement de jungle standard pour punir des adversaires trop avancés sur une lane longue.",
+   "observe": "La position des sbires et des ennemis sur la mini-carte.",
+   "use": {
+    "when": "Pendant ton premier clear de jungle, lorsque tu constates qu'une ligne ennemie est trop avancée.",
+    "why": "Pour surprendre l'adversaire et créer un avantage en ressources (kills) supérieur à un simple full clear standard.",
+    "who": "Jungler",
+    "how": [
+     "Surveille la mini-carte pendant que tu nettoies tes premiers camps.",
+     "Saute un camp secondaire si une opportunité de gank apparaît sur une ligne longue.",
+     "Rejoins ta ligne pour exécuter le gank avec ton support."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil correspond fidèlement aux passages cités, donne un contexte clair et des actions concrètes."
+   },
+   "published": "2023-01-05",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-fNvRQRe4n00-4",
+   "claim": "Selon Sixen : voler les camps de la jungle adverse permet non seulement de priver l'ennemi de ressources (soustraction), mais aussi de faire réapparaître ces camps plus tard à un niveau supérieur qui donne davantage d'expérience.",
+   "champions": [
+    "Kindred"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Udyr"
+   },
+   "context": {
+    "queue": "equipe",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir la liberté ou la vision pour entrer dans la jungle ennemie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-fNvRQRe4n00",
+     "locator": "[04:31]",
+     "lang": "fr",
+     "passage": "C'est pour ça que c'est important d'aller voler souvent les les respawn des camps de l'adversaire, parce que ben les camps se sont mis à jour, ils ont un meilleur niveau, donc une meilleure un meilleur, comment dire, un meilleur revenu, tu vois.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "251-311s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-fNvRQRe4n00",
+     "locator": "[07:15]",
+     "lang": "fr",
+     "passage": "Si tu vas dans sa jungle et que tu lui voles 1 camp, c'est -1 pour Kindred, +1 pour toi, ce qui signifie que tu as gagné 2 ressources."
+    }
+   ],
+   "mentions": [],
+   "action": "Envahis la jungle ennemie pour nettoyer ses camps et augmenter la valeur future de leur réapparition.",
+   "observe": "La position du jungler adverse sur la carte (ex: visible sur l'autre côté de la map).",
+   "use": {
+    "when": "Quand tu sais que le jungler adverse est visible de l'autre côté de la carte et que ses camps sont accessibles.",
+    "why": "Pour accumuler un différentiel de ressources massif et forcer les camps à repoper au niveau moyen de la partie.",
+    "who": "Jungler",
+    "how": [
+     "Repère le jungler adverse sur une ligne opposée.",
+     "Entre dans sa jungle pour tuer ses camps.",
+     "Profitez de l'XP bonifiée lors du prochain respawn si tu les recontrôles."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité retranscrit fidèlement le principe d'envahissement et de gestion des camps mentionné dans l'extrait."
+   },
+   "published": "2023-01-05",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
   }
  ],
- "updatedAt": "2026-10-26T15:50:58.773Z"
+ "updatedAt": "2026-10-26T19:10:32.386Z"
 }

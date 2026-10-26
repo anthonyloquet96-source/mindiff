@@ -9491,7 +9491,7 @@
    "retrievedAt": "2026-10-21",
    "patch": "aucun",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "Vous voulez une séance de coaching avec Chreak en tête à tête ? C'est possible ! Deux options s'offrent à vous (70€/session de 1h15) : \nPasser par l'abonnement mensuel sur Patreon pour avoir 1 heure de coaching par mois sur ce lien : https://www.patreon.com/c/ChreakLoL\nContacter directement Chreak p",
    "backfill": true,
    "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -9518,6 +9518,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 190282
+   },
+   "analyzedAt": "2026-10-26",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 7,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Optimiser les paramètres, les raccourcis (Quick/Normal Cast, Target Champions Only, F-keys, Q-click) et l'interface (minimap, coûts en mana, alertes de dégâts) pour gagner en précision et en vision de jeu en SoloQ.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le guide détaille de manière méthodique et précise les paramètres indispensables de l'interface et des raccourcis, en expliquant le raisonnement précis derrière chaque choix technique pour la SoloQ."
    }
   },
   {
@@ -10084,7 +10094,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 32
   },
   {
    "id": "c-yt-hXYwDd0rMFY",
@@ -12682,7 +12693,7 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "L'ULTIME GUIDE POUR ÊTRE UN EXCELLENT JUNGLER - CHALLENGER POV\n\n🍹 Partenaire LEVLUP avec le code PROMO : TDS : http://www.levlup.de/?ref=1391\n🎁 GIVEAWAYS : https://www.instant-gaming.com/fr/giveaway/SIXEN\n👉 MON PROFIL INSTANT-GAMING : https://www.instant-gaming.com/?igr=sixentv\n🔴 STREAM → https:",
    "backfill": true,
    "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -12713,6 +12724,16 @@
     "videoKind": "analyse-de-partie",
     "gameplayShown": true,
     "tokens": 143618
+   },
+   "analyzedAt": "2026-10-26",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "En tant que jungler à haut niveau, tu dois lire la carte et les matchups pour choisir entre gank proactif et full clear, exploiter l'avance en prenant de la vision offensive, et voler les camps adverses pour créer un différentiel d'or et d'expérience.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur détaille minutieusement les choix macroéconomiques et les décisions de timing en jungle avec des exemples précis basés sur une partie de haut niveau."
    }
   },
   {
@@ -16994,9 +17015,9 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "views": 35135,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3-flash-preview le 2026-10-26 : transcription réutilisée depuis le cache de cet ordinateur.",
    "descriptionExcerpt": "➡️Coaching and everything you need to climb - https://wtl.lol/violet (USE CODE:VIOLET10)\n➡️Join the Community - https://discord.gg/zVvGUPxYGw\n\n\nIn this video im explaining the core fundamentals on adc in league of legends. I hope you can learn a lot of new things!\n\nCheers !\n\n00:0",
    "triage": {
     "score": 13,
@@ -17012,6 +17033,15 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "attempts": 0,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-10-26",
+    "duration": "07:56",
+    "reused": true
    }
   },
   {
@@ -18154,7 +18184,7 @@
    "patch": null,
    "views": 17140,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.6-flash le 2026-10-25 : transcription réutilisée depuis le cache de cet ordinateur.",
    "descriptionExcerpt": "► JUNGLE COURSE - https://sinerias.podia.com/the-complete-climbing-course\n► I ALSO ACCEPT CRYPTO PAYMENTS ► DM me on Discord\n► SOLO COACHING - DM me on Discord\n► Discord - https://discord.gg/we-are-sinerias-664154813453434901\n\n► Business inquiries - Sineriasbusiness@gmx.at\n\n► Str",
    "triage": {
@@ -18178,6 +18208,16 @@
     "at": "2026-10-25",
     "duration": "00:22",
     "reused": true
+   },
+   "analyzedAt": "2026-10-26",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "Le conseil donne une indication claire sur la prise de décision au Baron et le seuil de Châtiment, mais provient d'un extrait très court analysé par IA."
    }
   },
   {
@@ -40784,7 +40824,7 @@
    "retrievedAt": "2026-10-21",
    "patch": "14.18",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 8,
@@ -40813,6 +40853,21 @@
     "videoKind": "tier-list",
     "gameplayShown": false,
     "tokens": 88229
+   },
+   "analyzedAt": "2026-10-26",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 5,
+   "alertes": [
+    {
+     "code": "autre",
+     "detail": "Le patch cité (14.18) est très ancien par rapport au patch courant (26.21). Les recommandations de champions peuvent être obsolètes."
+    }
+   ],
+   "learn": "Ce contenu propose une sélection de champions de jungle adaptés à chaque rang, privilégiant la simplicité et le farm en bas Elo, et l'adaptabilité ou la précision mécanique à haut niveau.",
+   "quality": {
+    "level": "moyenne",
+    "why": "L'auteur fournit des explications logiques sur le choix des champions par rang, mais le contenu date du patch 14.18 et repose uniquement sur son opinion de coach sans données statistiques à l'appui."
    }
   },
   {
@@ -44771,13 +44826,13 @@
    "lang": "ko",
    "published": null,
    "retrievedAt": "2026-10-24",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "none",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 23,
-   "note": "File de lecture (rang 22) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [
@@ -44788,6 +44843,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-10-26",
+    "sha256": "d2a2878e1098c80573cc1c75859a98e7f7e130a23c84e7d207fa000ff453e457",
+    "segments": 73,
+    "observations": 40,
+    "duration": "27:23",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 178815
    }
   },
   {
@@ -45031,7 +45099,7 @@
    "retrievedAt": "2026-10-24",
    "patch": "none",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 9,
@@ -45057,6 +45125,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 99434
+   },
+   "analyzedAt": "2026-10-26",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Apprends à identifier les trois états de la vague (push vers soi, neutre, push vers l'adversaire) et à utiliser le freeze, le slowpush ou le hardpush selon ta situation pour maximiser ton or et ton expérience.",
+   "quality": {
+    "level": "élevée",
+    "why": "La vidéo explique de manière structurée et détaillée les notions fondamentales de gestion des vagues avec des exemples tactiques précis."
    }
   },
   {
@@ -45071,7 +45149,7 @@
    "retrievedAt": "2026-10-24",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 11,
@@ -45094,6 +45172,16 @@
     "at": "2026-10-25",
     "duration": "23:17",
     "reused": true
+   },
+   "analyzedAt": "2026-10-26",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "Le guide détaille des stratégies macroéconomiques pour éviter les erreurs courantes : ne pas forcer des actions risquées avec une avance, utiliser le rage splitting pour temporiser, sécuriser la priorité des vagues de sbires avant de bouger, et concéder les premiers dragons quand on est en retard.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu présente de manière structurée et détaillée des principes de macro-décision, appuyés par des exemples visuels précis sur la gestion des vagues, la valeur des objectifs et l'évitement des risques."
    }
   },
   {
@@ -45473,13 +45561,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-10-25",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "26.1",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 24,
-   "note": "File de lecture (rang 24) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 23 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -45488,6 +45576,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-26",
+    "sha256": "481f3c8748543d297838ecbcfc086aa7e1f47b86149ae25439651b9fda8fbd3b",
+    "segments": 146,
+    "observations": 23,
+    "duration": "16:08",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 97159
    }
   },
   {
@@ -45500,13 +45601,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-10-25",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "null",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 25,
-   "note": "File de lecture (rang 25) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 28 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 15,
     "matched": [
@@ -45515,6 +45616,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-26",
+    "sha256": "d7b8b7b1ae7e0fe7679b7389349571a705d895542dd69a205fe8a5a7a8a10ea2",
+    "segments": 376,
+    "observations": 28,
+    "duration": "33:39",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 204820
    }
   },
   {
@@ -47960,18 +48074,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "►𝐖𝐄𝐁𝐒𝐈𝐓𝐄: https://www.skill-capped.com/lol/pricing\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUALLY WORK by t",
    "triage": {
-    "score": 8,
+    "score": 4,
     "matched": [
      "Diana",
-     "top",
-     "guide",
-     "how to",
-     "tips",
-     "coaching"
+     "guide"
     ],
-    "entertainment": [
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -47993,9 +48101,8 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "►𝐖𝐄𝐁𝐒𝐈𝐓𝐄: https://www.skill-capped.com/lol#30seconds\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUALLY WORK by",
    "triage": {
-    "score": 5,
+    "score": 4,
     "matched": [
-     "top",
      "guide",
      "wave"
     ],
@@ -48051,14 +48158,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Singed is a absurd champ for run around and win teamfights\n\nSinged Mid: 0:00\nArena: 29:30\n\nDiscord: https://discord.gg/3An22PU\nStream: https://goo.gl/d1qAxQ\nTwitter: https://goo.gl/eekF1a\nPekinWoof2 Channel: https://www.youtube.com/channel/UCT0fBcIYwMsp6IRCm5E3eTA\nPekinWoof Highl",
    "triage": {
-    "score": -3,
+    "score": 0,
     "matched": [
      "Singed",
      "mid"
     ],
     "entertainment": [
-     "stream",
-     "highlights"
+     "stream"
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -48111,22 +48217,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://aloisnl.com/\nhttps://summonerschool.com/home - Use code Korea20\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter:",
    "triage": {
-    "score": -11,
+    "score": -1,
     "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
     "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
+     "stream"
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -48149,24 +48245,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n↓ More Info Below ↓ \n\nCOURSES & GUIDES:\n➡️https://summonerschool.com/ CODE KOREA20 FOR 20% DISCOUNT\n\n➡️VOD Channel: https://www.youtube.com/@AloisNLVODs\n➡️Twitch: https://www.twitch.tv/Alois_NL\n➡️Twitter: https://twitt",
    "triage": {
-    "score": -9,
+    "score": 4,
     "matched": [
      "Ezreal",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "guide"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -48348,24 +48432,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Make sure to hit the like button and subscribe to my channel!\n\n↓ More Info Below ↓ \nFor coaching ➡https://hybradge.com\n\n•Discord ➡ https://discord.gg/2aQnd6J6wE\n•2nd Channel➡https://www.youtube.com/@Hybradge2\n•Twitch ➡ https://www.twitch.tv/hybradge\n•Twitter ➡ https://x.com/hybra",
    "triage": {
-    "score": -9,
+    "score": 4,
     "matched": [
      "Sion",
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
+     "coaching"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -48387,15 +48459,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Leave a like if you enjoyed and subscribe for more :)\nLive every day on: https://www.twitch.tv/ramyaura\nFollow twitter!: https://x.com/RamyAura\nJoin the discord for teemo talk and coaching!: https://discord.gg/Y3DJ7NBdUE\nCheck out my Teemo guide on Alois' website SummonerSchool!:",
    "triage": {
-    "score": 3,
+    "score": 6,
     "matched": [
      "Teemo",
      "guide",
      "coaching"
     ],
-    "entertainment": [
-     "stream"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -48417,26 +48487,15 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Please like and subscribe and type MAKKOR 🗿in the comments algorithm gang.\n► Become a PatreOrnn and get the Bible - https://www.patreon.com/Makkro\n► Coaching: https://metafy.gg/@makkro\n► Makkor Twitch - https://www.twitch.tv/makkro0 📺\n► TikTok - https://www.tiktok.com/@makkro0\n",
    "triage": {
-    "score": -5,
+    "score": 10,
     "matched": [
      "Kled",
      "Ornn",
      "Twitch",
-     "guide",
      "coaching",
-     "macro",
-     "climb",
      "comment"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -48458,25 +48517,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Please like and subscribe and type MAKKOR 🗿in the comments algorithm gang.\n► Become a PatreOrnn and get the Bible - https://www.patreon.com/Makkro\n► Coaching: https://metafy.gg/@makkro\n► Makkor Twitch - https://www.twitch.tv/makkro0 📺\n► TikTok - https://www.tiktok.com/@makkro0\n",
    "triage": {
-    "score": -7,
+    "score": 6,
     "matched": [
-     "Ornn",
      "Twitch",
-     "guide",
      "coaching",
-     "macro",
-     "climb",
      "comment"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -48498,25 +48545,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Please like and subscribe and type MAKKOR 🗿in the comments algorithm gang.\n► Become a PatreOrnn and get the Bible - https://www.patreon.com/Makkro\n► Coaching: https://metafy.gg/@makkro\n► Makkor Twitch - https://www.twitch.tv/makkro0 📺\n► TikTok - https://www.tiktok.com/@makkro0\n",
    "triage": {
-    "score": -7,
+    "score": 6,
     "matched": [
-     "Ornn",
      "Twitch",
-     "guide",
      "coaching",
-     "macro",
-     "climb",
      "comment"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -48538,25 +48573,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Please like and subscribe and type MAKKOR 🗿in the comments algorithm gang.\n► Become a PatreOrnn and get the Bible -   / makkro  \n► Makkor Twitch -   / makkro0   📺\n► TikTok -   / makkro0  \n► Twitter -   / makkrolol  \n► Instagram -   / makkro0  \n► Discord -   / discord  \n► Spotif",
    "triage": {
-    "score": -7,
+    "score": 6,
     "matched": [
      "Ornn",
      "Twitch",
-     "guide",
-     "coaching",
-     "macro",
-     "climb",
      "comment"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -48578,25 +48601,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Please like and subscribe and type MAKKOR 🗿in the comments algorithm gang.\n► Become a PatreOrnn and get the Bible - https://www.patreon.com/Makkro\n► Coaching: https://metafy.gg/@makkro\n► Makkor Twitch - https://www.twitch.tv/makkro0 📺\n► TikTok - https://www.tiktok.com/@makkro0\n",
    "triage": {
-    "score": -7,
+    "score": 6,
     "matched": [
-     "Ornn",
      "Twitch",
-     "guide",
      "coaching",
-     "macro",
-     "climb",
      "comment"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -48618,26 +48629,15 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Please like and subscribe and type MAKKOR 🗿in the comments algorithm gang.\n► Become a PatreOrnn and get the Bible - https://www.patreon.com/Makkro\n► Coaching: https://metafy.gg/@makkro\n► Makkor Twitch - https://www.twitch.tv/makkro0 📺\n► TikTok - https://www.tiktok.com/@makkro0\n",
    "triage": {
-    "score": -6,
+    "score": 9,
     "matched": [
      "Ornn",
      "Twitch",
      "jungle",
-     "guide",
      "coaching",
-     "macro",
-     "climb",
      "comment"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -48659,25 +48659,13 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Please like and subscribe and type MAKKOR 🗿in the comments algorithm gang.\n► Become a PatreOrnn and get the Bible - https://www.patreon.com/Makkro\n► Coaching: https://metafy.gg/@makkro\n► Makkor Twitch - https://www.twitch.tv/makkro0 📺\n► TikTok - https://www.tiktok.com/@makkro0\n",
    "triage": {
-    "score": -7,
+    "score": 6,
     "matched": [
-     "Ornn",
      "Twitch",
-     "guide",
      "coaching",
-     "macro",
-     "climb",
      "comment"
     ],
-    "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -48699,19 +48687,15 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Coaching & Information - https://rebrrt.com\nAurora Cheat Sheet & more - https://www.patreon.com/rebirthlol\nTwitch - https://twitch.tv/rebrrt\nDiscord Server -  https://discord.gg/jGxhM25Xa5\nTikTok - https://www.tiktok.com/@rebirthcoaching\nTwitter/X - https://x.com/Rebrrthlol\n\nLive",
    "triage": {
-    "score": 3,
+    "score": 5,
     "matched": [
      "Aurora",
-     "Vi",
      "guide",
      "coaching",
-     "matchup",
-     "runes"
+     "matchup"
     ],
     "entertainment": [
-     "stream",
-     "🔴",
-     "drama"
+     "🔴"
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -48838,12 +48822,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Si dejais un LIKE, COMENTARIO Y SUB os lo agradezco infinito :D\n\nChallenger OTP Gwen\nStream: https://www.twitch.tv/sol1xd\nCoaching: https://www.patreon.com/sol1xd\nX: https://x.com/S1XD6XX\nInstagram: https://www.instagram.com/sol1xd\nTikTok: https://www.tiktok.com/@sol1xd/\n\nEditor:",
    "triage": {
-    "score": 4,
+    "score": 1,
     "matched": [
      "Gwen",
-     "top",
-     "coaching",
-     "build"
+     "coaching"
     ],
     "entertainment": [
      "stream"
@@ -48869,12 +48851,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Si dejais un LIKE, COMENTARIO Y SUB os lo agradezco infinito :D\n\nChallenger OTP Gwen\nStream: https://www.twitch.tv/sol1xd\nCoaching: https://www.patreon.com/sol1xd\nX: https://x.com/S1XD6XX\nInstagram: https://www.instagram.com/sol1xd\nTikTok: https://www.tiktok.com/@sol1xd/\n\nEditor:",
    "triage": {
-    "score": 4,
+    "score": 1,
     "matched": [
      "Gwen",
-     "top",
-     "coaching",
-     "build"
+     "coaching"
     ],
     "entertainment": [
      "stream"
@@ -49071,11 +49051,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Perfecting the Evolved HPC Build...\n\n🟣TWITCH: https://www.twitch.tv/husumlol\n🔵DISCORD: https://discord.gg/7FEYrJ8z9C\n🔴SWAIN MID MATCHUPS: https://youtu.be/Lt61NAPBUVY\n🟡SWAIN BOT GUIDE: https://youtu.be/JxLVC04CVDc\n🟢SWAIN TOP GUIDE: https://youtu.be/wtIeBFugz6A\n\nBecome a Memb",
    "triage": {
-    "score": 6,
+    "score": 5,
     "matched": [
      "top",
      "mid",
-     "support",
      "guide",
      "matchup",
      "build"
@@ -49428,13 +49407,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Thank you for watching subscribe & comment !\n\n▸Archive https://www.twitch.tv/videos/2910579710\n※発言は全てジョークでコメディでエンターテイメントです. ty\n\n▸NextGame \n※著作権の関係で一部ミュートにしている場合があります.\n\n----------------------------------------\n👌JapaneseKoreanUG\nX - https://twitter.com/JPKR_UG\nTwitch - https://www",
    "triage": {
-    "score": -1,
+    "score": 2,
     "matched": [
      "comment"
     ],
-    "entertainment": [
-     "clips"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -49456,13 +49433,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Thank you for watching subscribe & comment !\n\n▸Archive https://www.twitch.tv/videos/2910579710\n※発言は全てジョークでコメディでエンターテイメントです. ty\n\n▸NextGame https://youtu.be/7f6_574digo\n※著作権の関係で一部ミュートにしている場合があります.\n\n----------------------------------------\n👌JapaneseKoreanUG\nX - https://twitter.com/",
    "triage": {
-    "score": -1,
+    "score": 2,
     "matched": [
      "comment"
     ],
-    "entertainment": [
-     "clips"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -49484,13 +49459,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Thank you for watching subscribe & comment !\n\n▸Archive https://www.twitch.tv/videos/2910579710\n※発言は全てジョークでコメディでエンターテイメントです. ty\n\n▸NextGame https://youtu.be/7PWH0dN0LIU\n※著作権の関係で一部ミュートにしている場合があります.\n\n----------------------------------------\n👌JapaneseKoreanUG\nX - https://twitter.com/",
    "triage": {
-    "score": -1,
+    "score": 2,
     "matched": [
      "comment"
     ],
-    "entertainment": [
-     "clips"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -49512,13 +49485,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Thank you for watching subscribe & comment !\n\n▸Archive https://www.twitch.tv/videos/2910579710\n※発言は全てジョークでコメディでエンターテイメントです. ty\n\n▸NextGame \n※著作権の関係で一部ミュートにしている場合があります.\n\n----------------------------------------\n👌JapaneseKoreanUG\nX - https://twitter.com/JPKR_UG\nTwitch - https://www",
    "triage": {
-    "score": -1,
+    "score": 2,
     "matched": [
      "comment"
     ],
-    "entertainment": [
-     "clips"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -49540,13 +49511,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Thank you for watching subscribe & comment !\n\n▸Archive https://www.twitch.tv/videos/2910579710\n※発言は全てジョークでコメディでエンターテイメントです. ty\n\n▸NextGame https://youtu.be/EL6syy95Oio\n※著作権の関係で一部ミュートにしている場合があります.\n\n----------------------------------------\n👌JapaneseKoreanUG\nX - https://twitter.com/",
    "triage": {
-    "score": -1,
+    "score": 2,
     "matched": [
      "comment"
     ],
-    "entertainment": [
-     "clips"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -49568,13 +49537,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Thank you for watching subscribe & comment !\n\n▸Archive https://www.twitch.tv/videos/2910579710\n※発言は全てジョークでコメディでエンターテイメントです. ty\n\n▸NextGame \n※著作権の関係で一部ミュートにしている場合があります.\n\n----------------------------------------\n👌JapaneseKoreanUG\nX - https://twitter.com/JPKR_UG\nTwitch - https://www",
    "triage": {
-    "score": -1,
+    "score": 2,
     "matched": [
      "comment"
     ],
-    "entertainment": [
-     "clips"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -49596,13 +49563,11 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Thank you for watching subscribe & comment !\n\n▸Archive https://www.twitch.tv/videos/2910579710\n※発言は全てジョークでコメディでエンターテイメントです. ty\n\n▸NextGame \n※著作権の関係で一部ミュートにしている場合があります.\n\n----------------------------------------\n👌JapaneseKoreanUG\nX - https://twitter.com/JPKR_UG\nTwitch - https://www",
    "triage": {
-    "score": -1,
+    "score": 2,
     "matched": [
      "comment"
     ],
-    "entertainment": [
-     "clips"
-    ],
+    "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
@@ -49696,22 +49661,10 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Podoba Ci się kontent? Zostaw suba i komentarz co poprawić\n\nStream codziennie 9:30\n♦TWITCH ►https://www.twitch.tv/zwyro\n♦ INSTAGRAM ►https://www.instagram.com/zwyroo.lol/\n♦ TIKTOK►https://www.tiktok.com/@zwyroo\n♦ TWITTER ►https://x.com/Zwyrooo\n\n\n\n\n\n\n\n\n#educational #challenger  #m",
    "triage": {
-    "score": -11,
-    "matched": [
-     "guide",
-     "fundamentals",
-     "coaching",
-     "macro",
-     "comment"
-    ],
+    "score": -3,
+    "matched": [],
     "entertainment": [
-     "reaction",
-     "clips",
-     "funny",
-     "stream",
-     "highlights",
-     "#twitch",
-     "#shorts"
+     "stream"
     ],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -49760,13 +49713,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "dostlar ben krugz 5 yıldır euwestte challengerım jungle ve support rollerinde en üst seviyede oynuyorum öğretici videolar için takip etmeyi unutmayın. \ndiscord : https://discord.gg/EGrAFp7agD\n\n\n\n\n\n\n\n#leagueoflegends #lol #riotgames #riot #challenger #challenger #tierlist   #jungl",
    "triage": {
-    "score": 8,
+    "score": 6,
     "matched": [
      "Karthus",
      "Vi",
      "jungle",
-     "support",
-     "coaching"
+     "support"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -49818,6 +49770,63 @@
    "triage": {
     "score": 16,
     "matched": [
+     "fundamentals"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-SNVJaaBuDAg",
+   "sourceId": "yt-coach-violet",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=SNVJaaBuDAg",
+   "title": "Ex Pro of 5 years Explains Key ADC Fundamentals | 2026 Guide",
+   "author": "Coach Violet",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-26",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 33,
+   "note": "File de lecture (rang 33) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "adc",
+     "guide",
+     "fundamentals"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-YwibbNDg7kM",
+   "sourceId": "yt-shok",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=YwibbNDg7kM",
+   "title": "HOW TO SIDELANE - LEAGUE FUNDAMENTALS",
+   "author": "Shok",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-26",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 34,
+   "note": "File de lecture (rang 34) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "how to",
      "fundamentals"
     ],
     "entertainment": [],

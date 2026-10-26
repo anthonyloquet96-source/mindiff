@@ -6,12 +6,17 @@ import { coachApi } from "../coach/coach-api.mjs";
 import benchmarks from "./benchmarks.json";
 import champstats from "./champstats.json";
 import builds from "./builds.json";
+import { createV1Worker } from "./v1.mjs";
+
+// Coach V1 (/api/v1) : jeton Supabase, stockage Supabase, quotas ; voir worker/v1.mjs
+const v1 = createV1Worker();
 
 const ORIGINS = ["https://anthonyloquet96-source.github.io", "http://localhost:3000"];
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    if (url.pathname.startsWith("/api/v1/")) return v1(request, env, ctx);
     const origin = request.headers.get("Origin") || "";
     const cors = { "Access-Control-Allow-Origin": ORIGINS.includes(origin) ? origin : ORIGINS[0], "Access-Control-Allow-Methods": "GET", Vary: "Origin" };
     if (request.method === "OPTIONS") return new Response(null, { headers: cors });

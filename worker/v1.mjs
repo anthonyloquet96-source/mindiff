@@ -1,0 +1,78 @@
+// Routes /api/v1 du coach dans le Worker Cloudflare (COACH-004) : mêmes routes métier que le serveur local
+// (coach/v1/api.mjs), stockage Supabase, et ce que le serveur local n'a pas besoin de faire :
+//   - jeton Supabase vérifié auprès de Supabase (/auth/v1/user) pour toute route sauf /health ;
+//   - autorisation par ressource : un utilisateur n'agit que sur ses propres joueurs, synchronisations et questions ;
+//   - quotas par utilisateur et par jour (synchronisations, questions au tuteur) et par adresse IP ;
+//   - CORS limité au site ; journaux sans secret ni jeton.
+// Secrets du Worker : RIOT_API_KEY, SUPABASE_URL, SUPABASE_SERVICE_KEY, SUPABASE_ANON_KEY, GEMINI_API_KEY (facultatif).
+// Limite connue : quotas et limite de débit Riot tenus en mémoire par instance du Worker ; un Durable Object les rendra
+// globaux avant l'ouverture publique.
+// Liaison compte MINDIFF ↔ compte Riot : la première personne qui résout un Riot ID le lie à son compte. En production,
+// cette liaison doit passer par Riot Sign-On (RSO) : sans lui, rien ne prouve que la personne possède ce compte Riot.
+
+import { handleV1, syncWorker } from "../coach/v1/api.mjs";
+import { createRiotV1 } from "../coach/v1/riot.mjs";
+import { createSupabaseRest, createSupabaseStore } from "../coach/v1/store-supabase.mjs";
+
+export const ORIGINS = ["https://anthonyloquet96-source.github.io", "http://localhost:3000"];
+export const QUOTAS = { sync: 20, chat: 20, resolve: 30, ipPer5min: 120 };
+const json = (status, body, cors) => new Response(body == null ? null : JSON.stringify(body), { status, headers: { ...cors, "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" } });
+const err = (status, code, message, cors) => json(status, { error: { code, message } }, cors);
+
+export function createV1Worker({ fetchImpl = fetch, now = () => Date.now(), sb = null, log = console.log } = {}) {
+  const counters = new Map();
+  const hit = (key, limit, windowMs) => {
+    const t = now(), list = (counters.get(key) || []).filter(x => t - x < windowMs);
+    if (list.length >= limit) { counters.set(key, list); return false; }
+    list.push(t); counters.set(key, list);
+    if (counters.size > 20000) counters.clear();
+    return true;
+  };
+  let refsCache = null;
+  return async function handle(request, env, ctx) {
+    const url = new URL(request.url);
+    const origin = request.headers.get("Origin") || "";
+    const cors = { "Access-Control-Allow-Origin": ORIGINS.includes(origin) ? origin : ORIGINS[0], "Access-Control-Allow-Methods": "GET, POST, DELETE", "Access-Control-Allow-Headers": "Authorization, Content-Type", Vary: "Origin" };
+    if (request.method === "OPTIONS") return new Response(null, { headers: cors });
+    if (url.pathname === "/api/v1/health") return json(200, { ok: true, riot: !!env.RIOT_API_KEY, supabase: !!env.SUPABASE_URL }, cors);
+    const ip = request.headers.get("CF-Connecting-IP") || "?";
+    if (!hit(`ip:${ip}`, QUOTAS.ipPer5min, 300000)) return err(429, "trop-de-demandes", "Trop de demandes : réessaie dans quelques minutes.", cors);
+    // Jeton Supabase : vérifié par Supabase lui-même
+    const token = (request.headers.get("Authorization") || "").replace(/^Bearer\s+/i, "");
+    if (!token || !env.SUPABASE_URL) return err(401, "non-connecte", "Connexion requise.", cors);
+    const who = await fetchImpl(`${env.SUPABASE_URL}/auth/v1/user`, { headers: { apikey: env.SUPABASE_ANON_KEY, Authorization: `Bearer ${token}` } }).then(r => (r.ok ? r.json() : null)).catch(() => null);
+    const uid = who?.id;
+    if (!uid) return err(401, "jeton-invalide", "Session expirée : reconnecte-toi.", cors);
+    const rest = sb || createSupabaseRest({ url: env.SUPABASE_URL, serviceKey: env.SUPABASE_SERVICE_KEY, fetchImpl });
+    const store = createSupabaseStore(rest);
+    let body = null;
+    if (request.method === "POST") { try { body = await request.json(); } catch { body = null; } }
+    // Autorisation par ressource
+    const pm = url.pathname.match(/^\/api\/v1\/players\/([0-9a-f-]{36})(\/|$)/);
+    const jm = url.pathname.match(/^\/api\/v1\/jobs\/([0-9a-f-]{36})$/);
+    const owned = async playerId => { const p = await store.getPlayer(playerId); return p && p.user_id === uid ? p : null; };
+    if (pm && !(await owned(pm[1]))) return err(404, "joueur-inconnu", "Joueur inconnu.", cors);
+    if (jm) { const j = await store.getJob(jm[1]); if (!j || !(await owned(j.player_id))) return err(404, "introuvable", "Synchronisation inconnue.", cors); }
+    if (url.pathname === "/api/v1/coach/chat") {
+      if (!body?.player_id || !(await owned(String(body.player_id)))) return err(404, "joueur-inconnu", "Joueur inconnu.", cors);
+      if (!hit(`chat:${uid}`, QUOTAS.chat, 864e5)) return err(429, "quota-tuteur", `Limite de ${QUOTAS.chat} questions par jour atteinte.`, cors);
+    }
+    if (pm && url.pathname.endsWith("/sync") && !hit(`sync:${uid}`, QUOTAS.sync, 864e5)) return err(429, "quota-sync", `Limite de ${QUOTAS.sync} mises à jour par jour atteinte.`, cors);
+    // Résolution : liaison au compte de l'utilisateur, refusée si le Riot ID est déjà lié à quelqu'un d'autre
+    const resolving = url.pathname === "/api/v1/players/resolve";
+    if (resolving && !hit(`resolve:${uid}`, QUOTAS.resolve, 864e5)) return err(429, "quota-resolve", "Trop de recherches de comptes aujourd'hui.", cors);
+    const linkStore = resolving ? { ...store, async upsertPlayer(p) {
+      const existing = await store.findPlayerByPuuid(p.puuid);
+      if (existing?.user_id && existing.user_id !== uid) throw Object.assign(new Error("Ce compte Riot est déjà lié à un autre compte MINDIFF."), { code: "compte-deja-lie", status: 403 });
+      return store.upsertPlayer({ ...p, user_id: uid });
+    } } : store;
+    if (!refsCache) refsCache = await rest.rest("GET", "metric_references?select=*").then(rows => rows.reduce((m, r) => (((m[r.role] ||= {})[r.metric] = { n: r.n, p25: Number(r.p25), p50: Number(r.p50), p75: Number(r.p75), level: r.level }), m), {})).catch(() => null);
+    const riot = env.RIOT_API_KEY ? createRiotV1(env.RIOT_API_KEY, { fetchImpl }) : null;
+    const v1ctx = { store: linkStore, riot, references: refsCache };
+    // Synchronisation après la réponse (202), sans bloquer le joueur
+    v1ctx.queue = { push: job => ctx.waitUntil(syncWorker(v1ctx)(job)) };
+    const r = await handleV1({ method: request.method, path: url.pathname, query: Object.fromEntries(url.searchParams), body }, v1ctx);
+    log(JSON.stringify({ route: url.pathname.replace(/[0-9a-f-]{36}/g, ":id"), status: r.status })); // ni jeton ni identifiant
+    return json(r.status, r.body, cors);
+  };
+}

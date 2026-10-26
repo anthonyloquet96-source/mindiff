@@ -40,6 +40,8 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 
 - 01:20 — Stockage Supabase (coach/v1/store-supabase.mjs, API REST + Storage) au même contrat que le stockage local ; migration ajustée (identifiant d'objectif en texte, colonnes extra, start_ms). Testé sur le vrai schéma dans Postgres embarqué : parcours complet, second objectif ouvert refusé par l'index, recalcul depuis les JSON bruts, suppression en cascade.
 
+- 01:35 — Worker /api/v1 (worker/v1.mjs, branché dans worker/index.mjs) : jeton vérifié auprès de Supabase, autorisation par joueur, compte Riot lié à un seul compte MINDIFF, quotas (synchronisations, tuteur, IP), synchronisation après la réponse (waitUntil), CORS limité, journaux sans secret. Testé de bout en bout sur le vrai schéma. Mise en route décrite dans worker/README.md (étapes pour Anthony).
+
 ## Pistes suivantes (à trier)
-- Worker Cloudflare + stockage Supabase : écrire et tester avec des réponses simulées (sans compte), brancher quand Anthony aura créé les comptes.
-- Worker Cloudflare avec stockage Supabase (bloqué : comptes à créer par Anthony).
+- Déployer le Worker V1 (bloqué : projet Supabase et secrets à créer par Anthony, voir worker/README.md).
+- Avant ouverture publique : RSO, quotas globaux (Durable Object), références recalculées avec la clé de production.

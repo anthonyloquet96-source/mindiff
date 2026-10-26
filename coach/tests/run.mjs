@@ -1012,6 +1012,71 @@ await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur 
   return "parcours complet sur le vrai schéma : 12 parties une seule fois, JSON bruts compressés, objectif proposé, démarré, réussi et archivé ; second objectif ouvert refusé par la base ; recalcul sans Riot ; suppression en cascade.";
 });
 
+await t("COACH-004 Worker : jeton vérifié, joueurs d'un autre compte invisibles, liaison unique, quotas, CORS", "fixture", async () => {
+  const { PGlite } = await import("@electric-sql/pglite");
+  const { readFile } = await import("node:fs/promises");
+  const { createV1Worker, QUOTAS } = await import("../../worker/v1.mjs");
+  const db = new PGlite();
+  await db.exec(`create schema auth; create table auth.users (id uuid primary key); create function auth.uid() returns uuid language sql stable as $$ select null::uuid $$; create role anon nologin; create role authenticated nologin;`);
+  await db.exec(await readFile(new URL("../../supabase/migrations/20261026000000_coach_v1.sql", import.meta.url), "utf8"));
+  const A = "00000000-0000-0000-0000-00000000000a", B = "00000000-0000-0000-0000-00000000000b";
+  await db.exec(`insert into auth.users values ('${A}'), ('${B}');`);
+  const rest = async (method, path, { body, prefer } = {}) => {
+    const [table, qs = ""] = path.split("?"), params = [...new URLSearchParams(qs)], vals = [];
+    const ph = v => { vals.push(v !== null && typeof v === "object" ? JSON.stringify(v) : v); return `$${vals.length}`; };
+    const where = params.filter(([k]) => !["select", "order", "on_conflict"].includes(k)).map(([k, v]) => v.startsWith("eq.") ? `"${k}" = ${ph(v.slice(3))}` : `"${k}" in (${v.slice(4, -1).split(",").map(ph).join(",")})`).join(" and ") || "true";
+    try {
+      if (method === "GET") return (await db.query(`select * from public.${table} where ${where}`, vals)).rows;
+      if (method === "DELETE") { await db.query(`delete from public.${table} where ${where}`, vals); return null; }
+      if (method === "PATCH") { const sets = Object.entries(body).map(([k, v]) => `"${k}" = ${ph(v)}`).join(", "); return (await db.query(`update public.${table} set ${sets} where ${where} returning *`, vals)).rows; }
+      const rows = Array.isArray(body) ? body : [body], cols = Object.keys(rows[0]), conflict = params.find(([k]) => k === "on_conflict")?.[1];
+      return (await db.query(`insert into public.${table} (${cols.map(c => `"${c}"`).join(",")}) values ${rows.map(r => `(${cols.map(c => ph(r[c])).join(",")})`).join(",")}${conflict && prefer?.includes("merge-duplicates") ? ` on conflict (${conflict}) do update set ${cols.map(c => `"${c}" = excluded."${c}"`).join(", ")}` : ""} returning *`, vals)).rows;
+    } catch (e) { throw Object.assign(new Error(e.message), { code: e.code === "23505" ? "conflit" : "supabase-erreur", status: e.code === "23505" ? 409 : 502 }); }
+  };
+  // Faux Supabase Auth et faux Riot derrière le même fetch ; la clé Riot ne doit jamais apparaître dans une réponse
+  const tokens = { "jeton-a": A, "jeton-b": B };
+  const fetchImpl = async (url, o = {}) => {
+    const ok = body => ({ ok: true, status: 200, json: async () => body, text: async () => JSON.stringify(body), headers: { get: () => null } });
+    if (url.includes("/auth/v1/user")) { const id = tokens[(o.headers?.Authorization || "").replace("Bearer ", "")]; return id ? ok({ id }) : { ok: false, status: 401, json: async () => ({}) }; }
+    if (url.includes("/riot/account/v1/")) return ok({ puuid: "puuid-a", gameName: "Testeur", tagLine: "EUW" });
+    return ok([]);
+  };
+  const worker = createV1Worker({ fetchImpl, sb: { rest }, log: () => {} });
+  const env = { RIOT_API_KEY: "CLE-SECRETE", SUPABASE_URL: "https://x.supabase.co", SUPABASE_ANON_KEY: "anon", SUPABASE_SERVICE_KEY: "service" };
+  const waits = [];
+  const ctx = { waitUntil: p => waits.push(p) };
+  const call = async (path, { token, method = "GET", body, origin = "https://anthonyloquet96-source.github.io" } = {}) => {
+    const r = await worker(new Request(`https://w.dev${path}`, { method, headers: { Origin: origin, ...(token ? { Authorization: `Bearer ${token}` } : {}), "Content-Type": "application/json", "CF-Connecting-IP": "1.2.3.4" }, body: body ? JSON.stringify(body) : undefined }), env, ctx);
+    const text = await r.text();
+    assert(!text.includes("CLE-SECRETE") && !text.includes("service"), "secret dans une réponse");
+    return { status: r.status, body: text ? JSON.parse(text) : null, headers: r.headers };
+  };
+  assert((await call("/api/v1/health")).status === 200, "santé");
+  assert((await call("/api/v1/players/resolve?riot_id=Testeur%23EUW")).status === 401, "route sans jeton acceptée");
+  assert((await call("/api/v1/players/resolve?riot_id=Testeur%23EUW", { token: "faux" })).status === 401, "faux jeton accepté");
+  const r = await call("/api/v1/players/resolve?riot_id=Testeur%23EUW", { token: "jeton-a" });
+  assert(r.status === 200 && r.body.player_id, "résolution par A");
+  const pid = r.body.player_id;
+  // B ne peut ni lier le même compte Riot, ni lire, ni synchroniser, ni supprimer le joueur de A, ni interroger le tuteur sur lui
+  assert((await call("/api/v1/players/resolve?riot_id=Testeur%23EUW", { token: "jeton-b" })).body.error.code === "compte-deja-lie", "compte Riot lié deux fois");
+  for (const [path, method] of [[`/api/v1/players/${pid}/matches`, "GET"], [`/api/v1/players/${pid}/sync`, "POST"], [`/api/v1/players/${pid}`, "DELETE"]]) assert((await call(path, { token: "jeton-b", method })).status === 404, `${method} ${path} permis à un autre compte`);
+  assert((await call("/api/v1/coach/chat", { token: "jeton-b", method: "POST", body: { player_id: pid, question: "?" } })).status === 404, "tuteur sur le joueur d'un autre");
+  // A synchronise : 202 et traitement après la réponse (waitUntil)
+  const s = await call(`/api/v1/players/${pid}/sync`, { token: "jeton-a", method: "POST" });
+  assert(s.status === 202 && waits.length === 1, "synchronisation non différée");
+  await Promise.all(waits);
+  assert((await call(`/api/v1/jobs/${s.body.job_id}`, { token: "jeton-a" })).body.status === "done", "synchronisation non terminée");
+  assert((await call(`/api/v1/jobs/${s.body.job_id}`, { token: "jeton-b" })).status === 404, "synchronisation d'un autre visible");
+  // Quota quotidien de synchronisations ; CORS limité au site
+  let last;
+  for (let i = 0; i < QUOTAS.sync; i++) last = await call(`/api/v1/players/${pid}/sync`, { token: "jeton-a", method: "POST" });
+  assert(last.status === 429 && last.body.error.code === "quota-sync", "quota de synchronisations absent");
+  assert((await call("/api/v1/health", { origin: "https://pirate.example" })).headers.get("Access-Control-Allow-Origin") === "https://anthonyloquet96-source.github.io", "CORS ouvert à tous");
+  await Promise.all(waits);
+  await db.close();
+  return "jeton vérifié par Supabase ; un autre compte ne voit, ne synchronise ni ne supprime le joueur ; compte Riot lié une seule fois ; synchronisation après la réponse ; quota quotidien ; CORS limité ; aucun secret dans les réponses.";
+});
+
 await t("COACH-002 Normaliseur sur de vraies parties anonymisées (cache privé)", "réel", async () => {
   const { normalizeMatch, participantAt, laneOpponent } = await import("../normalize.mjs");
   const { readdir, readFile } = await import("node:fs/promises");

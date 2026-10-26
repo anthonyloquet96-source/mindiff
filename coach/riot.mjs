@@ -4,7 +4,7 @@
 // restent dans le cache privé pour ne jamais compter deux fois la même partie.
 // Usage : node --env-file-if-exists=.env coach/riot.mjs
 
-import { P, readJson, writeJson, saveText, today } from "./lib.mjs";
+import { P, readJson, writeJson, saveText, today, sha256 } from "./lib.mjs";
 
 const POS = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "bottom", UTILITY: "support" };
 const ROLE_FR = { top: "top", jungle: "jungle", mid: "mid", bottom: "ADC", support: "support" };
@@ -57,9 +57,10 @@ export async function run() {
         for (const p of players) {
           const ids = await riot(`https://${R.region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${p.puuid}/ids?queue=${R.queue}&startTime=${since}&count=${R.matchesPerPlayer}`);
           for (const id of ids) {
-            if (seen.matches[id]) continue;
+            const key = sha256(id).slice(0, 16); // empreinte : aucun identifiant de partie gardé
+            if (seen.matches[key] || seen.matches[id]) continue;
             const m = await riot(`https://${R.region}.api.riotgames.com/lol/match/v5/matches/${id}`);
-            seen.matches[id] = bucket;
+            seen.matches[key] = bucket;
             if (!m.info?.gameVersion || m.info.gameDuration < 300) continue; // partie écourtée (remake)
             // Chaque partie est rangée selon sa vraie version de jeu (16.20, 16.21…), jamais selon une version supposée
             const ver = m.info.gameVersion.split(".").slice(0, 2).join(".");

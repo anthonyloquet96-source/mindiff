@@ -1,7 +1,7 @@
 // Banc d'essai du coach : l'analyse complète (bilan + relecture tactique) sur de vraies parties de tous les rangs, de Fer à Challenger.
 // But : vérifier que chaque règle repère une vraie erreur (plus fréquente chez les joueurs faibles, liée aux défaites),
 // écarter le bruit (règle qui se déclenche presque toujours) et trouver de nouveaux écarts nets entre bons et mauvais joueurs.
-// Résultats privés (coach/cache/bench.json et coach/cache/bench-raw/), Riot ID retirés, mais PUUID et identifiants de partie encore présents dans bench-raw (voir coach/CONFORMITE.md).
+// Résultats privés (coach/cache/bench.json et coach/cache/bench-raw/), parties anonymisées : PUUID remplacés par des alias, Riot ID et identifiants de partie retirés.
 // Usage : node --env-file=.env coach/bench.mjs [--par-rang 80]   puis   node coach/bench.mjs --rapport
 //         node coach/bench.mjs --rejouer   (règles corrigées : réanalyse les parties gardées, sans requête Riot)
 
@@ -81,7 +81,7 @@ async function collect(perTier) {
 }
 
 // Parties gardées pour rejouer l'analyse après chaque correction des règles, sans redemander les données à Riot.
-// Anonymisées : identifiants Riot remplacés par « p1 » à « p10 », noms et Riot ID retirés. Compressées (gzip).
+// Anonymisées : identifiants Riot remplacés par « p1 » à « p10 », noms, Riot ID et identifiants de partie retirés. Compressées (gzip).
 const RAW = "coach/cache/bench-raw";
 async function saveRaw(h, tier, puuid, match, timeline) {
   const { mkdir } = await import("node:fs/promises");
@@ -93,6 +93,9 @@ async function saveRaw(h, tier, puuid, match, timeline) {
   for (const p of m.info.participants) { p.puuid = alias.get(p.puuid); for (const k of ["riotIdGameName", "riotIdTagline", "summonerName", "summonerId", "profileIcon"]) delete p[k]; }
   t.metadata.participants = t.metadata.participants.map(x => alias.get(x) || "p?");
   for (const p of t.info.participants) p.puuid = alias.get(p.puuid);
+  // Identifiant de partie remplacé par l'empreinte du fichier
+  m.metadata.matchId = t.metadata.matchId = h; delete m.info.gameId; delete t.info.gameId;
+  for (const fr of t.info.frames || []) for (const e of fr.events || []) delete e.gameId;
   await writeFile(`${RAW}/${h}.json.gz`, gzipSync(JSON.stringify({ tier, me: alias.get(puuid), match: m, timeline: t })));
 }
 // Rejoue l'analyse (règles actuelles) sur toutes les parties gardées : la boucle d'apprentissage ne coûte plus aucune requête

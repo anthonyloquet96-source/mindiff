@@ -44,6 +44,9 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 
 - 01:45 — Assemblage du Worker vérifié (wrangler deploy --dry-run, 585 Ko) : le code commun importe node:fs et node:zlib (plans de jeu, situations) → indicateur nodejs_compat ajouté, sans quoi le Worker planterait au démarrage. Attention : sur main, la route plan (25/10) a le même import ; ne pas redéployer le Worker depuis main sans cet indicateur. worker/builds.json ajouté au .gitignore (copié au déploiement comme les autres références).
 
+- 02:05 — Série 3 (moteur final, 30 nouveaux joueurs) : 28 objectifs, 9 réussis, 16 ratés, 3 en cours. Morts avant 14 min devient l'objectif le plus fréquent (11/28), surtout via la marche au quart supérieur (2 → 1 mort) ; au-dessus de Diamant, 9 objectifs tranchés sur 10 sont ratés : ces joueurs sont proches du plafond et ne suivaient pas le coach. Pas de correction sans données de joueurs qui suivent vraiment l'objectif ; à surveiller.
+
 ## Pistes suivantes (à trier)
+- Au-dessus de Diamant : une marche « 2 → 1 mort » est peut-être trop dure (palier entier) ; envisager des métriques plus fines (morts en lane seule, morts avant objectif) quand les premières vraies données de suivi arriveront.
 - Déployer le Worker V1 (bloqué : projet Supabase et secrets à créer par Anthony, voir worker/README.md).
 - Avant ouverture publique : RSO, quotas globaux (Durable Object), références recalculées avec la clé de production.

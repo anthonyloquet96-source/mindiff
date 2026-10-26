@@ -42,6 +42,8 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 
 - 01:35 — Worker /api/v1 (worker/v1.mjs, branché dans worker/index.mjs) : jeton vérifié auprès de Supabase, autorisation par joueur, compte Riot lié à un seul compte MINDIFF, quotas (synchronisations, tuteur, IP), synchronisation après la réponse (waitUntil), CORS limité, journaux sans secret. Testé de bout en bout sur le vrai schéma. Mise en route décrite dans worker/README.md (étapes pour Anthony).
 
+- 01:45 — Assemblage du Worker vérifié (wrangler deploy --dry-run, 585 Ko) : le code commun importe node:fs et node:zlib (plans de jeu, situations) → indicateur nodejs_compat ajouté, sans quoi le Worker planterait au démarrage. Attention : sur main, la route plan (25/10) a le même import ; ne pas redéployer le Worker depuis main sans cet indicateur. worker/builds.json ajouté au .gitignore (copié au déploiement comme les autres références).
+
 ## Pistes suivantes (à trier)
 - Déployer le Worker V1 (bloqué : projet Supabase et secrets à créer par Anthony, voir worker/README.md).
 - Avant ouverture publique : RSO, quotas globaux (Durable Object), références recalculées avec la clé de production.

@@ -1,6 +1,8 @@
 name = "mindiff-coach"
 main = "index.mjs"
 compatibility_date = "2026-10-01"
+# Le code commun du coach importe des modules Node (fichiers, compression) pour ses scripts locaux
+compatibility_flags = ["nodejs_compat"]
 
 # Offre gratuite : 100 000 requêtes par jour, aucune carte bancaire.
 # Secret à définir une fois : npx wrangler secret put RIOT_API_KEY

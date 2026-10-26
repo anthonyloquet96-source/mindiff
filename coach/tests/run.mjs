@@ -1032,6 +1032,30 @@ await t("Mode sans LLM : tuteur désactivé par défaut, aucun appel au modèle 
   return "configuration par défaut : tuteur désactivé ; aucune combinaison partielle ne l'active ; aucun appel au modèle, aucune donnée lue.";
 });
 
+await t("Migration goals-2 : nouveaux états, contrôle chronologique en base, test privé (âge confirmé), suppression en cascade", "fixture", async () => {
+  const { PGlite } = await import("@electric-sql/pglite");
+  const db = new PGlite();
+  await db.exec(`create schema auth; create table auth.users (id uuid primary key); create function auth.uid() returns uuid language sql stable as $$ select null::uuid $$; create role anon nologin; create role authenticated nologin;`);
+  await applyMigrations(db);
+  const U = "00000000-0000-0000-0000-0000000000aa", P = "10000000-0000-0000-0000-0000000000aa";
+  await db.exec(`insert into auth.users values ('${U}'); insert into public.players (id, puuid, platform, user_id) values ('${P}', 'puuid-x', 'euw1', '${U}');`);
+  const goal = (id, status, extra = "") => db.exec(`insert into public.coaching_goals (id, player_id, metric, role, direction, baseline, target, version, status${extra ? ", " + extra.split("|")[0] : ""}) values ('${id}', '${P}', 'cs_at_10', 'MIDDLE', 'higher', 60, 65, 'goals-2', '${status}'${extra ? ", " + extra.split("|")[1] : ""})`);
+  const fails = async fn => { try { await fn(); return false; } catch { return true; } };
+  for (const st of ["improving", "stable", "needs_review"]) await goal(`g-${st}`, st);
+  assert(await fails(() => goal("g-bad", "progressing")), "état inconnu accepté");
+  // Activation avant la fin de la fenêtre de départ : refusée par la base
+  assert(await fails(() => goal("g-leak", "active", "baseline_end_ms, active_at|2000000000000, to_timestamp(1000000000)")), "objectif activé avant la fin de sa fenêtre de départ");
+  await goal("g-ok", "active", "baseline_end_ms, active_at, cycle, chain_id|1000000000000, to_timestamp(2000000000), 2, 'g-ok'");
+  // Test privé : âge confirmé obligatoire ; retours supprimés avec l'objectif, objectifs avec le joueur
+  assert(await fails(() => db.exec(`insert into public.pilot_testers (user_id, invited_by, consent_at, consent_version, age_confirmed) values ('${U}', 'Anthony', now(), 'test-1', false)`)), "testeur sans âge confirmé accepté");
+  await db.exec(`insert into public.pilot_testers (user_id, invited_by, consent_at, consent_version, age_confirmed) values ('${U}', 'Anthony', now(), 'test-1', true);
+    insert into public.pilot_feedback (goal_id, relevance, side_effects) values ('g-ok', 4, '{jeu-plus-passif}');`);
+  await db.exec(`delete from public.players where id = '${P}'`);
+  const left = (await db.query(`select (select count(*) from public.coaching_goals)::int g, (select count(*) from public.pilot_feedback)::int f`)).rows[0];
+  assert(left.g === 0 && left.f === 0, "objectifs ou retours conservés après suppression du joueur");
+  return "états improving / stable / needs_review acceptés, état inconnu refusé ; activation avant la fin du départ refusée par la base ; testeur sans âge confirmé refusé ; cascade jusqu'aux retours.";
+});
+
 await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur le vrai schéma (Postgres embarqué)", "fixture", async () => {
   const { PGlite } = await import("@electric-sql/pglite");
   const { readFile } = await import("node:fs/promises");
@@ -1105,7 +1129,9 @@ await t("COACH-004 Worker : jeton vérifié, joueurs d'un autre compte invisible
   await db.exec(`create schema auth; create table auth.users (id uuid primary key); create function auth.uid() returns uuid language sql stable as $$ select null::uuid $$; create role anon nologin; create role authenticated nologin;`);
   await applyMigrations(db);
   const A = "00000000-0000-0000-0000-00000000000a", B = "00000000-0000-0000-0000-00000000000b";
-  await db.exec(`insert into auth.users values ('${A}'), ('${B}');`);
+  const C = "00000000-0000-0000-0000-00000000000c";
+  await db.exec(`insert into auth.users values ('${A}'), ('${B}'), ('${C}');
+    insert into public.pilot_testers (user_id, invited_by, consent_at, consent_version, age_confirmed) values ('${A}', 'Anthony', now(), 'test-1', true), ('${B}', 'Anthony', now(), 'test-1', true);`);
   const rest = async (method, path, { body, prefer } = {}) => {
     const [table, qs = ""] = path.split("?"), params = [...new URLSearchParams(qs)], vals = [];
     const ph = v => { vals.push(v !== null && typeof v === "object" ? JSON.stringify(v) : v); return `$${vals.length}`; };
@@ -1119,7 +1145,7 @@ await t("COACH-004 Worker : jeton vérifié, joueurs d'un autre compte invisible
     } catch (e) { throw Object.assign(new Error(e.message), { code: e.code === "23505" ? "conflit" : "supabase-erreur", status: e.code === "23505" ? 409 : 502 }); }
   };
   // Faux Supabase Auth et faux Riot derrière le même fetch ; la clé Riot ne doit jamais apparaître dans une réponse
-  const tokens = { "jeton-a": A, "jeton-b": B };
+  const tokens = { "jeton-a": A, "jeton-b": B, "jeton-c": C };
   const fetchImpl = async (url, o = {}) => {
     const ok = body => ({ ok: true, status: 200, json: async () => body, text: async () => JSON.stringify(body), headers: { get: () => null } });
     if (url.includes("/auth/v1/user")) { const id = tokens[(o.headers?.Authorization || "").replace("Bearer ", "")]; return id ? ok({ id }) : { ok: false, status: 401, json: async () => ({}) }; }
@@ -1139,6 +1165,9 @@ await t("COACH-004 Worker : jeton vérifié, joueurs d'un autre compte invisible
   assert((await call("/api/v1/health")).status === 200, "santé");
   assert((await call("/api/v1/players/resolve?riot_id=Testeur%23EUW")).status === 401, "route sans jeton acceptée");
   assert((await call("/api/v1/players/resolve?riot_id=Testeur%23EUW", { token: "faux" })).status === 401, "faux jeton accepté");
+  // Test privé : un compte valide hors de la liste des volontaires est refusé
+  const outsider = await call("/api/v1/players/resolve?riot_id=Testeur%23EUW", { token: "jeton-c" });
+  assert(outsider.status === 403 && outsider.body.error.code === "test-prive", "compte hors test privé accepté");
   const r = await call("/api/v1/players/resolve?riot_id=Testeur%23EUW", { token: "jeton-a" });
   assert(r.status === 200 && r.body.player_id, "résolution par A");
   const pid = r.body.player_id;

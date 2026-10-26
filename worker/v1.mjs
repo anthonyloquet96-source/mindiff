@@ -4,6 +4,8 @@
 //   - autorisation par ressource : un utilisateur n'agit que sur ses propres joueurs, synchronisations et questions ;
 //   - quotas par utilisateur et par jour (synchronisations, questions au tuteur) et par adresse IP ;
 //   - CORS limité au site ; journaux sans secret ni jeton.
+// Mode test privé (par défaut, correctifs du 26/10/2026) : seuls les volontaires inscrits dans pilot_testers, non révoqués,
+// utilisent le coach (403 sinon). COACH_ACCESS = "public" lèvera cette limite, après la clé de production et RSO.
 // Secrets du Worker : RIOT_API_KEY, SUPABASE_URL, SUPABASE_SERVICE_KEY, SUPABASE_ANON_KEY, GEMINI_API_KEY (facultatif).
 // Limite connue : quotas et limite de débit Riot tenus en mémoire par instance du Worker ; un Durable Object les rendra
 // globaux avant l'ouverture publique.
@@ -44,6 +46,10 @@ export function createV1Worker({ fetchImpl = fetch, now = () => Date.now(), sb =
     const uid = who?.id;
     if (!uid) return err(401, "jeton-invalide", "Session expirée : reconnecte-toi.", cors);
     const rest = sb || createSupabaseRest({ url: env.SUPABASE_URL, serviceKey: env.SUPABASE_SERVICE_KEY, fetchImpl });
+    if (env.COACH_ACCESS !== "public") {
+      const tester = (await rest.rest("GET", `pilot_testers?user_id=eq.${encodeURIComponent(uid)}&select=user_id,revoked_at`).catch(() => []))?.[0];
+      if (!tester || tester.revoked_at) return err(403, "test-prive", "Le coach est en test privé, sur invitation.", cors);
+    }
     const store = createSupabaseStore(rest);
     let body = null;
     if (request.method === "POST") { try { body = await request.json(); } catch { body = null; } }

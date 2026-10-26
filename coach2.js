@@ -366,7 +366,7 @@ function c2V1Card(p) {
   if (V.error && !V.goal) return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p><p class="note warn">${icon("alert")}<span>${esc(V.error)}</span></p><button class="btn ghost sm" data-action="c2-v1-sync">Réessayer</button></section>`;
   if (!V.goal && (V.busy || !V.diagnostic)) return `<section class="c2-card c2-v1 c2-loading">${V.syncing ? "Lecture de tes dernières ranked…" : "Ton objectif…"}</section>`;
   const last = V.history?.[0];
-  const lastTxt = last ? `<p class="c2-v1-last ${last.outcome}">${last.outcome === "achieved" ? "Objectif précédent réussi" : last.outcome === "failed" ? "Objectif précédent pas encore atteint" : "Objectif précédent sans verdict"} : ${esc(last.label)}, cible ${esc(last.target_text)} (${last.progress?.met ?? "?"}/${last.progress?.counted ?? "?"} parties).</p>` : "";
+  const lastTxt = last ? `<p class="c2-v1-last ${last.outcome}">${C2_V1_OUTCOME[last.outcome] || "Objectif précédent sans verdict"} : ${esc(last.label)}, cible ${esc(last.target_text)} (${last.progress?.met ?? "?"}/${last.progress?.counted ?? "?"} parties)${last.progress?.review ? ` ; ${esc(last.progress.review)}` : ""}.</p>` : "";
   const g = V.goal;
   if (!g) {
     const why = V.diagnostic?.rows?.find(r => r.reason)?.reason;
@@ -399,6 +399,15 @@ const C2_V1_TIPS = {
   early_deaths: { themes: ["survie", "methode"], match: /gank|\bmort|mourir|meurs|survi|recul|jungler adverse|track|danger|flash|minimap|dispara|\bmia\b|missing/i, avoid: C2_V1_LATE },
   kill_participation: { themes: ["teamfight", "macro"], match: /roam|rejoin|escarmouche|skirmish|combat|teamfight|gank|\baide|\bkills?\b|minimap/i, avoid: C2_V1_LATE },
   vision_per_min: { themes: ["vision", "methode"], match: /\bwards?\b|vision|balise|trinket|contr[ôo]le|sweep|oracle|lentille/i },
+};
+// Résultat d'un cycle de 5 parties (moteur goals-2) : un cycle sans maîtrise n'est pas un échec
+const C2_V1_OUTCOME = {
+  achieved: "Objectif précédent maîtrisé",
+  improving: "Tu progresses sur l'objectif précédent, on continue",
+  stable: "Pas encore de progrès net sur l'objectif précédent, on continue",
+  needs_review: "Objectif précédent mis en pause pour vérification",
+  failed: "Objectif précédent mis de côté après deux séries sans progrès",
+  inconclusive: "Objectif précédent sans verdict (pas assez de parties au même poste)",
 };
 function c2V1Tips(g) {
   const L = C2_V1_TIPS[g.metric], role = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "bottom", UTILITY: "support" }[g.role];

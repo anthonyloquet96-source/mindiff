@@ -52777,7 +52777,1630 @@
    },
    "version": 1,
    "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-V-0395F1evY-1",
+   "claim": "Selon AloisNL : si tu es en 0-2 en début de partie, ton premier objectif doit être de stabiliser la situation pour ne pas prendre davantage de retard.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "survie",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Être en retard de 2 morts en début de partie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-V-0395F1evY",
+     "locator": "03:06",
+     "lang": "en",
+     "passage": "it's important, right? That you focus on not falling any further behind, that's your first goal right now.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-10-26",
+      "window": "166-226s",
+      "said": true,
+      "supported": true,
+      "gap": "La raison indiquée dans le champ 'pourquoi' n'est pas explicitement énoncée par AloisNL dans l'extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "Tu as concédé deux morts rapidement sur ta lane",
+    "why": "",
+    "who": "Tout joueur de top lane en difficulté",
+    "how": [
+     "Cesser de chercher des duels risqués",
+     "Se concentrer exclusivement sur la récupération du farm sous tour ou en sécurité",
+     "Éviter de mourir une troisième fois à tout prix"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil général de stabilisation en retard, fidèle à la citation et au contexte d'usage."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-V-0395F1evY-6",
+   "claim": "Selon AloisNL : adopte une macro de récolte de ressources stricte : vagues latérales, puis tourelles, puis camps de jungle si aucune tourelle n'est prenable.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "macro",
+    "vagues",
+    "jungle"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-V-0395F1evY",
+     "locator": "21:44",
+     "lang": "en",
+     "passage": "We are natural resource gatherers. We play side wave into turrets, if no turrets, then jungle camps, capiche? We don't join skirmishes unless there's absolutely nothing else to gather.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-10-26",
+      "window": "1284-1344s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas explicitement les objectifs majeurs (Baron, Dragon) comme contre-indication dans cet extrait, précisant seulement qu'il ne faut pas rejoindre d'escarmouches sauf s'il n'y a plus rien d'autre à récolter."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Suivre cet ordre de priorité pendant 3 parties pour maximiser ton gain d'or.",
+   "observe": "",
+   "use": {
+    "when": "Tu es en milieu de partie et tu dois décider de ton prochain mouvement",
+    "why": "Pour garantir un flux constant d'or et d'expérience sans dépendre de l'issue incertaine des combats.",
+    "who": "Top laners axés sur le split-push ou le scaling",
+    "how": [
+     "Pousser la vague sur une ligne latérale",
+     "Frapper la tourelle si elle est exposée",
+     "Prendre les camps de jungle (alliés ou ennemis) si la tourelle est trop risquée"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Ordre de priorité macro universel et intemporel pour la récolte des ressources."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-V-0395F1evY-11",
+   "claim": "Selon AloisNL : le proxy farming permet d'empêcher l'adversaire de rentrer à la base (recall) et de maintenir une pression de tempo, même si tu es derrière au score.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir la vision sur le jungler adverse"
+   ],
+   "limits": [
+    "Très risqué si tu n'as pas d'outils d'évasion"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-V-0395F1evY",
+     "locator": "04:25",
+     "lang": "en",
+     "passage": "Now Shen hasn't recalled yet because we proxied farm. We might be 0-2 in the starting position, however, it's fake data.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-10-26",
+      "window": "245-305s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur n'explicite pas la perte de plaques de tourelle comme raison, ni la position du jungler comme contre-indication dans cet extrait."
+     }
+    }
+   ],
+   "mentions": [
+    "Shen (exemple)"
+   ],
+   "action": "Tenter un proxy entre les tourelles T1 et T2 quand tu sais que le jungler est à l'opposé de la carte.",
+   "observe": "",
+   "use": {
+    "when": "Tu veux forcer ton adversaire à rester sur la lane avec peu de PV ou d'or",
+    "why": "",
+    "who": "Top laner avec une bonne capacité de nettoyage de vagues",
+    "how": [
+     "Passer derrière la tourelle ennemie",
+     "Tuer la vague de sbires dès qu'elle arrive",
+     "Utiliser le temps gagné pour frapper la tour ou voler la jungle"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe macro universel sur l'impact du proxy farming sur le tempo adverse."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-V-0395F1evY-13",
+   "claim": "Selon AloisNL : si tes coéquipiers commencent à te ping ou à te critiquer après un mauvais début de partie, coupe leurs communications (mute) immédiatement.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-V-0395F1evY",
+     "locator": "04:03",
+     "lang": "en",
+     "passage": "I might get pinged here. If you get pinged, mute, mute your team. It's not your fault.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-10-26",
+      "window": "223-283s",
+      "said": true,
+      "supported": false,
+      "gap": "La raison invoquée (préserver le moral et rester concentré sur les fondamentaux) est une interprétation de l'analyste et n'est pas formulée ainsi par l'auteur."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser la commande /mute all dès les premiers signes de toxicité.",
+   "observe": "",
+   "use": {
+    "when": "Tu es en retard et tes alliés deviennent toxiques",
+    "why": "",
+    "who": "Tout joueur en solo queue",
+    "how": [
+     "Ouvrir le tableau des scores",
+     "Cliquer sur l'icône de sourdine pour les pings et les messages"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil général de gestion du canal de discussion et du mental en solo queue."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-zziK5rQefTc-1",
+   "claim": "Selon Coach Leo : avant le début de la partie, planifie tes actions en identifiant les opportunités d'éliminations précoces à l'aide de la méthode VGM : Volatilité, Configuration de gank et Mobilité.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Être en phase de chargement ou au tout début de la partie"
+   ],
+   "limits": [
+    "Demande de l'expérience pour évaluer correctement la volatilité des voies"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[00:57]",
+     "lang": "en",
+     "passage": "Where can I get a kill? This simple question is one of, if not the most important things that you can ask yourself while you are loading into a game.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-10-26",
+      "window": "37-97s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[01:06]",
+     "lang": "en",
+     "passage": "The way you can find out where the highest chance of getting a kill is, is by following VGM: Volatility, Gank Setup, and Mobility."
+    }
+   ],
+   "mentions": [
+    "Xerath (exemple)",
+    "Brand (exemple)",
+    "Blitzcrank (exemple)",
+    "Pyke (exemple)",
+    "Seraphine (exemple)",
+    "Sona (exemple)",
+    "Cho'Gath (exemple)",
+    "Riven (exemple)",
+    "Annie (exemple)",
+    "Zed (exemple)",
+    "Syndra (exemple)",
+    "Darius (exemple)"
+   ],
+   "action": "Pose-toi la question 'Où puis-je obtenir un kill ?' pendant le chargement en analysant la volatilité, les contrôles et la mobilité des champions.",
+   "observe": "Les choix de champions et de sorts d'invocateur dans l'écran de chargement.",
+   "use": {
+    "when": "pendant que tu charges dans une partie de League of Legends",
+    "why": "pour trouver où la probabilité d'obtenir un kill est la plus élevée",
+    "who": "les joueurs jouant le poste de jungler",
+    "how": [
+     "Analyse la volatilité des voies en observant les champions, leurs runes et leurs sorts d'invocateur.",
+     "Évalue la présence de contrôles de foule fiables pour les ganks.",
+     "Examine la mobilité des champions adverses et leurs sorts d'invocateur."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement fidèle aux passages cités, présente un contexte d'usage complet et un principe macro intemporel."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-zziK5rQefTc-2",
+   "claim": "Selon Coach Leo : ne prends pas la priorité des voies en compte avant ton premier clear, car elle est trop inconstante et ne devient un facteur fiable qu'au-dessus du rang Diamant.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avant d'effectuer ton premier clear dans la jungle"
+   ],
+   "limits": [
+    "Moins pertinent dans les divisions supérieures à Diamant où la gestion des vagues est plus maîtrisée"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[03:20]",
+     "lang": "en",
+     "passage": "The importance of pathing towards priority is a little overblown and is not something to consider before your first clear.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "180-240s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[03:35]",
+     "lang": "en",
+     "passage": "Priority only becomes a consistent factor in an MMR above Diamond as laners start to understand their matchups."
+    }
+   ],
+   "mentions": [],
+   "action": "Ignore la priorité des vagues de tes coéquipiers lors de la planification initiale de ton premier cheminement dans la jungle.",
+   "observe": "L'état des vagues au tout début de la partie.",
+   "use": {
+    "when": "avant d'entamer ton premier clear dans la jungle",
+    "why": "car la gestion de la priorité par les laners est trop inconsistante à prédire dans les bas et moyens rangs",
+    "who": "les junglers cherchant à optimiser leur premier itinéraire",
+    "how": [
+     "Concentre ton cheminement de premier clear sur ton plan d'objectifs et tes duels plutôt que sur la position des vagues de tes alliés."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est bien soutenu par les citations, la nuance sur le rang Diamant est clairement posée."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-zziK5rQefTc-3",
+   "claim": "Selon Coach Leo : en cas d'affrontement 1v1 lors d'un invade dans la jungle, celui qui commence le buff perd généralement le combat car il encaisse les dégâts du monstre et utilise ses sorts.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "matchup",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Lors d'un combat singulier face au jungler adverse au moment de nettoyer un camp de buff"
+   ],
+   "limits": [
+    "Dépend de l'écart d'or et de PV actuel entre les deux champions"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[06:18]",
+     "lang": "en",
+     "passage": "Note: when it comes to jungle 1v1s and invades, the rule is whoever starts the buff loses. The reason for this is because they are the ones tanking the buff, using their spells, and the other jungler gets the first hit.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "358-418s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Interromps ton attaque sur le buff si le jungler ennemi t'attaque, pour éviter d'encaisser à la fois les dégâts du camp et ceux de l'adversaire.",
+   "observe": "La position du jungler ennemi lorsqu'il entre dans ton camp de buff.",
+   "use": {
+    "when": "lorsque tu es en train d'attaquer un monstre de buff et que le jungler ennemi t'envahit",
+    "why": "parce que tu tankes le monstre, utilises tes sorts et subis la première attaque de l'adversaire",
+    "who": "les junglers se trouvant face à une tentative d'invasion ennemie sur un buff",
+    "how": [
+     "Arrête de cibler le monstre du camp si l'ennemi engage.",
+     "Riposte immédiatement sur le champion ennemi pour lui faire encaisser les dégâts du camp ou l'obliger à reculer."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La règle empirique est directement tirée et justifiée par le passage textuel de la transcription."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-zziK5rQefTc-4",
+   "claim": "Selon Coach Leo : utilise le 'Spare Tempo' (temps libre de fin de clear) pour placer des balises de profondeur, ganker ou aider une voie à pousser, sans pour autant compromettre ton timing de réapparition des camps.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vision",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Après avoir terminé un plein clear de la jungle avant la réapparition des premiers camps"
+   ],
+   "limits": [
+    "Nécessite d'avoir terminé le premier clear efficacement et à l'heure"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[10:58]",
+     "lang": "en",
+     "passage": "At the end of a clear, you will have something called spare tempo, meaning you have free time while you are waiting for your next cycle of camps to spawn, assuming we just full cleared.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "638-698s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[11:48]",
+     "lang": "en",
+     "passage": "So for example, during our spare tempo, you should be looking to use this time to gank a lane, burn summoner spells, place deep vision on enemy camps, or even help a lane push their wave out."
+    }
+   ],
+   "mentions": [],
+   "action": "Mets à profit les 30 secondes de répit après ton premier clear complet pour placer de la vision profonde ou exercer une pression ennemie.",
+   "observe": "Le chronomètre affichant la réapparition de ton premier camp vers 4:20 après avoir fini le crabe vers 3:40.",
+   "use": {
+    "when": "quand tu as validé ton premier clear complet et que tu attends la réapparition de tes camps",
+    "why": "pour maximiser ton impact sur la carte sans perdre en efficacité de farm",
+    "who": "les junglers effectuant un nettoyage complet (full clear)",
+    "how": [
+     "Utilise le temps excédentaire pour ganker, placer une balise de vision profonde dans la jungle ennemie ou aider à pousser une vague.",
+     "Reviens à temps pour le respawn de ton premier camp à 4:20."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le concept de 'spare tempo' est précisément décrit et soutenu par les citations de l'auteur."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-zziK5rQefTc-5",
+   "claim": "Selon Coach Leo : au niveau 1, suis la foule si tes coéquipiers décident d'envahir la jungle ennemie, puis assure-toi de revenir à ton propre camp avant son apparition en rappelant avant 1:00 si nécessaire.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "survie",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tes quatre coéquipiers décident de lancer un invade au niveau 1"
+   ],
+   "limits": [
+    "Demande de surveiller attentivement le chronomètre de la partie pour ne pas rater le spawn du buff"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[14:07]",
+     "lang": "en",
+     "passage": "The answer is that you should actually always follow the crowd. Typically the team with more synergy will come out ahead of these chaotic situations.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "827-887s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[14:26]",
+     "lang": "en",
+     "passage": "Basing before 1:00 will always ensure that is possible. You just need to be a bit careful re-entering the opposite side that you invaded on, as enemies could be waiting there."
+    }
+   ],
+   "mentions": [],
+   "action": "Accompagne tes coéquipiers lors d'un invade niveau 1 et effectue un rappel avant 1:00 pour revenir à ton camp de départ à temps.",
+   "observe": "Les mouvements de tes coéquipiers vers la jungle ennemie au début de la partie.",
+   "use": {
+    "when": "lorsque tes quatre coéquipiers décident de foncer dans la jungle ennemie pour envahir au niveau 1",
+    "why": "pour maximiser les chances de succès de l'action collective et éviter d'être isolé",
+    "who": "les junglers dont l'équipe initie un invade de niveau 1",
+    "how": [
+     "Suis tes coéquipiers dans l'invasion de la jungle ennemie.",
+     "Appuie sur la touche de rappel avant 1:00 pour regagner ta base.",
+     "Rejoins ton camp de départ en faisant attention aux ennemis embusqués."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La consigne de suivre l'équipe lors des invades niveau 1 et de rappeler avant 1:00 est conforme aux sources."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-7ZZEBbT_qzQ-2",
+   "claim": "Selon Coach Kirei : ne fais pas le Scuttle Crab si tes camps réguliers sont de nouveau disponibles, car prioriser tes camps t'apporte plus de tempo pour aider tes laners et punir les ennemis.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tes camps réguliers sont réapparus"
+   ],
+   "limits": [
+    "Démontré dans une partie de niveau Master"
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-7ZZEBbT_qzQ",
+     "locator": "[03:17]",
+     "lang": "en",
+     "passage": "And you see the top crab? Don't go for that. If your regular camps are up, take your camps first. Why is that? It's for the following reason. 1: You have more tempo, which allows you to help your laners if they need help.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "177-237s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Priorise tes camps de jungle principaux par rapport au Scuttle Crab s'ils sont disponibles.",
+   "observe": "L'apparition des camps de jungle sur la mini-carte par rapport aux crabes de rivière.",
+   "use": {
+    "when": "Le Scuttle Crab est disponible dans la rivière mais tes camps de jungle viennent de réapparaître.",
+    "why": "Cela te donne plus de tempo pour être présent sur les lignes plus rapidement et sauver ou aider tes alliés.",
+    "who": "Junglers",
+    "how": [
+     "Vérifie l'état de réapparition de tes camps de jungle.",
+     "Ignore le crabe de rivière si tes camps sont levés et nettoie ta jungle en premier."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": ""
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Qb5YWQxgmzY-1",
+   "claim": "Selon Coach Kirei : en tant que jungler, ne pousse pas les vagues sur les lanes si tes camps sont vivants, car tu subis une réduction importante d'expérience sur les sbires.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:experience-sbires-jungle"
+   ],
+   "conditions": [
+    "tes camps de jungle sont réapparus"
+   ],
+   "limits": [
+    "ne s'applique pas si tu es 1.5 niveaux en retard"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Qb5YWQxgmzY",
+     "locator": "00:18",
+     "lang": "en",
+     "passage": "So, what should you never ever do? If let's say your laners are dead, you don't want to push a wave, okay? If you have your camps up, it's so much more important to retake your camps instead of taking minions.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "0-58s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Nettoie tes camps de jungle au lieu de pousser la vague si tes camps sont disponibles.",
+   "observe": "Le jungler se dirige vers ses camps réapparus au lieu de rester sur la lane pour tuer les sbires.",
+   "use": {
+    "when": "tes camps de jungle sont disponibles et tu t'apprêtes à toucher les sbires d'une lane",
+    "why": "tu subis une réduction d'expérience importante sur les sbires de lane tant que tu n'as pas de retard significatif de niveau",
+    "who": "les joueurs jouant le rôle de jungler",
+    "how": [
+     "Vérifie si tes camps de jungle sont réapparus sur ta minicarte.",
+     "Ignore la vague de sbires et dirige-toi vers tes camps pour les farmer."
+    ],
+    "notWhen": "si tu es 1.5 niveaux ou plus en retard par rapport à la moyenne de la partie"
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle au passage cité, son contexte d'usage est complet et repose sur un principe système intemporel de la jungle."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Qb5YWQxgmzY-2",
+   "claim": "Selon Coach Kirei : planifie ton premier passage et ton timing de clear pour terminer ton camp des Krugs exactement à 05:30 afin d'obtenir immédiatement la première amélioration de ton compagnon et ton Châtiment déchaîné.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:quetes-de-role",
+    "item:compagnon-de-jungle"
+   ],
+   "conditions": [
+    "tu effectues ton second passage dans la jungle autour de 5 minutes de jeu"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Qb5YWQxgmzY",
+     "locator": "03:19",
+     "lang": "en",
+     "passage": "5:30, you should finish your Golems. Then you get upgraded Smite, the enemy jungle doesn't, and then you basically win a Drake fight or Scuttle and you get level 6 advantage.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "179-239s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Gère le timing de tes camps pour finir les Krugs à 05:30 et récupérer ta friandise bonus instantanément.",
+   "observe": "Le jungler termine son camp de Krugs à 05:30 et obtient son Châtiment amélioré juste avant un objectif.",
+   "use": {
+    "when": "la partie atteint l'horloge de 05:15 et tes camps secondaires réapparaissent",
+    "why": "cela te permet d'obtenir ton Châtiment amélioré avant le jungler adverse pour sécuriser les objectifs comme le Dragon ou le Carapateur",
+    "who": "les joueurs jouant le rôle de jungler",
+    "how": [
+     "Surveille le chronomètre de jeu à l'approche de 05:15.",
+     "Attends l'apparition de la friandise bonus à 05:30 sur ton camp de Krugs avant de porter le dernier coup."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est étayé par le passage, le timing est précis et le contexte d'usage correspond à une situation claire en jeu."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Qb5YWQxgmzY-5",
+   "claim": "Selon Coach Kirei : choisis le compagnon bleu (Gustwalker) si ton champion a besoin d'accélérer sa vitesse de déplacement pour combler la distance et excelle dans la création de pièges et de duels sur les side lanes.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "jungle",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:compagnon-de-jungle"
+   ],
+   "conditions": [
+    "ton champion manque de mobilité pour engager ou profite de la vitesse de déplacement pour faire des picks"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Qb5YWQxgmzY",
+     "locator": "08:41",
+     "lang": "en",
+     "passage": "These champions have one thing in common. They need to gap close and get to the enemy team. And another thing, if they have tempo and they can clear faster or walk faster in bushes, they can basically make more sidelane picks.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "501-561s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Nasus (exemple)",
+    "Darius (exemple)",
+    "Nautilus (exemple)",
+    "Hecarim (exemple)",
+    "Nunu (exemple)",
+    "Ivern (exemple)",
+    "Rengar (exemple)",
+    "Talon (exemple)",
+    "Evelynn (exemple)",
+    "Qiyana (exemple)",
+    "Kha'Zix (exemple)"
+   ],
+   "action": "Sélectionne le compagnon bleu si tu joues un assassin ou un champion nécessitant un meilleur accès aux cibles.",
+   "observe": "Le joueur sélectionne l'œuf bleu pour un champion misant sur la mobilité et les escarmouches.",
+   "use": {
+    "when": "tu sélectionnes ton œuf de compagnon au spawn avec un champion manquant de mobilité brute",
+    "why": "le compagnon bleu octroie un bonus de vitesse de déplacement dans les buissons et après avoir nettoyé un camp",
+    "who": "les junglers assassins ou les champions axés sur le tempo et les duels en side lane",
+    "how": [
+     "Vérifie si ton champion doit combler une distance pour atteindre ses ennemis.",
+     "Achète l'œuf bleu en début de partie."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil concernant le compagnon bleu est directement tiré du passage et détaille clairement quand et pour qui l'utiliser."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Qb5YWQxgmzY-6",
+   "claim": "Selon Coach Kirei : choisis le compagnon vert (Mosstomper) si ton champion participe à de longs combats prolongés ou s'expose facilement à des éliminations rapides, afin de bénéficier d'un bouclier de survie.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "jungle",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:compagnon-de-jungle"
+   ],
+   "conditions": [
+    "ton champion profite des combats longs ou craint les dégâts burst adverses"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Qb5YWQxgmzY",
+     "locator": "10:26",
+     "lang": "en",
+     "passage": "You should go green Smite if you have the following, okay? Which is: 1. Long fights, so you basically need to know that, let me say, the longer the fight goes, the better. Second thing, if your champion, let's say, gets really easily one shot",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "606-666s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Tryndamere (exemple)",
+    "Jax (exemple)",
+    "Xin Zhao (exemple)",
+    "Mordekaiser (exemple)",
+    "Lillia (exemple)",
+    "Amumu (exemple)",
+    "Gwen (exemple)",
+    "Master Yi (exemple)",
+    "Bel'Veth (exemple)",
+    "Malphite (exemple)",
+    "Briar (exemple)",
+    "Graves (exemple)"
+   ],
+   "action": "Sélectionne le compagnon vert si ton champion a besoin de résistance additionnelle dans les combats d'équipe.",
+   "observe": "Le joueur achète l'œuf vert pour un champion de type combattant ou tank en quête de survivabilité.",
+   "use": {
+    "when": "tu configures ton équipement de départ dans la boutique pour un champion axé sur les duels longs",
+    "why": "le compagnon vert fournit un bouclier protecteur et de la ténacité pour contrer le burst et survivre aux longs affrontements",
+    "who": "les junglers combattants, les champions profitant des combats longs et ceux vulnérables aux dégâts instantanés",
+    "how": [
+     "Vérifie si ton champion tire avantage de combats prolongés ou manque de résistance.",
+     "Achète l'œuf vert au début de la partie."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité sur le compagnon vert est rigoureusement appuyée par la transcription et présente un contexte d'usage complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Xc_CS1JFoFc-1",
+   "claim": "Selon Dishake : el Rukerno Kaénico es el objeto más eficiente para tanquear daño mágico explosivo gracias a su alta resistencia mágica base y su escudo antimagia que se regenera rápido.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "26.13"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Rukerno Kaénico"
+   ],
+   "conditions": [
+    "hay daño mágico explosivo en el equipo enemigo"
+   ],
+   "limits": [
+    "no brilla tanto contra daño continuo (DPS) debido al funcionamiento del escudo"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Xc_CS1JFoFc",
+     "locator": "[00:18]",
+     "lang": "es",
+     "passage": "Es de los objetos más eficientes en este momento para aguantar el daño mágico sin duda. ¿Quién se lo puede hacer que no se lo esté haciendo? Y por ejemplo un ADC de último ítem se lo puede hacer.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "0-58s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas explicitement qu'il faut éviter l'objet en cas de dégâts continus (DPS)."
+     }
+    }
+   ],
+   "mentions": [
+    "Fizz (exemple)",
+    "Ekko (exemple)",
+    "LeBlanc (exemple)",
+    "Ornn (exemple)",
+    "Jarvan IV (exemple)"
+   ],
+   "action": "Compra Rukerno Kaénico como último ítem con tu carry si el equipo enemigo cuenta con múltiples asesinos con daño mágico explosivo.",
+   "observe": "La supervivencia del carry tras recibir el combo inicial del enemigo en las teamfights.",
+   "use": {
+    "when": "estás en fase avanzada de la partida y el equipo rival cuenta con múltiples amenazas de daño mágico explosivo (burst)",
+    "why": "otorga 80 de resistencia mágica directa y un escudo antimagia regenerativo que evita que mueras por el daño instantáneo",
+    "who": "tanques, luchadores y carrys según los hitos de la partida",
+    "how": [
+     "Identifica si hay campeones enemigos con daño mágico explosivo que representen una amenaza directa.",
+     "Adquiere el Rukerno Kaénico como opción defensiva principal."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le patch 26.13 est antérieur à la fenêtre courante du ranked 26.21, le contenu nécessite d'être revalidé sous le patch actuel."
+   },
+   "published": "2026-09-24",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Xc_CS1JFoFc-4",
+   "claim": "Selon Dishake : la Fuerza de la Naturaleza es idónea para resistir daño mágico continuo (DPS) tras acumular ocho cargas de daño recibido, otorgando velocidad de movimiento y alta resistencia mágica.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "26.13"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Fuerza de la Naturaleza"
+   ],
+   "conditions": [
+    "el equipo rival inflige daño mágico continuo o DPS"
+   ],
+   "limits": [
+    "requiere recibir 8 instancias de daño para activar sus estadísticas máximas"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Xc_CS1JFoFc",
+     "locator": "[06:58]",
+     "lang": "es",
+     "passage": "La Fuerza de la Naturaleza es para daño continuo, pero tiene que ser verdaderamente para daño continuo, o sea te tiene que estar pegando una Cassiopeia, te tiene que estar pegando un Azir",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "398-458s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas explicitement qu'il faut l'éviter en cas de burst, il explique seulement qu'il faut que le dégât soit continu (DPS) car il faut se faire frapper 8 fois."
+     }
+    }
+   ],
+   "mentions": [
+    "Garen (exemple)",
+    "Darius (exemple)",
+    "Hecarim (exemple)",
+    "Cassiopeia (exemple)",
+    "Azir (exemple)",
+    "Malzahar (exemple)",
+    "Amumu (exemple)",
+    "Mordekaiser (exemple)",
+    "Jarvan IV (exemple)"
+   ],
+   "action": "Elige Fuerza de la Naturaleza en lugar de Rukerno Kaénico únicamente si el enemigo basa su daño mágico en DPS prolongado.",
+   "observe": "La acumulación de las cargas del objeto y el incremento de la velocidad de movimiento en pleno combate.",
+   "use": {
+    "when": "te enfrentas a campeones enemigos que infligen daño mágico sostenido a lo largo del tiempo",
+    "why": "otorga bonificaciones masivas de resistencia mágica y velocidad de movimiento tras acumular daño continuo",
+    "who": "tanques o luchadores sin movilidad excesiva que necesitan alcanzar objetivos",
+    "how": [
+     "Identifica si el daño del equipo rival es sostenido (DPS) y no explosivo.",
+     "Compra el objeto para aprovechar la resistencia acumulativa y la velocidad extra."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le patch 26.13 est antérieur à la fenêtre courante du ranked 26.21, le contenu nécessite d'être revalidé sous le patch actuel."
+   },
+   "published": "2026-09-24",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-tiTAC_t2Tns-1",
+   "claim": "Selon Misanthiel - Coach Toplane : le matchup de Vayne contre Malphite est extrêmement difficile pour Vayne, car elle subit le spam du Q de Malphite sans pouvoir répliquer efficacement ni sustain, et se montre très vulnérable aux ganks sans son Flash.",
+   "champions": [
+    "Vayne",
+    "Malphite"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "matchup",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Malphite"
+   },
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "Vayne joue contre Malphite sur la toplane",
+    "Vayne n'a pas de Flash"
+   ],
+   "limits": [
+    "Format court vidéo, détails limités sur les runes"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tiTAC_t2Tns",
+     "locator": "[00:02]",
+     "lang": "en",
+     "passage": "Numéro 1: Vayne contre Malphite.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "0-42s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-tiTAC_t2Tns",
+     "locator": "[00:18]",
+     "lang": "en",
+     "passage": "Vayne se fait poke petit à petit sans jamais pouvoir tuer Malphite et elle meurt de n'importe quel gank instantanément si elle n'a pas de Flash."
+    }
+   ],
+   "mentions": [],
+   "action": "Éviter de jouer Vayne face à Malphite ou jouer extrêmement prudemment en conservant le Flash.",
+   "observe": "La vulnérabilité de Vayne face aux dégâts magiques constants du Q de Malphite et aux ganks.",
+   "use": {
+    "when": "Tu joues Vayne sur la toplane face à un Malphite adverse.",
+    "why": "Vayne est un ADC sans sustain et sans portée, vulnérable au poke du Q de Malphite et à son ultime pour fermer l'écart.",
+    "who": "Joueurs de Vayne top",
+    "how": [
+     "Éviter les échanges prolongés face au spam de sorts de Malphite",
+     "Garder le sort Flash en réserve pour survivre aux ganks"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle à la transcription, son contexte d'usage est complet et décrit correctement la situation de matchup difficile."
+   },
+   "published": "2026-10-18",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-tiTAC_t2Tns-3",
+   "claim": "Selon Misanthiel - Coach Toplane : le matchup de Vayne contre Teemo est très difficile pour Vayne en raison du sort d'aveuglement (blind) spammable de Teemo, bien que Vayne puisse utiliser Cleanse pour contrer un de ces aveuglements et tenter un all-in.",
+   "champions": [
+    "Vayne",
+    "Teemo"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "matchup",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Teemo"
+   },
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "Vayne affronte Teemo sur la toplane"
+   ],
+   "limits": [
+    "Format court vidéo"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tiTAC_t2Tns",
+     "locator": "[00:44]",
+     "lang": "en",
+     "passage": "Numéro 3 : Vayne contre Teemo.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "24-84s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-tiTAC_t2Tns",
+     "locator": "[00:46]",
+     "lang": "en",
+     "passage": "Le Q de Teemo, c'est un blind spammable qui dure jusqu'à 3 secondes. Est-ce que j'ai besoin de vous faire un dessin ?"
+    }
+   ],
+   "mentions": [],
+   "action": "Jouer le sort Cleanse (Purge) avec Vayne pour enlever l'effet d'aveuglement de Teemo et profiter de cette fenêtre pour l'engager.",
+   "observe": "L'effet de l'aveuglement de Teemo qui paralyse les dégâts de base de Vayne.",
+   "use": {
+    "when": "Tu joues Vayne face à Teemo sur la toplane.",
+    "why": "Le sort Q de Teemo aveugle Vayne et dure longtemps, lui permettant de gagner les duels réguliers.",
+    "who": "Joueurs de Vayne top",
+    "how": [
+     "Équiper le sort d'invocateur Cleanse",
+     "Attendre l'utilisation du blind de Teemo, le purger et lancer un all-in"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité retranscrit fidèlement le conseil sur le matchup de Vayne contre Teemo avec des conditions et actions claires."
+   },
+   "published": "2026-10-18",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
   }
  ],
- "updatedAt": "2026-10-26T01:17:18.066Z"
+ "updatedAt": "2026-10-26T15:50:58.773Z"
 }

@@ -34,34 +34,46 @@ export function summarize(values) {
   return { n: s.length, p25: q(s, 0.25), p50, p75: q(s, 0.75), mad: q(dev, 0.5) };
 }
 
-export async function run() {
-  const rows = {};
-  let games = 0;
-  const patches = {};
+// Lignes de référence (une par joueur et par partie) : parties minute par minute et fins de partie, avec leur date
+export async function loadReferenceRows() {
+  const timelines = [], patches = {};
   for (const f of (await readdir(DIR).catch(() => [])).filter(f => f.endsWith(".json.gz"))) {
     let g; try { g = JSON.parse(gunzipSync(await readFile(`${DIR}/${f}`)).toString()); } catch { continue; }
-    let counted = false;
+    const game = { at: g.at ?? null, rows: [] };
     for (const p of g.match.info.participants) {
       let m; try { m = computeMetrics(g.match, g.timeline, p.puuid); } catch { continue; }
       if (!m.valid) continue;
-      counted = true;
-      for (const [k, v] of Object.entries(m.metrics)) ((rows[m.role] ||= {})[k] ||= []).push(v.value);
+      game.rows.push({ role: m.role, values: Object.fromEntries(Object.entries(m.metrics).map(([k, v]) => [k, v.value])) });
       if (m.patch) patches[m.patch] = (patches[m.patch] || 0) + 1 / 10;
     }
-    if (counted) games++;
+    if (game.rows.length) timelines.push(game);
   }
   const sample = JSON.parse(await readFile(SAMPLE, "utf8").catch(() => "null"));
-  const out = { metric_version: METRIC_VERSION, level: "Diamant et plus", region: "EUW", at: new Date().toISOString(), games, sample_games: sample?.matches?.length || 0, patches: Object.fromEntries(Object.entries(patches).map(([k, v]) => [k, Math.round(v)])), references: {} };
+  return { timelines, sample: sample?.matches || [], patches };
+}
+
+// Repères à partir des lignes ; before : seulement les parties commencées avant cette date (rejeu sans fuite, coach/replay-goals.mjs)
+export function referencesFrom({ timelines, sample, patches = {} }, { before = null } = {}) {
+  const rows = {};
+  const tl = timelines.filter(g => before == null || g.at < before);
+  for (const g of tl) for (const r of g.rows) for (const [k, v] of Object.entries(r.values)) ((rows[r.role] ||= {})[k] ||= []).push(v);
+  const kept = sample.filter(m => before == null || m.at < before);
+  const out = { metric_version: METRIC_VERSION, level: "Diamant et plus", region: "EUW", at: new Date().toISOString(), games: tl.length, sample_games: kept.length, before, patches: Object.fromEntries(Object.entries(patches).map(([k, v]) => [k, Math.round(v)])), references: {} };
   for (const [role, byKey] of Object.entries(rows)) for (const [k, vals] of Object.entries(byKey)) {
     if (!CATALOG[k]?.roles.includes(role)) continue;
     const s = summarize(vals);
     if (s) (out.references[role] ||= {})[k] = { ...s, level: out.level, source: "timelines" };
   }
-  if (sample?.matches) for (const [role, byKey] of Object.entries(sampleRows(sample.matches))) for (const [k, vals] of Object.entries(byKey)) {
+  for (const [role, byKey] of Object.entries(sampleRows(kept))) for (const [k, vals] of Object.entries(byKey)) {
     const s = summarize(vals), cur = out.references[role]?.[k];
     if (s && (!cur || s.n > cur.n)) (out.references[role] ||= {})[k] = { ...s, level: out.level, source: "fins-de-partie" };
   }
-  await writeFile("coach/cache/metric-references.json", JSON.stringify(out));
+  return out;
+}
+
+export async function run({ before = null, write = true } = {}) {
+  const out = referencesFrom(await loadReferenceRows(), { before });
+  if (write) await writeFile("coach/cache/metric-references.json", JSON.stringify(out));
   return out;
 }
 

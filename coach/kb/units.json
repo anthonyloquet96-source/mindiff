@@ -51634,527 +51634,6 @@
    "firstSeen": "2026-10-25"
   },
   {
-   "id": "u-ai-yt-ZzKpPJ_BNHM-6",
-   "claim": "Selon Skill Capped : la technique du demi-décalage ('half roam') consiste à pousser sa vague pour entrer en dead time, avancer jusqu'à mi-chemin de la rivière pour évaluer la situation, et revenir immédiatement sur sa voie si l'action n'est pas réalisable.",
-   "champions": [],
-   "roles": [
-    "top",
-    "mid"
-   ],
-   "themes": [
-    "lane",
-    "macro"
-   ],
-   "context": {
-    "queue": "tous",
-    "rank": "Master+",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": true,
-    "value": "14"
-   },
-   "metaDependent": false,
-   "dependsOn": [],
-   "conditions": [
-    "Tu as poussé ta vague de sbires pour créer une fenêtre de dead time"
-   ],
-   "limits": [],
-   "nature": "opinion",
-   "levelContext": "challenger",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-yt-ZzKpPJ_BNHM",
-     "locator": "[10:42]",
-     "lang": "en",
-     "passage": "A half roam looks like this: you push to enter dead time, then go halfway, check the state of the nearby lanes, if they're gankable you commit, if not, you head back to lane.",
-     "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "622-682s",
-      "said": true,
-      "supported": true
-     }
-    }
-   ],
-   "mentions": [],
-   "action": "Avance seulement jusqu'au milieu de la rivière lors de tes décalages pour observer la voie voisine sans perdre tes sbires si le gank échoue.",
-   "observe": "La visibilité et l'état des voies adjacentes depuis l'entrée de la rivière.",
-   "use": {
-    "when": "Tu as repoussé ta vague et tu hésites à décaler sur une voie voisine.",
-    "why": "Cela applique de la pression psychologique sur l'ennemi tout en minimisant le risque de perdre des sbires si l'action s'avère impossible.",
-    "who": "Laners (Top et Mid)",
-    "how": [
-     "Pousse ta vague pour obtenir du dead time.",
-     "Marche jusqu'au milieu de la rivière pour observer la situation des autres voies.",
-     "Engage-toi si la cible est vulnérable, ou rebrousse chemin vers ta voie si l'opportunité n'est pas bonne."
-    ],
-    "notWhen": ""
-   },
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [],
-    "why": "La technique du 'half roam' est précisément décrite et correspond au passage [10:42]."
-   },
-   "published": null,
-   "proposedStatus": "exploitable",
-   "analyst": "gemini-3.8-flash (extraction v2 + critique v2) · vidéo lue par gemini-3.8-flash",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v2",
-    "critique": "v2"
-   },
-   "analyzedAt": "2026-10-25",
-   "validity": {
-    "checkedAt": "2026-10-25",
-    "checkedPatch": "26.21"
-   },
-   "verified": {
-    "at": "2026-10-25",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-25"
-  },
-  {
-   "id": "u-ai-yt-7a5EBaZ-ems-1",
-   "claim": "Selon AloisNL : en Kai'Sa poke top, il est indispensable de démarrer avec la Lame de Doran pour obtenir l'évolution du sort A au niveau 9 grâce au bonus de dégâts d'attaque.",
-   "champions": [
-    "Kai'Sa"
-   ],
-   "roles": [
-    "top"
-   ],
-   "themes": [
-    "build",
-    "lane"
-   ],
-   "context": {
-    "queue": "solo",
-    "rank": "",
-    "region": ""
-   },
-   "patch": {
-    "known": true,
-    "value": "14.16"
-   },
-   "metaDependent": true,
-   "dependsOn": [
-    "Kai'Sa/Q",
-    "item:Lame de Doran"
-   ],
-   "conditions": [
-    "Ne pas vouloir le bonus de vitesse d'attaque immédiat d'un Arc de Doran face à un matchup très facile."
-   ],
-   "limits": [
-    "Contexte de la vidéo de coaching d'AloisNL par Drututt."
-   ],
-   "nature": "opinion",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-yt-7a5EBaZ-ems",
-     "locator": "[00:27]",
-     "lang": "en",
-     "passage": "It is very important to go D-Blade, because this character, to get your Q evo, you're legit getting it by like one point of AD. It's insanely tight, tighter than you, bro.",
-     "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "7-67s",
-      "said": true,
-      "supported": true
-     }
-    }
-   ],
-   "mentions": [],
-   "action": "Achète la Lame de Doran en premier objet en jeu avec Kai'Sa top.",
-   "observe": "L'obtention de l'évolution du sort A au niveau 9.",
-   "use": {
-    "when": "Au début de la partie lors de l'achat des objets de départ sur Kai'Sa top.",
-    "why": "Pour atteindre de justesse le seuil de dégâts d'attaque requis pour l'évolution du sort A.",
-    "who": "Kai'Sa top en build poke.",
-    "how": [
-     "Ouvre la boutique au début de la partie.",
-     "Achète la Lame de Doran à la place d'un autre objet de départ."
-    ],
-    "notWhen": "Si tu optes pour l'Arc de Doran face à un matchup extrêmement facile où tu n'as pas besoin de l'évolution du A aussi tôt."
-   },
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [],
-    "why": "L'unité est fidèle à la transcription et fournit un contexte d'usage complet."
-   },
-   "published": null,
-   "proposedStatus": "exploitable",
-   "analyst": "gemini-3.8-flash (extraction v2 + critique v2) · vidéo lue par gemini-3.8-flash",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v2",
-    "critique": "v2"
-   },
-   "analyzedAt": "2026-10-25",
-   "validity": {
-    "checkedAt": "2026-10-25",
-    "checkedPatch": "26.21"
-   },
-   "verified": {
-    "at": "2026-10-25",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-25"
-  },
-  {
-   "id": "u-ai-yt-7a5EBaZ-ems-3",
-   "claim": "Selon AloisNL : le combo de base de Kai'Sa poke consiste à lancer son Z, puis à utiliser son Ultime suivi d'un autre Z pour infliger un maximum de dégâts et de cumuls de plasma à distance.",
-   "champions": [
-    "Kai'Sa"
-   ],
-   "roles": [
-    "top"
-   ],
-   "themes": [
-    "champion",
-    "teamfight"
-   ],
-   "context": {
-    "queue": "solo",
-    "rank": "",
-    "region": ""
-   },
-   "patch": {
-    "known": true,
-    "value": "14.16"
-   },
-   "metaDependent": false,
-   "dependsOn": [
-    "Kai'Sa/W",
-    "Kai'Sa/R"
-   ],
-   "conditions": [
-    "Avoir son Z et son Ultime disponibles."
-   ],
-   "limits": [
-    "Nécessite d'avoir l'évolution du Z pour le remboursement du délai de récupération."
-   ],
-   "nature": "opinion",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-yt-7a5EBaZ-ems",
-     "locator": "[02:59]",
-     "lang": "en",
-     "passage": "W ult combo. This is your entire fucking character. This is genuinely your entire character.",
-     "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "159-219s",
-      "said": true,
-      "supported": true
-     }
-    },
-    {
-     "content": "c-yt-7a5EBaZ-ems",
-     "locator": "[17:16]",
-     "lang": "en",
-     "passage": "The way you do the combo is you W, then you R W, and then once you arrive and your W is done, you auto Q."
-    }
-   ],
-   "mentions": [],
-   "action": "Exécute le combo W, puis R W, puis attaque de base et A à l'arrivée.",
-   "observe": "L'enchaînement correct des compétences sur la cible.",
-   "use": {
-    "when": "Lorsque tu veux engager un adversaire ou participer à un combat d'équipe à distance avec Kai'Sa.",
-    "why": "Cela permet de maximiser les dégâts de poke et d'appliquer rapidement le plasma grâce au double impact du Z.",
-    "who": "Kai'Sa top orientée AP poke.",
-    "how": [
-     "Lance ton sort Z (Rayon du Néant) sur la cible.",
-     "Utilise ton sort R (Instinct meurtrier) pour te rapprocher tout en tirant un second Z dans les airs.",
-     "Une fois arrivé, enchaîne avec une attaque de base et ton sort A."
-    ],
-    "notWhen": ""
-   },
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [],
-    "why": "Le combo de base W-R-W est clairement explicité dans les passages avec un contexte complet."
-   },
-   "published": null,
-   "proposedStatus": "exploitable",
-   "analyst": "gemini-3.8-flash (extraction v2 + critique v2) · vidéo lue par gemini-3.8-flash",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v2",
-    "critique": "v2"
-   },
-   "analyzedAt": "2026-10-25",
-   "validity": {
-    "checkedAt": "2026-10-25",
-    "checkedPatch": "26.21"
-   },
-   "verified": {
-    "at": "2026-10-25",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-25"
-  },
-  {
-   "id": "u-ai-yt-RIro7KcXJP8-2",
-   "claim": "Selon perryjg : en tant que jungler, communique constamment tes intentions en utilisant les pings pour informer tes coéquipiers et dicter le plan de jeu.",
-   "champions": [],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "macro",
-    "vision"
-   ],
-   "context": {
-    "queue": "solo",
-    "rank": "Diamond II",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": true,
-    "value": "14.9"
-   },
-   "metaDependent": false,
-   "dependsOn": [],
-   "conditions": [
-    "Tu joues le rôle de jungler en file solo"
-   ],
-   "limits": [
-    "Demande une coordination avec des coéquipiers muets"
-   ],
-   "nature": "opinion",
-   "levelContext": "diamant",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-yt-RIro7KcXJP8",
-     "locator": "08:12",
-     "lang": "en",
-     "passage": "Ping these guys! That's your job as a jungler! You're literally doing nothing but farming camps. You literally need to ping.",
-     "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "472-532s",
-      "said": true,
-      "supported": true
-     }
-    }
-   ],
-   "mentions": [],
-   "action": "Utilise les pings de la carte pour indiquer tes objectifs et prévenir tes lignes de tes mouvements.",
-   "observe": "Vérifie si le jungler ping ses intentions avant de lancer un objectif ou un gank.",
-   "use": {
-    "when": "Tu es en train de farmer tes camps ou de préparer une action sur la carte en tant que jungler.",
-    "why": "Pour que tes coéquipiers sachent ce que tu veux faire et jouent autour.",
-    "who": "Joueurs de jungle",
-    "how": [
-     "Ouvre ta carte ou regarde les lignes",
-     "Utilise les pings 'En route' ou 'Attention' pour avertir tes coéquipiers de tes actions"
-    ],
-    "notWhen": ""
-   },
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [],
-    "why": "Le conseil macro sur l'utilisation des pings pour un jungler est parfaitement soutenu par la transcription et s'applique de manière générale."
-   },
-   "published": "2024-05-12",
-   "proposedStatus": "exploitable",
-   "analyst": "gemini-3.8-flash (extraction v2 + critique v2) · vidéo lue par gemini-3.8-flash",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v2",
-    "critique": "v2"
-   },
-   "analyzedAt": "2026-10-25",
-   "validity": {
-    "checkedAt": "2026-10-25",
-    "checkedPatch": "26.21"
-   },
-   "verified": {
-    "at": "2026-10-25",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-25"
-  },
-  {
-   "id": "u-ai-yt-RIro7KcXJP8-3",
-   "claim": "Selon perryjg : évite d'acheter des composants mineurs isolés comme des Épées longues si elles ne s'intègrent pas directement dans l'item final que tu souhaites compléter immédiatement, pour ne pas retarder ton pic de puissance.",
-   "champions": [],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "build"
-   ],
-   "context": {
-    "queue": "solo",
-    "rank": "Diamond II",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": true,
-    "value": "14.9"
-   },
-   "metaDependent": true,
-   "dependsOn": [],
-   "conditions": [
-    "Tu es dans la boutique avec de l'or après un retour à la base"
-   ],
-   "limits": [
-    "Dépend de l'arbre d'objets choisis"
-   ],
-   "nature": "opinion",
-   "levelContext": "diamant",
-   "usage": "correction",
-   "evidence": [
-    {
-     "content": "c-yt-RIro7KcXJP8",
-     "locator": "06:33",
-     "lang": "en",
-     "passage": "The extra Long Sword just like pushes you further from your first item. You don't ever want to do that.",
-     "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "373-433s",
-      "said": true,
-      "supported": true
-     }
-    }
-   ],
-   "mentions": [],
-   "action": "Achète les composants qui mènent directement à ton objet principal au lieu d'accumuler des petits objets annexes.",
-   "observe": "Regarde l'inventaire du joueur pour voir s'il achète des composants inutiles qui retardent son premier objet.",
-   "use": {
-    "when": "Tu ouvres la boutique à la base et tu hésites sur les composants à acheter.",
-    "why": "Pour ne pas retarder l'achat de ton premier objet complet.",
-    "who": "Tous les rôles et styles de jeu",
-    "how": [
-     "Vérifie la recette de ton objet principal",
-     "Achète uniquement les composants qui se construisent directement vers cet objet"
-    ],
-    "notWhen": ""
-   },
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [],
-    "why": "Le conseil d'optimisation d'achat correspond à la source et s'intègre bien dans la gestion de l'économie de la jungle."
-   },
-   "published": "2024-05-12",
-   "proposedStatus": "exploitable",
-   "analyst": "gemini-3.8-flash (extraction v2 + critique v2) · vidéo lue par gemini-3.8-flash",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v2",
-    "critique": "v2"
-   },
-   "analyzedAt": "2026-10-25",
-   "validity": {
-    "checkedAt": "2026-10-25",
-    "checkedPatch": "26.21"
-   },
-   "verified": {
-    "at": "2026-10-25",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-25"
-  },
-  {
-   "id": "u-ai-yt-RIro7KcXJP8-4",
-   "claim": "Selon perryjg : pour dominer une partie en jungle, applique une méthode en trois étapes : utilise activement tes pings, contrôle-toi en jouant pour les objectifs (quitte à délaisser tes camps), et collabore avec tes coéquipiers forts.",
-   "champions": [],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "macro",
-    "methode"
-   ],
-   "context": {
-    "queue": "solo",
-    "rank": "Diamond II",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": true,
-    "value": "14.9"
-   },
-   "metaDependent": false,
-   "dependsOn": [],
-   "conditions": [
-    "Tu joues en partie classée en tant que jungler"
-   ],
-   "limits": [
-    "Demande un minimum de lucidité et de communication"
-   ],
-   "nature": "opinion",
-   "levelContext": "diamant",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-yt-RIro7KcXJP8",
-     "locator": "61:18",
-     "lang": "en",
-     "passage": "So the three steps we used to completely dominate this game in this live coaching: number one, we actively used our pings; number two, we controlled ourselves, we played for objectives, we forsook our camps to play for objectives; and number three, we worked with our strong teammates to try and win the game.",
-     "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "3658-3718s",
-      "said": true,
-      "supported": true
-     }
-    }
-   ],
-   "mentions": [],
-   "action": "Joue en priorité pour les objectifs neutres et les coéquipiers forts, même si cela t'oblige à ignorer tes camps de jungle.",
-   "observe": "Observe si le jungler sacrifie ses camps pour se rendre disponible sur un objectif ou auprès d'un allié fort.",
-   "use": {
-    "when": "La partie est en cours et tu dois choisir entre farmer tes camps de jungle ou participer à la prise d'un objectif ou aider un allié fort.",
-    "why": "Pour simplifier la partie et maximiser les chances de victoire grâce aux objectifs et aux forces de ton équipe.",
-    "who": "Joueurs de jungle cherchant à progresser en macro",
-    "how": [
-     "Communique tes intentions en piquant sur la carte",
-     "Laisse de côté tes camps de jungle pour te positionner sur les objectifs",
-     "Joue avec tes coéquipiers les plus forts pour les appuyer"
-    ],
-    "notWhen": ""
-   },
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [],
-    "why": "La méthode en trois étapes résume fidèlement les conclusions du coaching de PerryJG et fournit un cadre macro clair."
-   },
-   "published": "2024-05-12",
-   "proposedStatus": "exploitable",
-   "analyst": "gemini-3.8-flash (extraction v2 + critique v2) · vidéo lue par gemini-3.8-flash",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v2",
-    "critique": "v2"
-   },
-   "analyzedAt": "2026-10-25",
-   "validity": {
-    "checkedAt": "2026-10-25",
-    "checkedPatch": "26.21"
-   },
-   "verified": {
-    "at": "2026-10-25",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-25"
-  },
-  {
    "id": "u-ai-yt-fOQBQn0X54M-1",
    "claim": "Selon Yiliang « Doublelift » Peng : garder la tourelle de la bot lane en vie permet de stabiliser et de contenir les sbires ennemis pour maintenir un contrôle de carte et provoquer des opportunités de dive ou d'embuscade.",
    "champions": [
@@ -52241,8 +51720,722 @@
    "firstSeen": "2026-10-25"
   },
   {
-   "id": "u-ai-yt-Fcb6lbPuclA-4",
-   "claim": "Selon Chreak : se positionner physiquement devant les sbires ennemis permet de modifier leur trajectoire et de repositionner la vague (bodyblock) pour obtenir le wave management souhaité.",
+   "id": "u-ai-yt-ZzKpPJ_BNHM-3",
+   "claim": "Selon Skill Capped : le concept de 'dead time' (temps mort) désigne la période où tous les camps de jungle ont été tués et où le jungler doit attendre leur réapparition. C'est le moment le plus sûr et le plus efficace pour aller faire des actions (ganks, objectifs) car rater son action ne coûte aucun farm.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir nettoyé l'intégralité de ses camps de jungle"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "04:00",
+     "lang": "en",
+     "passage": "So at its core, dead time is a simple concept. When a jungler such as this Taliyah farms her entire jungle, there's a period of time she has to wait until her camps start spawning again. This is what's called dead time",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "220-280s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "04:13",
+     "lang": "en",
+     "passage": "The reason why it's so valuable is that any play she makes during this time has much lower risk, since if it doesn't work out, she didn't give up any farm to do it. It's basically the most efficient time for you to fight."
+    }
+   ],
+   "mentions": [
+    "Taliyah (exemple)"
+   ],
+   "action": "Lance tes ganks et tes incursions uniquement lorsque tu es dans ton 'dead time' après avoir vidé ta jungle.",
+   "observe": "L'état de réapparition de tes camps de jungle sur la mini-carte.",
+   "use": {
+    "when": "Tu viens d'achever le nettoyage complet de tes camps de jungle et tu attends qu'ils réapparaissent.",
+    "why": "Tenter des actions en dehors de ce temps mort te fait perdre de l'or et de l'expérience précieux en abandonnant tes camps réapparus.",
+    "who": "Joueurs jouant le rôle de jungler",
+    "how": [
+     "Vide l'ensemble de tes camps de jungle pour déclencher ton temps mort.",
+     "Observe la carte pour initier un gank ou prendre un objectif pendant que tes camps sont morts."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Définition claire et utile du temps mort en jungle avec une situation et un objectif d'action précis."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-ZzKpPJ_BNHM-4",
+   "claim": "Selon Skill Capped : pour les laners, le 'dead time' correspond au laps de temps entre la mort ou l'évacuation de la vague actuelle et l'arrivée de la suivante (toutes les 30 secondes). Exécuter un rappel ou un roam pendant ce temps mort permet de ne rater aucun sbire.",
+   "champions": [],
+   "roles": [
+    "top",
+    "mid",
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir poussé la vague de sbires adverse sous la tourelle ou nettoyé la vague en cours"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "08:53",
+     "lang": "en",
+     "passage": "For example, it's why a good recall timing involves pushing the wave first. The time it takes for the next wave to arrive is your dead time as a laner.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "513-573s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "09:00",
+     "lang": "en",
+     "passage": "So you're executing your recall during your dead time, allowing you to get back to lane without missing any farm."
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse ta vague avant de faire un rappel ou un décalage pour profiter du temps mort entre deux vagues.",
+   "observe": "La position des sbires sur ta lane et le chronomètre d'apparition des vagues (toutes les 30 secondes).",
+   "use": {
+    "when": "Tu as nettoyé ou poussé la vague de sbires en cours sur ta lane et tu disposes d'une fenêtre de 30 secondes avant l'arrivée de la suivante.",
+    "why": "Recourir ou décaler pendant ce temps mort évite de perdre de l'or et de l'expérience sur les sbires suivants.",
+    "who": "Laners (Top, Mid, Bottom)",
+    "how": [
+     "Pousse rapidement la vague de sbires actuelle pour la faire s'écraser.",
+     "Exécute ton rappel ou ton déplacement vers une autre lane pendant le délai avant la vague suivante."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil macro intemporel bien contextualisé sur le timing des rappels et des vagues pour les laners."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-ZzKpPJ_BNHM-5",
+   "claim": "Selon Skill Capped : la technique du 'half roam' (demi-décalage) consiste à pousser sa vague pour entrer en dead time, puis à avancer seulement jusqu'à mi-chemin de la rivière pour observer si les lanes voisines sont gankables. Si elles le sont, l'action est engagée ; sinon, le joueur retourne immédiatement sur sa lane sans rater de sbires.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "support",
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir poussé sa vague pour déclencher le dead time"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "10:42",
+     "lang": "en",
+     "passage": "A half roam looks like this: you push to enter dead time, then go halfway, check the state of the nearby lanes, if they're gankable you commit, if not, you head back to lane.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "622-682s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Avance jusqu'au milieu de la rivière lors d'un décalage pour sonder les opportunités sans t'engager trop loin au risque de perdre des vagues.",
+   "observe": "La disposition des vagues sur ta lane et la position des ennemis sur la mini-carte.",
+   "use": {
+    "when": "Tu as poussé ta vague de sbires pour libérer ton temps et tu souhaites menacer les lanes adjacentes sans t'engager aveuglément.",
+    "why": "Cela applique une forte pression psychologique sur l'ennemi tout en évitant de perdre des sbires sur sa propre lane si le gank s'avère impossible.",
+    "who": "Laners cherchant à décaler sans sacrifier leur farm",
+    "how": [
+     "Pousse ta vague pour obtenir ton temps mort.",
+     "Avance jusqu'à la moitié de la rivière pour évaluer la situation des lanes voisines.",
+     "Engage le gank si l'adversaire est vulnérable, ou rentre sur ta lane si la situation n'est pas favorable."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Technique de demi-décalage bien explicitée, offrant une alternative sécurisée pour la gestion des vagues et de la carte."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-ZzKpPJ_BNHM-6",
+   "claim": "Selon Skill Capped : la technique du 'smother' (étouffement), utilisée par Faker en solo queue, consiste à ne pas s'acharner à tuer un adversaire mis très bas en PV s'il refuse de rappeler. En le laissant sur la lane, il se retrouve zoné et privé de farm ou condamné à mourir, tandis que le joueur profite de l'absence de menace pour farmer parfaitement et prendre des plaques de tourelle.",
+   "champions": [
+    "Tristana",
+    "Fizz"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Fizz"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir mis l'adversaire direct très bas en points de vie sans qu'il ne rappelle"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "11:59",
+     "lang": "en",
+     "passage": "At the same time, with Fizz this low, Tristana is under no threat, so she gets to focus on farming perfectly while possibly getting tower plates off pushes.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "699-759s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "12:12",
+     "lang": "en",
+     "passage": "This is known as the smother technique, and Faker uses it all the time to get big leads in solo queue."
+    }
+   ],
+   "mentions": [],
+   "action": "Concentre-toi sur le farm parfait et la prise de plaques lorsque ton vis-à-vis est très bas et reste sur la lane au lieu de le pourchasser aveuglément.",
+   "observe": "Les points de vie de ton adversaire direct et sa décision de rester en lane malgré sa faiblesse.",
+   "use": {
+    "when": "Tu as remporté un échange et ton vis-à-vis se retrouve extrêmement bas en points de vie sans avoir rappelé à la base.",
+    "why": "Forcer le kill aveuglément comporte des risques alors que le laisser sur place le prive de farm et permet d'engranger des plaques de tourelle en toute sécurité.",
+    "who": "Laners dominant leur vis-à-vis en duel",
+    "how": [
+     "Résiste à l'envie de le pourchasser sous sa tourelle si le kill n'est pas garanti.",
+     "Maintiens la pression en récupérant tous les derniers coups sur les sbires.",
+     "Attaque la tourelle pour accumuler des plaques pendant qu'il est contraint de reculer."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Concept d'étouffement (smother) clairement décrit avec une situation de jeu reconnaissable et une application concrète."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-7a5EBaZ-ems-1",
+   "claim": "Selon AloisNL : préférer la Lame de Doran comme objet de départ sur Kai'Sa top AP Poke afin d'obtenir l'évolution de son sort A (Pluie d'Icathia) de justesse grâce au bonus de dégâts d'attaque.",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.16"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Kai'Sa/Q",
+    "item:Lame de Doran"
+   ],
+   "conditions": [
+    "Jouer Kai'Sa top en build AP Poke"
+   ],
+   "limits": [
+    "Évolution du sort A très serrée"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-7a5EBaZ-ems",
+     "locator": "[00:27]",
+     "lang": "en",
+     "passage": "It is very important to go D-Blade, because this character, to get your Q evo, you're legit getting it by like one point of AD. It's insanely tight, tighter than you, bro.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "7-67s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète une Lame de Doran en premier objet pour atteindre l'évolution du sort A.",
+   "observe": "Le seuil de bonus AD pour l'évolution du sort A est atteint juste à temps.",
+   "use": {
+    "when": "au début de la partie lors du premier achat à la boutique",
+    "why": "pour obtenir l'évolution du sort A de justesse grâce au bonus d'AD",
+    "who": "Kai'Sa top en build AP Poke",
+    "how": [
+     "Achète Lame de Doran au tout début de la partie"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle au passage cité et décrit clairement l'achat et l'objectif de l'évolution du sort A."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-RIro7KcXJP8-2",
+   "claim": "Selon perryjg : erreur fréquente : acheter de multiples Épées longues en espérant s'orienter vers des objets comme la Danse de la mort ou Hydre vorace alors qu'on construit autre chose (comme Éclipse). Le coach conseille d'éviter d'accumuler des composants intermédiaires superflus pour ne pas retarder l'achat de son premier objet complet.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Diamond II",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14.9"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Épée longue"
+   ],
+   "conditions": [
+    "Avoir de l'or en boutique sans plan de build fixe pour ces composants"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-RIro7KcXJP8",
+     "locator": "[06:25]",
+     "lang": "en",
+     "passage": "Triple Long Sword. You don't Shojin doesn't buy build into these Long Swords.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "365-425s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-RIro7KcXJP8",
+     "locator": "[06:33]",
+     "lang": "en",
+     "passage": "No, but just buy extra CDR. The extra Long Sword just like pushes you further from your first item. You don't ever want to do that."
+    }
+   ],
+   "mentions": [],
+   "action": "Vérifie les composants de ton objet principal avant d'acheter des composants isolés comme des Épées longues.",
+   "observe": "Hecarim achète des Épées longues superflues dans la boutique.",
+   "use": {
+    "when": "tu es dans la boutique avec de l'or et tu hésites sur les composants intermédiaires à acheter avant ton premier item.",
+    "why": "l'achat de composants non nécessaires retarde l'obtention de ton premier objet complet.",
+    "who": "Hecarim",
+    "how": [
+     "Consulte les composants nécessaires à ton premier objet majeur.",
+     "Achète en priorité des items de réduction de délai de récupération ou la pièce maîtresse si le budget le permet.",
+     "Évite d'acheter des Épées longues en excès si elles ne mènent pas directement à ta construction active."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil d'achat et la critique des composants intermédiaires superflus sont fidèles au passage et exploitables pour le rôle de jungler."
+   },
+   "published": "2024-05-12",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-RIro7KcXJP8-3",
+   "claim": "Selon perryjg : pour dominer une partie en jungle, applique activement trois règles fondamentales : communique via les pings pour informer tes coéquipiers, contrôle tes impulsions en jouant pour les objectifs (quitte à délaisser tes camps), et collabore avec tes coéquipiers forts.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Diamond II",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14.9"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jouer le rôle de jungler"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-RIro7KcXJP8",
+     "locator": "[61:18]",
+     "lang": "en",
+     "passage": "So the three steps we used to completely dominate this game in this live coaching: number one, we actively used our pings; number two, we controlled ourselves, we played for objectives, we forsook our camps to play for objectives; and number three, we worked with our strong teammates to try and win the game.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "3658-3718s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utilise tes pings pour chaque action, priorise les objectifs neutres par rapport à tes camps de jungle, et joue autour de tes coéquipiers en avance.",
+   "observe": "Hecarim ping en continu sur la carte, se déplace vers les objectifs neutres et aide ses alliés forts.",
+   "use": {
+    "when": "tu es en partie en tant que jungler et tu dois décider entre clear tes camps ou jouer pour un objectif neutre / aider une ligne.",
+    "why": "cela permet de garder le contrôle de la partie, d'éviter les morts inutiles et de simplifier la victoire.",
+    "who": "Junglers",
+    "how": [
+     "Utilise tes pings activement pour indiquer tes intentions à tes coéquipiers.",
+     "Délaisse tes camps de jungle mineurs si un objectif neutre ou une tour est contestable.",
+     "Joue en synergie avec les coéquipiers qui ont l'avantage sur leur ligne."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Les trois étapes fondamentales de la domination en macro-jungle sont clairement explicitées et sourcées par la transcription."
+   },
+   "published": "2024-05-12",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Fcb6lbPuclA-1",
+   "claim": "Selon Chreak : une wave de sbires rapporte environ 125 golds de base, ce qui signifie qu'avec environ 16 sbires, tu obtiens l'équivalent financier d'un kill, constituant une source de ressources constante et souvent négligée.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.8"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "tu hésites entre aller chercher un kill incertain ou récupérer une wave entière sous ta tourelle"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Fcb6lbPuclA",
+     "locator": "00:47",
+     "lang": "fr",
+     "passage": "Une wave de sbires, c'est trois mêlées, trois range et un canon de temps en temps. Une wave te donne environ 125 golds et le nombre augmente au fil du temps avec le prix des canons.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "27-87s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-Fcb6lbPuclA",
+     "locator": "00:57",
+     "lang": "fr",
+     "passage": "Donc avec seulement 16 sbires environ, vous avez autant de golds que si vous preniez un kill."
+    }
+   ],
+   "mentions": [
+    "Garen (exemple)"
+   ],
+   "action": "Privilégie systématiquement le farm assuré d'une wave complète plutôt qu'un risque de kill lointain non garanti.",
+   "observe": "Le nombre de sbires tués par rapport au nombre de kills.",
+   "use": {
+    "when": "tu as le choix entre aller tenter un kill risqué ou récupérer des vagues de sbires en toute sécurité",
+    "why": "les sbires procurent une source de gold et d'expérience constante et sûre sans offrir de prime de mort (bounty) excessive à l'adversaire",
+    "who": "tous les postes",
+    "how": [
+     "Identifie la valeur de la wave sous ta tour ou sur ta lane",
+     "Compare-la au gain potentiel d'un kill lointain",
+     "Choisis de prioriser la récupération des sbires pour sécuriser ton or et ton expérience"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le principe de gestion des vagues et la valeur des golds sont fidèlement repris de la transcription et constituent un concept intemporel de macro-jeu sans dépendance à un champion spécifique."
+   },
+   "published": "2024-08-18",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Fcb6lbPuclA-2",
+   "claim": "Selon Chreak : toucher un sort ciblé (point and click) ou une auto-attaque sur un champion adverse provoque l'aggro des sbires ennemis, ce qui fait pousser ta vague pendant que la leur te cible.",
    "champions": [],
    "roles": [
     "all"
@@ -52253,7 +52446,7 @@
    ],
    "context": {
     "queue": "tous",
-    "rank": "non précisé",
+    "rank": "tous",
     "region": "non précisé"
    },
    "patch": {
@@ -52263,7 +52456,7 @@
    "metaDependent": false,
    "dependsOn": [],
    "conditions": [
-    "Se placer physiquement sur le chemin des sbires"
+    "tu souhaites initier un push au niveau 1"
    ],
    "limits": [],
    "nature": "opinion",
@@ -52272,55 +52465,3424 @@
    "evidence": [
     {
      "content": "c-yt-Fcb6lbPuclA",
-     "locator": "[03:20]",
+     "locator": "02:54",
      "lang": "fr",
-     "passage": "Se mettre devant les sbires te fait prendre l'aggro. Pratique pour pouvoir les balader et les repositionner sur ta lane pour obtenir le wave management que tu désires.",
+     "passage": "Toucher un point and click spell comme le Q d'Annie ou une auto-attaque sur un champion adverse te fait prendre l'aggro des minions. C'est quoi l'avantage ? Pendant que la wave adverse te focus toi, la tienne elle va push.",
+     "mentionOnly": true,
      "autoChecked": {
       "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "180-240s",
+      "at": "2026-10-26",
+      "window": "154-214s",
       "said": true,
       "supported": true
      }
     }
    ],
-   "mentions": [],
-   "action": "Intercepte brièvement les sbires en te plaçant devant eux pour bloquer leur avancée.",
-   "observe": "Le regroupement ou le décalage des sbires lorsque ton champion se place sur leur trajectoire.",
+   "mentions": [
+    "Annie (exemple)"
+   ],
+   "action": "Utilise une auto-attaque ou un sort ciblé sur ton adversaire pour attirer l'aggro des sbires et lancer ton push au niveau 1.",
+   "observe": "Le comportement des sbires adverses qui se tournent vers ton champion.",
    "use": {
-    "when": "Tu souhaites ajuster la position de la vague de sbires pour préparer un freeze ou éviter qu'elle ne s'écrase trop vite sous ta tourelle.",
-    "why": "Le contact physique avec les sbires attire leur attention ou bloque leur progression, permettant de caler la vague à l'endroit voulu.",
-    "who": "Tous les laners cherchant à contrôler l'emplacement du point de rencontre des vagues",
+    "when": "au début de la phase de lane pour prendre l'ascendant sur la vague",
+    "why": "la concentration des attaques de la wave adverse sur ton champion déséquilibre le nombre de sbires et fait progresser ta vague",
+    "who": "tous les joueurs en phase de lane",
     "how": [
-     "Place ton champion directement sur la trajectoire des sbires ennemis.",
-     "Encaisse ou attire l'aggro pour les faire dévier de quelques centimètres."
+     "Cible le champion ennemi avec une auto-attaque ou un sort point and click",
+     "Laisse l'aggro des sbires se porter sur toi pour faire avancer ta vague"
     ],
     "notWhen": ""
    },
    "aiReview": {
     "verdict": "garder",
     "flags": [],
-    "why": "Le concept de bodyblock des sbires est un principe fondamental intemporel correctement rapporté."
+    "why": "L'explication de l'aggro des sbires suite à une attaque ciblée (point-and-click) ou une auto-attaque est directement sourcée et correspond aux mécaniques fondamentales du jeu."
    },
    "published": "2024-08-18",
    "proposedStatus": "exploitable",
-   "analyst": "gemini-3.8-flash (extraction v2 + critique v2) · vidéo lue par gemini-3.6-flash",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
    "origin": "analyse-automatique",
    "promptVersions": {
-    "extraction": "v2",
-    "critique": "v2"
+    "extraction": "v3",
+    "critique": "v3"
    },
-   "analyzedAt": "2026-10-25",
+   "analyzedAt": "2026-10-26",
    "validity": {
-    "checkedAt": "2026-10-25",
+    "checkedAt": "2026-10-26",
     "checkedPatch": "26.21"
    },
    "verified": {
-    "at": "2026-10-25",
+    "at": "2026-10-26",
     "passages": true
    },
    "version": 1,
-   "firstSeen": "2026-10-25"
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Fcb6lbPuclA-3",
+   "claim": "Selon Chreak : toucher un sort de zone non-ciblé (skillshot) ne déclenche pas l'aggro des sbires, ce qui permet de harceler et de pousser la vague simultanément en toute sécurité.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.8"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "tu veux push la lane sans subir les dégâts des sbires ennemis"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Fcb6lbPuclA",
+     "locator": "03:12",
+     "lang": "fr",
+     "passage": "Toucher un skillshot comme le Q de Syndra ou le W de Camille ne te fait pas prendre l'aggro des minions. C'est très pratique pour pouvoir trade et push en même temps.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "172-232s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Syndra (exemple)",
+    "Camille (exemple)"
+   ],
+   "action": "Utilise tes compétences de type skillshot pour toucher l'adversaire à travers les sbires sans attirer leur attention.",
+   "observe": "L'absence de changement de cible des sbires ennemis lors de l'impact du sort.",
+   "use": {
+    "when": "quand tu veux infliger des dégâts à l'adversaire tout en progressant sur la vague sans prendre de dégâts superflus",
+    "why": "les sorts de type skillshot ne déclenchent pas la riposte des sbires",
+    "who": "les champions disposant de compétences de zone ou de tirs de précision",
+    "how": [
+     "Vise l'adversaire avec un skillshot",
+     "Inflige des dégâts sans attirer l'attention des sbires"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La distinction sur l'absence d'aggro des sbires avec les compétences de zone (skillshots) est exacte, fidèle au passage cité et intemporelle."
+   },
+   "published": "2024-08-18",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Fcb6lbPuclA-4",
+   "claim": "Selon Chreak : pour réussir un freeze efficace et durable, il est préférable d'avoir un maximum de sbires sous ton contrôle afin de réduire le risque de transformer involontairement le freeze en slow push et de tolérer de légers dégâts de zone.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.8"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "tu veux maintenir la vague proche de ta tourelle sans qu'elle ne s'écrase"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Fcb6lbPuclA",
+     "locator": "04:12",
+     "lang": "fr",
+     "passage": "La meilleure façon de freeze, peu importe la lane, c'est d'avoir le maximum de minions possible sur lesquels tu peux garder le contrôle. Plus tu en as, mieux c'est pour plusieurs raisons.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "232-292s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-Fcb6lbPuclA",
+     "locator": "04:28",
+     "lang": "fr",
+     "passage": "Ta wave va mourir plus vite, tu prends moins de risque de transformer le freeze en slow push en ayant trop peu de sbires, et si tu prends un trade pendant ton freeze avec un spell AOE comme le Q de Renek ou le Q de Darius, tu peux te permettre de toucher quelques minions sans que ça le casse.",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Renekton (exemple)",
+    "Darius (exemple)"
+   ],
+   "action": "Conserve un nombre important de sbires pour stabiliser le gel de la vague près de ta tour.",
+   "observe": "La position de la ligne de rencontre des vagues proche de ta tourelle.",
+   "use": {
+    "when": "quand tu souhaites geler la vague pour te mettre en sécurité ou préparer un gank",
+    "why": "avoir plus de sbires accélère la mort de la vague adverse et absorbe les dégâts de zone accidentels sans rompre le freeze",
+    "who": "les joueurs cherchant à geler leur lane",
+    "how": [
+     "Équilibre le nombre de sbires adverses et alliés",
+     "Maintiens une quantité importante de sbires pour sécuriser la zone de gel"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Les conseils sur le maintien d'un grand nombre de sbires pour stabiliser un freeze sont précisément retranscrits et s'appliquent de manière générale à la gestion des vagues."
+   },
+   "published": "2024-08-18",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Fcb6lbPuclA-5",
+   "claim": "Selon Chreak : le slow push consiste à tuer les sbires adverses le plus tard possible pour laisser le temps à tes vagues de s'accumuler, ce qui crée un avantage massif pour les trades, les dives ou les changements de rythme.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.8"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "tu veux préparer un gros push ou un dive avec une armée de sbires"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Fcb6lbPuclA",
+     "locator": "08:14",
+     "lang": "fr",
+     "passage": "Pour ce faire, il faut last hit le plus tard possible les sbires adverses pour laisser le temps à tes minions de s'accumuler avec la wave d'après.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "474-534s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Retarde tes derniers coups (last hits) sur les sbires ennemis pour accumuler tes vagues.",
+   "observe": "L'accumulation progressive d'une grande quantité de sbires alliés sur la lane.",
+   "use": {
+    "when": "quand tu domines le 1v1 et que tu souhaites préparer une action offensive sous la tour ennemie",
+    "why": "la vague accumulée empêche l'adversaire de t'attaquer directement à cause des dégâts infligés par les sbires",
+    "who": "les champions agressifs en phase de lane",
+    "how": [
+     "Attends le dernier moment pour porter le coup de grâce sur chaque sbire adverse",
+     "Laisse les vagues successives s'additionner pour former un groupe important"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La définition et la méthode du slow push en retardant les derniers coups sont directement appuyées par l'extrait et constituent une base de macro-jeu intemporelle."
+   },
+   "published": "2024-08-18",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-V-0395F1evY-1",
+   "claim": "Selon AloisNL : si tu es en 0-2 en début de partie, ton premier objectif doit être de stabiliser la situation pour ne pas prendre davantage de retard.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "survie",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Être en retard de 2 morts en début de partie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-V-0395F1evY",
+     "locator": "03:06",
+     "lang": "en",
+     "passage": "it's important, right? That you focus on not falling any further behind, that's your first goal right now.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-10-26",
+      "window": "166-226s",
+      "said": true,
+      "supported": true,
+      "gap": "La raison indiquée dans le champ 'pourquoi' n'est pas explicitement énoncée par AloisNL dans l'extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "Tu as concédé deux morts rapidement sur ta lane",
+    "why": "",
+    "who": "Tout joueur de top lane en difficulté",
+    "how": [
+     "Cesser de chercher des duels risqués",
+     "Se concentrer exclusivement sur la récupération du farm sous tour ou en sécurité",
+     "Éviter de mourir une troisième fois à tout prix"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil général de stabilisation en retard, fidèle à la citation et au contexte d'usage."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-V-0395F1evY-6",
+   "claim": "Selon AloisNL : adopte une macro de récolte de ressources stricte : vagues latérales, puis tourelles, puis camps de jungle si aucune tourelle n'est prenable.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "macro",
+    "vagues",
+    "jungle"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-V-0395F1evY",
+     "locator": "21:44",
+     "lang": "en",
+     "passage": "We are natural resource gatherers. We play side wave into turrets, if no turrets, then jungle camps, capiche? We don't join skirmishes unless there's absolutely nothing else to gather.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-10-26",
+      "window": "1284-1344s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas explicitement les objectifs majeurs (Baron, Dragon) comme contre-indication dans cet extrait, précisant seulement qu'il ne faut pas rejoindre d'escarmouches sauf s'il n'y a plus rien d'autre à récolter."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Suivre cet ordre de priorité pendant 3 parties pour maximiser ton gain d'or.",
+   "observe": "",
+   "use": {
+    "when": "Tu es en milieu de partie et tu dois décider de ton prochain mouvement",
+    "why": "Pour garantir un flux constant d'or et d'expérience sans dépendre de l'issue incertaine des combats.",
+    "who": "Top laners axés sur le split-push ou le scaling",
+    "how": [
+     "Pousser la vague sur une ligne latérale",
+     "Frapper la tourelle si elle est exposée",
+     "Prendre les camps de jungle (alliés ou ennemis) si la tourelle est trop risquée"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Ordre de priorité macro universel et intemporel pour la récolte des ressources."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-V-0395F1evY-11",
+   "claim": "Selon AloisNL : le proxy farming permet d'empêcher l'adversaire de rentrer à la base (recall) et de maintenir une pression de tempo, même si tu es derrière au score.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir la vision sur le jungler adverse"
+   ],
+   "limits": [
+    "Très risqué si tu n'as pas d'outils d'évasion"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-V-0395F1evY",
+     "locator": "04:25",
+     "lang": "en",
+     "passage": "Now Shen hasn't recalled yet because we proxied farm. We might be 0-2 in the starting position, however, it's fake data.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-10-26",
+      "window": "245-305s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur n'explicite pas la perte de plaques de tourelle comme raison, ni la position du jungler comme contre-indication dans cet extrait."
+     }
+    }
+   ],
+   "mentions": [
+    "Shen (exemple)"
+   ],
+   "action": "Tenter un proxy entre les tourelles T1 et T2 quand tu sais que le jungler est à l'opposé de la carte.",
+   "observe": "",
+   "use": {
+    "when": "Tu veux forcer ton adversaire à rester sur la lane avec peu de PV ou d'or",
+    "why": "",
+    "who": "Top laner avec une bonne capacité de nettoyage de vagues",
+    "how": [
+     "Passer derrière la tourelle ennemie",
+     "Tuer la vague de sbires dès qu'elle arrive",
+     "Utiliser le temps gagné pour frapper la tour ou voler la jungle"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe macro universel sur l'impact du proxy farming sur le tempo adverse."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-V-0395F1evY-13",
+   "claim": "Selon AloisNL : si tes coéquipiers commencent à te ping ou à te critiquer après un mauvais début de partie, coupe leurs communications (mute) immédiatement.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-V-0395F1evY",
+     "locator": "04:03",
+     "lang": "en",
+     "passage": "I might get pinged here. If you get pinged, mute, mute your team. It's not your fault.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-10-26",
+      "window": "223-283s",
+      "said": true,
+      "supported": false,
+      "gap": "La raison invoquée (préserver le moral et rester concentré sur les fondamentaux) est une interprétation de l'analyste et n'est pas formulée ainsi par l'auteur."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser la commande /mute all dès les premiers signes de toxicité.",
+   "observe": "",
+   "use": {
+    "when": "Tu es en retard et tes alliés deviennent toxiques",
+    "why": "",
+    "who": "Tout joueur en solo queue",
+    "how": [
+     "Ouvrir le tableau des scores",
+     "Cliquer sur l'icône de sourdine pour les pings et les messages"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil général de gestion du canal de discussion et du mental en solo queue."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-zziK5rQefTc-1",
+   "claim": "Selon Coach Leo : avant le début de la partie, planifie tes actions en identifiant les opportunités d'éliminations précoces à l'aide de la méthode VGM : Volatilité, Configuration de gank et Mobilité.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Être en phase de chargement ou au tout début de la partie"
+   ],
+   "limits": [
+    "Demande de l'expérience pour évaluer correctement la volatilité des voies"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[00:57]",
+     "lang": "en",
+     "passage": "Where can I get a kill? This simple question is one of, if not the most important things that you can ask yourself while you are loading into a game.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-10-26",
+      "window": "37-97s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[01:06]",
+     "lang": "en",
+     "passage": "The way you can find out where the highest chance of getting a kill is, is by following VGM: Volatility, Gank Setup, and Mobility."
+    }
+   ],
+   "mentions": [
+    "Xerath (exemple)",
+    "Brand (exemple)",
+    "Blitzcrank (exemple)",
+    "Pyke (exemple)",
+    "Seraphine (exemple)",
+    "Sona (exemple)",
+    "Cho'Gath (exemple)",
+    "Riven (exemple)",
+    "Annie (exemple)",
+    "Zed (exemple)",
+    "Syndra (exemple)",
+    "Darius (exemple)"
+   ],
+   "action": "Pose-toi la question 'Où puis-je obtenir un kill ?' pendant le chargement en analysant la volatilité, les contrôles et la mobilité des champions.",
+   "observe": "Les choix de champions et de sorts d'invocateur dans l'écran de chargement.",
+   "use": {
+    "when": "pendant que tu charges dans une partie de League of Legends",
+    "why": "pour trouver où la probabilité d'obtenir un kill est la plus élevée",
+    "who": "les joueurs jouant le poste de jungler",
+    "how": [
+     "Analyse la volatilité des voies en observant les champions, leurs runes et leurs sorts d'invocateur.",
+     "Évalue la présence de contrôles de foule fiables pour les ganks.",
+     "Examine la mobilité des champions adverses et leurs sorts d'invocateur."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement fidèle aux passages cités, présente un contexte d'usage complet et un principe macro intemporel."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-zziK5rQefTc-2",
+   "claim": "Selon Coach Leo : ne prends pas la priorité des voies en compte avant ton premier clear, car elle est trop inconstante et ne devient un facteur fiable qu'au-dessus du rang Diamant.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avant d'effectuer ton premier clear dans la jungle"
+   ],
+   "limits": [
+    "Moins pertinent dans les divisions supérieures à Diamant où la gestion des vagues est plus maîtrisée"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[03:20]",
+     "lang": "en",
+     "passage": "The importance of pathing towards priority is a little overblown and is not something to consider before your first clear.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "180-240s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[03:35]",
+     "lang": "en",
+     "passage": "Priority only becomes a consistent factor in an MMR above Diamond as laners start to understand their matchups."
+    }
+   ],
+   "mentions": [],
+   "action": "Ignore la priorité des vagues de tes coéquipiers lors de la planification initiale de ton premier cheminement dans la jungle.",
+   "observe": "L'état des vagues au tout début de la partie.",
+   "use": {
+    "when": "avant d'entamer ton premier clear dans la jungle",
+    "why": "car la gestion de la priorité par les laners est trop inconsistante à prédire dans les bas et moyens rangs",
+    "who": "les junglers cherchant à optimiser leur premier itinéraire",
+    "how": [
+     "Concentre ton cheminement de premier clear sur ton plan d'objectifs et tes duels plutôt que sur la position des vagues de tes alliés."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est bien soutenu par les citations, la nuance sur le rang Diamant est clairement posée."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-zziK5rQefTc-3",
+   "claim": "Selon Coach Leo : en cas d'affrontement 1v1 lors d'un invade dans la jungle, celui qui commence le buff perd généralement le combat car il encaisse les dégâts du monstre et utilise ses sorts.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "matchup",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Lors d'un combat singulier face au jungler adverse au moment de nettoyer un camp de buff"
+   ],
+   "limits": [
+    "Dépend de l'écart d'or et de PV actuel entre les deux champions"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[06:18]",
+     "lang": "en",
+     "passage": "Note: when it comes to jungle 1v1s and invades, the rule is whoever starts the buff loses. The reason for this is because they are the ones tanking the buff, using their spells, and the other jungler gets the first hit.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "358-418s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Interromps ton attaque sur le buff si le jungler ennemi t'attaque, pour éviter d'encaisser à la fois les dégâts du camp et ceux de l'adversaire.",
+   "observe": "La position du jungler ennemi lorsqu'il entre dans ton camp de buff.",
+   "use": {
+    "when": "lorsque tu es en train d'attaquer un monstre de buff et que le jungler ennemi t'envahit",
+    "why": "parce que tu tankes le monstre, utilises tes sorts et subis la première attaque de l'adversaire",
+    "who": "les junglers se trouvant face à une tentative d'invasion ennemie sur un buff",
+    "how": [
+     "Arrête de cibler le monstre du camp si l'ennemi engage.",
+     "Riposte immédiatement sur le champion ennemi pour lui faire encaisser les dégâts du camp ou l'obliger à reculer."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La règle empirique est directement tirée et justifiée par le passage textuel de la transcription."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-zziK5rQefTc-4",
+   "claim": "Selon Coach Leo : utilise le 'Spare Tempo' (temps libre de fin de clear) pour placer des balises de profondeur, ganker ou aider une voie à pousser, sans pour autant compromettre ton timing de réapparition des camps.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vision",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Après avoir terminé un plein clear de la jungle avant la réapparition des premiers camps"
+   ],
+   "limits": [
+    "Nécessite d'avoir terminé le premier clear efficacement et à l'heure"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[10:58]",
+     "lang": "en",
+     "passage": "At the end of a clear, you will have something called spare tempo, meaning you have free time while you are waiting for your next cycle of camps to spawn, assuming we just full cleared.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "638-698s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[11:48]",
+     "lang": "en",
+     "passage": "So for example, during our spare tempo, you should be looking to use this time to gank a lane, burn summoner spells, place deep vision on enemy camps, or even help a lane push their wave out."
+    }
+   ],
+   "mentions": [],
+   "action": "Mets à profit les 30 secondes de répit après ton premier clear complet pour placer de la vision profonde ou exercer une pression ennemie.",
+   "observe": "Le chronomètre affichant la réapparition de ton premier camp vers 4:20 après avoir fini le crabe vers 3:40.",
+   "use": {
+    "when": "quand tu as validé ton premier clear complet et que tu attends la réapparition de tes camps",
+    "why": "pour maximiser ton impact sur la carte sans perdre en efficacité de farm",
+    "who": "les junglers effectuant un nettoyage complet (full clear)",
+    "how": [
+     "Utilise le temps excédentaire pour ganker, placer une balise de vision profonde dans la jungle ennemie ou aider à pousser une vague.",
+     "Reviens à temps pour le respawn de ton premier camp à 4:20."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le concept de 'spare tempo' est précisément décrit et soutenu par les citations de l'auteur."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-zziK5rQefTc-5",
+   "claim": "Selon Coach Leo : au niveau 1, suis la foule si tes coéquipiers décident d'envahir la jungle ennemie, puis assure-toi de revenir à ton propre camp avant son apparition en rappelant avant 1:00 si nécessaire.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "survie",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tes quatre coéquipiers décident de lancer un invade au niveau 1"
+   ],
+   "limits": [
+    "Demande de surveiller attentivement le chronomètre de la partie pour ne pas rater le spawn du buff"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[14:07]",
+     "lang": "en",
+     "passage": "The answer is that you should actually always follow the crowd. Typically the team with more synergy will come out ahead of these chaotic situations.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "827-887s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-zziK5rQefTc",
+     "locator": "[14:26]",
+     "lang": "en",
+     "passage": "Basing before 1:00 will always ensure that is possible. You just need to be a bit careful re-entering the opposite side that you invaded on, as enemies could be waiting there."
+    }
+   ],
+   "mentions": [],
+   "action": "Accompagne tes coéquipiers lors d'un invade niveau 1 et effectue un rappel avant 1:00 pour revenir à ton camp de départ à temps.",
+   "observe": "Les mouvements de tes coéquipiers vers la jungle ennemie au début de la partie.",
+   "use": {
+    "when": "lorsque tes quatre coéquipiers décident de foncer dans la jungle ennemie pour envahir au niveau 1",
+    "why": "pour maximiser les chances de succès de l'action collective et éviter d'être isolé",
+    "who": "les junglers dont l'équipe initie un invade de niveau 1",
+    "how": [
+     "Suis tes coéquipiers dans l'invasion de la jungle ennemie.",
+     "Appuie sur la touche de rappel avant 1:00 pour regagner ta base.",
+     "Rejoins ton camp de départ en faisant attention aux ennemis embusqués."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La consigne de suivre l'équipe lors des invades niveau 1 et de rappeler avant 1:00 est conforme aux sources."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-7ZZEBbT_qzQ-2",
+   "claim": "Selon Coach Kirei : ne fais pas le Scuttle Crab si tes camps réguliers sont de nouveau disponibles, car prioriser tes camps t'apporte plus de tempo pour aider tes laners et punir les ennemis.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tes camps réguliers sont réapparus"
+   ],
+   "limits": [
+    "Démontré dans une partie de niveau Master"
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-7ZZEBbT_qzQ",
+     "locator": "[03:17]",
+     "lang": "en",
+     "passage": "And you see the top crab? Don't go for that. If your regular camps are up, take your camps first. Why is that? It's for the following reason. 1: You have more tempo, which allows you to help your laners if they need help.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "177-237s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Priorise tes camps de jungle principaux par rapport au Scuttle Crab s'ils sont disponibles.",
+   "observe": "L'apparition des camps de jungle sur la mini-carte par rapport aux crabes de rivière.",
+   "use": {
+    "when": "Le Scuttle Crab est disponible dans la rivière mais tes camps de jungle viennent de réapparaître.",
+    "why": "Cela te donne plus de tempo pour être présent sur les lignes plus rapidement et sauver ou aider tes alliés.",
+    "who": "Junglers",
+    "how": [
+     "Vérifie l'état de réapparition de tes camps de jungle.",
+     "Ignore le crabe de rivière si tes camps sont levés et nettoie ta jungle en premier."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": ""
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Qb5YWQxgmzY-1",
+   "claim": "Selon Coach Kirei : en tant que jungler, ne pousse pas les vagues sur les lanes si tes camps sont vivants, car tu subis une réduction importante d'expérience sur les sbires.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:experience-sbires-jungle"
+   ],
+   "conditions": [
+    "tes camps de jungle sont réapparus"
+   ],
+   "limits": [
+    "ne s'applique pas si tu es 1.5 niveaux en retard"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Qb5YWQxgmzY",
+     "locator": "00:18",
+     "lang": "en",
+     "passage": "So, what should you never ever do? If let's say your laners are dead, you don't want to push a wave, okay? If you have your camps up, it's so much more important to retake your camps instead of taking minions.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "0-58s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Nettoie tes camps de jungle au lieu de pousser la vague si tes camps sont disponibles.",
+   "observe": "Le jungler se dirige vers ses camps réapparus au lieu de rester sur la lane pour tuer les sbires.",
+   "use": {
+    "when": "tes camps de jungle sont disponibles et tu t'apprêtes à toucher les sbires d'une lane",
+    "why": "tu subis une réduction d'expérience importante sur les sbires de lane tant que tu n'as pas de retard significatif de niveau",
+    "who": "les joueurs jouant le rôle de jungler",
+    "how": [
+     "Vérifie si tes camps de jungle sont réapparus sur ta minicarte.",
+     "Ignore la vague de sbires et dirige-toi vers tes camps pour les farmer."
+    ],
+    "notWhen": "si tu es 1.5 niveaux ou plus en retard par rapport à la moyenne de la partie"
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle au passage cité, son contexte d'usage est complet et repose sur un principe système intemporel de la jungle."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Qb5YWQxgmzY-2",
+   "claim": "Selon Coach Kirei : planifie ton premier passage et ton timing de clear pour terminer ton camp des Krugs exactement à 05:30 afin d'obtenir immédiatement la première amélioration de ton compagnon et ton Châtiment déchaîné.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:quetes-de-role",
+    "item:compagnon-de-jungle"
+   ],
+   "conditions": [
+    "tu effectues ton second passage dans la jungle autour de 5 minutes de jeu"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Qb5YWQxgmzY",
+     "locator": "03:19",
+     "lang": "en",
+     "passage": "5:30, you should finish your Golems. Then you get upgraded Smite, the enemy jungle doesn't, and then you basically win a Drake fight or Scuttle and you get level 6 advantage.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "179-239s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Gère le timing de tes camps pour finir les Krugs à 05:30 et récupérer ta friandise bonus instantanément.",
+   "observe": "Le jungler termine son camp de Krugs à 05:30 et obtient son Châtiment amélioré juste avant un objectif.",
+   "use": {
+    "when": "la partie atteint l'horloge de 05:15 et tes camps secondaires réapparaissent",
+    "why": "cela te permet d'obtenir ton Châtiment amélioré avant le jungler adverse pour sécuriser les objectifs comme le Dragon ou le Carapateur",
+    "who": "les joueurs jouant le rôle de jungler",
+    "how": [
+     "Surveille le chronomètre de jeu à l'approche de 05:15.",
+     "Attends l'apparition de la friandise bonus à 05:30 sur ton camp de Krugs avant de porter le dernier coup."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est étayé par le passage, le timing est précis et le contexte d'usage correspond à une situation claire en jeu."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Qb5YWQxgmzY-5",
+   "claim": "Selon Coach Kirei : choisis le compagnon bleu (Gustwalker) si ton champion a besoin d'accélérer sa vitesse de déplacement pour combler la distance et excelle dans la création de pièges et de duels sur les side lanes.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "jungle",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:compagnon-de-jungle"
+   ],
+   "conditions": [
+    "ton champion manque de mobilité pour engager ou profite de la vitesse de déplacement pour faire des picks"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Qb5YWQxgmzY",
+     "locator": "08:41",
+     "lang": "en",
+     "passage": "These champions have one thing in common. They need to gap close and get to the enemy team. And another thing, if they have tempo and they can clear faster or walk faster in bushes, they can basically make more sidelane picks.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "501-561s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Nasus (exemple)",
+    "Darius (exemple)",
+    "Nautilus (exemple)",
+    "Hecarim (exemple)",
+    "Nunu (exemple)",
+    "Ivern (exemple)",
+    "Rengar (exemple)",
+    "Talon (exemple)",
+    "Evelynn (exemple)",
+    "Qiyana (exemple)",
+    "Kha'Zix (exemple)"
+   ],
+   "action": "Sélectionne le compagnon bleu si tu joues un assassin ou un champion nécessitant un meilleur accès aux cibles.",
+   "observe": "Le joueur sélectionne l'œuf bleu pour un champion misant sur la mobilité et les escarmouches.",
+   "use": {
+    "when": "tu sélectionnes ton œuf de compagnon au spawn avec un champion manquant de mobilité brute",
+    "why": "le compagnon bleu octroie un bonus de vitesse de déplacement dans les buissons et après avoir nettoyé un camp",
+    "who": "les junglers assassins ou les champions axés sur le tempo et les duels en side lane",
+    "how": [
+     "Vérifie si ton champion doit combler une distance pour atteindre ses ennemis.",
+     "Achète l'œuf bleu en début de partie."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil concernant le compagnon bleu est directement tiré du passage et détaille clairement quand et pour qui l'utiliser."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Qb5YWQxgmzY-6",
+   "claim": "Selon Coach Kirei : choisis le compagnon vert (Mosstomper) si ton champion participe à de longs combats prolongés ou s'expose facilement à des éliminations rapides, afin de bénéficier d'un bouclier de survie.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "jungle",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:compagnon-de-jungle"
+   ],
+   "conditions": [
+    "ton champion profite des combats longs ou craint les dégâts burst adverses"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Qb5YWQxgmzY",
+     "locator": "10:26",
+     "lang": "en",
+     "passage": "You should go green Smite if you have the following, okay? Which is: 1. Long fights, so you basically need to know that, let me say, the longer the fight goes, the better. Second thing, if your champion, let's say, gets really easily one shot",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "606-666s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Tryndamere (exemple)",
+    "Jax (exemple)",
+    "Xin Zhao (exemple)",
+    "Mordekaiser (exemple)",
+    "Lillia (exemple)",
+    "Amumu (exemple)",
+    "Gwen (exemple)",
+    "Master Yi (exemple)",
+    "Bel'Veth (exemple)",
+    "Malphite (exemple)",
+    "Briar (exemple)",
+    "Graves (exemple)"
+   ],
+   "action": "Sélectionne le compagnon vert si ton champion a besoin de résistance additionnelle dans les combats d'équipe.",
+   "observe": "Le joueur achète l'œuf vert pour un champion de type combattant ou tank en quête de survivabilité.",
+   "use": {
+    "when": "tu configures ton équipement de départ dans la boutique pour un champion axé sur les duels longs",
+    "why": "le compagnon vert fournit un bouclier protecteur et de la ténacité pour contrer le burst et survivre aux longs affrontements",
+    "who": "les junglers combattants, les champions profitant des combats longs et ceux vulnérables aux dégâts instantanés",
+    "how": [
+     "Vérifie si ton champion tire avantage de combats prolongés ou manque de résistance.",
+     "Achète l'œuf vert au début de la partie."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité sur le compagnon vert est rigoureusement appuyée par la transcription et présente un contexte d'usage complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Xc_CS1JFoFc-1",
+   "claim": "Selon Dishake : el Rukerno Kaénico es el objeto más eficiente para tanquear daño mágico explosivo gracias a su alta resistencia mágica base y su escudo antimagia que se regenera rápido.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "26.13"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Rukerno Kaénico"
+   ],
+   "conditions": [
+    "hay daño mágico explosivo en el equipo enemigo"
+   ],
+   "limits": [
+    "no brilla tanto contra daño continuo (DPS) debido al funcionamiento del escudo"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Xc_CS1JFoFc",
+     "locator": "[00:18]",
+     "lang": "es",
+     "passage": "Es de los objetos más eficientes en este momento para aguantar el daño mágico sin duda. ¿Quién se lo puede hacer que no se lo esté haciendo? Y por ejemplo un ADC de último ítem se lo puede hacer.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "0-58s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas explicitement qu'il faut éviter l'objet en cas de dégâts continus (DPS)."
+     }
+    }
+   ],
+   "mentions": [
+    "Fizz (exemple)",
+    "Ekko (exemple)",
+    "LeBlanc (exemple)",
+    "Ornn (exemple)",
+    "Jarvan IV (exemple)"
+   ],
+   "action": "Compra Rukerno Kaénico como último ítem con tu carry si el equipo enemigo cuenta con múltiples asesinos con daño mágico explosivo.",
+   "observe": "La supervivencia del carry tras recibir el combo inicial del enemigo en las teamfights.",
+   "use": {
+    "when": "estás en fase avanzada de la partida y el equipo rival cuenta con múltiples amenazas de daño mágico explosivo (burst)",
+    "why": "otorga 80 de resistencia mágica directa y un escudo antimagia regenerativo que evita que mueras por el daño instantáneo",
+    "who": "tanques, luchadores y carrys según los hitos de la partida",
+    "how": [
+     "Identifica si hay campeones enemigos con daño mágico explosivo que representen una amenaza directa.",
+     "Adquiere el Rukerno Kaénico como opción defensiva principal."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le patch 26.13 est antérieur à la fenêtre courante du ranked 26.21, le contenu nécessite d'être revalidé sous le patch actuel."
+   },
+   "published": "2026-09-24",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Xc_CS1JFoFc-4",
+   "claim": "Selon Dishake : la Fuerza de la Naturaleza es idónea para resistir daño mágico continuo (DPS) tras acumular ocho cargas de daño recibido, otorgando velocidad de movimiento y alta resistencia mágica.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "26.13"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Fuerza de la Naturaleza"
+   ],
+   "conditions": [
+    "el equipo rival inflige daño mágico continuo o DPS"
+   ],
+   "limits": [
+    "requiere recibir 8 instancias de daño para activar sus estadísticas máximas"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Xc_CS1JFoFc",
+     "locator": "[06:58]",
+     "lang": "es",
+     "passage": "La Fuerza de la Naturaleza es para daño continuo, pero tiene que ser verdaderamente para daño continuo, o sea te tiene que estar pegando una Cassiopeia, te tiene que estar pegando un Azir",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "398-458s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas explicitement qu'il faut l'éviter en cas de burst, il explique seulement qu'il faut que le dégât soit continu (DPS) car il faut se faire frapper 8 fois."
+     }
+    }
+   ],
+   "mentions": [
+    "Garen (exemple)",
+    "Darius (exemple)",
+    "Hecarim (exemple)",
+    "Cassiopeia (exemple)",
+    "Azir (exemple)",
+    "Malzahar (exemple)",
+    "Amumu (exemple)",
+    "Mordekaiser (exemple)",
+    "Jarvan IV (exemple)"
+   ],
+   "action": "Elige Fuerza de la Naturaleza en lugar de Rukerno Kaénico únicamente si el enemigo basa su daño mágico en DPS prolongado.",
+   "observe": "La acumulación de las cargas del objeto y el incremento de la velocidad de movimiento en pleno combate.",
+   "use": {
+    "when": "te enfrentas a campeones enemigos que infligen daño mágico sostenido a lo largo del tiempo",
+    "why": "otorga bonificaciones masivas de resistencia mágica y velocidad de movimiento tras acumular daño continuo",
+    "who": "tanques o luchadores sin movilidad excesiva que necesitan alcanzar objetivos",
+    "how": [
+     "Identifica si el daño del equipo rival es sostenido (DPS) y no explosivo.",
+     "Compra el objeto para aprovechar la resistencia acumulativa y la velocidad extra."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le patch 26.13 est antérieur à la fenêtre courante du ranked 26.21, le contenu nécessite d'être revalidé sous le patch actuel."
+   },
+   "published": "2026-09-24",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-tiTAC_t2Tns-1",
+   "claim": "Selon Misanthiel - Coach Toplane : le matchup de Vayne contre Malphite est extrêmement difficile pour Vayne, car elle subit le spam du Q de Malphite sans pouvoir répliquer efficacement ni sustain, et se montre très vulnérable aux ganks sans son Flash.",
+   "champions": [
+    "Vayne",
+    "Malphite"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "matchup",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Malphite"
+   },
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "Vayne joue contre Malphite sur la toplane",
+    "Vayne n'a pas de Flash"
+   ],
+   "limits": [
+    "Format court vidéo, détails limités sur les runes"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tiTAC_t2Tns",
+     "locator": "[00:02]",
+     "lang": "en",
+     "passage": "Numéro 1: Vayne contre Malphite.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "0-42s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-tiTAC_t2Tns",
+     "locator": "[00:18]",
+     "lang": "en",
+     "passage": "Vayne se fait poke petit à petit sans jamais pouvoir tuer Malphite et elle meurt de n'importe quel gank instantanément si elle n'a pas de Flash."
+    }
+   ],
+   "mentions": [],
+   "action": "Éviter de jouer Vayne face à Malphite ou jouer extrêmement prudemment en conservant le Flash.",
+   "observe": "La vulnérabilité de Vayne face aux dégâts magiques constants du Q de Malphite et aux ganks.",
+   "use": {
+    "when": "Tu joues Vayne sur la toplane face à un Malphite adverse.",
+    "why": "Vayne est un ADC sans sustain et sans portée, vulnérable au poke du Q de Malphite et à son ultime pour fermer l'écart.",
+    "who": "Joueurs de Vayne top",
+    "how": [
+     "Éviter les échanges prolongés face au spam de sorts de Malphite",
+     "Garder le sort Flash en réserve pour survivre aux ganks"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle à la transcription, son contexte d'usage est complet et décrit correctement la situation de matchup difficile."
+   },
+   "published": "2026-10-18",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-tiTAC_t2Tns-3",
+   "claim": "Selon Misanthiel - Coach Toplane : le matchup de Vayne contre Teemo est très difficile pour Vayne en raison du sort d'aveuglement (blind) spammable de Teemo, bien que Vayne puisse utiliser Cleanse pour contrer un de ces aveuglements et tenter un all-in.",
+   "champions": [
+    "Vayne",
+    "Teemo"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "matchup",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Teemo"
+   },
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "Vayne affronte Teemo sur la toplane"
+   ],
+   "limits": [
+    "Format court vidéo"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tiTAC_t2Tns",
+     "locator": "[00:44]",
+     "lang": "en",
+     "passage": "Numéro 3 : Vayne contre Teemo.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "24-84s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-tiTAC_t2Tns",
+     "locator": "[00:46]",
+     "lang": "en",
+     "passage": "Le Q de Teemo, c'est un blind spammable qui dure jusqu'à 3 secondes. Est-ce que j'ai besoin de vous faire un dessin ?"
+    }
+   ],
+   "mentions": [],
+   "action": "Jouer le sort Cleanse (Purge) avec Vayne pour enlever l'effet d'aveuglement de Teemo et profiter de cette fenêtre pour l'engager.",
+   "observe": "L'effet de l'aveuglement de Teemo qui paralyse les dégâts de base de Vayne.",
+   "use": {
+    "when": "Tu joues Vayne face à Teemo sur la toplane.",
+    "why": "Le sort Q de Teemo aveugle Vayne et dure longtemps, lui permettant de gagner les duels réguliers.",
+    "who": "Joueurs de Vayne top",
+    "how": [
+     "Équiper le sort d'invocateur Cleanse",
+     "Attendre l'utilisation du blind de Teemo, le purger et lancer un all-in"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité retranscrit fidèlement le conseil sur le matchup de Vayne contre Teemo avec des conditions et actions claires."
+   },
+   "published": "2026-10-18",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-Y9iqq6Vl4fM-3",
+   "claim": "Selon Coach Leo : diana et Gwen sont des champions de farm intensif qui demandent une grande maîtrise mécanique, notamment sur l'espacement (spacing) et la connaissance des limites de dégâts.",
+   "champions": [
+    "Diana",
+    "Gwen"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "build",
+    "jungle"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Diamond, Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.18"
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "Build orienté dégâts (AP)",
+    "Maîtrise du spacing"
+   ],
+   "limits": [
+    "Plus fragiles que leurs anciennes versions tanks"
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Y9iqq6Vl4fM",
+     "locator": "03:26",
+     "lang": "en",
+     "passage": "Diana and Gwen are like full clear champions, but the problem is is that they're way more mechanically intensive than like an Amumu or a Fiddlesticks. That's a big difference. Lots more about spacing, lots more about limit testing",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "186-246s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pratiquer le spacing en combat pour maximiser les dégâts tout en évitant les retours de bâton.",
+   "observe": "La capacité à survivre en combat rapproché malgré un build fragile.",
+   "use": {
+    "when": "Tu joues Diana ou Gwen avec un build de dégâts et tu dois engager un combat.",
+    "why": "Depuis qu'elles ne se jouent plus tank, leur survie dépend uniquement de la précision mécanique et du positionnement.",
+    "who": "Joueurs de niveau Diamant ou plus.",
+    "how": [
+     "Optimiser le farm pour atteindre rapidement tes objets de dégâts.",
+     "Tester tes limites de dégâts en escarmouche (limit testing).",
+     "Maintenir une distance optimale (spacing) pour ne pas subir de burst inutile."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "L'unité se base sur un patch obsolète (14.18) et demande une mise à jour de contexte."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-YLgMgbuZ0Zk-1",
+   "claim": "Selon Dishake : la vague de sbires possède trois états uniques : elle pousse vers toi, elle est neutre, ou elle pousse vers l'équipe ennemie. Identifier cet état est la première étape indispensable avant toute manipulation.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Observer la position et le nombre de sbires sur la voie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YLgMgbuZ0Zk",
+     "locator": "[00:45]",
+     "lang": "es",
+     "passage": "La oleada tiene estados que son: pushea hacia mí, está neutra, o pushea hacia el otro equipo. No hay más opciones.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "25-85s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Regarde ta voie et identifie si la vague pousse vers toi, est neutre ou pousse vers l'ennemi avant de faire une action.",
+   "observe": "L'état de la vague de sbires sur la minicarte ou à l'écran.",
+   "use": {
+    "when": "Tu es sur une voie et tu observes les vagues de sbires s'affronter.",
+    "why": "Pour savoir si tu peux agresser, défendre ou manipuler la vague.",
+    "who": "Tous les joueurs sur les voies (top, mid, bot).",
+    "how": [
+     "Observe le sens du mouvement des vagues de sbires.",
+     "Conclus si la vague pousse vers toi, est au milieu ou pousse chez l'adversaire."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement fidèle à la source, intemporelle et son contexte d'usage est complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-YLgMgbuZ0Zk-2",
+   "claim": "Selon Dishake : pour congeler (freezer) une vague de sbires, il faut maintenir un excédent de sbires ennemis : quatre sbires d'avance font geler près de la tour, tandis qu'un ou deux sbires d'avance maintiennent le gel plus haut sur la voie.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir un score de sbires ennemis légèrement supérieur pour stabiliser la vague"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YLgMgbuZ0Zk",
+     "locator": "[02:58]",
+     "lang": "es",
+     "passage": "O sea, si hay cuatro minions de ventaja, la oleada se puede congelar acá. Y muchas veces puede que te la tengas que tanquear un poquito para que no entre en la torre.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "158-218s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Laisse quatre sbires adverses de plus que les tiens pour geler la vague près de ta tour.",
+   "observe": "Le décompte des sbires ennemis par rapport aux tiens.",
+   "use": {
+    "when": "La vague adverse arrive avec un petit nombre de sbires excédentaires que tu souhaites stabiliser.",
+    "why": "Pour obtenir un positionnement sûr et denier du farm à l'adversaire.",
+    "who": "Tous les joueurs sur les voies en situation de contrôle.",
+    "how": [
+     "Laisse survivre un nombre précis de sbires ennemis (2 à 4).",
+     "Ne tape les sbires que pour conserver l'équilibre sans les tuer trop vite."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le principe du gel de vague et le nombre de sbires s'appuient directement sur la transcription et les passages cités."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-YLgMgbuZ0Zk-3",
+   "claim": "Selon Dishake : congeler la vague est particulièrement utile lorsque l'adversaire est absent de la ligne, car il perd or et expérience pendant que tu sécurises ta position.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "L'adversaire n'est pas en ligne (mort ou roaming)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YLgMgbuZ0Zk",
+     "locator": "[04:43]",
+     "lang": "es",
+     "passage": "¿Cuándo es muy beneficioso congelar? Cuando el rival no está en línea también. Ese es uno de los mejores usos del freezeo hoy en día.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "263-323s",
+      "said": true,
+      "supported": true,
+      "gap": "La contre-indication sur un score de 7/0 n'est pas mentionnée par l'auteur dans l'extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Maintiens la vague gelée de ton côté si ton vis-à-vis quitte la voie ou meurt.",
+   "observe": "L'absence de l'adversaire direct sur la voie.",
+   "use": {
+    "when": "Ton adversaire direct quitte la ligne ou vient d'être éliminé.",
+    "why": "Pour lui faire perdre un maximum de sbires et d'expérience pendant son absence.",
+    "who": "Tous les joueurs sur les voies.",
+    "how": [
+     "Ne pousse pas la vague vers la tour ennemie lorsque l'adversaire est absent.",
+     "Maintiens l'équilibre pour que les vagues se rencontrent près de ta zone de sécurité."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil sur l'utilisation du freeze lorsque l'adversaire est absent est correctement sourcé et intemporel."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-YLgMgbuZ0Zk-4",
+   "claim": "Selon Dishake : le slowpush permet d'accumuler une grande quantité de sbires pour s'assurer que la vague finisse par s'écraser sous la tour ennemie et t'offre un meilleur tempo.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tu veux faire s'écraser une grosse vague sans risquer de rester bloqué au milieu de la voie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YLgMgbuZ0Zk",
+     "locator": "[10:33]",
+     "lang": "es",
+     "passage": "Entonces cuando no sabés si vas a poder terminar de chocar la oleada, te conviene muchísimo slowpushear, pero muchísimo.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "613-673s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Tue uniquement les sbires nécessaires pour créer un tas de sbires qui progressera lentement.",
+   "observe": "La taille de ta vague de sbires par rapport à celle de l'adversaire.",
+   "use": {
+    "when": "Tu veux pousser mais tu penses ne pas avoir assez de puissance pour atteindre la tour directement.",
+    "why": "Pour garantir que la vague arrive sous la tour ennemie et te donne du temps pour un retour en base ou une rotation.",
+    "who": "Tous les joueurs sur les voies.",
+    "how": [
+     "Ne tape les sbires qu'au dernier moment (last-hit) au début de l'accumulation.",
+     "Laisse tes sbires s'empiler pour former une vague compacte."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'explication du slowpush correspond fidèlement au passage de la vidéo et fournit un contexte d'usage clair."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-2",
+   "claim": "Selon Chreak : pour poser tes balises de vision (trinket) au pixel près dans les buissons étroits (comme le pixel bush de la rivière) sans les rater ou les placer à côté, configure un Normal Cast sur ta trinket (par exemple Maj + 4) : l'indicateur devient vert lorsque ton curseur se trouve dans le buisson.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vision"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Vouloir placer une balise dans un buisson précis"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[02:11]",
+     "lang": "fr",
+     "passage": "Cependant, vous voyez là je pose une trinket, cependant je l'ai bind de sorte à ce que si je fais Maj + 4, je puisse avoir le non-smart cast.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "111-171s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[03:00]",
+     "lang": "fr",
+     "passage": "Ce qui est intéressant avec le Maj + 4 pour moi c'est que lorsque vous posez votre balise, vous avez vu votre indicateur est normal et si vous passez dans le bush vous allez avoir un indicateur qui devient vert."
+    }
+   ],
+   "mentions": [],
+   "action": "Lier le placement de la balise en Normal Cast sur une touche avec modificateur (ex: Maj + 4) et vérifier que l'indicateur devient vert dans le buisson.",
+   "observe": "L'indicateur de la balise qui change de couleur pour devenir vert dans les buissons.",
+   "use": {
+    "when": "tu souhaites poser une balise de vision dans un buisson stratégique de manière millimétrée",
+    "why": "pour éviter de rater le placement de la balise et garantir qu'elle offre la vision optimale",
+    "who": "tous les postes",
+    "how": [
+     "Assigner le non-smart cast de la trinket sur une touche secondaire (ex: Maj + 4)",
+     "Viser le buisson avec cette touche jusqu'à ce que l'indicateur devienne vert",
+     "Cliquer pour poser la balise au pixel près"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est précise, vérifiée par les passages et relève d'un réglage intemporel utile."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-3",
+   "claim": "Selon Chreak : pour éviter de cibler accidentellement des sbires lors d'un dive sous tourelle ou d'un combat au milieu d'une vague, active le paramètre 'Target Champions Only' en mode interrupteur (toggle) sur un bouton latéral de ta souris.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Combattre ou dive un champion adverse au milieu d'une vague de sbires"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[04:36]",
+     "lang": "fr",
+     "passage": "Moi Target Champion Only je l'ai bind sur ma touche de la souris, vous devez la voir c'est cette touche là là sur le côté.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "256-316s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[05:35]",
+     "lang": "fr",
+     "passage": "Faites en sorte que le Target Champion Only ce soit considéré comme une touche on/off tout simplement."
+    }
+   ],
+   "mentions": [
+    "Tristana (exemple)",
+    "Lucian (exemple)"
+   ],
+   "action": "Configurer 'Target Champions Only' en mode toggle sur un bouton facile d'accès de la souris et l'activer lors des dives.",
+   "observe": "Le curseur affichant un point rouge central lorsque l'option est activée.",
+   "use": {
+    "when": "tu t'apprêtes à attaquer ou lancer un sort sur un champion adverse qui se trouve au milieu de sbires ou sous la tourelle ennemie",
+    "why": "pour empêcher tes attaques ou compétences de cibler les sbires par erreur",
+    "who": "tous les rôles, particulièrement les ADC et les mages en situation de dive",
+    "how": [
+     "Assigner 'Target Champions Only' à un bouton de la souris",
+     "Cocher l'option 'Treat Target Champions Only as a toggle' dans l'onglet Game",
+     "Activer l'option (point rouge sur le curseur) lorsque tu veux cibler uniquement des champions"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil sur Target Champions Only est parfaitement sourcé et intemporel."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-4",
+   "claim": "Selon Chreak : pour surveiller l'état des vagues, la santé de tes coéquipiers et anticiper les ganks ou les interventions sans bouger ta caméra principale, utilise les touches F1 à F4 pour centrer instantanément ta vue sur tes alliés.",
+   "champions": [],
+   "roles": [
+    "jungle",
+    "mid",
+    "support",
+    "top"
+   ],
+   "themes": [
+    "macro",
+    "vision"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Être en partie et vouloir collecter des informations sur les autres lignes"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[10:41]",
+     "lang": "fr",
+     "passage": "Les F-keys ça vous permet de bloquer votre caméra sur votre teammate. Imaginons que ça c'est mon top, ça va faire que si j'appuie sur F1 ça va bouger ma caméra comme ça",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "621-681s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[12:05]",
+     "lang": "fr",
+     "passage": "Ce que vous allez faire c'est que vous allez débind le Self et juste déplacer F1, F2, F3, F4 sur ceux d'en dessous."
+    }
+   ],
+   "mentions": [],
+   "action": "Assigner F1, F2, F3 et F4 aux alliés 1 à 4 (en supprimant le centrage sur soi) et les faire défiler régulièrement en partie.",
+   "observe": "La caméra qui se déplace instantanément sur les différents coéquipiers lors de l'appui sur les touches F.",
+   "use": {
+    "when": "tu es en phase de lane ou en plein nettoyage de jungle et tu souhaites savoir ce qui se passe sur les autres voies",
+    "why": "pour obtenir des informations sur l'état des vagues et les risques de dive de tes coéquipiers afin de construire ton plan de jeu",
+    "who": "tous les rôles, en particulier junglers, midlaners et supports",
+    "how": [
+     "Retirer le raccourci 'Select Self' des touches F",
+     "Assigner F1, F2, F3, F4 aux alliés de haut en bas",
+     "Appuyer régulièrement sur ces touches pour observer les autres voies"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'utilisation des touches F pour la macro est un conseil classique et intemporel parfaitement étayé."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-6",
+   "claim": "Selon Chreak : pour améliorer la visibilité des sorts alliés et ennemis (comme rendre le A de Singed bleu au lieu de vert) et gagner en clarté visuelle, active le mode daltonien ('Colorblind mode') dans les options vidéo.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "patch"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jouer à League of Legends avec les graphismes par défaut"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[17:12]",
+     "lang": "fr",
+     "passage": "Avec le colorblind mode, il devient bleu son A. Et beaucoup de sorts sont affectés justement par le colorblind mode, ce qui fait qu'en l'activant vous ne faites que gagner de la visibilité sur les sorts adverses et les sorts alliés.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "1012-1072s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Singed (exemple)",
+    "Zed (exemple)"
+   ],
+   "action": "Activer l'option 'Color blind mode' dans les paramètres vidéo.",
+   "observe": "La modification de la couleur de certains sorts (comme le poison de Singed devenant bleu).",
+   "use": {
+    "when": "tu es en jeu et tu veux mieux distinguer les effets de sorts au sol lors des combats d'équipe",
+    "why": "pour rendre les couleurs de certains sorts plus visibles et distinctes par rapport au décor",
+    "who": "tous les joueurs",
+    "how": [
+     "Ouvrir les options du jeu",
+     "Aller dans l'onglet Vidéo",
+     "Cocher l'option 'Color blind mode'"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'activation du mode daltonien pour la visibilité des sorts est fidèle à la source."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-7",
+   "claim": "Selon Chreak : pour développer ta vision de jeu globale (map awareness) et repérer les ganks et les mouvements ennemis avant qu'ils ne se produisent, augmente temporairement l'échelle de la minimap à 100 pour t'entraîner.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vision",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Souhaiter améliorer sa conscience de la carte et ses réflexes de lecture de minimap"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[22:11]",
+     "lang": "fr",
+     "passage": "En jouant avec la minimap à 100 vous allez comprendre à quel point c'est, vous savez très bien à quel point c'est important la minimap, c'est sûrement la chose qui peut le plus vous augmenter votre niveau actuellement",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "1311-1371s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[23:33]",
+     "lang": "fr",
+     "passage": "Donc je vous conseille de jouer quelques games à 100 puis de baisser petit à petit jusqu'à que vous arriviez à toujours rester concentré sur votre minimap"
+    }
+   ],
+   "mentions": [],
+   "action": "Monter le curseur 'Minimap Scale' à 100 pour quelques parties d'entraînement puis l'ajuster.",
+   "observe": "Une mini-carte considérablement agrandie dans le coin inférieur droit de l'écran.",
+   "use": {
+    "when": "tu constates que tu rates souvent les mouvements ennemis sur la carte et que tu manques de map awareness",
+    "why": "pour forcer ton attention à regarder régulièrement les informations de la carte et anticiper les ganks",
+    "who": "tous les joueurs cherchant à monter en elo",
+    "how": [
+     "Ouvrir les options dans l'onglet Interface",
+     "Monter le curseur 'Minimap Scale' à 100",
+     "Jouer quelques parties pour s'habituer à surveiller la grande carte puis ajuster si nécessaire"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'agrandissement de la minimap pour l'apprentissage est un conseil intemporel valide."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-8",
+   "claim": "Selon Chreak : pour être immédiatement alerté lorsque tu subis des dégâts ou un effet de contrôle alors que ta caméra est déplacée sur une autre partie de la carte, active les options 'Screen Flash on damage' et 'Screen Flash on loss of control'.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Regarder une autre ligne avec les F-keys ou déplacer sa caméra hors de son champion"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[24:48]",
+     "lang": "fr",
+     "passage": "Combien de fois j'ai été sauvé par ces trois catégories qui m'ont fait un screen flash sur les bords de l'écran qui font justement que je sais que je prends des dégâts ?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "1468-1528s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[25:19]",
+     "lang": "fr",
+     "passage": "Donc je vous conseille de le garder malgré le fait que c'est de la pollution visuelle pour beaucoup."
+    }
+   ],
+   "mentions": [],
+   "action": "Activer 'Show Loss of Control UI', 'Screen Flash on loss of control' et 'Screen Flash on damage' dans les paramètres d'interface.",
+   "observe": "Des éclairs lumineux rouges apparaissant sur les bords de l'écran lorsque le champion prend des dégâts hors champ.",
+   "use": {
+    "when": "tu inspectes une autre lane avec les touches F ou ta caméra et ton champion se fait attaquer par surprise dans la forêt ou sur sa lane",
+    "why": "pour réagir à temps et pouvoir utiliser un sort de fuite ou un Saut Éclair (Flash) avant de mourir",
+    "who": "tous les joueurs",
+    "how": [
+     "Ouvrir les options dans l'onglet Interface",
+     "Activer les cases correspondantes aux alertes visuelles de dégâts et de perte de contrôle"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Les alertes visuelles de dégâts hors champ sont fidèlement retranscrites."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-_hGNfCMUO6s-9",
+   "claim": "Selon Chreak : pour savoir instantanément si tu disposes de assez de mana pour lancer une suite complète de sorts sans être à court (OOM), active l'affichage des coûts en mana des compétences ('Show Spell costs') dans l'interface.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Gérer ses ressources en mana pendant les phases de combat ou de poussée de vagues"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[25:49]",
+     "lang": "fr",
+     "passage": "Spell costs : je ne peux pas comprendre comment il y a des gens qui jouent à League of Legends sans les spell costs affichés ici.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "1529-1589s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-_hGNfCMUO6s",
+     "locator": "[26:40]",
+     "lang": "fr",
+     "passage": "Ça vous permet de calculer si vous êtes, si vous avez un niveau CM2 en mathématiques, de faire une addition pour voir si vous avez assez de mana sur vos sorts pour pouvoir les utiliser, ultra important."
+    }
+   ],
+   "mentions": [
+    "Zoé (exemple)",
+    "Syndra (exemple)"
+   ],
+   "action": "Cocher la case 'Show Spell costs' sous l'affichage des compétences dans l'interface.",
+   "observe": "Le coût en mana numérique affiché directement sur l'icône de chaque sort dans la barre de compétences.",
+   "use": {
+    "when": "tu veux évaluer tes ressources en plein échange pour savoir si tu peux lancer tous tes sorts sans tomber à court de mana",
+    "why": "pour éviter de se retrouver bloqué au milieu d'un échange sans assez de mana pour lancer un sort décisif",
+    "who": "tous les joueurs utilisant des champions à mana",
+    "how": [
+     "Aller dans l'onglet Interface des options",
+     "Cocher la case 'Show Spell costs'"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'affichage des coûts en mana est un paramètre essentiel et intemporel parfaitement décrit."
+   },
+   "published": "2022-09-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-34kHa32NIKQ-2",
+   "claim": "Selon Skill Capped : le « rage splitting », consistant à pousser continuellement une lane latérale même en étant en retard ou en mourant souvent, prive l'adversaire de vagues pour progresser et constitue une excellente stratégie de remontée en solo queue.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "tu es en retard et tu as peu de valeur en or"
+   ],
+   "limits": [
+    "uniquement en solo queue"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-34kHa32NIKQ",
+     "locator": "08:14",
+     "lang": "en",
+     "passage": "Rage splitting makes it so you keep your farm up while denying the enemy team from getting stuff done on the map.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "474-534s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Dr. Mundo (exemple)",
+    "Aurora (exemple)"
+   ],
+   "action": "Pousse constamment ta wave en side lane même si tu meurs, pour forcer l'adversaire à venir la chercher et nier sa pression globale.",
+   "observe": "Regarde si l'équipe adverse perd du temps à venir t'arrêter en side lane.",
+   "use": {
+    "when": "tu as accumulé des morts et tu es en retard dans la partie",
+    "why": "ta mort ne rapporte plus beaucoup d'or et cela empêche l'ennemi de progresser sur la carte",
+    "who": "les joueurs en position de faiblesse en solo queue",
+    "how": [
+     "Va dans une lane latérale",
+     "Pousse les vagues de sbires agressivement jusqu'à la tourelle adverse"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Stratégie de split push en position de retard clairement expliquée et fidèle au passage."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-34kHa32NIKQ-3",
+   "claim": "Selon Skill Capped : prends deux secondes supplémentaires pour finir la vague de sbires avant de rejoindre un combat si c'est possible, afin d'éviter de concéder la priorité mid.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "il reste quelques sbires ennemis sur le point de mourir sur ta lane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-34kHa32NIKQ",
+     "locator": "14:14",
+     "lang": "en",
+     "passage": "As Kai'Sa, even if you see your Ornn engaging, you have to make the tough call. Take two extra seconds to finish that wave off. Yes, you're going to sometimes be late to the fight, but it's worth it to save yourself from all the advantages that mid push gives your opponents.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "834-894s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Kai'Sa (exemple)",
+    "Ornn (exemple)",
+    "Gwen (exemple)",
+    "Zyra (exemple)"
+   ],
+   "action": "Prends deux secondes supplémentaires pour nettoyer la dernière vague de sbires au mid avant de bouger.",
+   "observe": "Vérifie qu'aucun sbire ennemi ne survit pour donner la vision à l'adversaire.",
+   "use": {
+    "when": "ton équipe s'engage dans un combat au milieu de la carte et il reste quelques sbires ennemis à tuer sur ta lane",
+    "why": "pour empêcher l'adversaire de conserver la priorité, d'obtenir de la vision gratuite et de mettre une pression directe sur ta tourelle",
+    "who": "les joueurs évoluant sur la lane du milieu ou y défendant",
+    "how": [
+     "Achève les derniers sbires de la vague",
+     "Rejoins ensuite le combat ou le positionnement de ton équipe"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "L'énoncé initial disait de ne jamais quitter une vague, alors que l'auteur précise qu'il faut faire un arbitrage en prenant deux secondes pour finir la vague."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-34kHa32NIKQ-4",
+   "claim": "Selon Skill Capped : lorsque tu joues en retard, n'hésite pas à concéder les deux ou trois premiers dragons car leur bonus individuel est faible, et attends l'accumulation d'or passive (environ 10 000 pièces toutes les 5 minutes) pour réduire la valeur relative de l'avance en or de l'adversaire avant de combattre.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "ton équipe est en retard en or"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-34kHa32NIKQ",
+     "locator": "15:46",
+     "lang": "en",
+     "passage": "This means that if you're playing from behind, you shouldn't mind giving up two or even three dragons before you fight your opponents.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "926-986s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur parle d'une accumulation d'or globale pour l'équipe (10000 toutes les 5 minutes), ce qui n'est pas le calcul en pourcentage d'or relatif de l'analyse."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Cède les premiers dragons pour farmer et accumuler de l'or afin de combler l'écart en pourcentage.",
+   "observe": "Vérifie l'écart d'or global avant de t'engager sur l'objectif.",
+   "use": {
+    "when": "ton équipe accuse un retard en or et le dragon réapparaît sur la carte",
+    "why": "la valeur relative de l'avance en or de l'ennemi diminue à mesure que le temps passe et que les deux équipes gagnent de l'or de base",
+    "who": "les équipes en position défavorable",
+    "how": [
+     "Laisse l'adversaire prendre le premier ou le second dragon",
+     "Concentre-toi sur le farm des vagues et des camps pour réduire l'écart d'or en pourcentage"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil macro sur la gestion des dragons en retard cohérent avec la transcription."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-fNvRQRe4n00-2",
+   "claim": "Selon Sixen : plutôt que d'effectuer un full clear systématique de ta jungle en ignorant la carte, saute des camps (comme les loups) pour foncer sur une ligne où un gank est rendu possible par des adversaires avancés et sans mobilité.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro",
+    "lane"
+   ],
+   "synergy": {
+    "with": [
+     "Nautilus"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "equipe",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Les adversaires sont avancés sur une ligne longue",
+    "Ton coéquipier possède les contrôles nécessaires"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-fNvRQRe4n00",
+     "locator": "[01:44]",
+     "lang": "fr",
+     "passage": "Beaucoup de perso... enfin de joueurs Silver ou Gold, ils auraient continué leur full clear. Et pourquoi ils auraient fait ça, c'est parce que vous êtes bloqués sur votre vision de votre perso et vous regardez pas la mini-map.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "84-144s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-fNvRQRe4n00",
+     "locator": "[02:30]",
+     "lang": "fr",
+     "passage": "Donc là en gros, c'est important de regarder la map et de se dire : « Écoute, les loups j'en ai pas besoin, ce qu'on va faire, c'est courir bot et on va essayer de les sanctionner, tu vois. »"
+    }
+   ],
+   "mentions": [
+    "Udyr (exemple)",
+    "Nautilus (exemple)",
+    "Xayah (exemple)"
+   ],
+   "action": "Interromps ton cheminement de jungle standard pour punir des adversaires trop avancés sur une lane longue.",
+   "observe": "La position des sbires et des ennemis sur la mini-carte.",
+   "use": {
+    "when": "Pendant ton premier clear de jungle, lorsque tu constates qu'une ligne ennemie est trop avancée.",
+    "why": "Pour surprendre l'adversaire et créer un avantage en ressources (kills) supérieur à un simple full clear standard.",
+    "who": "Jungler",
+    "how": [
+     "Surveille la mini-carte pendant que tu nettoies tes premiers camps.",
+     "Saute un camp secondaire si une opportunité de gank apparaît sur une ligne longue.",
+     "Rejoins ta ligne pour exécuter le gank avec ton support."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil correspond fidèlement aux passages cités, donne un contexte clair et des actions concrètes."
+   },
+   "published": "2023-01-05",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
+  },
+  {
+   "id": "u-ai-yt-fNvRQRe4n00-4",
+   "claim": "Selon Sixen : voler les camps de la jungle adverse permet non seulement de priver l'ennemi de ressources (soustraction), mais aussi de faire réapparaître ces camps plus tard à un niveau supérieur qui donne davantage d'expérience.",
+   "champions": [
+    "Kindred"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Udyr"
+   },
+   "context": {
+    "queue": "equipe",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir la liberté ou la vision pour entrer dans la jungle ennemie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-fNvRQRe4n00",
+     "locator": "[04:31]",
+     "lang": "fr",
+     "passage": "C'est pour ça que c'est important d'aller voler souvent les les respawn des camps de l'adversaire, parce que ben les camps se sont mis à jour, ils ont un meilleur niveau, donc une meilleure un meilleur, comment dire, un meilleur revenu, tu vois.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "251-311s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-fNvRQRe4n00",
+     "locator": "[07:15]",
+     "lang": "fr",
+     "passage": "Si tu vas dans sa jungle et que tu lui voles 1 camp, c'est -1 pour Kindred, +1 pour toi, ce qui signifie que tu as gagné 2 ressources."
+    }
+   ],
+   "mentions": [],
+   "action": "Envahis la jungle ennemie pour nettoyer ses camps et augmenter la valeur future de leur réapparition.",
+   "observe": "La position du jungler adverse sur la carte (ex: visible sur l'autre côté de la map).",
+   "use": {
+    "when": "Quand tu sais que le jungler adverse est visible de l'autre côté de la carte et que ses camps sont accessibles.",
+    "why": "Pour accumuler un différentiel de ressources massif et forcer les camps à repoper au niveau moyen de la partie.",
+    "who": "Jungler",
+    "how": [
+     "Repère le jungler adverse sur une ligne opposée.",
+     "Entre dans sa jungle pour tuer ses camps.",
+     "Profitez de l'XP bonifiée lors du prochain respawn si tu les recontrôles."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité retranscrit fidèlement le principe d'envahissement et de gestion des camps mentionné dans l'extrait."
+   },
+   "published": "2023-01-05",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-26",
+   "validity": {
+    "checkedAt": "2026-10-26",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-26"
   },
   {
    "id": "u-cl-dignitas-cs-guide-1",
@@ -55309,5 +58871,5 @@
    "firstSeen": "2026-10-26"
   }
  ],
- "updatedAt": "2026-10-26T23:27:43.838Z"
+ "updatedAt": "2026-10-26T19:10:32.386Z"
 }

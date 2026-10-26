@@ -943,6 +943,15 @@ await t("COACH-005 Synchronisation : aucune partie traitée deux fois, recalcul 
   assert(prog.body.goals.length === 1 && prog.body.goals[0].outcome === "achieved" && prog.body.goals[0].status === "archived", "réussite non archivée");
   const next = await handleV1({ method: "GET", path: `/api/v1/players/${pid}/goals/active` }, ctx);
   assert(next.body.goal?.status === "proposed" && next.body.goal.id !== active.body.goal.id, "objectif suivant absent");
+  // Retour du testeur : seulement sur un cycle terminé, valeurs contrôlées, relu avec la progression
+  const fb = (gid, body) => handleV1({ method: "POST", path: `/api/v1/players/${pid}/goals/${gid}/feedback`, body }, ctx);
+  assert((await fb(next.body.goal.id, { relevance: 4 })).status === 409, "retour accepté sur un objectif pas encore joué");
+  for (const body of [{ relevance: 6 }, { relevance: 2.5 }, { side_effects: ["inconnu"] }, { comment: "x".repeat(1001) }, {}])
+    assert((await fb(active.body.goal.id, body)).status === 400, `retour invalide accepté : ${JSON.stringify(body).slice(0, 40)}`);
+  const saved = await fb(active.body.goal.id, { relevance: 2, side_effects: ["jeu-plus-passif", "jeu-plus-passif"], comment: "  Je jouais trop safe.  " });
+  assert(saved.status === 200 && saved.body.feedback.side_effects.length === 1 && saved.body.feedback.comment === "Je jouais trop safe.", "retour mal enregistré");
+  const withFb = await handleV1({ method: "GET", path: `/api/v1/players/${pid}/progress` }, ctx);
+  assert(withFb.body.goals[0].feedback?.relevance === 2, "retour absent de la progression");
   // Nouvelle version des métriques : recalcul depuis le JSON brut, sans rappeler Riot
   const all = await store.listMetrics(pid);
   for (const m of all) await store.putMetrics(pid, { ...m, metric_version: "ancienne" });
@@ -1073,7 +1082,7 @@ await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur 
   const rest = async (method, path, { body, prefer } = {}) => {
     const [table, qs = ""] = path.split("?");
     const params = [...new URLSearchParams(qs)];
-    const vals = [], ph = v => { vals.push(v !== null && typeof v === "object" ? JSON.stringify(v) : v); return `$${vals.length}`; };
+    const vals = [], ph = v => { vals.push(v !== null && typeof v === "object" && !(Array.isArray(v) && v.every(x => typeof x === "string")) ? JSON.stringify(v) : v); return `$${vals.length}`; };
     const where = params.filter(([k]) => !["select", "order", "on_conflict"].includes(k)).map(([k, v]) => v.startsWith("eq.") ? `"${k}" = ${ph(v.slice(3))}` : v.startsWith("in.(") ? `"${k}" in (${v.slice(4, -1).split(",").map(ph).join(",")})` : "true").join(" and ") || "true";
     const order = params.find(([k]) => k === "order")?.[1];
     const orderSql = order ? ` order by "${order.split(".")[0]}" ${order.includes(".desc") ? "desc" : "asc"}${order.includes("nullslast") ? " nulls last" : ""}` : "";
@@ -1113,16 +1122,21 @@ await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur 
   await handleV1({ method: "POST", path: `/api/v1/players/${pid}/sync` }, ctx); await ctx.queue.idle();
   const prog = (await handleV1({ method: "GET", path: `/api/v1/players/${pid}/progress` }, ctx)).body;
   assert(prog.goals[0]?.outcome === "achieved" && prog.goals[0].evaluations.filter(e => e.counted).length === 5, "réussite non enregistrée sur Supabase");
+  // Retour du testeur dans pilot_feedback, remplacé s'il est renvoyé
+  for (const body of [{ relevance: 3, side_effects: ["stress"] }, { relevance: 5, side_effects: [] }])
+    { const r = await handleV1({ method: "POST", path: `/api/v1/players/${pid}/goals/${g.id}/feedback`, body }, ctx); assert(r.status === 200, `retour refusé sur Supabase : ${JSON.stringify(r.body)}`); }
+  const fbRow = (await handleV1({ method: "GET", path: `/api/v1/players/${pid}/progress` }, ctx)).body.goals[0].feedback;
+  assert(fbRow?.relevance === 5 && fbRow.side_effects.length === 0, `retour mal relu sur Supabase : ${JSON.stringify(fbRow)}`);
   // Recalcul depuis le stockage des JSON bruts, sans Riot
   const { syncPlayer } = await import("../v1/sync.mjs");
   for (const m of await store.listMetrics(pid)) await store.putMetrics(pid, { ...m, metric_version: "ancienne" });
   const re = await syncPlayer({ store, riot, playerId: pid });
   assert(re.recomputed === 21 && counts.match === 21, "recalcul sans le JSON brut");
   await handleV1({ method: "DELETE", path: `/api/v1/players/${pid}` }, ctx);
-  const left = (await db.query("select (select count(*) from public.match_metrics)::int + (select count(*) from public.coaching_goals)::int + (select count(*) from public.goal_evaluations)::int + (select count(*) from public.sync_jobs)::int n")).rows[0].n;
+  const left = (await db.query("select (select count(*) from public.match_metrics)::int + (select count(*) from public.coaching_goals)::int + (select count(*) from public.goal_evaluations)::int + (select count(*) from public.sync_jobs)::int + (select count(*) from public.pilot_feedback)::int n")).rows[0].n;
   assert(left === 0, "données restantes après suppression");
   await db.close();
-  return "parcours complet sur le vrai schéma : 16 parties une seule fois, JSON bruts compressés, objectif proposé, démarré, réussi et archivé ; second objectif ouvert refusé par la base ; recalcul sans Riot ; suppression en cascade.";
+  return "parcours complet sur le vrai schéma : 16 parties une seule fois, JSON bruts compressés, objectif proposé, démarré, réussi et archivé ; retour du testeur enregistré ; second objectif ouvert refusé par la base ; recalcul sans Riot ; suppression en cascade.";
 });
 
 await t("COACH-004 Worker : jeton vérifié, joueurs d'un autre compte invisibles, liaison unique, quotas, CORS", "fixture", async () => {

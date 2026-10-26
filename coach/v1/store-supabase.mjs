@@ -73,6 +73,8 @@ export function createSupabaseStore(sb) {
       return goalOut(r[0]);
     },
     putEvaluations: async (goalId, rows) => { if (rows.length) await sb.rest("POST", "goal_evaluations?on_conflict=goal_id,match_id", { body: rows.map(r => ({ goal_id: goalId, match_id: r.match_id, counted: !!r.counted, value: r.value ?? null, met: r.met ?? null, reason: r.reason ?? null, guardrail_values: r.guardrail_values ?? null, guardrail_breach: r.guardrail_breach ?? null })), prefer: "resolution=merge-duplicates" }); },
+    putFeedback: async (goalId, fb) => (await sb.rest("POST", "pilot_feedback?on_conflict=goal_id", { body: { goal_id: goalId, ...fb }, prefer: "resolution=merge-duplicates,return=representation" }))[0],
+    getFeedback: async goalId => (await one(`pilot_feedback?goal_id=eq.${q(goalId)}&select=*`)) || null,
     listEvaluations: async goalId => (await sb.rest("GET", `goal_evaluations?goal_id=eq.${q(goalId)}&select=*&order=evaluated_at.asc`)).map(e => ({ ...e, value: e.value == null ? null : Number(e.value) })),
     async openJob(playerId) {
       const open = await one(`sync_jobs?player_id=eq.${q(playerId)}&status=in.(queued,running)&select=*`);

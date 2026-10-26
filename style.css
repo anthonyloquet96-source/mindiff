@@ -1360,3 +1360,8 @@ button.pick { background: none; border: 0; padding: 0; font: inherit; color: inh
 .c2-v1-dot.todo { background: transparent; border: 2px solid var(--surface-3); box-sizing: border-box; }
 .c2-v1-last { margin: 0; font-size: var(--fs-sm); padding: var(--s2) var(--s3); border-radius: var(--r-sm); background: var(--surface-2); }
 .c2-v1-last.achieved { background: rgba(var(--ok-rgb), .16); }
+.c2-v1-fb { font-size: var(--fs-sm); }
+.c2-v1-fb[open] { display: grid; gap: var(--s2); }
+.c2-v1-rel { display: flex; gap: var(--s2); flex-wrap: wrap; }
+.c2-v1-side { display: grid; gap: var(--s1); }
+.c2-v1-comment { width: 100%; box-sizing: border-box; font: inherit; padding: var(--s2); border-radius: var(--r-sm); border: 1px solid var(--border, currentColor); background: var(--surface-2); color: inherit; }

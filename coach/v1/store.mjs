@@ -9,7 +9,7 @@ import { dirname } from "node:path";
 import { gzipSync, gunzipSync } from "node:zlib";
 
 export function createStore({ file = null, rawDir = null } = {}) {
-  let db = { players: {}, matches: {}, metrics: {}, goals: {}, evaluations: {}, jobs: {} };
+  let db = { players: {}, matches: {}, metrics: {}, goals: {}, evaluations: {}, jobs: {}, feedback: {} };
   let loaded = !file;
   const load = async () => { if (loaded) return; loaded = true; try { db = { ...db, ...JSON.parse(await readFile(file, "utf8")) }; } catch {} };
   let saving = Promise.resolve();
@@ -29,7 +29,7 @@ export function createStore({ file = null, rawDir = null } = {}) {
       await load();
       delete db.players[id];
       for (const k of Object.keys(db.metrics)) if (db.metrics[k].player_id === id) delete db.metrics[k];
-      for (const g of Object.values(db.goals)) if (g.player_id === id) { delete db.goals[g.id]; for (const k of Object.keys(db.evaluations)) if (k.startsWith(g.id + "|")) delete db.evaluations[k]; }
+      for (const g of Object.values(db.goals)) if (g.player_id === id) { delete db.goals[g.id]; for (const k of Object.keys(db.evaluations)) if (k.startsWith(g.id + "|")) delete db.evaluations[k]; delete db.feedback[g.id]; }
       for (const j of Object.values(db.jobs)) if (j.player_id === id) delete db.jobs[j.id];
       await save();
     },
@@ -59,6 +59,8 @@ export function createStore({ file = null, rawDir = null } = {}) {
       db.goals[goal.id] = { ...goal, player_id: playerId }; await save(); return db.goals[goal.id];
     },
     async putEvaluations(goalId, rows) { await load(); for (const r of rows) db.evaluations[`${goalId}|${r.match_id}`] = { goal_id: goalId, ...r }; await save(); },
+    async putFeedback(goalId, fb) { await load(); db.feedback[goalId] = { goal_id: goalId, ...fb, created_at: new Date().toISOString() }; await save(); return db.feedback[goalId]; },
+    async getFeedback(goalId) { await load(); return db.feedback[goalId] || null; },
     async listEvaluations(goalId) { await load(); return Object.values(db.evaluations).filter(e => e.goal_id === goalId); },
     // Synchronisations : une seule en attente ou en cours par joueur (la deuxième demande renvoie la première)
     async openJob(playerId) {

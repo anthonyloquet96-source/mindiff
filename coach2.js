@@ -335,8 +335,8 @@ function c2Home() {
 }
 
 // ---------- Coach V1 : un objectif mesurable à la fois (routes /api/v1, calcul côté serveur, sans IA)
-async function c2V1(path, method = "GET") {
-  const r = await fetch(`${C2_API}/api/v1${path}`, { method }).catch(() => null);
+async function c2V1(path, method = "GET", body = null) {
+  const r = await fetch(`${C2_API}/api/v1${path}`, body ? { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) } : { method }).catch(() => null);
   if (!r) throw new Error("Pas de connexion au service du coach.");
   const j = r.status === 204 ? {} : await r.json().catch(() => ({}));
   if (!r.ok) throw new Error(j.error?.message || `Erreur ${r.status}`);
@@ -366,11 +366,11 @@ function c2V1Card(p) {
   if (V.error && !V.goal) return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p><p class="note warn">${icon("alert")}<span>${esc(V.error)}</span></p><button class="btn ghost sm" data-action="c2-v1-sync">Réessayer</button></section>`;
   if (!V.goal && (V.busy || !V.diagnostic)) return `<section class="c2-card c2-v1 c2-loading">${V.syncing ? "Lecture de tes dernières ranked…" : "Ton objectif…"}</section>`;
   const last = V.history?.[0];
-  const lastTxt = last ? `<p class="c2-v1-last ${last.outcome}">${C2_V1_OUTCOME[last.outcome] || "Objectif précédent sans verdict"} : ${esc(last.label)}, cible ${esc(last.target_text)} (${last.progress?.met ?? "?"}/${last.progress?.counted ?? "?"} parties)${last.progress?.review ? ` ; ${esc(last.progress.review)}` : ""}.</p>` : "";
+  const lastTxt = last ? `<p class="c2-v1-last ${last.outcome}">${C2_V1_OUTCOME[last.outcome] || "Objectif précédent sans verdict"} : ${esc(last.label)}, cible ${esc(last.target_text)} (${last.progress?.met ?? "?"}/${last.progress?.counted ?? "?"} parties)${last.progress?.review ? ` ; ${esc(last.progress.review)}` : ""}.</p>${c2V1Feedback(last)}` : "";
   const g = V.goal;
   if (!g) {
     const why = V.diagnostic?.rows?.find(r => r.reason)?.reason;
-    return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${why ? `Pas encore d'objectif : ${esc(why)}.` : "Pas encore d'objectif : joue quelques ranked de plus."}</p><p class="fine">Il faut au moins 8 parties classées au même poste.</p></section>`;
+    return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${why ? `Pas encore d'objectif : ${esc(why)}.` : "Pas encore d'objectif : joue quelques ranked de plus."}</p><p class="fine">Il faut au moins 15 parties classées au même poste.</p></section>`;
   }
   const ref = g.reference?.source === "metric_references" ? `Repère : ${esc(g.reference.level || "Diamant+")} à ce poste, médiane ${esc(c2V1Fmt(g, g.reference.value))} (${c2n(g.reference.n)} parties).` : "Repère pédagogique du coach, en attendant assez de données mesurées.";
   const evs = (V.evaluations || []).filter(e => e.counted);
@@ -409,6 +409,19 @@ const C2_V1_OUTCOME = {
   failed: "Objectif précédent mis de côté après deux séries sans progrès",
   inconclusive: "Objectif précédent sans verdict (pas assez de parties au même poste)",
 };
+// Test privé : avis du testeur sur le cycle terminé (pertinence, effets indésirables), une fois par objectif
+const C2_V1_SIDE = { "jeu-plus-passif": "J'ai joué plus passif", "moins-de-farm": "J'ai moins farmé", "moins-de-kills": "J'ai moins participé aux kills", stress: "Plus de stress", "moins-de-plaisir": "Moins de plaisir", "conseil-inadapte": "Conseils pas adaptés", "objectif-incompris": "Je n'ai pas compris l'objectif" };
+function c2V1Feedback(g) {
+  if (g.feedback) return `<p class="fine">Merci pour ton avis sur cet objectif.</p>`;
+  const F = c2ui.v1?.fb?.[g.id] || {};
+  return `<details class="more c2-v1-fb"><summary>Ton avis sur cet objectif (test privé)</summary>
+    <p class="fine">Utile pour ton jeu ? 1 = pas du tout, 5 = beaucoup</p>
+    <div class="c2-v1-rel">${[1, 2, 3, 4, 5].map(n => `<button class="btn ${F.relevance === n ? "primary" : "ghost"} sm" data-action="c2-v1-rel" data-id="${esc(g.id)}" data-n="${n}">${n}</button>`).join("")}</div>
+    <p class="fine">Effets indésirables pendant ces parties :</p>
+    <div class="c2-v1-side">${Object.entries(C2_V1_SIDE).map(([k, t]) => `<label><input type="checkbox" data-action="c2-v1-side" data-id="${esc(g.id)}" data-k="${k}"${F.side?.includes(k) ? " checked" : ""}> ${t}</label>`).join("")}</div>
+    <textarea class="c2-v1-comment" data-id="${esc(g.id)}" maxlength="1000" rows="2" placeholder="Un commentaire ? (facultatif)">${esc(F.comment || "")}</textarea>
+    <button class="btn primary sm" data-action="c2-v1-fb-send" data-id="${esc(g.id)}"${F.relevance || F.side?.length ? "" : " disabled"}>Envoyer</button></details>`;
+}
 function c2V1Tips(g) {
   const L = C2_V1_TIPS[g.metric], role = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "bottom", UTILITY: "support" }[g.role];
   if (!L || !COACH) return [];
@@ -1413,6 +1426,21 @@ document.addEventListener("click", async e => {
   if (!a) return;
   const V = (c2ui.v1 ||= {});
   if (a.dataset.action === "c2-v1-sync") c2V1Load(true);
+  if (a.dataset.action === "c2-v1-rel" || a.dataset.action === "c2-v1-side") {
+    const F = ((V.fb ||= {})[a.dataset.id] ||= { side: [] });
+    F.comment = document.querySelector(`.c2-v1-comment[data-id="${CSS.escape(a.dataset.id)}"]`)?.value || F.comment;
+    if (a.dataset.n) F.relevance = +a.dataset.n;
+    if (a.dataset.k) F.side = F.side.includes(a.dataset.k) ? F.side.filter(x => x !== a.dataset.k) : [...F.side, a.dataset.k];
+    render(false); document.querySelector(".c2-v1-fb")?.setAttribute("open", "");
+  }
+  if (a.dataset.action === "c2-v1-fb-send" && V.pid) {
+    const F = V.fb?.[a.dataset.id] || {}, comment = document.querySelector(`.c2-v1-comment[data-id="${CSS.escape(a.dataset.id)}"]`)?.value.trim() || null;
+    try {
+      const r = await c2V1(`/players/${V.pid}/goals/${a.dataset.id}/feedback`, "POST", { relevance: F.relevance ?? null, side_effects: F.side || [], comment });
+      const h = V.history?.find(x => x.id === a.dataset.id); if (h) h.feedback = r.feedback;
+    } catch (err) { V.error = err.message; }
+    render(false);
+  }
   if (a.dataset.action === "c2-v1-start" && V.pid) {
     try { V.goal = (await c2V1(`/players/${V.pid}/goals/${a.dataset.id}/start`, "POST")).goal; V.evaluations = []; } catch (err) { V.error = err.message; }
     render(false);

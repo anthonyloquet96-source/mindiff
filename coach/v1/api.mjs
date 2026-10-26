@@ -10,6 +10,7 @@
 //   GET  /api/v1/players/:id/goals/active
 //   POST /api/v1/players/:id/goals/:goalId/start (proposé → actif)
 //   GET  /api/v1/players/:id/progress
+//   POST /api/v1/players/:id/goals/:goalId/feedback (test privé : pertinence 1 à 5, effets indésirables, commentaire)
 //   DELETE /api/v1/players/:id                 (suppression RGPD)
 //   POST /api/v1/coach/chat                    (COACH-010)
 
@@ -20,6 +21,8 @@ import { CATALOG, METRIC_VERSION, formatMetric } from "../metrics.mjs";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 const fail = (status, code, message) => ({ status, body: { error: { code, message } } });
+// Effets indésirables proposés au testeur après un cycle (pilot_feedback.side_effects)
+export const SIDE_EFFECTS = ["jeu-plus-passif", "moins-de-farm", "moins-de-kills", "stress", "moins-de-plaisir", "conseil-inadapte", "objectif-incompris"];
 
 // File de synchronisation en mémoire : une à la fois, dans l'ordre d'arrivée
 export function createQueue(work) {
@@ -78,8 +81,22 @@ export async function handleV1({ method, path, query = {}, body = null }, ctx) {
       // Démarré maintenant : seules les parties jouées ensuite comptent
       return { status: 200, body: { goal: withLabels(await store.putGoal(player.id, transition(g, "active", Date.now()))) } };
     }
+    const fm = sub.match(/^\/goals\/([^/]+)\/feedback$/);
+    if (fm && method === "POST") {
+      const g = goals.find(x => x.id === fm[1]);
+      if (!g) return fail(404, "objectif-inconnu", "Objectif inconnu.");
+      // Retour seulement sur un cycle terminé : le joueur juge ce qu'il a vécu, pas ce qu'il va faire
+      if (!(g.status === "archived" || OUTCOMES.includes(g.status))) return fail(409, "cycle-en-cours", "Donne ton avis une fois les 5 parties jouées.");
+      const { relevance = null, side_effects = [], comment = null } = body || {};
+      if (relevance != null && !(Number.isInteger(relevance) && relevance >= 1 && relevance <= 5)) return fail(400, "retour-invalide", "Pertinence : un entier de 1 à 5.");
+      if (!Array.isArray(side_effects) || side_effects.some(x => !SIDE_EFFECTS.includes(x))) return fail(400, "retour-invalide", "Effet indésirable inconnu.");
+      if (comment != null && (typeof comment !== "string" || comment.length > 1000)) return fail(400, "retour-invalide", "Commentaire : 1000 caractères au plus.");
+      if (relevance == null && !side_effects.length && !comment?.trim()) return fail(400, "retour-vide", "Retour vide.");
+      const fb = await store.putFeedback(g.id, { relevance, side_effects: [...new Set(side_effects)], comment: comment?.trim() || null });
+      return { status: 200, body: { feedback: fb } };
+    }
     if (sub === "/progress" && method === "GET") {
-      const history = await Promise.all(goals.filter(g => g.status === "archived" || OUTCOMES.includes(g.status)).map(async g => ({ ...withLabels(g), evaluations: await store.listEvaluations(g.id) })));
+      const history = await Promise.all(goals.filter(g => g.status === "archived" || OUTCOMES.includes(g.status)).map(async g => ({ ...withLabels(g), evaluations: await store.listEvaluations(g.id), feedback: await store.getFeedback(g.id) })));
       const timeline = {};
       for (const k of new Set(goals.map(g => g.metric))) timeline[k] = metrics.filter(m => m.valid && m.metrics[k]?.value != null).slice(0, 30).map(m => ({ start_ms: m.start_ms, value: m.metrics[k].value, role: m.role })).reverse();
       return { status: 200, body: { goals: history, series: timeline } };

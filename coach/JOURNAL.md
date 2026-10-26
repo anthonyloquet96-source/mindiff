@@ -587,10 +587,10 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 
 - App 897844 « MINDIFF Coach - private test » : clé personnelle approuvée immédiatement (20 req/s, 100 req/2 min), sans expiration quotidienne.
 - Clé rangée dans `.env` (RIOT_API_KEY, ignoré par git), testée : HTTP 200 sur lol-status.
-- Texte déposé corrigé : pendant la partie, seul ce que montre l’\écran de chargement est affiché (SPECTATOR-V5), au lieu de « aucune aide en jeu ».
+- Texte déposé corrigé : pendant la partie, seul ce que montre l’écran de chargement est affiché (SPECTATOR-V5), au lieu de « aucune aide en jeu ».
 
 ## 26/10 — Base Supabase du test privé
 
 - Projet Supabase créé par Anthony (organisation MINDIFF, formule gratuite, région West EU / Irlande, eu-west-1).
-- Les deux migrations V1 et le bucket privé `riot-raw` (nouvelle migration 20261028000000) exécutés dans l’\éditeur SQL : succès.
-- Reste : ranger l’\URL et les clés du projet dans `.env` et dans les secrets du Worker.
+- Les deux migrations V1 et le bucket privé `riot-raw` (nouvelle migration 20261028000000) exécutés dans l’éditeur SQL : succès.
+- Reste : ranger l’URL et les clés du projet dans `.env` et dans les secrets du Worker.

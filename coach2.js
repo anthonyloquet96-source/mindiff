@@ -423,7 +423,7 @@ const C2_V1_SIDE = { "jeu-plus-passif": "J'ai joué plus passif", "moins-de-farm
 function c2V1Feedback(g) {
   if (g.feedback) return `<p class="fine">Merci pour ton avis sur cet objectif.</p>`;
   const F = c2ui.v1?.fb?.[g.id] || {};
-  return `<details class="more c2-v1-fb"><summary>Ton avis sur cet objectif (test privé)</summary>
+  return `<details class="more c2-v1-fb"${c2ui.v1?.fbOpen ? " open" : ""}><summary>Ton avis sur cet objectif (test privé)</summary>
     <p class="fine">Utile pour ton jeu ? 1 = pas du tout, 5 = beaucoup</p>
     <div class="c2-v1-rel">${[1, 2, 3, 4, 5].map(n => `<button class="btn ${F.relevance === n ? "primary" : "ghost"} sm" data-action="c2-v1-rel" data-id="${esc(g.id)}" data-n="${n}">${n}</button>`).join("")}</div>
     <p class="fine">Effets indésirables pendant ces parties :</p>
@@ -1440,7 +1440,7 @@ document.addEventListener("click", async e => {
     F.comment = document.querySelector(`.c2-v1-comment[data-id="${CSS.escape(a.dataset.id)}"]`)?.value || F.comment;
     if (a.dataset.n) F.relevance = +a.dataset.n;
     if (a.dataset.k) F.side = F.side.includes(a.dataset.k) ? F.side.filter(x => x !== a.dataset.k) : [...F.side, a.dataset.k];
-    render(false); document.querySelector(".c2-v1-fb")?.setAttribute("open", "");
+    V.fbOpen = true; render(false);
   }
   if (a.dataset.action === "c2-v1-fb-send" && V.pid) {
     const F = V.fb?.[a.dataset.id] || {}, comment = document.querySelector(`.c2-v1-comment[data-id="${CSS.escape(a.dataset.id)}"]`)?.value.trim() || null;

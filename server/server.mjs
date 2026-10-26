@@ -24,6 +24,12 @@ try { process.loadEnvFile(join(ROOT, ".env")); } catch { /* .env facultatif */ }
 
 const { runCollection } = await import("../collector/collect.mjs");
 
+// Mode démo (MINDIFF_DEMO=1) : joueur et parties fictifs à la place de l'API Riot (coach/demo.mjs), stockage en mémoire,
+// aucune collecte d'actualités. Pour filmer le coach sans clé ni vrai joueur.
+const DEMO = process.env.MINDIFF_DEMO === "1" ? (await import("../coach/demo.mjs")).createDemo() : null;
+if (DEMO) { const realFetch = globalThis.fetch; globalThis.fetch = (u, o) => DEMO.fetch(u, o, realFetch); }
+const riotKey = () => (DEMO ? "DEMO" : process.env.RIOT_API_KEY?.trim());
+
 const PORT = Number(process.env.PORT || 3000);
 const HOST = process.env.HOST || "127.0.0.1";
 const INTERVAL_MIN = Number(process.env.COLLECT_INTERVAL_MIN || 30);
@@ -44,8 +50,9 @@ async function coachV1() {
   const { createRiotV1 } = await import("../coach/v1/riot.mjs");
   const { handleV1, createQueue, syncWorker } = await import("../coach/v1/api.mjs");
   const key = process.env.RIOT_API_KEY?.trim();
-  const refs = await readFile(join(ROOT, "coach", "cache", "metric-references.json"), "utf8").then(j => JSON.parse(j).references).catch(() => null);
-  const ctx = { store: createStore({ file: join(ROOT, "coach", "cache", "v1", "store.json"), rawDir: join(ROOT, "coach", "cache", "v1", "raw") }), riot: key ? createRiotV1(key) : null, references: refs };
+  // Démo : sans les repères Diamant+ (calculés avec la clé de développement, pas encore autorisés par Riot)
+  const refs = DEMO ? null : await readFile(join(ROOT, "coach", "cache", "metric-references.json"), "utf8").then(j => JSON.parse(j).references).catch(() => null);
+  const ctx = { store: DEMO ? createStore() : createStore({ file: join(ROOT, "coach", "cache", "v1", "store.json"), rawDir: join(ROOT, "coach", "cache", "v1", "raw") }), riot: key ? createRiotV1(key) : null, references: refs };
   ctx.queue = createQueue(syncWorker(ctx));
   // Tuteur (COACH-010) : offre gratuite de Gemini, réponse JSON courte ; conseils sourcés de la base publiée
   const { chatHandler } = await import("../coach/v1/tutor.mjs");
@@ -125,16 +132,19 @@ const server = http.createServer(async (req, res) => {
     return;
   }
   if (path === "/api/collect" && req.method === "POST") {
+    if (DEMO) return send(res, 403, JSON.stringify({ error: "Pas de collecte en mode démo" }));
     if (!isLocal(req)) return send(res, 403, JSON.stringify({ error: "Réservé à l'ordinateur qui héberge le serveur" }));
     if (running) return send(res, 409, JSON.stringify({ error: "Collecte déjà en cours" }));
     collect("manuelle");
     return send(res, 202, JSON.stringify({ ok: true }));
   }
+  // Démo : une nouvelle ranked fictive « jouée maintenant »
+  if (DEMO && path === "/api/demo/play" && req.method === "POST" && isLocal(req)) return send(res, 200, JSON.stringify({ match_id: DEMO.play() }));
   if (path.startsWith("/api/coach/") && req.method === "GET") {
     const { coachApi } = await import("../coach/coach-api.mjs");
-    const cached = name => readFile(join(ROOT, "coach", "cache", name), "utf8").then(JSON.parse).catch(() => null);
+    const cached = name => (DEMO ? Promise.resolve(null) : readFile(join(ROOT, "coach", "cache", name), "utf8").then(JSON.parse).catch(() => null));
     const [benchmarks, champstats, matchups, builds, situations, styles] = await Promise.all([cached("benchmarks.json"), cached("champstats.json"), matchupsCached(), cached("builds.json"), cached("situations.json"), cached("styles.json")]);
-    const r = await coachApi(path, url.searchParams, { key: process.env.RIOT_API_KEY?.trim(), benchmarks, champstats, matchups, builds, situations, styles, visitor: req.socket.remoteAddress });
+    const r = await coachApi(path, url.searchParams, { key: riotKey(), benchmarks, champstats, matchups, builds, situations, styles, visitor: req.socket.remoteAddress });
     return send(res, r.status, JSON.stringify(r.body));
   }
   if (req.method !== "GET") return send(res, 405, "{}");
@@ -157,6 +167,7 @@ server.listen(PORT, HOST, async () => {
     }
   }
   console.log(process.env.ANTHROPIC_API_KEY ? "Analyse Claude : activée" : "Analyse Claude : désactivée (ajoutez ANTHROPIC_API_KEY dans .env)");
+  if (DEMO) { console.log(`Mode démo : joueur fictif ${DEMO.riotId}, aucune requête Riot, aucune collecte.`); latest = await readFile(join(ROOT, "data", "auto.json"), "utf8").catch(() => null); return; }
 
   // Collecte au démarrage si la dernière date de plus de l'intervalle, puis toutes les 30 min
   const prev = await readFile(join(ROOT, "data", "auto.json"), "utf8").catch(() => null);

@@ -602,3 +602,13 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - Site : écran « test privé » (compte Supabase e-mail + mot de passe, puis code, âge, conditions) ; jeton envoyé à chaque appel, renouvelé avant expiration. La tier list Diamant+ de la page Méta reste liée au seul serveur local (`C2_BASE_API`) : rien ne change pour les visiteurs.
 - Tests : inscription (mauvais code, âge manquant, limite d'essais), ancien coach fermé hors test ; schéma `storage` simulé pour la migration du bucket. 57/58.
 - Bloqué par le garde-fou de Claude Code (à faire par Anthony) : désactiver « Confirm email » dans Supabase, poser les secrets du Worker, déployer. Commande prête : `node worker/put-secrets.mjs`.
+
+## 27/10/2026 — Conseils de roam et de gank pour les objectifs « participation aux kills » (branche coach-v1)
+
+- **Manque :** l'objectif « participation aux kills » (mid, jungle, support) n'avait que 2 à 3 conseils sourcés par poste.
+- **Lus par Claude Code (5 articles Dignitas, robots.txt respecté, texte gardé dans le cache privé) :**
+  - Zooph (2019) et ISO (2022) : roamer en mid avec la priorité, après avoir écrasé ses vagues, pas dans une lane perdue ; suivre ou contrer un roam adverse ;
+  - Teatones (2021) : roams du support (sécurité de l'ADC, lanes gankables, bons moments, gank du mid, suivre le support adverse) ;
+  - Fordola (2021) et RealZesty (2020) : premier gank après 4 à 6 camps, lire les vagues au retour, gank sur un freeze, vague du laner, Flash forcé = gain.
+- **Contrôle :** les 19 passages vérifiés mot pour mot avant fusion ; une précision ajoutée par moi (délai du Flash) retirée car absente de la source.
+- **Résultat :** 19 conseils acceptés (15 exploitables, 4 provisoires), aucun rejet. Conseils montrés pour la participation aux kills : 8 en jungle, 14 en mid, 8 en support (contre 2, 3 et 2). Le farm en jungle passe de 3 à 5.

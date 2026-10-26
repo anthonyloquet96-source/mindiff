@@ -6,7 +6,8 @@
 //   - CORS limité au site ; journaux sans secret ni jeton.
 // Mode test privé (par défaut, correctifs du 26/10/2026) : seuls les volontaires inscrits dans pilot_testers, non révoqués,
 // utilisent le coach (403 sinon). COACH_ACCESS = "public" lèvera cette limite, après la clé de production et RSO.
-// Secrets du Worker : RIOT_API_KEY, SUPABASE_URL, SUPABASE_SERVICE_KEY, SUPABASE_ANON_KEY, GEMINI_API_KEY (facultatif).
+// Inscription : POST /api/v1/pilot/join avec le code d'invitation (secret PILOT_CODE), l'âge et l'accord ; GET /api/v1/pilot/me.
+// Secrets du Worker : RIOT_API_KEY, SUPABASE_URL, SUPABASE_SERVICE_KEY, SUPABASE_ANON_KEY, PILOT_CODE, GEMINI_API_KEY (facultatif).
 // Limite connue : quotas et limite de débit Riot tenus en mémoire par instance du Worker ; un Durable Object les rendra
 // globaux avant l'ouverture publique.
 // Liaison compte MINDIFF ↔ compte Riot : la première personne qui résout un Riot ID le lie à son compte. En production,
@@ -17,9 +18,27 @@ import { createRiotV1 } from "../coach/v1/riot.mjs";
 import { createSupabaseRest, createSupabaseStore } from "../coach/v1/store-supabase.mjs";
 
 export const ORIGINS = ["https://anthonyloquet96-source.github.io", "http://localhost:3000"];
-export const QUOTAS = { sync: 20, chat: 20, resolve: 30, ipPer5min: 120 };
+export const QUOTAS = { sync: 20, chat: 20, resolve: 30, join: 5, ipPer5min: 120 };
+// Version des conditions du test privé acceptées à l'inscription (texte affiché par coach2.js)
+export const CONSENT_VERSION = "test-prive-2026-10-27";
 const json = (status, body, cors) => new Response(body == null ? null : JSON.stringify(body), { status, headers: { ...cors, "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" } });
 const err = (status, code, message, cors) => json(status, { error: { code, message } }, cors);
+
+// Jeton Supabase vérifié par Supabase lui-même : identifiant, undefined sans jeton, null si refusé
+export async function userId(request, env, fetchImpl = fetch) {
+  const token = (request.headers.get("Authorization") || "").replace(/^Bearer\s+/i, "");
+  if (!token || !env.SUPABASE_URL) return undefined;
+  const who = await fetchImpl(`${env.SUPABASE_URL}/auth/v1/user`, { headers: { apikey: env.SUPABASE_ANON_KEY, Authorization: `Bearer ${token}` } }).then(r => (r.ok ? r.json() : null)).catch(() => null);
+  return who?.id || null;
+}
+export const tester = async (rest, uid) => (await rest.rest("GET", `pilot_testers?user_id=eq.${encodeURIComponent(uid)}&select=user_id,revoked_at`).catch(() => []))?.[0] || null;
+// Ancien coach (/api/coach) pendant le test privé : mêmes conditions que /api/v1 (volontaire connecté et inscrit)
+export async function isTester(request, env, { fetchImpl = fetch, sb = null } = {}) {
+  const uid = await userId(request, env, fetchImpl);
+  if (!uid) return false;
+  const t = await tester(sb || createSupabaseRest({ url: env.SUPABASE_URL, serviceKey: env.SUPABASE_SERVICE_KEY, fetchImpl }), uid);
+  return !!t && !t.revoked_at;
+}
 
 export function createV1Worker({ fetchImpl = fetch, now = () => Date.now(), sb = null, log = console.log } = {}) {
   const counters = new Map();
@@ -39,20 +58,27 @@ export function createV1Worker({ fetchImpl = fetch, now = () => Date.now(), sb =
     if (url.pathname === "/api/v1/health") return json(200, { ok: true, riot: !!env.RIOT_API_KEY, supabase: !!env.SUPABASE_URL }, cors);
     const ip = request.headers.get("CF-Connecting-IP") || "?";
     if (!hit(`ip:${ip}`, QUOTAS.ipPer5min, 300000)) return err(429, "trop-de-demandes", "Trop de demandes : réessaie dans quelques minutes.", cors);
-    // Jeton Supabase : vérifié par Supabase lui-même
-    const token = (request.headers.get("Authorization") || "").replace(/^Bearer\s+/i, "");
-    if (!token || !env.SUPABASE_URL) return err(401, "non-connecte", "Connexion requise.", cors);
-    const who = await fetchImpl(`${env.SUPABASE_URL}/auth/v1/user`, { headers: { apikey: env.SUPABASE_ANON_KEY, Authorization: `Bearer ${token}` } }).then(r => (r.ok ? r.json() : null)).catch(() => null);
-    const uid = who?.id;
-    if (!uid) return err(401, "jeton-invalide", "Session expirée : reconnecte-toi.", cors);
+    const uid = await userId(request, env, fetchImpl);
+    if (!uid) return err(401, uid === null ? "jeton-invalide" : "non-connecte", uid === null ? "Session expirée : reconnecte-toi." : "Connexion requise.", cors);
     const rest = sb || createSupabaseRest({ url: env.SUPABASE_URL, serviceKey: env.SUPABASE_SERVICE_KEY, fetchImpl });
-    if (env.COACH_ACCESS !== "public") {
-      const tester = (await rest.rest("GET", `pilot_testers?user_id=eq.${encodeURIComponent(uid)}&select=user_id,revoked_at`).catch(() => []))?.[0];
-      if (!tester || tester.revoked_at) return err(403, "test-prive", "Le coach est en test privé, sur invitation.", cors);
-    }
-    const store = createSupabaseStore(rest);
     let body = null;
     if (request.method === "POST") { try { body = await request.json(); } catch { body = null; } }
+    // Inscription au test privé : code d'invitation (secret PILOT_CODE), accord et âge confirmés par le volontaire
+    if (url.pathname === "/api/v1/pilot/me") { const t = await tester(rest, uid); return json(200, { tester: !!t && !t.revoked_at, revoked: !!t?.revoked_at, consent_version: CONSENT_VERSION }, cors); }
+    if (url.pathname === "/api/v1/pilot/join" && request.method === "POST") {
+      if (!hit(`join:${uid}`, QUOTAS.join, 864e5)) return err(429, "quota-invitation", "Trop d'essais aujourd'hui : redemande le code à la personne qui t'a invité.", cors);
+      if (!env.PILOT_CODE || String(body?.code || "").trim().toUpperCase() !== String(env.PILOT_CODE).toUpperCase()) return err(403, "code-invalide", "Code d'invitation incorrect.", cors);
+      if (body?.age_confirmed !== true || body?.consent_version !== CONSENT_VERSION) return err(400, "accord-requis", "Il faut confirmer ton âge et accepter les conditions du test.", cors);
+      const t = await tester(rest, uid);
+      if (t?.revoked_at) return err(403, "test-quitte", "Tu as quitté le test : demande à la personne qui t'a invité pour revenir.", cors);
+      if (!t) await rest.rest("POST", "pilot_testers", { body: { user_id: uid, invited_by: "code", consent_at: new Date(now()).toISOString(), consent_version: CONSENT_VERSION, age_confirmed: true } });
+      return json(200, { tester: true }, cors);
+    }
+    if (env.COACH_ACCESS !== "public") {
+      const t = await tester(rest, uid);
+      if (!t || t.revoked_at) return err(403, "test-prive", "Le coach est en test privé, sur invitation.", cors);
+    }
+    const store = createSupabaseStore(rest);
     // Autorisation par ressource
     const pm = url.pathname.match(/^\/api\/v1\/players\/([0-9a-f-]{36})(\/|$)/);
     const jm = url.pathname.match(/^\/api\/v1\/jobs\/([0-9a-f-]{36})$/);

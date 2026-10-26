@@ -594,3 +594,11 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - Projet Supabase créé par Anthony (organisation MINDIFF, formule gratuite, région West EU / Irlande, eu-west-1).
 - Les deux migrations V1 et le bucket privé `riot-raw` (nouvelle migration 20261028000000) exécutés dans l’éditeur SQL : succès.
 - Reste : ranger l’URL et les clés du projet dans `.env` et dans les secrets du Worker.
+
+## 27/10 — Entrée du test privé
+
+- Worker : `POST /api/v1/pilot/join` (code d'invitation `PILOT_CODE`, âge et accord versionné `test-prive-2026-10-27`, 5 essais par jour), `GET /api/v1/pilot/me`.
+- L'ancien coach (/api/coach) suit la même règle que /api/v1 pendant le test (volontaire connecté et inscrit) et ne sert plus les repères Diamant+ de la clé de développement.
+- Site : écran « test privé » (compte Supabase e-mail + mot de passe, puis code, âge, conditions) ; jeton envoyé à chaque appel, renouvelé avant expiration. La tier list Diamant+ de la page Méta reste liée au seul serveur local (`C2_BASE_API`) : rien ne change pour les visiteurs.
+- Tests : inscription (mauvais code, âge manquant, limite d'essais), ancien coach fermé hors test ; schéma `storage` simulé pour la migration du bucket. 57/58.
+- Bloqué par le garde-fou de Claude Code (à faire par Anthony) : désactiver « Confirm email » dans Supabase, poser les secrets du Worker, déployer. Commande prête : `node worker/put-secrets.mjs`.

@@ -14,7 +14,13 @@ const C2 = (() => {
 const c2Save = () => { try { localStorage.setItem(C2_KEY, JSON.stringify({ ...C2, reviews: Object.fromEntries(Object.entries(C2.reviews).slice(-8)) })); } catch { /* stockage indisponible */ } };
 const c2ui = { loading: null, error: null, q: "", live: null, liveAt: 0, liveBusy: false, champ: {} };
 // Service : le serveur local sert l'API ; en ligne, l'adresse du service est fixée par window.MINDIFF_API
-const C2_API = window.MINDIFF_API ?? (/^(localhost|127\.|192\.168\.|10\.)/.test(location.hostname) ? "" : null);
+const C2_BASE_API = window.MINDIFF_API ?? (/^(localhost|127\.|192\.168\.|10\.)/.test(location.hostname) ? "" : null);
+// Test privé (clé Riot personnelle) : window.MINDIFF_PILOT = { api, supabase, anon }. Le service n'est ouvert qu'aux
+// volontaires connectés (Supabase Auth, e-mail et mot de passe) et inscrits avec le code d'invitation.
+const C2_PILOT = C2_BASE_API == null ? window.MINDIFF_PILOT || null : null;
+const C2_SESSION_KEY = "mindiff-pilot-session";
+let c2Session = (() => { try { return C2_PILOT ? JSON.parse(localStorage.getItem(C2_SESSION_KEY) || "null") : null; } catch { return null; } })();
+let C2_API = C2_BASE_API ?? (c2Session?.tester ? C2_PILOT.api : null);
 // Coach V1 : après la partie seulement. Préparer et la carte « partie en cours » restent dans le code, masqués ;
 // localStorage « mindiff-extras » = « 1 » les réaffiche (tests, version suivante)
 const C2_EXTRAS = (() => { try { return localStorage.getItem("mindiff-extras") === "1"; } catch { return false; } })();
@@ -67,9 +73,79 @@ const c2Patch = p => String(p ?? "").replace(/^1([56])./, "2$1.");
 const c2n = v => (typeof v === "number" ? v.toLocaleString("fr-FR") : v ?? "—");
 const c2Ago = t => { const h = (Date.now() - t) / 36e5; return h < 1 / 12 ? "à l'instant" : h < 1 ? `il y a ${Math.round(h * 60)} min` : h < 24 ? `il y a ${Math.round(h)} h` : `il y a ${Math.round(h / 24)} j`; };
 
+// ---------- Test privé : compte et inscription (API REST de Supabase Auth, sans bibliothèque)
+// Même version que CONSENT_VERSION dans worker/v1.mjs : la changer impose une nouvelle acceptation
+const C2_CONSENT = "test-prive-2026-10-27";
+const c2SessionSave = () => { try { c2Session ? localStorage.setItem(C2_SESSION_KEY, JSON.stringify(c2Session)) : localStorage.removeItem(C2_SESSION_KEY); } catch { /* stockage indisponible */ } };
+async function c2SbAuth(path, body) {
+  const r = await fetch(`${C2_PILOT.supabase}/auth/v1/${path}`, { method: "POST", headers: { apikey: C2_PILOT.anon, "Content-Type": "application/json" }, body: JSON.stringify(body) }).catch(() => null);
+  if (!r) throw new Error("Pas de connexion : réessaie dans un instant.");
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(/invalid login|invalid_credentials/i.test(j.error_code || j.msg || j.error_description || "") ? "E-mail ou mot de passe incorrect." : /already registered|user_already_exists/i.test(j.error_code || j.msg || "") ? "Un compte existe déjà avec cet e-mail : connecte-toi." : /weak|at least/i.test(j.error_code || j.msg || "") ? "Mot de passe trop court : 8 caractères au moins." : j.msg || j.error_description || `Erreur ${r.status}`);
+  return j;
+}
+const c2SessionFrom = (j, prev = {}) => ({ ...prev, access_token: j.access_token, refresh_token: j.refresh_token, expires_at: Math.floor(Date.now() / 1000) + (j.expires_in || 3600) });
+async function c2AuthHeaders() {
+  if (!C2_PILOT || !c2Session?.access_token) return {};
+  if (c2Session.expires_at * 1000 < Date.now() + 60000) {
+    try { c2Session = c2SessionFrom(await c2SbAuth("token?grant_type=refresh_token", { refresh_token: c2Session.refresh_token }), c2Session); c2SessionSave(); } catch { /* jeton refusé : le service répondra 401 */ }
+  }
+  return { Authorization: `Bearer ${c2Session.access_token}` };
+}
+// Statut de testeur demandé au service ; ouvre le coach si l'inscription est faite
+async function c2PilotCheck() {
+  const r = await fetch(`${C2_PILOT.api}/api/v1/pilot/me`, { headers: await c2AuthHeaders() }).catch(() => null);
+  const j = r ? await r.json().catch(() => ({})) : {};
+  if (r?.status === 401) { c2Session = null; c2SessionSave(); throw new Error("Session expirée : reconnecte-toi."); }
+  if (!r?.ok) throw new Error("Le service du coach ne répond pas : réessaie dans quelques minutes.");
+  c2Session.tester = !!j.tester; c2Session.revoked = !!j.revoked; c2SessionSave();
+  C2_API = c2Session.tester ? C2_PILOT.api : null;
+}
+function c2PilotLost() { if (c2Session) { c2Session.tester = false; c2SessionSave(); } C2_API = null; render(false); }
+function c2PilotGate() {
+  if (!C2_PILOT) return c2Showcase();
+  const P = (c2ui.pilot ||= { mode: "signup" }), msg = `<p class="form-msg fine" role="status" aria-live="polite">${P.error ? esc(P.error) : ""}</p>`;
+  const head = `<p class="label">Test privé</p><h2 class="c2-show-title">Le coach est en test, sur invitation</h2>`;
+  if (!c2Session?.access_token) return `<section class="c2-card c2-pilot">${head}
+    <p class="fine">Tu as reçu un code d'invitation ? ${P.mode === "signup" ? "Crée ton compte" : "Connecte-toi"} avec ton e-mail, puis entre le code.</p>
+    <form id="c2-pilot-auth" class="c2-form" novalidate>
+      <label class="field"><span>E-mail</span><input name="email" type="email" autocomplete="email" required></label>
+      <label class="field"><span>Mot de passe</span><input name="password" type="password" minlength="8" autocomplete="${P.mode === "signup" ? "new-password" : "current-password"}" required></label>
+      <button class="btn primary" type="submit" ${P.busy ? "disabled" : ""}>${P.mode === "signup" ? "Créer mon compte" : "Me connecter"}</button>
+      <button class="btn ghost" type="button" data-action="c2-pilot-mode">${P.mode === "signup" ? "J'ai déjà un compte" : "Créer un compte"}</button>
+      ${msg}
+    </form></section>${c2Showcase()}`;
+  if (c2Session.revoked) return `<section class="c2-card c2-pilot">${head}<p>Tu as quitté le test. Pour revenir, demande à la personne qui t'a invité.</p><button class="btn ghost sm" data-action="c2-pilot-out">Me déconnecter</button></section>`;
+  return `<section class="c2-card c2-pilot">${head}
+    <form id="c2-pilot-join" class="c2-form" novalidate>
+      <label class="field"><span>Code d'invitation</span><input name="code" autocomplete="off" autocapitalize="characters" spellcheck="false" required></label>
+      <details class="c2-pilot-terms"><summary>Conditions du test (à lire)</summary><ul>
+        <li>Test privé d'environ deux semaines, réservé aux personnes majeures invitées.</li>
+        <li>À partir de ton Riot ID, le coach lit tes parties classées via l'API de Riot Games et les garde pour te proposer un objectif et le suivre sur tes parties suivantes.</li>
+        <li>Données gardées : ton e-mail (pour te connecter), ton Riot ID, tes parties, tes objectifs et tes avis. Hébergées en Europe (Supabase, Irlande), visibles par toi seul, jamais vendues ni partagées, sans publicité, et aucune n'est envoyée à un service d'IA.</li>
+        <li>Le bouton « Supprimer mes données du coach » efface tout à tout moment. Tout est effacé à la fin du test.</li>
+        <li>MINDIFF n'est ni approuvé ni soutenu par Riot Games.</li>
+      </ul></details>
+      <label class="check"><input type="checkbox" name="age"> J'ai 18 ans ou plus</label>
+      <label class="check"><input type="checkbox" name="consent"> J'ai lu et j'accepte les conditions du test</label>
+      <button class="btn primary" type="submit" ${P.busy ? "disabled" : ""}>Rejoindre le test</button>
+      <button class="btn ghost" type="button" data-action="c2-pilot-out">Me déconnecter</button>
+      ${msg}
+    </form></section>`;
+}
+async function c2PilotRun(fn) {
+  const P = (c2ui.pilot ||= {});
+  P.busy = true; P.error = null; render(false);
+  try { await fn(); } catch (e) { P.error = e.message; }
+  P.busy = false; render(false);
+}
+// Au chargement : session gardée mais statut à revérifier (testeur retiré, session expirée)
+if (C2_PILOT && c2Session?.access_token) setTimeout(() => c2PilotCheck().catch(() => {}).then(() => render(false)), 0);
+
 // ---------- Appels au service
 async function c2Fetch(path, params) {
-  const r = await fetch(`${C2_API}/api/coach/${path}?${new URLSearchParams(params)}`).catch(() => null);
+  const r = await fetch(`${C2_API}/api/coach/${path}?${new URLSearchParams(params)}`, { headers: await c2AuthHeaders() }).catch(() => null);
+  if (r?.status === 403 && C2_PILOT) { c2PilotLost(); throw new Error("Le coach est en test privé, sur invitation."); }
   if (!r) throw new Error("Pas de connexion au service du coach. Vérifie ta connexion et réessaie.");
   const j = await r.json().catch(() => ({ error: "Réponse illisible du service." }));
   // Panne côté service (clé Riot expirée, API Riot indisponible) : message compréhensible pour le joueur
@@ -312,8 +388,8 @@ function c2Prepare() {
 }
 // Compte connecté et profil chargé, sinon l'écran adapté (connexion, chargement, erreur)
 function c2NeedProfile() {
+  if (C2_API == null) return C2_PILOT ? c2PilotGate() : C2.account ? c2Showcase() : c2Connect();
   if (!C2.account) return c2Connect();
-  if (C2_API == null) return c2Showcase();
   setTimeout(() => c2LoadProfile(), 0);
   const p = C2.profile;
   if (!p && c2ui.error && !c2ui.loading) return c2Connect();
@@ -336,9 +412,11 @@ function c2Home() {
 
 // ---------- Coach V1 : un objectif mesurable à la fois (routes /api/v1, calcul côté serveur, sans IA)
 async function c2V1(path, method = "GET", body = null) {
-  const r = await fetch(`${C2_API}/api/v1${path}`, body ? { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) } : { method }).catch(() => null);
+  const auth = await c2AuthHeaders();
+  const r = await fetch(`${C2_API}/api/v1${path}`, body ? { method, headers: { ...auth, "Content-Type": "application/json" }, body: JSON.stringify(body) } : { method, headers: auth }).catch(() => null);
   if (!r) throw new Error("Pas de connexion au service du coach.");
   const j = r.status === 204 ? {} : await r.json().catch(() => ({}));
+  if (C2_PILOT && (r.status === 401 || j.error?.code === "test-prive")) c2PilotLost();
   if (!r.ok) throw new Error(j.error?.message || `Erreur ${r.status}`);
   return j;
 }
@@ -1327,6 +1405,29 @@ function c2Report() {
 
 // ---------- Événements
 document.addEventListener("submit", e => {
+  if (e.target.id === "c2-pilot-auth") {
+    e.preventDefault();
+    const fd = new FormData(e.target), email = String(fd.get("email") || "").trim(), password = String(fd.get("password") || "");
+    if (!/^\S+@\S+\.\S+$/.test(email) || password.length < 8) { c2ui.pilot.error = "E-mail valide et mot de passe de 8 caractères au moins."; render(false); return; }
+    const signup = c2ui.pilot.mode === "signup";
+    c2PilotRun(async () => {
+      const j = await c2SbAuth(signup ? "signup" : "token?grant_type=password", { email, password });
+      if (!j.access_token) throw new Error("Compte créé : confirme ton e-mail puis connecte-toi.");
+      c2Session = c2SessionFrom(j); c2SessionSave();
+      await c2PilotCheck();
+    });
+  }
+  if (e.target.id === "c2-pilot-join") {
+    e.preventDefault();
+    const fd = new FormData(e.target), code = String(fd.get("code") || "").trim();
+    if (!code || !fd.get("age") || !fd.get("consent")) { c2ui.pilot.error = "Entre le code, confirme ton âge et accepte les conditions."; render(false); return; }
+    c2PilotRun(async () => {
+      const r = await fetch(`${C2_PILOT.api}/api/v1/pilot/join`, { method: "POST", headers: { ...(await c2AuthHeaders()), "Content-Type": "application/json" }, body: JSON.stringify({ code, age_confirmed: true, consent_version: C2_CONSENT }) }).catch(() => null);
+      const j = r ? await r.json().catch(() => ({})) : {};
+      if (!r?.ok) throw new Error(j.error?.message || "Le service du coach ne répond pas : réessaie dans quelques minutes.");
+      await c2PilotCheck();
+    });
+  }
   if (e.target.id === "c2-connect") {
     e.preventDefault();
     const fd = new FormData(e.target);
@@ -1344,6 +1445,8 @@ document.addEventListener("submit", e => {
 document.addEventListener("click", e => {
   const a = e.target.closest("[data-action]");
   if (!a) return;
+  if (a.dataset.action === "c2-pilot-mode") { c2ui.pilot = { mode: c2ui.pilot?.mode === "signup" ? "login" : "signup" }; render(false); }
+  if (a.dataset.action === "c2-pilot-out") { c2Session = null; c2SessionSave(); C2_API = null; c2ui.pilot = { mode: "login" }; c2ui.v1 = {}; render(false); }
   if (a.dataset.action === "c2-refresh") c2LoadProfile(true);
   if (a.dataset.action === "c2-logout") { C2.account = null; C2.profile = null; C2.reviews = {}; c2ui.error = null; c2Save(); render(false); }
   if (a.dataset.action === "c2-switch") { c2ui.switching = !c2ui.switching; render(false); if (c2ui.switching) document.querySelector("#c2-connect input")?.focus(); }

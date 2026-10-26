@@ -1367,3 +1367,11 @@ button.pick { background: none; border: 0; padding: 0; font: inherit; color: inh
 .c2-v1-comment { width: 100%; box-sizing: border-box; font: inherit; padding: var(--s2); border-radius: var(--r-sm); border: 1px solid var(--border, currentColor); background: var(--surface-2); color: inherit; }
 .c2-v1-erase { align-self: flex-start; margin-top: var(--s2); color: var(--text-2); }
 .c2-v1-erase-confirm { margin-top: var(--s2); padding-top: var(--s2); border-top: 1px solid var(--line); }
+/* Test privé : compte et inscription */
+.c2-pilot .c2-form { grid-template-columns: 1fr; }
+.c2-pilot .c2-form .check input { width: auto; min-height: 0; }
+.c2-pilot .check { display: flex; gap: var(--s2); align-items: flex-start; font-size: .9rem; }
+.c2-pilot .check input { margin-top: .2em; accent-color: var(--accent); }
+.c2-pilot-terms { font-size: .85rem; color: var(--text-2); }
+.c2-pilot-terms summary { cursor: pointer; color: var(--text); }
+.c2-pilot-terms ul { margin: var(--s2) 0 0; padding-left: 1.2em; display: grid; gap: var(--s1); }

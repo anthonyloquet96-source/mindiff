@@ -359,7 +359,7 @@ async function loadRosters() {
 
 // Statistiques Diamant+ relevées avec la clé Riot de développement : affichées seulement là où l'API du coach répond
 // (serveur local, puis service en ligne une fois la clé de production obtenue). Sinon la tier list des sources reste.
-const DIAMOND_API = typeof C2_API === "undefined" ? null : C2_API;
+const DIAMOND_API = typeof C2_BASE_API === "undefined" ? null : C2_BASE_API;
 if (DIAMOND_API == null) for (let i = STRATS.length - 1; i >= 0; i--) if (STRATS[i].prive) STRATS.splice(i, 1);
 async function loadDiamond() {
   if (DIAMOND_API == null) return;

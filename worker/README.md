@@ -27,3 +27,18 @@ Avant une ouverture publique :
 - Riot Sign-On (RSO) pour lier un compte Riot à un compte MINDIFF : sans lui, la première personne qui saisit un Riot ID le lie à son compte ;
 - quotas et limite de débit Riot globaux (Durable Object) : aujourd'hui en mémoire par instance du Worker ;
 - références `metric_references` recalculées avec la clé de production (celles de la clé de développement restent privées).
+
+## Test privé (27/10/2026) : ce qui est fait, ce qu'Anthony lance
+
+Fait : projet Supabase « MINDIFF » (Irlande, gratuit), migrations et bucket `riot-raw` appliqués ; `.env` contient
+`SUPABASE_URL`, `SUPABASE_ANON_KEY`, `PILOT_CODE` (code d'invitation) et la clé Riot personnelle (app 897844).
+Le site (`index.html`, `window.MINDIFF_PILOT`) affiche la connexion des volontaires puis le code d'invitation.
+
+À lancer par Anthony (Claude Code n'a pas le droit de poser des secrets ni de déployer) :
+1. Copier la clé `service_role` (Supabase → Project Settings → API Keys → Legacy) dans `.env` : `SUPABASE_SERVICE_KEY=…`
+2. `node worker/put-secrets.mjs` (pose les 5 secrets sans les afficher ; Gemini n'est pas envoyé)
+3. `cd worker && npx wrangler deploy`, puis vérifier `/api/v1/health` (`riot` et `supabase` à `true`)
+4. Fusionner `coach-v1` dans `main` pour publier le site.
+
+Pendant le test, l'ancien coach (/api/coach) n'est servi qu'aux volontaires inscrits, sans les repères Diamant+
+de la clé de développement ; `COACH_ACCESS = "public"` rouvrira tout après la clé de production.

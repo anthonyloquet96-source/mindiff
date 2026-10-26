@@ -19,6 +19,8 @@ const results = [];
 async function applyMigrations(db) {
   const { readdir } = await import("node:fs/promises");
   const dir = new URL("../../supabase/migrations/", import.meta.url);
+  // Schéma storage fourni par Supabase, absent du Postgres embarqué
+  await db.exec("create schema if not exists storage; create table if not exists storage.buckets (id text primary key, name text not null, public boolean);");
   for (const f of (await readdir(dir)).filter(f => f.endsWith(".sql")).sort()) await db.exec(await readFile(new URL(f, dir), "utf8"));
 }
 
@@ -1233,7 +1235,7 @@ await t("COACH-004 Worker : jeton vérifié, joueurs d'un autre compte invisible
     return ok([]);
   };
   const worker = createV1Worker({ fetchImpl, sb: { rest }, log: () => {} });
-  const env = { RIOT_API_KEY: "CLE-SECRETE", SUPABASE_URL: "https://x.supabase.co", SUPABASE_ANON_KEY: "anon", SUPABASE_SERVICE_KEY: "service" };
+  const env = { RIOT_API_KEY: "CLE-SECRETE", SUPABASE_URL: "https://x.supabase.co", SUPABASE_ANON_KEY: "anon", SUPABASE_SERVICE_KEY: "service", PILOT_CODE: "MINDIFF-TEST" };
   const waits = [];
   const ctx = { waitUntil: p => waits.push(p) };
   const call = async (path, { token, method = "GET", body, origin = "https://anthonyloquet96-source.github.io" } = {}) => {
@@ -1248,6 +1250,17 @@ await t("COACH-004 Worker : jeton vérifié, joueurs d'un autre compte invisible
   // Test privé : un compte valide hors de la liste des volontaires est refusé
   const outsider = await call("/api/v1/players/resolve?riot_id=Testeur%23EUW", { token: "jeton-c" });
   assert(outsider.status === 403 && outsider.body.error.code === "test-prive", "compte hors test privé accepté");
+  // Inscription : bon code, âge et accord exigés ; l'ancien coach suit la même règle
+  const { isTester, CONSENT_VERSION } = await import("../../worker/v1.mjs");
+  const legacy = token => isTester(new Request("https://w.dev/api/coach/profile", { headers: token ? { Authorization: `Bearer ${token}` } : {} }), env, { fetchImpl, sb: { rest } });
+  assert(!(await legacy("jeton-c")) && !(await legacy()) && (await legacy("jeton-a")), "ancien coach ouvert hors test privé");
+  assert((await call("/api/v1/pilot/me", { token: "jeton-c" })).body.tester === false, "statut de testeur faux");
+  assert((await call("/api/v1/pilot/join", { token: "jeton-c", method: "POST", body: { code: "MAUVAIS", age_confirmed: true, consent_version: CONSENT_VERSION } })).body.error.code === "code-invalide", "mauvais code accepté");
+  assert((await call("/api/v1/pilot/join", { token: "jeton-c", method: "POST", body: { code: "mindiff-test", consent_version: CONSENT_VERSION } })).body.error.code === "accord-requis", "inscription sans âge confirmé");
+  assert((await call("/api/v1/pilot/join", { token: "jeton-c", method: "POST", body: { code: " mindiff-test ", age_confirmed: true, consent_version: CONSENT_VERSION } })).status === 200, "inscription refusée");
+  assert((await call("/api/v1/pilot/me", { token: "jeton-c" })).body.tester === true && (await legacy("jeton-c")), "inscription sans effet");
+  for (let i = 0; i < QUOTAS.join; i++) await call("/api/v1/pilot/join", { token: "jeton-b", method: "POST", body: { code: "X" } });
+  assert((await call("/api/v1/pilot/join", { token: "jeton-b", method: "POST", body: { code: "X" } })).status === 429, "code d'invitation devinable sans limite");
   const r = await call("/api/v1/players/resolve?riot_id=Testeur%23EUW", { token: "jeton-a" });
   assert(r.status === 200 && r.body.player_id, "résolution par A");
   const pid = r.body.player_id;

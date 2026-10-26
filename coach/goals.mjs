@@ -27,7 +27,7 @@ export const RULES = {
   minGames: 15, baselineGames: 20, minValidShare: 0.7, historyMax: 50, minRefSample: 200,
   evaluationGames: 5, minimumValid: 4, successRequired: 3,
   targetQuantile: 0.55, targetQuantileAfterMastery: 0.6,
-  progressSd: 0.25, guardrailSd: 0.5, guardrailGames: 3,
+  progressSd: 0.25, regressionSd: 0.75, guardrailSd: 0.75, guardrailGames: 4,
 };
 const FLOOR = { cs_at_10: 4, cs_at_15: 6, cs_per_min: 0.4, early_deaths: 0.75, kill_participation: 0.05, vision_per_min: 0.1, xp_at_10: 150, objective_participation: 0.1 };
 // Résultats d'un cycle d'évaluation
@@ -173,7 +173,7 @@ export function assertSingleActive(goals) {
   return open[0] || null;
 }
 
-// Garde-fous sur les parties évaluées : dégradation nette = médiane en baisse d'au moins 0,5·s ET au moins 3 parties sous le
+// Garde-fous sur les parties évaluées : dégradation nette = médiane en baisse d'au moins 0,75·s ET au moins 4 parties sous le
 // quart bas personnel (dans le sens de la métrique). Une seule mauvaise partie ne suffit pas.
 export function checkGuardrails(guardrails = {}, evalGames) {
   const out = {};
@@ -191,7 +191,7 @@ export function checkGuardrails(guardrails = {}, evalGames) {
 // Fenêtre : les 5 premières parties valides au même rôle, toutes postérieures à la fenêtre de départ (vérifié).
 // Moins de 4 observations valides, ou 5 parties valides à un autre rôle d'abord : inconclusif. Sinon, dans cet ordre :
 //   garde-fou dégradé → needs_review (même si la cible est atteinte) ; 3 cibles sur 5 → achieved ;
-//   recul d'au moins 0,25·s → needs_review ; progrès d'au moins 0,25·s → improving ; sinon stable,
+//   recul d'au moins 0,75·s → needs_review ; progrès d'au moins 0,25·s → improving ; sinon stable,
 //   ou failed si le cycle précédent du même objectif était déjà stable (deux cycles sans maîtrise ni progrès).
 export function evaluateGoal(goal, games, now = Date.now()) {
   if (!["active", "evaluating"].includes(goal.status)) throw Object.assign(new Error("Objectif non actif."), { code: "objectif-inactif" });
@@ -222,7 +222,7 @@ export function evaluateGoal(goal, games, now = Date.now()) {
     if (validObs < goal.minimum_valid_games) outcome = "inconclusive";
     else if (breach.length) outcome = "needs_review";
     else if (met >= goal.success_required) outcome = "achieved";
-    else if (deltaSd <= -RULES.progressSd) outcome = "needs_review";
+    else if (deltaSd <= -RULES.regressionSd) outcome = "needs_review";
     else if (deltaSd >= RULES.progressSd) outcome = "improving";
     else outcome = goal.previous_outcome === "stable" ? "failed" : "stable";
   } else if (offRole >= goal.evaluation_games && inRole === 0) outcome = "inconclusive";

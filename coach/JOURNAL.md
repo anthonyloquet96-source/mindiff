@@ -530,3 +530,12 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
   - Adversaire de lane avec confiance « haute » ou « faible ».
   - Statut de la timeline : ok, absente ou invalide.
   - Tests sur des cas limites, et sur 300 vraies parties anonymisées : 10:00 à 354 ms près au pire, adversaire sûr pour 100 % des joueurs.
+
+## 26/10/2026 — Coach V1 : recalibration goals-2 après le rejeu (branche coach-v1)
+
+- **Constat du rejeu (58 joueurs) :** avec un recul de 0,25·s et des garde-fous à 0,5·s et 3 parties sur 5, l'alerte `needs_review` sortait dans environ 37 % des cas par pur hasard. Sur 5 parties, la médiane bouge naturellement d'environ un demi-écart typique.
+- **Recalibration (proposée le 26/10, Anthony : « Enchaîne ») :**
+  - recul ≥ 0,75·s pour l'alerte (avant 0,25·s) ;
+  - garde-fou dégradé = médiane en baisse ≥ 0,75·s ET au moins 4 parties sur 5 sous le quart bas personnel (avant 0,5·s et 3) ;
+  - progrès `improving` inchangé (0,25·s), presque inatteignable avec la cible au 55e centile.
+- **Rejeu après recalibration :** maîtrise 27 (hasard 23,5), stable 24 (hasard 28,8), alerte 6 (hasard 4,8), garde-fous déclenchés 4 fois sur 57 (avant 16). Ces joueurs ne suivaient aucun objectif : le rejeu mesure le réglage, pas l'effet du coach.

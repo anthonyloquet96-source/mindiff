@@ -773,14 +773,18 @@ await t("COACH-008 Cycle de vie (goals-2) : maîtrise, progrès, stable, alerte,
   assert(ev(flat).outcome === "stable", `premier cycle sans progrès : ${ev(flat).outcome}`);
   assert(ev(flat, { ...goal, cycle: 2, previous_outcome: "stable" }).outcome === "failed", "deux cycles sans progrès non comptés comme échec");
   assert(ev(flat, { ...goal, cycle: 2, previous_outcome: "improving" }).outcome === "stable", "échec après un cycle de progrès");
-  // Recul d'au moins 0,25·s : alerte
-  assert(ev([G(1, 66), G(2, 55), G(3, 58), G(4, 66), G(5, 50)]).outcome === "needs_review", "recul non signalé");
+  // Recul d'au moins 0,75·s : alerte ; recul de 0,5·s (bruit d'une médiane sur 5 parties) : stable
+  assert(ev([G(1, 66), G(2, 55), G(3, 56), G(4, 66), G(5, 50)]).outcome === "needs_review", "recul non signalé");
+  assert(ev([G(1, 66), G(2, 55), G(3, 58), G(4, 66), G(5, 50)]).outcome === "stable", "recul de 0,5·s signalé comme alerte");
   // Garde-fou dégradé (participation aux kills 62 % → 25 %) : alerte, même avec la cible atteinte 5 fois sur 5
   const passive = ev([1, 2, 3, 4, 5].map(i => G(i, 70, { kills: 2, assists: 2 })));
   assert(passive.outcome === "needs_review" && passive.goal.progress.guardrails.kill_participation.breach && /garde-fou/.test(passive.goal.progress.review), "garde-fou dégradé validé");
   // Une seule mauvaise partie ne suffit pas
   const one = checkGuardrails(base.guardrails, [G(1, 70, { kills: 1, assists: 1 }), G(2, 70), G(3, 70), G(4, 70), G(5, 70)]);
   assert(!one.kill_participation.breach, "une seule mauvaise partie déclenche l'alerte");
+  // Trois mauvaises parties sur cinq non plus : il en faut quatre
+  const three = checkGuardrails(base.guardrails, [1, 2, 3].map(i => G(i, 70, { kills: 2, assists: 2 })).concat([G(4, 70), G(5, 70)]));
+  assert(!three.kill_participation.breach && three.kill_participation.below_low === 3, "trois mauvaises parties sur cinq déclenchent l'alerte");
   // Données insuffisantes, changement de rôle, partie non classée, état intermédiaire
   assert(ev([G(1, 66), G(2, 66, { noTl: true }), G(3, 66, { noTl: true }), G(4, 70), G(5, 70)]).outcome === "inconclusive", "données insuffisantes non signalées");
   assert(ev([1, 2, 3, 4, 5].map(i => G(i, 80, { role: "TOP" }))).outcome === "inconclusive", "changement de rôle non signalé");

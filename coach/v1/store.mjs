@@ -3,7 +3,7 @@
 // la version Supabase du Worker reprendra ces méthodes une à une.
 // Les JSON Riot bruts vont dans un dossier à part (rawDir), avec une empreinte, pour recalculer sans rappeler Riot.
 
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir, rm } from "node:fs/promises";
 import { createHash, randomUUID } from "node:crypto";
 import { dirname } from "node:path";
 import { gzipSync, gunzipSync } from "node:zlib";
@@ -28,7 +28,11 @@ export function createStore({ file = null, rawDir = null } = {}) {
     async deletePlayer(id) {
       await load();
       delete db.players[id];
+      const mine = new Set(Object.values(db.metrics).filter(m => m.player_id === id).map(m => m.match_id));
       for (const k of Object.keys(db.metrics)) if (db.metrics[k].player_id === id) delete db.metrics[k];
+      // Parties et JSON bruts sans autre joueur inscrit : supprimés aussi
+      const kept = new Set(Object.values(db.metrics).map(m => m.match_id));
+      for (const mid of mine) if (!kept.has(mid) && db.matches[mid]) { if (db.matches[mid].raw_path) await rm(db.matches[mid].raw_path, { force: true }); delete db.matches[mid]; }
       for (const g of Object.values(db.goals)) if (g.player_id === id) { delete db.goals[g.id]; for (const k of Object.keys(db.evaluations)) if (k.startsWith(g.id + "|")) delete db.evaluations[k]; delete db.feedback[g.id]; }
       for (const j of Object.values(db.jobs)) if (j.player_id === id) delete db.jobs[j.id];
       await save();

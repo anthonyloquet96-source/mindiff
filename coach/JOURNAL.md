@@ -553,3 +553,9 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - **Résultat :** 12 conseils acceptés par le contrôle (8 exploitables, 4 provisoires pour contenu ancien), aucun rejet. Conseils montrés pour un objectif de farm : 8 en mid, 9 en top, 7 en ADC, 3 en jungle (contre 1, 1, 1 et 0).
 - **Sélection :** en jungle, le thème `jungle` compte aussi pour le farm (`kbThemesRole`). « jungler adverse » écarte les conseils de suivi du jungler adverse, qui parlaient de ses camps et non de ton farm. Le site et le tuteur gardent les mêmes motifs (test).
 - Écarté : l'article sur le tempo du jungler, qui ne parle pas de farm.
+
+## 26/10/2026 — Suppression des JSON Riot bruts avec le joueur (branche coach-v1)
+
+- Quand un joueur supprime ses données, ses parties et leurs JSON bruts (bucket `riot-raw` de Supabase, ou dossier local) sont supprimés aussi.
+- Une partie réunit dix joueurs : elle est gardée tant qu'un autre joueur inscrit y figure, puis supprimée avec le dernier.
+- Testé sur le stockage local et sur le vrai schéma Supabase (Postgres embarqué). Point retiré de la liste « avant l'ouverture publique » de `coach/CONFORMITE.md`.

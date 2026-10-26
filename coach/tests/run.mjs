@@ -961,7 +961,13 @@ await t("COACH-005 Synchronisation : aucune partie traitée deux fois, recalcul 
   // Erreurs normalisées et suppression RGPD
   const bad = await handleV1({ method: "GET", path: "/api/v1/players/pas-un-id/matches" }, ctx);
   assert(bad.status === 400 && bad.body.error.code === "joueur-invalide", "identifiant non validé");
+  const { readdir } = await import("node:fs/promises");
+  const other = await store.upsertPlayer({ puuid: "autre-joueur", platform: "euw1" });
+  const shared = all[0].match_id;
+  await store.putMetrics(other.id, { ...all[0], player_id: undefined });
   assert((await handleV1({ method: "DELETE", path: `/api/v1/players/${pid}` }, ctx)).status === 204 && (await store.listMetrics(pid)).length === 0 && (await store.listGoals(pid)).length === 0, "suppression incomplète");
+  const rawLeft = await readdir(`${dir}/raw`);
+  assert(rawLeft.length === 1 && rawLeft[0].startsWith(shared) && await store.hasMatch(shared) && !(await store.hasMatch(all[1].match_id)), `JSON bruts après suppression : ${rawLeft.length}`);
   await store.flush();
   return "Riot ID résolu, une seule synchronisation ouverte, 16 parties téléchargées une fois, objectif proposé puis démarré, réussi sur les 5 parties suivantes, archivé et remplacé ; recalcul de 17 parties sans Riot ; suppression complète.";
 });
@@ -1096,7 +1102,7 @@ await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur 
       return (await db.query(sql, vals)).rows;
     } catch (e) { throw Object.assign(new Error(e.message), { code: e.code === "23505" ? "conflit" : "supabase-erreur", status: e.code === "23505" ? 409 : 502 }); }
   };
-  const store = createSupabaseStore({ rest, putObject: async (k, b) => objects.set(k, b), getObject: async k => objects.get(k) || null });
+  const store = createSupabaseStore({ rest, putObject: async (k, b) => objects.set(k, b), getObject: async k => objects.get(k) || null, deleteObjects: async keys => keys.forEach(k => objects.delete(k)) });
   let ids = Array.from({ length: 16 }, (_, i) => `EUW1_${300 + i}`);
   const games = {};
   const mk = (id, start, cs10) => { games[id] = v1Game({ id, start, cs10, deaths: 1, kills: 6, assists: 4, teamKills: 16 }); };
@@ -1132,11 +1138,19 @@ await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur 
   for (const m of await store.listMetrics(pid)) await store.putMetrics(pid, { ...m, metric_version: "ancienne" });
   const re = await syncPlayer({ store, riot, playerId: pid });
   assert(re.recomputed === 21 && counts.match === 21, "recalcul sans le JSON brut");
+  // Une partie partagée avec un autre joueur inscrit garde son JSON brut ; les autres partent avec le joueur
+  const kept = (await store.listMetrics(pid))[0];
+  const other = await store.upsertPlayer({ puuid: "autre-joueur", platform: "euw1" });
+  await store.putMetrics(other.id, { ...kept });
   await handleV1({ method: "DELETE", path: `/api/v1/players/${pid}` }, ctx);
+  assert(objects.size === 1 && objects.has(`${kept.match_id}.json.gz`), `JSON bruts restants : ${objects.size}`);
+  assert((await db.query("select count(*)::int n from public.matches")).rows[0].n === 1, "parties orphelines conservées");
+  await store.deletePlayer(other.id);
+  assert(objects.size === 0, "JSON brut conservé après le dernier joueur");
   const left = (await db.query("select (select count(*) from public.match_metrics)::int + (select count(*) from public.coaching_goals)::int + (select count(*) from public.goal_evaluations)::int + (select count(*) from public.sync_jobs)::int + (select count(*) from public.pilot_feedback)::int n")).rows[0].n;
   assert(left === 0, "données restantes après suppression");
   await db.close();
-  return "parcours complet sur le vrai schéma : 16 parties une seule fois, JSON bruts compressés, objectif proposé, démarré, réussi et archivé ; retour du testeur enregistré ; second objectif ouvert refusé par la base ; recalcul sans Riot ; suppression en cascade.";
+  return "parcours complet sur le vrai schéma : 16 parties une seule fois, JSON bruts compressés, objectif proposé, démarré, réussi et archivé ; retour du testeur enregistré ; second objectif ouvert refusé par la base ; recalcul sans Riot ; suppression en cascade, JSON bruts compris (sauf parties partagées avec un autre joueur inscrit).";
 });
 
 await t("COACH-004 Worker : jeton vérifié, joueurs d'un autre compte invisibles, liaison unique, quotas, CORS", "fixture", async () => {

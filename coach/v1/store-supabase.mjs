@@ -23,6 +23,7 @@ export function createSupabaseRest({ url, serviceKey, fetchImpl = fetch }) {
       return text ? JSON.parse(text) : null;
     },
     async putObject(key, bytes) { const r = await fetchImpl(`${url}/storage/v1/object/riot-raw/${key}`, { method: "POST", headers: { ...headers, "Content-Type": "application/gzip", "x-upsert": "true" }, body: bytes }); if (!r.ok) throw Object.assign(new Error(`Stockage ${r.status}`), { code: "stockage-erreur", status: 502 }); },
+    async deleteObjects(keys) { const r = await fetchImpl(`${url}/storage/v1/object/riot-raw`, { method: "DELETE", headers: { ...headers, "Content-Type": "application/json" }, body: JSON.stringify({ prefixes: keys }) }); if (!r.ok) throw Object.assign(new Error(`Stockage ${r.status}`), { code: "stockage-erreur", status: 502 }); },
     async getObject(key) { const r = await fetchImpl(`${url}/storage/v1/object/riot-raw/${key}`, { headers }); return r.ok ? new Uint8Array(await r.arrayBuffer()) : null; },
   };
 }
@@ -48,8 +49,20 @@ export function createSupabaseStore(sb) {
       const row = { puuid, platform, game_name, tag_line, ...(user_id !== undefined ? { user_id } : {}) };
       return (await sb.rest("POST", "players?on_conflict=puuid", { body: row, prefer: "resolution=merge-duplicates,return=representation" }))[0];
     },
-    // Suppression RGPD : la base supprime en cascade métriques, objectifs, évaluations et synchronisations
-    deletePlayer: async id => { await sb.rest("DELETE", `players?id=eq.${q(id)}`); },
+    // Suppression RGPD : la base supprime en cascade métriques, objectifs, évaluations et synchronisations. Les parties
+    // (une partie réunit dix joueurs) et leur JSON brut partent ensuite si plus aucun joueur inscrit n'y figure.
+    async deletePlayer(id) {
+      const mine = (await sb.rest("GET", `match_metrics?player_id=eq.${q(id)}&select=match_id`)).map(r => r.match_id);
+      await sb.rest("DELETE", `players?id=eq.${q(id)}`);
+      for (let i = 0; i < mine.length; i += 100) {
+        const chunk = mine.slice(i, i + 100), list = `(${chunk.map(q).join(",")})`;
+        const kept = new Set((await sb.rest("GET", `match_metrics?match_id=in.${list}&select=match_id`)).map(r => r.match_id));
+        const orphans = chunk.filter(m => !kept.has(m));
+        if (!orphans.length) continue;
+        if (sb.deleteObjects) await sb.deleteObjects(orphans.map(m => `${m}.json.gz`));
+        await sb.rest("DELETE", `matches?match_id=in.(${orphans.map(q).join(",")})`);
+      }
+    },
     hasMatch: async id => !!(await one(`matches?match_id=eq.${q(id)}&select=match_id`)),
     async putMatch(meta, raw = null) {
       let extra = {};

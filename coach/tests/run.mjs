@@ -965,9 +965,18 @@ await t("COACH-005 Synchronisation : aucune partie traitée deux fois, recalcul 
   const other = await store.upsertPlayer({ puuid: "autre-joueur", platform: "euw1" });
   const shared = all[0].match_id;
   await store.putMetrics(other.id, { ...all[0], player_id: undefined });
+  const gone = (await store.getPlayer(pid)).puuid;
   assert((await handleV1({ method: "DELETE", path: `/api/v1/players/${pid}` }, ctx)).status === 204 && (await store.listMetrics(pid)).length === 0 && (await store.listGoals(pid)).length === 0, "suppression incomplète");
   const rawLeft = await readdir(`${dir}/raw`);
   assert(rawLeft.length === 1 && rawLeft[0].startsWith(shared) && await store.hasMatch(shared) && !(await store.hasMatch(all[1].match_id)), `JSON bruts après suppression : ${rawLeft.length}`);
+  // Partie partagée : plus aucun identifiant du joueur supprimé, les autres participants intacts
+  const sharedRaw = await store.rawMatch(shared);
+  assert(![...sharedRaw.match.info.participants.map(x => x.puuid), ...(sharedRaw.match.metadata?.participants || []), ...(sharedRaw.timeline?.info?.participants || []).map(x => x.puuid)].includes(gone) && sharedRaw.match.info.participants.filter(x => /^anon-\d+$/.test(x.puuid)).length === 1, "identifiants du joueur supprimé restés dans la partie partagée");
+  // Réinscription : la copie sans lui est ignorée, la partie est relue chez Riot
+  const back = await store.upsertPlayer({ puuid: gone, platform: "euw1" });
+  const before = counts.match;
+  await syncPlayer({ store, riot, playerId: back.id });
+  assert(counts.match > before && (await store.getMetrics(shared, back.id)), "partie partagée non relue après réinscription");
   await store.flush();
   return "Riot ID résolu, une seule synchronisation ouverte, 16 parties téléchargées une fois, objectif proposé puis démarré, réussi sur les 5 parties suivantes, archivé et remplacé ; recalcul de 17 parties sans Riot ; suppression complète.";
 });
@@ -1170,8 +1179,10 @@ await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur 
   const kept = (await store.listMetrics(pid))[0];
   const other = await store.upsertPlayer({ puuid: "autre-joueur", platform: "euw1" });
   await store.putMetrics(other.id, { ...kept });
+  const gone = (await store.getPlayer(pid)).puuid;
   await handleV1({ method: "DELETE", path: `/api/v1/players/${pid}` }, ctx);
   assert(objects.size === 1 && objects.has(`${kept.match_id}.json.gz`), `JSON bruts restants : ${objects.size}`);
+  assert(!JSON.stringify(await store.rawMatch(kept.match_id)).includes(gone), "identifiants du joueur supprimé restés dans la partie partagée (Supabase)");
   assert((await db.query("select count(*)::int n from public.matches")).rows[0].n === 1, "parties orphelines conservées");
   await store.deletePlayer(other.id);
   assert(objects.size === 0, "JSON brut conservé après le dernier joueur");

@@ -3,6 +3,8 @@
 // la RLS protège les lectures directes des clients, le Worker vérifie lui-même que le joueur appartient à l'utilisateur.
 // JSON Riot bruts : bucket privé « riot-raw » de Supabase Storage, gzip, avec empreinte SHA-256.
 
+import { scrubPlayer } from "./scrub.mjs";
+
 const TS = ["created_at", "active_at", "evaluating_at", "achieved_at", "failed_at", "inconclusive_at", "archived_at"];
 const GOAL_COLS = ["id", "player_id", "metric", "role", "direction", "baseline", "target", "reference", "evaluation_games", "minimum_valid_games", "success_required", "version", "status", "outcome", "score", "factors", "exercise", ...TS.slice(1),
   // goals-2 (migration 20261027000000)
@@ -52,11 +54,22 @@ export function createSupabaseStore(sb) {
     // Suppression RGPD : la base supprime en cascade métriques, objectifs, évaluations et synchronisations. Les parties
     // (une partie réunit dix joueurs) et leur JSON brut partent ensuite si plus aucun joueur inscrit n'y figure.
     async deletePlayer(id) {
+      const puuid = (await one(`players?id=eq.${q(id)}&select=puuid`))?.puuid;
       const mine = (await sb.rest("GET", `match_metrics?player_id=eq.${q(id)}&select=match_id`)).map(r => r.match_id);
       await sb.rest("DELETE", `players?id=eq.${q(id)}`);
       for (let i = 0; i < mine.length; i += 100) {
         const chunk = mine.slice(i, i + 100), list = `(${chunk.map(q).join(",")})`;
         const kept = new Set((await sb.rest("GET", `match_metrics?match_id=in.${list}&select=match_id`)).map(r => r.match_id));
+        // Parties gardées pour un autre joueur : identifiants du joueur supprimé retirés du JSON brut
+        if (puuid && sb.getObject && sb.putObject) for (const m of chunk.filter(m => kept.has(m))) {
+          const b = await sb.getObject(`${m}.json.gz`);
+          if (!b) continue;
+          const { raw, changed } = scrubPlayer(JSON.parse(await gunzip(b)), puuid);
+          if (!changed) continue;
+          const bytes = await gzip(JSON.stringify(raw));
+          await sb.putObject(`${m}.json.gz`, bytes);
+          await sb.rest("PATCH", `matches?match_id=eq.${q(m)}`, { body: { checksum: await sha256(bytes) } });
+        }
         const orphans = chunk.filter(m => !kept.has(m));
         if (!orphans.length) continue;
         if (sb.deleteObjects) await sb.deleteObjects(orphans.map(m => `${m}.json.gz`));

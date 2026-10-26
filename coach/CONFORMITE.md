@@ -28,7 +28,7 @@ Audit du 26/10/2026, branche `coach-v1`. Chaque point renvoie au texte consulté
 |---|---|---|
 | Compte MINDIFF (e-mail) | Supabase Auth | Exécution du service ; jusqu'à suppression du compte |
 | Joueur (PUUID, Riot ID, plateforme) | `players` | Idem ; suppression en cascade de tout le reste |
-| Parties, métriques, objectifs, évaluations | `matches`, `match_metrics`, `coaching_goals`, `goal_evaluations` | Idem ; JSON Riot bruts dans le bucket privé `riot-raw`, supprimés avec le joueur dès qu'aucun autre joueur inscrit ne figure dans la partie (testé) |
+| Parties, métriques, objectifs, évaluations | `matches`, `match_metrics`, `coaching_goals`, `goal_evaluations` | Idem ; JSON Riot bruts dans le bucket privé `riot-raw`, supprimés avec le joueur dès qu'aucun autre joueur inscrit ne figure dans la partie ; sinon gardés pour l'autre joueur, avec le PUUID et le Riot ID du joueur parti retirés (`coach/v1/scrub.mjs`, testé) |
 | Testeurs et retours | `pilot_testers`, `pilot_feedback` | Consentement ; fin du test privé puis suppression |
 | Agrégats Diamant+ | caches privés `coach/cache/` | Aucune donnée nominative (voir § 3) |
 

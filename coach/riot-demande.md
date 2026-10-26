@@ -38,11 +38,10 @@ Coaching happens after the game. In game (SPECTATOR-V5), MINDIFF only shows what
 Implemented:
 - The Riot API key is used only server-side, behind an authenticated proxy (Cloudflare Workers) with per-user quotas and handling of Riot rate limits (429 / Retry-After).
 - Database row-level security, so each user sees only their own data.
-- Account deletion removes the player's profile, metrics, objectives and feedback.
+- Account deletion removes the player's profile, metrics, objectives and feedback. A match also played by another registered user is kept for them, with the departed player's PUUID and Riot ID removed.
 - Testing reports are pseudonymized.
 
 Not yet completed:
-- A raw match record shared with another registered user is kept until no registered participant remains. That record still contains the departed player's identifiers as part of the Match-V5 payload, and we are reviewing whether to strip them.
 - Before any public launch, we will finalize a privacy policy, data-processing agreements with our hosting providers and a retention policy.
 
 **4. Data collected with a development key (EUW, internal development only)**

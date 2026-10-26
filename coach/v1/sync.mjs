@@ -5,6 +5,7 @@
 import { normalizeMatch } from "../normalize.mjs";
 import { computeMetrics, METRIC_VERSION } from "../metrics.mjs";
 import { proposeGoal, evaluateGoal, transition } from "../goals.mjs";
+import { hasPlayer } from "./scrub.mjs";
 
 // Rôle principal : le plus joué parmi les parties valides récentes
 export function mainRole(metrics) {
@@ -22,6 +23,8 @@ export async function syncPlayer({ store, riot, playerId, count = 30, references
     const have = await store.getMetrics(id, playerId);
     if (have?.metric_version === METRIC_VERSION) { skipped++; continue; }
     let raw = (await store.hasMatch(id)) ? await store.rawMatch(id) : null;
+    // Copie dont le joueur a été retiré (suppression de compte puis réinscription) : relue chez Riot
+    if (raw && !hasPlayer(raw, player.puuid)) raw = null;
     if (raw) recomputed++;
     else {
       const match = await riot.call("match", { platform: player.platform, matchId: id });

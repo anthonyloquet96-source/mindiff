@@ -612,3 +612,9 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
   - Fordola (2021) et RealZesty (2020) : premier gank après 4 à 6 camps, lire les vagues au retour, gank sur un freeze, vague du laner, Flash forcé = gain.
 - **Contrôle :** les 19 passages vérifiés mot pour mot avant fusion ; une précision ajoutée par moi (délai du Flash) retirée car absente de la source.
 - **Résultat :** 19 conseils acceptés (15 exploitables, 4 provisoires), aucun rejet. Conseils montrés pour la participation aux kills : 8 en jungle, 14 en mid, 8 en support (contre 2, 3 et 2). Le farm en jungle passe de 3 à 5.
+
+## 27/10/2026 — Conseils de clear en jungle et de vision (branche coach-v1)
+
+- **Lus par Claude Code (2 articles Dignitas)** : eXyu, jungler de LCS (2022) : kiter ses camps, ordre des monstres, entraîner son clear, contre-gank, jouer le côté opposé en retard ; bagelsen314 (2020) : wards aux intersections, lire sa minimap, ne pas rentrer juste après une ward, ward haute après un gank adverse en bot, pas de ward profonde seul, balises dans les buissons, wards d'entrée de lane trop utilisées.
+- Écarté : un guide de wards en jungle de 2016 (carte trop différente).
+- **Résultat :** 12 conseils acceptés (9 exploitables, 3 provisoires). Conseils montrés : vision 11 en jungle, 14 en mid, 16 en support (contre 5, 7, 9) ; farm en jungle 7 (contre 5).

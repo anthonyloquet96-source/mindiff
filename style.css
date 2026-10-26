@@ -1365,3 +1365,5 @@ button.pick { background: none; border: 0; padding: 0; font: inherit; color: inh
 .c2-v1-rel { display: flex; gap: var(--s2); flex-wrap: wrap; }
 .c2-v1-side { display: grid; gap: var(--s1); }
 .c2-v1-comment { width: 100%; box-sizing: border-box; font: inherit; padding: var(--s2); border-radius: var(--r-sm); border: 1px solid var(--border, currentColor); background: var(--surface-2); color: inherit; }
+.c2-v1-erase { align-self: flex-start; margin-top: var(--s2); color: var(--text-2); }
+.c2-v1-erase-confirm { margin-top: var(--s2); padding-top: var(--s2); border-top: 1px solid var(--line); }

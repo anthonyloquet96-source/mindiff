@@ -344,7 +344,7 @@ async function c2V1(path, method = "GET", body = null) {
 }
 async function c2V1Load(force = false) {
   const V = (c2ui.v1 ||= {});
-  if (!C2.account?.riotId || V.busy || (!force && V.forId === C2.account.riotId)) return;
+  if (!C2.account?.riotId || V.busy || V.deleted === C2.account.riotId || (!force && V.forId === C2.account.riotId)) return;
   V.busy = true; V.forId = C2.account.riotId; V.error = null; render(false);
   try {
     if (!V.pid || V.pidFor !== C2.account.riotId) { const r = await c2V1(`/players/resolve?riot_id=${encodeURIComponent(C2.account.riotId)}&platform=${encodeURIComponent(C2.account.platform || "euw1")}`); V.pid = r.player_id; V.pidFor = C2.account.riotId; }
@@ -363,14 +363,15 @@ function c2V1Card(p) {
   if (C2_API == null) return "";
   setTimeout(() => c2V1Load(), 0);
   const V = c2ui.v1 || {};
-  if (V.error && !V.goal) return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p><p class="note warn">${icon("alert")}<span>${esc(V.error)}</span></p><button class="btn ghost sm" data-action="c2-v1-sync">Réessayer</button></section>`;
+  if (V.deleted && V.deleted === C2.account?.riotId) return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p><p>Tes données du coach ont été supprimées : parties, mesures, objectifs et avis.</p><button class="btn ghost sm" data-action="c2-v1-restart">Recommencer avec le coach</button></section>`;
+  if (V.error && !V.goal) return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p><p class="note warn">${icon("alert")}<span>${esc(V.error)}</span></p><button class="btn ghost sm" data-action="c2-v1-sync">Réessayer</button>${c2V1Erase()}</section>`;
   if (!V.goal && (V.busy || !V.diagnostic)) return `<section class="c2-card c2-v1 c2-loading">${V.syncing ? "Lecture de tes dernières ranked…" : "Ton objectif…"}</section>`;
   const last = V.history?.[0];
   const lastTxt = last ? `<p class="c2-v1-last ${last.outcome}">${C2_V1_OUTCOME[last.outcome] || "Objectif précédent sans verdict"} : ${esc(last.label)}, cible ${esc(last.target_text)} (${last.progress?.met ?? "?"}/${last.progress?.counted ?? "?"} parties)${last.progress?.review ? ` ; ${esc(last.progress.review)}` : ""}.</p>${c2V1Feedback(last)}` : "";
   const g = V.goal;
   if (!g) {
     const why = V.diagnostic?.rows?.find(r => r.reason)?.reason;
-    return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${why ? `Pas encore d'objectif : ${esc(why)}.` : "Pas encore d'objectif : joue quelques ranked de plus."}</p><p class="fine">Il faut au moins 15 parties classées au même poste.</p></section>`;
+    return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${why ? `Pas encore d'objectif : ${esc(why)}.` : "Pas encore d'objectif : joue quelques ranked de plus."}</p><p class="fine">Il faut au moins 15 parties classées au même poste.</p>${c2V1Erase()}</section>`;
   }
   const ref = g.reference?.source === "metric_references" ? `Repère : ${esc(g.reference.level || "Diamant+")} à ce poste, médiane ${esc(c2V1Fmt(g, g.reference.value))} (${c2n(g.reference.n)} parties).` : "Repère pédagogique du coach, en attendant assez de données mesurées.";
   const evs = (V.evaluations || []).filter(e => e.counted);
@@ -387,7 +388,15 @@ function c2V1Card(p) {
       <p class="fine">${evs.filter(e => e.met).length} / ${g.success_required} réussites nécessaires · ${evs.length} / ${g.evaluation_games} parties jouées</p>
       ${g.exercise ? `<p class="c2-v1-ex">${esc(g.exercise)}</p>` : ""}${tipsHtml}
       <button class="btn ghost sm" data-action="c2-v1-sync"${V.busy ? " disabled" : ""}>${V.busy ? "Mise à jour…" : "Mettre à jour mes parties"}</button>`;
-  return `<section class="c2-card c2-v1">${lastTxt}${head}${body}${V.error ? `<p class="fine">${esc(V.error)}</p>` : ""}</section>`;
+  return `<section class="c2-card c2-v1">${lastTxt}${head}${body}${V.error ? `<p class="fine">${esc(V.error)}</p>` : ""}${c2V1Erase()}</section>`;
+}
+// Suppression RGPD de tout ce que le coach garde sur le joueur (DELETE /players/:id), confirmée dans la page
+function c2V1Erase() {
+  const V = c2ui.v1 || {};
+  if (!V.pid) return "";
+  if (!V.erase) return `<button class="btn ghost sm c2-v1-erase" data-action="c2-v1-erase">Supprimer mes données du coach</button>`;
+  return `<div class="c2-v1-erase-confirm"><p class="fine">Tes parties, mesures, objectifs et avis seront effacés définitivement. Ton Riot ID reste enregistré sur cet appareil.</p>
+    <button class="btn primary sm" data-action="c2-v1-erase-yes">Oui, tout supprimer</button> <button class="btn ghost sm" data-action="c2-v1-erase-no">Annuler</button></div>`;
 }
 // Exercice sourcé : conseils de coachs vérifiés de notre base qui parlent du geste mesuré. Même sélection que le tuteur
 // (coach/v1/tutor.mjs, tipsForGoal) avec les motifs du catalogue (coach/metrics.mjs : kbThemes, kbMatch, kbMatchRole, kbAvoid),
@@ -1441,6 +1450,12 @@ document.addEventListener("click", async e => {
     } catch (err) { V.error = err.message; }
     render(false);
   }
+  if (a.dataset.action === "c2-v1-erase" || a.dataset.action === "c2-v1-erase-no") { V.erase = a.dataset.action === "c2-v1-erase"; render(false); }
+  if (a.dataset.action === "c2-v1-erase-yes" && V.pid && !V.busy) {
+    try { await c2V1(`/players/${V.pid}`, "DELETE"); c2ui.v1 = { deleted: C2.account?.riotId }; } catch (err) { V.error = err.message; V.erase = false; }
+    render(false);
+  }
+  if (a.dataset.action === "c2-v1-restart") { c2ui.v1 = {}; c2V1Load(true); }
   if (a.dataset.action === "c2-v1-start" && V.pid) {
     try { V.goal = (await c2V1(`/players/${V.pid}/goals/${a.dataset.id}/start`, "POST")).goal; V.evaluations = []; } catch (err) { V.error = err.message; }
     render(false);

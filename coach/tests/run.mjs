@@ -1051,6 +1051,34 @@ await t("Mode sans LLM : tuteur désactivé par défaut, aucun appel au modèle 
   return "configuration par défaut : tuteur désactivé ; aucune combinaison partielle ne l'active ; aucun appel au modèle, aucune donnée lue.";
 });
 
+await t("Rapport du test privé : cycles chronologiques, hasard, ancien moteur, avis des testeurs, aucun identifiant", "fixture", async () => {
+  const { computeMetrics } = await import("../metrics.mjs");
+  const NEWG = await import("../goals.mjs");
+  const { pilotReport } = await import("../pilot-report.mjs");
+  const G = (i, cs10, x = {}) => { const g = v1Game({ id: `EUW1_p${i}`, start: i, cs10, kills: 6, assists: 4, teamKills: 16, ...x }); return { ...computeMetrics(g.match, g.timeline, "p1"), start_ms: i }; };
+  const tester = (evalCs, feedback) => {
+    const base = Array.from({ length: 20 }, (_, i) => G(1000 + i, 55 + (i % 9), { deaths: 4 }));
+    const { goal } = NEWG.proposeGoal([...base].reverse(), "MIDDLE", { now: 1500 });
+    const fresh = evalCs.map((cs, i) => G(2001 + i, cs, { deaths: 4 }));
+    const ev = NEWG.evaluateGoal(NEWG.transition(goal, "active", 2000), fresh, 2100);
+    return { games: [...base, ...fresh], goals: [{ ...ev.goal, evaluations: ev.evaluations, feedback }], outcome: ev.outcome };
+  };
+  const a = tester([75, 76, 74, 77, 75], { relevance: 4, side_effects: ["stress"], comment: null });
+  const b = tester([50, 51, 49, 52, 50], null);
+  const r = pilotReport([a, b]);
+  assert(r.testers === 2 && r.all.cycles === 2 && r.all.chronology_violations === 0, `cycles : ${JSON.stringify(r.all)}`);
+  const rows = r.per_tester.flatMap(p => p.rows);
+  assert(rows[0].outcome === a.outcome && rows[1].outcome === b.outcome && rows.every(x => x.baseline_games >= 15 && x.evaluated_games === 5), "résultats ou fenêtres mal relus");
+  assert(rows.every(x => x.chance_mastery != null && x.old && "outcome" in x.old), "hasard ou ancien moteur absents");
+  assert(r.all.feedback.answered === 1 && r.all.feedback.mean_relevance === 4 && r.all.feedback.side_effects.stress === 1, "avis du testeur mal compté");
+  // Une évaluation qui commence avant la fin de la fenêtre de départ est signalée
+  const leak = { ...a, goals: [{ ...a.goals[0], baseline_window: { ...a.goals[0].baseline_window, to_ms: 3000 } }] };
+  assert(pilotReport([leak]).all.chronology_violations === 1, "fuite chronologique non signalée");
+  const json = JSON.stringify(r);
+  assert(!/puuid|p1|EUW1_/.test(json.replace(/"testeur-\d+"/g, "")) && r.per_tester[0].tester === "testeur-1", "identifiant de joueur ou de partie dans le rapport");
+  return `2 testeurs pseudonymisés ; ${a.outcome} et ${b.outcome} relus avec leur fenêtre de départ et leurs 5 parties ; hasard et ancien moteur calculés ; avis compté ; fuite chronologique signalée ; aucun identifiant.`;
+});
+
 await t("Migration goals-2 : nouveaux états, contrôle chronologique en base, test privé (âge confirmé), suppression en cascade", "fixture", async () => {
   const { PGlite } = await import("@electric-sql/pglite");
   const db = new PGlite();

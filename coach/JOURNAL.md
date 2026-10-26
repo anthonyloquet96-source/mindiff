@@ -559,3 +559,15 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - Quand un joueur supprime ses données, ses parties et leurs JSON bruts (bucket `riot-raw` de Supabase, ou dossier local) sont supprimés aussi.
 - Une partie réunit dix joueurs : elle est gardée tant qu'un autre joueur inscrit y figure, puis supprimée avec le dernier.
 - Testé sur le stockage local et sur le vrai schéma Supabase (Postgres embarqué). Point retiré de la liste « avant l'ouverture publique » de `coach/CONFORMITE.md`.
+
+## 26/10/2026 — Rapport du test privé (branche coach-v1)
+
+- `node --env-file=.env coach/pilot-report.mjs --supabase` (ou `--local coach/cache/v1/store.json`) → `coach/cache/pilot/rapport.json`, privé.
+- **Pour chaque cycle terminé de goals-2 :**
+  - fenêtre de départ (15 à 20 parties) et vérification qu'elle précède les 5 parties évaluées ;
+  - maîtrise, progrès en écarts typiques, garde-fous ;
+  - avis du testeur (pertinence, effets indésirables, commentaire).
+- **Comparaisons :**
+  - maîtrise attendue par hasard sur les mêmes parties de départ ;
+  - ancien moteur (goals-1) : ce qu'il aurait proposé avec les parties connues à l'activation, évalué sur les mêmes 5 parties.
+- Totaux généraux, par poste et par famille. Testeurs pseudonymisés (testeur-1…), sans PUUID, Riot ID ni identifiant de partie (testé).

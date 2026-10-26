@@ -26,3 +26,29 @@ DATA AND SECURITY
 
 NEXT STEP
 Before opening the new coaching version to everyone, we plan a closed test with 5-10 invited adult volunteers. We would welcome guidance on whether this production application covers that test or whether a personal key is preferred.
+
+---
+
+## Version publiée sur le portail le 26/10/2026
+
+Le portail limite la description à 1 500 caractères : la version longue ci-dessus a été refusée (« Failed to update application! »), voici la version condensée enregistrée (1 462 caractères).
+
+```
+MINDIFF is a free French-language companion web app for League of Legends: esports, patch and meta info, news, and a personal coach.
+
+COACH (after the game, one goal at a time)
+- The player enters their Riot ID; we read their ranked Solo/Duo matches (ACCOUNT-V1, LEAGUE-V4, MATCH-V5 with timelines).
+- Factual match review (deaths and what followed, backs, gold/CS/XP vs lane opponent at 10/15 min) and a minimap replay.
+- From 15-20 past matches, a deterministic engine picks ONE goal (e.g. CS at 10 min) and evaluates it on the next 5 ranked matches. Safeguards: no validation if farm or XP drops (no passive play).
+- Practice tips from coaching guides and videos, each linked to its source. Players rate relevance and report side effects.
+- In game (SPECTATOR-V5): only what the loading screen shows (lane opponent, matchup tips, own goal). No real-time advice, no hidden info, other players' Riot IDs never shown.
+- No MMR or ranking, no betting, no automation.
+
+DATA
+- API key server-side only (Cloudflare Worker); cached, 30 requests per 5 min per user.
+- Match data is stored only to run each player's own coaching; never sold, shared or used for ads. Pseudonymized, each player sees only their own data and can delete it all anytime.
+- AI tutor disabled; no player data sent to any AI service.
+- Privacy: https://anthonyloquet96-source.github.io/mindiff/confidentialite.html
+
+We plan a closed test with 5-10 adult volunteers before opening the new coach.
+```

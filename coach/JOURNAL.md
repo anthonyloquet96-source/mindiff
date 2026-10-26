@@ -618,3 +618,10 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - **Lus par Claude Code (2 articles Dignitas)** : eXyu, jungler de LCS (2022) : kiter ses camps, ordre des monstres, entraîner son clear, contre-gank, jouer le côté opposé en retard ; bagelsen314 (2020) : wards aux intersections, lire sa minimap, ne pas rentrer juste après une ward, ward haute après un gank adverse en bot, pas de ward profonde seul, balises dans les buissons, wards d'entrée de lane trop utilisées.
 - Écarté : un guide de wards en jungle de 2016 (carte trop différente).
 - **Résultat :** 12 conseils acceptés (9 exploitables, 3 provisoires). Conseils montrés : vision 11 en jungle, 14 en mid, 16 en support (contre 5, 7, 9) ; farm en jungle 7 (contre 5).
+
+## 27/10/2026 — Conseils de l'ADC (Spawn) et fusion de main (branche coach-v1)
+
+- main fusionnée dans coach-v1 : conseils de la veille automatique et lots de Claude réunis par identifiant (969 unités), fichiers publiés regénérés.
+- Spawn, ADC de LCS (Dignitas, 2022) : entraîner son farm (100 sbires à 10 min), jouer le farm en retard, s'adapter à son support, pression sur les tourelles avec l'avance. Conseils d'objets écartés (patch). 4 conseils (2 exploitables, 2 provisoires).
+- Couverture des objectifs V1 (conseils montrés, top / jungle / mid / bot / support) : sbires à 10 min 23/15/21/20/– ; participation aux kills –/19/20/–/14 ; vision –/13/16/–/18.
+- Publication sur main refusée par le garde-fou de Claude Code (déploiement) : à lancer par Anthony (`git push origin coach-v1:main`).

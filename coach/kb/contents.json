@@ -50279,6 +50279,43 @@
    },
    "learn": "Wards aux intersections, lire sa minimap, timing des wards, sécurité, balises de contrôle, wards trop superficielles.",
    "unitsAccepted": 7
+  },
+  {
+   "sourceId": "dignitas-articles",
+   "type": "article",
+   "lang": "en",
+   "retrievedAt": "2026-10-27",
+   "patch": null,
+   "access": "texte-integral",
+   "analysis": "analysee",
+   "note": "Ajout ciblé : farm et jeu de l'ADC (objectif sbires à 10 min en bot).",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "adc"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (Claude Code) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   },
+   "analyzedAt": "2026-10-27",
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-27)",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "id": "c-dignitas-adc-spawn",
+   "url": "https://dignitas.gg/articles/a-guide-to-master-ad-carry-or-marksman-with-dig-spawn",
+   "title": "A Guide To Master AD Carry or Marksman with DIG Spawn",
+   "author": "Spawn, propos recueillis par Teatones (Dignitas)",
+   "published": "2022-10-26",
+   "context": {
+    "queue": "solo",
+    "rank": "pro"
+   },
+   "learn": "Entraîner son farm (100 sbires à 10 min), jouer le farm en retard, s adapter à son support, pression sur les tourelles avec l avance.",
+   "unitsAccepted": 4
   }
  ]
 }

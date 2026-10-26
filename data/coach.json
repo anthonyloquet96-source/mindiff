@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-26T23:35:19.721Z",
+ "generatedAt": "2026-10-26T23:36:43.491Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -152,7 +152,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 31
+    "units": 35
    },
    "support": {
     "champions": [
@@ -22425,6 +22425,43 @@
    },
    "learn": "Wards aux intersections, lire sa minimap, timing des wards, sécurité, balises de contrôle, wards trop superficielles.",
    "unitsAccepted": 7
+  },
+  {
+   "sourceId": "dignitas-articles",
+   "type": "article",
+   "lang": "en",
+   "retrievedAt": "2026-10-27",
+   "patch": null,
+   "access": "texte-integral",
+   "analysis": "analysee",
+   "note": "Ajout ciblé : farm et jeu de l'ADC (objectif sbires à 10 min en bot).",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "adc"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (Claude Code) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   },
+   "analyzedAt": "2026-10-27",
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-27)",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "id": "c-dignitas-adc-spawn",
+   "url": "https://dignitas.gg/articles/a-guide-to-master-ad-carry-or-marksman-with-dig-spawn",
+   "title": "A Guide To Master AD Carry or Marksman with DIG Spawn",
+   "author": "Spawn, propos recueillis par Teatones (Dignitas)",
+   "published": "2022-10-26",
+   "context": {
+    "queue": "solo",
+    "rank": "pro"
+   },
+   "learn": "Entraîner son farm (100 sbires à 10 min), jouer le farm en retard, s adapter à son support, pression sur les tourelles avec l avance.",
+   "unitsAccepted": 4
   }
  ],
  "units": [
@@ -65419,6 +65456,272 @@
     {
      "code": "sur-generalisation",
      "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-cl-dignitas-adc-spawn-1",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "claim": "Selon Teatones (Dignitas), dans son guide avec Spawn : entraîne ton farm d'ADC dans l'outil d'entraînement en visant 100 sbires à 10 minutes, puis ajoute un bot débutant en partie personnalisée pour farmer tout en échangeant.",
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "methode"
+   ],
+   "published": "2022-10-26",
+   "evidence": [
+    {
+     "content": "c-dignitas-adc-spawn",
+     "locator": "Core Skills of the Bot Lane Role",
+     "lang": "en",
+     "passage": "Your goal during this exercise is to last hit Minions and reach the 100cs mark at 10 minutes, the general golden standard of good farming."
+    },
+    {
+     "content": "c-dignitas-adc-spawn",
+     "locator": "Core Skills of the Bot Lane Role",
+     "lang": "en",
+     "passage": "up the challenge by going into a Custom Game and adding a Beginner Bot to the routine."
+    }
+   ],
+   "use": {
+    "when": "Hors partie, pour progresser sur ton farm en bot.",
+    "why": "Le farm doit devenir automatique avant d'ajouter les échanges.",
+    "who": "ADC.",
+    "how": [
+     "Dans l'outil d'entraînement, farme 10 minutes en bot.",
+     "Compte tes sbires à 10:00 et vise 100.",
+     "Ensuite, ajoute un bot débutant et farme en l'empêchant de farmer."
+    ],
+    "notWhen": ""
+   },
+   "analyzedAt": "2026-10-26",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-cl-dignitas-adc-spawn-2",
+   "context": {
+    "queue": "solo",
+    "rank": "pro (ADC de LCS)",
+    "region": "NA"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "pro",
+   "usage": "reference",
+   "claim": "Selon Spawn (ADC de LCS) : quand tu es en retard, joue pour le farm et pour ne pas mourir ; vise ta montée en puissance à deux ou trois objets plutôt que des combats risqués.",
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "published": "2022-10-26",
+   "evidence": [
+    {
+     "content": "c-dignitas-adc-spawn",
+     "locator": "Playing With a Lead and Coming back from Defeat",
+     "lang": "en",
+     "passage": "When you’re behind, you’re obviously playing for farm."
+    },
+    {
+     "content": "c-dignitas-adc-spawn",
+     "locator": "Playing With a Lead and Coming back from Defeat",
+     "lang": "en",
+     "passage": "But, besides farming, you’re really trying not to die."
+    }
+   ],
+   "use": {
+    "when": "Ta lane ou ton équipe est en retard.",
+    "why": "Un ADC dépend de ses objets : le farm l'y amène plus sûrement que des combats perdus.",
+    "who": "ADC.",
+    "how": [
+     "Prends les sbires que tu peux prendre en sécurité.",
+     "Évite les combats où tu es en infériorité.",
+     "Garde ta position près de ton équipe et dans la vision."
+    ],
+    "notWhen": ""
+   },
+   "analyzedAt": "2026-10-26",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2022 : le jeu a pu changer depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-dignitas-adc-spawn publié le 2022-10-26 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-dignitas-adc-spawn publié le 2022-10-26 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-cl-dignitas-adc-spawn-3",
+   "context": {
+    "queue": "solo",
+    "rank": "pro (ADC de LCS)",
+    "region": "NA"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "pro",
+   "usage": "reference",
+   "claim": "Selon Spawn (ADC de LCS) : en tant qu'ADC, adapte ton style à celui de ton support plutôt que d'attendre qu'il s'adapte à toi : vous devez viser la même chose.",
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane"
+   ],
+   "published": "2022-10-26",
+   "evidence": [
+    {
+     "content": "c-dignitas-adc-spawn",
+     "locator": "Misconceptions about the ADC/Bot Lane Role",
+     "lang": "en",
+     "passage": "you, as the ADC, have to change your playstyle."
+    },
+    {
+     "content": "c-dignitas-adc-spawn",
+     "locator": "Misconceptions about the ADC/Bot Lane Role",
+     "lang": "en",
+     "passage": "So, you really have to adapt to what your lane partner wants to do because it’s important for you both to be trying for the same things."
+    }
+   ],
+   "use": {
+    "when": "Dès l'écran de chargement, en voyant le champion de ton support.",
+    "why": "Un duo qui ne vise pas la même chose perd ses échanges.",
+    "who": "ADC.",
+    "how": [
+     "Regarde le style de ton support : engage ou protection.",
+     "Avec un support d'engage, prépare-toi à suivre ses entrées.",
+     "Avec un support de protection, joue les échanges qu'il te permet."
+    ],
+    "notWhen": ""
+   },
+   "analyzedAt": "2026-10-26",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2022 : le jeu a pu changer depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-dignitas-adc-spawn publié le 2022-10-26 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-dignitas-adc-spawn publié le 2022-10-26 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-cl-dignitas-adc-spawn-4",
+   "context": {
+    "queue": "solo",
+    "rank": "pro (ADC de LCS)",
+    "region": "NA"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "pro",
+   "usage": "reference",
+   "claim": "Selon Spawn (ADC de LCS) : quand tu as l'avance en ADC, mets la pression sur les tourelles et va tôt au dragon pour aider à le prendre vite, en restant près de ton équipe et dans la vision.",
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "macro"
+   ],
+   "published": "2022-10-26",
+   "evidence": [
+    {
+     "content": "c-dignitas-adc-spawn",
+     "locator": "Playing With a Lead and Coming back from Defeat",
+     "lang": "en",
+     "passage": "with a lead as a fed ADC, you’re looking to knock out turrets and apply consistent lane pressure. Rotate to Dragon early and help poke or take the objective quickly."
+    }
+   ],
+   "use": {
+    "when": "Milieu de partie, avec une avance en kills ou en or.",
+    "why": "Tes dégâts constants sont faits pour les tourelles et les objectifs.",
+    "who": "ADC en avance.",
+    "how": [
+     "Pousse ta vague et frappe la tourelle.",
+     "Va au dragon avant qu'il apparaisse.",
+     "Reste près de tes alliés et dans les zones éclairées."
+    ],
+    "notWhen": ""
+   },
+   "analyzedAt": "2026-10-26",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
     }
    ]
   }

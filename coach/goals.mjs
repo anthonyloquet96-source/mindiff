@@ -80,7 +80,7 @@ export function guardrailBaseline(windowGames, role, metric) {
 }
 
 // Diagnostic : toutes les métriques entraînables du rôle, notées ; la première éligible est l'objectif proposé
-export function prioritize(games, role, { references = null, exclude = [], quantileFor = () => RULES.targetQuantile } = {}) {
+export function prioritize(games, role, { references = null, exclude = [], quantileFor = () => RULES.targetQuantile, masteredTarget = () => null } = {}) {
   const comparable = games.filter(g => g.valid && g.role === role).slice(0, RULES.historyMax);
   const out = [];
   for (const [key, c] of Object.entries(CATALOG)) {
@@ -110,6 +110,14 @@ export function prioritize(games, role, { references = null, exclude = [], quant
     let target = dir > 0 ? Math.min(ref.value, Math.max(personal, baseline + unit)) : Math.max(ref.value, Math.min(personal, baseline - unit));
     target = c.direction === "lower" ? Math.floor(target + 1e-9) : round(target, dec);
     if (dir * (target - baseline) <= 0) target = round(baseline + dir * unit, dec);
+    // Après une maîtrise : la cible suivante dépasse l'ancienne d'au moins 0,25·s (une unité au minimum). Sinon, 5 bonnes
+    // parties sur 20 ne déplacent presque pas la médiane et le même objectif revient avec la même cible.
+    const prev = masteredTarget(key);
+    if (prev != null) {
+      const step = Math.max(unit, RULES.progressSd * s);
+      const floor = c.direction === "lower" ? Math.floor(prev - step + 1e-9) : Math.ceil((prev + step) * 10 ** dec - 1e-9) / 10 ** dec;
+      if (dir * (floor - target) > 0) target = floor;
+    }
     // L'arrondi ne doit pas faire passer la cible au-delà de la référence (0,5187 arrondi à 0,52)
     if (dir > 0 && target > ref.value) target = Math.floor(ref.value * 10 ** dec + 1e-9) / 10 ** dec;
     if (dir < 0 && target < ref.value) target = Math.ceil(ref.value * 10 ** dec - 1e-9) / 10 ** dec;
@@ -137,7 +145,8 @@ export function proposeGoal(games, role, { references = null, pastGoals = [], no
   }
   const exclude = last && ["failed", "needs_review"].includes(last.outcome) ? Object.keys(CATALOG).filter(k => fam(k) === fam(last.metric)) : [];
   const mastered = new Set(closed.filter(g => g.outcome === "achieved").map(g => g.metric));
-  const rows = prioritize(games, role, { references, exclude, quantileFor: k => (mastered.has(k) ? RULES.targetQuantileAfterMastery : RULES.targetQuantile) });
+  const lastMastered = k => closed.find(g => g.outcome === "achieved" && g.metric === k)?.target ?? null;
+  const rows = prioritize(games, role, { references, exclude, quantileFor: k => (mastered.has(k) ? RULES.targetQuantileAfterMastery : RULES.targetQuantile), masteredTarget: lastMastered });
   const best = rows.find(r => r.eligible);
   if (!best) return { goal: null, diagnostic: rows };
   const c = CATALOG[best.metric];

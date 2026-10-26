@@ -751,7 +751,16 @@ await t("COACH-007 Choix de l'objectif (goals-2) : reproductible, sans LLM, scor
   assert(capped.target <= 61.2, `cible au-delà de la référence : ${capped.target}`);
   const after = proposeGoal(games, "MIDDLE", { pastGoals: [{ metric: "cs_at_10", role: "MIDDLE", status: "archived", outcome: "achieved", created_at: 1 }] }).goal;
   assert(after.metric === "cs_at_10" && after.target_quantile === 0.6 && after.target >= a.goal.target, "60e centile après une maîtrise");
-  return `sbires à 10 min ${a.goal.baseline} → ${a.goal.target} (55e centile) ; 60e après maîtrise ; plafond à la référence ; morts au diagnostic seulement ; pas d'objectif sous 15 parties.`;
+  // Après une maîtrise, la cible suivante dépasse l'ancienne d'au moins 0,25·s, même si la médiane n'a presque pas bougé
+  const mastered = { metric: "cs_at_10", role: "MIDDLE", status: "archived", outcome: "achieved", created_at: 1, target: a.goal.target };
+  const next = proposeGoal(games, "MIDDLE", { pastGoals: [mastered] }).goal;
+  const step = Math.max(1, RULES.progressSd * a.goal.personal_sd);
+  assert(next.metric === "cs_at_10" && next.target >= Math.ceil(a.goal.target + step), `même cible après une maîtrise : ${a.goal.target} → ${next.target}`);
+  // … sans jamais dépasser la référence
+  const refCap = { MIDDLE: { cs_at_10: { n: 8000, p25: 50, p50: a.goal.target + 0.5, p75: 70, level: "Diamant et plus" } } };
+  const nextCapped = proposeGoal(games, "MIDDLE", { references: refCap, pastGoals: [mastered] }).goal;
+  assert(!nextCapped || nextCapped.metric !== "cs_at_10" || nextCapped.target <= a.goal.target + 0.5, `cible au-delà de la référence après maîtrise : ${nextCapped?.target}`);
+  return `sbires à 10 min ${a.goal.baseline} → ${a.goal.target} (55e centile) ; après maîtrise : 60e centile et au moins ${a.goal.target} + 0,25·s (→ ${next.target}), plafond à la référence ; morts au diagnostic seulement ; pas d'objectif sous 15 parties.`;
 });
 
 await t("COACH-008 Cycle de vie (goals-2) : maîtrise, progrès, stable, alerte, échec après deux cycles, garde-fous, chronologie", "fixture", async () => {

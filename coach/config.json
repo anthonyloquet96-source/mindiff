@@ -151,5 +151,10 @@
     "minRank": "diamant",
     "lowRankUse": "correction",
     "_doc": "Le savoir du coach vient du niveau Diamant et plus (ou de la compétition). Un contenu de plus bas niveau ne sert qu’à illustrer une erreur à corriger."
+  },
+  "tutor": {
+    "_doc": "Tuteur IA du coach V1 (coach/v1/tutor.mjs). Désactivé par défaut (correctifs du 26/10/2026) : la V1 fonctionne entièrement sans LLM. Aucune donnée de joueur n'est envoyée à un modèle tant que personalData n'est pas vrai, ce qui suppose une offre payante avec accord de traitement des données (DPA) signé : voir coach/CONFORMITE.md.",
+    "llm": "off",
+    "personalData": false
   }
 }

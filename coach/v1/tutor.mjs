@@ -84,8 +84,13 @@ export function tipsForGoal(units, goal, max = 3) {
 }
 
 // Route POST /api/v1/coach/chat { player_id, question } : branchée par le serveur avec un modèle (ask) et la base de conseils
-export function chatHandler({ ask, units = [], usage = {} }) {
+// Mode sans LLM (par défaut) : refus avant toute lecture de données et tout appel au modèle. Le tuteur ne s'active qu'avec
+// llm « on » ET personalData vrai (offre payante avec DPA), jamais sur l'offre gratuite.
+export const TUTOR_OFF = { status: 503, body: { error: { code: "ia-desactivee", message: "Le tuteur IA est désactivé : ton objectif, tes chiffres et les conseils sourcés restent disponibles." } } };
+export function chatHandler({ ask, units = [], usage = {}, config = {} }) {
+  const enabled = config.llm === "on" && config.personalData === true && typeof ask === "function";
   return async (body, ctx) => {
+    if (!enabled) return TUTOR_OFF;
     const pid = String(body?.player_id || "");
     const player = /^[0-9a-f-]{36}$/.test(pid) ? await ctx.store.getPlayer(pid) : null;
     if (!player) return { status: 404, body: { error: { code: "joueur-inconnu", message: "Joueur inconnu." } } };

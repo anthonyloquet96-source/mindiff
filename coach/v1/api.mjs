@@ -41,7 +41,7 @@ export async function handleV1({ method, path, query = {}, body = null }, ctx) {
       const p = await store.upsertPlayer({ puuid: acc.puuid, platform, game_name: acc.gameName, tag_line: acc.tagLine });
       return { status: 200, body: { player_id: p.id, game_name: p.game_name, tag_line: p.tag_line, platform } };
     }
-    if (path === "/api/v1/coach/chat" && method === "POST") return chat ? chat(body, ctx) : fail(501, "pas-encore", "Le tuteur arrive avec COACH-010.");
+    if (path === "/api/v1/coach/chat" && method === "POST") return chat ? chat(body, ctx) : fail(503, "ia-desactivee", "Le tuteur IA est désactivé : ton objectif, tes chiffres et les conseils sourcés restent disponibles.");
     const jm = path.match(/^\/api\/v1\/jobs\/([^/]+)$/);
     if (jm) { const j = UUID.test(jm[1]) && await store.getJob(jm[1]); return j ? { status: 200, body: j } : fail(404, "introuvable", "Synchronisation inconnue."); }
     const pm = path.match(/^\/api\/v1\/players\/([^/]+)(\/.*)?$/);

@@ -52,7 +52,9 @@ async function coachV1() {
   const { gemini, hasGeminiKey } = await import("../coach/gemini.mjs");
   const cfg = JSON.parse(await readFile(join(ROOT, "coach", "config.json"), "utf8"));
   const units = await readFile(join(ROOT, "data", "coach.json"), "utf8").then(j => JSON.parse(j).units).catch(() => []);
-  if (hasGeminiKey()) ctx.chat = chatHandler({ units, ask: async (system, user, schema) => (await gemini({ models: cfg.analysis.geminiModels, system, parts: [{ text: user }], schema, maxOutputTokens: 1200, timeoutMs: 60000 })).json });
+  // Désactivé par défaut (coach/config.json, tutor) : aucune donnée de joueur envoyée au modèle sans offre payante et DPA
+  const tcfg = cfg.tutor || { llm: "off" };
+  ctx.chat = chatHandler({ units, config: tcfg, ask: tcfg.llm === "on" && tcfg.personalData === true && hasGeminiKey() ? async (system, user, schema) => (await gemini({ models: cfg.analysis.geminiModels, system, parts: [{ text: user }], schema, maxOutputTokens: 1200, timeoutMs: 60000 })).json : null });
   v1 = { ...ctx, handle: q => handleV1(q, ctx) };
   return v1;
 }

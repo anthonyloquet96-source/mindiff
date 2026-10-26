@@ -1013,6 +1013,25 @@ await t("File de lecture : les vidéos qui comblent un manque des objectifs V1 p
   return "farm, clear jungle et roam devant à qualité égale ; chemins de jungle d'anciennes saisons pénalisés.";
 });
 
+await t("Mode sans LLM : tuteur désactivé par défaut, aucun appel au modèle ni lecture du joueur sans offre payante autorisée", "fixture", async () => {
+  const { chatHandler } = await import("../v1/tutor.mjs");
+  const { handleV1 } = await import("../v1/api.mjs");
+  const cfg = JSON.parse(await readFile(join(ROOT, "coach", "config.json"), "utf8"));
+  assert(cfg.tutor?.llm === "off" && cfg.tutor.personalData === false, "tuteur activé par défaut dans la configuration");
+  let calls = 0, reads = 0;
+  const ask = async () => { calls++; return { phrases: [], conseils_cites: [], limites: "" }; };
+  const ctx = { store: { getPlayer: async () => { reads++; return { id: "x" }; } } };
+  const body = { player_id: "00000000-0000-0000-0000-000000000001", question: "Comment je progresse ?" };
+  for (const config of [{}, { llm: "off" }, { llm: "on" }, { llm: "on", personalData: false }]) {
+    const r = await chatHandler({ ask, config })(body, ctx);
+    assert(r.status === 503 && r.body.error.code === "ia-desactivee", `tuteur actif avec ${JSON.stringify(config)}`);
+  }
+  assert(calls === 0 && reads === 0, "modèle appelé ou joueur lu alors que le tuteur est désactivé");
+  const none = await handleV1({ method: "POST", path: "/api/v1/coach/chat", body }, { store: ctx.store });
+  assert(none.status === 503 && none.body.error.code === "ia-desactivee", "route du tuteur sans réponse claire");
+  return "configuration par défaut : tuteur désactivé ; aucune combinaison partielle ne l'active ; aucun appel au modèle, aucune donnée lue.";
+});
+
 await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur le vrai schéma (Postgres embarqué)", "fixture", async () => {
   const { PGlite } = await import("@electric-sql/pglite");
   const { readFile } = await import("node:fs/promises");

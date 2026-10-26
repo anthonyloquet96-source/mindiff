@@ -582,3 +582,9 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - Bouton « Supprimer mes données du coach » dans la carte V1 (confirmation dans la page, puis DELETE /players/:id) : la politique de confidentialité le promettait. Brouillon de politique pour le V1 (`coach/confidentialite-v1.md`, à valider, ne remplace pas encore `confidentialite.html`). Texte de demande de clé personnelle pour le test privé (`coach/riot-cle-personnelle.md`).
 - Mode démo (`MINDIFF_DEMO=1 PORT=3100 npm start`, `coach/demo.mjs`) : joueur fictif « Démo#EUW », 22 parties classées inventées au format Match-V5, API Riot interceptée (aucun appel), stockage en mémoire, sans repères Diamant+ ni collecte d'actualités ; `POST /api/demo/play` ajoute une partie. GIF du parcours (Riot ID → objectif proposé → conseils sourcés → Je commence → 5 parties → objectif maîtrisé → avis) : `Downloads/mindiff-coach-demo.gif`. Corrigé au passage : le formulaire d'avis se refermait après un clic sur une note. À regarder : après une maîtrise, l'objectif suivant reprend la même cible (59) car la médiane de départ ne bouge pas.
 - Cible après maîtrise : la cible suivante dépasse maintenant l'ancienne d'au moins 0,25·s (une unité au minimum), toujours plafonnée au repère. Avant, 5 bonnes parties sur 20 ne déplaçaient pas la médiane et le même objectif revenait avec la même cible (démo : 59 puis 59 ; maintenant 59 puis 60). Test ajouté (COACH-007), tests 57/58.
+
+## 26/10 — Clé personnelle Riot approuvée
+
+- App 897844 « MINDIFF Coach - private test » : clé personnelle approuvée immédiatement (20 req/s, 100 req/2 min), sans expiration quotidienne.
+- Clé rangée dans `.env` (RIOT_API_KEY, ignoré par git), testée : HTTP 200 sur lol-status.
+- Texte déposé corrigé : pendant la partie, seul ce que montre l’\écran de chargement est affiché (SPECTATOR-V5), au lieu de « aucune aide en jeu ».

@@ -6,7 +6,7 @@ Pourquoi une clé personnelle : elle est faite « for products that are intended
 
 ---
 
-**Product Name :** MINDIFF Coach — private test
+**Product Name :** MINDIFF Coach - private test
 
 **Product URL :** https://anthonyloquet96-source.github.io/mindiff/
 
@@ -17,9 +17,9 @@ Private test of the MINDIFF coach (our public application is App 895430, pending
 
 Who: 5-10 invited adult volunteers (friends of the developer), each linking their own Riot ID with their consent, for about two weeks.
 
-What: post-game coaching on ranked Solo/Duo. We read each tester's matches (ACCOUNT-V1, LEAGUE-V4, MATCH-V5 with timelines). A deterministic engine picks one measurable goal (e.g. CS at 10 minutes) from 15-20 past matches and evaluates it on the next 5 ranked matches. Testers rate the goal and report unwanted effects (e.g. playing more passively). No in-game assistance, no MMR or ranking, no betting.
+What: post-game coaching on ranked Solo/Duo. We read each tester's matches (ACCOUNT-V1, LEAGUE-V4, MATCH-V5 with timelines). A deterministic engine picks one measurable goal (e.g. CS at 10 minutes) from 15-20 past matches and evaluates it on the next 5 ranked matches. Testers rate the goal and report unwanted effects (e.g. playing more passively). During a game we only show what the loading screen already shows (SPECTATOR-V5). No MMR or ranking, no betting.
 
-Data: the API key stays server-side (Cloudflare Worker). Each tester's match data is stored only for their own coaching (Supabase, EU region, row-level security), never shared, and deleted when they delete their account or when the test ends. Test reports are pseudonymized.
+Data: the API key stays server-side (Cloudflare Worker). Each tester's match data is stored only for their own coaching (EU-hosted database, row-level security), never shared, and deleted when they delete their account or when the test ends. Test reports are pseudonymized.
 
 Volume: about 30 matches and timelines per tester at sign-up, then a few per day: well within personal key limits.
 ```

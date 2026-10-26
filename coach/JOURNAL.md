@@ -571,3 +571,8 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
   - maîtrise attendue par hasard sur les mêmes parties de départ ;
   - ancien moteur (goals-1) : ce qu'il aurait proposé avec les parties connues à l'activation, évalué sur les mêmes 5 parties.
 - Totaux généraux, par poste et par famille. Testeurs pseudonymisés (testeur-1…), sans PUUID, Riot ID ni identifiant de partie (testé).
+
+## 26/10/2026 — Demande à Riot refaite
+
+- `coach/riot-demande.md` réécrite après échange avec ChatGPT (partenaire de brainstorming) : présentation du produit et des nouvelles fonctionnalités du coach, intégrité compétitive, sécurité et données (fait / pas encore fait), collecte clé DEV, cinq questions.
+- Vérification des caches : `bench-raw/` (1 600 parties brutes) garde PUUID et identifiants de partie, `riot-seen.json` 326 identifiants de partie. Déclaré dans la demande et dans `coach/CONFORMITE.md` ; commentaire faux de `coach/bench.mjs` corrigé. Pseudonymisation proposée à Anthony, pas faite.

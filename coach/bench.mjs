@@ -1,7 +1,7 @@
 // Banc d'essai du coach : l'analyse complète (bilan + relecture tactique) sur de vraies parties de tous les rangs, de Fer à Challenger.
 // But : vérifier que chaque règle repère une vraie erreur (plus fréquente chez les joueurs faibles, liée aux défaites),
 // écarter le bruit (règle qui se déclenche presque toujours) et trouver de nouveaux écarts nets entre bons et mauvais joueurs.
-// Résultats privés (coach/cache/bench.json et coach/cache/bench-raw/), parties anonymisées : aucun identifiant de joueur gardé.
+// Résultats privés (coach/cache/bench.json et coach/cache/bench-raw/), Riot ID retirés, mais PUUID et identifiants de partie encore présents dans bench-raw (voir coach/CONFORMITE.md).
 // Usage : node --env-file=.env coach/bench.mjs [--par-rang 80]   puis   node coach/bench.mjs --rapport
 //         node coach/bench.mjs --rejouer   (règles corrigées : réanalyse les parties gardées, sans requête Riot)
 

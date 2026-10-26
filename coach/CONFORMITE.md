@@ -64,6 +64,7 @@ Audit du 26/10/2026, branche `coach-v1`. Chaque point renvoie au texte consulté
 | `coach/cache/timelines/` | 9 826 parties Diamant+ EUW minute par minute | Anonymisées (alias p1 à p10, identifiant de partie supprimé, fichier nommé par empreinte) |
 | `coach/cache/metric-references.json` | Centiles par poste et par métrique | Agrégats seulement |
 | `coach/cache/styles.json`, `champstats.json`, `matchups.json` | Plans de jeu et stats par champion | Agrégats seulement |
+| `coach/cache/bench-raw/` | 1 600 parties brutes avec timelines (160 par rang, Fer → Challenger), banc d'essai des règles | **PUUID et identifiants de partie présents** (pas de Riot ID) ; `riot-seen.json` garde aussi 326 identifiants de partie |
 | `coach/cache/battery*/` | Mesures partie par partie de 90 joueurs Fer → Challenger | Joueur identifié par une empreinte tronquée du PUUID, aucun Riot ID |
 
 Brouillon de demande de clarification : `coach/riot-demande.md`.

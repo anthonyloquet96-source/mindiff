@@ -27,7 +27,7 @@ const C2_TIER = { IRON: "Fer", BRONZE: "Bronze", SILVER: "Argent", GOLD: "Or", P
 const C2_LEARN = {
   cs10: { themes: ["lane", "vagues"], re: /wave|vague|trading|farm|\bcs\b|last ?hit|clear|jungle path|tempo/i, tip: "Vise la référence Diamant+ à 10 min : chaque wave perdue, ce sont 6 sbires et leur or." },
   csMin: { themes: ["lane", "vagues"], re: /wave|vague|farm|\bcs\b|tempo/i, tip: "Après la phase de lane, continue à prendre les waves proches de toi entre deux combats." },
-  deaths30: { themes: ["survie", "methode"], re: /mort|death|dying|surviv|position|dans la t[eê]te|mistake|erreur/i, tip: "Pour chaque mort, note ce que tu ne voyais pas (adversaires absents de la minimap, vision) : ouvre le bilan de la partie, chaque mort y est datée." },
+  deaths30: { themes: ["survie", "methode"], re: /mort|death|dying|surviv|position|dans la t[eê]te|mistake|erreur/i, tip: "Ouvre le bilan de la partie : chaque mort y est datée, avec qui t'a tué et combien d'adversaires étaient là. Revois ces minutes avant d'en tirer une conclusion." },
   visionMin: { themes: ["methode", "vision"], re: /vision|ward|balise|track/i, tip: "Pose une ward à chaque retour et utilise ton trinket dès qu'il est rechargé." },
   controlWards: { themes: ["methode", "vision"], re: /vision|\bwards?\b|balise|control ward|pink ward/i, tip: "Une control ward à chaque back : c'est 75 golds, et souvent un objectif sauvé." },
   kp: { themes: ["teamfight", "macro"], re: /roam|gank|tempo|teamfight|skirmish|escarmouche|jungle/i, tip: "Après avoir poussé ta wave, regarde la minimap : rejoins les combats qui ont lieu près de toi." },
@@ -37,7 +37,7 @@ const C2_KIND_TIP = {
   "mort-avant-objectif": "Dans la minute qui précède un dragon ou un Baron, rejoins ton équipe et évite de mourir seul loin de l'objectif : l'adversaire le prendrait en surnombre.",
   "plaques-perdues": "Avant de quitter ta lane (back, aide à un combat), pousse ta wave vers la tourelle adverse : elle ne s'écrasera pas sous la tienne pendant ton absence.",
   "retard-en-ligne": "Quand ton adversaire a l'avantage, joue la sécurité : prends les sbires près de ta tourelle, signale-le à ton jungler et ne te bats qu'avec un avantage net.",
-  "morts-phase-de-ligne": "En phase de lane, recule quand ton adversaire disparaît de la carte ou que son jungler est vu de ton côté : la plupart des morts précoces viennent d'un adversaire non vu.",
+  "morts-phase-de-ligne": "En phase de lane, recule quand ton adversaire disparaît de la carte ou que son jungler est vu de ton côté.",
   "or-non-depense": "Rentre à la base dès que tu peux acheter un composant important, de préférence après avoir poussé ta wave.",
   "mort-isolee": "Après la phase de lane, ne pousse pas seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : reste à portée de ton équipe ou replie-toi avant leur arrivée.",
   "gank-subi": "En phase de lane, quand le jungler adverse n'a pas été vu depuis un moment et que ta wave est poussée, rapproche-toi de ta tourelle ; une ward dans la rivière te montre son arrivée.",
@@ -172,7 +172,7 @@ const C2_PLAIN = {
     goal: "Mourir moins", name: "Morts",
     say: v => `${c2n(Math.round(v * 10) / 10)} morts par tranche de 30 min`,
     what: () => "Chaque mort te fait attendre sans jouer, donne de l'or à l'adversaire et lui laisse le temps de prendre des objectifs.",
-    steps: () => ["Quand ton adversaire disparaît de la carte, recule : il arrive peut-être avec d'autres.", "Avant d'avancer seul, regarde la minimap et compte les adversaires visibles.", "Après chaque mort, demande-toi ce que tu ne voyais pas : c'est souvent la même erreur qui revient."],
+    steps: () => ["Quand ton adversaire disparaît de la carte, recule : il arrive peut-être avec d'autres.", "Avant d'avancer seul, regarde la minimap et compte les adversaires visibles.", "Après chaque mort, revois sa minute dans le bilan : qui t'a tué, avec combien d'aides, à quel endroit."],
   },
   visionMin: {
     goal: "Mieux éclairer la carte", name: "Vision",

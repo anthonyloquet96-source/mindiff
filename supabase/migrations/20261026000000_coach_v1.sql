@@ -41,13 +41,17 @@ create table public.match_metrics (
   invalid_reason text,
   metrics jsonb not null,
   metric_version text not null,
+  -- Début de la partie (ordre et évaluation des objectifs) ; le reste de la sortie de computeMetrics (patch, qualité de la timeline…)
+  start_ms bigint,
+  extra jsonb,
   computed_at timestamptz not null default now(),
   primary key (match_id, player_id)
 );
 create index match_metrics_player_idx on public.match_metrics (player_id, computed_at desc);
 
 create table public.coaching_goals (
-  id uuid primary key default gen_random_uuid(),
+  -- Identifiant fourni par le moteur d'objectifs (texte), sinon généré
+  id text primary key default gen_random_uuid()::text,
   player_id uuid not null references public.players (id) on delete cascade,
   metric text not null,
   role text not null check (role in ('TOP','JUNGLE','MIDDLE','BOTTOM','UTILITY')),
@@ -64,6 +68,7 @@ create table public.coaching_goals (
   score numeric,
   factors jsonb,
   exercise text,
+  extra jsonb,
   created_at timestamptz not null default now(),
   active_at timestamptz,
   evaluating_at timestamptz,
@@ -77,7 +82,7 @@ create table public.coaching_goals (
 create unique index coaching_goals_one_open on public.coaching_goals (player_id) where status in ('active','evaluating');
 
 create table public.goal_evaluations (
-  goal_id uuid not null references public.coaching_goals (id) on delete cascade,
+  goal_id text not null references public.coaching_goals (id) on delete cascade,
   match_id text not null references public.matches (match_id) on delete cascade,
   counted boolean not null,
   value numeric,
@@ -108,7 +113,8 @@ create table public.sync_jobs (
   started_at timestamptz,
   finished_at timestamptz,
   matches_added integer,
-  error text
+  error text,
+  extra jsonb
 );
 create unique index sync_jobs_one_open on public.sync_jobs (player_id) where status in ('queued','running');
 

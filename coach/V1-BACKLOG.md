@@ -38,6 +38,8 @@ Brief : `Downloads/mindiff_prompt_claude_code.md` (tickets COACH-001 à 010). Ca
 
 - 01:00 — Séries 1 et 2 terminées (60 joueurs, Fer → Challenger), rejouées avec le moteur actuel : 52 objectifs ; 18 réussis, 25 ratés, 2 inconclusifs, 7 en cours, 8 sans objectif (tous « moins de 8 parties au même poste » sur l'historique de test). Les cibles sont atteintes dans 25 à 50 % des parties passées du joueur (médiane 41 %) : ni trop faciles, ni hors de portée. Réussite sans suivre le coach : 42 % des objectifs tranchés. Objectifs : sbires 29 (10 min 19, 15 min 7, par minute 3), morts 11, vision 10, participation 2.
 
+- 01:20 — Stockage Supabase (coach/v1/store-supabase.mjs, API REST + Storage) au même contrat que le stockage local ; migration ajustée (identifiant d'objectif en texte, colonnes extra, start_ms). Testé sur le vrai schéma dans Postgres embarqué : parcours complet, second objectif ouvert refusé par l'index, recalcul depuis les JSON bruts, suppression en cascade.
+
 ## Pistes suivantes (à trier)
 - Worker Cloudflare + stockage Supabase : écrire et tester avec des réponses simulées (sans compte), brancher quand Anthony aura créé les comptes.
 - Worker Cloudflare avec stockage Supabase (bloqué : comptes à créer par Anthony).

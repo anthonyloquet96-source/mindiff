@@ -947,6 +947,71 @@ await t("COACH-010 Tuteur : n'invente aucun chiffre, cite des conseils existants
   return "réponse fidèle acceptée ; chiffre ou conseil inventé → réponse écartée ; formats français reconnus ; panne et quota signalés.";
 });
 
+await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur le vrai schéma (Postgres embarqué)", "fixture", async () => {
+  const { PGlite } = await import("@electric-sql/pglite");
+  const { readFile } = await import("node:fs/promises");
+  const { createSupabaseStore } = await import("../v1/store-supabase.mjs");
+  const { handleV1, createQueue, syncWorker } = await import("../v1/api.mjs");
+  const db = new PGlite();
+  await db.exec(`create schema auth; create table auth.users (id uuid primary key); create function auth.uid() returns uuid language sql stable as $$ select null::uuid $$; create role anon nologin; create role authenticated nologin;`);
+  await db.exec(await readFile(new URL("../../supabase/migrations/20261026000000_coach_v1.sql", import.meta.url), "utf8"));
+  // PostgREST minimal (ce que le stockage utilise) traduit en SQL sur le vrai schéma
+  const objects = new Map();
+  const rest = async (method, path, { body, prefer } = {}) => {
+    const [table, qs = ""] = path.split("?");
+    const params = [...new URLSearchParams(qs)];
+    const vals = [], ph = v => { vals.push(v !== null && typeof v === "object" ? JSON.stringify(v) : v); return `$${vals.length}`; };
+    const where = params.filter(([k]) => !["select", "order", "on_conflict"].includes(k)).map(([k, v]) => v.startsWith("eq.") ? `"${k}" = ${ph(v.slice(3))}` : v.startsWith("in.(") ? `"${k}" in (${v.slice(4, -1).split(",").map(ph).join(",")})` : "true").join(" and ") || "true";
+    const order = params.find(([k]) => k === "order")?.[1];
+    const orderSql = order ? ` order by "${order.split(".")[0]}" ${order.includes(".desc") ? "desc" : "asc"}${order.includes("nullslast") ? " nulls last" : ""}` : "";
+    try {
+      if (method === "GET") return (await db.query(`select * from public.${table} where ${where}${orderSql}`, vals)).rows;
+      if (method === "DELETE") { await db.query(`delete from public.${table} where ${where}`, vals); return null; }
+      if (method === "PATCH") { const sets = Object.entries(body).map(([k, v]) => `"${k}" = ${ph(v)}`).join(", "); return (await db.query(`update public.${table} set ${sets} where ${where} returning *`, vals)).rows; }
+      const rows = Array.isArray(body) ? body : [body], cols = Object.keys(rows[0]);
+      const conflict = params.find(([k]) => k === "on_conflict")?.[1];
+      const sql = `insert into public.${table} (${cols.map(c => `"${c}"`).join(",")}) values ${rows.map(r => `(${cols.map(c => ph(r[c])).join(",")})`).join(",")}${conflict && prefer?.includes("merge-duplicates") ? ` on conflict (${conflict}) do update set ${cols.map(c => `"${c}" = excluded."${c}"`).join(", ")}` : ""} returning *`;
+      return (await db.query(sql, vals)).rows;
+    } catch (e) { throw Object.assign(new Error(e.message), { code: e.code === "23505" ? "conflit" : "supabase-erreur", status: e.code === "23505" ? 409 : 502 }); }
+  };
+  const store = createSupabaseStore({ rest, putObject: async (k, b) => objects.set(k, b), getObject: async k => objects.get(k) || null });
+  let ids = Array.from({ length: 12 }, (_, i) => `EUW1_${300 + i}`);
+  const games = {};
+  const mk = (id, start, cs10) => { games[id] = v1Game({ id, start, cs10, deaths: 1, kills: 6, assists: 4, teamKills: 16 }); };
+  ids.forEach((id, i) => mk(id, 1000 + (12 - i), 58 + (i % 7)));
+  const counts = {};
+  const riot = { call: async (route, p) => { counts[route] = (counts[route] || 0) + 1; return route === "account" ? { puuid: "p1", gameName: "Testeur", tagLine: "EUW" } : route === "matchIds" ? ids : route === "match" ? games[p.matchId].match : games[p.matchId].timeline; } };
+  const ctx = { store, riot, references: null };
+  ctx.queue = createQueue(syncWorker(ctx));
+  const pid = (await handleV1({ method: "GET", path: "/api/v1/players/resolve", query: { riot_id: "Testeur#EUW", platform: "euw1" } }, ctx)).body.player_id;
+  await handleV1({ method: "POST", path: `/api/v1/players/${pid}/sync` }, ctx); await ctx.queue.idle();
+  await handleV1({ method: "POST", path: `/api/v1/players/${pid}/sync` }, ctx); await ctx.queue.idle();
+  assert(counts.match === 12 && objects.size === 12, "parties téléchargées deux fois ou JSON bruts absents");
+  const g = (await handleV1({ method: "GET", path: `/api/v1/players/${pid}/goals/active` }, ctx)).body.goal;
+  assert(g?.status === "proposed" && g.metric === "cs_at_10", "objectif non proposé sur Supabase");
+  const st = (await handleV1({ method: "POST", path: `/api/v1/players/${pid}/goals/${g.id}/start` }, ctx)).body.goal;
+  assert(st.status === "active" && typeof st.active_at === "number", "démarrage mal enregistré");
+  // Un deuxième objectif ouvert est refusé par l'index unique de la base
+  let conflict = false; try { await store.putGoal(pid, { ...st, id: "autre", created_at: Date.now() }); } catch (e) { conflict = e.code === "objectif-multiple"; }
+  assert(conflict, "deux objectifs ouverts acceptés par la base");
+  const t0 = Date.now() + 1000, fresh = Array.from({ length: 5 }, (_, i) => `EUW1_${400 + i}`);
+  fresh.forEach((id, i) => mk(id, t0 + i * 1000, st.target + 2));
+  ids = [...fresh.reverse(), ...ids];
+  await handleV1({ method: "POST", path: `/api/v1/players/${pid}/sync` }, ctx); await ctx.queue.idle();
+  const prog = (await handleV1({ method: "GET", path: `/api/v1/players/${pid}/progress` }, ctx)).body;
+  assert(prog.goals[0]?.outcome === "achieved" && prog.goals[0].evaluations.filter(e => e.counted).length === 5, "réussite non enregistrée sur Supabase");
+  // Recalcul depuis le stockage des JSON bruts, sans Riot
+  const { syncPlayer } = await import("../v1/sync.mjs");
+  for (const m of await store.listMetrics(pid)) await store.putMetrics(pid, { ...m, metric_version: "ancienne" });
+  const re = await syncPlayer({ store, riot, playerId: pid });
+  assert(re.recomputed === 17 && counts.match === 17, "recalcul sans le JSON brut");
+  await handleV1({ method: "DELETE", path: `/api/v1/players/${pid}` }, ctx);
+  const left = (await db.query("select (select count(*) from public.match_metrics)::int + (select count(*) from public.coaching_goals)::int + (select count(*) from public.goal_evaluations)::int + (select count(*) from public.sync_jobs)::int n")).rows[0].n;
+  assert(left === 0, "données restantes après suppression");
+  await db.close();
+  return "parcours complet sur le vrai schéma : 12 parties une seule fois, JSON bruts compressés, objectif proposé, démarré, réussi et archivé ; second objectif ouvert refusé par la base ; recalcul sans Riot ; suppression en cascade.";
+});
+
 await t("COACH-002 Normaliseur sur de vraies parties anonymisées (cache privé)", "réel", async () => {
   const { normalizeMatch, participantAt, laneOpponent } = await import("../normalize.mjs");
   const { readdir, readFile } = await import("node:fs/promises");

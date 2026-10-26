@@ -43,9 +43,14 @@ const CONCEPT = new RegExp([
   "makro", "dalga", "g[öo]r[üu]ş", "obje", "wellen", "sicht", "fale", "wizj", "t[aầ]m nh[iì]n", "l[ốo]i đ[aá]nh",
 ].join("|"), "i");
 // Vite périmé ou déjà couvert par nos données Diamant+ (builds, méta, tier lists, nouveautés d'un patch)
-const PERISHABLE = /tier ?list|best (champions?|picks?|junglers?|supports?|adcs?|mid ?laners?|top ?laners?)|op (champ|pick)|broken|patch \d|\b(1[0-6]|2[0-6])\.\d{1,2}\b|new (item|champion|patch|season)|itemiz|nouveaux? (objets?|champion)|meilleurs? champions|builds?\b|runes?\b|items? explained|all items|preseason/i;
+const PERISHABLE = /tier ?list|best (champions?|picks?|junglers?|supports?|adcs?|mid ?laners?|top ?laners?)|op (champ|pick)|broken|patch \d|\b(1[0-6]|2[0-6])\.\d{1,2}\b|new (item|champion|patch|season)|itemiz|nouveaux? (objets?|champion)|meilleurs? champions|builds?\b|runes?\b|items? explained|all items|preseason|\bs(eason ?)?1[0-5]\b/i;
 // Divertissement ou partie commentée sans fil pédagogique
 const ENTERTAIN = /\brag(e|es|ing)\b|insane|crazy|craziest|funny|troll|\bvs\b.*\bvs\b|1v9|pentakill|outplay|i (learned|tried)|\bft\b|podcast|stream|🔴|going for|road to|cheese|pet|ranked (game|reset)/i;
+
+// Manques de la base pour les objectifs du coach V1 (audit du 26/10/2026, accord d'Anthony) : le farm est l'objectif le plus
+// proposé mais n'a qu'un conseil sourcé en lane et aucun en jungle ; la participation aux kills en a 2 ou 3 par poste.
+// Ces vidéos passent devant à qualité égale ; à retirer quand chaque objectif a au moins 5 conseils par poste.
+export const GAPS = /last ?hit|\bcs(ing)?\b|farm(ing)?\b|wave manag|gestion des vagues|freez|slow ?push|first clear|full ?clear|jungle (clear|path)|pathing|clear(ing)? (speed|guide)|roam(ing)?\b|skirmish/i;
 
 // Score d'une vidéo : nature de l'enseignement d'abord, puis niveau de la chaîne, durée, audience ; la fraîcheur compte peu pour les principes
 export function scoreVideo(v, tier, champs = null) {
@@ -53,6 +58,7 @@ export function scoreVideo(v, tier, champs = null) {
   const concept = CONCEPT.test(t);
   let s = { A: 4, B: 3, C: 1 }[tier] || 0;
   if (concept) s += 6;
+  if (GAPS.test(t)) s += 4;
   if (GUIDE.test(t)) s += 2;
   if (PERISHABLE.test(t)) s -= 5;
   if (ENTERTAIN.test(t)) s -= 3;

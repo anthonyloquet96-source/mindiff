@@ -974,6 +974,15 @@ await t("COACH-009/010 Conseils de l'objectif : geste mesuré, pas de fin de par
   return "farm : seul le conseil de last hit (camps en jungle) ; ward, Baron et « pousse ta vague » écartés ; motifs identiques site/tuteur.";
 });
 
+await t("File de lecture : les vidéos qui comblent un manque des objectifs V1 passent devant, les saisons périmées reculent", "fixture", async () => {
+  const { scoreVideo } = await import("../queue.mjs");
+  const v = title => scoreVideo({ title, min: 15, age: 6, views: "100K" }, "B");
+  assert(v("Why You SUCK at FARMING (And How to Fix It)") > v("Why You SUCK at Teamfights (And How to Fix It)"), "farm non prioritaire");
+  assert(v("Complete Fullclear guide") > v("Complete Dragon guide"), "clear jungle non prioritaire");
+  assert(v("NEW OP S14 JUNGLE PATH") < v("NEW JUNGLE PATH"), "saison périmée non pénalisée");
+  return "farm, clear jungle et roam devant à qualité égale ; chemins de jungle d'anciennes saisons pénalisés.";
+});
+
 await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur le vrai schéma (Postgres embarqué)", "fixture", async () => {
   const { PGlite } = await import("@electric-sql/pglite");
   const { readFile } = await import("node:fs/promises");

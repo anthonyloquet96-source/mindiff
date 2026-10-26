@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-25T20:06:42.918Z",
+ "generatedAt": "2026-10-26T01:17:18.919Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -152,7 +152,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 21
+    "units": 22
    },
    "support": {
     "champions": [
@@ -160,7 +160,7 @@
      "Milio",
      "Nami"
     ],
-    "units": 15
+    "units": 16
    }
   },
   "champions": {
@@ -300,15 +300,17 @@
    },
    "Tristana": {
     "role": null,
-    "units": 4,
+    "units": 5,
     "themes": [
      "build",
      "champion",
-     "matchup"
+     "matchup",
+     "lane",
+     "macro"
     ],
-    "actions": 1,
+    "actions": 2,
     "official": 3,
-    "coaching": 1
+    "coaching": 2
    },
    "Aatrox": {
     "role": null,
@@ -625,15 +627,16 @@
    },
    "Fizz": {
     "role": null,
-    "units": 5,
+    "units": 6,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "lane",
+     "macro"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 5,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Galio": {
     "role": null,
@@ -843,15 +846,15 @@
    },
    "Kai'Sa": {
     "role": null,
-    "units": 7,
+    "units": 6,
     "themes": [
      "champion",
-     "matchup",
-     "teamfight"
+     "matchup"
     ],
-    "actions": 1,
+    "actions": 0,
     "official": 6,
-    "coaching": 1
+    "coaching": 0,
+    "officialOnly": true
    },
    "Kalista": {
     "role": null,
@@ -1979,16 +1982,16 @@
    }
   },
   "themes": {
-   "lane": 13,
+   "lane": 19,
    "survie": 6,
-   "teamfight": 3,
+   "teamfight": 2,
    "synergie": 1,
    "matchup": 4,
-   "methode": 4,
-   "vagues": 1,
-   "vision": 1,
-   "macro": 4,
-   "jungle": 0
+   "methode": 3,
+   "vagues": 5,
+   "vision": 0,
+   "macro": 7,
+   "jungle": 2
   },
   "partial": [
    "Ashe"
@@ -2793,7 +2796,11 @@
    "u-cl-note-udyon-macro-4",
    "u-cl-note-drollsnow-side-1",
    "u-cl-note-drollsnow-side-2",
-   "u-ai-yt-Fcb6lbPuclA-4"
+   "u-ai-yt-Fcb6lbPuclA-1",
+   "u-ai-yt-Fcb6lbPuclA-2",
+   "u-ai-yt-Fcb6lbPuclA-3",
+   "u-ai-yt-Fcb6lbPuclA-4",
+   "u-ai-yt-Fcb6lbPuclA-5"
   ]
  },
  "sources": [
@@ -7227,7 +7234,7 @@
    "published": "2026-10-19",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 160860,
+   "views": 174928,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.8-flash : transcription et 31 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -12310,7 +12317,7 @@
    "published": "2026-10-18",
    "retrievedAt": "2026-10-21",
    "patch": "non spécifié",
-   "views": 5941,
+   "views": 5502,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.6-flash : transcription et 6 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -13679,7 +13686,7 @@
    "retrievedAt": "2026-10-21",
    "patch": "14.8",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "Vous voulez une séance de coaching avec Chreak en tête à tête ? C'est possible ! Deux options s'offrent à vous (70€/session de 1h15) : \nPasser par l'abonnement mensuel sur Patreon pour avoir 1 heure de coaching par mois sur ce lien : https://www.patreon.com/c/ChreakLoL\nContacter directement Chreak p",
    "backfill": true,
    "note": "Réanalyse avec les instructions v3 (conseils généraux sans champion, erreurs à éviter).",
@@ -13709,15 +13716,15 @@
     "gameplayShown": true,
     "tokens": 186197
    },
-   "analyzedAt": "2026-10-25",
+   "analyzedAt": "2026-10-26",
    "analyst": "gemini-3.8-flash",
-   "unitsAccepted": 1,
-   "unitsRejected": 3,
+   "unitsAccepted": 5,
+   "unitsRejected": 0,
    "alertes": [],
-   "learn": "Le guide détaille la valeur financière et d'expérience des sbires par rapport aux kills, ainsi que l'utilisation pratique des trois états de vague fondamentaux (freeze, slow push et fast push) pour contrôler la lane, setup des dives ou préparer des objectifs.",
+   "learn": "La gestion des vagues de sbires est essentielle pour maximiser l'or, l'expérience et le contrôle de la carte grâce aux techniques du freeze, du slow push et du fast push adaptées à chaque situation de jeu.",
    "quality": {
     "level": "élevée",
-    "why": "Le contenu présente de manière structurée et approfondie les concepts de gestion de vagues, étayés par des exemples concrets de parties professionnelles et des analyses de haut niveau (Dopa)."
+    "why": "Le contenu présente des explications théoriques claires appuyées par des exemples de haut niveau et des situations pratiques de gestion de vagues."
    }
   },
   {
@@ -16411,7 +16418,7 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "feel it by d4vd. thank me later -ryan\n\n⬇️⬇️⬇️\n\n*CONNECT WITH ME*\n*Metafy* https://metafy.gg/@perrylol/sessions\n*Patreon* https://www.patreon.com/PerryJG\n*Join the Discord* https://discord.gg/H8h9ZSnXCB\n\n*SOCIALS*\n*Twitch* https://www.twitch.tv/perryjg\n*Twitter* https://twitter.com/perryjglol\n*Tiktok",
    "backfill": true,
    "note": "Réanalyse avec les instructions v3 (conseils généraux sans champion, erreurs à éviter).",
@@ -16436,15 +16443,15 @@
     "duration": "01:02:00",
     "reused": true
    },
-   "analyzedAt": "2026-10-25",
+   "analyzedAt": "2026-10-26",
    "analyst": "gemini-3.8-flash",
-   "unitsAccepted": 3,
+   "unitsAccepted": 2,
    "unitsRejected": 1,
    "alertes": [],
-   "learn": "Apprends à structurer ton rôle de jungler autour de la macro-gestion : communique avec tes pings, priorise les objectifs neutres au détriment des camps mineurs, et joue aux côtés de tes coéquipiers forts.",
+   "learn": "Apprends à prioriser les objectifs neutres par rapport au farm de la jungle, à communiquer efficacement avec tes pings et à maîtriser l'utilisation tardive du E d'Hecarim pour optimiser tes dégâts.",
    "quality": {
     "level": "élevée",
-    "why": "Le contenu propose une analyse détaillée d'une VOD de coaching par un créateur spécialisé (perryjg), combinant des séquences de gameplay et des explications claires sur la macro-gestion en jungle."
+    "why": "L'analyse de coaching live en direct sur une partie classée de niveau Diamant apporte des explications macroéconomiques et mécaniques claires, étayées par des situations concrètes et des séquences visuelles vérifiables."
    },
    "reanalyse": "v2"
   },
@@ -16635,7 +16642,7 @@
    "published": "2026-07-30",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 63832,
+   "views": 63952,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -16664,7 +16671,7 @@
    "published": "2026-07-29",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 61839,
+   "views": 62111,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -16691,7 +16698,7 @@
    "published": "2026-10-03",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 14656,
+   "views": 14862,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -16719,7 +16726,7 @@
    "published": "2026-09-24",
    "retrievedAt": "2026-10-21",
    "patch": "26.13",
-   "views": 52111,
+   "views": 52530,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -16759,7 +16766,7 @@
    "published": "2024-08-11",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 15342,
+   "views": 15344,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -16871,7 +16878,7 @@
    "published": "2024-07-14",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 8992,
+   "views": 8993,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -16899,7 +16906,7 @@
    "published": "2024-07-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 18738,
+   "views": 18739,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -16927,7 +16934,7 @@
    "published": "2024-06-29",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 23078,
+   "views": 23079,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18084,7 +18091,7 @@
    "published": "2026-10-20",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 7614,
+   "views": 8002,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18114,7 +18121,7 @@
    "published": "2026-10-19",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 6900,
+   "views": 8268,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18143,7 +18150,7 @@
    "published": "2026-10-17",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 9123,
+   "views": 9320,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3-flash-preview le 2026-10-25 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -18179,7 +18186,7 @@
    "published": "2026-10-14",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 5565,
+   "views": 5705,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18209,7 +18216,7 @@
    "published": "2026-10-13",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 10334,
+   "views": 11138,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18238,7 +18245,7 @@
    "published": "2026-10-12",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 11972,
+   "views": 12900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18268,7 +18275,7 @@
    "published": "2026-10-10",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 10224,
+   "views": 10581,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18297,7 +18304,7 @@
    "published": "2026-10-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 11453,
+   "views": 11813,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18327,7 +18334,7 @@
    "published": "2026-10-05",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 11173,
+   "views": 11611,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18482,7 +18489,7 @@
    "published": "2026-10-08",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 2858,
+   "views": 2888,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18555,7 +18562,9 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 16
+   "queueRank": 16,
+   "videoSkipped": "environ 234 min : au-delà de 90 min (vidéo pédagogique trop longue)",
+   "videoAttempts": 3
   },
   {
    "id": "c-yt-_rORbB3xpYo",
@@ -18568,7 +18577,7 @@
    "published": "2026-10-12",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 14299,
+   "views": 15570,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18599,7 +18608,7 @@
    "published": "2026-10-08",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 9030,
+   "views": 9598,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18629,7 +18638,7 @@
    "published": "2026-10-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 14124,
+   "views": 14792,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18658,7 +18667,7 @@
    "published": "2026-10-14",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 8613,
+   "views": 8926,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18973,7 +18982,7 @@
    "published": "2026-10-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 13432,
+   "views": 15488,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18999,7 +19008,7 @@
    "published": "2026-10-17",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 22377,
+   "views": 23019,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19264,7 +19273,7 @@
    "published": "2026-07-16",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 1040,
+   "views": 1045,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19291,7 +19300,7 @@
    "published": "2026-05-02",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 488,
+   "views": 489,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19317,7 +19326,7 @@
    "published": "2026-04-22",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 2051,
+   "views": 2060,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19452,7 +19461,7 @@
    "published": "2025-07-16",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 4930,
+   "views": 4936,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19483,7 +19492,7 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 1,
@@ -19511,15 +19520,15 @@
     "gameplayShown": true,
     "tokens": 158860
    },
-   "analyzedAt": "2026-10-25",
+   "analyzedAt": "2026-10-26",
    "analyst": "gemini-3.8-flash",
    "unitsAccepted": 0,
-   "unitsRejected": 7,
+   "unitsRejected": 6,
    "alertes": [],
    "learn": null,
    "quality": {
     "level": "élevée",
-    "why": "Le contenu propose une structuration claire, ordonnée par paliers de classement, avec des exemples précis de champions et de situations observables pour chaque concept abordé."
+    "why": "Le guide propose une décomposition méthodique par rang avec des explications claires, des exemples en jeu concrets (bot lane niveau 2, tempo de split-push, conservation de sorts) et des justifications pédagogiques bien argumentées."
    },
    "reanalyse": "v2"
   },
@@ -19535,7 +19544,7 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 2,
@@ -19558,15 +19567,15 @@
     "duration": "38:54",
     "reused": true
    },
-   "analyzedAt": "2026-10-25",
+   "analyzedAt": "2026-10-26",
    "analyst": "gemini-3.8-flash",
-   "unitsAccepted": 2,
+   "unitsAccepted": 1,
    "unitsRejected": 1,
    "alertes": [],
-   "learn": "Comment jouer Kai'Sa AP poke sur la voie du haut en choisissant les bons objets de départ (Lame de Doran ou Faucheuse), en gérant son premier achat à 850 golds (Larme de la déesse et Faucheuse) et en maîtrisant le combo de base Z-R-Z.",
+   "learn": "Drututt enseigne à AloisNL comment jouer Kai'Sa AP Poke en top lane en expliquant le choix des objets de départ (Lame de Doran ou Doran's Bow), le premier achat à 850 golds (Larme de la déesse et Cull), ainsi que le combo clé à base de Z (Void Seeker) et d'ultime.",
    "quality": {
     "level": "élevée",
-    "why": "La vidéo présente des explications claires et détaillées d'un joueur expert (Drututt) guidant un autre joueur (AloisNL) sur un choix de champion original, avec des justifications chiffrées sur les seuils d'objets et d'évolution de compétences."
+    "why": "Le contenu présente à la fois un support visuel (diapositive explicative) et deux parties complètes commentées avec des conseils précis sur les choix d'objets, les runes et les combos."
    },
    "reanalyse": "v2"
   },
@@ -19582,11 +19591,11 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 3,
-   "note": "Réanalyse avec les instructions v3 (conseils généraux sans champion, erreurs à éviter).",
+   "note": "Écarté : contenu jugé de faible qualité (La vidéo est un divertissement de type let's play / gameplay commenté et ne fournit pas de conseils théoriques ou mécaniques structurés, réutilisables pour un entraînement.).",
    "triage": {
     "score": 16,
     "matched": [],
@@ -19602,16 +19611,17 @@
     "duration": "26:38",
     "reused": true
    },
-   "analyzedAt": "2026-10-25",
+   "analyzedAt": "2026-10-26",
    "analyst": "gemini-3.8-flash",
-   "unitsAccepted": 1,
+   "unitsAccepted": 0,
    "unitsRejected": 0,
    "alertes": [],
-   "learn": "Doublelift montre à travers des parties en Master coréen comment jouer Caitlyn en exploitant le contrôle de vague et le positionnement des tourelles.",
+   "learn": null,
    "quality": {
-    "level": "moyenne",
-    "why": "Le contenu présente du gameplay réel de haut niveau commenté en direct, mais contient beaucoup de réactions personnelles et peu d'explications tactiques détaillées."
-   }
+    "level": "faible",
+    "why": "La vidéo est un divertissement de type let's play / gameplay commenté et ne fournit pas de conseils théoriques ou mécaniques structurés, réutilisables pour un entraînement."
+   },
+   "rejectedForQuality": true
   },
   {
    "id": "c-yt-5o6m5FWMhR0",
@@ -20484,7 +20494,7 @@
    "published": "2026-10-23",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 9682,
+   "views": 13703,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20510,7 +20520,7 @@
    "published": "2026-10-22",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 48651,
+   "views": 63661,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20536,7 +20546,7 @@
    "published": "2026-10-21",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 9801,
+   "views": 14089,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20564,7 +20574,7 @@
    "published": "2026-10-23",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 774,
+   "views": 7208,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20594,7 +20604,7 @@
    "published": "2026-10-23",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 586,
+   "views": 6828,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20623,7 +20633,7 @@
    "published": "2026-10-22",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 6053,
+   "views": 7546,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20736,7 +20746,7 @@
    "retrievedAt": "2026-10-24",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 1,
@@ -20758,15 +20768,15 @@
     "duration": "29:20",
     "reused": true
    },
-   "analyzedAt": "2026-10-25",
+   "analyzedAt": "2026-10-26",
    "analyst": "gemini-3.8-flash",
-   "unitsAccepted": 1,
-   "unitsRejected": 6,
+   "unitsAccepted": 4,
+   "unitsRejected": 2,
    "alertes": [],
-   "learn": "Apprends à optimiser ton farm et tes actions en jouant autour des notions de 'dead time' (fenêtres d'attente entre les vagues ou les camps) et en adaptant tes objectifs de CS par minute aux spécificités de ton champion.",
+   "learn": "Améliorer son farm en mid game grâce aux vagues de plus grande valeur, à l'exploitation des temps morts (dead time) et à la gestion du tempo pour distancer l'adversaire en or.",
    "quality": {
     "level": "élevée",
-    "why": "Le contenu propose une démonstration structurée et approfondie de la macro liée au farming, illustrée par des calculs précis et des exemples concrets de haut niveau."
+    "why": "Le contenu détaille des concepts macroéconomiques précis (valeur des vagues, dead time, tempo, smother technique) étayés par des calculs chiffrés et des exemples concrets."
    },
    "reanalyse": "v2"
   },
@@ -21020,13 +21030,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-10-25",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "none",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 18,
-   "note": "File de lecture (rang 18) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -21036,6 +21046,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-26",
+    "sha256": "fc1ca218f9540c9ef9e0c814e6c3c9fc96d96e98f1db4c79789f36dd89c96a61",
+    "segments": 78,
+    "observations": 40,
+    "duration": "36:44",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 213987
    }
   },
   {
@@ -21048,13 +21071,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-10-25",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "non spécifié",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 19,
-   "note": "File de lecture (rang 19) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 33 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -21065,6 +21088,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-26",
+    "sha256": "f3c64f566cc5b9192ca80fa0ce6c3110475d14ec64a2679e7e2afa3740e29920",
+    "segments": 71,
+    "observations": 33,
+    "duration": "21:45",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 135924
    }
   },
   {
@@ -21196,6 +21232,159 @@
     "matched": [
      "macro"
     ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-rTI6Wr6CxiQ",
+   "sourceId": "yt-mysteriaslol",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=rTI6Wr6CxiQ",
+   "title": "How to DOMINATE Mid Lane So Hard The Enemy Ragequits",
+   "author": "Mysteriaslol",
+   "lang": "en",
+   "published": "2026-10-24",
+   "retrievedAt": "2026-10-26",
+   "patch": null,
+   "views": 3976,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📈If you want to speed up your climb and get coached by me: https://wtl.lol/mysterias \n✅Use code: TIM10 for $10 off (All Roles)\n\n\n \n\nMysterias Socials:\nTwitch ►     / https://www.twitch.tv/mysteriaslol\nX ►     / https://x.com/mysteriaslol  \nDiscord server ►    / https://discord.g",
+   "triage": {
+    "score": 7,
+    "matched": [
+     "mid",
+     "guide",
+     "how to",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-V2_UctNAB4w",
+   "sourceId": "yt-titans-coaching",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=V2_UctNAB4w",
+   "title": "Cómo Subir a Challenger Usando IA (Claude)",
+   "author": "Titans Coaching | League of Legends Coach",
+   "lang": "es",
+   "published": "2026-10-23",
+   "retrievedAt": "2026-10-26",
+   "patch": null,
+   "views": 2007,
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.6-flash le 2026-10-24 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "descriptionExcerpt": "👉 Inscríbete en mi comunidad de Skool para subir a Challenger: https://titanscoaching.cl/academia-de-league-of-legends-page\n\n✅ Si quieres subir a Challenger, agenda una llamada aquí: https://titanscoaching.cl/challenger\n\n➡ Si quieres subir a Maestro en 90 días, accede a mi siste",
+   "triage": {
+    "score": 19,
+    "matched": [
+     "Vi",
+     "top",
+     "jungle",
+     "mid",
+     "adc",
+     "support",
+     "fundamentals",
+     "vod review",
+     "coaching",
+     "macro",
+     "wave",
+     "build"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-24",
+    "duration": "14:59",
+    "reused": true
+   }
+  },
+  {
+   "id": "c-yt-iO5vR1UtJSE",
+   "sourceId": "yt-gameleap-lol-challenger-guid",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=iO5vR1UtJSE",
+   "title": "The ULTIMATE Season 14 Macro Guide - Tips for ALL ROLES - League of Legends",
+   "author": "GameLeap LoL Challenger Guides",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-26",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 26,
+   "note": "File de lecture (rang 26) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "guide",
+     "tips",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-691R_SN1BWU",
+   "sourceId": "yt-fl7vob_qbs",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=691R_SN1BWU",
+   "title": "【흐웨이 승률 78퍼 유저가 알려주는 미드 흐웨이 강의】【라인전 콤보】【솔킬  콤보】【흐웨이 운영법】 전부 알려드립니다!",
+   "author": "챌린저 미드김홍주",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-10-26",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 27,
+   "note": "File de lecture (rang 27) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-P24dEcz2egE",
+   "sourceId": "yt-japs-99jh_",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=P24dEcz2egE",
+   "title": "리신 동선 가이드! 리신으로 EDG 정글 2렙 솔킬 따는 법",
+   "author": "쿨쿨",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-10-26",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 28,
+   "note": "File de lecture (rang 28) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -57731,472 +57920,6 @@
    ]
   },
   {
-   "id": "u-ai-yt-ZzKpPJ_BNHM-6",
-   "claim": "Selon Skill Capped : la technique du demi-décalage ('half roam') consiste à pousser sa vague pour entrer en dead time, avancer jusqu'à mi-chemin de la rivière pour évaluer la situation, et revenir immédiatement sur sa voie si l'action n'est pas réalisable.",
-   "champions": [],
-   "roles": [
-    "top",
-    "mid"
-   ],
-   "themes": [
-    "lane",
-    "macro"
-   ],
-   "context": {
-    "queue": "tous",
-    "rank": "Master+",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": true,
-    "value": "14"
-   },
-   "metaDependent": false,
-   "conditions": [
-    "Tu as poussé ta vague de sbires pour créer une fenêtre de dead time"
-   ],
-   "limits": [],
-   "nature": "opinion",
-   "levelContext": "challenger",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-yt-ZzKpPJ_BNHM",
-     "locator": "[10:42]",
-     "lang": "en",
-     "passage": "A half roam looks like this: you push to enter dead time, then go halfway, check the state of the nearby lanes, if they're gankable you commit, if not, you head back to lane.",
-     "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "622-682s",
-      "said": true,
-      "supported": true
-     }
-    }
-   ],
-   "mentions": [],
-   "action": "Avance seulement jusqu'au milieu de la rivière lors de tes décalages pour observer la voie voisine sans perdre tes sbires si le gank échoue.",
-   "observe": "La visibilité et l'état des voies adjacentes depuis l'entrée de la rivière.",
-   "use": {
-    "when": "Tu as repoussé ta vague et tu hésites à décaler sur une voie voisine.",
-    "why": "Cela applique de la pression psychologique sur l'ennemi tout en minimisant le risque de perdre des sbires si l'action s'avère impossible.",
-    "who": "Laners (Top et Mid)",
-    "how": [
-     "Pousse ta vague pour obtenir du dead time.",
-     "Marche jusqu'au milieu de la rivière pour observer la situation des autres voies.",
-     "Engage-toi si la cible est vulnérable, ou rebrousse chemin vers ta voie si l'opportunité n'est pas bonne."
-    ],
-    "notWhen": ""
-   },
-   "published": null,
-   "analyzedAt": "2026-10-25",
-   "status": "provisoire",
-   "lifespan": "intemporel",
-   "review": {
-    "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
-    }
-   ]
-  },
-  {
-   "id": "u-ai-yt-7a5EBaZ-ems-1",
-   "claim": "Selon AloisNL : en Kai'Sa poke top, il est indispensable de démarrer avec la Lame de Doran pour obtenir l'évolution du sort A au niveau 9 grâce au bonus de dégâts d'attaque.",
-   "champions": [
-    "Kai'Sa"
-   ],
-   "roles": [
-    "top"
-   ],
-   "themes": [
-    "build",
-    "lane"
-   ],
-   "context": {
-    "queue": "solo",
-    "rank": "",
-    "region": ""
-   },
-   "patch": {
-    "known": true,
-    "value": "14.16"
-   },
-   "metaDependent": true,
-   "conditions": [
-    "Ne pas vouloir le bonus de vitesse d'attaque immédiat d'un Arc de Doran face à un matchup très facile."
-   ],
-   "limits": [
-    "Contexte de la vidéo de coaching d'AloisNL par Drututt."
-   ],
-   "nature": "opinion",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-yt-7a5EBaZ-ems",
-     "locator": "[00:27]",
-     "lang": "en",
-     "passage": "It is very important to go D-Blade, because this character, to get your Q evo, you're legit getting it by like one point of AD. It's insanely tight, tighter than you, bro.",
-     "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "7-67s",
-      "said": true,
-      "supported": true
-     }
-    }
-   ],
-   "mentions": [],
-   "action": "Achète la Lame de Doran en premier objet en jeu avec Kai'Sa top.",
-   "observe": "L'obtention de l'évolution du sort A au niveau 9.",
-   "use": {
-    "when": "Au début de la partie lors de l'achat des objets de départ sur Kai'Sa top.",
-    "why": "Pour atteindre de justesse le seuil de dégâts d'attaque requis pour l'évolution du sort A.",
-    "who": "Kai'Sa top en build poke.",
-    "how": [
-     "Ouvre la boutique au début de la partie.",
-     "Achète la Lame de Doran à la place d'un autre objet de départ."
-    ],
-    "notWhen": "Si tu optes pour l'Arc de Doran face à un matchup extrêmement facile où tu n'as pas besoin de l'évolution du A aussi tôt."
-   },
-   "published": null,
-   "analyzedAt": "2026-10-25",
-   "status": "a-revalider",
-   "lifespan": "meta",
-   "nuance": "Conseil de date inconnue (patch 14.16) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
-   "review": {
-    "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "source-unique",
-     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
-    },
-    {
-     "code": "patch-incompatible",
-     "why": "Dépend de la méta, patch 14.16 : 293 patchs de retard."
-    }
-   ]
-  },
-  {
-   "id": "u-ai-yt-7a5EBaZ-ems-3",
-   "claim": "Selon AloisNL : le combo de base de Kai'Sa poke consiste à lancer son Z, puis à utiliser son Ultime suivi d'un autre Z pour infliger un maximum de dégâts et de cumuls de plasma à distance.",
-   "champions": [
-    "Kai'Sa"
-   ],
-   "roles": [
-    "top"
-   ],
-   "themes": [
-    "champion",
-    "teamfight"
-   ],
-   "context": {
-    "queue": "solo",
-    "rank": "",
-    "region": ""
-   },
-   "patch": {
-    "known": true,
-    "value": "14.16"
-   },
-   "metaDependent": false,
-   "conditions": [
-    "Avoir son Z et son Ultime disponibles."
-   ],
-   "limits": [
-    "Nécessite d'avoir l'évolution du Z pour le remboursement du délai de récupération."
-   ],
-   "nature": "opinion",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-yt-7a5EBaZ-ems",
-     "locator": "[02:59]",
-     "lang": "en",
-     "passage": "W ult combo. This is your entire fucking character. This is genuinely your entire character.",
-     "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "159-219s",
-      "said": true,
-      "supported": true
-     }
-    },
-    {
-     "content": "c-yt-7a5EBaZ-ems",
-     "locator": "[17:16]",
-     "lang": "en",
-     "passage": "The way you do the combo is you W, then you R W, and then once you arrive and your W is done, you auto Q."
-    }
-   ],
-   "mentions": [],
-   "action": "Exécute le combo W, puis R W, puis attaque de base et A à l'arrivée.",
-   "observe": "L'enchaînement correct des compétences sur la cible.",
-   "use": {
-    "when": "Lorsque tu veux engager un adversaire ou participer à un combat d'équipe à distance avec Kai'Sa.",
-    "why": "Cela permet de maximiser les dégâts de poke et d'appliquer rapidement le plasma grâce au double impact du Z.",
-    "who": "Kai'Sa top orientée AP poke.",
-    "how": [
-     "Lance ton sort Z (Rayon du Néant) sur la cible.",
-     "Utilise ton sort R (Instinct meurtrier) pour te rapprocher tout en tirant un second Z dans les airs.",
-     "Une fois arrivé, enchaîne avec une attaque de base et ton sort A."
-    ],
-    "notWhen": ""
-   },
-   "published": null,
-   "analyzedAt": "2026-10-25",
-   "status": "exploitable",
-   "lifespan": "meta",
-   "nuance": "Conseil de date inconnue (patch 14.16) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
-   "review": {
-    "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
-    }
-   ]
-  },
-  {
-   "id": "u-ai-yt-RIro7KcXJP8-2",
-   "claim": "Selon perryjg : en tant que jungler, communique constamment tes intentions en utilisant les pings pour informer tes coéquipiers et dicter le plan de jeu.",
-   "champions": [],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "macro",
-    "vision"
-   ],
-   "context": {
-    "queue": "solo",
-    "rank": "Diamond II",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": true,
-    "value": "14.9"
-   },
-   "metaDependent": false,
-   "conditions": [
-    "Tu joues le rôle de jungler en file solo"
-   ],
-   "limits": [
-    "Demande une coordination avec des coéquipiers muets"
-   ],
-   "nature": "opinion",
-   "levelContext": "diamant",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-yt-RIro7KcXJP8",
-     "locator": "08:12",
-     "lang": "en",
-     "passage": "Ping these guys! That's your job as a jungler! You're literally doing nothing but farming camps. You literally need to ping.",
-     "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "472-532s",
-      "said": true,
-      "supported": true
-     }
-    }
-   ],
-   "mentions": [],
-   "action": "Utilise les pings de la carte pour indiquer tes objectifs et prévenir tes lignes de tes mouvements.",
-   "observe": "Vérifie si le jungler ping ses intentions avant de lancer un objectif ou un gank.",
-   "use": {
-    "when": "Tu es en train de farmer tes camps ou de préparer une action sur la carte en tant que jungler.",
-    "why": "Pour que tes coéquipiers sachent ce que tu veux faire et jouent autour.",
-    "who": "Joueurs de jungle",
-    "how": [
-     "Ouvre ta carte ou regarde les lignes",
-     "Utilise les pings 'En route' ou 'Attention' pour avertir tes coéquipiers de tes actions"
-    ],
-    "notWhen": ""
-   },
-   "published": "2024-05-12",
-   "analyzedAt": "2026-10-25",
-   "status": "exploitable",
-   "lifespan": "intemporel",
-   "review": {
-    "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
-    }
-   ]
-  },
-  {
-   "id": "u-ai-yt-RIro7KcXJP8-3",
-   "claim": "Selon perryjg : évite d'acheter des composants mineurs isolés comme des Épées longues si elles ne s'intègrent pas directement dans l'item final que tu souhaites compléter immédiatement, pour ne pas retarder ton pic de puissance.",
-   "champions": [],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "build"
-   ],
-   "context": {
-    "queue": "solo",
-    "rank": "Diamond II",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": true,
-    "value": "14.9"
-   },
-   "metaDependent": true,
-   "conditions": [
-    "Tu es dans la boutique avec de l'or après un retour à la base"
-   ],
-   "limits": [
-    "Dépend de l'arbre d'objets choisis"
-   ],
-   "nature": "opinion",
-   "levelContext": "diamant",
-   "usage": "correction",
-   "evidence": [
-    {
-     "content": "c-yt-RIro7KcXJP8",
-     "locator": "06:33",
-     "lang": "en",
-     "passage": "The extra Long Sword just like pushes you further from your first item. You don't ever want to do that.",
-     "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "373-433s",
-      "said": true,
-      "supported": true
-     }
-    }
-   ],
-   "mentions": [],
-   "action": "Achète les composants qui mènent directement à ton objet principal au lieu d'accumuler des petits objets annexes.",
-   "observe": "Regarde l'inventaire du joueur pour voir s'il achète des composants inutiles qui retardent son premier objet.",
-   "use": {
-    "when": "Tu ouvres la boutique à la base et tu hésites sur les composants à acheter.",
-    "why": "Pour ne pas retarder l'achat de ton premier objet complet.",
-    "who": "Tous les rôles et styles de jeu",
-    "how": [
-     "Vérifie la recette de ton objet principal",
-     "Achète uniquement les composants qui se construisent directement vers cet objet"
-    ],
-    "notWhen": ""
-   },
-   "published": "2024-05-12",
-   "analyzedAt": "2026-10-25",
-   "status": "a-revalider",
-   "lifespan": "meta",
-   "nuance": "Conseil de 2024 (patch 14.9) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
-   "review": {
-    "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-yt-RIro7KcXJP8 publié le 2024-05-12 : à confirmer sur le kit et la méta actuels."
-    },
-    {
-     "code": "source-unique",
-     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
-    },
-    {
-     "code": "patch-incompatible",
-     "why": "Dépend de la méta, patch 14.9 : 300 patchs de retard."
-    }
-   ]
-  },
-  {
-   "id": "u-ai-yt-RIro7KcXJP8-4",
-   "claim": "Selon perryjg : pour dominer une partie en jungle, applique une méthode en trois étapes : utilise activement tes pings, contrôle-toi en jouant pour les objectifs (quitte à délaisser tes camps), et collabore avec tes coéquipiers forts.",
-   "champions": [],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "macro",
-    "methode"
-   ],
-   "context": {
-    "queue": "solo",
-    "rank": "Diamond II",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": true,
-    "value": "14.9"
-   },
-   "metaDependent": false,
-   "conditions": [
-    "Tu joues en partie classée en tant que jungler"
-   ],
-   "limits": [
-    "Demande un minimum de lucidité et de communication"
-   ],
-   "nature": "opinion",
-   "levelContext": "diamant",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-yt-RIro7KcXJP8",
-     "locator": "61:18",
-     "lang": "en",
-     "passage": "So the three steps we used to completely dominate this game in this live coaching: number one, we actively used our pings; number two, we controlled ourselves, we played for objectives, we forsook our camps to play for objectives; and number three, we worked with our strong teammates to try and win the game.",
-     "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "3658-3718s",
-      "said": true,
-      "supported": true
-     }
-    }
-   ],
-   "mentions": [],
-   "action": "Joue en priorité pour les objectifs neutres et les coéquipiers forts, même si cela t'oblige à ignorer tes camps de jungle.",
-   "observe": "Observe si le jungler sacrifie ses camps pour se rendre disponible sur un objectif ou auprès d'un allié fort.",
-   "use": {
-    "when": "La partie est en cours et tu dois choisir entre farmer tes camps de jungle ou participer à la prise d'un objectif ou aider un allié fort.",
-    "why": "Pour simplifier la partie et maximiser les chances de victoire grâce aux objectifs et aux forces de ton équipe.",
-    "who": "Joueurs de jungle cherchant à progresser en macro",
-    "how": [
-     "Communique tes intentions en piquant sur la carte",
-     "Laisse de côté tes camps de jungle pour te positionner sur les objectifs",
-     "Joue avec tes coéquipiers les plus forts pour les appuyer"
-    ],
-    "notWhen": ""
-   },
-   "published": "2024-05-12",
-   "analyzedAt": "2026-10-25",
-   "status": "exploitable",
-   "lifespan": "intemporel",
-   "review": {
-    "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "source-unique",
-     "why": "Avis d'une seule personne : présenté comme tel."
-    }
-   ]
-  },
-  {
    "id": "u-ai-yt-fOQBQn0X54M-1",
    "claim": "Selon Yiliang « Doublelift » Peng : garder la tourelle de la bot lane en vie permet de stabiliser et de contenir les sbires ennemis pour maintenir un contrôle de carte et provoquer des opportunités de dive ou d'embuscade.",
    "champions": [
@@ -58272,15 +57995,15 @@
    ]
   },
   {
-   "id": "u-ai-yt-Fcb6lbPuclA-4",
-   "claim": "Selon Chreak : se positionner physiquement devant les sbires ennemis permet de modifier leur trajectoire et de repositionner la vague (bodyblock) pour obtenir le wave management souhaité.",
+   "id": "u-ai-yt-ZzKpPJ_BNHM-3",
+   "claim": "Selon Skill Capped : le concept de 'dead time' (temps mort) désigne la période où tous les camps de jungle ont été tués et où le jungler doit attendre leur réapparition. C'est le moment le plus sûr et le plus efficace pour aller faire des actions (ganks, objectifs) car rater son action ne coûte aucun farm.",
    "champions": [],
    "roles": [
-    "all"
+    "jungle"
    ],
    "themes": [
-    "lane",
-    "vagues"
+    "jungle",
+    "macro"
    ],
    "context": {
     "queue": "tous",
@@ -58289,11 +58012,566 @@
    },
    "patch": {
     "known": true,
+    "value": "14"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir nettoyé l'intégralité de ses camps de jungle"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "04:00",
+     "lang": "en",
+     "passage": "So at its core, dead time is a simple concept. When a jungler such as this Taliyah farms her entire jungle, there's a period of time she has to wait until her camps start spawning again. This is what's called dead time",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "220-280s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "04:13",
+     "lang": "en",
+     "passage": "The reason why it's so valuable is that any play she makes during this time has much lower risk, since if it doesn't work out, she didn't give up any farm to do it. It's basically the most efficient time for you to fight."
+    }
+   ],
+   "mentions": [
+    "Taliyah (exemple)"
+   ],
+   "action": "Lance tes ganks et tes incursions uniquement lorsque tu es dans ton 'dead time' après avoir vidé ta jungle.",
+   "observe": "L'état de réapparition de tes camps de jungle sur la mini-carte.",
+   "use": {
+    "when": "Tu viens d'achever le nettoyage complet de tes camps de jungle et tu attends qu'ils réapparaissent.",
+    "why": "Tenter des actions en dehors de ce temps mort te fait perdre de l'or et de l'expérience précieux en abandonnant tes camps réapparus.",
+    "who": "Joueurs jouant le rôle de jungler",
+    "how": [
+     "Vide l'ensemble de tes camps de jungle pour déclencher ton temps mort.",
+     "Observe la carte pour initier un gank ou prendre un objectif pendant que tes camps sont morts."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-26",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-ZzKpPJ_BNHM-4",
+   "claim": "Selon Skill Capped : pour les laners, le 'dead time' correspond au laps de temps entre la mort ou l'évacuation de la vague actuelle et l'arrivée de la suivante (toutes les 30 secondes). Exécuter un rappel ou un roam pendant ce temps mort permet de ne rater aucun sbire.",
+   "champions": [],
+   "roles": [
+    "top",
+    "mid",
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir poussé la vague de sbires adverse sous la tourelle ou nettoyé la vague en cours"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "08:53",
+     "lang": "en",
+     "passage": "For example, it's why a good recall timing involves pushing the wave first. The time it takes for the next wave to arrive is your dead time as a laner.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "513-573s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "09:00",
+     "lang": "en",
+     "passage": "So you're executing your recall during your dead time, allowing you to get back to lane without missing any farm."
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse ta vague avant de faire un rappel ou un décalage pour profiter du temps mort entre deux vagues.",
+   "observe": "La position des sbires sur ta lane et le chronomètre d'apparition des vagues (toutes les 30 secondes).",
+   "use": {
+    "when": "Tu as nettoyé ou poussé la vague de sbires en cours sur ta lane et tu disposes d'une fenêtre de 30 secondes avant l'arrivée de la suivante.",
+    "why": "Recourir ou décaler pendant ce temps mort évite de perdre de l'or et de l'expérience sur les sbires suivants.",
+    "who": "Laners (Top, Mid, Bottom)",
+    "how": [
+     "Pousse rapidement la vague de sbires actuelle pour la faire s'écraser.",
+     "Exécute ton rappel ou ton déplacement vers une autre lane pendant le délai avant la vague suivante."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-26",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-ZzKpPJ_BNHM-5",
+   "claim": "Selon Skill Capped : la technique du 'half roam' (demi-décalage) consiste à pousser sa vague pour entrer en dead time, puis à avancer seulement jusqu'à mi-chemin de la rivière pour observer si les lanes voisines sont gankables. Si elles le sont, l'action est engagée ; sinon, le joueur retourne immédiatement sur sa lane sans rater de sbires.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "support",
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir poussé sa vague pour déclencher le dead time"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "10:42",
+     "lang": "en",
+     "passage": "A half roam looks like this: you push to enter dead time, then go halfway, check the state of the nearby lanes, if they're gankable you commit, if not, you head back to lane.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "622-682s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Avance jusqu'au milieu de la rivière lors d'un décalage pour sonder les opportunités sans t'engager trop loin au risque de perdre des vagues.",
+   "observe": "La disposition des vagues sur ta lane et la position des ennemis sur la mini-carte.",
+   "use": {
+    "when": "Tu as poussé ta vague de sbires pour libérer ton temps et tu souhaites menacer les lanes adjacentes sans t'engager aveuglément.",
+    "why": "Cela applique une forte pression psychologique sur l'ennemi tout en évitant de perdre des sbires sur sa propre lane si le gank s'avère impossible.",
+    "who": "Laners cherchant à décaler sans sacrifier leur farm",
+    "how": [
+     "Pousse ta vague pour obtenir ton temps mort.",
+     "Avance jusqu'à la moitié de la rivière pour évaluer la situation des lanes voisines.",
+     "Engage le gank si l'adversaire est vulnérable, ou rentre sur ta lane si la situation n'est pas favorable."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-26",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-ZzKpPJ_BNHM-6",
+   "claim": "Selon Skill Capped : la technique du 'smother' (étouffement), utilisée par Faker en solo queue, consiste à ne pas s'acharner à tuer un adversaire mis très bas en PV s'il refuse de rappeler. En le laissant sur la lane, il se retrouve zoné et privé de farm ou condamné à mourir, tandis que le joueur profite de l'absence de menace pour farmer parfaitement et prendre des plaques de tourelle.",
+   "champions": [
+    "Tristana",
+    "Fizz"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Fizz"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir mis l'adversaire direct très bas en points de vie sans qu'il ne rappelle"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "11:59",
+     "lang": "en",
+     "passage": "At the same time, with Fizz this low, Tristana is under no threat, so she gets to focus on farming perfectly while possibly getting tower plates off pushes.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "699-759s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-ZzKpPJ_BNHM",
+     "locator": "12:12",
+     "lang": "en",
+     "passage": "This is known as the smother technique, and Faker uses it all the time to get big leads in solo queue."
+    }
+   ],
+   "mentions": [],
+   "action": "Concentre-toi sur le farm parfait et la prise de plaques lorsque ton vis-à-vis est très bas et reste sur la lane au lieu de le pourchasser aveuglément.",
+   "observe": "Les points de vie de ton adversaire direct et sa décision de rester en lane malgré sa faiblesse.",
+   "use": {
+    "when": "Tu as remporté un échange et ton vis-à-vis se retrouve extrêmement bas en points de vie sans avoir rappelé à la base.",
+    "why": "Forcer le kill aveuglément comporte des risques alors que le laisser sur place le prive de farm et permet d'engranger des plaques de tourelle en toute sécurité.",
+    "who": "Laners dominant leur vis-à-vis en duel",
+    "how": [
+     "Résiste à l'envie de le pourchasser sous sa tourelle si le kill n'est pas garanti.",
+     "Maintiens la pression en récupérant tous les derniers coups sur les sbires.",
+     "Attaque la tourelle pour accumuler des plaques pendant qu'il est contraint de reculer."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-26",
+   "status": "exploitable",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-7a5EBaZ-ems-1",
+   "claim": "Selon AloisNL : préférer la Lame de Doran comme objet de départ sur Kai'Sa top AP Poke afin d'obtenir l'évolution de son sort A (Pluie d'Icathia) de justesse grâce au bonus de dégâts d'attaque.",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.16"
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Jouer Kai'Sa top en build AP Poke"
+   ],
+   "limits": [
+    "Évolution du sort A très serrée"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-7a5EBaZ-ems",
+     "locator": "[00:27]",
+     "lang": "en",
+     "passage": "It is very important to go D-Blade, because this character, to get your Q evo, you're legit getting it by like one point of AD. It's insanely tight, tighter than you, bro.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "7-67s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète une Lame de Doran en premier objet pour atteindre l'évolution du sort A.",
+   "observe": "Le seuil de bonus AD pour l'évolution du sort A est atteint juste à temps.",
+   "use": {
+    "when": "au début de la partie lors du premier achat à la boutique",
+    "why": "pour obtenir l'évolution du sort A de justesse grâce au bonus d'AD",
+    "who": "Kai'Sa top en build AP Poke",
+    "how": [
+     "Achète Lame de Doran au tout début de la partie"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-26",
+   "status": "a-revalider",
+   "lifespan": "meta",
+   "nuance": "Conseil de date inconnue (patch 14.16) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    },
+    {
+     "code": "patch-incompatible",
+     "why": "Dépend de la méta, patch 14.16 : 293 patchs de retard."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-RIro7KcXJP8-2",
+   "claim": "Selon perryjg : erreur fréquente : acheter de multiples Épées longues en espérant s'orienter vers des objets comme la Danse de la mort ou Hydre vorace alors qu'on construit autre chose (comme Éclipse). Le coach conseille d'éviter d'accumuler des composants intermédiaires superflus pour ne pas retarder l'achat de son premier objet complet.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Diamond II",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14.9"
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Avoir de l'or en boutique sans plan de build fixe pour ces composants"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-RIro7KcXJP8",
+     "locator": "[06:25]",
+     "lang": "en",
+     "passage": "Triple Long Sword. You don't Shojin doesn't buy build into these Long Swords.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "365-425s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-RIro7KcXJP8",
+     "locator": "[06:33]",
+     "lang": "en",
+     "passage": "No, but just buy extra CDR. The extra Long Sword just like pushes you further from your first item. You don't ever want to do that."
+    }
+   ],
+   "mentions": [],
+   "action": "Vérifie les composants de ton objet principal avant d'acheter des composants isolés comme des Épées longues.",
+   "observe": "Hecarim achète des Épées longues superflues dans la boutique.",
+   "use": {
+    "when": "tu es dans la boutique avec de l'or et tu hésites sur les composants intermédiaires à acheter avant ton premier item.",
+    "why": "l'achat de composants non nécessaires retarde l'obtention de ton premier objet complet.",
+    "who": "Hecarim",
+    "how": [
+     "Consulte les composants nécessaires à ton premier objet majeur.",
+     "Achète en priorité des items de réduction de délai de récupération ou la pièce maîtresse si le budget le permet.",
+     "Évite d'acheter des Épées longues en excès si elles ne mènent pas directement à ta construction active."
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-05-12",
+   "analyzedAt": "2026-10-26",
+   "status": "a-revalider",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2024 (patch 14.9) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-RIro7KcXJP8 publié le 2024-05-12 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-RIro7KcXJP8 publié le 2024-05-12 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    },
+    {
+     "code": "patch-incompatible",
+     "why": "Dépend de la méta, patch 14.9 : 300 patchs de retard."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-RIro7KcXJP8-3",
+   "claim": "Selon perryjg : pour dominer une partie en jungle, applique activement trois règles fondamentales : communique via les pings pour informer tes coéquipiers, contrôle tes impulsions en jouant pour les objectifs (quitte à délaisser tes camps), et collabore avec tes coéquipiers forts.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Diamond II",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14.9"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer le rôle de jungler"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-RIro7KcXJP8",
+     "locator": "[61:18]",
+     "lang": "en",
+     "passage": "So the three steps we used to completely dominate this game in this live coaching: number one, we actively used our pings; number two, we controlled ourselves, we played for objectives, we forsook our camps to play for objectives; and number three, we worked with our strong teammates to try and win the game.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "3658-3718s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utilise tes pings pour chaque action, priorise les objectifs neutres par rapport à tes camps de jungle, et joue autour de tes coéquipiers en avance.",
+   "observe": "Hecarim ping en continu sur la carte, se déplace vers les objectifs neutres et aide ses alliés forts.",
+   "use": {
+    "when": "tu es en partie en tant que jungler et tu dois décider entre clear tes camps ou jouer pour un objectif neutre / aider une ligne.",
+    "why": "cela permet de garder le contrôle de la partie, d'éviter les morts inutiles et de simplifier la victoire.",
+    "who": "Junglers",
+    "how": [
+     "Utilise tes pings activement pour indiquer tes intentions à tes coéquipiers.",
+     "Délaisse tes camps de jungle mineurs si un objectif neutre ou une tour est contestable.",
+     "Joue en synergie avec les coéquipiers qui ont l'avantage sur leur ligne."
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-05-12",
+   "analyzedAt": "2026-10-26",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Fcb6lbPuclA-1",
+   "claim": "Selon Chreak : une wave de sbires rapporte environ 125 golds de base, ce qui signifie qu'avec environ 16 sbires, tu obtiens l'équivalent financier d'un kill, constituant une source de ressources constante et souvent négligée.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "macro"
+   ],
+   "patch": {
+    "known": true,
     "value": "14.8"
    },
    "metaDependent": false,
    "conditions": [
-    "Se placer physiquement sur le chemin des sbires"
+    "tu hésites entre aller chercher un kill incertain ou récupérer une wave entière sous ta tourelle"
    ],
    "limits": [],
    "nature": "opinion",
@@ -58302,33 +58580,319 @@
    "evidence": [
     {
      "content": "c-yt-Fcb6lbPuclA",
-     "locator": "[03:20]",
+     "locator": "00:47",
      "lang": "fr",
-     "passage": "Se mettre devant les sbires te fait prendre l'aggro. Pratique pour pouvoir les balader et les repositionner sur ta lane pour obtenir le wave management que tu désires.",
+     "passage": "Une wave de sbires, c'est trois mêlées, trois range et un canon de temps en temps. Une wave te donne environ 125 golds et le nombre augmente au fil du temps avec le prix des canons.",
      "autoChecked": {
       "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
-      "window": "180-240s",
+      "at": "2026-10-26",
+      "window": "27-87s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-Fcb6lbPuclA",
+     "locator": "00:57",
+     "lang": "fr",
+     "passage": "Donc avec seulement 16 sbires environ, vous avez autant de golds que si vous preniez un kill."
+    }
+   ],
+   "mentions": [
+    "Garen (exemple)"
+   ],
+   "action": "Privilégie systématiquement le farm assuré d'une wave complète plutôt qu'un risque de kill lointain non garanti.",
+   "observe": "Le nombre de sbires tués par rapport au nombre de kills.",
+   "use": {
+    "when": "tu as le choix entre aller tenter un kill risqué ou récupérer des vagues de sbires en toute sécurité",
+    "why": "les sbires procurent une source de gold et d'expérience constante et sûre sans offrir de prime de mort (bounty) excessive à l'adversaire",
+    "who": "tous les postes",
+    "how": [
+     "Identifie la valeur de la wave sous ta tour ou sur ta lane",
+     "Compare-la au gain potentiel d'un kill lointain",
+     "Choisis de prioriser la récupération des sbires pour sécuriser ton or et ton expérience"
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-08-18",
+   "analyzedAt": "2026-10-26",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Fcb6lbPuclA-2",
+   "claim": "Selon Chreak : toucher un sort ciblé (point and click) ou une auto-attaque sur un champion adverse provoque l'aggro des sbires ennemis, ce qui fait pousser ta vague pendant que la leur te cible.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "patch": {
+    "known": true,
+    "value": "14.8"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "tu souhaites initier un push au niveau 1"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Fcb6lbPuclA",
+     "locator": "02:54",
+     "lang": "fr",
+     "passage": "Toucher un point and click spell comme le Q d'Annie ou une auto-attaque sur un champion adverse te fait prendre l'aggro des minions. C'est quoi l'avantage ? Pendant que la wave adverse te focus toi, la tienne elle va push.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "154-214s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Annie (exemple)"
+   ],
+   "action": "Utilise une auto-attaque ou un sort ciblé sur ton adversaire pour attirer l'aggro des sbires et lancer ton push au niveau 1.",
+   "observe": "Le comportement des sbires adverses qui se tournent vers ton champion.",
+   "use": {
+    "when": "au début de la phase de lane pour prendre l'ascendant sur la vague",
+    "why": "la concentration des attaques de la wave adverse sur ton champion déséquilibre le nombre de sbires et fait progresser ta vague",
+    "who": "tous les joueurs en phase de lane",
+    "how": [
+     "Cible le champion ennemi avec une auto-attaque ou un sort point and click",
+     "Laisse l'aggro des sbires se porter sur toi pour faire avancer ta vague"
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-08-18",
+   "analyzedAt": "2026-10-26",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Fcb6lbPuclA-3",
+   "claim": "Selon Chreak : toucher un sort de zone non-ciblé (skillshot) ne déclenche pas l'aggro des sbires, ce qui permet de harceler et de pousser la vague simultanément en toute sécurité.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "patch": {
+    "known": true,
+    "value": "14.8"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "tu veux push la lane sans subir les dégâts des sbires ennemis"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Fcb6lbPuclA",
+     "locator": "03:12",
+     "lang": "fr",
+     "passage": "Toucher un skillshot comme le Q de Syndra ou le W de Camille ne te fait pas prendre l'aggro des minions. C'est très pratique pour pouvoir trade et push en même temps.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "172-232s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Syndra (exemple)",
+    "Camille (exemple)"
+   ],
+   "action": "Utilise tes compétences de type skillshot pour toucher l'adversaire à travers les sbires sans attirer leur attention.",
+   "observe": "L'absence de changement de cible des sbires ennemis lors de l'impact du sort.",
+   "use": {
+    "when": "quand tu veux infliger des dégâts à l'adversaire tout en progressant sur la vague sans prendre de dégâts superflus",
+    "why": "les sorts de type skillshot ne déclenchent pas la riposte des sbires",
+    "who": "les champions disposant de compétences de zone ou de tirs de précision",
+    "how": [
+     "Vise l'adversaire avec un skillshot",
+     "Inflige des dégâts sans attirer l'attention des sbires"
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-08-18",
+   "analyzedAt": "2026-10-26",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Fcb6lbPuclA-4",
+   "claim": "Selon Chreak : pour réussir un freeze efficace et durable, il est préférable d'avoir un maximum de sbires sous ton contrôle afin de réduire le risque de transformer involontairement le freeze en slow push et de tolérer de légers dégâts de zone.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "patch": {
+    "known": true,
+    "value": "14.8"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "tu veux maintenir la vague proche de ta tourelle sans qu'elle ne s'écrase"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Fcb6lbPuclA",
+     "locator": "04:12",
+     "lang": "fr",
+     "passage": "La meilleure façon de freeze, peu importe la lane, c'est d'avoir le maximum de minions possible sur lesquels tu peux garder le contrôle. Plus tu en as, mieux c'est pour plusieurs raisons.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "232-292s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-Fcb6lbPuclA",
+     "locator": "04:28",
+     "lang": "fr",
+     "passage": "Ta wave va mourir plus vite, tu prends moins de risque de transformer le freeze en slow push en ayant trop peu de sbires, et si tu prends un trade pendant ton freeze avec un spell AOE comme le Q de Renek ou le Q de Darius, tu peux te permettre de toucher quelques minions sans que ça le casse.",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Renekton (exemple)",
+    "Darius (exemple)"
+   ],
+   "action": "Conserve un nombre important de sbires pour stabiliser le gel de la vague près de ta tour.",
+   "observe": "La position de la ligne de rencontre des vagues proche de ta tourelle.",
+   "use": {
+    "when": "quand tu souhaites geler la vague pour te mettre en sécurité ou préparer un gank",
+    "why": "avoir plus de sbires accélère la mort de la vague adverse et absorbe les dégâts de zone accidentels sans rompre le freeze",
+    "who": "les joueurs cherchant à geler leur lane",
+    "how": [
+     "Équilibre le nombre de sbires adverses et alliés",
+     "Maintiens une quantité importante de sbires pour sécuriser la zone de gel"
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-08-18",
+   "analyzedAt": "2026-10-26",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Fcb6lbPuclA-5",
+   "claim": "Selon Chreak : le slow push consiste à tuer les sbires adverses le plus tard possible pour laisser le temps à tes vagues de s'accumuler, ce qui crée un avantage massif pour les trades, les dives ou les changements de rythme.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "patch": {
+    "known": true,
+    "value": "14.8"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "tu veux préparer un gros push ou un dive avec une armée de sbires"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Fcb6lbPuclA",
+     "locator": "08:14",
+     "lang": "fr",
+     "passage": "Pour ce faire, il faut last hit le plus tard possible les sbires adverses pour laisser le temps à tes minions de s'accumuler avec la wave d'après.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-26",
+      "window": "474-534s",
       "said": true,
       "supported": true
      }
     }
    ],
    "mentions": [],
-   "action": "Intercepte brièvement les sbires en te plaçant devant eux pour bloquer leur avancée.",
-   "observe": "Le regroupement ou le décalage des sbires lorsque ton champion se place sur leur trajectoire.",
+   "action": "Retarde tes derniers coups (last hits) sur les sbires ennemis pour accumuler tes vagues.",
+   "observe": "L'accumulation progressive d'une grande quantité de sbires alliés sur la lane.",
    "use": {
-    "when": "Tu souhaites ajuster la position de la vague de sbires pour préparer un freeze ou éviter qu'elle ne s'écrase trop vite sous ta tourelle.",
-    "why": "Le contact physique avec les sbires attire leur attention ou bloque leur progression, permettant de caler la vague à l'endroit voulu.",
-    "who": "Tous les laners cherchant à contrôler l'emplacement du point de rencontre des vagues",
+    "when": "quand tu domines le 1v1 et que tu souhaites préparer une action offensive sous la tour ennemie",
+    "why": "la vague accumulée empêche l'adversaire de t'attaquer directement à cause des dégâts infligés par les sbires",
+    "who": "les champions agressifs en phase de lane",
     "how": [
-     "Place ton champion directement sur la trajectoire des sbires ennemis.",
-     "Encaisse ou attire l'aggro pour les faire dévier de quelques centimètres."
+     "Attends le dernier moment pour porter le coup de grâce sur chaque sbire adverse",
+     "Laisse les vagues successives s'additionner pour former un groupe important"
     ],
     "notWhen": ""
    },
    "published": "2024-08-18",
-   "analyzedAt": "2026-10-25",
+   "analyzedAt": "2026-10-26",
    "status": "exploitable",
    "lifespan": "intemporel",
    "review": {

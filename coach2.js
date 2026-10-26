@@ -393,7 +393,7 @@ function c2V1Card(p) {
 // (coach/v1/tutor.mjs, tipsForGoal) avec les motifs du catalogue (coach/metrics.mjs : kbThemes, kbMatch, kbMatchRole, kbAvoid),
 // recopiés ici et comparés par les tests. Aucun conseil plutôt qu'un conseil hors sujet.
 const C2_V1_LATE = /baron|nashor|inhib|atakhan|ancien|elder/i;
-const C2_V1_FARM = { themes: ["lane", "vagues"], match: /\b(cs|farm\w*|sbires?|last[- ]?hit\w*|freeze|slow ?push|camps?|clear)\b/i, matchRole: { JUNGLE: /\b(camps?|clear\w*|farm\w*|pathing|chemin|full ?clear|cs)\b/i }, avoid: /baron|nashor|inhib|atakhan|ancien|elder|teamfight|siège|\bwards?\b|balise/i };
+const C2_V1_FARM = { themes: ["lane", "vagues"], match: /\b(cs|farm\w*|sbires?|last[- ]?hit\w*|freeze|slow ?push|camps?|clear)\b/i, matchRole: { JUNGLE: /\b(camps?|clear\w*|farm\w*|pathing|chemin|full ?clear|cs)\b/i }, themesRole: { JUNGLE: ["lane", "vagues", "jungle"] }, avoid: /baron|nashor|inhib|atakhan|ancien|elder|teamfight|siège|\bwards?\b|balise|jungler adverse/i };
 const C2_V1_TIPS = {
   cs_at_10: C2_V1_FARM, cs_at_15: C2_V1_FARM, cs_per_min: C2_V1_FARM,
   early_deaths: { themes: ["survie", "methode"], match: /gank|\bmort|mourir|meurs|survi|recul|jungler adverse|track|danger|flash|minimap|dispara|\bmia\b|missing/i, avoid: C2_V1_LATE },
@@ -427,7 +427,7 @@ function c2V1Tips(g) {
   if (!L || !COACH) return [];
   const match = L.matchRole?.[g.role] || L.match;
   return COACH.units.filter(u => ["exploitable", "provisoire"].includes(u.status) && u.usage !== "correction" && u.nature !== "officiel" && !u.champions?.length && u.use?.when
-      && u.context?.queue !== "competition" && u.themes?.some(t => L.themes.includes(t)) && (u.roles?.includes("all") || u.roles?.includes(role))
+      && u.context?.queue !== "competition" && u.themes?.some(t => (L.themesRole?.[g.role] || L.themes).includes(t)) && (u.roles?.includes("all") || u.roles?.includes(role))
       && !L.avoid?.test(`${u.claim} ${u.use.when}`) && match.test(u.claim))
     .map(u => ({ u, score: 2 + (u.roles?.includes(role) ? 1 : 0) }))
     .sort((a, b) => b.score - a.score || (a.u.status !== "exploitable") - (b.u.status !== "exploitable") || a.u.id.localeCompare(b.u.id)).slice(0, 2).map(x => x.u);

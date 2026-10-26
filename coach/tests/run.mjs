@@ -999,7 +999,7 @@ await t("COACH-009/010 Conseils de l'objectif : geste mesuré, pas de fin de par
     u("u-ward", "Selon X : place ta ward quand ta vague est freezée devant sa tourelle.", ["vision", "vagues"]),
     u("u-baron", "Selon X : lance le Baron quand ta vague assiège une tourelle.", ["macro", "vagues"]),
     u("u-vague", "Selon X : pousse ta vague avant ton retour.", ["vagues"]),
-    u("u-camps", "Selon X : enchaîne tes camps sans t'arrêter, full clear avant le premier gank.", ["lane"], ["jungle"]),
+    u("u-camps", "Selon X : enchaîne tes camps sans t'arrêter, full clear avant le premier gank.", ["jungle"], ["jungle"]),
   ];
   const ids = (metric, role) => tipsForGoal(units, { metric, role }, 9).map(x => x.id).join(",");
   assert(ids("cs_at_10", "MIDDLE") === "u-farm", `farm mid : ${ids("cs_at_10", "MIDDLE")}`);
@@ -1012,7 +1012,7 @@ await t("COACH-009/010 Conseils de l'objectif : geste mesuré, pas de fin de par
   for (const [k, c] of Object.entries(CATALOG)) {
     if (!c.kbMatch) continue;
     const f = ctx.T[k];
-    assert(f && f.match.source === c.kbMatch.source && (f.avoid?.source ?? null) === (c.kbAvoid?.source ?? null) && f.themes.join() === c.kbThemes.join() && (f.matchRole?.JUNGLE?.source ?? null) === (c.kbMatchRole?.JUNGLE?.source ?? null), `motifs différents sur le site pour ${k}`);
+    assert(f && f.match.source === c.kbMatch.source && (f.avoid?.source ?? null) === (c.kbAvoid?.source ?? null) && f.themes.join() === c.kbThemes.join() && (f.matchRole?.JUNGLE?.source ?? null) === (c.kbMatchRole?.JUNGLE?.source ?? null) && (f.themesRole?.JUNGLE?.join() ?? null) === (c.kbThemesRole?.JUNGLE?.join() ?? null), `motifs différents sur le site pour ${k}`);
   }
   return "farm : seul le conseil de last hit (camps en jungle) ; ward, Baron et « pousse ta vague » écartés ; motifs identiques site/tuteur.";
 });

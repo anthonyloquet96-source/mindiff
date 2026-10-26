@@ -13,7 +13,7 @@ const MIN = 60000;
 // Mêmes motifs côté site (coach2.js, C2_V1_TIPS), vérifiés par les tests.
 const LATE = /baron|nashor|inhib|atakhan|ancien|elder/i;
 // Farm : « vague » seule ne suffit pas (presque tous les conseils de lane la citent) ; un conseil de ward n'est pas un conseil de farm
-const FARM_KB = { kbMatch: /\b(cs|farm\w*|sbires?|last[- ]?hit\w*|freeze|slow ?push|camps?|clear)\b/i, kbMatchRole: { JUNGLE: /\b(camps?|clear\w*|farm\w*|pathing|chemin|full ?clear|cs)\b/i }, kbAvoid: /baron|nashor|inhib|atakhan|ancien|elder|teamfight|siège|\bwards?\b|balise/i };
+const FARM_KB = { kbMatch: /\b(cs|farm\w*|sbires?|last[- ]?hit\w*|freeze|slow ?push|camps?|clear)\b/i, kbMatchRole: { JUNGLE: /\b(camps?|clear\w*|farm\w*|pathing|chemin|full ?clear|cs)\b/i }, kbThemesRole: { JUNGLE: ["lane", "vagues", "jungle"] }, kbAvoid: /baron|nashor|inhib|atakhan|ancien|elder|teamfight|siège|\bwards?\b|balise|jungler adverse/i };
 
 // Seuil pédagogique fixe : utilisé tant qu'aucune référence mesurée (metric_references) n'existe pour ce rôle.
 // Valeurs prudentes, arrondies, à remplacer par les références mesurées dès qu'elles passent leur seuil d'échantillon.

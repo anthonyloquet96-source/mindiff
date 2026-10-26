@@ -69,12 +69,12 @@ export async function tutor({ question, context, ask, usage = null, playerId = "
 }
 
 // Conseils sourcés de la base pour l'objectif : même sélection que la carte d'objectif (coach2.js, c2V1Tips).
-// Thème et poste du catalogue ; l'énoncé doit nommer le geste mesuré (kbMatch, ou kbMatchRole pour ce poste) et ni l'énoncé ni
+// Thème (kbThemes, ou kbThemesRole pour ce poste : les camps de jungle) et poste du catalogue ; l'énoncé doit nommer le geste mesuré (kbMatch, ou kbMatchRole pour ce poste) et ni l'énoncé ni
 // le « quand » ne doivent porter sur la fin de partie (kbAvoid). Conseils propres au poste d'abord, exploitables avant provisoires.
 // Aucun conseil plutôt qu'un conseil hors sujet.
 const ROLE_KB = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "bottom", UTILITY: "support" };
 export function tipsForGoal(units, goal, max = 3) {
-  const c = CATALOG[goal?.metric], themes = c?.kbThemes || [];
+  const c = CATALOG[goal?.metric], themes = c?.kbThemesRole?.[goal?.role] || c?.kbThemes || [];
   if (!themes.length) return [];
   const role = ROLE_KB[goal.role], match = c.kbMatchRole?.[goal.role] || c.kbMatch;
   return units.filter(u => ["exploitable", "provisoire"].includes(u.status) && u.usage !== "correction" && u.nature !== "officiel" && !u.champions?.length && u.use?.when

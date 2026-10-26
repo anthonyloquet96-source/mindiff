@@ -540,3 +540,16 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
   - progrès `improving` inchangé (0,25·s), presque inatteignable avec la cible au 55e centile.
 - **Rejeu après recalibration :** maîtrise 27 (hasard 23,5), stable 24 (hasard 28,8), alerte 6 (hasard 4,8), garde-fous déclenchés 4 fois sur 57 (avant 16). Ces joueurs ne suivaient aucun objectif : le rejeu mesure le réglage, pas l'effet du coach.
 - **Retours des testeurs (P1) :** route `POST /api/v1/players/:id/goals/:goalId/feedback`, seulement sur un cycle terminé. Pertinence de 1 à 5, effets indésirables choisis dans une liste fermée (jeu plus passif, moins de farm, moins de kills, stress, moins de plaisir, conseils pas adaptés, objectif incompris), commentaire de 1000 caractères au plus. Enregistré dans `pilot_feedback`, relu avec la progression, supprimé avec le joueur. Petit formulaire sous le résultat du cycle précédent.
+
+## 26/10/2026 — Conseils de farm sourcés pour les objectifs « sbires à 10 min » (branche coach-v1)
+
+- **Manque :** le farm est l'objectif le plus souvent proposé (35 sur 57 au rejeu), mais la base n'avait qu'un conseil exploitable en lane et aucun en jungle.
+- **Lus par Claude Code (5 articles Dignitas, robots.txt respecté, texte gardé dans le cache privé) :**
+  - bagelsen314 (2020) : ordre des last hits, farm sous tourelle, entraînement, concéder des sbires plutôt que mourir, farm après la lane ;
+  - honeydip (2019) : réduire une vague qui s'écrase ;
+  - EkardD (juillet 2026, saison 16) : cheater recall en top, quand pousser vite en mid, freeze devant sa tourelle ;
+  - Dardoch, ex-jungler professionnel de LCS (2021) : farmer jusqu'au niveau 3 avant le Carapateur, apprendre à kiter les camps ;
+  - Dinglehopper (2020) : full clear puis retour à la base.
+- **Résultat :** 12 conseils acceptés par le contrôle (8 exploitables, 4 provisoires pour contenu ancien), aucun rejet. Conseils montrés pour un objectif de farm : 8 en mid, 9 en top, 7 en ADC, 3 en jungle (contre 1, 1, 1 et 0).
+- **Sélection :** en jungle, le thème `jungle` compte aussi pour le farm (`kbThemesRole`). « jungler adverse » écarte les conseils de suivi du jungler adverse, qui parlaient de ses camps et non de ton farm. Le site et le tuteur gardent les mêmes motifs (test).
+- Écarté : l'article sur le tempo du jungler, qui ne parle pas de farm.

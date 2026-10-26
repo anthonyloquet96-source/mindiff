@@ -68,15 +68,19 @@ export async function tutor({ question, context, ask, usage = null, playerId = "
   return { status: 200, body: { version: TUTOR_VERSION, refused: false, ...answer } };
 }
 
-// Conseils sourcés de la base pour l'objectif : même sélection que la carte d'objectif (thèmes du catalogue, poste)
+// Conseils sourcés de la base pour l'objectif : même sélection que la carte d'objectif (coach2.js, c2V1Tips).
+// Thème et poste du catalogue ; l'énoncé doit nommer le geste mesuré (kbMatch, ou kbMatchRole pour ce poste) et ni l'énoncé ni
+// le « quand » ne doivent porter sur la fin de partie (kbAvoid). Conseils propres au poste d'abord, exploitables avant provisoires.
+// Aucun conseil plutôt qu'un conseil hors sujet.
 const ROLE_KB = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "bottom", UTILITY: "support" };
 export function tipsForGoal(units, goal, max = 3) {
-  const themes = CATALOG[goal?.metric]?.kbThemes || [];
+  const c = CATALOG[goal?.metric], themes = c?.kbThemes || [];
   if (!themes.length) return [];
-  const role = ROLE_KB[goal.role];
+  const role = ROLE_KB[goal.role], match = c.kbMatchRole?.[goal.role] || c.kbMatch;
   return units.filter(u => ["exploitable", "provisoire"].includes(u.status) && u.usage !== "correction" && u.nature !== "officiel" && !u.champions?.length && u.use?.when
-      && u.context?.queue !== "competition" && u.themes?.some(t => themes.includes(t)) && (u.roles?.includes("all") || u.roles?.includes(role)))
-    .sort((a, b) => (a.status !== "exploitable") - (b.status !== "exploitable") || a.id.localeCompare(b.id)).slice(0, max);
+      && u.context?.queue !== "competition" && u.themes?.some(t => themes.includes(t)) && (u.roles?.includes("all") || u.roles?.includes(role))
+      && !c.kbAvoid?.test(`${u.claim} ${u.use.when}`) && (!match || match.test(u.claim)))
+    .sort((a, b) => !!b.roles?.includes(role) - !!a.roles?.includes(role) || (a.status !== "exploitable") - (b.status !== "exploitable") || a.id.localeCompare(b.id)).slice(0, max);
 }
 
 // Route POST /api/v1/coach/chat { player_id, question } : branchée par le serveur avec un modèle (ask) et la base de conseils

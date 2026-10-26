@@ -947,6 +947,33 @@ await t("COACH-010 Tuteur : n'invente aucun chiffre, cite des conseils existants
   return "réponse fidèle acceptée ; chiffre ou conseil inventé → réponse écartée ; formats français reconnus ; panne et quota signalés.";
 });
 
+await t("COACH-009/010 Conseils de l'objectif : geste mesuré, pas de fin de partie, même sélection sur le site et dans le tuteur", "fixture", async () => {
+  const { tipsForGoal } = await import("../v1/tutor.mjs");
+  const { CATALOG } = await import("../metrics.mjs");
+  const u = (id, claim, themes, roles = ["all"], when = "En phase de lane.") => ({ id, status: "exploitable", claim, themes, roles, use: { when } });
+  const units = [
+    u("u-farm", "Selon X : last hit chaque sbire du canon avant d'échanger.", ["lane"]),
+    u("u-ward", "Selon X : place ta ward quand ta vague est freezée devant sa tourelle.", ["vision", "vagues"]),
+    u("u-baron", "Selon X : lance le Baron quand ta vague assiège une tourelle.", ["macro", "vagues"]),
+    u("u-vague", "Selon X : pousse ta vague avant ton retour.", ["vagues"]),
+    u("u-camps", "Selon X : enchaîne tes camps sans t'arrêter, full clear avant le premier gank.", ["lane"], ["jungle"]),
+  ];
+  const ids = (metric, role) => tipsForGoal(units, { metric, role }, 9).map(x => x.id).join(",");
+  assert(ids("cs_at_10", "MIDDLE") === "u-farm", `farm mid : ${ids("cs_at_10", "MIDDLE")}`);
+  assert(ids("cs_at_10", "JUNGLE") === "u-camps", `farm jungle : ${ids("cs_at_10", "JUNGLE")}`);
+  assert(ids("vision_per_min", "UTILITY") === "u-ward", `vision : ${ids("vision_per_min", "UTILITY")}`);
+  // Le site (coach2.js) recopie les motifs du catalogue : ils doivent rester identiques
+  const src = await readFile(join(ROOT, "coach2.js"), "utf8");
+  const ctx = vm.createContext({});
+  vm.runInContext(src.match(/const C2_V1_LATE[\s\S]*?\n};\n/)[0] + "this.T = C2_V1_TIPS;", ctx);
+  for (const [k, c] of Object.entries(CATALOG)) {
+    if (!c.kbMatch) continue;
+    const f = ctx.T[k];
+    assert(f && f.match.source === c.kbMatch.source && (f.avoid?.source ?? null) === (c.kbAvoid?.source ?? null) && f.themes.join() === c.kbThemes.join() && (f.matchRole?.JUNGLE?.source ?? null) === (c.kbMatchRole?.JUNGLE?.source ?? null), `motifs différents sur le site pour ${k}`);
+  }
+  return "farm : seul le conseil de last hit (camps en jungle) ; ward, Baron et « pousse ta vague » écartés ; motifs identiques site/tuteur.";
+});
+
 await t("COACH-004 Stockage Supabase : même parcours que le serveur local, sur le vrai schéma (Postgres embarqué)", "fixture", async () => {
   const { PGlite } = await import("@electric-sql/pglite");
   const { readFile } = await import("node:fs/promises");

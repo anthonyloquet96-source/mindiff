@@ -8,22 +8,29 @@ import { normalizeMatch, participantAt, laneOpponent, eventsOf, ratio, num } fro
 export const METRIC_VERSION = "metrics-1";
 const MIN = 60000;
 
+// Conseils de la base montrés avec un objectif (kbMatch, kbMatchRole pour un poste, kbAvoid) : le conseil doit parler du
+// geste mesuré dans son énoncé ou son « quand », et ne pas porter sur la fin de partie (Baron, inhibiteurs…).
+// Mêmes motifs côté site (coach2.js, C2_V1_TIPS), vérifiés par les tests.
+const LATE = /baron|nashor|inhib|atakhan|ancien|elder/i;
+// Farm : « vague » seule ne suffit pas (presque tous les conseils de lane la citent) ; un conseil de ward n'est pas un conseil de farm
+const FARM_KB = { kbMatch: /\b(cs|farm\w*|sbires?|last[- ]?hit\w*|freeze|slow ?push|camps?|clear)\b/i, kbMatchRole: { JUNGLE: /\b(camps?|clear\w*|farm\w*|pathing|chemin|full ?clear|cs)\b/i }, kbAvoid: /baron|nashor|inhib|atakhan|ancien|elder|teamfight|siège|\bwards?\b|balise/i };
+
 // Seuil pédagogique fixe : utilisé tant qu'aucune référence mesurée (metric_references) n'existe pour ce rôle.
 // Valeurs prudentes, arrondies, à remplacer par les références mesurées dès qu'elles passent leur seuil d'échantillon.
 export const CATALOG = {
   cs_at_10: {
     label: "Sbires à 10 min", family: "farm", unit: "sbires", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.8, actionability: 0.9,
-    pedagogical: { MIDDLE: 70, TOP: 65, BOTTOM: 70, JUNGLE: 55 }, decimals: 0, kbThemes: ["lane", "vagues"],
+    pedagogical: { MIDDLE: 70, TOP: 65, BOTTOM: 70, JUNGLE: 55 }, decimals: 0, kbThemes: ["lane", "vagues"], ...FARM_KB,
     exercise: t => `Vise ${t} sbires à 10:00. Repère intermédiaire : environ ${Math.round(t / 2)} à 5:00 ; si tu es en dessous, ne force pas d'échange qui te fait rater des sbires.`,
   },
   cs_at_15: {
     label: "Sbires à 15 min", family: "farm", unit: "sbires", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.7, actionability: 0.8,
-    pedagogical: { MIDDLE: 110, TOP: 100, BOTTOM: 110, JUNGLE: 90 }, decimals: 0, kbThemes: ["lane", "vagues"],
+    pedagogical: { MIDDLE: 110, TOP: 100, BOTTOM: 110, JUNGLE: 90 }, decimals: 0, kbThemes: ["lane", "vagues"], ...FARM_KB,
     exercise: t => `Vise ${t} sbires à 15:00 : après chaque retour en base, reviens prendre la wave avant de chercher un combat.`,
   },
   cs_per_min: {
     label: "Sbires par minute", family: "farm", unit: "/min", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.6, actionability: 0.7,
-    pedagogical: { MIDDLE: 7, TOP: 6.5, BOTTOM: 7, JUNGLE: 5.5 }, decimals: 1, kbThemes: ["lane", "vagues"],
+    pedagogical: { MIDDLE: 7, TOP: 6.5, BOTTOM: 7, JUNGLE: 5.5 }, decimals: 1, kbThemes: ["lane", "vagues"], ...FARM_KB,
     exercise: t => `Vise ${String(t).replace(".", ",")} sbires par minute sur toute la partie : entre deux combats, prends les waves proches de toi.`,
   },
   gold_at_10: { label: "Or à 10 min", unit: "or", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM", "UTILITY"], trainable: false, impact: 0.6, actionability: 0.4, decimals: 0 },
@@ -34,16 +41,19 @@ export const CATALOG = {
     label: "Morts avant 14 min", unit: "morts", direction: "lower", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM", "UTILITY"], trainable: true, impact: 0.9, actionability: 0.8,
     // Médiane mesurée chez les Diamant+ : 2 morts avant 14 min (3 pour les ADC), sur 8 008 joueurs par rôle (25/10/2026)
     pedagogical: { MIDDLE: 2, JUNGLE: 2, TOP: 2, BOTTOM: 3, UTILITY: 2 }, decimals: 0, kbThemes: ["survie", "methode"],
+    kbMatch: /gank|\bmort|mourir|meurs|survi|recul|jungler adverse|track|danger|flash|minimap|dispara|\bmia\b|missing/i, kbAvoid: LATE,
     exercise: t => `Au plus ${t} mort${t > 1 ? "s" : ""} avant 14:00 : quand ton adversaire disparaît de la carte ou que leur jungler est vu de ton côté, recule avant de pousser.`,
   },
   kill_participation: {
     label: "Participation aux kills", unit: "%", direction: "higher", roles: ["MIDDLE", "JUNGLE", "UTILITY"], trainable: true, impact: 0.6, actionability: 0.6, percent: true,
     pedagogical: { MIDDLE: 0.5, JUNGLE: 0.55, UTILITY: 0.55 }, decimals: 0, kbThemes: ["teamfight", "macro"],
+    kbMatch: /roam|rejoin|escarmouche|skirmish|combat|teamfight|gank|\baide|\bkills?\b|minimap/i, kbAvoid: LATE,
     exercise: t => `Vise ${Math.round(t * 100)} % de participation aux kills : après avoir poussé ta wave, regarde la minimap et rejoins les combats proches.`,
   },
   vision_per_min: {
     label: "Score de vision par minute", unit: "/min", direction: "higher", roles: ["JUNGLE", "UTILITY", "MIDDLE"], trainable: true, impact: 0.5, actionability: 0.8,
     pedagogical: { JUNGLE: 0.8, UTILITY: 1.6, MIDDLE: 0.6 }, decimals: 2, kbThemes: ["vision", "methode"],
+    kbMatch: /\bwards?\b|vision|balise|trinket|contr[ôo]le|sweep|oracle|lentille/i,
     exercise: t => `Vise un score de vision de ${String(t).replace(".", ",")} par minute : une ward à chaque retour et ton trinket dès qu'il est rechargé.`,
   },
   wards_per_min: { label: "Wards posées par minute", unit: "/min", direction: "higher", roles: ["JUNGLE", "UTILITY"], trainable: false, impact: 0.4, actionability: 0.7, decimals: 2 },

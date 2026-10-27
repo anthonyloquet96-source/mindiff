@@ -942,6 +942,9 @@ function tOverview(t) {
   const standings = st?.sections.find(x => x.standings?.length)?.standings || [];
   const a = tAnalysis(t);
   const meta = t.stats?.totalGames ? t.stats.champions.slice(0, 6) : [];
+  // Bilan victoires–défaites sur les parties au résultat connu ; meilleurs bilans à partir de 4 parties
+  const record = c => `${c.wins}–${c.known - c.wins}`;
+  const best = t.stats?.totalGames ? t.stats.champions.filter(c => c.known >= 4).sort((x, y) => y.winrate - x.winrate || y.known - x.known).slice(0, 6) : [];
   const teamCount = new Set(ms.flatMap(m => m.teams.filter(x => x.code !== "TBD").map(x => x.name))).size;
   return `<div class="t-grid">
     <div class="t-col">
@@ -957,7 +960,9 @@ function tOverview(t) {
     <div class="t-col">
       ${isSwiss(st) ? `${secHead(`Bilans · ${esc(st.name)}`, seeAll(href(t.game, "tournoi", t.id, "classement"), "Complet"))}${swissCard(t, st)}` : ""}
       ${standings.length && !isSwiss(st) ? `<section class="sec">${secHead(`Classement · ${esc(st.name)}`, seeAll(href(t.game, "tournoi", t.id, "classement"), "Complet"))}${spoilerGate("t-" + t.id, "Classement", standingsTable(t, standings.slice(0, 6)))}</section>` : ""}
-      ${meta.length ? `<section class="sec">${secHead("Méta observée", seeAll(href(t.game, "tournoi", t.id, "meta"), "Statistiques"))}${portraitRow(meta.map(c => ({ id: c.champ, stat: pct(c.presence) })), { game: t.game, stat: x => x.stat, label: "Champions les plus joués" })}<p class="fine">Taux de sélection : part des parties où le champion est choisi.</p></section>` : ""}
+      ${meta.length ? `<section class="sec">${secHead("Méta observée", seeAll(href(t.game, "tournoi", t.id, "meta"), "Statistiques"))}${portraitRow(meta.map(c => ({ id: c.champ, stat: pct(c.presence) + (c.known && !hidden("t-" + t.id) ? ` · ${record(c)}` : "") })), { game: t.game, stat: x => x.stat, label: "Champions les plus joués" })}
+        ${best.length && !hidden("t-" + t.id) ? `<p class="label">Meilleurs bilans</p>${portraitRow(best.map(c => ({ id: c.champ, stat: record(c) })), { game: t.game, stat: x => x.stat, label: "Meilleurs bilans (victoires–défaites)" })}` : ""}
+        <p class="fine">Taux de sélection : part des parties où le champion est choisi. Bilan : victoires–défaites${best.length ? ", meilleurs bilans à partir de 4 parties" : ""}.</p></section>` : ""}
       ${a?.resume ? `<section class="sec">${secHead("Le point de la rédaction")}${spoilerGate("t-" + t.id, "Résumé du tournoi", `<p class="summary">${esc(a.resume)}</p>
         ${a.faits_marquants?.length || a.equipes_en_forme?.length || a.a_suivre?.length ? `<details class="more"><summary>Faits marquants, forme et enjeux</summary>
           ${a.faits_marquants?.length ? `<p class="label">Faits marquants</p>${bullets(a.faits_marquants)}` : ""}

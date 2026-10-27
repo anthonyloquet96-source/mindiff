@@ -1473,3 +1473,44 @@ button.gl:hover, button.gl:focus-visible { background: rgba(var(--accent-rgb), .
 /* Sections repliables : le contenu glisse à l'ouverture */
 .c2-v1 details[open] > :not(summary) { animation: c2-unfold .35s var(--ease) both; }
 @keyframes c2-unfold { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Bouton Coach de la barre du bas (27/10) ---------- */
+.bottom-nav .nav-coach .ic { transition: transform .25s var(--ease), box-shadow .25s; }
+.bottom-nav .nav-coach:active .ic { transform: scale(.86) rotate(-12deg); box-shadow: 0 2px 10px rgba(var(--accent-rgb), .6), 0 0 0 4px var(--bg); }
+.bottom-nav .nav-coach[aria-current="page"] .ic { animation: nav-coach-on .6s var(--ease) both; }
+@keyframes nav-coach-on { 0% { transform: scale(.8) rotate(-90deg); } 60% { transform: scale(1.12) rotate(8deg); } 100% { transform: none; } }
+/* Onde plus petite, avec un halo plein derrière l'icône */
+.c2-burst.nav .ring { left: -26px; top: -26px; width: 52px; height: 52px; }
+.c2-burst.nav::before { content: ""; position: absolute; left: -24px; top: -24px; width: 48px; height: 48px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 210, 170, .9), rgba(var(--accent-rgb), .5) 45%, transparent 70%); animation: nav-flash .55s ease-out both; }
+@keyframes nav-flash { from { opacity: 1; transform: scale(.6); } to { opacity: 0; transform: scale(2.4); } }
+/* Entrée de la page du coach : zoom depuis le bas, flou qui se dissipe, lueur orange qui monte du bouton */
+#view.coach-warp { animation: coach-warp .7s cubic-bezier(.2, .8, .2, 1) both; transform-origin: 50% 100%; }
+#view.coach-warp::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 5;
+  background: radial-gradient(70% 45% at 50% 100%, rgba(var(--accent-rgb), .35), transparent 70%); animation: coach-glow .8s ease-out both; }
+@keyframes coach-warp { from { opacity: 0; transform: scale(.94) translateY(18px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes coach-glow { from { opacity: 1; } to { opacity: 0; } }
+
+/* Écran « Bienvenue dans le coach » : s'ouvre en cercle depuis le bouton Coach, puis se retire vers le haut */
+.coach-intro { position: fixed; inset: 0; z-index: 1002; display: grid; place-items: center; cursor: pointer;
+  background: radial-gradient(60% 45% at 50% 55%, rgba(var(--accent-rgb), .28), transparent 70%), #07070a;
+  clip-path: circle(0 at var(--x) var(--y)); animation: ci-open .55s cubic-bezier(.7, 0, .2, 1) both; }
+.coach-intro.out { animation: ci-out .5s cubic-bezier(.7, 0, .3, 1) both; }
+.ci-stage { position: relative; display: grid; justify-items: center; gap: 6px; text-align: center; color: #fff; }
+.ci-icon { display: grid; place-items: center; width: 72px; height: 72px; margin-bottom: 14px; border-radius: 50%; background: var(--accent); color: #fff;
+  box-shadow: 0 0 40px rgba(var(--accent-rgb), .7); animation: ci-icon .8s cubic-bezier(.2, .9, .2, 1.2) .2s both; }
+.ci-icon .ic { width: 36px; height: 36px; }
+.ci-ring { position: absolute; top: 0; left: 50%; width: 72px; height: 72px; margin-left: -36px; border-radius: 50%; border: 2px solid rgba(var(--accent-rgb), .8);
+  animation: ci-ring 1.2s cubic-bezier(.1, .7, .3, 1) .45s both; }
+.ci-ring.r2 { border-color: rgba(255, 200, 140, .5); animation-delay: .65s; }
+.ci-kicker { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; color: var(--accent-text); animation: ci-fade .5s ease-out .5s both; }
+.ci-title { margin: 0; font-size: clamp(44px, 14vw, 72px); font-weight: 900; letter-spacing: .12em; line-height: 1; }
+.ci-title span { display: inline-block; animation: ci-letter .55s cubic-bezier(.2, .9, .2, 1.1) both; animation-delay: calc(.6s + var(--i) * 70ms);
+  background: linear-gradient(180deg, #fff 40%, #ffc7a6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.ci-sub { margin: 4px 0 0; font-size: 15px; color: rgba(255, 255, 255, .7); animation: ci-fade .5s ease-out 1s both; }
+@keyframes ci-open { to { clip-path: circle(150% at var(--x) var(--y)); } }
+@keyframes ci-out { from { clip-path: circle(150% at var(--x) var(--y)); opacity: 1; transform: none; } to { clip-path: circle(150% at var(--x) var(--y)); opacity: 0; transform: translateY(-40px) scale(1.04); } }
+@keyframes ci-icon { from { opacity: 0; transform: scale(.2) rotate(-180deg); } to { opacity: 1; transform: none; } }
+@keyframes ci-ring { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(4); } }
+@keyframes ci-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes ci-letter { from { opacity: 0; transform: translateY(26px) scale(.9); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }

@@ -556,14 +556,47 @@ function c2CountUp() {
   }
 }
 // Onde de choc et étincelles autour d'un bouton (lancement d'un objectif)
-function c2Burst(btn) {
+function c2Burst(btn, cls = "") {
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const r = btn.getBoundingClientRect(), b = document.createElement("div");
-  b.className = "c2-burst"; b.setAttribute("aria-hidden", "true");
+  b.className = "c2-burst " + cls; b.setAttribute("aria-hidden", "true");
   b.style.left = r.left + r.width / 2 + "px"; b.style.top = r.top + r.height / 2 + "px";
   b.innerHTML = "<span class=\"ring\"></span><span class=\"ring r2\"></span>" + Array.from({ length: 16 }, (_, i) => `<i style="--a:${i * 22.5}deg;--d:${60 + (i % 4) * 18}px"></i>`).join("");
   document.body.appendChild(b);
   setTimeout(() => b.remove(), 1100);
+}
+// Bouton Coach de la barre du bas : onde, étincelles et halo au toucher, puis la page du coach entre en « warp ».
+// L'effet est posé sur la page (et non sur le bouton) car la barre est redessinée à chaque navigation.
+document.addEventListener("pointerdown", e => {
+  const a = e.target.closest?.(".bottom-nav .nav-coach");
+  if (!a || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  c2Burst(a.querySelector(".ic") || a, "nav");
+}, { passive: true });
+// Au clic (pas au toucher : l'écran posé sous le doigt avalerait le clic et la navigation) : venant d'une autre rubrique,
+// écran « Bienvenue dans le coach » ; déjà sur le coach, simple warp de la page
+document.addEventListener("click", e => {
+  const a = e.target.closest?.(".bottom-nav .nav-coach");
+  if (!a || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (a.getAttribute("aria-current") === "page") c2Warp(); else c2Intro(a);
+});
+function c2Warp() {
+  const v = document.getElementById("view");
+  if (!v) return;
+  setTimeout(() => { v.classList.remove("coach-warp"); void v.offsetWidth; v.classList.add("coach-warp"); setTimeout(() => v.classList.remove("coach-warp"), 900); }, 40);
+}
+// Écran d'accueil du coach (1,6 s, un toucher le passe) : fond qui s'ouvre depuis le bouton, icône qui tourne, anneau,
+// « COACH » lettre par lettre, puis l'écran se retire vers le haut et la page entre en warp
+function c2Intro(from) {
+  document.querySelector(".coach-intro")?.remove();
+  const r = from.getBoundingClientRect(), o = document.createElement("div");
+  o.className = "coach-intro"; o.setAttribute("aria-hidden", "true");
+  o.style.setProperty("--x", r.left + r.width / 2 + "px"); o.style.setProperty("--y", r.top + r.height / 2 + "px");
+  o.innerHTML = `<div class="ci-stage"><span class="ci-ring"></span><span class="ci-ring r2"></span><span class="ci-icon">${typeof icon === "function" ? icon("target") : ""}</span>
+    <p class="ci-kicker">Bienvenue dans</p><h2 class="ci-title">${[..."COACH"].map((c, i) => `<span style="--i:${i}">${c}</span>`).join("")}</h2><p class="ci-sub">Un objectif à la fois.</p></div>`;
+  document.body.appendChild(o);
+  const done = () => { if (!o.isConnected || o.classList.contains("out")) return; o.classList.add("out"); c2Warp(); setTimeout(() => o.remove(), 500); };
+  o.addEventListener("pointerdown", done);
+  setTimeout(done, 1600);
 }
 function c2V1Card(p) {
   if (C2_API == null) return "";

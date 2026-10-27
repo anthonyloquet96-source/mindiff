@@ -3,6 +3,7 @@
 // data/coach-admin.json : contrôle administrateur (hors du parcours joueur).
 // Usage : node coach/build.mjs
 
+import { unitVocab } from "./vocab.mjs";
 import { P, readJson, writeJson, today } from "./lib.mjs";
 import { evaluateAll, rulesLockStatus } from "./kb.mjs";
 import { writeFile } from "node:fs/promises";
@@ -57,7 +58,8 @@ export async function run() {
     // Mesure faite avec la clé de développement : jamais publiée (riot.publish)
     if (rest.dataCheck?.source === "riot-dev" && !L.config.riot?.publish) delete rest.dataCheck;
     if (rest.context?.queue === "tous" && rest.context?.rank === "tous") delete rest.context;
-    return { ...rest, review: { human: u.review.human }, ...(flags.length ? { flags: flags.map(f => ({ code: f.code, why: f.why })) } : {}) };
+    // Vocabulaire des joueurs à l'affichage (coach/vocab.mjs) : back, wave, freeze, ward… ; citations inchangées
+    return { ...unitVocab(rest), review: { human: u.review.human }, ...(flags.length ? { flags: flags.map(f => ({ code: f.code, why: f.why })) } : {}) };
   };
   // Publiés : contenus lus ou cités par une unité, et vidéos pédagogiques en attente (suggestions « À regarder »).
   // Les autres vidéos découvertes (flux des chaînes, file de lecture) restent dans le registre privé de la veille.

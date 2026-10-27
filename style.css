@@ -1375,3 +1375,17 @@ button.pick { background: none; border: 0; padding: 0; font: inherit; color: inh
 .c2-pilot-terms { font-size: .85rem; color: var(--text-2); }
 .c2-pilot-terms summary { cursor: pointer; color: var(--text); }
 .c2-pilot-terms ul { margin: var(--s2) 0 0; padding-left: 1.2em; display: grid; gap: var(--s1); }
+
+/* Lexique LoL : terme souligné, explication au toucher (glossaire.js) */
+/* all: unset : les boutons du site sont en bloc ; un terme reste dans la phrase */
+button.gl { all: unset; display: inline; cursor: help; font: inherit; color: inherit;
+  text-decoration: underline dotted rgba(var(--accent-rgb), .9); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+button.gl:hover, button.gl:focus-visible { color: var(--accent-text); outline: none; }
+.gl-pop { position: fixed; z-index: 1000; display: grid; gap: 4px; padding: 12px 14px; border-radius: 14px;
+  background: var(--surface-2); color: var(--text-2); border: 1px solid var(--surface-3); box-shadow: 0 12px 32px rgba(0, 0, 0, .35);
+  font-size: 14px; line-height: 1.45; animation: gl-in .14s ease-out; }
+.gl-pop b { color: var(--accent-text); font-size: 13px; letter-spacing: .02em; }
+.gl-pop.above { animation-name: gl-in-up; }
+@keyframes gl-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+@keyframes gl-in-up { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .gl-pop { animation: none; } }

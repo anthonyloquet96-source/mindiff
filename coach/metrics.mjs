@@ -30,7 +30,7 @@ export const CATALOG = {
   cs_at_15: {
     label: "Sbires à 15 min", family: "farm", unit: "sbires", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.7, actionability: 0.8,
     pedagogical: { MIDDLE: 110, TOP: 100, BOTTOM: 110, JUNGLE: 90 }, decimals: 0, kbThemes: ["lane", "vagues"], ...FARM_KB,
-    exercise: t => `Vise ${t} sbires à 15:00 : après chaque retour en base, reviens prendre la wave avant de chercher un combat.`,
+    exercise: t => `Vise ${t} sbires à 15:00 : après chaque back, reviens prendre la wave avant de chercher un combat.`,
   },
   cs_per_min: {
     label: "Sbires par minute", family: "farm", unit: "/min", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.6, actionability: 0.7,
@@ -42,11 +42,11 @@ export const CATALOG = {
     // Seuils sous le quart bas mesuré chez les Diamant+ (top 6,4 ; jungle 6,0 ; mid 6,2 ; bot 7,1 par minute ; 18 026 parties, non publié).
     // Garde-fou : participation aux kills (GUARDRAILS), pour ne pas récompenser un joueur qui farme loin de son équipe pendant les combats
     pedagogical: { TOP: 6, JUNGLE: 5.5, MIDDLE: 6, BOTTOM: 7 }, decimals: 1, kbThemes: ["vagues", "macro", "lane"], kbThemesRole: { JUNGLE: ["jungle", "macro", "vagues"] },
-    kbMatch: /^(?=.*\b(farm\w*|sbires?|cs|vagues?|camps?)\b)(?=.*(phase de lane|milieu de partie|mid[- ]?game|lanes? de côté|lanes? latérales?|voies latérales|vagues latérales|dead time|temps mort))/i, kbMatchRole: { JUNGLE: /^(?=.*\b(camps?|clear\w*|farm\w*)\b)(?=.*(dead time|temps mort|refais|après avoir fini|milieu de partie|lanes? de côté|vagues? latérales?))/i },
+    kbMatch: /^(?=.*\b(farm\w*|sbires?|cs|vagues?|camps?)\b)(?=.*(phase de lane|milieu de partie|mid[- ]?game|side ?lanes?|lanes? de côté|lanes? latérales?|voies latérales|vagues latérales|dead time|temps mort))/i, kbMatchRole: { JUNGLE: /^(?=.*\b(camps?|clear\w*|farm\w*)\b)(?=.*(dead time|temps mort|refais|après avoir fini|milieu de partie|lanes? de côté|vagues? latérales?))/i },
     kbAvoid: /baron|nashor|inhib|atakhan|ancien|elder|\bwards?\b|balise|jungler adverse|half roam|demi-décalage|rage split\w*/i,
     exercise: (t, role) => `Vise ${String(t).replace(".", ",")} ${role === "JUNGLE" ? "sbires et monstres" : "sbires"} par minute entre 15:00 et 25:00. ${role === "JUNGLE"
       ? "Entre deux combats ou objectifs, refais tes camps au lieu d'attendre ; rejoins ton équipe dès qu'un combat se prépare."
-      : "Entre deux combats, va prendre la wave la plus proche, de préférence sur une lane de côté ; rejoins ton équipe dès qu'elle part sur un objectif."}`,
+      : "Entre deux combats, va prendre la wave la plus proche, de préférence sur une side lane ; rejoins ton équipe dès qu'elle part sur un objectif."}`,
   },
   gold_at_10: { label: "Or à 10 min", unit: "or", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM", "UTILITY"], trainable: false, impact: 0.6, actionability: 0.4, decimals: 0 },
   // Objectif entraînable en jungle et au mid (décision d'Anthony, 27/10) ; garde-fous : sbires à 10 min, participation aux kills.
@@ -81,7 +81,7 @@ export const CATALOG = {
     label: "Score de vision par minute", unit: "/min", direction: "higher", roles: ["JUNGLE", "UTILITY", "MIDDLE"], trainable: true, impact: 0.5, actionability: 0.8,
     pedagogical: { JUNGLE: 0.8, UTILITY: 1.6, MIDDLE: 0.6 }, decimals: 2, kbThemes: ["vision", "methode"],
     kbMatch: /\bwards?\b|vision|balise|trinket|contr[ôo]le|sweep|oracle|lentille/i,
-    exercise: t => `Vise un score de vision de ${String(t).replace(".", ",")} par minute : une ward à chaque retour et ton trinket dès qu'il est rechargé.`,
+    exercise: t => `Vise un score de vision de ${String(t).replace(".", ",")} par minute : une ward à chaque back et ton trinket dès qu'il est rechargé.`,
   },
   wards_per_min: { label: "Wards posées par minute", unit: "/min", direction: "higher", roles: ["JUNGLE", "UTILITY"], trainable: false, impact: 0.4, actionability: 0.7, decimals: 2 },
   // Diagnostic seulement (brief) : dépendent trop du champion et de l'issue de la partie pour devenir un objectif

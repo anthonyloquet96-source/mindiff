@@ -34,7 +34,7 @@ const C2_LEARN = {
   cs10: { themes: ["lane", "vagues"], re: /wave|vague|trading|farm|\bcs\b|last ?hit|clear|jungle path|tempo/i, tip: "Vise la référence Diamant+ à 10 min : chaque wave perdue, ce sont 6 sbires et leur or." },
   csMin: { themes: ["lane", "vagues"], re: /wave|vague|farm|\bcs\b|tempo/i, tip: "Après la phase de lane, continue à prendre les waves proches de toi entre deux combats." },
   deaths30: { themes: ["survie", "methode"], re: /mort|death|dying|surviv|position|dans la t[eê]te|mistake|erreur/i, tip: "Ouvre le bilan de la partie : chaque mort y est datée, avec qui t'a tué et combien d'adversaires étaient là. Revois ces minutes avant d'en tirer une conclusion." },
-  visionMin: { themes: ["methode", "vision"], re: /vision|ward|balise|track/i, tip: "Pose une ward à chaque retour et utilise ton trinket dès qu'il est rechargé." },
+  visionMin: { themes: ["methode", "vision"], re: /vision|ward|balise|track/i, tip: "Pose une ward à chaque back et utilise ton trinket dès qu'il est rechargé." },
   controlWards: { themes: ["methode", "vision"], re: /vision|\bwards?\b|balise|control ward|pink ward/i, tip: "Une control ward à chaque back : c'est 75 golds, et souvent un objectif sauvé." },
   kp: { themes: ["teamfight", "macro"], re: /roam|gank|tempo|teamfight|skirmish|escarmouche|jungle/i, tip: "Après avoir poussé ta wave, regarde la minimap : rejoins les combats qui ont lieu près de toi." },
 };
@@ -44,15 +44,15 @@ const C2_KIND_TIP = {
   "plaques-perdues": "Avant de quitter ta lane (back, aide à un combat), pousse ta wave vers la tourelle adverse : elle ne s'écrasera pas sous la tienne pendant ton absence.",
   "retard-en-ligne": "Quand ton adversaire a l'avantage, joue la sécurité : prends les sbires près de ta tourelle, signale-le à ton jungler et ne te bats qu'avec un avantage net.",
   "morts-phase-de-ligne": "En phase de lane, recule quand ton adversaire disparaît de la carte ou que son jungler est vu de ton côté.",
-  "or-non-depense": "Rentre à la base dès que tu peux acheter un composant important, de préférence après avoir poussé ta wave.",
+  "or-non-depense": "Back dès que tu peux acheter un composant important, de préférence après avoir poussé ta wave.",
   "mort-isolee": "Après la phase de lane, ne pousse pas seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : reste à portée de ton équipe ou replie-toi avant leur arrivée.",
   "gank-subi": "En phase de lane, quand le jungler adverse n'a pas été vu depuis un moment et que ta wave est poussée, rapproche-toi de ta tourelle ; une ward dans la rivière te montre son arrivée.",
   "absent-objectif": "Environ une minute avant un dragon ou un Baron, pousse ta wave puis rejoins ton équipe : l'adversaire prend les objectifs quand vous êtes moins nombreux.",
   "objectif-inferiorite": "Si un allié est mort ou absent, cède l'objectif et prends plutôt une tourelle ou une wave de l'autre côté de la carte, au lieu de combattre en infériorité.",
   "combat-sans-toi": "Garde un œil sur la minimap : quand ton équipe se bat près de toi, la rejoindre change le rapport de force ; sinon, signale de ne pas engager.",
   "aucune-balise-detruite": "Après ton premier retour, échange ton trinket jaune contre la Lentille de l'oracle (trinket rouge, gratuit à la boutique) : active-la en passant près d'un buisson de rivière ou d'une entrée de jungle, ou pose une control ward, et détruis les wards adverses que tu trouves.",
-  "peu-de-retours": "Rentre à la base dès que tu as l'or d'un composant, juste après avoir poussé tes sbires vers la tourelle adverse (en jungle : après un camp ou un gank) : tu reviens à temps et avec un item de plus.",
-  "premier-objet-tardif": "Vise ton premier grand item vers 11 min : prends chaque sbire possible et rentre dès que tu as l'or d'un composant, plutôt que de rester sur la carte avec peu de points de vie.",
+  "peu-de-retours": "Back dès que tu as l'or d'un composant, juste après avoir poussé tes sbires vers la tourelle adverse (en jungle : après un camp ou un gank) : tu reviens à temps et avec un item de plus.",
+  "premier-objet-tardif": "Vise ton premier grand item vers 11 min : prends chaque sbire possible et back dès que tu as l'or d'un composant, plutôt que de rester sur la carte avec peu de points de vie.",
   "balises-controle": "Achète une control ward à chaque back et pose-la près du prochain objectif (dragon, Larves, Héraut) ou dans ta jungle. Tu ne peux en poser qu'une à la fois : si l'ancienne est encore en place, déplace-la vers le prochain objectif.",
   "temps-mort": "Moins de morts, c'est plus de temps pour farmer et peser sur les objectifs. Commence par les morts après 20 min : tu attends plus longtemps avant de revenir, et l'adversaire en profite pour prendre un objectif.",
 };
@@ -236,7 +236,7 @@ const C2_PLAIN = {
       : "Les sbires sont les petits soldats qui avancent dans les lanes. Donner le last hit à un sbire rapporte de l'or : c'est ta première source d'or pour acheter tes items.",
     steps: role => role === "jungle"
       ? ["Enchaîne tes camps sans temps mort : chaque camp tué, c'est de l'or et de l'expérience.", "Entre deux attaques sur une lane, reviens prendre tes camps.", "Garde le même ordre de camps à chaque partie pour gagner en rythme."]
-      : ["Ne frappe un sbire que lorsqu'il est presque mort : seul le last hit donne l'or.", "Avant de rentrer à la base, tue d'abord les sbires adverses pour perdre le moins de farm possible.", "Entraîne-toi 5 minutes en mode Entraînement : vise 70 sbires à 10 minutes."],
+      : ["Ne frappe un sbire que lorsqu'il est presque mort : seul le last hit donne l'or.", "Avant de back, tue d'abord les sbires adverses pour perdre le moins de farm possible.", "Entraîne-toi 5 minutes en mode Entraînement : vise 70 sbires à 10 minutes."],
   },
   csMin: {
     goal: "Farmer davantage sur toute la partie", name: "Farm",
@@ -464,11 +464,11 @@ function c2V1Card(p) {
   const tips = c2V1Tips(g);
   const tipsHtml = tips.length ? `<details class="more c2-fold" data-fold="v1-tips"${c2ui.fold?.["v1-tips"] ? " open" : ""}><summary>Ce qu'en disent les coachs (${tips.length})</summary><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></details>` : "";
   const body = g.status === "proposed"
-    ? `${g.exercise ? `<p class="c2-v1-ex">${esc(g.exercise)}</p>` : ""}${tipsHtml}<p class="fine">Réussi si tu atteins la cible dans ${g.success_required} de tes ${g.evaluation_games} prochaines ranked à ce poste. Gagner ou perdre ne compte pas.</p>
+    ? `${g.exercise ? `<p class="c2-v1-ex">${gloss(esc(g.exercise))}</p>` : ""}${tipsHtml}<p class="fine">Réussi si tu atteins la cible dans ${g.success_required} de tes ${g.evaluation_games} prochaines ranked à ce poste. Gagner ou perdre ne compte pas.</p>
       <button class="btn primary" data-action="c2-v1-start" data-id="${esc(g.id)}">Je commence</button>`
     : `<div class="c2-v1-dots" aria-label="${evs.filter(e => e.met).length} cibles atteintes sur ${evs.length} parties">${dots}</div>
       <p class="fine">${evs.filter(e => e.met).length} / ${g.success_required} réussites nécessaires · ${evs.length} / ${g.evaluation_games} parties jouées</p>
-      ${g.exercise ? `<p class="c2-v1-ex">${esc(g.exercise)}</p>` : ""}${tipsHtml}
+      ${g.exercise ? `<p class="c2-v1-ex">${gloss(esc(g.exercise))}</p>` : ""}${tipsHtml}
       <button class="btn ghost sm" data-action="c2-v1-sync"${V.busy ? " disabled" : ""}>${V.busy ? "Mise à jour…" : "Mettre à jour mes parties"}</button>`;
   return `<section class="c2-card c2-v1">${lastTxt}${head}${body}${V.error ? `<p class="fine">${esc(V.error)}</p>` : ""}${c2V1Erase()}</section>`;
 }
@@ -490,7 +490,7 @@ const C2_V1_TIPS = {
   early_deaths: { themes: ["survie", "methode"], match: /gank|\bmort|mourir|meurs|survi|recul|jungler adverse|track|danger|flash|minimap|dispara|\bmia\b|missing/i, avoid: C2_V1_LATE },
   kill_participation: { themes: ["teamfight", "macro"], match: /roam|rejoin|escarmouche|skirmish|combat|teamfight|gank|\baide|\bkills?\b|minimap/i, avoid: C2_V1_LATE },
   vision_per_min: { themes: ["vision", "methode"], match: /\bwards?\b|vision|balise|trinket|contr[ôo]le|sweep|oracle|lentille/i },
-  farm_15_25: { themes: ["vagues", "macro", "lane"], themesRole: { JUNGLE: ["jungle", "macro", "vagues"] }, match: /^(?=.*\b(farm\w*|sbires?|cs|vagues?|camps?)\b)(?=.*(phase de lane|milieu de partie|mid[- ]?game|lanes? de côté|lanes? latérales?|voies latérales|vagues latérales|dead time|temps mort))/i, matchRole: { JUNGLE: /^(?=.*\b(camps?|clear\w*|farm\w*)\b)(?=.*(dead time|temps mort|refais|après avoir fini|milieu de partie|lanes? de côté|vagues? latérales?))/i }, avoid: /baron|nashor|inhib|atakhan|ancien|elder|\bwards?\b|balise|jungler adverse|half roam|demi-décalage|rage split\w*/i },
+  farm_15_25: { themes: ["vagues", "macro", "lane"], themesRole: { JUNGLE: ["jungle", "macro", "vagues"] }, match: /^(?=.*\b(farm\w*|sbires?|cs|vagues?|camps?)\b)(?=.*(phase de lane|milieu de partie|mid[- ]?game|side ?lanes?|lanes? de côté|lanes? latérales?|voies latérales|vagues latérales|dead time|temps mort))/i, matchRole: { JUNGLE: /^(?=.*\b(camps?|clear\w*|farm\w*)\b)(?=.*(dead time|temps mort|refais|après avoir fini|milieu de partie|lanes? de côté|vagues? latérales?))/i }, avoid: /baron|nashor|inhib|atakhan|ancien|elder|\bwards?\b|balise|jungler adverse|half roam|demi-décalage|rage split\w*/i },
   xp_at_10: { themes: ["lane", "vagues", "macro"], themesRole: { JUNGLE: ["jungle", "lane"] }, match: /\b(xp|exp[ée]rience)\b/i, matchRole: { JUNGLE: /\b(xp|exp[ée]rience|niveaux?|levels?|camps?|clear\w*|full ?clear|pathing|chemin)\b/i }, avoid: /baron|nashor|inhib|atakhan|ancien|elder|teamfight|siège|\bwards?\b|balise|jungler adverse|saute|skip|freez\w*|congel\w*|pings?\b/i },
 };
 // Résultat d'un cycle de 5 parties (moteur goals-2) : un cycle sans maîtrise n'est pas un échec
@@ -733,13 +733,13 @@ async function c2LoadPlan(champ, role) {
 }
 // Minutes décimales en m:ss (3,9 → 3:54)
 const c2Min = m => c2Clock(Math.round(m * 60) * 1000);
-// Rythme : premier retour, retours avant 14 min, premier grand item (médiane et trois quarts)
+// Rythme : premier retour, backs avant 14 min, premier grand item (médiane et trois quarts)
 function c2Rhythm(r) {
   if (!r) return "";
   const who = r.level === "champion" ? "ce champion à ce poste" : "ce poste";
   return `<div class="c2-rhythm">
-    <div><b>${c2Min(r.firstBack.p50)}</b><span>1er retour en base${r.firstBackGold ? `, avec environ ${c2n(Math.round(r.firstBackGold / 10) * 10)} or` : ""}</span></div>
-    <div><b>×${c2n(r.backs14)}</b><span>retours avant 14 min</span></div>
+    <div><b>${c2Min(r.firstBack.p50)}</b><span>1er back${r.firstBackGold ? `, avec environ ${c2n(Math.round(r.firstBackGold / 10) * 10)} or` : ""}</span></div>
+    <div><b>×${c2n(r.backs14)}</b><span>backs avant 14 min</span></div>
     <div><b>${c2Min(r.legendaryMin.p50)}</b><span>1er grand item ; les trois quarts l'ont avant ${c2Min(r.legendaryMin.p75)}</span></div>
     <p class="fine">Diamant+ sur ${who} · ${c2n(r.n)} parties</p></div>`;
 }
@@ -759,7 +759,7 @@ function c2PlanCard(champ, role) {
 function c2PlanLive(d, mins, champ) {
   if (!d) return "";
   const r = d.rhythm;
-  const next = !r ? null : mins < r.firstBack.p50 ? { at: r.firstBack.p50, what: "1er retour en base" } : mins < r.legendaryMin.p75 ? { at: r.legendaryMin.p50, what: "1er grand item", note: `les trois quarts l'ont avant ${c2Min(r.legendaryMin.p75)}` } : null;
+  const next = !r ? null : mins < r.firstBack.p50 ? { at: r.firstBack.p50, what: "1er back" } : mins < r.legendaryMin.p75 ? { at: r.legendaryMin.p50, what: "1er grand item", note: `les trois quarts l'ont avant ${c2Min(r.legendaryMin.p75)}` } : null;
   const pct = next ? Math.min(100, Math.round(100 * mins / next.at)) : 0;
   return `${next ? `<div class="c2-next"><p class="label">Prochain repère</p><div class="c2-next-bar"><span style="width:${pct}%"></span></div>
       <p><b>${c2Min(next.at)}</b> · ${esc(next.what)}${next.note ? ` <span class="fine">(${esc(next.note)})</span>` : ""}</p>
@@ -1170,8 +1170,9 @@ function c2TipText(u) {
   return C2_TIP_EN[champ.id]?.[m[2]]?.[m[3] - 1] || fr;
 }
 // Contexte d'usage d'un conseil de coach (analyse v2) : quand, pour qui, comment, pourquoi, à éviter
-const c2Use = u => (u.use?.when ? `<details class="c2-use"><summary>Quand l'utiliser · Comment</summary><p><b>Quand :</b> ${esc(u.use.when)}</p>${u.use.who ? `<p><b>Pour qui :</b> ${esc(u.use.who)}</p>` : ""}${u.use.how?.length ? `<ol>${u.use.how.map(h => `<li>${esc(h)}</li>`).join("")}</ol>` : ""}${u.use.why ? `<p><b>Pourquoi :</b> ${esc(u.use.why)}</p>` : ""}${u.use.notWhen ? `<p><b>À éviter :</b> ${esc(u.use.notWhen)}</p>` : ""}</details>` : "");
-const c2Tip = u => `<li class="c2-tip">${esc(c2TipText(u))}${u.nuance ? `<p class="c2-nuance">${esc(u.nuance)}</p>` : ""}${c2Use(u)}<span class="fine">${u.nature === "officiel" ? "Riot Games" : esc(contentOf(u.evidence[0]?.content)?.author || "")}${u.status === "provisoire" ? " · provisoire" : ""}</span></li>`;
+// Termes LoL expliqués au toucher (glossaire.js) : soulignés une fois par conseil
+const c2Use = (u, used = new Set()) => (u.use?.when ? `<details class="c2-use"><summary>Quand l'utiliser · Comment</summary><p><b>Quand :</b> ${gloss(esc(u.use.when), used)}</p>${u.use.who ? `<p><b>Pour qui :</b> ${esc(u.use.who)}</p>` : ""}${u.use.how?.length ? `<ol>${u.use.how.map(h => `<li>${gloss(esc(h), used)}</li>`).join("")}</ol>` : ""}${u.use.why ? `<p><b>Pourquoi :</b> ${gloss(esc(u.use.why), used)}</p>` : ""}${u.use.notWhen ? `<p><b>À éviter :</b> ${gloss(esc(u.use.notWhen), used)}</p>` : ""}</details>` : "");
+const c2Tip = (u, used = new Set()) => `<li class="c2-tip"><span>${gloss(esc(c2TipText(u)), (used = new Set()))}</span>${u.nuance ? `<p class="c2-nuance">${esc(u.nuance)}</p>` : ""}${c2Use(u, used)}<span class="fine">${u.nature === "officiel" ? "Riot Games" : esc(contentOf(u.evidence[0]?.content)?.author || "")}${u.status === "provisoire" ? " · provisoire" : ""}</span></li>`;
 function c2VideosFor(name) {
   const re = new RegExp(`\\b${name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
   return COACH.contents.filter(c => c.type === "video" && ["fr", "en"].includes(c.lang) && (re.test(c.title) || c.champions?.includes(name)) && !(c.triage?.entertainment || []).length).slice(0, 4);

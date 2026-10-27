@@ -662,3 +662,11 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - Constat : les rangs se séparent peu sur le farm du début (ADC sbires à 10 min : 76 Diamant, 78 Challenger), nettement plus sur le farm du milieu de partie (8,2 Diamant, 8,8 Challenger par minute).
 - Simulation sur le testeur Diamant IV : objectif « farm entre 15 et 25 min », base 7,7, repère Maître 8,5, première cible 7,8.
 - `coach/timelines.mjs` : options `--dir` et `--tiers`. Collecte Master+ clé personnelle lancée (coach/cache/timelines-perso).
+
+## 27/10/2026 : vocabulaire des joueurs et lexique cliquable
+
+- Retour d'Anthony (captures du test) : traductions mot à mot qui perdent le sens (« rappel » pour recall, « évacuation de la vague », « temps mort », « recule pour se soigner » pour « resetting », « vagues », « lane de côté »). Un joueur Silver connaît ces termes ; les traduire donne l'impression d'un contenu traduit à la chaîne.
+- `coach/vocab.mjs` : règles appliquées à la publication (`coach/build.mjs`, énoncé et mode d'emploi) : back, wave, freeze, slow/fast push, crash, clear, last hit, dead time, side lane, lane, ward, control ward, poke, teamfight, skirmish, map control, invade, dive, Scuttle, cooldown, summoners, ult, items. Citations et base inchangées ; textes officiels Riot non touchés. Noms propres protégés (« Cœur gelé »).
+- Textes du coach corrigés à la main (bilan, exercices, conseils de partie : « back » au lieu de « retour à la base »).
+- `glossaire.js` : 40 termes soulignés en pointillé, bulle d'explication au toucher (première apparition par conseil). Branché sur les conseils, leur mode d'emploi et les exercices.
+- 57/58 tests.

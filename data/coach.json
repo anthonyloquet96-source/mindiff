@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-27T13:41:33.826Z",
+ "generatedAt": "2026-10-27T15:05:09.165Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -23882,7 +23882,7 @@
   },
   {
    "id": "u-methode-pool",
-   "claim": "Réduire les variables aide à progresser : un rôle, un ou deux champions, des runes et objets stables. Jouer un seul champion accélère l'apprentissage, mais l'auteure note qu'il peut aussi rendre le jeu rigide ; un petit pool de deux ou trois champions est un compromis.",
+   "claim": "Réduire les variables aide à progresser : un rôle, un ou deux champions, des runes et items stables. Jouer un seul champion accélère l'apprentissage, mais l'auteure note qu'il peut aussi rendre le jeu rigide ; un petit pool de deux ou trois champions est un compromis.",
    "champions": [],
    "roles": [
     "all"
@@ -23984,7 +23984,7 @@
   },
   {
    "id": "u-ai-yt-5un5rVpQpf8-1",
-   "claim": "Selon Skill Capped : sur Fiora en voie du haut, la rune Déluge de lames est employée en solo queue à haut niveau avec un profil d'objets orienté sur les dégâts instantanés (Hydre vorace et Éclipse).",
+   "claim": "Selon Skill Capped : sur Fiora en top lane, la rune Déluge de lames est employée en solo queue à haut niveau avec un profil d'items orienté sur les dégâts instantanés (Hydre vorace et Éclipse).",
    "champions": [
     "Fiora"
    ],
@@ -24122,7 +24122,7 @@
   },
   {
    "id": "u-ai-yt-5un5rVpQpf8-3",
-   "claim": "Selon Skill Capped : sur Garen en voie du haut, acheter la Lame spectre de Youmuu en deuxième objet surpasse les autres options bien que seulement 20% des joueurs utilisent ce choix.",
+   "claim": "Selon Skill Capped : sur Garen en top lane, acheter la Lame spectre de Youmuu en deuxième item surpasse les autres options bien que seulement 20% des joueurs utilisent ce choix.",
    "champions": [
     "Garen"
    ],
@@ -24180,7 +24180,7 @@
   },
   {
    "id": "u-ai-yt-5un5rVpQpf8-5",
-   "claim": "Selon Skill Capped : sur Tristana au poste de tireur, l'association de la Lame sauvage de Yun Tal et de la Lame d'infini forme un pic de deux objets offrant un potentiel d'élimination instantanée élevé.",
+   "claim": "Selon Skill Capped : sur Tristana au poste de tireur, l'association de la Lame sauvage de Yun Tal et de la Lame d'infini forme un pic de deux items offrant un potentiel d'élimination instantanée élevé.",
    "champions": [
     "Tristana"
    ],
@@ -56552,7 +56552,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon Dignitas : après son premier retour à la base, le jungler adverse reprend souvent ses camps dans le même ordre que sa première tournée. Sers-toi de son premier chemin pour prévoir de quel côté il sera.",
+   "claim": "Selon Dignitas : après son premier back, le jungler adverse reprend souvent ses camps dans le même ordre que sa première tournée. Sers-toi de son premier chemin pour prévoir de quel côté il sera.",
    "roles": [
     "jungle",
     "all"
@@ -56578,12 +56578,12 @@
     }
    ],
    "use": {
-    "when": "Le jungler adverse vient de faire son premier retour à la base et tu as vu (ou déduit) par quel camp il avait commencé.",
+    "when": "Le jungler adverse vient de faire son premier back et tu as vu (ou déduit) par quel camp il avait commencé.",
     "why": "Un jungler tend à refaire sa première tournée dans le même ordre pour rester efficace.",
     "who": "Jungler, et tout joueur qui prévient ses alliés.",
     "how": [
      "Repère le camp par lequel le jungler adverse a commencé.",
-     "Après son retour à la base, attends-le de ce côté-là de la carte.",
+     "Après son back, attends-le de ce côté-là de la carte.",
      "Ping tes alliés de ce côté pour qu'ils évitent le gank."
     ],
     "notWhen": ""
@@ -56621,7 +56621,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon Dignitas : si tu repères le jungler adverse après une tournée complète (en train de ganker ou de prendre le carapateur), il a très probablement commencé du côté opposé de la carte. Tab te montre combien de camps il a pris.",
+   "claim": "Selon Dignitas : si tu repères le jungler adverse après une tournée complète (en train de ganker ou de prendre le Scuttle), il a très probablement commencé du côté opposé de la carte. Tab te montre combien de camps il a pris.",
    "roles": [
     "jungle",
     "all"
@@ -56646,7 +56646,7 @@
     }
    ],
    "use": {
-    "when": "Tu n'as pas vu le départ du jungler adverse et il apparaît pour la première fois après sa tournée (gank ou carapateur).",
+    "when": "Tu n'as pas vu le départ du jungler adverse et il apparaît pour la première fois après sa tournée (gank ou Scuttle).",
     "why": "Après une tournée complète, il finit du côté opposé à celui où il a commencé.",
     "who": "Jungler, et les joueurs de lane qui suivent le jungler adverse.",
     "how": [
@@ -56751,7 +56751,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon Dignitas : un allié qui a poussé sa vague loin de sa tourelle est le joueur le plus facile à ganker. Préviens-le d'un ping et, en jungle, reste près de sa lane pour contre-ganker.",
+   "claim": "Selon Dignitas : un allié qui a poussé sa wave loin de sa tourelle est le joueur le plus facile à ganker. Préviens-le d'un ping et, en jungle, reste près de sa lane pour contre-ganker.",
    "roles": [
     "jungle",
     "all"
@@ -56777,7 +56777,7 @@
     }
    ],
    "use": {
-    "when": "Un de tes alliés a poussé sa vague jusque chez l'adversaire et se trouve loin de sa tourelle.",
+    "when": "Un de tes alliés a poussé sa wave jusque chez l'adversaire et se trouve loin de sa tourelle.",
     "why": "Loin de sa tourelle, il est le plus vulnérable aux ganks.",
     "who": "Jungler, et tout joueur qui voit la carte.",
     "how": [
@@ -57109,7 +57109,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon Dignitas : place ta ward quand ta vague te rend vulnérable, c'est-à-dire quand l'adversaire freeze devant sa tourelle ou que tu as poussé jusqu'à sa tourelle. Ne la gaspille pas quand le jungler adverse vient d'être vu de l'autre côté de la carte.",
+   "claim": "Selon Dignitas : place ta ward quand ta wave te rend vulnérable, c'est-à-dire quand l'adversaire freeze devant sa tourelle ou que tu as poussé jusqu'à sa tourelle. Ne la gaspille pas quand le jungler adverse vient d'être vu de l'autre côté de la carte.",
    "roles": [
     "top",
     "mid",
@@ -57137,11 +57137,11 @@
     }
    ],
    "use": {
-    "when": "Ta vague est freezée par l'adversaire, ou tu es poussé jusqu'à sa tourelle (ou tu vas l'être).",
-    "why": "Dans ces deux états de vague, tu es le plus exposé aux ganks.",
+    "when": "Ta wave est freezée par l'adversaire, ou tu es poussé jusqu'à sa tourelle (ou tu vas l'être).",
+    "why": "Dans ces deux états de wave, tu es le plus exposé aux ganks.",
     "who": "Laners et supports.",
     "how": [
-     "Regarde l'état de ta vague.",
+     "Regarde l'état de ta wave.",
      "Si elle est freezée chez l'adversaire ou poussée jusqu'à sa tourelle, va placer ta ward avant que le jungler arrive.",
      "Si le jungler adverse vient d'être vu sur une autre lane, garde ta ward pour plus tard."
     ],
@@ -57475,11 +57475,11 @@
     }
    ],
    "use": {
-    "when": "Le Baron est disponible et ta vague du mid est en train d'attaquer une tourelle adverse.",
+    "when": "Le Baron est disponible et ta wave du mid est en train d'attaquer une tourelle adverse.",
     "why": "L'adversaire doit choisir entre contester le Baron et sauver sa tourelle.",
     "who": "Toute l'équipe.",
     "how": [
-     "Pousse d'abord la vague du mid jusqu'à la tourelle adverse.",
+     "Pousse d'abord la wave du mid jusqu'à la tourelle adverse.",
      "Lance le Baron pendant que les sbires attaquent la tourelle."
     ],
     "notWhen": "Si tu n'as pas l'avantage au mid : l'adversaire peut alors pousser sur tes tourelles pendant que tu fais le Baron."
@@ -57634,7 +57634,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon Dignitas : avec le buff du Baron, pousse le plus possible sans t'engager dans des combats d'équipe : vise les tourelles et les inhibiteurs, et passe d'une lane à l'autre pour forcer l'adversaire à s'occuper des sbires.",
+   "claim": "Selon Dignitas : avec le buff du Baron, pousse le plus possible sans t'engager dans des teamfights : vise les tourelles et les inhibiteurs, et passe d'une lane à l'autre pour forcer l'adversaire à s'occuper des sbires.",
    "roles": [
     "all"
    ],
@@ -57662,11 +57662,11 @@
     "why": "Un combat peut tourner en faveur de l'adversaire et gâcher le buff ; les sbires renforcés obligent l'adversaire à défendre.",
     "who": "Toute l'équipe.",
     "how": [
-     "Pousse les vagues avec le buff, de préférence vers les inhibiteurs.",
+     "Pousse les waves avec le buff, de préférence vers les inhibiteurs.",
      "Passe d'une lane à l'autre pour étaler la pression.",
-     "Évite d'engager un combat d'équipe."
+     "Évite d'engager un teamfight."
     ],
-    "notWhen": "Si ton équipe a peu de vie ou de mana après le Baron : l'auteur conseille alors de rentrer à la base pour se regrouper."
+    "notWhen": "Si ton équipe a peu de vie ou de mana après le Baron : l'auteur conseille alors de back pour se regrouper."
    },
    "analyzedAt": "2026-10-25",
    "status": "exploitable",
@@ -57707,7 +57707,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon Dignitas : n'envahis la jungle adverse au niveau 1 que si ton champion est plus fort que le jungler adverse à ce niveau et que tu te sens sûr de toi ; l'invasion peut mettre l'adversaire en retard, mais aussi te coûter la partie.",
+   "claim": "Selon Dignitas : n'invade la jungle adverse au niveau 1 que si ton champion est plus fort que le jungler adverse à ce niveau et que tu te sens sûr de toi ; l'invasion peut mettre l'adversaire en retard, mais aussi te coûter la partie.",
    "roles": [
     "jungle"
    ],
@@ -58018,7 +58018,7 @@
    "nature": "opinion",
    "levelContext": "maitre",
    "usage": "reference",
-   "claim": "Selon sendo (support, maître) : retiens les moments habituels des premiers ganks : vers 2 min après un seul camp, entre 2 min 30 et 2 min 50 après trois camps, vers 3 min 15 après une tournée complète, et vers 4 min 30 après une tournée et un retour à la base.",
+   "claim": "Selon sendo (support, maître) : retiens les moments habituels des premiers ganks : vers 2 min après un seul camp, entre 2 min 30 et 2 min 50 après trois camps, vers 3 min 15 après une tournée complète, et vers 4 min 30 après une tournée et un back.",
    "roles": [
     "all"
    ],
@@ -58106,7 +58106,7 @@
    "nature": "opinion",
    "levelContext": "maitre",
    "usage": "reference",
-   "claim": "Selon sendo (support, maître) : avant de placer une ward, regarde l'état de ta vague maintenant et dans les secondes qui viennent, et où se trouve le jungler adverse. S'il gank le top, une ward posée au bot devant le dragon gaspille 30 secondes à 1 minute de vision.",
+   "claim": "Selon sendo (support, maître) : avant de placer une ward, regarde l'état de ta wave maintenant et dans les secondes qui viennent, et où se trouve le jungler adverse. S'il gank le top, une ward posée au bot devant le dragon gaspille 30 secondes à 1 minute de vision.",
    "roles": [
     "support",
     "bottom",
@@ -58142,7 +58142,7 @@
     "why": "Une ward a une durée limitée : posée trop tôt, elle ne voit plus rien quand le jungler arrive.",
     "who": "Supports surtout, et tous les laners.",
     "how": [
-     "Regarde si ta vague pousse ou recule, et ce qu'elle fera ensuite.",
+     "Regarde si ta wave pousse ou recule, et ce qu'elle fera ensuite.",
      "Regarde sur la carte où le jungler adverse a été vu pour la dernière fois.",
      "S'il est de l'autre côté, garde ta ward pour plus tard."
     ],
@@ -58178,7 +58178,7 @@
    "nature": "opinion",
    "levelContext": "maitre",
    "usage": "reference",
-   "claim": "Selon sendo (support, maître) : au bot, quand ta vague est tirée vers ta tourelle ou à l'équilibre, une ward proche suffit. Quand elle pousse, ward plus loin pour voir le jungler tôt, et ping ton ADC pour qu'il recule pendant que tu pars poser la ward.",
+   "claim": "Selon sendo (support, maître) : au bot, quand ta wave est tirée vers ta tourelle ou à l'équilibre, une ward proche suffit. Quand elle pousse, ward plus loin pour voir le jungler tôt, et ping ton ADC pour qu'il recule pendant que tu pars poser la ward.",
    "roles": [
     "support",
     "bottom"
@@ -58211,14 +58211,14 @@
    ],
    "use": {
     "when": "Phase de lane au bot, au moment de placer la vision contre un gank.",
-    "why": "Vague tirée : la tourelle est proche, inutile d'aller loin. Vague qui pousse : la fuite est longue, il faut voir le jungler plus tôt.",
+    "why": "Wave tirée : la tourelle est proche, inutile d'aller loin. Wave qui pousse : la fuite est longue, il faut voir le jungler plus tôt.",
     "who": "Support (et ADC qui doit reculer).",
     "how": [
-     "Vague tirée ou à l'équilibre : ward proche, sans quitter ton ADC.",
-     "Vague qui pousse : va warder plus loin sur le chemin du jungler.",
+     "Wave tirée ou à l'équilibre : ward proche, sans quitter ton ADC.",
+     "Wave qui pousse : va warder plus loin sur le chemin du jungler.",
      "Avant de partir, ping ton ADC pour qu'il recule."
     ],
-    "notWhen": "Vague tirée ou à l'équilibre : aller warder loin fait mourir ton ADC ou lui fait perdre des sbires, selon l'auteur."
+    "notWhen": "Wave tirée ou à l'équilibre : aller warder loin fait mourir ton ADC ou lui fait perdre des sbires, selon l'auteur."
    },
    "analyzedAt": "2026-10-25",
    "status": "exploitable",
@@ -58276,7 +58276,7 @@
     }
    ],
    "use": {
-    "when": "Ta vague est poussée jusqu'à la tourelle adverse et le jungler adverse a un saut ou un déplacement à travers les murs.",
+    "when": "Ta wave est poussée jusqu'à la tourelle adverse et le jungler adverse a un saut ou un déplacement à travers les murs.",
     "why": "Ces junglers savent contourner pour ganker par derrière.",
     "who": "Duo du bot face à un jungler avec un saut (Jarvan IV, Lee Sin, Rek'Sai, Nidalee, Kayn selon l'auteur).",
     "how": [
@@ -58354,7 +58354,7 @@
     "why": "L'adversaire est regroupé au dragon : aller warder côté bot, c'est risquer de se faire attraper.",
     "who": "Toute l'équipe.",
     "how": [
-     "Pousse la vague du mid.",
+     "Pousse la wave du mid.",
      "Décale-toi vers le haut de la carte.",
      "Si la première tourelle du mid adverse est debout, tente de la prendre."
     ],
@@ -58555,7 +58555,7 @@
     "how": [
      "Compte les adversaires invisibles près du dragon.",
      "Si tu serais en infériorité sans renfort, ne t'approche pas.",
-     "Prépare plutôt la vision contre les ganks d'après-dragon ou tire ta vague."
+     "Prépare plutôt la vision contre les ganks d'après-dragon ou tire ta wave."
     ],
     "notWhen": ""
    },
@@ -58589,7 +58589,7 @@
    "nature": "opinion",
    "levelContext": "maitre",
    "usage": "reference",
-   "claim": "Selon sendo (support, maître) : pousse le mid avant un objectif. Tes sbires te donnent la vision du côté adverse, et si l'adversaire va nettoyer la vague, tu as quelques secondes en surnombre pour attraper un joueur mal placé.",
+   "claim": "Selon sendo (support, maître) : pousse le mid avant un objectif. Tes sbires te donnent la vision du côté adverse, et si l'adversaire va clear la wave, tu as quelques secondes en surnombre pour attraper un joueur mal placé.",
    "roles": [
     "all"
    ],
@@ -58615,12 +58615,12 @@
    ],
    "use": {
     "when": "Avant un dragon ou un Baron, quand ton équipe peut pousser le mid.",
-    "why": "La vague te donne des informations, et l'adversaire qui va la nettoyer laisse ses alliés en infériorité.",
+    "why": "La wave te donne des informations, et l'adversaire qui va la nettoyer laisse ses alliés en infériorité.",
     "who": "Toute l'équipe, en premier le mid et le jungler.",
     "how": [
-     "Pousse la vague du mid jusque chez l'adversaire.",
+     "Pousse la wave du mid jusque chez l'adversaire.",
      "Regarde ce que voient tes sbires.",
-     "Si un adversaire part nettoyer la vague, profites-en pour attraper un joueur mal placé."
+     "Si un adversaire part clear la wave, profites-en pour attraper un joueur mal placé."
     ],
     "notWhen": ""
    },
@@ -58743,11 +58743,11 @@
    ],
    "use": {
     "when": "Avant un combat autour d'un objectif.",
-    "why": "Sans vague poussée, l'adversaire qui gagne le combat enchaîne avec la tourelle du mid.",
+    "why": "Sans wave poussée, l'adversaire qui gagne le combat enchaîne avec la tourelle du mid.",
     "who": "Toute l'équipe.",
     "how": [
      "Pousse le mid avant de te rendre à l'objectif.",
-     "En cas de défaite, l'adversaire n'a pas de vague pour prendre ta tourelle."
+     "En cas de défaite, l'adversaire n'a pas de wave pour prendre ta tourelle."
     ],
     "notWhen": ""
    },
@@ -58805,11 +58805,11 @@
     }
    ],
    "use": {
-    "when": "Tu pousses le mid, personne ne vient nettoyer la vague, et l'adversaire a déjà pris position sur l'objectif.",
+    "when": "Tu pousses le mid, personne ne vient clear la wave, et l'adversaire a déjà pris position sur l'objectif.",
     "why": "L'adversaire a fait de l'objectif sa priorité : la zone autour est dangereuse, mais sa tourelle est libre.",
     "who": "Toute l'équipe.",
     "how": [
-     "Continue de pousser la vague du mid.",
+     "Continue de pousser la wave du mid.",
      "Assiège la tourelle en te tenant du côté opposé à l'objectif.",
      "N'entre pas dans la zone de l'objectif."
     ],
@@ -58845,7 +58845,7 @@
    "nature": "opinion",
    "levelContext": "maitre",
    "usage": "reference",
-   "claim": "Selon udyon (top, maître au mieux) : après avoir pris la première tourelle du top, pousse ta vague lentement à l'attaque de base jusqu'à la deuxième tourelle adverse. Ton adversaire ne peut plus prendre la vague et perd de l'expérience, ou doit partir roam.",
+   "claim": "Selon udyon (top, maître au mieux) : après avoir pris la première tourelle du top, pousse ta wave lentement à l'attaque de base jusqu'à la deuxième tourelle adverse. Ton adversaire ne peut plus prendre la wave et perd de l'expérience, ou doit partir roam.",
    "roles": [
     "top"
    ],
@@ -58870,11 +58870,11 @@
    ],
    "use": {
     "when": "Tu as gagné ta lane au top et détruit la première tourelle adverse.",
-    "why": "L'adversaire ne peut plus farmer sa vague : il perd de l'expérience ou doit quitter la lane.",
+    "why": "L'adversaire ne peut plus farmer sa wave : il perd de l'expérience ou doit quitter la lane.",
     "who": "Top laner qui a gagné sa lane.",
     "how": [
      "Tue les sbires à l'attaque de base, sans tes compétences.",
-     "Laisse la vague avancer lentement jusqu'à la deuxième tourelle.",
+     "Laisse la wave avancer lentement jusqu'à la deuxième tourelle.",
      "Reste prêt à fuir si le jungler ou le support adverse vient."
     ],
     "notWhen": ""
@@ -59036,7 +59036,7 @@
    "nature": "opinion",
    "levelContext": "maitre",
    "usage": "reference",
-   "claim": "Selon udyon (top, maître au mieux) : en lane de côté, ne dépasse la rivière vers le camp adverse que si ton équipe a l'avantage, si les adversaires sont visibles sur la carte, ou si une ward te montre que la zone est vide. Sinon, tu risques de mourir et de faire perdre un objectif.",
+   "claim": "Selon udyon (top, maître au mieux) : en side lane, ne dépasse la rivière vers le camp adverse que si ton équipe a l'avantage, si les adversaires sont visibles sur la carte, ou si une ward te montre que la zone est vide. Sinon, tu risques de mourir et de faire perdre un objectif.",
    "roles": [
     "top",
     "all"
@@ -59062,9 +59062,9 @@
     }
    ],
    "use": {
-    "when": "Milieu de partie, tu pousses une lane de côté seul.",
-    "why": "Mourir en lane de côté peut coûter un dragon ou un Baron à ton équipe.",
-    "who": "Joueurs qui poussent une lane de côté, surtout le top.",
+    "when": "Milieu de partie, tu pousses une side lane seul.",
+    "why": "Mourir en side lane peut coûter un dragon ou un Baron à ton équipe.",
+    "who": "Joueurs qui poussent une side lane, surtout le top.",
     "how": [
      "Vérifie si ton équipe a l'avantage.",
      "Regarde si les adversaires sont visibles sur la carte, ou si une ward montre que la zone est vide.",
@@ -59127,8 +59127,8 @@
     }
    ],
    "use": {
-    "when": "Milieu et fin de partie, tu pousses seul une lane de côté.",
-    "why": "Mourir en lane de côté fait perdre la tourelle, les camps et parfois d'autres objectifs.",
+    "when": "Milieu et fin de partie, tu pousses seul une side lane.",
+    "why": "Mourir en side lane fait perdre la tourelle, les camps et parfois d'autres objectifs.",
     "who": "Joueurs qui split push.",
     "how": [
      "Pousse ta lane en surveillant la carte.",
@@ -59192,7 +59192,7 @@
     }
    ],
    "use": {
-    "when": "Un dragon ou un Baron approche et tu hésites à partir pousser une lane de côté.",
+    "when": "Un dragon ou un Baron approche et tu hésites à partir pousser une side lane.",
     "why": "Sans toi, ton équipe perd son avantage numérique au moment du combat.",
     "who": "Joueurs qui split push, en particulier le top.",
     "how": [
@@ -59279,8 +59279,8 @@
     "why": "Cela sert de barrage pour les sbires afin de savoir exactement où ils vont se trouver et de garder le contrôle de la partie.",
     "who": "Joueur de bot lane",
     "how": [
-     "Ne porte pas les derniers coups destructeurs sur la tourelle adverse ennemie de bot lane.",
-     "Laisse les vagues se bloquer et s'accumuler devant cette tourelle pour garder le contrôle de la zone."
+     "Ne porte pas les last hits destructeurs sur la tourelle adverse ennemie de bot lane.",
+     "Laisse les waves se bloquer et s'accumuler devant cette tourelle pour garder le contrôle de la zone."
     ],
     "notWhen": ""
    },
@@ -59356,7 +59356,7 @@
    "observe": "L'état de réapparition de tes camps de jungle sur la mini-carte.",
    "use": {
     "when": "Tu viens d'achever le nettoyage complet de tes camps de jungle et tu attends qu'ils réapparaissent.",
-    "why": "Tenter des actions en dehors de ce temps mort te fait perdre de l'or et de l'expérience précieux en abandonnant tes camps réapparus.",
+    "why": "Tenter des actions en dehors de ce dead time te fait perdre de l'or et de l'expérience précieux en abandonnant tes camps réapparus.",
     "who": "Joueurs jouant le rôle de jungler",
     "how": [
      "Vide l'ensemble de tes camps de jungle pour déclencher ton temps mort.",
@@ -59384,7 +59384,7 @@
   },
   {
    "id": "u-ai-yt-ZzKpPJ_BNHM-4",
-   "claim": "Selon Skill Capped : pour les laners, le 'dead time' correspond au laps de temps entre la mort ou l'évacuation de la vague actuelle et l'arrivée de la suivante (toutes les 30 secondes). Exécuter un rappel ou un roam pendant ce temps mort permet de ne rater aucun sbire.",
+   "claim": "Selon Skill Capped : pour les laners, le 'dead time' correspond au laps de temps entre la mort ou le clear de la wave actuelle et l'arrivée de la suivante (toutes les 30 secondes). Exécuter un back ou un roam pendant ce dead time permet de ne rater aucun sbire.",
    "champions": [],
    "roles": [
     "top",
@@ -59437,12 +59437,12 @@
    "action": "Pousse ta vague avant de faire un rappel ou un décalage pour profiter du temps mort entre deux vagues.",
    "observe": "La position des sbires sur ta lane et le chronomètre d'apparition des vagues (toutes les 30 secondes).",
    "use": {
-    "when": "Tu as nettoyé ou poussé la vague de sbires en cours sur ta lane et tu disposes d'une fenêtre de 30 secondes avant l'arrivée de la suivante.",
-    "why": "Recourir ou décaler pendant ce temps mort évite de perdre de l'or et de l'expérience sur les sbires suivants.",
+    "when": "Tu as nettoyé ou poussé la wave en cours sur ta lane et tu disposes d'une fenêtre de 30 secondes avant l'arrivée de la suivante.",
+    "why": "Recourir ou décaler pendant ce dead time évite de perdre de l'or et de l'expérience sur les sbires suivants.",
     "who": "Laners (Top, Mid, Bottom)",
     "how": [
-     "Pousse rapidement la vague de sbires actuelle pour la faire s'écraser.",
-     "Exécute ton rappel ou ton déplacement vers une autre lane pendant le délai avant la vague suivante."
+     "Pousse rapidement la wave actuelle pour la faire s'écraser.",
+     "Exécute ton back ou ton déplacement vers une autre lane pendant le délai avant la wave suivante."
     ],
     "notWhen": ""
    },
@@ -59462,7 +59462,7 @@
   },
   {
    "id": "u-ai-yt-ZzKpPJ_BNHM-5",
-   "claim": "Selon Skill Capped : la technique du 'half roam' (demi-décalage) consiste à pousser sa vague pour entrer en dead time, puis à avancer seulement jusqu'à mi-chemin de la rivière pour observer si les lanes voisines sont gankables. Si elles le sont, l'action est engagée ; sinon, le joueur retourne immédiatement sur sa lane sans rater de sbires.",
+   "claim": "Selon Skill Capped : la technique du 'half roam' (demi-décalage) consiste à pousser sa wave pour entrer en dead time, puis à avancer seulement jusqu'à mi-chemin de la rivière pour observer si les lanes voisines sont gankables. Si elles le sont, l'action est engagée ; sinon, le joueur retourne immédiatement sur sa lane sans rater de sbires.",
    "champions": [],
    "roles": [
     "mid",
@@ -59509,11 +59509,11 @@
    "action": "Avance jusqu'au milieu de la rivière lors d'un décalage pour sonder les opportunités sans t'engager trop loin au risque de perdre des vagues.",
    "observe": "La disposition des vagues sur ta lane et la position des ennemis sur la mini-carte.",
    "use": {
-    "when": "Tu as poussé ta vague de sbires pour libérer ton temps et tu souhaites menacer les lanes adjacentes sans t'engager aveuglément.",
+    "when": "Tu as poussé ta wave pour libérer ton temps et tu souhaites menacer les lanes adjacentes sans t'engager aveuglément.",
     "why": "Cela applique une forte pression psychologique sur l'ennemi tout en évitant de perdre des sbires sur sa propre lane si le gank s'avère impossible.",
     "who": "Laners cherchant à décaler sans sacrifier leur farm",
     "how": [
-     "Pousse ta vague pour obtenir ton temps mort.",
+     "Pousse ta wave pour obtenir ton temps mort.",
      "Avance jusqu'à la moitié de la rivière pour évaluer la situation des lanes voisines.",
      "Engage le gank si l'adversaire est vulnérable, ou rentre sur ta lane si la situation n'est pas favorable."
     ],
@@ -59596,12 +59596,12 @@
    "action": "Concentre-toi sur le farm parfait et la prise de plaques lorsque ton vis-à-vis est très bas et reste sur la lane au lieu de le pourchasser aveuglément.",
    "observe": "Les points de vie de ton adversaire direct et sa décision de rester en lane malgré sa faiblesse.",
    "use": {
-    "when": "Tu as remporté un échange et ton vis-à-vis se retrouve extrêmement bas en points de vie sans avoir rappelé à la base.",
+    "when": "Tu as remporté un échange et ton vis-à-vis se retrouve extrêmement bas en points de vie sans avoir backé à la base.",
     "why": "Forcer le kill aveuglément comporte des risques alors que le laisser sur place le prive de farm et permet d'engranger des plaques de tourelle en toute sécurité.",
     "who": "Laners dominant leur vis-à-vis en duel",
     "how": [
      "Résiste à l'envie de le pourchasser sous sa tourelle si le kill n'est pas garanti.",
-     "Maintiens la pression en récupérant tous les derniers coups sur les sbires.",
+     "Maintiens la pression en récupérant tous les last hits sur les sbires.",
      "Attaque la tourelle pour accumuler des plaques pendant qu'il est contraint de reculer."
     ],
     "notWhen": ""
@@ -59622,7 +59622,7 @@
   },
   {
    "id": "u-ai-yt-7a5EBaZ-ems-1",
-   "claim": "Selon AloisNL : préférer la Lame de Doran comme objet de départ sur Kai'Sa top AP Poke afin d'obtenir l'évolution de son sort A (Pluie d'Icathia) de justesse grâce au bonus de dégâts d'attaque.",
+   "claim": "Selon AloisNL : préférer la Lame de Doran comme item de départ sur Kai'Sa top AP Poke afin d'obtenir l'évolution de son sort A (Pluie d'Icathia) de justesse grâce au bonus de dégâts d'attaque.",
    "champions": [
     "Kai'Sa"
    ],
@@ -59700,7 +59700,7 @@
   },
   {
    "id": "u-ai-yt-RIro7KcXJP8-2",
-   "claim": "Selon perryjg : erreur fréquente : acheter de multiples Épées longues en espérant s'orienter vers des objets comme la Danse de la mort ou Hydre vorace alors qu'on construit autre chose (comme Éclipse). Le coach conseille d'éviter d'accumuler des composants intermédiaires superflus pour ne pas retarder l'achat de son premier objet complet.",
+   "claim": "Selon perryjg : erreur fréquente : acheter de multiples Épées longues en espérant s'orienter vers des items comme la Danse de la mort ou Hydre vorace alors qu'on construit autre chose (comme Éclipse). Le coach conseille d'éviter d'accumuler des composants intermédiaires superflus pour ne pas retarder l'achat de son premier item complet.",
    "champions": [],
    "roles": [
     "jungle"
@@ -59751,10 +59751,10 @@
    "observe": "Hecarim achète des Épées longues superflues dans la boutique.",
    "use": {
     "when": "tu es dans la boutique avec de l'or et tu hésites sur les composants intermédiaires à acheter avant ton premier item.",
-    "why": "l'achat de composants non nécessaires retarde l'obtention de ton premier objet complet.",
+    "why": "l'achat de composants non nécessaires retarde l'obtention de ton premier item complet.",
     "who": "Hecarim",
     "how": [
-     "Consulte les composants nécessaires à ton premier objet majeur.",
+     "Consulte les composants nécessaires à ton premier item majeur.",
      "Achète en priorité des items de réduction de délai de récupération ou la pièce maîtresse si le budget le permet.",
      "Évite d'acheter des Épées longues en excès si elles ne mènent pas directement à ta construction active."
     ],
@@ -59834,13 +59834,13 @@
    "action": "Utilise tes pings pour chaque action, priorise les objectifs neutres par rapport à tes camps de jungle, et joue autour de tes coéquipiers en avance.",
    "observe": "Hecarim ping en continu sur la carte, se déplace vers les objectifs neutres et aide ses alliés forts.",
    "use": {
-    "when": "tu es en partie en tant que jungler et tu dois décider entre clear tes camps ou jouer pour un objectif neutre / aider une ligne.",
+    "when": "tu es en partie en tant que jungler et tu dois décider entre clear tes camps ou jouer pour un objectif neutre / aider une lane.",
     "why": "cela permet de garder le contrôle de la partie, d'éviter les morts inutiles et de simplifier la victoire.",
     "who": "Junglers",
     "how": [
      "Utilise tes pings activement pour indiquer tes intentions à tes coéquipiers.",
      "Délaisse tes camps de jungle mineurs si un objectif neutre ou une tour est contestable.",
-     "Joue en synergie avec les coéquipiers qui ont l'avantage sur leur ligne."
+     "Joue en synergie avec les coéquipiers qui ont l'avantage sur leur lane."
     ],
     "notWhen": ""
    },
@@ -59909,7 +59909,7 @@
    "action": "Privilégie systématiquement le farm assuré d'une wave complète plutôt qu'un risque de kill lointain non garanti.",
    "observe": "Le nombre de sbires tués par rapport au nombre de kills.",
    "use": {
-    "when": "tu as le choix entre aller tenter un kill risqué ou récupérer des vagues de sbires en toute sécurité",
+    "when": "tu as le choix entre aller tenter un kill risqué ou récupérer des waves en toute sécurité",
     "why": "les sbires procurent une source de gold et d'expérience constante et sûre sans offrir de prime de mort (bounty) excessive à l'adversaire",
     "who": "tous les postes",
     "how": [
@@ -59935,7 +59935,7 @@
   },
   {
    "id": "u-ai-yt-Fcb6lbPuclA-2",
-   "claim": "Selon Chreak : toucher un sort ciblé (point and click) ou une auto-attaque sur un champion adverse provoque l'aggro des sbires ennemis, ce qui fait pousser ta vague pendant que la leur te cible.",
+   "claim": "Selon Chreak : toucher un sort ciblé (point and click) ou une auto-attaque sur un champion adverse provoque l'aggro des sbires ennemis, ce qui fait pousser ta wave pendant que la leur te cible.",
    "champions": [],
    "roles": [
     "all"
@@ -59978,12 +59978,12 @@
    "action": "Utilise une auto-attaque ou un sort ciblé sur ton adversaire pour attirer l'aggro des sbires et lancer ton push au niveau 1.",
    "observe": "Le comportement des sbires adverses qui se tournent vers ton champion.",
    "use": {
-    "when": "au début de la phase de lane pour prendre l'ascendant sur la vague",
-    "why": "la concentration des attaques de la wave adverse sur ton champion déséquilibre le nombre de sbires et fait progresser ta vague",
+    "when": "au début de la phase de lane pour prendre l'ascendant sur la wave",
+    "why": "la concentration des attaques de la wave adverse sur ton champion déséquilibre le nombre de sbires et fait progresser ta wave",
     "who": "tous les joueurs en phase de lane",
     "how": [
      "Cible le champion ennemi avec une auto-attaque ou un sort point and click",
-     "Laisse l'aggro des sbires se porter sur toi pour faire avancer ta vague"
+     "Laisse l'aggro des sbires se porter sur toi pour faire avancer ta wave"
     ],
     "notWhen": ""
    },
@@ -60003,7 +60003,7 @@
   },
   {
    "id": "u-ai-yt-Fcb6lbPuclA-3",
-   "claim": "Selon Chreak : toucher un sort de zone non-ciblé (skillshot) ne déclenche pas l'aggro des sbires, ce qui permet de harceler et de pousser la vague simultanément en toute sécurité.",
+   "claim": "Selon Chreak : toucher un sort de zone non-ciblé (skillshot) ne déclenche pas l'aggro des sbires, ce qui permet de poke et de pousser la wave simultanément en toute sécurité.",
    "champions": [],
    "roles": [
     "all"
@@ -60047,7 +60047,7 @@
    "action": "Utilise tes compétences de type skillshot pour toucher l'adversaire à travers les sbires sans attirer leur attention.",
    "observe": "L'absence de changement de cible des sbires ennemis lors de l'impact du sort.",
    "use": {
-    "when": "quand tu veux infliger des dégâts à l'adversaire tout en progressant sur la vague sans prendre de dégâts superflus",
+    "when": "quand tu veux infliger des dégâts à l'adversaire tout en progressant sur la wave sans prendre de dégâts superflus",
     "why": "les sorts de type skillshot ne déclenchent pas la riposte des sbires",
     "who": "les champions disposant de compétences de zone ou de tirs de précision",
     "how": [
@@ -60122,12 +60122,12 @@
    "action": "Conserve un nombre important de sbires pour stabiliser le gel de la vague près de ta tour.",
    "observe": "La position de la ligne de rencontre des vagues proche de ta tourelle.",
    "use": {
-    "when": "quand tu souhaites geler la vague pour te mettre en sécurité ou préparer un gank",
-    "why": "avoir plus de sbires accélère la mort de la vague adverse et absorbe les dégâts de zone accidentels sans rompre le freeze",
-    "who": "les joueurs cherchant à geler leur lane",
+    "when": "quand tu souhaites freeze la wave pour te mettre en sécurité ou préparer un gank",
+    "why": "avoir plus de sbires accélère la mort de la wave adverse et absorbe les dégâts de zone accidentels sans rompre le freeze",
+    "who": "les joueurs cherchant à freeze leur lane",
     "how": [
      "Équilibre le nombre de sbires adverses et alliés",
-     "Maintiens une quantité importante de sbires pour sécuriser la zone de gel"
+     "Maintiens une quantité importante de sbires pour sécuriser la zone de freeze"
     ],
     "notWhen": ""
    },
@@ -60147,7 +60147,7 @@
   },
   {
    "id": "u-ai-yt-Fcb6lbPuclA-5",
-   "claim": "Selon Chreak : le slow push consiste à tuer les sbires adverses le plus tard possible pour laisser le temps à tes vagues de s'accumuler, ce qui crée un avantage massif pour les trades, les dives ou les changements de rythme.",
+   "claim": "Selon Chreak : le slow push consiste à tuer les sbires adverses le plus tard possible pour laisser le temps à tes waves de s'accumuler, ce qui crée un avantage massif pour les trades, les dives ou les changements de rythme.",
    "champions": [],
    "roles": [
     "all"
@@ -60188,11 +60188,11 @@
    "observe": "L'accumulation progressive d'une grande quantité de sbires alliés sur la lane.",
    "use": {
     "when": "quand tu domines le 1v1 et que tu souhaites préparer une action offensive sous la tour ennemie",
-    "why": "la vague accumulée empêche l'adversaire de t'attaquer directement à cause des dégâts infligés par les sbires",
+    "why": "la wave accumulée empêche l'adversaire de t'attaquer directement à cause des dégâts infligés par les sbires",
     "who": "les champions agressifs en phase de lane",
     "how": [
      "Attends le dernier moment pour porter le coup de grâce sur chaque sbire adverse",
-     "Laisse les vagues successives s'additionner pour former un groupe important"
+     "Laisse les waves successives s'additionner pour former un groupe important"
     ],
     "notWhen": ""
    },
@@ -60281,7 +60281,7 @@
   },
   {
    "id": "u-ai-yt-V-0395F1evY-6",
-   "claim": "Selon AloisNL : adopte une macro de récolte de ressources stricte : vagues latérales, puis tourelles, puis camps de jungle si aucune tourelle n'est prenable.",
+   "claim": "Selon AloisNL : adopte une macro de récolte de ressources stricte : waves des side lanes, puis tourelles, puis camps de jungle si aucune tourelle n'est prenable.",
    "champions": [],
    "roles": [
     "top"
@@ -60328,7 +60328,7 @@
     "why": "Pour garantir un flux constant d'or et d'expérience sans dépendre de l'issue incertaine des combats.",
     "who": "Top laners axés sur le split-push ou le scaling",
     "how": [
-     "Pousser la vague sur une ligne latérale",
+     "Pousser la wave sur une side lane",
      "Frapper la tourelle si elle est exposée",
      "Prendre les camps de jungle (alliés ou ennemis) si la tourelle est trop risquée"
     ],
@@ -60350,7 +60350,7 @@
   },
   {
    "id": "u-ai-yt-V-0395F1evY-11",
-   "claim": "Selon AloisNL : le proxy farming permet d'empêcher l'adversaire de rentrer à la base (recall) et de maintenir une pression de tempo, même si tu es derrière au score.",
+   "claim": "Selon AloisNL : le proxy farming permet d'empêcher l'adversaire de back (recall) et de maintenir une pression de tempo, même si tu es derrière au score.",
    "champions": [],
    "roles": [
     "top"
@@ -60402,10 +60402,10 @@
    "use": {
     "when": "Tu veux forcer ton adversaire à rester sur la lane avec peu de PV ou d'or",
     "why": "",
-    "who": "Top laner avec une bonne capacité de nettoyage de vagues",
+    "who": "Top laner avec une bonne capacité de nettoyage de waves",
     "how": [
      "Passer derrière la tourelle ennemie",
-     "Tuer la vague de sbires dès qu'elle arrive",
+     "Tuer la wave dès qu'elle arrive",
      "Utiliser le temps gagné pour frapper la tour ou voler la jungle"
     ],
     "notWhen": ""
@@ -60567,9 +60567,9 @@
     "why": "pour trouver où la probabilité d'obtenir un kill est la plus élevée",
     "who": "les joueurs jouant le poste de jungler",
     "how": [
-     "Analyse la volatilité des voies en observant les champions, leurs runes et leurs sorts d'invocateur.",
+     "Analyse la volatilité des lanes en observant les champions, leurs runes et leurs summoners.",
      "Évalue la présence de contrôles de foule fiables pour les ganks.",
-     "Examine la mobilité des champions adverses et leurs sorts d'invocateur."
+     "Examine la mobilité des champions adverses et leurs summoners."
     ],
     "notWhen": ""
    },
@@ -60589,7 +60589,7 @@
   },
   {
    "id": "u-ai-yt-zziK5rQefTc-2",
-   "claim": "Selon Coach Leo : ne prends pas la priorité des voies en compte avant ton premier clear, car elle est trop inconstante et ne devient un facteur fiable qu'au-dessus du rang Diamant.",
+   "claim": "Selon Coach Leo : ne prends pas la priorité des lanes en compte avant ton premier clear, car elle est trop inconstante et ne devient un facteur fiable qu'au-dessus du rang Diamant.",
    "champions": [],
    "roles": [
     "jungle"
@@ -60647,7 +60647,7 @@
     "why": "car la gestion de la priorité par les laners est trop inconsistante à prédire dans les bas et moyens rangs",
     "who": "les junglers cherchant à optimiser leur premier itinéraire",
     "how": [
-     "Concentre ton cheminement de premier clear sur ton plan d'objectifs et tes duels plutôt que sur la position des vagues de tes alliés."
+     "Concentre ton cheminement de premier clear sur ton plan d'objectifs et tes duels plutôt que sur la position des waves de tes alliés."
     ],
     "notWhen": ""
    },
@@ -60715,7 +60715,7 @@
    "action": "Interromps ton attaque sur le buff si le jungler ennemi t'attaque, pour éviter d'encaisser à la fois les dégâts du camp et ceux de l'adversaire.",
    "observe": "La position du jungler ennemi lorsqu'il entre dans ton camp de buff.",
    "use": {
-    "when": "lorsque tu es en train d'attaquer un monstre de buff et que le jungler ennemi t'envahit",
+    "when": "lorsque tu es en train d'attaquer un monstre de buff et que le jungler ennemi t'invade",
     "why": "parce que tu tankes le monstre, utilises tes sorts et subis la première attaque de l'adversaire",
     "who": "les junglers se trouvant face à une tentative d'invasion ennemie sur un buff",
     "how": [
@@ -60741,7 +60741,7 @@
   },
   {
    "id": "u-ai-yt-zziK5rQefTc-4",
-   "claim": "Selon Coach Leo : utilise le 'Spare Tempo' (temps libre de fin de clear) pour placer des balises de profondeur, ganker ou aider une voie à pousser, sans pour autant compromettre ton timing de réapparition des camps.",
+   "claim": "Selon Coach Leo : utilise le 'Spare Tempo' (temps libre de fin de clear) pour placer des wards de profondeur, ganker ou aider une lane à pousser, sans pour autant compromettre ton timing de réapparition des camps.",
    "champions": [],
    "roles": [
     "jungle"
@@ -60799,7 +60799,7 @@
     "why": "pour maximiser ton impact sur la carte sans perdre en efficacité de farm",
     "who": "les junglers effectuant un nettoyage complet (full clear)",
     "how": [
-     "Utilise le temps excédentaire pour ganker, placer une balise de vision profonde dans la jungle ennemie ou aider à pousser une vague.",
+     "Utilise le temps excédentaire pour ganker, placer une ward de vision profonde dans la jungle ennemie ou aider à pousser une wave.",
      "Reviens à temps pour le respawn de ton premier camp à 4:20."
     ],
     "notWhen": ""
@@ -60820,7 +60820,7 @@
   },
   {
    "id": "u-ai-yt-zziK5rQefTc-5",
-   "claim": "Selon Coach Leo : au niveau 1, suis la foule si tes coéquipiers décident d'envahir la jungle ennemie, puis assure-toi de revenir à ton propre camp avant son apparition en rappelant avant 1:00 si nécessaire.",
+   "claim": "Selon Coach Leo : au niveau 1, suis la foule si tes coéquipiers décident d'invade la jungle ennemie, puis assure-toi de revenir à ton propre camp avant son apparition en rappelant avant 1:00 si nécessaire.",
    "champions": [],
    "roles": [
     "jungle"
@@ -60874,12 +60874,12 @@
    "action": "Accompagne tes coéquipiers lors d'un invade niveau 1 et effectue un rappel avant 1:00 pour revenir à ton camp de départ à temps.",
    "observe": "Les mouvements de tes coéquipiers vers la jungle ennemie au début de la partie.",
    "use": {
-    "when": "lorsque tes quatre coéquipiers décident de foncer dans la jungle ennemie pour envahir au niveau 1",
+    "when": "lorsque tes quatre coéquipiers décident de foncer dans la jungle ennemie pour invade au niveau 1",
     "why": "pour maximiser les chances de succès de l'action collective et éviter d'être isolé",
     "who": "les junglers dont l'équipe initie un invade de niveau 1",
     "how": [
      "Suis tes coéquipiers dans l'invasion de la jungle ennemie.",
-     "Appuie sur la touche de rappel avant 1:00 pour regagner ta base.",
+     "Appuie sur la touche de back avant 1:00 pour regagner ta base.",
      "Rejoins ton camp de départ en faisant attention aux ennemis embusqués."
     ],
     "notWhen": ""
@@ -60947,7 +60947,7 @@
    "observe": "L'apparition des camps de jungle sur la mini-carte par rapport aux crabes de rivière.",
    "use": {
     "when": "Le Scuttle Crab est disponible dans la rivière mais tes camps de jungle viennent de réapparaître.",
-    "why": "Cela te donne plus de tempo pour être présent sur les lignes plus rapidement et sauver ou aider tes alliés.",
+    "why": "Cela te donne plus de tempo pour être présent sur les lanes plus rapidement et sauver ou aider tes alliés.",
     "who": "Junglers",
     "how": [
      "Vérifie l'état de réapparition de tes camps de jungle.",
@@ -60971,7 +60971,7 @@
   },
   {
    "id": "u-ai-yt-Qb5YWQxgmzY-1",
-   "claim": "Selon Coach Kirei : en tant que jungler, ne pousse pas les vagues sur les lanes si tes camps sont vivants, car tu subis une réduction importante d'expérience sur les sbires.",
+   "claim": "Selon Coach Kirei : en tant que jungler, ne pousse pas les waves sur les lanes si tes camps sont vivants, car tu subis une réduction importante d'expérience sur les sbires.",
    "champions": [],
    "roles": [
     "jungle"
@@ -61023,7 +61023,7 @@
     "who": "les joueurs jouant le rôle de jungler",
     "how": [
      "Vérifie si tes camps de jungle sont réapparus sur ta minicarte.",
-     "Ignore la vague de sbires et dirige-toi vers tes camps pour les farmer."
+     "Ignore la wave et dirige-toi vers tes camps pour les farmer."
     ],
     "notWhen": "si tu es 1.5 niveaux ou plus en retard par rapport à la moyenne de la partie"
    },
@@ -61088,11 +61088,11 @@
    "observe": "Le jungler termine son camp de Krugs à 05:30 et obtient son Châtiment amélioré juste avant un objectif.",
    "use": {
     "when": "la partie atteint l'horloge de 05:15 et tes camps secondaires réapparaissent",
-    "why": "cela te permet d'obtenir ton Châtiment amélioré avant le jungler adverse pour sécuriser les objectifs comme le Dragon ou le Carapateur",
+    "why": "cela te permet d'obtenir ton Châtiment amélioré avant le jungler adverse pour sécuriser les objectifs comme le Dragon ou le Scuttle",
     "who": "les joueurs jouant le rôle de jungler",
     "how": [
      "Surveille le chronomètre de jeu à l'approche de 05:15.",
-     "Attends l'apparition de la friandise bonus à 05:30 sur ton camp de Krugs avant de porter le dernier coup."
+     "Attends l'apparition de la friandise bonus à 05:30 sur ton camp de Krugs avant de porter le last hit."
     ],
     "notWhen": ""
    },
@@ -61508,7 +61508,7 @@
    "observe": "La vulnérabilité de Vayne face aux dégâts magiques constants du Q de Malphite et aux ganks.",
    "use": {
     "when": "Tu joues Vayne sur la toplane face à un Malphite adverse.",
-    "why": "Vayne est un ADC sans sustain et sans portée, vulnérable au poke du Q de Malphite et à son ultime pour fermer l'écart.",
+    "why": "Vayne est un ADC sans sustain et sans portée, vulnérable au poke du Q de Malphite et à son ult pour fermer l'écart.",
     "who": "Joueurs de Vayne top",
     "how": [
      "Éviter les échanges prolongés face au spam de sorts de Malphite",
@@ -61594,7 +61594,7 @@
     "why": "Le sort Q de Teemo aveugle Vayne et dure longtemps, lui permettant de gagner les duels réguliers.",
     "who": "Joueurs de Vayne top",
     "how": [
-     "Équiper le sort d'invocateur Cleanse",
+     "Équiper le summoner Cleanse",
      "Attendre l'utilisation du blind de Teemo, le purger et lancer un all-in"
     ],
     "notWhen": ""
@@ -61671,8 +61671,8 @@
     "why": "Depuis qu'elles ne se jouent plus tank, leur survie dépend uniquement de la précision mécanique et du positionnement.",
     "who": "Joueurs de niveau Diamant ou plus.",
     "how": [
-     "Optimiser le farm pour atteindre rapidement tes objets de dégâts.",
-     "Tester tes limites de dégâts en escarmouche (limit testing).",
+     "Optimiser le farm pour atteindre rapidement tes items de dégâts.",
+     "Tester tes limites de dégâts en skirmish (limit testing).",
      "Maintenir une distance optimale (spacing) pour ne pas subir de burst inutile."
     ],
     "notWhen": ""
@@ -61698,7 +61698,7 @@
   },
   {
    "id": "u-ai-yt-YLgMgbuZ0Zk-1",
-   "claim": "Selon Dishake : la vague de sbires possède trois états uniques : elle pousse vers toi, elle est neutre, ou elle pousse vers l'équipe ennemie. Identifier cet état est la première étape indispensable avant toute manipulation.",
+   "claim": "Selon Dishake : la wave possède trois états uniques : elle pousse vers toi, elle est neutre, ou elle pousse vers l'équipe ennemie. Identifier cet état est la première étape indispensable avant toute manipulation.",
    "champions": [],
    "roles": [
     "all"
@@ -61742,12 +61742,12 @@
    "action": "Regarde ta voie et identifie si la vague pousse vers toi, est neutre ou pousse vers l'ennemi avant de faire une action.",
    "observe": "L'état de la vague de sbires sur la minicarte ou à l'écran.",
    "use": {
-    "when": "Tu es sur une voie et tu observes les vagues de sbires s'affronter.",
-    "why": "Pour savoir si tu peux agresser, défendre ou manipuler la vague.",
-    "who": "Tous les joueurs sur les voies (top, mid, bot).",
+    "when": "Tu es sur une lane et tu observes les waves s'affronter.",
+    "why": "Pour savoir si tu peux agresser, défendre ou manipuler la wave.",
+    "who": "Tous les joueurs sur les lanes (top, mid, bot).",
     "how": [
-     "Observe le sens du mouvement des vagues de sbires.",
-     "Conclus si la vague pousse vers toi, est au milieu ou pousse chez l'adversaire."
+     "Observe le sens du mouvement des waves.",
+     "Conclus si la wave pousse vers toi, est au milieu ou pousse chez l'adversaire."
     ],
     "notWhen": ""
    },
@@ -61767,7 +61767,7 @@
   },
   {
    "id": "u-ai-yt-YLgMgbuZ0Zk-2",
-   "claim": "Selon Dishake : pour congeler (freezer) une vague de sbires, il faut maintenir un excédent de sbires ennemis : quatre sbires d'avance font geler près de la tour, tandis qu'un ou deux sbires d'avance maintiennent le gel plus haut sur la voie.",
+   "claim": "Selon Dishake : pour freeze (freezer) une wave, il faut maintenir un excédent de sbires ennemis : quatre sbires d'avance font freeze près de la tour, tandis qu'un ou deux sbires d'avance maintiennent le freeze plus haut sur la lane.",
    "champions": [],
    "roles": [
     "all"
@@ -61811,9 +61811,9 @@
    "action": "Laisse quatre sbires adverses de plus que les tiens pour geler la vague près de ta tour.",
    "observe": "Le décompte des sbires ennemis par rapport aux tiens.",
    "use": {
-    "when": "La vague adverse arrive avec un petit nombre de sbires excédentaires que tu souhaites stabiliser.",
+    "when": "La wave adverse arrive avec un petit nombre de sbires excédentaires que tu souhaites stabiliser.",
     "why": "Pour obtenir un positionnement sûr et denier du farm à l'adversaire.",
-    "who": "Tous les joueurs sur les voies en situation de contrôle.",
+    "who": "Tous les joueurs sur les lanes en situation de contrôle.",
     "how": [
      "Laisse survivre un nombre précis de sbires ennemis (2 à 4).",
      "Ne tape les sbires que pour conserver l'équilibre sans les tuer trop vite."
@@ -61836,7 +61836,7 @@
   },
   {
    "id": "u-ai-yt-YLgMgbuZ0Zk-3",
-   "claim": "Selon Dishake : congeler la vague est particulièrement utile lorsque l'adversaire est absent de la ligne, car il perd or et expérience pendant que tu sécurises ta position.",
+   "claim": "Selon Dishake : freeze la wave est particulièrement utile lorsque l'adversaire est absent de la lane, car il perd or et expérience pendant que tu sécurises ta position.",
    "champions": [],
    "roles": [
     "all"
@@ -61881,12 +61881,12 @@
    "action": "Maintiens la vague gelée de ton côté si ton vis-à-vis quitte la voie ou meurt.",
    "observe": "L'absence de l'adversaire direct sur la voie.",
    "use": {
-    "when": "Ton adversaire direct quitte la ligne ou vient d'être éliminé.",
+    "when": "Ton adversaire direct quitte la lane ou vient d'être éliminé.",
     "why": "Pour lui faire perdre un maximum de sbires et d'expérience pendant son absence.",
-    "who": "Tous les joueurs sur les voies.",
+    "who": "Tous les joueurs sur les lanes.",
     "how": [
-     "Ne pousse pas la vague vers la tour ennemie lorsque l'adversaire est absent.",
-     "Maintiens l'équilibre pour que les vagues se rencontrent près de ta zone de sécurité."
+     "Ne pousse pas la wave vers la tour ennemie lorsque l'adversaire est absent.",
+     "Maintiens l'équilibre pour que les waves se rencontrent près de ta zone de sécurité."
     ],
     "notWhen": ""
    },
@@ -61906,7 +61906,7 @@
   },
   {
    "id": "u-ai-yt-YLgMgbuZ0Zk-4",
-   "claim": "Selon Dishake : le slowpush permet d'accumuler une grande quantité de sbires pour s'assurer que la vague finisse par s'écraser sous la tour ennemie et t'offre un meilleur tempo.",
+   "claim": "Selon Dishake : le slowpush permet d'accumuler une grande quantité de sbires pour s'assurer que la wave finisse par s'écraser sous la tour ennemie et t'offre un meilleur tempo.",
    "champions": [],
    "roles": [
     "all"
@@ -61951,11 +61951,11 @@
    "observe": "La taille de ta vague de sbires par rapport à celle de l'adversaire.",
    "use": {
     "when": "Tu veux pousser mais tu penses ne pas avoir assez de puissance pour atteindre la tour directement.",
-    "why": "Pour garantir que la vague arrive sous la tour ennemie et te donne du temps pour un retour en base ou une rotation.",
-    "who": "Tous les joueurs sur les voies.",
+    "why": "Pour garantir que la wave arrive sous la tour ennemie et te donne du temps pour un back ou une rotation.",
+    "who": "Tous les joueurs sur les lanes.",
     "how": [
      "Ne tape les sbires qu'au dernier moment (last-hit) au début de l'accumulation.",
-     "Laisse tes sbires s'empiler pour former une vague compacte."
+     "Laisse tes sbires s'empiler pour former une wave compacte."
     ],
     "notWhen": ""
    },
@@ -61979,7 +61979,7 @@
   },
   {
    "id": "u-ai-yt-_hGNfCMUO6s-2",
-   "claim": "Selon Chreak : pour poser tes balises de vision (trinket) au pixel près dans les buissons étroits (comme le pixel bush de la rivière) sans les rater ou les placer à côté, configure un Normal Cast sur ta trinket (par exemple Maj + 4) : l'indicateur devient vert lorsque ton curseur se trouve dans le buisson.",
+   "claim": "Selon Chreak : pour poser tes wards de vision (trinket) au pixel près dans les buissons étroits (comme le pixel bush de la rivière) sans les rater ou les placer à côté, configure un Normal Cast sur ta trinket (par exemple Maj + 4) : l'indicateur devient vert lorsque ton curseur se trouve dans le buisson.",
    "champions": [],
    "roles": [
     "all"
@@ -62028,13 +62028,13 @@
    "action": "Lier le placement de la balise en Normal Cast sur une touche avec modificateur (ex: Maj + 4) et vérifier que l'indicateur devient vert dans le buisson.",
    "observe": "L'indicateur de la balise qui change de couleur pour devenir vert dans les buissons.",
    "use": {
-    "when": "tu souhaites poser une balise de vision dans un buisson stratégique de manière millimétrée",
-    "why": "pour éviter de rater le placement de la balise et garantir qu'elle offre la vision optimale",
+    "when": "tu souhaites poser une ward de vision dans un buisson stratégique de manière millimétrée",
+    "why": "pour éviter de rater le placement de la ward et garantir qu'elle offre la vision optimale",
     "who": "tous les postes",
     "how": [
      "Assigner le non-smart cast de la trinket sur une touche secondaire (ex: Maj + 4)",
      "Viser le buisson avec cette touche jusqu'à ce que l'indicateur devienne vert",
-     "Cliquer pour poser la balise au pixel près"
+     "Cliquer pour poser la ward au pixel près"
     ],
     "notWhen": ""
    },
@@ -62054,7 +62054,7 @@
   },
   {
    "id": "u-ai-yt-_hGNfCMUO6s-3",
-   "claim": "Selon Chreak : pour éviter de cibler accidentellement des sbires lors d'un dive sous tourelle ou d'un combat au milieu d'une vague, active le paramètre 'Target Champions Only' en mode interrupteur (toggle) sur un bouton latéral de ta souris.",
+   "claim": "Selon Chreak : pour éviter de cibler accidentellement des sbires lors d'un dive sous tourelle ou d'un combat au milieu d'une wave, active le paramètre 'Target Champions Only' en mode interrupteur (toggle) sur un bouton latéral de ta souris.",
    "champions": [],
    "roles": [
     "all"
@@ -62142,7 +62142,7 @@
   },
   {
    "id": "u-ai-yt-_hGNfCMUO6s-4",
-   "claim": "Selon Chreak : pour surveiller l'état des vagues, la santé de tes coéquipiers et anticiper les ganks ou les interventions sans bouger ta caméra principale, utilise les touches F1 à F4 pour centrer instantanément ta vue sur tes alliés.",
+   "claim": "Selon Chreak : pour surveiller l'état des waves, la santé de tes coéquipiers et anticiper les ganks ou les interventions sans bouger ta caméra principale, utilise les touches F1 à F4 pour centrer instantanément ta vue sur tes alliés.",
    "champions": [],
    "roles": [
     "jungle",
@@ -62195,13 +62195,13 @@
    "action": "Assigner F1, F2, F3 et F4 aux alliés 1 à 4 (en supprimant le centrage sur soi) et les faire défiler régulièrement en partie.",
    "observe": "La caméra qui se déplace instantanément sur les différents coéquipiers lors de l'appui sur les touches F.",
    "use": {
-    "when": "tu es en phase de lane ou en plein nettoyage de jungle et tu souhaites savoir ce qui se passe sur les autres voies",
-    "why": "pour obtenir des informations sur l'état des vagues et les risques de dive de tes coéquipiers afin de construire ton plan de jeu",
+    "when": "tu es en phase de lane ou en plein nettoyage de jungle et tu souhaites savoir ce qui se passe sur les autres lanes",
+    "why": "pour obtenir des informations sur l'état des waves et les risques de dive de tes coéquipiers afin de construire ton plan de jeu",
     "who": "tous les rôles, en particulier junglers, midlaners et supports",
     "how": [
      "Retirer le raccourci 'Select Self' des touches F",
      "Assigner F1, F2, F3, F4 aux alliés de haut en bas",
-     "Appuyer régulièrement sur ces touches pour observer les autres voies"
+     "Appuyer régulièrement sur ces touches pour observer les autres lanes"
     ],
     "notWhen": ""
    },
@@ -62267,7 +62267,7 @@
    "action": "Activer l'option 'Color blind mode' dans les paramètres vidéo.",
    "observe": "La modification de la couleur de certains sorts (comme le poison de Singed devenant bleu).",
    "use": {
-    "when": "tu es en jeu et tu veux mieux distinguer les effets de sorts au sol lors des combats d'équipe",
+    "when": "tu es en jeu et tu veux mieux distinguer les effets de sorts au sol lors des teamfights",
     "why": "pour rendre les couleurs de certains sorts plus visibles et distinctes par rapport au décor",
     "who": "tous les joueurs",
     "how": [
@@ -62543,7 +62543,7 @@
   },
   {
    "id": "u-ai-yt-34kHa32NIKQ-2",
-   "claim": "Selon Skill Capped : le « rage splitting », consistant à pousser continuellement une lane latérale même en étant en retard ou en mourant souvent, prive l'adversaire de vagues pour progresser et constitue une excellente stratégie de remontée en solo queue.",
+   "claim": "Selon Skill Capped : le « rage splitting », consistant à pousser continuellement une lane latérale même en étant en retard ou en mourant souvent, prive l'adversaire de waves pour progresser et constitue une excellente stratégie de remontée en solo queue.",
    "champions": [],
    "roles": [
     "all"
@@ -62597,7 +62597,7 @@
     "who": "les joueurs en position de faiblesse en solo queue",
     "how": [
      "Va dans une lane latérale",
-     "Pousse les vagues de sbires agressivement jusqu'à la tourelle adverse"
+     "Pousse les waves agressivement jusqu'à la tourelle adverse"
     ],
     "notWhen": ""
    },
@@ -62617,7 +62617,7 @@
   },
   {
    "id": "u-ai-yt-34kHa32NIKQ-3",
-   "claim": "Selon Skill Capped : prends deux secondes supplémentaires pour finir la vague de sbires avant de rejoindre un combat si c'est possible, afin d'éviter de concéder la priorité mid.",
+   "claim": "Selon Skill Capped : prends deux secondes supplémentaires pour finir la wave avant de rejoindre un combat si c'est possible, afin d'éviter de concéder la priorité mid.",
    "champions": [],
    "roles": [
     "all"
@@ -62672,7 +62672,7 @@
     "why": "pour empêcher l'adversaire de conserver la priorité, d'obtenir de la vision gratuite et de mettre une pression directe sur ta tourelle",
     "who": "les joueurs évoluant sur la lane du milieu ou y défendant",
     "how": [
-     "Achève les derniers sbires de la vague",
+     "Achève les derniers sbires de la wave",
      "Rejoins ensuite le combat ou le positionnement de ton équipe"
     ],
     "notWhen": ""
@@ -62746,7 +62746,7 @@
     "who": "les équipes en position défavorable",
     "how": [
      "Laisse l'adversaire prendre le premier ou le second dragon",
-     "Concentre-toi sur le farm des vagues et des camps pour réduire l'écart d'or en pourcentage"
+     "Concentre-toi sur le farm des waves et des camps pour réduire l'écart d'or en pourcentage"
     ],
     "notWhen": ""
    },
@@ -62770,7 +62770,7 @@
   },
   {
    "id": "u-ai-yt-fNvRQRe4n00-2",
-   "claim": "Selon Sixen : plutôt que d'effectuer un full clear systématique de ta jungle en ignorant la carte, saute des camps (comme les loups) pour foncer sur une ligne où un gank est rendu possible par des adversaires avancés et sans mobilité.",
+   "claim": "Selon Sixen : plutôt que d'effectuer un full clear systématique de ta jungle en ignorant la carte, saute des camps (comme les loups) pour foncer sur une lane où un gank est rendu possible par des adversaires avancés et sans mobilité.",
    "champions": [],
    "roles": [
     "jungle"
@@ -62832,13 +62832,13 @@
    "action": "Interromps ton cheminement de jungle standard pour punir des adversaires trop avancés sur une lane longue.",
    "observe": "La position des sbires et des ennemis sur la mini-carte.",
    "use": {
-    "when": "Pendant ton premier clear de jungle, lorsque tu constates qu'une ligne ennemie est trop avancée.",
+    "when": "Pendant ton premier clear de jungle, lorsque tu constates qu'une lane ennemie est trop avancée.",
     "why": "Pour surprendre l'adversaire et créer un avantage en ressources (kills) supérieur à un simple full clear standard.",
     "who": "Jungler",
     "how": [
      "Surveille la mini-carte pendant que tu nettoies tes premiers camps.",
-     "Saute un camp secondaire si une opportunité de gank apparaît sur une ligne longue.",
-     "Rejoins ta ligne pour exécuter le gank avec ton support."
+     "Saute un camp secondaire si une opportunité de gank apparaît sur une lane longue.",
+     "Rejoins ta lane pour exécuter le gank avec ton support."
     ],
     "notWhen": ""
    },
@@ -62917,7 +62917,7 @@
     "why": "Pour accumuler un différentiel de ressources massif et forcer les camps à repoper au niveau moyen de la partie.",
     "who": "Jungler",
     "how": [
-     "Repère le jungler adverse sur une ligne opposée.",
+     "Repère le jungler adverse sur une lane opposée.",
      "Entre dans sa jungle pour tuer ses camps.",
      "Profitez de l'XP bonifiée lors du prochain respawn si tu les recontrôles."
     ],
@@ -62952,7 +62952,7 @@
   },
   {
    "id": "u-ai-yt-Xq3Hs3ofEwg-1",
-   "claim": "Selon Mysteriaslol : en milieu de partie, donne la priorité au fait de forcer l'adversaire à répondre à tes vagues sur les voies latérales plutôt que de réagir à ses propres mouvements.",
+   "claim": "Selon Mysteriaslol : en milieu de partie, donne la priorité au fait de forcer l'adversaire à répondre à tes waves sur les side lanes plutôt que de réagir à ses propres mouvements.",
    "champions": [],
    "roles": [
     "all"
@@ -63003,12 +63003,12 @@
    "action": "Pousser une vague latérale au-delà de la rivière avant de rejoindre ton équipe pour un regroupement.",
    "observe": "",
    "use": {
-    "when": "Milieu de partie, tu as une vague de sbires proche de ta tour sur une voie latérale.",
+    "when": "Milieu de partie, tu as une wave proche de ta tour sur une side lane.",
     "why": "Cela te redonne la proactivité, force l'ennemi à faire des erreurs et crée des opportunités de supériorité numérique.",
     "who": "Tout joueur en milieu de partie, particulièrement les midlaners ou side-laners.",
     "how": [
-     "Pousse ta vague de sbires le plus loin possible sur le côté.",
-     "Ne rejoins ton équipe que lorsque l'adversaire est obligé de s'occuper de cette vague.",
+     "Pousse ta wave le plus loin possible sur le côté.",
+     "Ne rejoins ton équipe que lorsque l'adversaire est obligé de s'occuper de cette wave.",
      "Utilise ce temps d'avance pour créer un avantage numérique ailleurs."
     ],
     "notWhen": ""
@@ -63080,7 +63080,7 @@
    "action": "Utilise le sort QQ de Hwei à répétition pour harceler le champion adverse à travers les sbires en phase de lane.",
    "observe": "La fréquence de l'utilisation du sort QQ sur les vagues de sbires et l'adversaire.",
    "use": {
-    "when": "tu es en phase de lane avec Hwei et ton adversaire se trouve derrière sa ligne de sbires",
+    "when": "tu es en phase de lane avec Hwei et ton adversaire se trouve derrière sa lane de sbires",
     "why": "le QQ est la source principale de dégâts de Hwei et permet de toucher à travers les sbires",
     "who": "Hwei mid",
     "how": [
@@ -63184,7 +63184,7 @@
   },
   {
    "id": "u-ai-yt-z8jp-YjOwI0-2",
-   "claim": "Selon Skill Capped : pour les supports corps-à-corps, utilisez vos charges d'objet support pour exécuter deux sbires de la deuxième vague afin d'obtenir le niveau 2 instantanément.",
+   "claim": "Selon Skill Capped : pour les supports corps-à-corps, utilisez vos charges d'item support pour exécuter deux sbires de la deuxième wave afin d'obtenir le niveau 2 instantanément.",
    "champions": [],
    "roles": [
     "support"
@@ -63232,12 +63232,12 @@
    "action": "Conserver deux charges d'objet support pour la deuxième vague et exécuter deux sbires pour débloquer le niveau 2 avant vos adversaires.",
    "observe": "Votre barre de niveau passe à 2 avant les champions ennemis.",
    "use": {
-    "when": "Tu joues un support corps-à-corps et la deuxième vague de la voie du bas arrive.",
+    "when": "Tu joues un support corps-à-corps et la deuxième wave de la bot lane arrive.",
     "why": "Cela permet d'atteindre le pic de puissance du niveau 2 ou 3 en premier.",
     "who": "Supports jouant des champions corps-à-corps",
     "how": [
-     "Ne gaspillez pas vos charges d'objet support en début de première vague",
-     "Exécutez deux sbires sur la deuxième vague dès qu'ils passent sous le seuil d'exécution"
+     "Ne gaspillez pas vos charges d'item support en début de première wave",
+     "Exécutez deux sbires sur la deuxième wave dès qu'ils passent sous le seuil d'exécution"
     ],
     "notWhen": ""
    },
@@ -63257,7 +63257,7 @@
   },
   {
    "id": "u-ai-yt-z8jp-YjOwI0-3",
-   "claim": "Selon Skill Capped : considérez la vie de votre ADC et la vôtre comme une jauge de santé combinée pour évaluer si vous gagnez les échanges sur la voie.",
+   "claim": "Selon Skill Capped : considérez la vie de votre ADC et la vôtre comme une jauge de santé combinée pour évaluer si vous gagnez les échanges sur la lane.",
    "champions": [],
    "roles": [
     "support"
@@ -63305,7 +63305,7 @@
    "action": "Surveiller les points de vie de votre duo par rapport au duo adverse pour décider d'engager ou de reculer.",
    "observe": "Le solde des barres de vie de votre duo est supérieur ou inférieur à celui des adversaires.",
    "use": {
-    "when": "Tu es en phase de laning sur la voie du bas avec ton ADC.",
+    "when": "Tu es en phase de laning sur la bot lane avec ton ADC.",
     "why": "Le total des points de vie des deux membres de la botlane sert de jauge de puissance globale pour dicter l'agressivité.",
     "who": "Joueurs de support",
     "how": [
@@ -63330,7 +63330,7 @@
   },
   {
    "id": "u-ai-yt-z8jp-YjOwI0-5",
-   "claim": "Selon Skill Capped : ne vous aventurez pas à poser de la vision sur la carte si la vague du milieu n'est pas poussée au préalable.",
+   "claim": "Selon Skill Capped : ne vous aventurez pas à poser de la vision sur la carte si la wave du milieu n'est pas poussée au préalable.",
    "champions": [],
    "roles": [
     "support"
@@ -63379,11 +63379,11 @@
    "action": "Pousser la vague de la midlane avant d'aller poser des balises dans la rivière ou la jungle.",
    "observe": "Les sbires de la voie du milieu sont du côté ennemi ou au centre avant de vous déplacer.",
    "use": {
-    "when": "Tu veux placer des balises de vision dans la jungle ou la rivière mais la voie du milieu n'est pas gérée.",
-    "why": "Si les ennemis ne montrent pas sur la vague, cela indique qu'ils rôdent dans la zone obscure pour vous tendre un piège.",
+    "when": "Tu veux placer des wards de vision dans la jungle ou la rivière mais la mid lane n'est pas gérée.",
+    "why": "Si les ennemis ne montrent pas sur la wave, cela indique qu'ils rôdent dans la zone obscure pour vous tendre un piège.",
     "who": "Joueurs de support",
     "how": [
-     "Aider à nettoyer ou pousser la vague du milieu",
+     "Aider à nettoyer ou pousser la wave du milieu",
      "Se diriger ensuite vers les zones sombres pour poser la vision en sécurité"
     ],
     "notWhen": ""
@@ -63404,7 +63404,7 @@
   },
   {
    "id": "u-ai-yt-z8jp-YjOwI0-6",
-   "claim": "Selon Skill Capped : la majorité des supports à haut elo évitent d'acheter des balises de contrôle tant qu'ils n'ont pas complété leur quête d'objet support.",
+   "claim": "Selon Skill Capped : la majorité des supports à haut elo évitent d'acheter des control wards tant qu'ils n'ont pas complété leur quête d'item support.",
    "champions": [],
    "roles": [
     "support"
@@ -63453,11 +63453,11 @@
    "observe": "Votre inventaire de début de partie ne contient pas de balises de contrôle avant la complétion de l'objet support.",
    "use": {
     "when": "Tu disposes d'un petit pécule de 75 gold ou plus en quittant la fontaine en début de partie.",
-    "why": "Acheter des balises de contrôle trop tôt retarde l'obtention des objets finaux de manière excessive.",
+    "why": "Acheter des control wards trop tôt retarde l'obtention des items finaux de manière excessive.",
     "who": "Joueurs de support",
     "how": [
      "Garder votre or pour vos composants principaux",
-     "Attendre d'avoir terminé la quête de l'objet support avant d'investir dans des balises de contrôle"
+     "Attendre d'avoir terminé la quête de l'item support avant d'investir dans des control wards"
     ],
     "notWhen": ""
    },
@@ -63607,11 +63607,11 @@
    "observe": "Observe le temps de recharge du sort principal de l'ennemi.",
    "use": {
     "when": "L'adversaire vient de lancer son sort principal sans raison.",
-    "why": "Il n'a plus son sort pour se défendre ou riposter pendant le temps de recharge.",
+    "why": "Il n'a plus son sort pour se défendre ou riposter pendant le cooldown.",
     "who": "Tous les laners",
     "how": [
      "Identifie le sort principal gaspillé",
-     "Attaque l'adversaire avant la fin de son temps de recharge"
+     "Attaque l'adversaire avant la fin de son cooldown"
     ],
     "notWhen": ""
    },
@@ -63653,7 +63653,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon bagelsen314 (Dignitas) : dans une vague, le sbire canon passe avant tout ; assure son last hit, au besoin avec une compétence. Ensuite les sbires de mêlée, puis les casters, dans l'ordre de l'or qu'ils rapportent.",
+   "claim": "Selon bagelsen314 (Dignitas) : dans une wave, le sbire canon passe avant tout ; assure son last hit, au besoin avec une compétence. Ensuite les sbires de mêlée, puis les casters, dans l'ordre de l'or qu'ils rapportent.",
    "roles": [
     "top",
     "mid",
@@ -63679,11 +63679,11 @@
     }
    ],
    "use": {
-    "when": "Phase de lane, à chaque vague, surtout celles avec un sbire canon.",
+    "when": "Phase de lane, à chaque wave, surtout celles avec un sbire canon.",
     "why": "Le sbire canon rapporte le plus d'or, puis les sbires de mêlée, puis les casters.",
     "who": "Laners (top, mid, ADC).",
     "how": [
-     "Repère le sbire canon dès que la vague arrive.",
+     "Repère le sbire canon dès que la wave arrive.",
      "Garde une compétence pour assurer son last hit si tu risques de le rater.",
      "Ensuite, priorise les sbires de mêlée, puis les casters."
     ],
@@ -63747,7 +63747,7 @@
     }
    ],
    "use": {
-    "when": "La vague adverse arrive sous ta tourelle.",
+    "when": "La wave adverse arrive sous ta tourelle.",
     "why": "",
     "who": "Laners, surtout en début de partie, quand tes attaques font peu de dégâts.",
     "how": [
@@ -63796,7 +63796,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon bagelsen314 (Dignitas) : entraîne ton last hit dans l'outil d'entraînement, sans objet ni rune qui aide à farmer, avec seulement des attaques de base, par séances de 10 minutes.",
+   "claim": "Selon bagelsen314 (Dignitas) : entraîne ton last hit dans l'outil d'entraînement, sans item ni rune qui aide à farmer, avec seulement des attaques de base, par séances de 10 minutes.",
    "roles": [
     "top",
     "mid",
@@ -63826,7 +63826,7 @@
     "why": "",
     "who": "Laners qui ratent des sbires faciles.",
     "how": [
-     "Lance l'outil d'entraînement sans objet acheté.",
+     "Lance l'outil d'entraînement sans item acheté.",
      "Va en lane et farme 10 minutes avec tes attaques de base seulement.",
      "Compare ton nombre de sbires d'une séance à l'autre, puis ajoute tes compétences."
     ],
@@ -63862,7 +63862,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon bagelsen314 (Dignitas) : quand un adversaire peut te punir ou qu'un gank arrive, recule de la vague et concède quelques sbires ; t'acharner sur le dernier CS te fait souvent mourir et rater bien plus de farm.",
+   "claim": "Selon bagelsen314 (Dignitas) : quand un adversaire peut te punir ou qu'un gank arrive, recule de la wave et concède quelques sbires ; t'acharner sur le dernier CS te fait souvent mourir et rater bien plus de farm.",
    "roles": [
     "top",
     "mid",
@@ -63889,12 +63889,12 @@
    ],
    "use": {
     "when": "Phase de lane, quand l'adversaire a ses compétences pour te punir ou qu'un adversaire vient roam ou ganker.",
-    "why": "Mourir pour un sbire te fait perdre toute la vague, et souvent la suivante.",
+    "why": "Mourir pour un sbire te fait perdre toute la wave, et souvent la suivante.",
     "who": "Laners.",
     "how": [
      "Repère si l'adversaire a ses compétences d'attaque disponibles.",
-     "Si un gank ou un roam arrive, recule de la vague.",
-     "Récupère les sbires quand la vague revient vers ta tourelle."
+     "Si un gank ou un roam arrive, recule de la wave.",
+     "Récupère les sbires quand la wave revient vers ta tourelle."
     ],
     "notWhen": ""
    },
@@ -63937,7 +63937,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon bagelsen314 (Dignitas) : après la phase de lane, quand ton équipe recule pour se soigner, continue de farmer sans t'avancer : prends les vagues qui viennent vers toi ou tes camps de jungle.",
+   "claim": "Selon bagelsen314 (Dignitas) : après la phase de lane, quand ton équipe back, continue de farmer sans t'avancer : prends les waves qui viennent vers toi ou tes camps de jungle.",
    "roles": [
     "top",
     "mid",
@@ -63961,7 +63961,7 @@
     "why": "",
     "who": "Laners après la phase de lane.",
     "how": [
-     "Regarde quelles vagues arrivent de ton côté de la carte.",
+     "Regarde quelles waves arrivent de ton côté de la carte.",
      "Farme-les sans dépasser la zone que ton équipe contrôle.",
      "Sinon, prends tes camps de jungle."
     ],
@@ -63999,7 +63999,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon honeydip (Dignitas) : quand une grosse vague va s'écraser sur toi, réduis-la avant qu'elle arrive sous ta tourelle, et garde les sbires hors de portée de la tourelle pour farmer plus facilement.",
+   "claim": "Selon honeydip (Dignitas) : quand une grosse wave va s'écraser sur toi, réduis-la avant qu'elle arrive sous ta tourelle, et garde les sbires hors de portée de la tourelle pour farmer plus facilement.",
    "roles": [
     "top",
     "mid",
@@ -64025,11 +64025,11 @@
     }
    ],
    "use": {
-    "when": "Phase de lane, une grosse vague adverse pousse vers ta tourelle.",
+    "when": "Phase de lane, une grosse wave adverse pousse vers ta tourelle.",
     "why": "",
     "who": "Laners.",
     "how": [
-     "Repère la vague adverse plus grosse que la tienne.",
+     "Repère la wave adverse plus grosse que la tienne.",
      "Last hit ses sbires avant qu'elle atteigne ta tourelle.",
      "Si possible, garde le combat de sbires hors de portée de la tourelle."
     ],
@@ -64065,7 +64065,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon EkardD (Dignitas, saison 16) : en top, le « cheater recall » consiste à tuer le dernier caster de la deuxième vague quand la troisième arrive, à pousser vite la vague du canon sous la tourelle adverse, puis à rentrer aussitôt à la base, sans perdre de sbires.",
+   "claim": "Selon EkardD (Dignitas, saison 16) : en top, le « cheater recall » consiste à tuer le dernier caster de la deuxième wave quand la troisième arrive, à pousser vite la wave du canon sous la tourelle adverse, puis à rentrer aussitôt à la base, sans perdre de sbires.",
    "roles": [
     "top"
    ],
@@ -64089,12 +64089,12 @@
     }
    ],
    "use": {
-    "when": "Les trois premières vagues de la partie, en top.",
-    "why": "La vague du canon met du temps à être nettoyée : tu reviens avec un objet pendant que l'adversaire doit garder la vague ou la perdre.",
+    "when": "Les trois premières waves de la partie, en top.",
+    "why": "La wave du canon met du temps à être nettoyée : tu reviens avec un item pendant que l'adversaire doit garder la wave ou la perdre.",
     "who": "Top laners.",
     "how": [
-     "Tue le dernier caster de la deuxième vague quand la troisième arrive.",
-     "Pousse la troisième vague (celle du canon) le plus vite possible.",
+     "Tue le dernier caster de la deuxième wave quand la troisième arrive.",
+     "Pousse la troisième wave (celle du canon) le plus vite possible.",
      "Rentre à la base dès qu'elle s'écrase sous la tourelle adverse."
     ],
     "notWhen": ""
@@ -64129,7 +64129,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon EkardD (Dignitas, saison 16) : en mid, ne pousse vite ta vague que si tu as une raison (roam, aide au jungler, retour à la base) : les sbires reviennent plus vite qu'en top, et tu peux perdre plus d'une demi-vague si tu ne reviens pas à temps.",
+   "claim": "Selon EkardD (Dignitas, saison 16) : en mid, ne pousse vite ta wave que si tu as une raison (roam, aide au jungler, back) : les sbires reviennent plus vite qu'en top, et tu peux perdre plus d'une demi-wave si tu ne reviens pas à temps.",
    "roles": [
     "mid"
    ],
@@ -64153,13 +64153,13 @@
     }
    ],
    "use": {
-    "when": "Phase de lane en mid, avant de pousser vite ta vague.",
+    "when": "Phase de lane en mid, avant de pousser vite ta wave.",
     "why": "Les sbires reviennent plus vite en mid qu'en top.",
     "who": "Mid laners.",
     "how": [
      "Avant de pousser vite, décide ce que tu fais ensuite (roam, aide, retour).",
-     "Sans raison, garde ta vague au milieu ou pousse lentement.",
-     "Si tu pars, reviens à temps pour la vague suivante."
+     "Sans raison, garde ta wave au milieu ou pousse lentement.",
+     "Si tu pars, reviens à temps pour la wave suivante."
     ],
     "notWhen": ""
    },
@@ -64195,7 +64195,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon EkardD (Dignitas, saison 16) : pour un freeze, garde la vague juste devant ta tourelle, hors de sa portée, et ne frappe les sbires que lorsqu'ils sont assez bas pour le last hit. À réserver aux situations où tu as un net avantage et où rien ne se passe sur la carte.",
+   "claim": "Selon EkardD (Dignitas, saison 16) : pour un freeze, garde la wave juste devant ta tourelle, hors de sa portée, et ne frappe les sbires que lorsqu'ils sont assez bas pour le last hit. À réserver aux situations où tu as un net avantage et où rien ne se passe sur la carte.",
    "roles": [
     "top"
    ],
@@ -64225,13 +64225,13 @@
     }
    ],
    "use": {
-    "when": "Phase de lane, tu as un net avantage et la vague revient vers ta tourelle.",
+    "when": "Phase de lane, tu as un net avantage et la wave revient vers ta tourelle.",
     "why": "",
     "who": "Top laners.",
     "how": [
-     "Laisse la vague adverse venir juste devant ta tourelle, hors de sa portée.",
+     "Laisse la wave adverse venir juste devant ta tourelle, hors de sa portée.",
      "Ne frappe un sbire que pour le last hit.",
-     "Si la vague se rapproche de la tourelle, attire-la hors de portée."
+     "Si la wave se rapproche de la tourelle, attire-la hors de portée."
     ],
     "notWhen": "Tu n'as pas d'avantage net, ou un objectif se joue sur la carte."
    },
@@ -64267,7 +64267,7 @@
    "nature": "opinion",
    "levelContext": "pro",
    "usage": "reference",
-   "claim": "Selon Dardoch (ex-jungler professionnel de LCS) : en début de partie, il vaut mieux farmer jusqu'au niveau 3 et tuer le plus de camps possible avant l'apparition du Carapateur.",
+   "claim": "Selon Dardoch (ex-jungler professionnel de LCS) : en début de partie, il vaut mieux farmer jusqu'au niveau 3 et tuer le plus de camps possible avant l'apparition du Scuttle.",
    "roles": [
     "jungle"
    ],
@@ -64290,7 +64290,7 @@
     "how": [
      "Prépare ton chemin de camps avant le début de la partie.",
      "Enchaîne les camps jusqu'au niveau 3 au moins.",
-     "Arrive au Carapateur avec tes camps faits."
+     "Arrive au Scuttle avec tes camps faits."
     ],
     "notWhen": ""
    },
@@ -64457,7 +64457,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon Zooph (Dignitas) : en mid, roame quand tu as la priorité de lane (ta vague pousse vers l'adversaire) : il lui est alors plus difficile de suivre ton roam.",
+   "claim": "Selon Zooph (Dignitas) : en mid, roame quand tu as la priorité de lane (ta wave pousse vers l'adversaire) : il lui est alors plus difficile de suivre ton roam.",
    "roles": [
     "mid"
    ],
@@ -64475,13 +64475,13 @@
     }
    ],
    "use": {
-    "when": "Phase de lane en mid, quand ta vague pousse vers la tourelle adverse.",
-    "why": "Ton adversaire doit choisir entre sa vague et te suivre.",
+    "when": "Phase de lane en mid, quand ta wave pousse vers la tourelle adverse.",
+    "why": "Ton adversaire doit choisir entre sa wave et te suivre.",
     "who": "Mids.",
     "how": [
-     "Pousse ta vague vers la tourelle adverse.",
+     "Pousse ta wave vers la tourelle adverse.",
      "Regarde la minimap pour choisir une lane où aller.",
-     "Pars dès que ta vague arrive sous sa tourelle."
+     "Pars dès que ta wave arrive sous sa tourelle."
     ],
     "notWhen": ""
    },
@@ -64515,7 +64515,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon Zooph (Dignitas) : ne roame pas quand ta vague est complètement poussée sous ta tourelle : tu perdrais beaucoup d'or et d'expérience, et ta tourelle prendrait de gros dégâts.",
+   "claim": "Selon Zooph (Dignitas) : ne roame pas quand ta wave est complètement poussée sous ta tourelle : tu perdrais beaucoup d'or et d'expérience, et ta tourelle prendrait de gros dégâts.",
    "roles": [
     "mid"
    ],
@@ -64533,11 +64533,11 @@
     }
    ],
    "use": {
-    "when": "Avant de quitter le mid, quand la vague adverse est sous ta tourelle.",
+    "when": "Avant de quitter le mid, quand la wave adverse est sous ta tourelle.",
     "why": "Les sbires sous ta tourelle sont perdus pendant ton absence, et ta tourelle encaisse.",
     "who": "Mids.",
     "how": [
-     "Regarde où est ta vague avant de partir.",
+     "Regarde où est ta wave avant de partir.",
      "Si elle est sous ta tourelle, farme-la d'abord.",
      "Roame seulement quand elle repart vers l'adversaire."
     ],
@@ -64577,7 +64577,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon Zooph (Dignitas) : suis le roam de ton adversaire seulement si tu n'es pas déjà loin derrière ; s'il a deux niveaux ou un gros avantage d'objets, il risque de se retourner et de te tuer. Préviens plutôt ton équipe et farme pour revenir.",
+   "claim": "Selon Zooph (Dignitas) : suis le roam de ton adversaire seulement si tu n'es pas déjà loin derrière ; s'il a deux niveaux ou un gros avantage d'items, il risque de se retourner et de te tuer. Préviens plutôt ton équipe et farme pour revenir.",
    "roles": [
     "mid"
    ],
@@ -64605,8 +64605,8 @@
     "why": "Avec son avance, il gagne le combat s'il se retourne contre toi.",
     "who": "Mids en retard dans leur lane.",
     "how": [
-     "Compare ton niveau et tes objets aux siens.",
-     "Si tu es à égalité, prends ta vague puis suis-le.",
+     "Compare ton niveau et tes items aux siens.",
+     "Si tu es à égalité, prends ta wave puis suis-le.",
      "Si tu es loin derrière, ping-le absent et farme."
     ],
     "notWhen": ""
@@ -64662,7 +64662,7 @@
     "why": "",
     "who": "Mids.",
     "how": [
-     "Regarde la position des vagues en top et en bot.",
+     "Regarde la position des waves en top et en bot.",
      "Repère où tes alliés sont poussés ou en difficulté.",
      "Va là où ton aide peut encore changer la lane."
     ],
@@ -64698,7 +64698,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon ISO (Dignitas) : roame après avoir écrasé plusieurs vagues sur la tourelle adverse, ou quand la prochaine vague a un sbire canon : l'adversaire met plus de temps à les nettoyer et tu perds moins en partant.",
+   "claim": "Selon ISO (Dignitas) : roame après avoir écrasé plusieurs waves sur la tourelle adverse, ou quand la prochaine wave a un sbire canon : l'adversaire met plus de temps à les nettoyer et tu perds moins en partant.",
    "roles": [
     "mid"
    ],
@@ -64717,12 +64717,12 @@
    ],
    "use": {
     "when": "Phase de lane en mid, avant un roam.",
-    "why": "Une vague canon ou une grosse vague écrasée sous la tourelle met longtemps à revenir chez toi.",
+    "why": "Une wave canon ou une grosse wave écrasée sous la tourelle met longtemps à revenir chez toi.",
     "who": "Mids.",
     "how": [
-     "Laisse ta vague grossir sur deux ou trois vagues.",
-     "Écrase-la sur la tourelle adverse, ou attends la vague canon.",
-     "Pars roam, puis reviens pour la vague suivante."
+     "Laisse ta wave grossir sur deux ou trois waves.",
+     "Écrase-la sur la tourelle adverse, ou attends la wave canon.",
+     "Pars roam, puis reviens pour la wave suivante."
     ],
     "notWhen": ""
    },
@@ -64756,7 +64756,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon ISO (Dignitas) : avant de roam, regarde la lane visée avec ta caméra, pas seulement sur la minimap : si ton bot lane prépare un dive, écrase vite ta vague en mid et descends.",
+   "claim": "Selon ISO (Dignitas) : avant de roam, regarde la lane visée avec ta caméra, pas seulement sur la minimap : si ton bot lane prépare un dive, écrase vite ta wave en mid et descends.",
    "roles": [
     "mid"
    ],
@@ -64785,8 +64785,8 @@
     "who": "Mids.",
     "how": [
      "Déplace ta caméra sur la lane visée.",
-     "Si tes alliés préparent un dive, écrase ta vague en mid.",
-     "Rejoins-les, puis rentre ou reviens pour ta vague suivante."
+     "Si tes alliés préparent un dive, crash ta wave en mid.",
+     "Rejoins-les, puis rentre ou reviens pour ta wave suivante."
     ],
     "notWhen": ""
    },
@@ -64842,7 +64842,7 @@
     }
    ],
    "use": {
-    "when": "Tes lanes de côté perdent lourdement.",
+    "when": "Tes side lanes perdent lourdement.",
     "why": "Un roam dans une lane très en retard se termine souvent par plusieurs morts.",
     "who": "Mids.",
     "how": [
@@ -64882,7 +64882,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon ISO (Dignitas) : contre un mid qui roame, tu peux repousser ta vague et suivre son roam, faire autre chose d'utile (envahir avec ton jungler, aller en top), ou au minimum le signaler absent pour que tes alliés jouent prudemment.",
+   "claim": "Selon ISO (Dignitas) : contre un mid qui roame, tu peux repousser ta wave et suivre son roam, faire autre chose d'utile (invade avec ton jungler, aller en top), ou au minimum le signaler absent pour que tes alliés jouent prudemment.",
    "roles": [
     "mid"
    ],
@@ -64911,7 +64911,7 @@
     "who": "Mids.",
     "how": [
      "Ping-le absent tout de suite.",
-     "Repousse ta vague.",
+     "Repousse ta wave.",
      "Suis son roam, ou va jouer ailleurs avec ton jungler."
     ],
     "notWhen": ""
@@ -64946,7 +64946,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon Teatones (Dignitas) : avant de roam en support, demande-toi d'abord si ton ADC peut rester en sécurité et continuer à farmer ; face à un bot lane agressif capable de plonger, ne le laisse pas seul.",
+   "claim": "Selon Teatones (Dignitas) : avant de roam en support, demande-toi d'abord si ton ADC peut rester en sécurité et continuer à farmer ; face à un bot lane agressif capable de dive, ne le laisse pas seul.",
    "roles": [
     "support"
    ],
@@ -64974,7 +64974,7 @@
     "why": "Ton ADC a besoin de farmer en sécurité pour peser plus tard.",
     "who": "Supports.",
     "how": [
-     "Regarde le duo adverse : peut-il plonger sur ton ADC ?",
+     "Regarde le duo adverse : peut-il dive sur ton ADC ?",
      "Regarde si ton ADC a de quoi fuir.",
      "S'il est en danger, reste ; sinon, pars roam."
     ],
@@ -65010,7 +65010,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon Teatones (Dignitas) : une lane est bonne à ganker quand l'adversaire a utilisé sa mobilité ou son ultime dans un échange, quand son Flash ou son sort défensif est indisponible, ou quand ton allié a un avantage de niveau ou d'objets.",
+   "claim": "Selon Teatones (Dignitas) : une lane est bonne à ganker quand l'adversaire a utilisé sa mobilité ou son ult dans un échange, quand son Flash ou son sort défensif est indisponible, ou quand ton allié a un avantage de niveau ou d'items.",
    "roles": [
     "support",
     "jungle",
@@ -65327,7 +65327,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon Fordola (Dignitas) : en jungle, à chaque retour à la base, regarde l'état des vagues de chaque lane pour choisir par où passer et quelle lane ganker.",
+   "claim": "Selon Fordola (Dignitas) : en jungle, à chaque back, regarde l'état des waves de chaque lane pour choisir par où passer et quelle lane ganker.",
    "roles": [
     "jungle"
    ],
@@ -65345,8 +65345,8 @@
     }
    ],
    "use": {
-    "when": "Pendant chaque retour à la base.",
-    "why": "La position des vagues dit quelle lane peut être gankée.",
+    "when": "Pendant chaque back.",
+    "why": "La position des waves dit quelle lane peut être gankée.",
     "who": "Junglers.",
     "how": [
      "Pendant ton retour, déplace ta caméra sur chaque lane.",
@@ -65403,12 +65403,12 @@
     }
    ],
    "use": {
-    "when": "Pendant tes clears, quand une vague est gelée près de la tourelle de ton allié.",
+    "when": "Pendant tes clears, quand une wave est gelée près de la tourelle de ton allié.",
     "why": "L'adversaire doit s'avancer loin pour farmer : il devient facile à ganker.",
     "who": "Junglers.",
     "how": [
      "Pendant tes clears, regarde régulièrement tes lanes.",
-     "Repère un allié qui gèle sa vague.",
+     "Repère un allié qui gèle sa wave.",
      "Laisse un camp et va ganker."
     ],
     "notWhen": ""
@@ -65443,7 +65443,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon Fordola (Dignitas) : pour aider ton jungler à ganker, garde ta vague près de ta tourelle sans être dessous, et pas trop grosse : sinon les sbires peuvent faire perdre le combat à deux contre un.",
+   "claim": "Selon Fordola (Dignitas) : pour aider ton jungler à ganker, garde ta wave près de ta tourelle sans être dessous, et pas trop grosse : sinon les sbires peuvent faire perdre le combat à deux contre un.",
    "roles": [
     "top",
     "mid",
@@ -65467,7 +65467,7 @@
     "why": "L'adversaire doit s'avancer pour farmer, et les sbires ne pèsent pas trop dans le gank.",
     "who": "Laners.",
     "how": [
-     "Laisse la vague revenir près de ta tourelle.",
+     "Laisse la wave revenir près de ta tourelle.",
      "Évite qu'elle grossisse trop.",
      "Préviens ton jungler quand l'adversaire est avancé."
     ],
@@ -65532,7 +65532,7 @@
    ],
    "use": {
     "when": "Un gank où l'adversaire s'échappe avec Flash.",
-    "why": "Selon lui, faire utiliser un sort d'invocateur apporte déjà de la valeur à ton équipe.",
+    "why": "Selon lui, faire utiliser un summoner apporte déjà de la valeur à ton équipe.",
     "who": "Tous les postes.",
     "how": [
      "S'il utilise son Flash, regarde où il fuit.",
@@ -66096,7 +66096,7 @@
     }
    ],
    "use": {
-    "when": "Avant un retour à la base.",
+    "when": "Avant un back.",
     "why": "Une ward qui vit pendant que tu es à la base sert peu.",
     "who": "Junglers, supports et mids.",
     "how": [
@@ -66136,7 +66136,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon bagelsen314 (Dignitas) : si tu vois le jungler adverse ganker ton bot puis rentrer à la base, pose une ward dans la partie haute de sa jungle : il ne peut pas la défendre et il y retournera sans doute pour ses camps.",
+   "claim": "Selon bagelsen314 (Dignitas) : si tu vois le jungler adverse ganker ton bot puis back, pose une ward dans la partie haute de sa jungle : il ne peut pas la défendre et il y retournera sans doute pour ses camps.",
    "roles": [
     "jungle",
     "support",
@@ -66156,11 +66156,11 @@
     }
    ],
    "use": {
-    "when": "Début de partie, juste après un gank adverse en bot suivi d'un retour à la base.",
+    "when": "Début de partie, juste après un gank adverse en bot suivi d'un back.",
     "why": "Tu sais où il va réapparaître, et tu peux jouer agressif ailleurs.",
     "who": "Junglers, supports et mids.",
     "how": [
-     "Note le retour à la base du jungler adverse.",
+     "Note un back du jungler adverse.",
      "Va poser une ward dans le haut de sa jungle.",
      "Joue selon ce qu'elle montre."
     ],
@@ -66196,7 +66196,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon bagelsen314 (Dignitas) : ne va pas poser une ward dans la jungle adverse seul, sans pression de vague ni information sur les adversaires : fais-le avec un allié, quand tes vagues poussent, ou quand tu sais où ils sont.",
+   "claim": "Selon bagelsen314 (Dignitas) : ne va pas poser une ward dans la jungle adverse seul, sans pression de wave ni information sur les adversaires : fais-le avec un allié, quand tes waves poussent, ou quand tu sais où ils sont.",
    "roles": [
     "jungle",
     "support",
@@ -66220,7 +66220,7 @@
     "why": "Seul et sans information, tu risques de mourir pour une ward.",
     "who": "Tous les postes qui posent des wards profondes.",
     "how": [
-     "Vérifie que tes vagues poussent.",
+     "Vérifie que tes waves poussent.",
      "Vérifie où sont les adversaires sur la minimap.",
      "Sinon, va poser la ward avec un allié."
     ],
@@ -66256,7 +66256,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon bagelsen314 (Dignitas) : pose tes balises de contrôle presque toujours dans un buisson, et au moment où tu peux les défendre un moment ; hors d'un buisson, c'est surtout autour des objectifs.",
+   "claim": "Selon bagelsen314 (Dignitas) : pose tes control wards presque toujours dans un buisson, et au moment où tu peux les défendre un moment ; hors d'un buisson, c'est surtout autour des objectifs.",
    "roles": [
     "jungle",
     "support",
@@ -66281,12 +66281,12 @@
     }
    ],
    "use": {
-    "when": "Quand tu poses une balise de contrôle.",
+    "when": "Quand tu poses une control ward.",
     "why": "Dans un buisson, elle est plus facile à défendre et voit les wards cachées à côté.",
     "who": "Junglers, supports et mids.",
     "how": [
      "Choisis un buisson près de ta zone de jeu.",
-     "Pose la balise quand ton jungler ou ta vague te protègent.",
+     "Pose la ward quand ton jungler ou ta wave te protègent.",
      "Autour d'un objectif neutre, comme le dragon, tu peux la poser hors du buisson."
     ],
     "notWhen": ""
@@ -66456,7 +66456,7 @@
    "nature": "opinion",
    "levelContext": "pro",
    "usage": "reference",
-   "claim": "Selon Spawn (ADC de LCS) : quand tu es en retard, joue pour le farm et pour ne pas mourir ; vise ta montée en puissance à deux ou trois objets plutôt que des combats risqués.",
+   "claim": "Selon Spawn (ADC de LCS) : quand tu es en retard, joue pour le farm et pour ne pas mourir ; vise ta montée en puissance à deux ou trois items plutôt que des combats risqués.",
    "roles": [
     "bottom"
    ],
@@ -66481,7 +66481,7 @@
    ],
    "use": {
     "when": "Ta lane ou ton équipe est en retard.",
-    "why": "Un ADC dépend de ses objets : le farm l'y amène plus sûrement que des combats perdus.",
+    "why": "Un ADC dépend de ses items : le farm l'y amène plus sûrement que des combats perdus.",
     "who": "ADC.",
     "how": [
      "Prends les sbires que tu peux prendre en sécurité.",
@@ -66622,7 +66622,7 @@
     "why": "Tes dégâts constants sont faits pour les tourelles et les objectifs.",
     "who": "ADC en avance.",
     "how": [
-     "Pousse ta vague et frappe la tourelle.",
+     "Pousse ta wave et frappe la tourelle.",
      "Va au dragon avant qu'il apparaisse.",
      "Reste près de tes alliés et dans les zones éclairées."
     ],
@@ -66658,7 +66658,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon ISO (Dignitas) : en mid, tu peux quitter ta lane en perdant peu d'or et d'expérience, parfois rien : écrase ta vague chez l'adversaire, pars, et reviens à temps pour la vague suivante.",
+   "claim": "Selon ISO (Dignitas) : en mid, tu peux quitter ta lane en perdant peu d'or et d'expérience, parfois rien : crash ta wave chez l'adversaire, pars, et reviens à temps pour la wave suivante.",
    "roles": [
     "mid"
    ],
@@ -66689,12 +66689,12 @@
    ],
    "use": {
     "when": "Phase de lane en mid, avant de quitter ta lane.",
-    "why": "L'expérience des sbires ne se gagne qu'à côté d'eux : une vague ratée est perdue.",
+    "why": "L'expérience des sbires ne se gagne qu'à côté d'eux : une wave ratée est perdue.",
     "who": "Mids.",
     "how": [
-     "Écrase d'abord ta vague sous la tourelle adverse.",
-     "Pars une fois ta vague écrasée.",
-     "Reviens au mid avant que la vague suivante arrive chez toi."
+     "Écrase d'abord ta wave sous la tourelle adverse.",
+     "Pars une fois ta wave écrasée.",
+     "Reviens au mid avant que la wave suivante arrive chez toi."
     ],
     "notWhen": ""
    },
@@ -66753,11 +66753,11 @@
    ],
    "use": {
     "when": "Ton adversaire de mid, en avance, quitte sa lane.",
-    "why": "Seul au mid, tu prends toute l'expérience des vagues sans risque.",
+    "why": "Seul au mid, tu prends toute l'expérience des waves sans risque.",
     "who": "Mids en retard dans leur lane.",
     "how": [
      "Préviens ton équipe qu'il est absent.",
-     "Reste au mid et prends chaque vague.",
+     "Reste au mid et prends chaque wave.",
      "Ne le suis pas s'il a deux niveaux d'avance."
     ],
     "notWhen": ""
@@ -66798,7 +66798,7 @@
     "bottom"
    ],
    "published": "2020-06-08",
-   "claim": "Selon bagelsen314 (Dignitas) : après la phase de lane, quand ton équipe met la pression sur la base adverse avec des vagues de sbires, pousse avec elle ou fais pareil sur une lane de côté.",
+   "claim": "Selon bagelsen314 (Dignitas) : après la phase de lane, quand ton équipe met la pression sur la base adverse avec des waves, pousse avec elle ou fais pareil sur une side lane.",
    "themes": [
     "vagues",
     "macro"
@@ -66818,12 +66818,12 @@
     }
    ],
    "use": {
-    "when": "Milieu de partie, ton équipe pousse des vagues vers la base adverse.",
+    "when": "Milieu de partie, ton équipe pousse des waves vers la base adverse.",
     "why": "Tu gagnes ton farm tout en ajoutant de la pression au même moment que ton équipe.",
     "who": "Laners.",
     "how": [
-     "Regarde où poussent les vagues de ton équipe.",
-     "Rejoins cette poussée, ou prends la vague d'une lane de côté.",
+     "Regarde où poussent les waves de ton équipe.",
+     "Rejoins cette poussée, ou prends la wave d'une side lane.",
      "Garde le même rythme que ton équipe."
     ],
     "notWhen": ""
@@ -66889,7 +66889,7 @@
     "who": "Laners.",
     "how": [
      "Regarde la minimap : où va ton équipe ?",
-     "Laisse la vague si elle t'éloigne de l'objectif.",
+     "Laisse la wave si elle t'éloigne de l'objectif.",
      "Reviens farmer une fois l'objectif pris."
     ],
     "notWhen": ""
@@ -66951,11 +66951,11 @@
    ],
    "use": {
     "when": "Milieu de partie, plusieurs adversaires ne sont pas visibles sur la carte.",
-    "why": "Farmer loin sans vision, c'est risquer une mort qui coûte bien plus que la vague.",
+    "why": "Farmer loin sans vision, c'est risquer une mort qui coûte bien plus que la wave.",
     "who": "Laners.",
     "how": [
      "Compte les adversaires visibles sur la minimap.",
-     "S'il en manque, ne prends pas la vague la plus avancée.",
+     "S'il en manque, ne prends pas la wave la plus avancée.",
      "Prends plutôt les camps de jungle près de ton côté."
     ],
     "notWhen": ""

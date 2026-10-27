@@ -37,6 +37,17 @@ export const CATALOG = {
     pedagogical: { MIDDLE: 7, TOP: 6.5, BOTTOM: 7, JUNGLE: 5.5 }, decimals: 1, kbThemes: ["lane", "vagues"], ...FARM_KB,
     exercise: t => `Vise ${String(t).replace(".", ",")} sbires par minute sur toute la partie : entre deux combats, prends les waves proches de toi.`,
   },
+  farm_15_25: {
+    label: "Farm entre 15 et 25 min", family: "farm", unit: "/min", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.7, actionability: 0.7,
+    // Seuils sous le quart bas mesuré chez les Diamant+ (top 6,4 ; jungle 6,0 ; mid 6,2 ; bot 7,1 par minute ; 18 026 parties, non publié).
+    // Garde-fou : participation aux kills (GUARDRAILS), pour ne pas récompenser un joueur qui farme loin de son équipe pendant les combats
+    pedagogical: { TOP: 6, JUNGLE: 5.5, MIDDLE: 6, BOTTOM: 7 }, decimals: 1, kbThemes: ["vagues", "macro", "lane"], kbThemesRole: { JUNGLE: ["jungle", "macro", "vagues"] },
+    kbMatch: /^(?=.*\b(farm\w*|sbires?|cs|vagues?|camps?)\b)(?=.*(phase de lane|milieu de partie|mid[- ]?game|lanes? de côté|lanes? latérales?|voies latérales|vagues latérales|dead time|temps mort))/i, kbMatchRole: { JUNGLE: /^(?=.*\b(camps?|clear\w*|farm\w*)\b)(?=.*(dead time|temps mort|refais|après avoir fini|milieu de partie|lanes? de côté|vagues? latérales?))/i },
+    kbAvoid: /baron|nashor|inhib|atakhan|ancien|elder|\bwards?\b|balise|jungler adverse|half roam|demi-décalage|rage split\w*/i,
+    exercise: (t, role) => `Vise ${String(t).replace(".", ",")} ${role === "JUNGLE" ? "sbires et monstres" : "sbires"} par minute entre 15:00 et 25:00. ${role === "JUNGLE"
+      ? "Entre deux combats ou objectifs, refais tes camps au lieu d'attendre ; rejoins ton équipe dès qu'un combat se prépare."
+      : "Entre deux combats, va prendre la wave la plus proche, de préférence sur une lane de côté ; rejoins ton équipe dès qu'elle part sur un objectif."}`,
+  },
   gold_at_10: { label: "Or à 10 min", unit: "or", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM", "UTILITY"], trainable: false, impact: 0.6, actionability: 0.4, decimals: 0 },
   // Objectif entraînable en jungle et au mid (décision d'Anthony, 27/10) ; garde-fous : sbires à 10 min, participation aux kills.
   // Seuils sous le quart bas mesuré chez les Diamant+ (jungle 3 719, mid 4 549 XP, 19 652 parties, clé de développement, non publié)
@@ -115,6 +126,9 @@ export function computeMetrics(match, timeline, puuid) {
   const oppAt = T => (tlOk && opp.confidence === "haute" ? participantAt(timeline, opp.participant_id, T) : null);
   const q = (value, read = null, extra = {}) => ({ value: num(value), observed_at_ms: read?.observed_at_ms ?? null, precision_ms: read?.precision_ms ?? null, ...extra });
   const m10 = at(10 * MIN), m15 = at(15 * MIN), o15 = oppAt(15 * MIN);
+  // Farm après la phase de lane : de 15:00 à 25:00, ou jusqu'à la fin pour une partie de 20 à 25 min (92 % des parties Diamant+ durent 20 min ou plus)
+  const m25 = n.duration_s != null && n.duration_s >= 1200 ? at(Math.min(25 * MIN, n.duration_s * 1000)) : null;
+  const span = m15 && m25 ? (m25.observed_at_ms - m15.observed_at_ms) / MIN : null;
   const cs = me.cs_lane == null || me.cs_jungle == null ? null : me.cs_lane + me.cs_jungle;
   const kills = tlOk ? eventsOf(timeline, "CHAMPION_KILL") : [];
   const elite = tlOk ? eventsOf(timeline, "ELITE_MONSTER_KILL") : [];
@@ -125,6 +139,7 @@ export function computeMetrics(match, timeline, puuid) {
     cs_per_min: q(ratio(cs, minutes)),
     cs_at_10: q(m10?.cs, m10),
     cs_at_15: q(enoughTime(15 * MIN) ? m15?.cs : null, m15),
+    farm_15_25: q(span != null && span >= 4.5 && m15.cs != null && m25.cs != null ? (m25.cs - m15.cs) / span : null, m25, { window_min: span == null ? null : Math.round(span * 10) / 10 }),
     gold_at_10: q(m10?.gold, m10),
     xp_at_10: q(m10?.xp, m10),
     gold_diff_at_15: q(enoughTime(15 * MIN) && m15?.gold != null && o15?.gold != null ? m15.gold - o15.gold : null, m15, { opponent_confidence: opp.confidence }),

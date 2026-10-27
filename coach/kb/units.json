@@ -60080,7 +60080,226 @@
    },
    "version": 1,
    "firstSeen": "2026-10-27"
+  },
+  {
+   "id": "u-cl-dignitas-cs-guide-6",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "roles": [
+    "top",
+    "mid",
+    "bottom"
+   ],
+   "published": "2020-06-08",
+   "claim": "Selon bagelsen314 (Dignitas) : après la phase de lane, quand ton équipe met la pression sur la base adverse avec des vagues de sbires, pousse avec elle ou fais pareil sur une lane de côté.",
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "evidence": [
+    {
+     "content": "c-dignitas-cs-guide",
+     "locator": "After Laning",
+     "lang": "en",
+     "passage": "CSing is not something that just stops being necessary after the laning phase."
+    },
+    {
+     "content": "c-dignitas-cs-guide",
+     "locator": "After Laning",
+     "lang": "en",
+     "passage": "If your team is pressuring the enemies base with minion waves, you want to either be pushing with them or be matching them in a side lane."
+    }
+   ],
+   "use": {
+    "when": "Milieu de partie, ton équipe pousse des vagues vers la base adverse.",
+    "why": "Tu gagnes ton farm tout en ajoutant de la pression au même moment que ton équipe.",
+    "who": "Laners.",
+    "how": [
+     "Regarde où poussent les vagues de ton équipe.",
+     "Rejoins cette poussée, ou prends la vague d'une lane de côté.",
+     "Garde le même rythme que ton équipe."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-27)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-27",
+   "validity": {
+    "checkedAt": "2026-10-27",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-27"
+  },
+  {
+   "id": "u-cl-dignitas-cs-guide-7",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "roles": [
+    "top",
+    "mid",
+    "bottom"
+   ],
+   "published": "2020-06-08",
+   "claim": "Selon bagelsen314 (Dignitas) : après la phase de lane, quand ton équipe a une grosse avance et part sur un objectif, sois avec elle pour l'objectif, même si tu perds du farm.",
+   "themes": [
+    "macro",
+    "vagues"
+   ],
+   "evidence": [
+    {
+     "content": "c-dignitas-cs-guide",
+     "locator": "After Laning",
+     "lang": "en",
+     "passage": "If your team has large advantages and are going for objectives then you need to be in sync and extended with them for the objective."
+    },
+    {
+     "content": "c-dignitas-cs-guide",
+     "locator": "After Laning",
+     "lang": "en",
+     "passage": "This might lose you farm but it is necessary for the sake of the win conditions you need to follow."
+    }
+   ],
+   "use": {
+    "when": "Milieu de partie, ton équipe en avance se dirige vers un objectif.",
+    "why": "L'objectif fait gagner la partie ; quelques sbires de moins, non.",
+    "who": "Laners.",
+    "how": [
+     "Regarde la minimap : où va ton équipe ?",
+     "Laisse la vague si elle t'éloigne de l'objectif.",
+     "Reviens farmer une fois l'objectif pris."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-27)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-27",
+   "validity": {
+    "checkedAt": "2026-10-27",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-27",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-27"
+  },
+  {
+   "id": "u-cl-dignitas-cs-guide-8",
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [],
+   "limits": [],
+   "mentions": [],
+   "champions": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "roles": [
+    "top",
+    "mid",
+    "bottom"
+   ],
+   "published": "2020-06-08",
+   "claim": "Selon bagelsen314 (Dignitas) : après la phase de lane, moins tu sais où sont les adversaires, moins tu peux t'avancer pour farmer ; sans information, replie-toi sur les camps de ton côté.",
+   "themes": [
+    "vagues",
+    "survie"
+   ],
+   "evidence": [
+    {
+     "content": "c-dignitas-cs-guide",
+     "locator": "After Laning",
+     "lang": "en",
+     "passage": "The less you know about your opponent’s movements the less you can extend for gold."
+    },
+    {
+     "content": "c-dignitas-cs-guide",
+     "locator": "After Laning",
+     "lang": "en",
+     "passage": "If you need to pull back out of the opponent’s territory then you can simply fall back to camps in the same decision as if your team is lacking pressure."
+    }
+   ],
+   "use": {
+    "when": "Milieu de partie, plusieurs adversaires ne sont pas visibles sur la carte.",
+    "why": "Farmer loin sans vision, c'est risquer une mort qui coûte bien plus que la vague.",
+    "who": "Laners.",
+    "how": [
+     "Compte les adversaires visibles sur la minimap.",
+     "S'il en manque, ne prends pas la vague la plus avancée.",
+     "Prends plutôt les camps de jungle près de ton côté."
+    ],
+    "notWhen": ""
+   },
+   "proposedStatus": null,
+   "analyst": "Analyste LoL (Claude Code, session du 2026-10-27)",
+   "origin": "agent-claude-code",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "analyzedAt": "2026-10-27",
+   "validity": {
+    "checkedAt": "2026-10-27",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-27",
+    "passages": true
+   },
+   "version": 2,
+   "firstSeen": "2026-10-27"
   }
  ],
- "updatedAt": "2026-10-27T10:57:58.948Z"
+ "updatedAt": "2026-10-27T13:41:32.820Z"
 }

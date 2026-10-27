@@ -639,3 +639,11 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - Base : +2 conseils mid sur l'expérience (ISO, Zooph ; batch `2026-10-27-claude-xp-mid`), passages vérifiés mot pour mot. 984 unités, 881 exploitables.
 - Site : sous le formulaire du test privé, le bloc d'aperçu ne dit plus « attend la validation de la clé Riot ».
 - 57/58 tests. À publier : redéploiement du Worker et `coach-v1:main`.
+
+## 27/10/2026 : objectif « farm entre 15 et 25 min »
+
+- Décision d'Anthony. Nouvelle métrique `farm_15_25` (famille farm) : sbires (et monstres) par minute de 15:00 à 25:00, ou jusqu'à la fin pour une partie de 20 à 25 min ; nulle sous 20 min (92 % des parties Diamant+ durent 20 min ou plus, 72 % 25 min ou plus : une fenêtre fixe 15-25 aurait laissé trop de parties sans mesure).
+- Repères Diamant+ mesurés (18 026 parties, non publiés) : quart bas 6,4 top, 6,0 jungle, 6,2 mid, 7,1 bot. Seuils pédagogiques : 6 ; 5,5 ; 6 ; 7.
+- Garde-fou : participation aux kills (et aux objectifs en jungle) ; sbires à 10 min exclus car même famille. Exercice par poste : prendre la wave la plus proche entre deux combats, rejoindre l'équipe dès qu'elle part sur un objectif.
+- Conseils montrés : farm + repère de milieu de partie dans l'énoncé (6 à 7 par laner, 2 en jungle). Exclu : « rage splitting » (pousse à farmer en abandonnant l'équipe), half roam.
+- Base : +3 conseils de bagelsen314 (Dignitas, « After Laning »), dont un garde-fou (« sois avec ton équipe pour l'objectif, même si tu perds du farm »). 987 unités, 884 exploitables. 57/58 tests.

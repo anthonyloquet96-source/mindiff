@@ -55885,6 +55885,793 @@
    "firstSeen": "2026-10-26"
   },
   {
+   "id": "u-ai-yt-Xq3Hs3ofEwg-1",
+   "claim": "Selon Mysteriaslol : en milieu de partie, donne la priorité au fait de forcer l'adversaire à répondre à tes vagues sur les voies latérales plutôt que de réagir à ses propres mouvements.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:vagues"
+   ],
+   "conditions": [
+    "Milieu de partie",
+    "Posséder une voie qui peut pousser"
+   ],
+   "limits": [
+    "Si l'ennemi possède le Baron Nashor",
+    "Si l'ennemi est déjà en train de détruire ta base"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Xq3Hs3ofEwg",
+     "locator": "[01:05]",
+     "lang": "en",
+     "passage": "(parole) The key concept that you got to understand in mid game is that you need to force the enemies to respond to your side waves. You need to always have a pushing lane. And if you don't have a pushing lane and you're always responding to them, it's going to be always the proactivity is going to be on their side.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-27",
+      "window": "45-105s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas la contre-indication concernant le Baron Nashor ou la menace immédiate de défaite."
+     }
+    }
+   ],
+   "mentions": [
+    "Viktor (exemple)"
+   ],
+   "action": "Pousser une vague latérale au-delà de la rivière avant de rejoindre ton équipe pour un regroupement.",
+   "observe": "",
+   "use": {
+    "when": "Milieu de partie, tu as une vague de sbires proche de ta tour sur une voie latérale.",
+    "why": "Cela te redonne la proactivité, force l'ennemi à faire des erreurs et crée des opportunités de supériorité numérique.",
+    "who": "Tout joueur en milieu de partie, particulièrement les midlaners ou side-laners.",
+    "how": [
+     "Pousse ta vague de sbires le plus loin possible sur le côté.",
+     "Ne rejoins ton équipe que lorsque l'adversaire est obligé de s'occuper de cette vague.",
+     "Utilise ce temps d'avance pour créer un avantage numérique ailleurs."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle au passage de la transcription, son contexte d'usage est complet et il s'agit d'un principe macro intemporel sans dépendance à un patch récent."
+   },
+   "published": "2026-10-17",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-27",
+   "validity": {
+    "checkedAt": "2026-10-27",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-27"
+  },
+  {
+   "id": "u-ai-yt-X6dZ1iPt-PY-1",
+   "claim": "Selon PekinWoof : en jouant Hwei mid, utilise ton sort QQ en boucle pour infliger des dégâts à distance à ton vis-à-vis à travers les sbires.",
+   "champions": [
+    "Hwei"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "matchup": {
+    "vs": "Akshan"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Diamond II",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Hwei/QQ"
+   ],
+   "conditions": [
+    "Jouer Hwei mid"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-X6dZ1iPt-PY",
+     "locator": "01:16",
+     "lang": "en",
+     "passage": "With Hwei, your QQ is your main damage source, so that's what I recommend just doing on repeat if possible.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-27",
+      "window": "56-116s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Akshan (exemple)"
+   ],
+   "action": "Utilise le sort QQ de Hwei à répétition pour harceler le champion adverse à travers les sbires en phase de lane.",
+   "observe": "La fréquence de l'utilisation du sort QQ sur les vagues de sbires et l'adversaire.",
+   "use": {
+    "when": "tu es en phase de lane avec Hwei et ton adversaire se trouve derrière sa ligne de sbires",
+    "why": "le QQ est la source principale de dégâts de Hwei et permet de toucher à travers les sbires",
+    "who": "Hwei mid",
+    "how": [
+     "Sélectionne la compétence Q puis Q sur la palette de Hwei",
+     "Visse le sort à travers les sbires pour atteindre le champion adverse"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil correspond fidèlement au passage de la transcription et le contexte d'usage est complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-27",
+   "validity": {
+    "checkedAt": "2026-10-27",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-27"
+  },
+  {
+   "id": "u-ai-yt-z8jp-YjOwI0-1",
+   "claim": "Selon Skill Capped : lorsque vous détruisez une plaque ou une tourelle avec votre ADC, reculez hors de portée pour lui laisser l'intégralité de l'or de la tourelle.",
+   "champions": [],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Plate ou tourelle en train d'être détruite",
+    "ADC présent pour récupérer l'or"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-z8jp-YjOwI0",
+     "locator": "[01:54]",
+     "lang": "en",
+     "passage": "She steps back, doesn't walk up to the turret, and lets her Trist get full gold from the plate and turret going down.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-27",
+      "window": "94-154s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-z8jp-YjOwI0",
+     "locator": "[02:05]",
+     "lang": "en",
+     "passage": "Now look, I'm sure everybody knows this in here, but when plates or turrets die, that gold is split evenly between everybody in range."
+    }
+   ],
+   "mentions": [
+    "Tristana (exemple)",
+    "Smolder (exemple)",
+    "Renata Glasc (exemple)"
+   ],
+   "action": "Reculer hors de la zone de partage d'or de la tourelle juste avant qu'elle ne tombe pour que votre ADC empoche 100% du montant.",
+   "observe": "L'or de destruction de tourelle revient entièrement à l'ADC sans être divisé avec vous.",
+   "use": {
+    "when": "Ton ADC détruit une plaque ou une tourelle et tu te trouves à portée de gain d'or.",
+    "why": "L'or des plaques et des tourelles est partagé entre tous les alliés à portée.",
+    "who": "Joueurs jouant le rôle de support",
+    "how": [
+     "Identifier le moment où la tourelle ou la plaque va succomber",
+     "Effectuer un pas en arrière hors de la portée du gain d'or"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est parfaitement fidèle aux passages cités, le contexte d'usage est complet et il s'agit d'un principe macro intemporel du support."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-27",
+   "validity": {
+    "checkedAt": "2026-10-27",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-27"
+  },
+  {
+   "id": "u-ai-yt-z8jp-YjOwI0-2",
+   "claim": "Selon Skill Capped : pour les supports corps-à-corps, utilisez vos charges d'objet support pour exécuter deux sbires de la deuxième vague afin d'obtenir le niveau 2 instantanément.",
+   "champions": [],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:World Atlas"
+   ],
+   "conditions": [
+    "Support corps-à-corps",
+    "Deuxième vague de sbires"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-z8jp-YjOwI0",
+     "locator": "[06:19]",
+     "lang": "en",
+     "passage": "Remember, for melee supports, this is going to execute any minion below 50% and by the second wave, unless you've used one of your charges early, you're still going to have two charges available.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-27",
+      "window": "359-419s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Nautilus (exemple)",
+    "Nilah (exemple)"
+   ],
+   "action": "Conserver deux charges d'objet support pour la deuxième vague et exécuter deux sbires pour débloquer le niveau 2 avant vos adversaires.",
+   "observe": "Votre barre de niveau passe à 2 avant les champions ennemis.",
+   "use": {
+    "when": "Tu joues un support corps-à-corps et la deuxième vague de la voie du bas arrive.",
+    "why": "Cela permet d'atteindre le pic de puissance du niveau 2 ou 3 en premier.",
+    "who": "Supports jouant des champions corps-à-corps",
+    "how": [
+     "Ne gaspillez pas vos charges d'objet support en début de première vague",
+     "Exécutez deux sbires sur la deuxième vague dès qu'ils passent sous le seuil d'exécution"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité s'appuie correctement sur la transcription et décrit clairement le timing, le rôle et l'exécution pour obtenir le niveau 2 avec un support corps-à-corps."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-27",
+   "validity": {
+    "checkedAt": "2026-10-27",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-27"
+  },
+  {
+   "id": "u-ai-yt-z8jp-YjOwI0-3",
+   "claim": "Selon Skill Capped : considérez la vie de votre ADC et la vôtre comme une jauge de santé combinée pour évaluer si vous gagnez les échanges sur la voie.",
+   "champions": [],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Phase de laning active"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-z8jp-YjOwI0",
+     "locator": "[09:39]",
+     "lang": "en",
+     "passage": "See, here's how you should think about bot lane: you and your ADC share a combined health pool, almost like a power gauge for the lane. If both of you are full HP and both of your opponents are at full HP, the lane is even.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-27",
+      "window": "559-619s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Smolder (exemple)",
+    "Leona (exemple)",
+    "Brand (exemple)"
+   ],
+   "action": "Surveiller les points de vie de votre duo par rapport au duo adverse pour décider d'engager ou de reculer.",
+   "observe": "Le solde des barres de vie de votre duo est supérieur ou inférieur à celui des adversaires.",
+   "use": {
+    "when": "Tu es en phase de laning sur la voie du bas avec ton ADC.",
+    "why": "Le total des points de vie des deux membres de la botlane sert de jauge de puissance globale pour dicter l'agressivité.",
+    "who": "Joueurs de support",
+    "how": [
+     "Additionnez mentalement votre barre de vie et celle de votre ADC",
+     "Comparez ce total à celui des deux champions adverses avant d'initier un combat"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La situation et la notion de jauge de santé combinée sont explicitement soutenues par le passage de la transcription."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-27",
+   "validity": {
+    "checkedAt": "2026-10-27",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-27"
+  },
+  {
+   "id": "u-ai-yt-z8jp-YjOwI0-5",
+   "claim": "Selon Skill Capped : ne vous aventurez pas à poser de la vision sur la carte si la vague du milieu n'est pas poussée au préalable.",
+   "champions": [],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "vision",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Phase de pose de vision",
+    "Sortie en zone neutre (rivière ou jungle)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-z8jp-YjOwI0",
+     "locator": "[16:33]",
+     "lang": "en",
+     "passage": "And funnily enough, every single one of those replays, there was one thing missing: mid wave was not pushed out. You don't need vision to know if your opponents don't show up on a wave, they're probably in the jungle, they're near the objective, they're waiting for you.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-27",
+      "window": "973-1033s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Nami (exemple)",
+    "Sona (exemple)",
+    "Séraphine (exemple)"
+   ],
+   "action": "Pousser la vague de la midlane avant d'aller poser des balises dans la rivière ou la jungle.",
+   "observe": "Les sbires de la voie du milieu sont du côté ennemi ou au centre avant de vous déplacer.",
+   "use": {
+    "when": "Tu veux placer des balises de vision dans la jungle ou la rivière mais la voie du milieu n'est pas gérée.",
+    "why": "Si les ennemis ne montrent pas sur la vague, cela indique qu'ils rôdent dans la zone obscure pour vous tendre un piège.",
+    "who": "Joueurs de support",
+    "how": [
+     "Aider à nettoyer ou pousser la vague du milieu",
+     "Se diriger ensuite vers les zones sombres pour poser la vision en sécurité"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La règle de gestion de la vague du milieu avant d'aller poser de la vision est claire, complète et appuyée par la source."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-27",
+   "validity": {
+    "checkedAt": "2026-10-27",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-27"
+  },
+  {
+   "id": "u-ai-yt-z8jp-YjOwI0-6",
+   "claim": "Selon Skill Capped : la majorité des supports à haut elo évitent d'acheter des balises de contrôle tant qu'ils n'ont pas complété leur quête d'objet support.",
+   "champions": [],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "vision",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:World Atlas",
+    "item:Balise de contrôle"
+   ],
+   "conditions": [
+    "Début de partie",
+    "Quête d'objet support non terminée"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-z8jp-YjOwI0",
+     "locator": "[18:41]",
+     "lang": "en",
+     "passage": "In most cases, and what the majority of high elo supports do, is avoid buying control wards entirely until they complete their support quest.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-27",
+      "window": "1101-1161s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Leona (exemple)",
+    "Keria (exemple)"
+   ],
+   "action": "Ne pas acheter de balises de contrôle lors de vos premiers retours en base pour prioriser l'achèvement de votre quête d'objet support.",
+   "observe": "Votre inventaire de début de partie ne contient pas de balises de contrôle avant la complétion de l'objet support.",
+   "use": {
+    "when": "Tu disposes d'un petit pécule de 75 gold ou plus en quittant la fontaine en début de partie.",
+    "why": "Acheter des balises de contrôle trop tôt retarde l'obtention des objets finaux de manière excessive.",
+    "who": "Joueurs de support",
+    "how": [
+     "Garder votre or pour vos composants principaux",
+     "Attendre d'avoir terminé la quête de l'objet support avant d'investir dans des balises de contrôle"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil sur le fait d'éviter l'achat de balises de contrôle avant la complétion de la quête de l'objet support est fidèle au passage cité."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-27",
+   "validity": {
+    "checkedAt": "2026-10-27",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-27"
+  },
+  {
+   "id": "u-ai-yt-ZI_zaftR6KY-1",
+   "claim": "Selon Chreak : le last hit rend immobile et vulnérable, ce qui en fait le moment idéal pour lancer un sort ou une auto-attaque sur ton adversaire.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "13.19"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "L'adversaire est en train de last hit un sbire"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ZI_zaftR6KY",
+     "locator": "00:46",
+     "lang": "fr",
+     "passage": "Last hit te rend immobile et surtout vulnérable.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-27",
+      "window": "26-86s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-ZI_zaftR6KY",
+     "locator": "00:48",
+     "lang": "fr",
+     "passage": "C'est le moment parfait pour trade ton adversaire avec un sort ou une auto-attaque."
+    }
+   ],
+   "mentions": [],
+   "action": "Attaque ton adversaire au moment précis où il effectue un last hit sur un sbire.",
+   "observe": "Observe le moment où l'adversaire s'immobilise pour last hit.",
+   "use": {
+    "when": "Ton adversaire s'apprête à tuer un sbire avec une auto-attaque ou un sort.",
+    "why": "Le last hit immobilise l'adversaire et le rend vulnérable.",
+    "who": "Tous les laners",
+    "how": [
+     "Repère le sbire sur le point de mourir",
+     "Observe l'animation d'attaque de l'adversaire",
+     "Lance ton sort ou ton auto-attaque pendant qu'il last hit"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement fidèle à la transcription, intemporelle et constitue un principe fondamental de phase de lane."
+   },
+   "published": "2023-12-02",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-27",
+   "validity": {
+    "checkedAt": "2026-10-27",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-27"
+  },
+  {
+   "id": "u-ai-yt-ZI_zaftR6KY-2",
+   "claim": "Selon Chreak : lorsque l'adversaire lance son sort principal sans raison, tu es gagnant dans tes trades tant qu'il ne l'a pas récupéré.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "13.19"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "L'adversaire a gaspillé son sort principal"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ZI_zaftR6KY",
+     "locator": "01:14",
+     "lang": "fr",
+     "passage": "Donc, si ton adversaire lance son spell principal sans raison, tant qu'il ne l'a pas récupéré, tu seras gagnant dans tes trades.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-27",
+      "window": "54-114s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Engage un échange dès que l'adversaire rate ou gaspille son sort principal.",
+   "observe": "Observe le temps de recharge du sort principal de l'ennemi.",
+   "use": {
+    "when": "L'adversaire vient de lancer son sort principal sans raison.",
+    "why": "Il n'a plus son sort pour se défendre ou riposter pendant le temps de recharge.",
+    "who": "Tous les laners",
+    "how": [
+     "Identifie le sort principal gaspillé",
+     "Attaque l'adversaire avant la fin de son temps de recharge"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le principe d'utilisation des sorts principaux et des temps de recharge est exact et directement appuyé par la source."
+   },
+   "published": "2023-12-02",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-27",
+   "validity": {
+    "checkedAt": "2026-10-27",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-27"
+  },
+  {
    "id": "u-cl-dignitas-cs-guide-1",
    "context": {
     "queue": "solo",
@@ -59147,5 +59934,5 @@
    "firstSeen": "2026-10-26"
   }
  ],
- "updatedAt": "2026-10-26T23:36:42.489Z"
+ "updatedAt": "2026-10-27T01:16:01.165Z"
 }

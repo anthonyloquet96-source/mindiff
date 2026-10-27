@@ -1579,3 +1579,15 @@ body:not(.has-nav) .gd-help { bottom: 20px; }
 @keyframes gd-pop { from { opacity: 0; transform: translateY(6px) scale(.98); } to { opacity: 1; } }
 .gd-card.center.pop { animation-name: gd-pop-c; }
 @keyframes gd-pop-c { from { opacity: 0; transform: translate(-50%, -46%); } to { opacity: 1; transform: translate(-50%, -50%); } }
+
+/* Tirer pour rafraîchir : pastille ronde qui descend du haut, flèche qui tourne avec le geste */
+html.ptr-on, html.ptr-on body { overscroll-behavior-y: none; }
+.ptr { position: fixed; top: calc(8px + env(safe-area-inset-top)); left: 50%; z-index: 95; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--surface-2); color: var(--text-3); border: 1px solid var(--surface-3); box-shadow: 0 8px 22px rgba(0, 0, 0, .35);
+  transform: translate(-50%, -46px); opacity: 0; pointer-events: none; }
+.ptr .ic { width: 20px; height: 20px; }
+.ptr.ready { color: #fff; background: var(--accent); border-color: transparent; box-shadow: 0 8px 22px rgba(var(--accent-rgb), .5); }
+.ptr.back { transition: transform .25s var(--ease), opacity .25s; }
+.ptr.spin .ptr-ic { animation: ptr-spin .8s linear infinite; }
+.ptr.done { color: #fff; background: var(--ok); box-shadow: 0 8px 22px rgba(var(--ok-rgb), .45); }
+@keyframes ptr-spin { to { transform: rotate(360deg); } }

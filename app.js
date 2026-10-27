@@ -1909,6 +1909,49 @@ function guideButton() {
   if (!guideSeen() && dataLoaded && !document.querySelector(".gd-stories")) setTimeout(() => guideStories(), 400);
 }
 
+// ============================================================ Tirer pour rafraîchir (demande d'Anthony, 27/10/2026)
+// Sur iPhone, une page ouverte depuis l'écran d'accueil n'a pas ce geste : on le recrée. Depuis le haut de la page, tirer
+// vers le bas fait descendre une pastille dont la flèche tourne avec le geste ; au-delà du seuil, relâcher met à jour
+// les données (et, sur le Coach, relit tes parties). Le geste natif du navigateur est coupé pour ne pas faire les deux.
+(function () {
+  if (!("ontouchstart" in window)) return;
+  document.documentElement.classList.add("ptr-on");
+  const TH = 72, MAX = 120;
+  let y0 = null, dy = 0, busy = false, el = null;
+  const pill = () => el || (el = Object.assign(document.createElement("div"), { className: "ptr", innerHTML: `<span class="ptr-ic">${icon("refresh")}</span>` }), document.body.appendChild(el), el);
+  const blocked = t => busy || window.scrollY > 0 || document.querySelector(".gd-stories, .gd-tour, .coach-intro, dialog[open]") || t.closest?.("input, textarea, select, .c2-map, .tabs, .prow, [data-noptr]");
+  const set = d => { const p = pill(), k = Math.min(1, d / TH); p.style.transform = `translate(-50%, ${Math.min(d, MAX) - 46}px) rotate(${k * 270}deg)`; p.style.opacity = Math.min(1, d / 30); p.classList.toggle("ready", d >= TH); };
+  document.addEventListener("touchstart", e => { y0 = blocked(e.target) || e.touches.length > 1 ? null : e.touches[0].clientY; dy = 0; }, { passive: true });
+  document.addEventListener("touchmove", e => {
+    if (y0 == null) return;
+    dy = (e.touches[0].clientY - y0) * 0.55;
+    if (dy <= 0 || window.scrollY > 0) { dy = 0; if (el) el.style.opacity = 0; return; }
+    set(dy);
+  }, { passive: true });
+  document.addEventListener("touchend", async () => {
+    if (y0 == null) return;
+    y0 = null;
+    const p = el;
+    if (!p) return;
+    if (dy < TH) { p.classList.add("back"); p.style.transform = "translate(-50%, -46px)"; p.style.opacity = 0; setTimeout(() => p.classList.remove("back"), 250); return; }
+    busy = true;
+    p.classList.add("back", "spin"); p.style.transform = "translate(-50%, 28px)";
+    try {
+      const jobs = [loadData()];
+      if (route.view === "coach" && typeof C2 !== "undefined" && C2.account) {
+        if (typeof c2LoadProfile === "function") jobs.push(c2LoadProfile(true));
+        if (typeof c2V1Load === "function" && typeof C2_API !== "undefined" && C2_API != null) jobs.push(c2V1Load(true));
+      }
+      await Promise.allSettled(jobs);
+      render(false);
+    } finally {
+      p.classList.remove("spin"); p.classList.add("done");
+      setTimeout(() => { p.style.transform = "translate(-50%, -46px)"; p.style.opacity = 0; }, 350);
+      setTimeout(() => { p.classList.remove("back", "done", "ready"); busy = false; }, 650);
+    }
+  });
+})();
+
 if (!location.hash && prefs.game && (prefs.game === "all" || ENABLED_GAMES.includes(prefs.game))) history.replaceState(null, "", href(prefs.game));
 route = parseRoute();
 render();

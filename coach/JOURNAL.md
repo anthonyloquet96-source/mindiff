@@ -674,3 +674,4 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 ## 27/10/2026 : carte objectif aérée
 
 - Demande d'Anthony (trop de texte) : la carte montre d'abord le nom de l'objectif, deux chiffres en grand (« Toi aujourd'hui » → « Ta cible », avec l'unité), les pastilles de progression, puis le geste « En partie » (l'exercice sans la phrase de cible, déjà affichée). Repère, règle de réussite et conseils de coachs sont repliés (« Pourquoi cette cible », « Ce qu'en disent les coachs »).
+- 27/10 16:49 : collecte clé personnelle terminée (1 000 parties Master+, 2 570 requêtes). Repères Maître, Grand Maître et Challenger recalculés depuis ces parties (ADC sbires à 10 min : 77, 78, 79) et envoyés à Supabase (490 lignes).

@@ -699,3 +699,9 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 ## 27/10/2026 — Bouton Coach : plus d'aperçu furtif avant l'intro
 - Au clic sur Coach, la page du coach se dessinait derrière l'écran « Bienvenue » pendant que le cercle s'ouvrait : on la voyait un instant.
 - La page est maintenant cachée dès le clic (`#view.coach-hold`) et révélée dans la même image que le warp (`c2Warp(true)`, sans le délai de 40 ms). Filet de sécurité : la page réapparaît au bout de 3 s quoi qu'il arrive.
+
+## 27/10/2026 (nuit) — Agent Motion designer, DA MINDIFF, trailer
+- Nouvel agent `.claude/agents/motion-designer.md` : directeur artistique et motion designer de MINDIFF, avec la liste des refus d'Anthony et sa méthode (storyboard, vraies captures 3x, rendu MP4 Remotion, contrôle image par image).
+- DA MINDIFF publiée en artefact (Design System) : https://claude.ai/artifact/EVFbcgocuL3DJPn59x7h3Y (jetons tirés de style.css, logo, règles « Motion et publicité »).
+- Outillage vidéo hors du dépôt : `Projets/mindiff-video` (Remotion 4.0.290, Playwright 1.48.2). Trailer v8 rendu en MP4 1080×1920 60 i/s.
+- Contrôle de nuit : 57/58 tests du coach ; site en ligne vérifié au format iPhone (9 pages, thèmes sombre et clair) sans erreur, image cassée ni débordement ; service du coach en bonne santé ; collecte horaire en succès.

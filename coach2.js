@@ -486,6 +486,7 @@ const C2_V1_TIPS = {
   early_deaths: { themes: ["survie", "methode"], match: /gank|\bmort|mourir|meurs|survi|recul|jungler adverse|track|danger|flash|minimap|dispara|\bmia\b|missing/i, avoid: C2_V1_LATE },
   kill_participation: { themes: ["teamfight", "macro"], match: /roam|rejoin|escarmouche|skirmish|combat|teamfight|gank|\baide|\bkills?\b|minimap/i, avoid: C2_V1_LATE },
   vision_per_min: { themes: ["vision", "methode"], match: /\bwards?\b|vision|balise|trinket|contr[ôo]le|sweep|oracle|lentille/i },
+  xp_at_10: { themes: ["lane", "vagues", "macro"], themesRole: { JUNGLE: ["jungle", "lane"] }, match: /\b(xp|exp[ée]rience)\b/i, matchRole: { JUNGLE: /\b(xp|exp[ée]rience|niveaux?|levels?|camps?|clear\w*|full ?clear|pathing|chemin)\b/i }, avoid: /baron|nashor|inhib|atakhan|ancien|elder|teamfight|siège|\bwards?\b|balise|jungler adverse|saute|skip|freez\w*|congel\w*|pings?\b/i },
 };
 // Résultat d'un cycle de 5 parties (moteur goals-2) : un cycle sans maîtrise n'est pas un échec
 const C2_V1_OUTCOME = {
@@ -524,9 +525,11 @@ const c2V1Fmt = (g, v) => (v == null ? "—" : g.unit === "%" ? `${Math.round(v 
 // Version en ligne sans clé Riot de production : ce que fera le coach, montré sur une vraie partie (captures de la version de test)
 function c2Showcase() {
   return `<section class="c2-card c2-show">
-    <p class="label">Bientôt disponible</p>
+    ${C2_PILOT ? `<p class="label">Aperçu</p>
+    <h2 class="c2-show-title">Ce que le coach te montrera</h2>
+    <p class="fine">Une fois dans le test, entre ton Riot ID : le coach lit tes parties classées. Voici ce qu'il te montrera, sur une vraie partie.</p>` : `<p class="label">Bientôt disponible</p>
     <h2 class="c2-show-title">La lecture de tes parties arrive dès la validation de la clé Riot</h2>
-    <p class="fine">Le coach est prêt et testé. Il attend l'accord de Riot Games pour lire les parties de tout le monde. Voici ce qu'il te montrera, sur une vraie partie.</p>
+    <p class="fine">Le coach est prêt et testé. Il attend l'accord de Riot Games pour lire les parties de tout le monde. Voici ce qu'il te montrera, sur une vraie partie.</p>`}
     <figure><img src="coach-apercu-bilan${window.LANG === "en" ? "-en" : ""}.png" alt="Bilan d'une partie : Yone contre Viktor, victoire, 7/2/4, 258 sbires, et l'écart avec l'adversaire en phase de lane (+41 golds à 10 minutes, +677 à 15 minutes)" loading="lazy" width="358" height="338"><figcaption>Chaque partie résumée : tes chiffres et ta phase de lane face à ton adversaire.</figcaption></figure>
     <figure><img src="coach-apercu-replay${window.LANG === "en" ? "-en" : ""}.png" alt="Replay de la partie sur la minimap, arrêté sur un moment clé avec ce qui aurait été mieux" loading="lazy"><figcaption>Le replay sur la minimap s'arrête sur tes erreurs et explique ce qui aurait été mieux.</figcaption></figure>
     <ul class="c2-show-list"><li><b>Ta priorité</b> : l'erreur qui te coûte le plus de parties, avec quoi faire.</li><li><b>Je suis en partie</b> : ton face-à-face, des conseils contre ton adversaire et ton build adapté à son équipe.</li><li><b>Comparé aux meilleurs</b> : tout est mesuré face aux joueurs Diamant et plus de ton poste.</li></ul>

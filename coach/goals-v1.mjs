@@ -109,7 +109,7 @@ export function proposeGoal(games, role, { references = null, pastGoals = [], no
       baseline: best.baseline, target: best.target, reference: best.reference,
       evaluation_games: RULES.evaluationGames, minimum_valid_games: RULES.minimumValid, success_required: RULES.successRequired,
       version: GOAL_VERSION, status: "proposed", created_at: now, score: best.score, factors: best.factors,
-      exercise: c.exercise ? c.exercise(best.target) : null,
+      exercise: c.exercise ? c.exercise(best.target, role) : null,
       kbThemes: c.kbThemes || [],
     },
   };

@@ -15,6 +15,10 @@ const LATE = /baron|nashor|inhib|atakhan|ancien|elder/i;
 // Farm : « vague » seule ne suffit pas (presque tous les conseils de lane la citent) ; un conseil de ward n'est pas un conseil de farm
 const FARM_KB = { kbMatch: /\b(cs|farm\w*|sbires?|last[- ]?hit\w*|freeze|slow ?push|camps?|clear)\b/i, kbMatchRole: { JUNGLE: /\b(camps?|clear\w*|farm\w*|pathing|chemin|full ?clear|cs)\b/i }, kbThemesRole: { JUNGLE: ["lane", "vagues", "jungle"] }, kbAvoid: /baron|nashor|inhib|atakhan|ancien|elder|teamfight|siège|\bwards?\b|balise|jungler adverse/i };
 
+// Niveau atteint avec une quantité d'XP (paliers cumulés de League of Legends, niveaux 2 à 11)
+const XP_LEVELS = [280, 660, 1140, 1720, 2400, 3180, 4060, 5040, 6120, 7300];
+const levelFor = xp => 1 + XP_LEVELS.filter(x => xp >= x).length;
+
 // Seuil pédagogique fixe : utilisé tant qu'aucune référence mesurée (metric_references) n'existe pour ce rôle.
 // Valeurs prudentes, arrondies, à remplacer par les références mesurées dès qu'elles passent leur seuil d'échantillon.
 export const CATALOG = {
@@ -34,7 +38,17 @@ export const CATALOG = {
     exercise: t => `Vise ${String(t).replace(".", ",")} sbires par minute sur toute la partie : entre deux combats, prends les waves proches de toi.`,
   },
   gold_at_10: { label: "Or à 10 min", unit: "or", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM", "UTILITY"], trainable: false, impact: 0.6, actionability: 0.4, decimals: 0 },
-  xp_at_10: { label: "Expérience à 10 min", unit: "XP", direction: "higher", roles: ["JUNGLE", "MIDDLE"], trainable: false, impact: 0.6, actionability: 0.5, decimals: 0 },
+  // Objectif entraînable en jungle et au mid (décision d'Anthony, 27/10) ; garde-fous : sbires à 10 min, participation aux kills.
+  // Seuils sous le quart bas mesuré chez les Diamant+ (jungle 3 719, mid 4 549 XP, 19 652 parties, clé de développement, non publié)
+  xp_at_10: {
+    label: "Expérience à 10 min", unit: "XP", direction: "higher", roles: ["JUNGLE", "MIDDLE"], trainable: true, impact: 0.6, actionability: 0.5,
+    pedagogical: { JUNGLE: 3700, MIDDLE: 4500 }, decimals: 0, kbThemes: ["lane", "vagues", "macro"], kbThemesRole: { JUNGLE: ["jungle", "lane"] },
+    kbMatch: /\b(xp|exp[ée]rience)\b/i, kbMatchRole: { JUNGLE: /\b(xp|exp[ée]rience|niveaux?|levels?|camps?|clear\w*|full ?clear|pathing|chemin)\b/i },
+    kbAvoid: /baron|nashor|inhib|atakhan|ancien|elder|teamfight|siège|\bwards?\b|balise|jungler adverse|saute|skip|freez\w*|congel\w*|pings?\b/i,
+    exercise: (t, role) => `Vise ${t} XP à 10:00, soit environ le niveau ${levelFor(t)}. ${role === "JUNGLE"
+      ? "Enchaîne tes camps sans temps mort et, après un gank, reprends tout de suite tes camps au lieu de rester sur la lane."
+      : "Reste sur ta lane pour prendre l'expérience de chaque wave ; ne quitte ta lane qu'après avoir poussé ta wave."}`,
+  },
   gold_diff_at_15: { label: "Écart d'or à 15 min face à ton adversaire", unit: "or", direction: "higher", roles: ["MIDDLE", "TOP", "BOTTOM"], trainable: false, impact: 0.8, actionability: 0.4, decimals: 0, needsOpponent: true },
   xp_diff_at_15: { label: "Écart d'XP à 15 min face à ton adversaire", unit: "XP", direction: "higher", roles: ["MIDDLE", "TOP", "BOTTOM"], trainable: false, impact: 0.7, actionability: 0.4, decimals: 0, needsOpponent: true },
   early_deaths: {

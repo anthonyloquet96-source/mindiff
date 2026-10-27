@@ -631,3 +631,11 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - Anthony a posé la clé service_role, envoyé les secrets (`worker/put-secrets.mjs`) et déployé le Worker (version 0926a55d). `/api/v1/health` : riot et supabase OK ; `/api/v1/pilot/me` sans compte : 401.
 - « Confirm email » désactivé dans Supabase (vérifié).
 - Fusion de main (veille) dans coach-v1 : 982 unités, 879 exploitables ; 57/58 tests. Publié par Anthony (`coach-v1:main`, d95dbf2). La page Coach affiche l'écran d'inscription du test privé.
+
+## 27/10/2026 : objectif « expérience à 10 min » (jungle, mid) et bloc d'aperçu
+
+- Décision d'Anthony : `xp_at_10` devient entraînable en jungle et au mid. Seuils pédagogiques 3 700 (jungle) et 4 500 (mid), sous le quart bas mesuré chez les Diamant+ (3 719 et 4 549 XP, 19 652 parties, non publié). Exercice par poste avec le niveau correspondant (paliers d'XP du jeu) ; `exercise(target, role)` reçoit désormais le poste. Garde-fous inchangés : sbires à 10 min, participation aux kills (et aux objectifs en jungle).
+- Conseils montrés : jungle, conseils de clear/camps/niveau (12) ; mid, conseils qui parlent d'expérience (3). Exclus : gank sur un freeze, sauter des camps, suivi du jungler adverse, pings.
+- Base : +2 conseils mid sur l'expérience (ISO, Zooph ; batch `2026-10-27-claude-xp-mid`), passages vérifiés mot pour mot. 984 unités, 881 exploitables.
+- Site : sous le formulaire du test privé, le bloc d'aperçu ne dit plus « attend la validation de la clé Riot ».
+- 57/58 tests. À publier : redéploiement du Worker et `coach-v1:main`.

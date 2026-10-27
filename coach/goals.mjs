@@ -140,7 +140,7 @@ export function proposeGoal(games, role, { references = null, pastGoals = [], no
     return {
       diagnostic: prioritize(games, role, { references }),
       goal: { ...pick(last), id: `${role}-${last.metric}-${now}`, cycle: (last.cycle || 1) + 1, chain_id: last.chain_id || last.id, previous_outcome: last.outcome,
-        status: "proposed", created_at: now, exercise: c.exercise ? c.exercise(last.target) : null },
+        status: "proposed", created_at: now, exercise: c.exercise ? c.exercise(last.target, last.role) : null },
     };
   }
   const exclude = last && ["failed", "needs_review"].includes(last.outcome) ? Object.keys(CATALOG).filter(k => fam(k) === fam(last.metric)) : [];
@@ -160,7 +160,7 @@ export function proposeGoal(games, role, { references = null, pastGoals = [], no
       baseline_window: win.info, guardrails: guardrailBaseline(win.games, role, best.metric),
       evaluation_games: RULES.evaluationGames, minimum_valid_games: RULES.minimumValid, success_required: RULES.successRequired,
       version: GOAL_VERSION, engine_version: GOAL_VERSION, status: "proposed", created_at: now, score: best.score, factors: best.factors,
-      exercise: c.exercise ? c.exercise(best.target) : null,
+      exercise: c.exercise ? c.exercise(best.target, role) : null,
       kbThemes: c.kbThemes || [],
     },
   };

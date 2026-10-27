@@ -625,3 +625,9 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - Spawn, ADC de LCS (Dignitas, 2022) : entraîner son farm (100 sbires à 10 min), jouer le farm en retard, s'adapter à son support, pression sur les tourelles avec l'avance. Conseils d'objets écartés (patch). 4 conseils (2 exploitables, 2 provisoires).
 - Couverture des objectifs V1 (conseils montrés, top / jungle / mid / bot / support) : sbires à 10 min 23/15/21/20/– ; participation aux kills –/19/20/–/14 ; vision –/13/16/–/18.
 - Publication sur main refusée par le garde-fou de Claude Code (déploiement) : à lancer par Anthony (`git push origin coach-v1:main`).
+
+## 27/10/2026 (matin) : test privé en ligne
+
+- Anthony a posé la clé service_role, envoyé les secrets (`worker/put-secrets.mjs`) et déployé le Worker (version 0926a55d). `/api/v1/health` : riot et supabase OK ; `/api/v1/pilot/me` sans compte : 401.
+- « Confirm email » désactivé dans Supabase (vérifié).
+- Fusion de main (veille) dans coach-v1 : 982 unités, 879 exploitables ; 57/58 tests. Publié par Anthony (`coach-v1:main`, d95dbf2). La page Coach affiche l'écran d'inscription du test privé.

@@ -448,8 +448,12 @@ function c2V1Card(p) {
   const lastTxt = last ? `<p class="c2-v1-last ${last.outcome}">${C2_V1_OUTCOME[last.outcome] || "Objectif précédent sans verdict"} : ${esc(last.label)}, cible ${esc(last.target_text)} (${last.progress?.met ?? "?"}/${last.progress?.counted ?? "?"} parties)${last.progress?.review ? ` ; ${esc(last.progress.review)}` : ""}.</p>${c2V1Feedback(last)}` : "";
   const g = V.goal;
   if (!g) {
-    const why = V.diagnostic?.rows?.find(r => r.reason)?.reason;
-    return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${why ? `Pas encore d'objectif : ${esc(why)}.` : "Pas encore d'objectif : joue quelques ranked de plus."}</p><p class="fine">Il faut au moins 15 parties classées au même poste.</p>${c2V1Erase()}</section>`;
+    const rows = V.diagnostic?.rows || [], why = rows.find(r => r.reason)?.reason;
+    // Déjà au niveau sur tout : pas d'objectif à proposer, ce n'est pas un manque de parties
+    const atLevel = rows.length && rows.some(r => r.reason === "déjà au niveau de la référence") && rows.every(r => r.reason === "déjà au niveau de la référence" || /suspendu/.test(r.reason || ""));
+    const msg = atLevel ? "Pas d'objectif à te proposer : tu es déjà au niveau des repères du coach sur tout ce qu'il suit à ce poste. Pour l'instant, ses repères visent les joueurs de l'Argent au Platine."
+      : why ? `Pas encore d'objectif : ${esc(why)}.` : "Pas encore d'objectif : joue quelques ranked de plus.";
+    return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${msg}</p>${atLevel ? "" : `<p class="fine">Il faut au moins 15 parties classées au même poste.</p>`}${c2V1Erase()}</section>`;
   }
   const ref = g.reference?.source === "metric_references" ? `Repère : ${esc(g.reference.level || "Diamant+")} à ce poste, médiane ${esc(c2V1Fmt(g, g.reference.value))} (${c2n(g.reference.n)} parties).` : "Repère pédagogique du coach, en attendant assez de données mesurées.";
   const evs = (V.evaluations || []).filter(e => e.counted);

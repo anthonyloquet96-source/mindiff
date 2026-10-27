@@ -1591,3 +1591,6 @@ html.ptr-on, html.ptr-on body { overscroll-behavior-y: none; }
 .ptr.spin .ptr-ic { animation: ptr-spin .8s linear infinite; }
 .ptr.done { color: #fff; background: var(--ok); box-shadow: 0 8px 22px rgba(var(--ok-rgb), .45); }
 @keyframes ptr-spin { to { transform: rotate(360deg); } }
+
+/* Page du coach cachée pendant l'écran « Bienvenue » : évite l'aperçu furtif avant l'animation */
+#view.coach-hold { opacity: 0; }

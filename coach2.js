@@ -579,22 +579,29 @@ document.addEventListener("click", e => {
   if (!a || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (a.getAttribute("aria-current") === "page") c2Warp(); else c2Intro(a);
 });
-function c2Warp() {
+// Venant de l'intro, la page est déjà cachée (coach-hold) : on la révèle dans la même image que le warp, sans délai,
+// sinon on la voit un instant avant l'animation
+function c2Warp(now) {
   const v = document.getElementById("view");
   if (!v) return;
-  setTimeout(() => { v.classList.remove("coach-warp"); void v.offsetWidth; v.classList.add("coach-warp"); setTimeout(() => v.classList.remove("coach-warp"), 900); }, 40);
+  const go = () => { v.classList.remove("coach-warp"); void v.offsetWidth; v.classList.add("coach-warp"); v.classList.remove("coach-hold"); setTimeout(() => v.classList.remove("coach-warp"), 900); };
+  now ? go() : setTimeout(go, 40);
 }
 // Écran d'accueil du coach (1,6 s, un toucher le passe) : fond qui s'ouvre depuis le bouton, icône qui tourne, anneau,
 // « COACH » lettre par lettre, puis l'écran se retire vers le haut et la page entre en warp
 function c2Intro(from) {
   document.querySelector(".coach-intro")?.remove();
+  // La page du coach se dessine juste derrière : on la cache tout de suite pour qu'elle n'apparaisse pas avant l'intro
+  const v = document.getElementById("view");
+  v?.classList.add("coach-hold");
+  setTimeout(() => v?.classList.remove("coach-hold"), 3000);
   const r = from.getBoundingClientRect(), o = document.createElement("div");
   o.className = "coach-intro"; o.setAttribute("aria-hidden", "true");
   o.style.setProperty("--x", r.left + r.width / 2 + "px"); o.style.setProperty("--y", r.top + r.height / 2 + "px");
   o.innerHTML = `<div class="ci-stage"><span class="ci-ring"></span><span class="ci-ring r2"></span><span class="ci-icon">${typeof icon === "function" ? icon("target") : ""}</span>
     <p class="ci-kicker">Bienvenue dans</p><h2 class="ci-title">${[..."COACH"].map((c, i) => `<span style="--i:${i}">${c}</span>`).join("")}</h2><p class="ci-sub">Un objectif à la fois.</p></div>`;
   document.body.appendChild(o);
-  const done = () => { if (!o.isConnected || o.classList.contains("out")) return; o.classList.add("out"); c2Warp(); setTimeout(() => o.remove(), 500); };
+  const done = () => { if (!o.isConnected || o.classList.contains("out")) return; o.classList.add("out"); c2Warp(true); setTimeout(() => o.remove(), 500); };
   o.addEventListener("pointerdown", done);
   setTimeout(done, 1600);
 }

@@ -298,6 +298,7 @@ const href = (...parts) => "#/" + parts.filter(p => p != null && p !== "").map(e
 const sheetHref = (game, key) => location.hash.replace(/\/fiche\/[^/]*$/, "") + "/fiche/" + encodeURIComponent(key);
 
 const ICONS = {
+  help: '<circle cx="12" cy="12" r="9"/><path d="M9.6 9.2a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.6M12 17h.01"/>',
   home: '<path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
   trophy: '<path d="M7 4h10v4a5 5 0 0 1-10 0V4zM12 13v4M8 21h8M10 17h4M7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3"/>',
   news: '<path d="M4 5h12v14H6a2 2 0 0 1-2-2V5zM16 9h4v8a2 2 0 0 1-2 2M8 9h4M8 13h4"/>',
@@ -1617,6 +1618,7 @@ function render(fromRoute = true) {
   if (document.querySelector("[data-story], [data-story-list]")) setTimeout(storyFill, 0);
   if (route.game === "lol") liveList();
   syncTabs();
+  guideButton();
   if (fromRoute) {
     window.scrollTo(0, 0);
     document.querySelector("#view [tabindex='-1']")?.focus({ preventScroll: true });
@@ -1744,6 +1746,167 @@ function connectLive() {
   }
   const es = new EventSource("api/stream");
   es.addEventListener("update", async () => { await loadData(); safeRender(); });
+}
+
+// ============================================================ Guide : présentation animée et visite de chaque page
+// Demande d'Anthony (27/10/2026). Au premier lancement (un jeu choisi), une présentation en « stories » : chaque rubrique
+// s'allume dans une barre du bas animée, avec une phrase. Le bouton « ? » (en bas à droite) lance la visite de la page
+// en cours : chaque partie est éclairée tour à tour, avec Précédent / Suivant. Un élément absent de la page est sauté.
+
+const GUIDE_STORIES = [
+  { nav: null, icon: "target", kicker: "Bienvenue sur", title: "MINDIFF", text: "Le site LoL pour suivre l'esport, comprendre la méta et progresser en ranked." },
+  { nav: "home", icon: "home", kicker: "Accueil", title: "L'essentiel du jour", text: "Le prochain match, les derniers résultats, la méta en bref et ce qu'il faut retenir." },
+  { nav: "competitions", icon: "trophy", kicker: "Compétitions", title: "Tout l'esport", text: "Calendriers, classements, résumé de chaque partie pro et bilan des champions joués." },
+  { nav: "coach", icon: "target", kicker: "Coach", title: "Ton coach personnel", text: "Il lit tes ranked et te donne un objectif à la fois, avec les conseils de vrais coachs." },
+  { nav: "meta", icon: "tiers", kicker: "Méta", title: "Les champions du moment", text: "Les plus joués en compétition et en ranked, poste par poste, patch après patch." },
+  { nav: "actus", icon: "news", kicker: "Actus", title: "Les news vérifiées", text: "Patchs, esport et annonces, chacune avec sa source." },
+  { nav: null, icon: "help", kicker: "Astuce", title: "Perdu ? Touche « ? »", text: "Le bouton « ? » en bas à droite t'explique chaque partie de la page. Et les mots du jargon en orange s'expliquent au toucher." },
+];
+
+const GUIDE_TOURS = {
+  home: [
+    [".hero", "Le match à suivre", "Le prochain grand match, ou celui en cours, avec son tournoi et sa phase."],
+    ["section.sec@Prochains matchs", "Prochains matchs", "Les matchs à venir, du plus proche au plus lointain. Touche un match pour voir le détail."],
+    ["section.sec@Méta en bref", "Méta en bref", "Les champions les plus joués en ce moment : un aperçu, le détail est dans Méta."],
+    ["section.sec@À retenir", "À retenir", "Les infos importantes du moment, vérifiées et sourcées."],
+  ],
+  competitions: [
+    [".tabs", "Tournois ou matchs", "Tournois : la liste des compétitions. Matchs : tous les matchs, jour par jour."],
+    [".seg", "Filtrer", "En cours ou terminés : choisis ce que tu veux voir."],
+    [".tgrid", "Les tournois", "Touche un tournoi pour son calendrier, son classement, ses résultats et les bilans des champions."],
+  ],
+  tournoi: [
+    [".kpis", "Le tournoi en chiffres", "Phase en cours, matchs joués, équipes et parties analysées."],
+    ["#view .t-col:first-child .sec", "Matchs", "Les prochains matchs et les derniers résultats."],
+    ["#view .t-col:last-child .sec", "Classement et méta", "Le classement de la phase, puis les champions les plus joués et leurs bilans victoires–défaites."],
+  ],
+  coach: [
+    [".c2-tabs", "Les trois onglets", "Mon suivi : ton objectif. Mes parties : le détail de chaque ranked. Champions : conseils pour jouer ou affronter un champion."],
+    [".c2-hero", "Commencer", "Entre ton Riot ID et ta région : le coach lit tes dernières ranked, rien à installer."],
+    [".c2-pilot", "Rejoindre le test", "Le coach est en test privé : crée ton compte, puis entre ton code d'invitation."],
+    [".c2-me", "Ton compte", "Ton Riot ID et ton rang. Les flèches mettent à jour tes parties, les deux silhouettes changent de compte."],
+    [".c2-v1", "Ton objectif", "Un seul objectif à la fois : ton chiffre d'aujourd'hui, ta cible, et ce qu'il faut faire en partie. Réussi en 3 parties sur 5."],
+    [".c2-bilan-link", "Ton bilan complet", "Tes erreurs qui reviennent, tes forces et les adversaires à préparer, sur une vingtaine de parties."],
+    [".c2-games", "Tes dernières parties", "Touche une partie pour son bilan et son replay sur la minimap."],
+  ],
+  meta: [
+    [".patchchip", "Le patch", "Le patch en cours et ses notes officielles."],
+    [".filters", "Filtres", "Compétition pro ou ranked, puis un poste précis."],
+    [".tierlist", "Le classement", "Les champions rangés par fréquence de sélection. Touche un champion pour sa fiche."],
+  ],
+  actus: [
+    [".seg", "Filtrer les news", "Patchs, esport ou annonces."],
+    [".search", "Rechercher", "Cherche une équipe, un champion ou un sujet."],
+    [".nlist", "Les news", "Chaque news a son statut (officiel, confirmé…) et sa source."],
+  ],
+};
+
+const guideSeen = () => { try { return localStorage.getItem("mindiff-guide") === "1"; } catch { return true; } };
+const guideMark = () => { try { localStorage.setItem("mindiff-guide", "1"); } catch {} };
+
+// Barre du bas en miniature, la rubrique de l'écran allumée
+function guideNavMock(active) {
+  return `<div class="gd-nav" aria-hidden="true">${NAV.map(n => `<span class="gd-nav-i ${n.id === "coach" ? "c" : ""} ${n.id === active ? "on" : ""}">${icon(n.icon)}<i>${n.label}</i></span>`).join("")}</div>`;
+}
+
+function guideStories(start = 0) {
+  document.querySelector(".gd-stories")?.remove();
+  const o = document.createElement("div");
+  o.className = "gd-stories"; o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Présentation de MINDIFF");
+  document.body.appendChild(o);
+  let i = start, timer = null;
+  const DUR = 4200;
+  const close = () => { clearTimeout(timer); guideMark(); o.classList.add("out"); setTimeout(() => o.remove(), 350); document.removeEventListener("keydown", key); };
+  const go = n => { if (n < 0) n = 0; if (n >= GUIDE_STORIES.length) return close(); i = n; show(); };
+  const key = e => { if (e.key === "Escape") close(); if (e.key === "ArrowRight") go(i + 1); if (e.key === "ArrowLeft") go(i - 1); };
+  document.addEventListener("keydown", key);
+  function show() {
+    const s = GUIDE_STORIES[i], last = i === GUIDE_STORIES.length - 1;
+    o.innerHTML = `<div class="gd-bars">${GUIDE_STORIES.map((_, k) => `<span class="${k < i ? "done" : k === i ? "now" : ""}"><i style="animation-duration:${DUR}ms"></i></span>`).join("")}</div>
+      <button class="gd-skip" data-gd="close">Passer</button>
+      <div class="gd-slide" key="${i}">
+        <span class="gd-icon">${icon(s.icon)}<span class="gd-halo"></span></span>
+        <p class="gd-kicker">${esc(s.kicker)}</p><h2 class="gd-title">${esc(s.title)}</h2><p class="gd-text">${esc(s.text)}</p>
+        ${s.nav ? guideNavMock(s.nav) : ""}
+        ${last ? `<button class="btn primary gd-go" data-gd="close">C'est parti</button>` : ""}
+      </div>
+      <button class="gd-zone prev" data-gd="prev" aria-label="Précédent"></button><button class="gd-zone next" data-gd="next" aria-label="Suivant"></button>`;
+    clearTimeout(timer);
+    if (!last) timer = setTimeout(() => go(i + 1), DUR);
+  }
+  o.addEventListener("click", e => {
+    const a = e.target.closest("[data-gd]")?.dataset.gd;
+    if (a === "close") close(); else if (a === "next") go(i + 1); else if (a === "prev") go(i - 1);
+  });
+  show();
+}
+
+// Visite de la page : projecteur sur un élément, bulle avec Précédent / Suivant
+function guideTour() {
+  const view = route.view === "home" || !route.view ? "home" : route.view;
+  const visible = el => { const r = el?.getBoundingClientRect(); return r && r.width > 0 && r.height > 0; };
+  // « sélecteur@Titre » : le bloc dont le titre de section commence par ce texte (l'ordre des blocs change selon l'écran)
+  const find = sel => { const [css, t] = sel.split("@"); return t ? [...document.querySelectorAll("#view " + css)].find(el => el.querySelector(".sec-title")?.textContent.trim().startsWith(t)) : document.querySelector(css); };
+  const steps = (GUIDE_TOURS[view] || []).map(([sel, title, text]) => ({ el: find(sel), title, text })).filter(s => visible(s.el));
+  steps.push({ el: null, title: "C'est tout pour cette page", text: "Tu peux revoir la présentation de MINDIFF quand tu veux.", replay: true });
+  document.querySelector(".gd-tour")?.remove();
+  const o = document.createElement("div");
+  o.className = "gd-tour"; o.setAttribute("role", "dialog"); o.setAttribute("aria-label", "Visite de la page");
+  o.innerHTML = `<div class="gd-spot"></div><div class="gd-card" role="document"></div>`;
+  document.body.appendChild(o);
+  const spot = o.querySelector(".gd-spot"), card = o.querySelector(".gd-card");
+  let i = 0;
+  const close = () => { o.classList.add("out"); setTimeout(() => o.remove(), 250); document.removeEventListener("keydown", key); window.removeEventListener("resize", place); };
+  const key = e => { if (e.key === "Escape") close(); if (e.key === "ArrowRight") go(i + 1); if (e.key === "ArrowLeft") go(i - 1); };
+  document.addEventListener("keydown", key);
+  function place() {
+    const s = steps[i], pad = 8;
+    if (!s.el) { spot.classList.add("none"); card.style.left = "50%"; card.style.top = "50%"; card.classList.add("center"); return; }
+    spot.classList.remove("none"); card.classList.remove("center");
+    const r = s.el.getBoundingClientRect();
+    Object.assign(spot.style, { left: r.left - pad + "px", top: r.top - pad + "px", width: r.width + pad * 2 + "px", height: r.height + pad * 2 + "px" });
+    const w = Math.min(340, innerWidth - 32), h = card.offsetHeight, below = r.bottom + pad + 14 + h < innerHeight;
+    card.style.width = w + "px";
+    card.style.left = Math.max(16, Math.min(r.left + r.width / 2 - w / 2, innerWidth - w - 16)) + "px";
+    card.style.top = Math.max(16, below ? r.bottom + pad + 14 : r.top - pad - 14 - h) + "px";
+  }
+  function go(n) {
+    if (n < 0) return;
+    if (n >= steps.length) return close();
+    i = n;
+    const s = steps[i];
+    card.innerHTML = `<p class="gd-step">${i + 1} / ${steps.length}</p><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p>
+      <div class="gd-btns">${s.replay ? `<button class="btn ghost sm" data-gd="replay">Revoir la présentation</button>` : i ? `<button class="btn ghost sm" data-gd="prev">Précédent</button>` : `<button class="btn ghost sm" data-gd="close">Fermer</button>`}
+      <button class="btn primary sm" data-gd="next">${i === steps.length - 1 ? "Terminer" : "Suivant"}</button></div>`;
+    card.classList.remove("pop"); void card.offsetWidth; card.classList.add("pop");
+    if (s.el) {
+      const r = s.el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight - 110) { s.el.scrollIntoView({ block: "center", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); setTimeout(place, 380); }
+    }
+    place();
+  }
+  o.addEventListener("click", e => {
+    const a = e.target.closest("[data-gd]")?.dataset.gd;
+    if (a === "next") go(i + 1); else if (a === "prev") go(i - 1); else if (a === "close") close();
+    else if (a === "replay") { close(); guideStories(); }
+    else if (!e.target.closest(".gd-card")) close();
+  });
+  window.addEventListener("resize", place);
+  go(0);
+}
+
+// Bouton « ? » flottant ; présentation au premier lancement, une fois un jeu choisi
+function guideButton() {
+  let b = document.getElementById("gd-help");
+  if (!route.game) { b?.remove(); return; }
+  if (!b) {
+    b = document.createElement("button");
+    b.id = "gd-help"; b.className = "gd-help"; b.setAttribute("aria-label", "Aide : visite de cette page"); b.title = "Aide";
+    b.textContent = "?";
+    b.addEventListener("click", guideTour);
+    document.body.appendChild(b);
+  }
+  if (!guideSeen() && dataLoaded && !document.querySelector(".gd-stories")) setTimeout(() => guideStories(), 400);
 }
 
 if (!location.hash && prefs.game && (prefs.game === "all" || ENABLED_GAMES.includes(prefs.game))) history.replaceState(null, "", href(prefs.game));

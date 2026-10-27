@@ -1514,3 +1514,68 @@ button.gl:hover, button.gl:focus-visible { background: rgba(var(--accent-rgb), .
 @keyframes ci-ring { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(4); } }
 @keyframes ci-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @keyframes ci-letter { from { opacity: 0; transform: translateY(26px) scale(.9); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+
+/* ---------- Guide : bouton « ? », présentation en stories, visite de la page (27/10) ---------- */
+.gd-help { position: fixed; right: 16px; bottom: calc(var(--nav-h, 64px) + 34px + env(safe-area-inset-bottom)); z-index: 90; width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center; font: 800 18px/1 var(--font); color: var(--text); background: var(--bar); border: 1px solid rgba(var(--ink-rgb), .12);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .35); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); cursor: pointer; transition: transform .2s var(--ease), color .2s; }
+.gd-help:hover, .gd-help:focus-visible { color: var(--accent-text); transform: scale(1.06); outline: none; }
+.gd-help:active { transform: scale(.92); }
+body:not(.has-nav) .gd-help { bottom: 20px; }
+
+/* Stories */
+.gd-stories { position: fixed; inset: 0; z-index: 1003; display: grid; place-items: center; padding: 24px 16px; color: #fff;
+  background: radial-gradient(70% 50% at 50% 40%, rgba(var(--accent-rgb), .25), transparent 70%), #07070a; animation: gd-in .35s ease-out both; }
+.gd-stories.out { animation: gd-out .3s ease-in both; }
+.gd-bars { position: absolute; top: calc(12px + env(safe-area-inset-top)); left: 16px; right: 16px; display: flex; gap: 4px; z-index: 2; }
+.gd-bars span { flex: 1; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, .22); overflow: hidden; }
+.gd-bars span i { display: block; height: 100%; width: 0; background: #fff; }
+.gd-bars span.done i { width: 100%; }
+.gd-bars span.now i { animation: gd-bar linear both; }
+.gd-skip { position: absolute; top: calc(26px + env(safe-area-inset-top)); right: 16px; z-index: 3; background: none; border: 0; color: rgba(255, 255, 255, .75); font: 600 14px var(--font); padding: 8px; cursor: pointer; }
+.gd-slide { position: relative; z-index: 2; display: grid; justify-items: center; gap: 8px; max-width: 420px; text-align: center; pointer-events: none; }
+.gd-slide .btn { pointer-events: auto; }
+.gd-slide > * { animation: gd-rise .6s var(--ease) both; }
+.gd-slide > :nth-child(2) { animation-delay: .12s; } .gd-slide > :nth-child(3) { animation-delay: .2s; } .gd-slide > :nth-child(4) { animation-delay: .3s; } .gd-slide > :nth-child(n+5) { animation-delay: .45s; }
+.gd-icon { position: relative; display: grid; place-items: center; width: 84px; height: 84px; margin-bottom: 16px; border-radius: 28px; background: var(--accent);
+  box-shadow: 0 12px 40px rgba(var(--accent-rgb), .55); }
+.gd-slide > .gd-icon { animation: gd-icon .7s cubic-bezier(.2, .9, .2, 1.25) both; }
+.gd-icon .ic { width: 40px; height: 40px; color: #fff; }
+.gd-halo { position: absolute; inset: -2px; border-radius: inherit; border: 2px solid rgba(var(--accent-rgb), .8); animation: gd-halo 1.6s ease-out .3s infinite; }
+.gd-kicker { margin: 0; font-size: 12px; font-weight: 800; letter-spacing: .3em; text-transform: uppercase; color: var(--accent-text); }
+.gd-title { margin: 0; font-size: clamp(30px, 9vw, 42px); font-weight: 900; line-height: 1.1; }
+.gd-text { margin: 0; font-size: 17px; line-height: 1.5; color: rgba(255, 255, 255, .78); }
+.gd-go { margin-top: 18px; min-width: 180px; }
+.gd-zone { position: absolute; top: 0; bottom: 0; width: 35%; z-index: 1; background: none; border: 0; cursor: pointer; }
+.gd-zone.prev { left: 0; } .gd-zone.next { right: 0; width: 65%; }
+/* Barre du bas miniature : la rubrique présentée s'allume */
+.gd-nav { display: flex; gap: 4px; margin-top: 26px; padding: 6px; border-radius: 26px; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .1); }
+.gd-nav-i { display: grid; justify-items: center; gap: 2px; width: 58px; padding: 6px 0; border-radius: 20px; color: rgba(255, 255, 255, .45); font-size: 9.5px; transition: all .3s; }
+.gd-nav-i i { font-style: normal; max-width: 54px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gd-nav-i .ic { width: 20px; height: 20px; }
+.gd-nav-i.on { color: #fff; background: rgba(var(--accent-rgb), .3); box-shadow: 0 0 0 1px rgba(var(--accent-rgb), .8), 0 0 24px rgba(var(--accent-rgb), .55); animation: gd-on .6s var(--ease) .5s both; }
+@keyframes gd-in { from { opacity: 0; } }
+@keyframes gd-out { to { opacity: 0; transform: scale(1.03); } }
+@keyframes gd-bar { from { width: 0; } to { width: 100%; } }
+@keyframes gd-rise { from { opacity: 0; transform: translateY(16px); filter: blur(5px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes gd-icon { from { opacity: 0; transform: scale(.3) rotate(-25deg); } to { opacity: 1; transform: none; } }
+@keyframes gd-halo { from { opacity: .9; transform: scale(1); } to { opacity: 0; transform: scale(1.7); } }
+@keyframes gd-on { 0% { transform: scale(1); } 50% { transform: scale(1.18); } 100% { transform: scale(1); } }
+
+/* Visite : projecteur (tout le reste assombri) et bulle */
+.gd-tour { position: fixed; inset: 0; z-index: 1003; animation: gd-in .2s ease-out both; }
+.gd-tour.out { animation: gd-out .2s ease-in both; }
+.gd-spot { position: fixed; border-radius: 18px; box-shadow: 0 0 0 9999px rgba(0, 0, 0, .7), 0 0 0 2px rgba(var(--accent-rgb), .9), 0 0 30px rgba(var(--accent-rgb), .5);
+  transition: left .35s var(--ease), top .35s var(--ease), width .35s var(--ease), height .35s var(--ease); pointer-events: none; }
+.gd-spot.none { left: 50% !important; top: 50% !important; width: 0 !important; height: 0 !important; box-shadow: 0 0 0 9999px rgba(0, 0, 0, .7); }
+.gd-card { position: fixed; display: grid; gap: 6px; padding: 16px; border-radius: 18px; background: var(--surface-2); color: var(--text-2); border: 1px solid var(--surface-3);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .45); transition: left .35s var(--ease), top .35s var(--ease); }
+.gd-card.center { transform: translate(-50%, -50%); width: min(340px, calc(100vw - 32px)) !important; }
+.gd-card.pop { animation: gd-pop .3s var(--ease) both; }
+.gd-card h3 { margin: 0; font-size: 17px; color: var(--text); }
+.gd-card p { margin: 0; line-height: 1.45; }
+.gd-step { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--accent-text); }
+.gd-btns { display: flex; justify-content: space-between; gap: 8px; margin-top: 8px; }
+@keyframes gd-pop { from { opacity: 0; transform: translateY(6px) scale(.98); } to { opacity: 1; } }
+.gd-card.center.pop { animation-name: gd-pop-c; }
+@keyframes gd-pop-c { from { opacity: 0; transform: translate(-50%, -46%); } to { opacity: 1; transform: translate(-50%, -50%); } }

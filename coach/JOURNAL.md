@@ -668,7 +668,7 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - Retour d'Anthony (captures du test) : traductions mot à mot qui perdent le sens (« rappel » pour recall, « évacuation de la vague », « temps mort », « recule pour se soigner » pour « resetting », « vagues », « lane de côté »). Un joueur Silver connaît ces termes ; les traduire donne l'impression d'un contenu traduit à la chaîne.
 - `coach/vocab.mjs` : règles appliquées à la publication (`coach/build.mjs`, énoncé et mode d'emploi) : back, wave, freeze, slow/fast push, crash, clear, last hit, dead time, side lane, lane, ward, control ward, poke, teamfight, skirmish, map control, invade, dive, Scuttle, cooldown, summoners, ult, items. Citations et base inchangées ; textes officiels Riot non touchés. Noms propres protégés (« Cœur gelé »).
 - Textes du coach corrigés à la main (bilan, exercices, conseils de partie : « back » au lieu de « retour à la base »).
-- `glossaire.js` : 40 termes soulignés en pointillé, bulle d'explication au toucher (première apparition par conseil). Branché sur les conseils, leur mode d'emploi et les exercices.
+- lexique (en tête de coach2.js) : 40 termes soulignés en pointillé, bulle d'explication au toucher (première apparition par conseil). Branché sur les conseils, leur mode d'emploi et les exercices.
 - 57/58 tests.
 
 ## 27/10/2026 : carte objectif aérée

@@ -1376,7 +1376,7 @@ button.pick { background: none; border: 0; padding: 0; font: inherit; color: inh
 .c2-pilot-terms summary { cursor: pointer; color: var(--text); }
 .c2-pilot-terms ul { margin: var(--s2) 0 0; padding-left: 1.2em; display: grid; gap: var(--s1); }
 
-/* Lexique LoL : terme souligné, explication au toucher (glossaire.js) */
+/* Lexique LoL : terme souligné, explication au toucher (lexique en tête de ce fichier) */
 /* all: unset : les boutons du site sont en bloc ; un terme reste dans la phrase */
 button.gl { all: unset; display: inline; cursor: help; font: inherit; color: inherit;
   text-decoration: underline dotted rgba(var(--accent-rgb), .9); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }

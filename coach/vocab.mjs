@@ -3,7 +3,7 @@
 // et donne l'impression d'un contenu traduit à la chaîne. Ces règles remettent le jargon à l'affichage (coach/build.mjs) ;
 // la base (coach/kb/units.json) et les citations sources restent intactes. Les textes officiels de Riot (« u-dd- »,
 // nature « officiel ») ne sont pas touchés : c'est la traduction de Riot.
-// Le site explique chaque terme au toucher (glossaire.js). Gardés en français : sbires, dragon, Baron, tourelle, combat.
+// Le site explique chaque terme au toucher (coach2.js, en tête). Gardés en français : sbires, dragon, Baron, tourelle, combat.
 
 // [motif, remplacement] dans l'ordre : les expressions longues avant les mots seuls
 export const RULES = [

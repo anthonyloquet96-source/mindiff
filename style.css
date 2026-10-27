@@ -1389,3 +1389,18 @@ button.gl:hover, button.gl:focus-visible { color: var(--accent-text); outline: n
 @keyframes gl-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 @keyframes gl-in-up { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .gl-pop { animation: none; } }
+
+/* Carte objectif aérée : deux chiffres en grand, le geste en partie, le détail replié */
+.c2-v1-title { font-size: var(--fs-xl, 22px); }
+.c2-v1-nums { display: flex; align-items: center; gap: var(--s3); }
+.c2-v1-nums > div { display: grid; gap: 2px; }
+.c2-v1-nums b { font-size: 30px; line-height: 1.1; font-variant-numeric: tabular-nums; color: var(--text-2); }
+.c2-v1-nums .goal b { color: var(--accent-text); }
+.c2-v1-arrow { color: var(--text-3); font-size: 22px; }
+.c2-v1-ex { display: grid; gap: 4px; }
+.c2-v1-ex .label { margin: 0; }
+.c2-v1-ex p { margin: 0; }
+.c2-v1-prog { display: grid; gap: var(--s2); }
+.c2-v1 > .btn.primary { justify-self: start; }
+.c2-v1-erase { font-size: var(--fs-sm); }
+.c2-v1-nums b small { font-size: 14px; font-weight: 600; color: var(--text-3); }

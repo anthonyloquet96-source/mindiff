@@ -670,3 +670,7 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - Textes du coach corrigés à la main (bilan, exercices, conseils de partie : « back » au lieu de « retour à la base »).
 - `glossaire.js` : 40 termes soulignés en pointillé, bulle d'explication au toucher (première apparition par conseil). Branché sur les conseils, leur mode d'emploi et les exercices.
 - 57/58 tests.
+
+## 27/10/2026 : carte objectif aérée
+
+- Demande d'Anthony (trop de texte) : la carte montre d'abord le nom de l'objectif, deux chiffres en grand (« Toi aujourd'hui » → « Ta cible », avec l'unité), les pastilles de progression, puis le geste « En partie » (l'exercice sans la phrase de cible, déjà affichée). Repère, règle de réussite et conseils de coachs sont repliés (« Pourquoi cette cible », « Ce qu'en disent les coachs »).

@@ -455,20 +455,26 @@ function c2V1Card(p) {
       : why ? `Pas encore d'objectif : ${esc(why)}.` : "Pas encore d'objectif : joue quelques ranked de plus.";
     return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${msg}</p>${atLevel ? "" : `<p class="fine">Il faut au moins 15 parties classées au même poste.</p>`}${c2V1Erase()}</section>`;
   }
+  // Carte aérée (demande d'Anthony, 27/10) : l'essentiel d'abord (objectif, deux chiffres, ce qu'il faut faire en partie),
+  // le détail (repère, règle de réussite, conseils de coachs) replié
   const ref = g.reference?.source === "metric_references" ? `Repère : joueurs ${esc(g.reference.level || "Diamant+")} à ce poste, ${g.reference.quantile === "p50" ? "médiane" : "quart des meilleurs"} ${esc(c2V1Fmt(g, g.reference.value))} (${c2n(g.reference.n)} parties).` : "Repère pédagogique du coach, en attendant assez de données mesurées.";
   const evs = (V.evaluations || []).filter(e => e.counted);
   const dots = Array.from({ length: g.evaluation_games }, (_, i) => { const e = evs[i]; return `<span class="c2-v1-dot ${!e ? "todo" : e.met ? "ok" : e.met === false ? "ko" : "na"}" title="${e ? (e.value == null ? "donnée manquante" : esc(c2V1Fmt(g, e.value))) : "à jouer"}"></span>`; }).join("");
+  // L'exercice commence par la cible (« Vise 7,8 … ») déjà affichée en grand : on ne garde que le geste à faire
+  const how = (g.exercise || "").replace(/^Vise [^.]*\.\s*/, "") || g.exercise || "";
+  const unit = g.unit && g.unit !== "%" ? `<small>${esc(g.unit === "/min" ? " / min" : " " + g.unit)}</small>` : "";
   const head = `<p class="label">${g.status === "proposed" ? "Ton prochain objectif" : "Ton objectif en cours"} · ${esc(C2_V1_ROLE[g.role] || g.role)}</p>
-    <h3 class="c2-v1-title">${esc(g.label)} : ${g.direction === "lower" ? "au plus" : "au moins"} <b>${esc(g.target_text)}</b></h3>
-    <p class="fine">Aujourd'hui : ${esc(g.baseline_text)} (médiane de tes dernières parties). ${ref}</p>`;
+    <h3 class="c2-v1-title">${esc(g.label)}</h3>
+    <div class="c2-v1-nums"><div><span class="fine">Toi aujourd'hui</span><b>${esc(g.baseline_text)}${unit}</b></div><span class="c2-v1-arrow" aria-hidden="true">→</span><div class="goal"><span class="fine">${g.direction === "lower" ? "Au plus" : "Ta cible"}</span><b>${esc(g.target_text)}${unit}</b></div></div>`;
   const tips = c2V1Tips(g);
-  const tipsHtml = tips.length ? `<details class="more c2-fold" data-fold="v1-tips"${c2ui.fold?.["v1-tips"] ? " open" : ""}><summary>Ce qu'en disent les coachs (${tips.length})</summary><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></details>` : "";
+  const more = `<details class="more c2-fold" data-fold="v1-why"${c2ui.fold?.["v1-why"] ? " open" : ""}><summary>Pourquoi cette cible</summary><p class="fine">« Toi aujourd'hui » : médiane de tes dernières parties à ce poste. ${ref}</p><p class="fine">Réussi si tu atteins la cible dans ${g.success_required} de tes ${g.evaluation_games} prochaines ranked à ce poste. Gagner ou perdre ne compte pas.</p></details>
+    ${tips.length ? `<details class="more c2-fold" data-fold="v1-tips"${c2ui.fold?.["v1-tips"] ? " open" : ""}><summary>Ce qu'en disent les coachs (${tips.length})</summary><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></details>` : ""}`;
+  const howHtml = how ? `<div class="c2-v1-ex"><span class="label">En partie</span><p>${gloss(esc(how))}</p></div>` : "";
   const body = g.status === "proposed"
-    ? `${g.exercise ? `<p class="c2-v1-ex">${gloss(esc(g.exercise))}</p>` : ""}${tipsHtml}<p class="fine">Réussi si tu atteins la cible dans ${g.success_required} de tes ${g.evaluation_games} prochaines ranked à ce poste. Gagner ou perdre ne compte pas.</p>
-      <button class="btn primary" data-action="c2-v1-start" data-id="${esc(g.id)}">Je commence</button>`
-    : `<div class="c2-v1-dots" aria-label="${evs.filter(e => e.met).length} cibles atteintes sur ${evs.length} parties">${dots}</div>
-      <p class="fine">${evs.filter(e => e.met).length} / ${g.success_required} réussites nécessaires · ${evs.length} / ${g.evaluation_games} parties jouées</p>
-      ${g.exercise ? `<p class="c2-v1-ex">${gloss(esc(g.exercise))}</p>` : ""}${tipsHtml}
+    ? `${howHtml}<button class="btn primary" data-action="c2-v1-start" data-id="${esc(g.id)}">Je commence</button>${more}`
+    : `<div class="c2-v1-prog"><div class="c2-v1-dots" aria-label="${evs.filter(e => e.met).length} cibles atteintes sur ${evs.length} parties">${dots}</div>
+      <p class="fine">${evs.filter(e => e.met).length} / ${g.success_required} réussites · ${evs.length} / ${g.evaluation_games} parties</p></div>
+      ${howHtml}${more}
       <button class="btn ghost sm" data-action="c2-v1-sync"${V.busy ? " disabled" : ""}>${V.busy ? "Mise à jour…" : "Mettre à jour mes parties"}</button>`;
   return `<section class="c2-card c2-v1">${lastTxt}${head}${body}${V.error ? `<p class="fine">${esc(V.error)}</p>` : ""}${c2V1Erase()}</section>`;
 }

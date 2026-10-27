@@ -536,13 +536,42 @@ async function c2V1Load(force = false) {
   V.busy = false; render(false);
 }
 const C2_V1_ROLE = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "ADC", UTILITY: "support" };
+// Motion design de la carte objectif : entrée en cascade, chiffres qui défilent, bordure lumineuse, onde au lancement.
+// Rejoué seulement quand l'objectif ou son statut change ; coupé si le joueur a réduit les animations (style.css).
+const c2Seen = new Set();
+function c2CountUp() {
+  for (const el of document.querySelectorAll(".c2-v1-enter [data-count]:not([data-counted])")) {
+    el.dataset.counted = "1";
+    const final = el.textContent, m = final.match(/^(-?\d+)(?:,(\d+))?(.*)$/);
+    if (!m) continue;
+    const dec = m[2]?.length || 0, to = Number(m[1] + "." + (m[2] || "0")), rest = m[3], t0 = performance.now(), dur = 900;
+    const step = now => {
+      const k = Math.min(1, (now - t0 - (Number(el.dataset.delay) || 0)) / dur);
+      if (k < 0) return requestAnimationFrame(step);
+      const e = 1 - Math.pow(2, -10 * k);
+      el.textContent = (to * e).toFixed(dec).replace(".", ",") + rest;
+      if (k < 1) requestAnimationFrame(step); else el.textContent = final;
+    };
+    requestAnimationFrame(step);
+  }
+}
+// Onde de choc et étincelles autour d'un bouton (lancement d'un objectif)
+function c2Burst(btn) {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const r = btn.getBoundingClientRect(), b = document.createElement("div");
+  b.className = "c2-burst"; b.setAttribute("aria-hidden", "true");
+  b.style.left = r.left + r.width / 2 + "px"; b.style.top = r.top + r.height / 2 + "px";
+  b.innerHTML = "<span class=\"ring\"></span><span class=\"ring r2\"></span>" + Array.from({ length: 16 }, (_, i) => `<i style="--a:${i * 22.5}deg;--d:${60 + (i % 4) * 18}px"></i>`).join("");
+  document.body.appendChild(b);
+  setTimeout(() => b.remove(), 1100);
+}
 function c2V1Card(p) {
   if (C2_API == null) return "";
   setTimeout(() => c2V1Load(), 0);
   const V = c2ui.v1 || {};
   if (V.deleted && V.deleted === C2.account?.riotId) return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p><p>Tes données du coach ont été supprimées : parties, mesures, objectifs et avis.</p><button class="btn ghost sm" data-action="c2-v1-restart">Recommencer avec le coach</button></section>`;
   if (V.error && !V.goal) return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p><p class="note warn">${icon("alert")}<span>${esc(V.error)}</span></p><button class="btn ghost sm" data-action="c2-v1-sync">Réessayer</button>${c2V1Erase()}</section>`;
-  if (!V.goal && (V.busy || !V.diagnostic)) return `<section class="c2-card c2-v1 c2-loading">${V.syncing ? "Lecture de tes dernières ranked…" : "Ton objectif…"}</section>`;
+  if (!V.goal && (V.busy || !V.diagnostic)) return `<section class="c2-card c2-v1 c2-loading c2-scan"><span class="c2-scan-beam" aria-hidden="true"></span><span>${V.syncing ? "Lecture de tes dernières ranked" : "Ton objectif"}<span class="c2-dots" aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></span></section>`;
   const last = V.history?.[0];
   const lastTxt = last ? `<p class="c2-v1-last ${last.outcome}">${C2_V1_OUTCOME[last.outcome] || "Objectif précédent sans verdict"} : ${esc(last.label)}, cible ${esc(last.target_text)} (${last.progress?.met ?? "?"}/${last.progress?.counted ?? "?"} parties)${last.progress?.review ? ` ; ${esc(last.progress.review)}` : ""}.</p>${c2V1Feedback(last)}` : "";
   const g = V.goal;
@@ -562,9 +591,11 @@ function c2V1Card(p) {
   // L'exercice commence par la cible (« Vise 7,8 … ») déjà affichée en grand : on ne garde que le geste à faire
   const how = (g.exercise || "").replace(/^Vise [^.]*\.\s*/, "") || g.exercise || "";
   const unit = g.unit && g.unit !== "%" ? `<small>${esc(g.unit === "/min" ? " / min" : " " + g.unit)}</small>` : "";
+  const seenKey = `${g.id}:${g.status}`, enter = !c2Seen.has(seenKey);
+  if (enter) { c2Seen.add(seenKey); setTimeout(c2CountUp, 0); }
   const head = `<p class="label">${g.status === "proposed" ? "Ton prochain objectif" : "Ton objectif en cours"} · ${esc(C2_V1_ROLE[g.role] || g.role)}</p>
     <h3 class="c2-v1-title">${esc(g.label)}</h3>
-    <div class="c2-v1-nums"><div><span class="fine">Toi aujourd'hui</span><b>${esc(g.baseline_text)}${unit}</b></div><span class="c2-v1-arrow" aria-hidden="true">→</span><div class="goal"><span class="fine">${g.direction === "lower" ? "Au plus" : "Ta cible"}</span><b>${esc(g.target_text)}${unit}</b></div></div>`;
+    <div class="c2-v1-nums"><div><span class="fine">Toi aujourd'hui</span><b><span data-count>${esc(g.baseline_text)}</span>${unit}</b></div><span class="c2-v1-arrow" aria-hidden="true">→</span><div class="goal"><span class="fine">${g.direction === "lower" ? "Au plus" : "Ta cible"}</span><b><span data-count data-delay="250">${esc(g.target_text)}</span>${unit}</b></div></div>`;
   const tips = c2V1Tips(g);
   const more = `<details class="more c2-fold" data-fold="v1-why"${c2ui.fold?.["v1-why"] ? " open" : ""}><summary>Pourquoi cette cible</summary><ul class="c2-v1-why"><li><b>${esc(g.baseline_text)}</b><span>C'est ce que tu fais d'habitude (tes dernières ranked ${esc(C2_V1_ROLE[g.role] || "à ce poste")}).</span></li><li><b>${g.reference?.source === "metric_references" ? esc(c2V1Fmt(g, g.reference.value)) : esc(g.target_text)}</b><span>${g.reference?.source === "metric_references" ? `C'est ce que font les joueurs ${esc(g.reference.level || "Diamant+")} ${g.reference.quantile === "p50" ? "en moyenne" : "les plus forts"}. On y va par petites marches : ${esc(g.target_text)} d'abord.` : "C'est le repère du coach pour ce poste."}</span></li><li><b>${g.success_required}/${g.evaluation_games}</b><span>L'objectif est réussi si tu atteins ${esc(g.target_text)} dans ${g.success_required} de tes ${g.evaluation_games} prochaines ranked. Gagner ou perdre ne compte pas.</span></li></ul></details>
     ${tips.length ? `<details class="more c2-fold" data-fold="v1-tips"${c2ui.fold?.["v1-tips"] ? " open" : ""}><summary>Ce qu'en disent les coachs (${tips.length})</summary><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></details>` : ""}`;
@@ -575,7 +606,7 @@ function c2V1Card(p) {
       <p class="fine">${evs.filter(e => e.met).length} / ${g.success_required} réussites · ${evs.length} / ${g.evaluation_games} parties</p></div>
       ${howHtml}${more}
       <button class="btn ghost sm" data-action="c2-v1-sync"${V.busy ? " disabled" : ""}>${V.busy ? "Mise à jour…" : "Mettre à jour mes parties"}</button>`;
-  return `<section class="c2-card c2-v1">${lastTxt}${head}${body}${V.error ? `<p class="fine">${esc(V.error)}</p>` : ""}${c2V1Erase()}</section>`;
+  return `<section class="c2-card c2-v1 c2-v1-live${enter ? " c2-v1-enter" : ""}">${lastTxt}${head}${body}${V.error ? `<p class="fine">${esc(V.error)}</p>` : ""}${c2V1Erase()}</section>`;
 }
 // Suppression RGPD de tout ce que le coach garde sur le joueur (DELETE /players/:id), confirmée dans la page
 function c2V1Erase() {
@@ -1674,6 +1705,7 @@ document.addEventListener("click", async e => {
   }
   if (a.dataset.action === "c2-v1-restart") { c2ui.v1 = {}; c2V1Load(true); }
   if (a.dataset.action === "c2-v1-start" && V.pid) {
+    c2Burst(a);
     try { V.goal = (await c2V1(`/players/${V.pid}/goals/${a.dataset.id}/start`, "POST")).goal; V.evaluations = []; } catch (err) { V.error = err.message; }
     render(false);
   }

@@ -1409,3 +1409,67 @@ button.gl:hover, button.gl:focus-visible { background: rgba(var(--accent-rgb), .
 .c2-v1-why li { display: grid; grid-template-columns: 3.6em 1fr; gap: var(--s2); align-items: baseline; }
 .c2-v1-why b { font-size: var(--fs-lg); color: var(--accent-text); font-variant-numeric: tabular-nums; }
 .c2-v1-why span { color: var(--text-2); line-height: 1.45; }
+
+/* ---------- Motion design de la carte objectif (27/10) ---------- */
+/* Bordure lumineuse : un reflet orange fait le tour de la carte, lentement */
+@property --c2-a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.c2-v1-live { position: relative; isolation: isolate; }
+.c2-v1-live::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px; pointer-events: none; z-index: -1;
+  background: conic-gradient(from var(--c2-a), transparent 0deg, rgba(var(--accent-rgb), .0) 40deg, rgba(var(--accent-rgb), .9) 90deg, rgba(255, 196, 120, .9) 110deg, rgba(var(--accent-rgb), 0) 160deg, transparent 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: c2-orbit 6s linear infinite; }
+.c2-v1-live::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1;
+  background: radial-gradient(120% 60% at 0% 0%, rgba(var(--accent-rgb), .10), transparent 60%); }
+@keyframes c2-orbit { to { --c2-a: 360deg; } }
+
+/* Entrée en cascade */
+.c2-v1-enter > * { animation: c2-rise .6s var(--ease) both; }
+.c2-v1-enter > :nth-child(1) { animation-delay: .02s; } .c2-v1-enter > :nth-child(2) { animation-delay: .08s; }
+.c2-v1-enter > :nth-child(3) { animation-delay: .14s; } .c2-v1-enter > :nth-child(4) { animation-delay: .22s; }
+.c2-v1-enter > :nth-child(5) { animation-delay: .30s; } .c2-v1-enter > :nth-child(6) { animation-delay: .38s; }
+.c2-v1-enter > :nth-child(n+7) { animation-delay: .44s; }
+.c2-v1-enter .c2-v1-title { animation: c2-title .8s var(--ease) .06s both; }
+.c2-v1-enter .c2-v1-arrow { animation: c2-arrow .7s var(--ease) .35s both; }
+.c2-v1-enter .c2-v1-nums .goal b { animation: c2-ignite 1.4s ease-out .9s both; }
+.c2-v1-enter .btn.primary { animation: c2-pop-in .5s var(--ease) .5s both, c2-breathe 2.6s ease-in-out 1.4s 2; }
+.c2-v1-enter .c2-v1-dot { animation: c2-dot-in .45s var(--ease) both; }
+.c2-v1-enter .c2-v1-dot:nth-child(1) { animation-delay: .35s; } .c2-v1-enter .c2-v1-dot:nth-child(2) { animation-delay: .45s; }
+.c2-v1-enter .c2-v1-dot:nth-child(3) { animation-delay: .55s; } .c2-v1-enter .c2-v1-dot:nth-child(4) { animation-delay: .65s; }
+.c2-v1-enter .c2-v1-dot:nth-child(5) { animation-delay: .75s; }
+.c2-v1-dot.ok { box-shadow: 0 0 12px rgba(var(--ok-rgb), .55); }
+.c2-v1-last.achieved { position: relative; overflow: hidden; }
+.c2-v1-last.achieved::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, .22) 50%, transparent 70%);
+  background-size: 250% 100%; animation: c2-sweep 2.4s ease-in-out .4s 2 both; pointer-events: none; }
+@keyframes c2-rise { from { opacity: 0; transform: translateY(14px); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes c2-title { from { opacity: 0; transform: translateY(10px); letter-spacing: .08em; filter: blur(6px); } to { opacity: 1; transform: none; letter-spacing: normal; filter: none; } }
+@keyframes c2-arrow { from { opacity: 0; transform: translateX(-14px); } to { opacity: 1; transform: none; } }
+@keyframes c2-ignite { 0% { text-shadow: 0 0 0 rgba(var(--accent-rgb), 0); } 30% { text-shadow: 0 0 18px rgba(var(--accent-rgb), .85), 0 0 2px rgba(255, 220, 180, .9); } 100% { text-shadow: 0 0 0 rgba(var(--accent-rgb), 0); } }
+@keyframes c2-pop-in { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: none; } }
+@keyframes c2-breathe { 50% { box-shadow: 0 0 0 8px rgba(var(--accent-rgb), .14), 0 6px 22px rgba(var(--accent-rgb), .35); } }
+@keyframes c2-dot-in { from { opacity: 0; transform: scale(.3); } 70% { transform: scale(1.15); } to { opacity: 1; transform: none; } }
+@keyframes c2-sweep { from { background-position: 150% 0; } to { background-position: -100% 0; } }
+
+/* Onde de choc et étincelles au lancement */
+.c2-burst { position: fixed; z-index: 1001; width: 0; height: 0; pointer-events: none; }
+.c2-burst .ring { position: absolute; left: -40px; top: -40px; width: 80px; height: 80px; border-radius: 50%; border: 2px solid rgba(var(--accent-rgb), .9);
+  animation: c2-shock .7s cubic-bezier(.1, .7, .3, 1) both; }
+.c2-burst .ring.r2 { border-color: rgba(255, 200, 140, .7); animation-delay: .12s; }
+.c2-burst i { position: absolute; left: -3px; top: -3px; width: 6px; height: 6px; border-radius: 50%; background: #ffd2a8;
+  box-shadow: 0 0 8px rgba(var(--accent-rgb), .9); animation: c2-spark .8s cubic-bezier(.15, .8, .3, 1) both; }
+.c2-burst i:nth-child(even) { background: var(--accent); width: 4px; height: 10px; border-radius: 2px; }
+@keyframes c2-shock { from { opacity: 1; transform: scale(.4); } to { opacity: 0; transform: scale(3.2); } }
+@keyframes c2-spark { from { opacity: 1; transform: rotate(var(--a)) translateY(0) scale(1); } to { opacity: 0; transform: rotate(var(--a)) translateY(calc(var(--d) * -1)) scale(.4); } }
+
+/* Lecture des parties : faisceau qui balaie la carte */
+.c2-scan { position: relative; overflow: hidden; background: var(--surface); animation: none; }
+.c2-scan-beam { position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), .18) 45%, rgba(255, 210, 170, .35) 50%, rgba(var(--accent-rgb), .18) 55%, transparent);
+  background-size: 40% 100%; background-repeat: no-repeat; animation: c2-beam 1.6s cubic-bezier(.45, 0, .55, 1) infinite; }
+.c2-scan > span:last-child { position: relative; }
+.c2-dots i { font-style: normal; animation: c2-blink 1.2s infinite both; }
+.c2-dots i:nth-child(2) { animation-delay: .2s; } .c2-dots i:nth-child(3) { animation-delay: .4s; }
+@keyframes c2-beam { from { background-position: -60% 0; } to { background-position: 160% 0; } }
+@keyframes c2-blink { 0%, 100% { opacity: .2; } 40% { opacity: 1; } }
+
+/* Sections repliables : le contenu glisse à l'ouverture */
+.c2-v1 details[open] > :not(summary) { animation: c2-unfold .35s var(--ease) both; }
+@keyframes c2-unfold { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }

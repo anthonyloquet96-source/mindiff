@@ -682,3 +682,8 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - Exercice toujours recalculé depuis le catalogue à la lecture (`withLabels`) : un objectif créé avant une correction de vocabulaire affichait encore « lane de côté ».
 - Lexique : termes en couleur (orange, gras) au lieu du soulignement pointillé, qui faisait penser à une faute dans Word. Terme « push » ajouté.
 - Conseil `u-ai-yt-ZzKpPJ_BNHM-4` (dead time, Skill Capped) reformulé, jugé incompréhensible : « pour bien choisir le moment de ton back, push d'abord ta wave… ». Le roam, absent des passages cités, est retiré.
+
+## 27/10/2026 : motion design de la carte objectif
+
+- Demande d'Anthony (« quelque chose d'épique »). Entrée en cascade (flou → net), titre qui se resserre, chiffres qui défilent jusqu'à leur valeur, flèche qui glisse, cible qui s'allume, bouton qui respire ; bordure lumineuse orange qui tourne autour de la carte ; onde de choc et étincelles sur « Je commence » ; pastilles qui apparaissent une à une, réussites lumineuses ; reflet sur un objectif maîtrisé ; faisceau qui balaie la carte pendant la lecture des parties ; sections repliables qui glissent.
+- Rejoué seulement quand l'objectif ou son statut change (le site redessine souvent la page) ; coupé si le joueur a réduit les animations.

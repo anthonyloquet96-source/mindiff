@@ -1465,8 +1465,8 @@ button.gl:hover, button.gl:focus-visible { background: rgba(var(--accent-rgb), .
 .c2-scan-beam { position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), .18) 45%, rgba(255, 210, 170, .35) 50%, rgba(var(--accent-rgb), .18) 55%, transparent);
   background-size: 40% 100%; background-repeat: no-repeat; animation: c2-beam 1.6s cubic-bezier(.45, 0, .55, 1) infinite; }
 .c2-scan > span:last-child { position: relative; }
-.c2-dots i { font-style: normal; animation: c2-blink 1.2s infinite both; }
-.c2-dots i:nth-child(2) { animation-delay: .2s; } .c2-dots i:nth-child(3) { animation-delay: .4s; }
+.c2-wait i { font-style: normal; animation: c2-blink 1.2s infinite both; }
+.c2-wait i:nth-child(2) { animation-delay: .2s; } .c2-wait i:nth-child(3) { animation-delay: .4s; }
 @keyframes c2-beam { from { background-position: -60% 0; } to { background-position: 160% 0; } }
 @keyframes c2-blink { 0%, 100% { opacity: .2; } 40% { opacity: 1; } }
 

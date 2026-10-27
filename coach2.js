@@ -571,7 +571,7 @@ function c2V1Card(p) {
   const V = c2ui.v1 || {};
   if (V.deleted && V.deleted === C2.account?.riotId) return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p><p>Tes données du coach ont été supprimées : parties, mesures, objectifs et avis.</p><button class="btn ghost sm" data-action="c2-v1-restart">Recommencer avec le coach</button></section>`;
   if (V.error && !V.goal) return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p><p class="note warn">${icon("alert")}<span>${esc(V.error)}</span></p><button class="btn ghost sm" data-action="c2-v1-sync">Réessayer</button>${c2V1Erase()}</section>`;
-  if (!V.goal && (V.busy || !V.diagnostic)) return `<section class="c2-card c2-v1 c2-loading c2-scan"><span class="c2-scan-beam" aria-hidden="true"></span><span>${V.syncing ? "Lecture de tes dernières ranked" : "Ton objectif"}<span class="c2-dots" aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></span></section>`;
+  if (!V.goal && (V.busy || !V.diagnostic)) return `<section class="c2-card c2-v1 c2-loading c2-scan"><span class="c2-scan-beam" aria-hidden="true"></span><span>${V.syncing ? "Lecture de tes dernières ranked" : "Ton objectif"}<span class="c2-wait" aria-hidden="true"><i>.</i><i>.</i><i>.</i></span></span></section>`;
   const last = V.history?.[0];
   const lastTxt = last ? `<p class="c2-v1-last ${last.outcome}">${C2_V1_OUTCOME[last.outcome] || "Objectif précédent sans verdict"} : ${esc(last.label)}, cible ${esc(last.target_text)} (${last.progress?.met ?? "?"}/${last.progress?.counted ?? "?"} parties)${last.progress?.review ? ` ; ${esc(last.progress.review)}` : ""}.</p>${c2V1Feedback(last)}` : "";
   const g = V.goal;

@@ -7,6 +7,20 @@ import { computeMetrics, METRIC_VERSION } from "../metrics.mjs";
 import { proposeGoal, evaluateGoal, transition } from "../goals.mjs";
 import { hasPlayer } from "./scrub.mjs";
 
+// Repères par rang (test privé) : { MASTER: { BOTTOM: { cs_at_10: {…} } }, … }. Le joueur vise le rang au-dessus du sien
+// (un Diamant vise le Master, un Challenger reste au niveau Challenger). Sans rang solo/duo : seuils pédagogiques du catalogue.
+// Des repères non découpés par rang (tests, ancien format) sont rendus tels quels.
+export const TIERS = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "EMERALD", "DIAMOND", "MASTER", "GRANDMASTER", "CHALLENGER"];
+export async function refsForPlayer(riot, player, references) {
+  if (!references || !Object.keys(references).some(k => TIERS.includes(k))) return { references, tier: null, target: null };
+  const entries = await riot.call("league", { platform: player.platform, puuid: player.puuid }).catch(e => { if (e.code === "riot-cle-refusee") throw e; return []; });
+  const tier = (entries || []).find(e => e.queueType === "RANKED_SOLO_5x5")?.tier || null;
+  const i = TIERS.indexOf(tier);
+  if (i < 0) return { references: null, tier: null, target: null };
+  const target = TIERS[Math.min(i + 1, TIERS.length - 1)];
+  return { references: references[target] || null, tier, target };
+}
+
 // Rôle principal : le plus joué parmi les parties valides récentes
 export function mainRole(metrics) {
   const n = {};
@@ -43,7 +57,7 @@ export async function syncPlayer({ store, riot, playerId, count = 30, references
     try { m = computeMetrics(raw.match, raw.timeline, player.puuid); } catch (e) { if (e.code === "joueur-absent") continue; throw e; }
     await store.putMetrics(playerId, { ...m, match_id: m.match_id || id });
   }
-  const goal = more ? null : await advanceGoals({ store, playerId, references, now });
+  const goal = more ? null : await advanceGoals({ store, playerId, references: (await refsForPlayer(riot, player, references)).references, now });
   return { matches: ids.length, fetched, recomputed, skipped, goal, more };
 }
 

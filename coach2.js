@@ -451,11 +451,11 @@ function c2V1Card(p) {
     const rows = V.diagnostic?.rows || [], why = rows.find(r => r.reason)?.reason;
     // Déjà au niveau sur tout : pas d'objectif à proposer, ce n'est pas un manque de parties
     const atLevel = rows.length && rows.some(r => r.reason === "déjà au niveau de la référence") && rows.every(r => r.reason === "déjà au niveau de la référence" || /suspendu/.test(r.reason || ""));
-    const msg = atLevel ? "Pas d'objectif à te proposer : tu es déjà au niveau des repères du coach sur tout ce qu'il suit à ce poste. Pour l'instant, ses repères visent les joueurs de l'Argent au Platine."
+    const msg = atLevel ? `Pas d'objectif à te proposer : tu es déjà au niveau des repères du coach sur tout ce qu'il suit à ce poste${V.diagnostic?.target_tier ? ` (meilleurs joueurs ${esc(C2_TIER[V.diagnostic.target_tier] || V.diagnostic.target_tier)})` : ""}.`
       : why ? `Pas encore d'objectif : ${esc(why)}.` : "Pas encore d'objectif : joue quelques ranked de plus.";
     return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${msg}</p>${atLevel ? "" : `<p class="fine">Il faut au moins 15 parties classées au même poste.</p>`}${c2V1Erase()}</section>`;
   }
-  const ref = g.reference?.source === "metric_references" ? `Repère : ${esc(g.reference.level || "Diamant+")} à ce poste, médiane ${esc(c2V1Fmt(g, g.reference.value))} (${c2n(g.reference.n)} parties).` : "Repère pédagogique du coach, en attendant assez de données mesurées.";
+  const ref = g.reference?.source === "metric_references" ? `Repère : joueurs ${esc(g.reference.level || "Diamant+")} à ce poste, ${g.reference.quantile === "p50" ? "médiane" : "quart des meilleurs"} ${esc(c2V1Fmt(g, g.reference.value))} (${c2n(g.reference.n)} parties).` : "Repère pédagogique du coach, en attendant assez de données mesurées.";
   const evs = (V.evaluations || []).filter(e => e.counted);
   const dots = Array.from({ length: g.evaluation_games }, (_, i) => { const e = evs[i]; return `<span class="c2-v1-dot ${!e ? "todo" : e.met ? "ok" : e.met === false ? "ko" : "na"}" title="${e ? (e.value == null ? "donnée manquante" : esc(c2V1Fmt(g, e.value))) : "à jouer"}"></span>`; }).join("");
   const head = `<p class="label">${g.status === "proposed" ? "Ton prochain objectif" : "Ton objectif en cours"} · ${esc(C2_V1_ROLE[g.role] || g.role)}</p>

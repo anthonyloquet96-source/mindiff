@@ -652,3 +652,13 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 
 - Premier essai réel du test privé : lecture des parties bloquée à « en cours » après 6 parties. Cause : le Worker gratuit de Cloudflare limite chaque requête à 50 appels sortants ; une partie en demande environ 7 (Riot : partie et timeline ; Supabase : stockage, ligne, métriques). Le Worker est coupé net, sans pouvoir marquer la synchronisation en échec.
 - Correctif : `syncPlayer({ budget })` traite au plus 3 parties par requête et renvoie `more` ; les métriques connues sont lues en une requête (plus une par partie). Chaque `GET /jobs/:id` traite le paquet suivant ; une synchronisation sans nouvelles depuis 60 s reprend. Les objectifs ne sont recalculés qu'au dernier paquet. Test ajouté (paquet de 5 puis reprise). 57/58 tests.
+
+## 27/10/2026 : repères par rang pour le test privé (options 2 et 3 d'Anthony)
+
+- Constat du premier test : un Diamant IV ADC dépasse tous les seuils pédagogiques, le coach ne proposait rien.
+- Décision d'Anthony : utiliser dans le test privé seulement (sur invitation, jamais sur le site public) les repères mesurés (option 2), et recollecter environ 1 000 parties Master+ avec la clé personnelle (option 3, au-delà du volume annoncé à Riot dans la demande de clé : choix assumé par Anthony).
+- `coach/references-tiers.mjs` : repères par rang et par poste (bench-raw Fer→Challenger 160 parties par rang ; timelines Diamant→Challenger ; timelines-perso Master+ prioritaire dès 200 observations). Envoyés dans `metric_references` (level = rang), lus par le Worker.
+- Le joueur vise le rang au-dessus du sien (`refsForPlayer`, ligue solo/duo lue chez Riot au dernier paquet de synchronisation et au diagnostic) ; sans rang solo/duo, seuils pédagogiques.
+- Constat : les rangs se séparent peu sur le farm du début (ADC sbires à 10 min : 76 Diamant, 78 Challenger), nettement plus sur le farm du milieu de partie (8,2 Diamant, 8,8 Challenger par minute).
+- Simulation sur le testeur Diamant IV : objectif « farm entre 15 et 25 min », base 7,7, repère Maître 8,5, première cible 7,8.
+- `coach/timelines.mjs` : options `--dir` et `--tiers`. Collecte Master+ clé personnelle lancée (coach/cache/timelines-perso).

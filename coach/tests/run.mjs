@@ -967,6 +967,15 @@ await t("COACH-005 Synchronisation : aucune partie traitée deux fois, recalcul 
   const all = await store.listMetrics(pid);
   for (const m of all) await store.putMetrics(pid, { ...m, metric_version: "ancienne" });
   const { syncPlayer } = await import("../v1/sync.mjs");
+  // Repères par rang : le joueur vise le rang au-dessus du sien ; sans rang solo/duo, seuils pédagogiques
+  const { refsForPlayer } = await import("../v1/sync.mjs");
+  const lg = entries => ({ call: async () => entries });
+  const tiered = { DIAMOND: { BOTTOM: { x: 1 } }, MASTER: { BOTTOM: { x: 2 } }, CHALLENGER: { BOTTOM: { x: 3 } } };
+  const pl = { platform: "euw1", puuid: "p" };
+  assert((await refsForPlayer(lg([{ queueType: "RANKED_SOLO_5x5", tier: "DIAMOND" }]), pl, tiered)).references.BOTTOM.x === 2, "un Diamant ne vise pas le Master");
+  assert((await refsForPlayer(lg([{ queueType: "RANKED_SOLO_5x5", tier: "CHALLENGER" }]), pl, tiered)).references.BOTTOM.x === 3, "un Challenger ne garde pas le Challenger");
+  assert((await refsForPlayer(lg([{ queueType: "RANKED_FLEX_SR", tier: "GOLD" }]), pl, tiered)).references === null, "rang flex pris pour le solo/duo");
+  assert((await refsForPlayer(lg([]), pl, { BOTTOM: { x: 9 } })).references.BOTTOM.x === 9, "repères sans rang modifiés");
   const part = await syncPlayer({ store, riot, playerId: pid, budget: 5 });
   assert(part.more === true && part.recomputed === 5 && part.goal === null, "paquet de synchronisation non borné");
   const re = await syncPlayer({ store, riot, playerId: pid });

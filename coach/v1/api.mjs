@@ -15,7 +15,7 @@
 //   POST /api/v1/coach/chat                    (COACH-010)
 
 import { PLATFORMS } from "./riot.mjs";
-import { syncPlayer, mainRole } from "./sync.mjs";
+import { syncPlayer, mainRole, refsForPlayer } from "./sync.mjs";
 import { prioritize, transition, GOAL_VERSION, OUTCOMES } from "../goals.mjs";
 import { CATALOG, METRIC_VERSION, formatMetric } from "../metrics.mjs";
 
@@ -75,7 +75,8 @@ export async function handleV1({ method, path, query = {}, body = null }, ctx) {
     if (sub === "/diagnostic" && method === "GET") {
       const role = CATALOG && (query.role && /^(TOP|JUNGLE|MIDDLE|BOTTOM|UTILITY)$/.test(query.role) ? query.role : mainRole(metrics));
       if (!role) return { status: 200, body: { role: null, rows: [], note: "Aucune partie classée valide pour l'instant." } };
-      return { status: 200, body: { role, metric_version: METRIC_VERSION, rows: prioritize(metrics, role, { references }) } };
+      const tiered = riot ? await refsForPlayer(riot, player, references) : { references: null, tier: null, target: null };
+      return { status: 200, body: { role, metric_version: METRIC_VERSION, tier: tiered.tier, target_tier: tiered.target, rows: prioritize(metrics, role, { references: tiered.references }) } };
     }
     const goals = await store.listGoals(player.id);
     if (sub === "/goals/active" && method === "GET") {

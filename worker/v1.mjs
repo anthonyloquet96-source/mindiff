@@ -15,11 +15,13 @@
 
 import { handleV1, syncWorker } from "../coach/v1/api.mjs";
 import { createRiotV1 } from "../coach/v1/riot.mjs";
+import { METRIC_VERSION } from "../coach/metrics.mjs";
 import { createSupabaseRest, createSupabaseStore } from "../coach/v1/store-supabase.mjs";
 
 export const ORIGINS = ["https://anthonyloquet96-source.github.io", "http://localhost:3000"];
 export const QUOTAS = { sync: 20, chat: 20, resolve: 30, join: 5, ipPer5min: 120 };
 // Version des conditions du test privé acceptées à l'inscription (texte affiché par coach2.js)
+const TIER_LABEL = { IRON: "Fer", BRONZE: "Bronze", SILVER: "Argent", GOLD: "Or", PLATINUM: "Platine", EMERALD: "Émeraude", DIAMOND: "Diamant", MASTER: "Maître", GRANDMASTER: "Grand Maître", CHALLENGER: "Challenger" };
 export const CONSENT_VERSION = "test-prive-2026-10-27";
 const json = (status, body, cors) => new Response(body == null ? null : JSON.stringify(body), { status, headers: { ...cors, "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" } });
 const err = (status, code, message, cors) => json(status, { error: { code, message } }, cors);
@@ -98,7 +100,8 @@ export function createV1Worker({ fetchImpl = fetch, now = () => Date.now(), sb =
       if (existing?.user_id && existing.user_id !== uid) throw Object.assign(new Error("Ce compte Riot est déjà lié à un autre compte MINDIFF."), { code: "compte-deja-lie", status: 403 });
       return store.upsertPlayer({ ...p, user_id: uid });
     } } : store;
-    if (!refsCache) refsCache = await rest.rest("GET", "metric_references?select=*").then(rows => rows.reduce((m, r) => (((m[r.role] ||= {})[r.metric] = { n: r.n, p25: Number(r.p25), p50: Number(r.p50), p75: Number(r.p75), level: r.level }), m), {})).catch(() => null);
+    // Repères par rang (test privé, décision d'Anthony du 27/10) : { MASTER: { BOTTOM: { cs_at_10: {…} } } } ; le joueur vise le rang au-dessus du sien
+    if (!refsCache) refsCache = await rest.rest("GET", `metric_references?metric_version=eq.${METRIC_VERSION}&select=*`).then(rows => rows.filter(r => TIER_LABEL[r.level]).reduce((m, r) => ((((m[r.level] ||= {})[r.role] ||= {})[r.metric] = { n: r.n, p25: Number(r.p25), p50: Number(r.p50), p75: Number(r.p75), level: TIER_LABEL[r.level] }), m), {})).catch(() => null);
     const riot = env.RIOT_API_KEY ? createRiotV1(env.RIOT_API_KEY, { fetchImpl }) : null;
     // 3 parties par requête : environ 25 appels sortants, sous la limite de 50 du Worker gratuit
     const v1ctx = { store: linkStore, riot, references: refsCache, syncBudget: 3 };

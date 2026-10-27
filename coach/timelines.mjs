@@ -9,10 +9,13 @@ import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
 import { gzipSync } from "node:zlib";
 import { sha256 } from "./lib.mjs";
 
-const DIR = "coach/cache/timelines", SEEN = `${DIR}/seen.json`;
-const TIERS = ["DIAMOND", "MASTER", "GRANDMASTER", "CHALLENGER"];
 const wait = ms => new Promise(r => setTimeout(r, ms));
-const arg = (k, d) => { const i = process.argv.indexOf(`--${k}`); return i > 0 ? Number(process.argv[i + 1]) : d; };
+const sarg = (k, d) => { const i = process.argv.indexOf(`--${k}`); return i > 0 ? process.argv[i + 1] : d; };
+const arg = (k, d) => Number(sarg(k, d));
+// --dir et --tiers : collecte séparée, par exemple Master+ avec la clé personnelle pour le test privé
+// (node --env-file=.env coach/timelines.mjs --dir coach/cache/timelines-perso --tiers MASTER,GRANDMASTER,CHALLENGER --max 1000)
+const DIR = sarg("dir", "coach/cache/timelines"), SEEN = `${DIR}/seen.json`;
+const TIERS = sarg("tiers", "DIAMOND,MASTER,GRANDMASTER,CHALLENGER").split(",");
 
 // Clé de développement : 100 requêtes par 2 minutes, on reste en dessous
 let used = 0;

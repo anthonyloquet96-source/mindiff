@@ -967,8 +967,10 @@ await t("COACH-005 Synchronisation : aucune partie traitée deux fois, recalcul 
   const all = await store.listMetrics(pid);
   for (const m of all) await store.putMetrics(pid, { ...m, metric_version: "ancienne" });
   const { syncPlayer } = await import("../v1/sync.mjs");
+  const part = await syncPlayer({ store, riot, playerId: pid, budget: 5 });
+  assert(part.more === true && part.recomputed === 5 && part.goal === null, "paquet de synchronisation non borné");
   const re = await syncPlayer({ store, riot, playerId: pid });
-  assert(re.recomputed === 21 && re.fetched === 0 && counts.match === 21, "recalcul en rappelant Riot");
+  assert(re.more === false && re.recomputed === 16 && re.skipped === 5 && re.fetched === 0 && counts.match === 21, "recalcul en rappelant Riot");
   // Erreurs normalisées et suppression RGPD
   const bad = await handleV1({ method: "GET", path: "/api/v1/players/pas-un-id/matches" }, ctx);
   assert(bad.status === 400 && bad.body.error.code === "joueur-invalide", "identifiant non validé");

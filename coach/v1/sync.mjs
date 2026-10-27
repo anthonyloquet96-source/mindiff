@@ -14,14 +14,18 @@ export function mainRole(metrics) {
   return Object.entries(n).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] || null;
 }
 
-export async function syncPlayer({ store, riot, playerId, count = 30, references = null, now = Date.now() }) {
+// budget : nombre maximal de parties téléchargées ou recalculées par appel. Le Worker gratuit de Cloudflare limite chaque requête
+// à 50 appels sortants (environ 7 par partie) : au-delà, il est coupé net. more = true si des parties restent à traiter.
+export async function syncPlayer({ store, riot, playerId, count = 30, references = null, now = Date.now(), budget = Infinity }) {
   const player = await store.getPlayer(playerId);
   if (!player) throw Object.assign(new Error("Joueur inconnu."), { code: "joueur-inconnu", status: 404 });
   const ids = await riot.call("matchIds", { platform: player.platform, puuid: player.puuid, count });
-  let fetched = 0, recomputed = 0, skipped = 0;
+  const known = new Map((await store.listMetrics(playerId)).map(m => [m.match_id, m.metric_version]));
+  let fetched = 0, recomputed = 0, skipped = 0, worked = 0, more = false;
   for (const id of ids) {
-    const have = await store.getMetrics(id, playerId);
-    if (have?.metric_version === METRIC_VERSION) { skipped++; continue; }
+    if (known.get(id) === METRIC_VERSION) { skipped++; continue; }
+    if (worked >= budget) { more = true; break; }
+    worked++;
     let raw = (await store.hasMatch(id)) ? await store.rawMatch(id) : null;
     // Copie dont le joueur a été retiré (suppression de compte puis réinscription) : relue chez Riot
     if (raw && !hasPlayer(raw, player.puuid)) raw = null;
@@ -39,8 +43,8 @@ export async function syncPlayer({ store, riot, playerId, count = 30, references
     try { m = computeMetrics(raw.match, raw.timeline, player.puuid); } catch (e) { if (e.code === "joueur-absent") continue; throw e; }
     await store.putMetrics(playerId, { ...m, match_id: m.match_id || id });
   }
-  const goal = await advanceGoals({ store, playerId, references, now });
-  return { matches: ids.length, fetched, recomputed, skipped, goal };
+  const goal = more ? null : await advanceGoals({ store, playerId, references, now });
+  return { matches: ids.length, fetched, recomputed, skipped, goal, more };
 }
 
 // Objectif : évalue celui en cours ; une fois tranché, il est archivé et le suivant est proposé

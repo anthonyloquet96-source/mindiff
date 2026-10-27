@@ -647,3 +647,8 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - Garde-fou : participation aux kills (et aux objectifs en jungle) ; sbires à 10 min exclus car même famille. Exercice par poste : prendre la wave la plus proche entre deux combats, rejoindre l'équipe dès qu'elle part sur un objectif.
 - Conseils montrés : farm + repère de milieu de partie dans l'énoncé (6 à 7 par laner, 2 en jungle). Exclu : « rage splitting » (pousse à farmer en abandonnant l'équipe), half roam.
 - Base : +3 conseils de bagelsen314 (Dignitas, « After Laning »), dont un garde-fou (« sois avec ton équipe pour l'objectif, même si tu perds du farm »). 987 unités, 884 exploitables. 57/58 tests.
+
+## 27/10/2026 : synchronisation bloquée en ligne, corrigée par paquets
+
+- Premier essai réel du test privé : lecture des parties bloquée à « en cours » après 6 parties. Cause : le Worker gratuit de Cloudflare limite chaque requête à 50 appels sortants ; une partie en demande environ 7 (Riot : partie et timeline ; Supabase : stockage, ligne, métriques). Le Worker est coupé net, sans pouvoir marquer la synchronisation en échec.
+- Correctif : `syncPlayer({ budget })` traite au plus 3 parties par requête et renvoie `more` ; les métriques connues sont lues en une requête (plus une par partie). Chaque `GET /jobs/:id` traite le paquet suivant ; une synchronisation sans nouvelles depuis 60 s reprend. Les objectifs ne sont recalculés qu'au dernier paquet. Test ajouté (paquet de 5 puis reprise). 57/58 tests.

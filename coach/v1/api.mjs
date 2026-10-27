@@ -46,7 +46,16 @@ export async function handleV1({ method, path, query = {}, body = null }, ctx) {
     }
     if (path === "/api/v1/coach/chat" && method === "POST") return chat ? chat(body, ctx) : fail(503, "ia-desactivee", "Le tuteur IA est désactivé : ton objectif, tes chiffres et les conseils sourcés restent disponibles.");
     const jm = path.match(/^\/api\/v1\/jobs\/([^/]+)$/);
-    if (jm) { const j = UUID.test(jm[1]) && await store.getJob(jm[1]); return j ? { status: 200, body: j } : fail(404, "introuvable", "Synchronisation inconnue."); }
+    if (jm) {
+      let j = UUID.test(jm[1]) && await store.getJob(jm[1]);
+      // Synchronisation par paquets (ctx.syncBudget) : chaque consultation traite le paquet suivant ; une synchronisation
+      // coupée en route (plus de nouvelles depuis 60 s) reprend là où elle s'était arrêtée
+      if (j && j.status === "running" && ctx.syncBudget && riot && ((j.extra?.more ?? j.more) || Date.now() - Date.parse(j.started_at || 0) > 60000)) {
+        await syncWorker(ctx)(j);
+        j = await store.getJob(j.id);
+      }
+      return j ? { status: 200, body: j } : fail(404, "introuvable", "Synchronisation inconnue.");
+    }
     const pm = path.match(/^\/api\/v1\/players\/([^/]+)(\/.*)?$/);
     if (!pm) return fail(404, "introuvable", "Route inconnue.");
     if (!UUID.test(pm[1])) return fail(400, "joueur-invalide", "Identifiant de joueur invalide.");
@@ -115,9 +124,10 @@ function withLabels(g) {
 // Traitement d'une synchronisation (appelé par la file)
 export function syncWorker(ctx) {
   return async job => {
-    await ctx.store.updateJob(job.id, { status: "running", started_at: new Date().toISOString() });
+    await ctx.store.updateJob(job.id, { status: "running", started_at: new Date().toISOString(), more: false });
     try {
-      const r = await syncPlayer({ store: ctx.store, riot: ctx.riot, playerId: job.player_id, references: ctx.references });
+      const r = await syncPlayer({ store: ctx.store, riot: ctx.riot, playerId: job.player_id, references: ctx.references, budget: ctx.syncBudget || Infinity });
+      if (r.more) return void await ctx.store.updateJob(job.id, { status: "running", more: true });
       await ctx.store.updateJob(job.id, { status: "done", finished_at: new Date().toISOString(), matches_added: r.fetched + r.recomputed, goal_status: r.goal?.status || null });
     } catch (e) {
       await ctx.store.updateJob(job.id, { status: "failed", finished_at: new Date().toISOString(), error: e.code || "erreur" });

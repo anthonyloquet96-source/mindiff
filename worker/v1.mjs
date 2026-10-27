@@ -100,7 +100,8 @@ export function createV1Worker({ fetchImpl = fetch, now = () => Date.now(), sb =
     } } : store;
     if (!refsCache) refsCache = await rest.rest("GET", "metric_references?select=*").then(rows => rows.reduce((m, r) => (((m[r.role] ||= {})[r.metric] = { n: r.n, p25: Number(r.p25), p50: Number(r.p50), p75: Number(r.p75), level: r.level }), m), {})).catch(() => null);
     const riot = env.RIOT_API_KEY ? createRiotV1(env.RIOT_API_KEY, { fetchImpl }) : null;
-    const v1ctx = { store: linkStore, riot, references: refsCache };
+    // 3 parties par requête : environ 25 appels sortants, sous la limite de 50 du Worker gratuit
+    const v1ctx = { store: linkStore, riot, references: refsCache, syncBudget: 3 };
     // Synchronisation après la réponse (202), sans bloquer le joueur
     v1ctx.queue = { push: job => ctx.waitUntil(syncWorker(v1ctx)(job)) };
     const r = await handleV1({ method: request.method, path: url.pathname, query: Object.fromEntries(url.searchParams), body }, v1ctx);

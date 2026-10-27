@@ -7,6 +7,7 @@ const GLOSSARY = [
   ["wave", /\bwaves?\b/i, "Wave", "Groupe de sbires qui arrive dans chaque lane toutes les 30 secondes."],
   ["freeze", /\bfreez\w*/i, "Freeze", "Garder la wave au même endroit, près de sa tourelle, en ne tuant que le strict nécessaire : l'adversaire doit s'avancer, loin de sa tourelle, pour farmer."],
   ["slowpush", /\bslow ?push\w*/i, "Slow push", "Laisser grossir sa wave en tuant peu de sbires adverses, pour qu'elle arrive énorme sur la tourelle adverse."],
+  ["push", /\bpush\b/i, "Push", "Faire avancer ta wave vers la tourelle adverse en tuant les sbires adverses plus vite qu'eux ne tuent les tiens."],
   ["fastpush", /\bfast ?push\w*/i, "Fast push", "Tuer la wave adverse le plus vite possible pour envoyer la tienne vers la tourelle adverse."],
   ["crash", /\bcrash\w*/i, "Crash", "Envoyer sa wave jusqu'à la tourelle adverse : l'adversaire doit la farmer sous sa tourelle pendant que tu es libre."],
   ["lasthit", /\blast ?hits?\b/i, "Last hit", "Donner le dernier coup à un sbire : c'est ce coup-là qui rapporte l'or."],
@@ -565,7 +566,7 @@ function c2V1Card(p) {
     <h3 class="c2-v1-title">${esc(g.label)}</h3>
     <div class="c2-v1-nums"><div><span class="fine">Toi aujourd'hui</span><b>${esc(g.baseline_text)}${unit}</b></div><span class="c2-v1-arrow" aria-hidden="true">→</span><div class="goal"><span class="fine">${g.direction === "lower" ? "Au plus" : "Ta cible"}</span><b>${esc(g.target_text)}${unit}</b></div></div>`;
   const tips = c2V1Tips(g);
-  const more = `<details class="more c2-fold" data-fold="v1-why"${c2ui.fold?.["v1-why"] ? " open" : ""}><summary>Pourquoi cette cible</summary><p class="fine">« Toi aujourd'hui » : médiane de tes dernières parties à ce poste. ${ref}</p><p class="fine">Réussi si tu atteins la cible dans ${g.success_required} de tes ${g.evaluation_games} prochaines ranked à ce poste. Gagner ou perdre ne compte pas.</p></details>
+  const more = `<details class="more c2-fold" data-fold="v1-why"${c2ui.fold?.["v1-why"] ? " open" : ""}><summary>Pourquoi cette cible</summary><ul class="c2-v1-why"><li><b>${esc(g.baseline_text)}</b><span>C'est ce que tu fais d'habitude (tes dernières ranked ${esc(C2_V1_ROLE[g.role] || "à ce poste")}).</span></li><li><b>${g.reference?.source === "metric_references" ? esc(c2V1Fmt(g, g.reference.value)) : esc(g.target_text)}</b><span>${g.reference?.source === "metric_references" ? `C'est ce que font les joueurs ${esc(g.reference.level || "Diamant+")} ${g.reference.quantile === "p50" ? "en moyenne" : "les plus forts"}. On y va par petites marches : ${esc(g.target_text)} d'abord.` : "C'est le repère du coach pour ce poste."}</span></li><li><b>${g.success_required}/${g.evaluation_games}</b><span>L'objectif est réussi si tu atteins ${esc(g.target_text)} dans ${g.success_required} de tes ${g.evaluation_games} prochaines ranked. Gagner ou perdre ne compte pas.</span></li></ul></details>
     ${tips.length ? `<details class="more c2-fold" data-fold="v1-tips"${c2ui.fold?.["v1-tips"] ? " open" : ""}><summary>Ce qu'en disent les coachs (${tips.length})</summary><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></details>` : ""}`;
   const howHtml = how ? `<div class="c2-v1-ex"><span class="label">En partie</span><p>${gloss(esc(how))}</p></div>` : "";
   const body = g.status === "proposed"

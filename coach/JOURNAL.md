@@ -675,3 +675,10 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 
 - Demande d'Anthony (trop de texte) : la carte montre d'abord le nom de l'objectif, deux chiffres en grand (« Toi aujourd'hui » → « Ta cible », avec l'unité), les pastilles de progression, puis le geste « En partie » (l'exercice sans la phrase de cible, déjà affichée). Repère, règle de réussite et conseils de coachs sont repliés (« Pourquoi cette cible », « Ce qu'en disent les coachs »).
 - 27/10 16:49 : collecte clé personnelle terminée (1 000 parties Master+, 2 570 requêtes). Repères Maître, Grand Maître et Challenger recalculés depuis ces parties (ADC sbires à 10 min : 77, 78, 79) et envoyés à Supabase (490 lignes).
+
+## 27/10/2026 : retours d'Anthony sur la carte (suite)
+
+- « Pourquoi cette cible » réécrit en trois lignes, un chiffre et une phrase chacune : ce que tu fais d'habitude, ce que font les joueurs du rang visé (« on y va par petites marches »), la règle de réussite.
+- Exercice toujours recalculé depuis le catalogue à la lecture (`withLabels`) : un objectif créé avant une correction de vocabulaire affichait encore « lane de côté ».
+- Lexique : termes en couleur (orange, gras) au lieu du soulignement pointillé, qui faisait penser à une faute dans Word. Terme « push » ajouté.
+- Conseil `u-ai-yt-ZzKpPJ_BNHM-4` (dead time, Skill Capped) reformulé, jugé incompréhensible : « pour bien choisir le moment de ton back, push d'abord ta wave… ». Le roam, absent des passages cités, est retiré.

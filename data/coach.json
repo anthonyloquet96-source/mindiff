@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-27T15:05:09.165Z",
+ "generatedAt": "2026-10-27T16:18:02.307Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -59384,7 +59384,7 @@
   },
   {
    "id": "u-ai-yt-ZzKpPJ_BNHM-4",
-   "claim": "Selon Skill Capped : pour les laners, le 'dead time' correspond au laps de temps entre la mort ou le clear de la wave actuelle et l'arrivée de la suivante (toutes les 30 secondes). Exécuter un back ou un roam pendant ce dead time permet de ne rater aucun sbire.",
+   "claim": "Selon Skill Capped : pour bien choisir le moment de ton back, push d'abord ta wave. Le temps que la suivante arrive, c'est ton dead time : back à ce moment-là, et tu reviens en lane sans rater de farm.",
    "champions": [],
    "roles": [
     "top",
@@ -59437,12 +59437,13 @@
    "action": "Pousse ta vague avant de faire un rappel ou un décalage pour profiter du temps mort entre deux vagues.",
    "observe": "La position des sbires sur ta lane et le chronomètre d'apparition des vagues (toutes les 30 secondes).",
    "use": {
-    "when": "Tu as nettoyé ou poussé la wave en cours sur ta lane et tu disposes d'une fenêtre de 30 secondes avant l'arrivée de la suivante.",
-    "why": "Recourir ou décaler pendant ce dead time évite de perdre de l'or et de l'expérience sur les sbires suivants.",
-    "who": "Laners (Top, Mid, Bottom)",
+    "when": "Phase de lane, tu veux back.",
+    "why": "Pendant ton back, tes sbires ne meurent pas sous ta tourelle : tu ne perds ni or ni XP.",
+    "who": "Laners (top, mid, bot).",
     "how": [
-     "Pousse rapidement la wave actuelle pour la faire s'écraser.",
-     "Exécute ton back ou ton déplacement vers une autre lane pendant le délai avant la wave suivante."
+     "Push ta wave jusqu'à la tourelle adverse.",
+     "Back dès qu'elle y arrive.",
+     "Reviens en lane avant que la wave suivante arrive chez toi."
     ],
     "notWhen": ""
    },

@@ -1378,9 +1378,8 @@ button.pick { background: none; border: 0; padding: 0; font: inherit; color: inh
 
 /* Lexique LoL : terme souligné, explication au toucher (lexique en tête de ce fichier) */
 /* all: unset : les boutons du site sont en bloc ; un terme reste dans la phrase */
-button.gl { all: unset; display: inline; cursor: help; font: inherit; color: inherit;
-  text-decoration: underline dotted rgba(var(--accent-rgb), .9); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
-button.gl:hover, button.gl:focus-visible { color: var(--accent-text); outline: none; }
+button.gl { all: unset; display: inline; cursor: pointer; font: inherit; color: var(--accent-text); font-weight: 600; border-radius: 4px; transition: background .15s; }
+button.gl:hover, button.gl:focus-visible { background: rgba(var(--accent-rgb), .16); outline: none; }
 .gl-pop { position: fixed; z-index: 1000; display: grid; gap: 4px; padding: 12px 14px; border-radius: 14px;
   background: var(--surface-2); color: var(--text-2); border: 1px solid var(--surface-3); box-shadow: 0 12px 32px rgba(0, 0, 0, .35);
   font-size: 14px; line-height: 1.45; animation: gl-in .14s ease-out; }
@@ -1404,3 +1403,9 @@ button.gl:hover, button.gl:focus-visible { color: var(--accent-text); outline: n
 .c2-v1 > .btn.primary { justify-self: start; }
 .c2-v1-erase { font-size: var(--fs-sm); }
 .c2-v1-nums b small { font-size: 14px; font-weight: 600; color: var(--text-3); }
+
+/* « Pourquoi cette cible » : un chiffre, une phrase */
+.c2-v1-why { list-style: none; margin: var(--s2) 0 0; padding: 0; display: grid; gap: var(--s3); }
+.c2-v1-why li { display: grid; grid-template-columns: 3.6em 1fr; gap: var(--s2); align-items: baseline; }
+.c2-v1-why b { font-size: var(--fs-lg); color: var(--accent-text); font-variant-numeric: tabular-nums; }
+.c2-v1-why span { color: var(--text-2); line-height: 1.45; }

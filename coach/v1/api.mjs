@@ -119,7 +119,7 @@ export async function handleV1({ method, path, query = {}, body = null }, ctx) {
 
 function withLabels(g) {
   const c = CATALOG[g.metric];
-  return { ...g, label: c?.label || g.metric, unit: c?.unit || "", baseline_text: formatMetric(g.metric, g.baseline), target_text: formatMetric(g.metric, g.target) };
+  return { ...g, label: c?.label || g.metric, unit: c?.unit || "", baseline_text: formatMetric(g.metric, g.baseline), target_text: formatMetric(g.metric, g.target), ...(c?.exercise && g.target != null ? { exercise: c.exercise(g.target, g.role) } : {}) };
 }
 
 // Traitement d'une synchronisation (appelé par la file)

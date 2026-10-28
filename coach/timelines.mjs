@@ -14,7 +14,11 @@ const sarg = (k, d) => { const i = process.argv.indexOf(`--${k}`); return i > 0 
 const arg = (k, d) => Number(sarg(k, d));
 // --dir et --tiers : collecte séparée, par exemple Master+ avec la clé personnelle pour le test privé
 // (node --env-file=.env coach/timelines.mjs --dir coach/cache/timelines-perso --tiers MASTER,GRANDMASTER,CHALLENGER --max 1000)
-const DIR = sarg("dir", "coach/cache/timelines"), SEEN = `${DIR}/seen.json`;
+// --platform : serveur (euw1, kr, na1…). Riot compte les limites par région, donc un lancement par région peut tourner en parallèle
+// (euw1 et eun1 partagent la région « europe » : ne pas les lancer ensemble). --days : seulement les parties des derniers jours.
+const PLATFORM = sarg("platform", "euw1"), REGION = { euw1: "europe", eun1: "europe", tr1: "europe", kr: "asia", jp1: "asia", na1: "americas", br1: "americas" }[PLATFORM];
+const DAYS = arg("days", 0), SINCE = DAYS ? Math.floor(Date.now() / 1000 - DAYS * 86400) : 0;
+const DIR = sarg("dir", "coach/cache/timelines"), SEEN = `${DIR}/seen${PLATFORM === "euw1" ? "" : "-" + PLATFORM}.json`;
 const TIERS = sarg("tiers", "DIAMOND,MASTER,GRANDMASTER,CHALLENGER").split(",");
 
 // Clé de développement : 100 requêtes par 2 minutes, on reste en dessous
@@ -49,28 +53,28 @@ async function run() {
   const seen = new Set(JSON.parse(await readFile(SEEN, "utf8").catch(() => "[]")));
   let n = (await readdir(DIR)).filter(f => f.endsWith(".json.gz")).length;
   const log = msg => console.log(`${new Date().toLocaleTimeString("fr-FR")} ${msg}`);
-  log(`départ : ${n} parties déjà gardées, objectif ${max}`);
+  log(`${PLATFORM} (${TIERS.join("/")}${DAYS ? ", " + DAYS + " derniers jours" : ""}) départ : ${n} parties déjà gardées, objectif ${max}`);
   while (n < max) {
     // Un tour : quelques joueurs de chaque palier, au hasard (divisions et pages tirées au sort pour le Diamant)
     for (const tier of TIERS) {
       const div = ["I", "II", "III", "IV"][Math.floor(Math.random() * 4)], page = 1 + Math.floor(Math.random() * 5);
       const players = tier === "DIAMOND"
-        ? await riot(`https://euw1.api.riotgames.com/lol/league/v4/entries/RANKED_SOLO_5x5/DIAMOND/${div}?page=${page}`)
-        : (await riot(`https://euw1.api.riotgames.com/lol/league/v4/${tier.toLowerCase()}leagues/by-queue/RANKED_SOLO_5x5`)).entries;
+        ? await riot(`https://${PLATFORM}.api.riotgames.com/lol/league/v4/entries/RANKED_SOLO_5x5/DIAMOND/${div}?page=${page}`)
+        : (await riot(`https://${PLATFORM}.api.riotgames.com/lol/league/v4/${tier.toLowerCase()}leagues/by-queue/RANKED_SOLO_5x5`)).entries;
       // Le Diamant compte plus de joueurs : il reçoit plus de place dans chaque tour
       for (const p of players.sort(() => Math.random() - 0.5).slice(0, tier === "DIAMOND" ? 12 : 4)) {
         if (n >= max) break;
-        const ids = await riot(`https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${p.puuid}/ids?queue=420&count=5`).catch(e => { if (e.status === 401 || e.status === 403) throw e; return []; });
+        const ids = await riot(`https://${REGION}.api.riotgames.com/lol/match/v5/matches/by-puuid/${p.puuid}/ids?queue=420&count=5${SINCE ? "&startTime=" + SINCE : ""}`).catch(e => { if (e.status === 401 || e.status === 403) throw e; return []; });
         for (const id of ids.slice(0, 3)) {
           const h = sha256(id).slice(0, 16); // même partie vue par deux joueurs : gardée une fois
           if (seen.has(h) || n >= max) continue;
           seen.add(h);
           try {
-            const match = await riot(`https://europe.api.riotgames.com/lol/match/v5/matches/${id}`);
+            const match = await riot(`https://${REGION}.api.riotgames.com/lol/match/v5/matches/${id}`);
             if (match.info.gameDuration < 900) continue; // parties écourtées (abandon, remake)
-            const timeline = await riot(`https://europe.api.riotgames.com/lol/match/v5/matches/${id}/timeline`);
+            const timeline = await riot(`https://${REGION}.api.riotgames.com/lol/match/v5/matches/${id}/timeline`);
             const a = anonymize(match, timeline);
-            await writeFile(`${DIR}/${h}.json.gz`, gzipSync(JSON.stringify({ tier, patch: match.info.gameVersion.split(".").slice(0, 2).join("."), at: match.info.gameCreation, ...a })));
+            await writeFile(`${DIR}/${h}.json.gz`, gzipSync(JSON.stringify({ tier, platform: PLATFORM, patch: match.info.gameVersion.split(".").slice(0, 2).join("."), at: match.info.gameCreation, ...a })));
             n++;
           } catch (e) { if (e.status === 401 || e.status === 403) throw e; }
         }

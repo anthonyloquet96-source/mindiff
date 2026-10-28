@@ -740,3 +740,4 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
   - Journaux : coach/cache/logs/collecte-*.log.
 - Pastille « tirer pour actualiser » refaite et publiée : centrée par left/right 0 + marge auto, anneau qui se remplit avec le geste, flèche qui bascule au seuil, coche verte à la fin.
 - Repères Maître+ (cible des joueurs Diamant+) : ils réunissent maintenant la Corée, l'EUW et l'Amérique du Nord, toutes sources confondues (références-tiers.mjs, champ `platforms`). Envoyés dans Supabase, où le Worker les lit pour le test privé (490 lignes), puis remis à jour toutes les 2 h pendant 24 h (coach/cache/logs/maj-reperes.log).
+- Tirer pour actualiser, 3e version (choix d'Anthony) : plus de pastille. Le logo MINDIFF descend du haut ; le « 1 » rouge se remplit avec le geste, s'illumine au seuil, pulse pendant le chargement et passe au vert à la fin.

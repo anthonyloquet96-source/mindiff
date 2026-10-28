@@ -49,7 +49,9 @@ export function checkUnit(u, ctx) {
   if (!u.patch || typeof u.patch.known !== "boolean") flag("schema", "Patch non renseigné (même inconnu, il doit être déclaré).", true);
 
   const ev = u.evidence || [];
-  const autoOk = ev.some(e => e.autoChecked?.said && e.autoChecked?.supported);
+  // Seconde lecture fiable (audit du 28/10) : faite par un modèle complet (pas « lite ») et sans écart signalé par le vérificateur lui-même
+  const strongCheck = a => a?.said && a?.supported && !a.gap && !/lite/i.test(a.by || "");
+  const autoOk = ev.some(e => strongCheck(e.autoChecked));
   const fundamental = !u.metaDependent && !(u.champions || []).length && !(u.dependsOn || []).some(d => d.includes("/") || d.startsWith("item:"))
     && (u.themes || []).some(t => ["vagues", "vision", "macro", "methode"].includes(t)) && !(u.themes || []).some(t => ["champion", "build", "matchup", "synergie", "patch"].includes(t));
   // Durée de vie (règles v1.3) : « intemporel » (principe général), « systeme » (dépend d'un système de jeu : Téléportation,
@@ -73,6 +75,9 @@ export function checkUnit(u, ctx) {
     if (c.reader?.kind === "ia" && !e.humanChecked) {
       if (a && !a.said) flag("citation-non-entendue", `${e.content} : passage absent de l'extrait ${a.window} relu par ${a.by}.`, true);
       else if (a && !a.supported) flag("sur-generalisation", `${e.content} : l'extrait ${a.window} ne dit pas exactement cela${a.gap ? ` (${a.gap})` : ""}.`, false, "provisoire");
+      // Le vérificateur dit « soutenu » mais note un écart, ou c'est un modèle « lite » (verdicts trop indulgents à l'audit) : à revoir
+      else if (a && a.gap) flag("ecart-signale", `${e.content} : le vérificateur note un écart sur l'extrait ${a.window} (${a.gap}).`, false, "provisoire");
+      else if (a && /lite/i.test(a.by || "") && !autoOk) flag("verification-legere", `${e.content} : extrait relu seulement par ${a.by} ; à confirmer par un modèle complet.`, false, "provisoire");
       else if (!a && !autoOk) flag("lecture-ia", `${e.content} : lu par ${c.reader.tool} (${c.reader.fps} image/s) ; passage à vérifier sur la vidéo (${e.locator}).`, false, "provisoire");
     }
     // Contenu ancien (ex. article de sortie d'un champion) : le kit a pu changer depuis, la date du patch ne suffit pas à le savoir.

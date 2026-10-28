@@ -143,6 +143,27 @@ async function verifyOnVideo(c, units, A, costs, log) {
 function spentToday(costs) { return costs.days?.[today()] || 0; }
 function spentMonth(costs) { const m = today().slice(0, 7); return Object.entries(costs.days || {}).filter(([d]) => d.startsWith(m)).reduce((s, [, v]) => s + v, 0); }
 
+// Relecture des conseils vidéo mal vérifiés (audit du 28/10) : seconde lecture faite par un modèle « lite » ou avec un écart signalé.
+// Quelques-uns par passage sont relus par un modèle complet ; le contrôle critique (critic.mjs) ne les rend exploitables qu'après cette relecture.
+async function reverify(contents, A, costs, log, until) {
+  const max = A.reverifyPerRun ?? 6;
+  if (!max || !hasGeminiKey() || DRY) return;
+  const full = { ...A, geminiModels: A.geminiModels.filter(m => !/lite/i.test(m)) };
+  const vids = new Map(contents.contents.filter(c => c.reader?.kind === "ia" && c.url).map(c => [c.id, c]));
+  const kb = await readJson(P.units, { units: [] });
+  const weakEv = u => u.evidence?.find(e => vids.has(e.content) && !e.humanChecked && e.autoChecked && (/lite/i.test(e.autoChecked.by || "") || e.autoChecked.gap) && !e.reverifiedAt);
+  const weak = kb.units.filter(u => u.use && weakEv(u)).slice(0, max);
+  let done = 0;
+  for (const u of weak) {
+    if (Date.now() > until) break;
+    const e = weakEv(u), before = JSON.stringify(e.autoChecked);
+    await verifyOnVideo(vids.get(e.content), [u], full, costs, log);
+    // Compté seulement si un modèle complet a vraiment relu l'extrait (quota épuisé : on réessaiera au prochain passage)
+    if (JSON.stringify(e.autoChecked) !== before && !/lite/i.test(e.autoChecked.by || "")) { e.reverifiedAt = today(); done++; }
+  }
+  if (done) { await writeJson(P.units, kb); log.push(`· ${done} conseil(s) vidéo relu(s) par un modèle complet`); }
+}
+
 export async function run() {
   const lock = await rulesLockStatus();
   if (!lock.ok) return [`✘ Analyse arrêtée : règles ou instructions modifiées sans validation humaine (${lock.changed.join(", ")}).`];
@@ -162,7 +183,7 @@ export async function run() {
     .sort((a, b) => tier(a) - tier(b) || (a.queueRank || 1e9) - (b.queueRank || 1e9) || (b.triage?.score || 0) - (a.triage?.score || 0) || String(b.published).localeCompare(String(a.published)));
   const pendingVideos = contents.contents.filter(c => c.type === "video" && c.access === "metadonnees").length;
   if (pendingVideos) log.push(`· ${pendingVideos} vidéo(s) en métadonnées seules : pas encore lues.`);
-  if (!queue.length) { log.push("Aucun contenu en attente d'analyse."); return log; }
+  if (!queue.length) { log.push("Aucun contenu en attente d'analyse."); await reverify(contents, A, costs, log, Date.now() + (A.maxRunMinutes || 15) * 60000); await writeJson(P.costs, costs); return log; }
   const hasKey = provider === "gemini" ? hasGeminiKey() : !!(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN);
   if (!hasKey && !DRY) { log.push(`· ${queue.length} contenu(s) en attente : clé ${provider === "gemini" ? "GEMINI_API_KEY" : "ANTHROPIC_API_KEY"} absente, aucune analyse lancée (rien n'est supposé).`); return log; }
   if (!price) { log.push(`✘ Tarif inconnu pour ${model} dans coach/config.json : analyse arrêtée.`); return log; }
@@ -173,7 +194,10 @@ export async function run() {
   const L = await loadContext();
   SRC = L.ctx.sources;
   let n = 0;
+  // Temps maximal du passage (veille.yml coupe le robot à 75 min) : pas de nouvelle analyse au-delà, les analyses finies sont gardées
+  const deadline = Date.now() + (A.maxRunMinutes || 15) * 60000;
   for (const c of queue) {
+    if (Date.now() > deadline) { log.push(`· Temps du passage écoulé (${A.maxRunMinutes || 15} min) : la suite au prochain passage.`); break; }
     if (n >= A.maxPerRun || doneToday + n >= A.maxPerDay) { log.push(`· Limite d'analyses atteinte (${A.maxPerRun} par passage, ${A.maxPerDay} par jour).`); break; }
     try {
       const got = await acquireText(c);
@@ -268,6 +292,7 @@ export async function run() {
       log.push(`✘ ${c.id} : ${e.message} (essai ${c.attempts}/${config.discovery.maxAttempts})`);
     }
   }
+  await reverify(contents, A, costs, log, deadline);
   state.analysesByDay ||= {};
   state.analysesByDay[today()] = doneToday + (DRY ? 0 : n);
   // L'état a pu être enrichi pendant la fusion (unités rejetées) : on relit avant d'écrire

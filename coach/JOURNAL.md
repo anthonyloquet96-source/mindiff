@@ -741,3 +741,19 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - Pastille « tirer pour actualiser » refaite et publiée : centrée par left/right 0 + marge auto, anneau qui se remplit avec le geste, flèche qui bascule au seuil, coche verte à la fin.
 - Repères Maître+ (cible des joueurs Diamant+) : ils réunissent maintenant la Corée, l'EUW et l'Amérique du Nord, toutes sources confondues (références-tiers.mjs, champ `platforms`). Envoyés dans Supabase, où le Worker les lit pour le test privé (490 lignes), puis remis à jour toutes les 2 h pendant 24 h (coach/cache/logs/maj-reperes.log).
 - Tirer pour actualiser, 3e version (choix d'Anthony) : plus de pastille. Le logo MINDIFF descend du haut ; le « 1 » rouge se remplit avec le geste, s'illumine au seuil, pulse pendant le chargement et passe au vert à la fin.
+
+### 28/10 (nuit) : veille du coach réparée et audit d'exactitude des conseils vidéo
+- **Coupures.** 2 passages sur 3 du 28/10 ont été coupés à 60 min : lecture des vidéos (~27 min), puis analyse. Corrections :
+  - limite de temps par étape (`maxRunMinutes` : vidéos 18 min, analyse 15 min) ; au-delà, l'étape s'arrête proprement et garde ce qui est fait ;
+  - limite du robot portée à 75 min.
+  - Testé avec une limite quasi nulle : un seul contenu traité, puis « Temps du passage écoulé ».
+- **Échecs du test du 27/10.** Il s'agissait du contrôle d'exactitude : un conseil citait un passage absent de la transcription (u-ai-yt-mx4i9tRexVQ-2). Le passage du 28/10 au soir le passe (64 vidéos, passages retrouvés).
+- **Audit (Claude, lecture des 84 conseils vidéo face à leur citation).** Les citations existent bien, mais une dizaine de conseils « exploitables » ajoutent des détails absents de la citation :
+  - #11 attribue à Faker une technique que l'extrait ne décrit pas ;
+  - #15 « 16 sbires = 1 kill » n'est pas dit ;
+  - #25 « fiable au-dessus de Diamant » non plus.
+
+  Deux conseils sont restés en espagnol (Dishake, Rukerno / Fuerza de la Naturaleza). Cause : 52 des 53 secondes lectures « soutenu » venaient d'un modèle « lite », trop indulgent, et un écart signalé par le vérificateur n'empêchait pas « exploitable ».
+- **Règle durcie (critic.mjs).** Un conseil vidéo n'est exploitable que si l'extrait a été relu par un modèle complet, sans écart signalé. Sinon : « provisoire » (ecart-signale, verification-legere). Effet mesuré : 52 conseils vidéo repassent provisoires, la base passe de 901 à 849 exploitables.
+- **Relecture automatique (analyze.mjs, `reverifyPerRun` : 6).** À chaque passage, 6 de ces conseils sont relus par un modèle complet (sans « lite »). Ils redeviennent exploitables s'ils tiennent. Testé ce soir : le quota gratuit était épuisé, l'arrêt a été propre, on réessaie au passage suivant.
+- Tests : 57/58 réussis, 1 ignoré (transcriptions dans le cache du robot).

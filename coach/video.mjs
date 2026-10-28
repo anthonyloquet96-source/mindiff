@@ -52,7 +52,10 @@ export async function run() {
   while (fromQueue.length || fresh.length) mixed.push(...fromQueue.splice(0, 2), ...fresh.splice(0, 1));
   const queue = mixed.slice(0, Number(arg("max", V.maxPerRun)));
   let seconds = usedToday;
+  // Temps maximal du passage (veille.yml coupe le robot à 75 min) : on ne commence plus de nouvelle vidéo au-delà, le travail fait est gardé
+  const deadline = Date.now() + (V.maxRunMinutes || 18) * 60000;
   for (const c of queue) {
+    if (Date.now() > deadline) { log.push(`· Temps du passage écoulé (${V.maxRunMinutes || 18} min) : la suite au prochain passage.`); break; }
     const parts = [{ fileData: { fileUri: c.url } }];
     // Transcription déjà présente dans ce cache (vidéo lue ici, état réinitialisé ailleurs) : réutilisée, pas relue
     const prev = await cachedText(c.id);

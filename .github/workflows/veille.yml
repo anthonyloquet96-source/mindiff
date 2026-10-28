@@ -21,7 +21,8 @@ jobs:
     # Mise en pause pendant qu'une boucle locale travaille sur la base (variable COACH_LOCAL_LOOP=1), pour éviter les conflits
     if: github.event_name == 'workflow_dispatch' || vars.COACH_LOCAL_LOOP != '1'
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # Lecture des vidéos ≤ 18 min et analyse ≤ 15 min (coach/config.json, maxRunMinutes), plus un appel en cours : 75 min laissent de la marge
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
 

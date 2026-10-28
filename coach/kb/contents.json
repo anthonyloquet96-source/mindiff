@@ -17160,11 +17160,11 @@
    "lang": "en",
    "published": "2026-08-04",
    "retrievedAt": "2026-10-21",
-   "patch": null,
+   "patch": "2026-08-04",
    "views": 13167,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 21 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "➡️Coaching and everything you need to climb - https://wtl.lol/violet (USE CODE:VIOLET10)\n➡️Join the Community - https://discord.gg/zVvGUPxYGw\n\n\nIn this video im explaining the core fundamentals on adc in league of legends. I hope you can learn a lot of new things!\n\nCheers !\n\n00:0",
    "triage": {
     "score": 13,
@@ -17180,6 +17180,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-28",
+    "sha256": "c68c0a51062b16036ffdcea984298ffc82b9391c95ac6dfb80700940524f59e4",
+    "segments": 124,
+    "observations": 21,
+    "duration": "20:59",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 124569
    }
   },
   {
@@ -44911,7 +44924,7 @@
    "retrievedAt": "2026-10-24",
    "patch": "none",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 23,
@@ -44939,6 +44952,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 178815
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "La vidéo énumère de nombreux matchups de manière empirique et rapide, en s'appuyant sur l'expérience de l'auteur sans fournir de statistiques détaillées ou de démonstrations en jeu approfondies pour chaque cas."
    }
   },
   {
@@ -45601,7 +45624,7 @@
    "retrievedAt": "2026-10-25",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 21,
@@ -45624,6 +45647,16 @@
     "at": "2026-10-26",
     "duration": "11:17",
     "reused": true
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "L'analyse montre comment Faker utilise des techniques fines de gestion des vagues (gel de vagues, slow pushes, déni de sbires canons et contrôle des sidelanes) pour créer des avantages de ressources et de sécurité tout au long de la partie.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu détaille de manière chirurgicale, avec des exemples précis tirés de parties professionnelles, l'impact stratégique de chaque choix de gestion de vagues selon les timings de jeu."
    }
   },
   {
@@ -45638,7 +45671,7 @@
    "retrievedAt": "2026-10-25",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 22,
@@ -45661,6 +45694,16 @@
     "at": "2026-10-26",
     "duration": "17:02",
     "reused": true
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "Apprends à structurer ta vision autour de la pression des vagues de sbires et à privilégier l'accumulation de petits résultats positifs plutôt que de chercher des actions risquées.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Le contenu présente des concepts macroéconomiques et de vision intéressants et bien expliqués, mais s'appuie principalement sur des avis généraux et de la théorie sans données chiffrées précises."
    }
   },
   {
@@ -50915,12 +50958,12 @@
    "published": null,
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 8,
-   "note": "File de lecture (rang 8) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview le 2026-10-28 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 20,
     "matched": [
@@ -50929,6 +50972,25 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "attempts": 0,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-10-28",
+    "duration": "33:20",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 3,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "Explications pédagogiques claires et applicables sur la macro-gestion en jungle, illustrées sur une partie de niveau Émeraude."
    }
   },
   {
@@ -50942,12 +51004,12 @@
    "published": null,
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 9,
-   "note": "File de lecture (rang 9) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.7-flash le 2026-10-28 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 20,
     "matched": [
@@ -50958,6 +51020,25 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "attempts": 0,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.7-flash",
+    "fps": 1,
+    "at": "2026-10-28",
+    "duration": "20:17",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Ce guide détaille l'arbitrage stratégique entre le full clear et le gank en jungle, en soulignant l'importance du scaling des champions, la gestion du timing des camps et la maîtrise de l'exécution des ganks.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu présente une démonstration structurée avec des critères précis, appuyée par des exemples visuels, des statistiques de taux de victoires et des notions macroéconomiques claires pour le rôle de jungler."
    }
   },
   {
@@ -50971,12 +51052,12 @@
    "published": null,
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 10,
-   "note": "File de lecture (rang 10) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.7-flash le 2026-10-28 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 19,
     "matched": [
@@ -50988,6 +51069,25 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "attempts": 0,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.7-flash",
+    "fps": 1,
+    "at": "2026-10-28",
+    "duration": "35:00",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Optimiser le tempo de farm et la traque des camps adverses pour punir les ganks inefficaces avec un jungler farming.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur détaille les concepts théoriques fondamentaux avant de les illustrer en direct avec une partie commentée du début à la fin."
    }
   },
   {
@@ -51153,6 +51253,93 @@
     "matched": [
      "mid",
      "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-IaWNQu9peB8",
+   "sourceId": "yt-veigar-v2",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=IaWNQu9peB8",
+   "title": "HOW TO ROAM AND SNOWBALL AS A MIDLANER?! CHALLENGER MID VEIGAR V2 COACHES EKKO MID",
+   "author": "Veigar v2",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 17,
+   "note": "File de lecture (rang 17) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "mid",
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-DzwLn5Dtb94",
+   "sourceId": "yt-hybradge",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=DzwLn5Dtb94",
+   "title": "Stop Full Clearing. This NEW Jungle Path Is Taking Over High Elo",
+   "author": "hybradge",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 18,
+   "note": "File de lecture (rang 18) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "jungle",
+     "jungle path",
+     "clear"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-3BBAOasKM-o",
+   "sourceId": "yt-sinerias",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=3BBAOasKM-o",
+   "title": "How to COUNTER EVERY FARMING JUNGLER | Invades Explained",
+   "author": "Sinerias",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 19,
+   "note": "File de lecture (rang 19) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "jungle",
+     "jungler",
+     "how to",
+     "explained"
     ],
     "entertainment": [],
     "patchMentioned": null,

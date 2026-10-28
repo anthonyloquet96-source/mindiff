@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T01:22:01.853Z",
+ "generatedAt": "2026-10-28T19:33:54.468Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -152,7 +152,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 38
+    "units": 39
    },
    "support": {
     "champions": [
@@ -196,18 +196,20 @@
    },
    "Smolder": {
     "role": "bottom",
-    "units": 9,
+    "units": 10,
     "themes": [
      "patch",
      "build",
      "survie",
      "lane",
      "champion",
-     "matchup"
+     "matchup",
+     "vagues",
+     "macro"
     ],
-    "actions": 1,
+    "actions": 2,
     "official": 9,
-    "coaching": 0
+    "coaching": 1
    },
    "Lulu": {
     "role": "support",
@@ -691,15 +693,16 @@
    },
    "Graves": {
     "role": null,
-    "units": 5,
+    "units": 6,
     "themes": [
      "champion",
      "matchup",
-     "jungle"
+     "jungle",
+     "macro"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 4,
-    "coaching": 1
+    "coaching": 2
    },
    "Gwen": {
     "role": null,
@@ -1273,15 +1276,17 @@
    },
    "Pantheon": {
     "role": null,
-    "units": 6,
+    "units": 7,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "lane",
+     "vagues",
+     "macro"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 6,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Poppy": {
     "role": null,
@@ -2012,16 +2017,16 @@
    }
   },
   "themes": {
-   "lane": 40,
+   "lane": 43,
    "survie": 11,
    "teamfight": 3,
    "synergie": 1,
    "matchup": 7,
-   "methode": 7,
-   "vagues": 15,
-   "vision": 8,
-   "macro": 30,
-   "jungle": 27
+   "methode": 8,
+   "vagues": 20,
+   "vision": 10,
+   "macro": 36,
+   "jungle": 29
   },
   "partial": [
    "Ashe"
@@ -2847,7 +2852,12 @@
    "u-ai-yt-34kHa32NIKQ-4",
    "u-ai-yt-Xq3Hs3ofEwg-1",
    "u-ai-yt-ZI_zaftR6KY-1",
-   "u-ai-yt-ZI_zaftR6KY-2"
+   "u-ai-yt-ZI_zaftR6KY-2",
+   "u-ai-yt-2DGVHHI6FLc-3",
+   "u-ai-yt-2DGVHHI6FLc-5",
+   "u-ai-yt-r10CTY-1VR4-1",
+   "u-ai-yt-r10CTY-1VR4-2",
+   "u-ai-yt-r10CTY-1VR4-4"
   ]
  },
  "sources": [
@@ -17934,11 +17944,11 @@
    "lang": "en",
    "published": "2026-08-04",
    "retrievedAt": "2026-10-21",
-   "patch": null,
+   "patch": "2026-08-04",
    "views": 13167,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 21 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "➡️Coaching and everything you need to climb - https://wtl.lol/violet (USE CODE:VIOLET10)\n➡️Join the Community - https://discord.gg/zVvGUPxYGw\n\n\nIn this video im explaining the core fundamentals on adc in league of legends. I hope you can learn a lot of new things!\n\nCheers !\n\n00:0",
    "triage": {
     "score": 13,
@@ -17954,6 +17964,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-28",
+    "sha256": "c68c0a51062b16036ffdcea984298ffc82b9391c95ac6dfb80700940524f59e4",
+    "segments": 124,
+    "observations": 21,
+    "duration": "20:59",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 124569
    }
   },
   {
@@ -20963,7 +20986,7 @@
    "retrievedAt": "2026-10-24",
    "patch": "none",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 23,
@@ -20991,6 +21014,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 178815
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "La vidéo énumère de nombreux matchups de manière empirique et rapide, en s'appuyant sur l'expérience de l'auteur sans fournir de statistiques détaillées ou de démonstrations en jeu approfondies pour chaque cas."
    }
   },
   {
@@ -21506,7 +21539,7 @@
    "retrievedAt": "2026-10-25",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 21,
@@ -21528,6 +21561,16 @@
     "at": "2026-10-26",
     "duration": "11:17",
     "reused": true
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "L'analyse montre comment Faker utilise des techniques fines de gestion des vagues (gel de vagues, slow pushes, déni de sbires canons et contrôle des sidelanes) pour créer des avantages de ressources et de sécurité tout au long de la partie.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu détaille de manière chirurgicale, avec des exemples précis tirés de parties professionnelles, l'impact stratégique de chaque choix de gestion de vagues selon les timings de jeu."
    }
   },
   {
@@ -21542,7 +21585,7 @@
    "retrievedAt": "2026-10-25",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 22,
@@ -21564,6 +21607,16 @@
     "at": "2026-10-26",
     "duration": "17:02",
     "reused": true
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "Apprends à structurer ta vision autour de la pression des vagues de sbires et à privilégier l'accumulation de petits résultats positifs plutôt que de chercher des actions risquées.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Le contenu présente des concepts macroéconomiques et de vision intéressants et bien expliqués, mais s'appuie principalement sur des avis généraux et de la théorie sans données chiffrées précises."
    }
   },
   {
@@ -22893,12 +22946,12 @@
    "published": null,
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 8,
-   "note": "File de lecture (rang 8) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview le 2026-10-28 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 20,
     "matched": [
@@ -22907,6 +22960,24 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-10-28",
+    "duration": "33:20",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 3,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "Explications pédagogiques claires et applicables sur la macro-gestion en jungle, illustrées sur une partie de niveau Émeraude."
    }
   },
   {
@@ -22920,12 +22991,12 @@
    "published": null,
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 9,
-   "note": "File de lecture (rang 9) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.7-flash le 2026-10-28 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 20,
     "matched": [
@@ -22936,6 +23007,24 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.7-flash",
+    "fps": 1,
+    "at": "2026-10-28",
+    "duration": "20:17",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Ce guide détaille l'arbitrage stratégique entre le full clear et le gank en jungle, en soulignant l'importance du scaling des champions, la gestion du timing des camps et la maîtrise de l'exécution des ganks.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu présente une démonstration structurée avec des critères précis, appuyée par des exemples visuels, des statistiques de taux de victoires et des notions macroéconomiques claires pour le rôle de jungler."
    }
   },
   {
@@ -22949,12 +23038,12 @@
    "published": null,
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 10,
-   "note": "File de lecture (rang 10) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.7-flash le 2026-10-28 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 19,
     "matched": [
@@ -22966,6 +23055,24 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.7-flash",
+    "fps": 1,
+    "at": "2026-10-28",
+    "duration": "35:00",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Optimiser le tempo de farm et la traque des camps adverses pour punir les ganks inefficaces avec un jungler farming.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur détaille les concepts théoriques fondamentaux avant de les illustrer en direct avec une partie commentée du début à la fin."
    }
   },
   {
@@ -23131,6 +23238,93 @@
     "matched": [
      "mid",
      "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-IaWNQu9peB8",
+   "sourceId": "yt-veigar-v2",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=IaWNQu9peB8",
+   "title": "HOW TO ROAM AND SNOWBALL AS A MIDLANER?! CHALLENGER MID VEIGAR V2 COACHES EKKO MID",
+   "author": "Veigar v2",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 17,
+   "note": "File de lecture (rang 17) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "mid",
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-DzwLn5Dtb94",
+   "sourceId": "yt-hybradge",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=DzwLn5Dtb94",
+   "title": "Stop Full Clearing. This NEW Jungle Path Is Taking Over High Elo",
+   "author": "hybradge",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 18,
+   "note": "File de lecture (rang 18) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "jungle",
+     "jungle path",
+     "clear"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-3BBAOasKM-o",
+   "sourceId": "yt-sinerias",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=3BBAOasKM-o",
+   "title": "How to COUNTER EVERY FARMING JUNGLER | Invades Explained",
+   "author": "Sinerias",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 19,
+   "note": "File de lecture (rang 19) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "jungle",
+     "jungler",
+     "how to",
+     "explained"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -68274,6 +68468,600 @@
      "Ignorer les appels de ganks non garantis de tes coéquipiers",
      "Faire un nettoyage complet de tes camps de jungle",
      "Te rendre à l'objectif avec de l'or dépensé"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-kzCt68fV51k-2",
+   "claim": "Selon Coach Kirei : les avantages du full clear incluent la réapparition simultanée des camps, un flux d'or garanti et une option de repli sécurisée en cas de mort, car les camps repoussent pendant ce temps.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vagues"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Lorsque tu optes pour une stratégie de nettoyage complet de la jungle."
+   ],
+   "limits": [
+    "Peut mener à rater des opportunités si les voies subissent une forte pression adverse."
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-kzCt68fV51k",
+     "locator": "[03:07]",
+     "lang": "en",
+     "passage": "benefits of full clearing is that your camps are all spawning at the same time, so it's very nice, so you don't have to wait. Guaranteed gold, and if the play goes wrong and you die, at least the camps are respawning.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "167-227s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Nettoyer l'intégralité de ses camps de manière synchrone pour garantir une source de revenus stable.",
+   "observe": "les minuteurs de réapparition des camps de la jungle",
+   "use": {
+    "when": "au début d'une partie ou lors de la transition entre tes phases de farm en jungle",
+    "why": "les camps réapparaissent au même moment pour éviter les temps d'attente et sécuriser l'or",
+    "who": "les joueurs de jungle",
+    "how": [
+     "enchaîner tous les camps de ta jungle sans interruption majeure",
+     "maintenir un cycle régulier pour profiter de la réapparition simultanée"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-uru4vXpDRY0-1",
+   "claim": "Selon Coach Leo : le jungle 1v1 ne consiste pas à combattre directement le jungler adverse mais à traquer ses camps et son tempo pour le punir lorsqu'il gaspille son temps, pour tout jungler orienté farm rapide.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Graves"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.8"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer un jungler orienté farm rapide"
+   ],
+   "limits": [
+    "Valable en début de partie et sur les prises d'objectifs"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uru4vXpDRY0",
+     "locator": "00:44",
+     "lang": "en",
+     "passage": "the jungle 1v1 is not, you know, about fighting the enemy jungler. What I mean by jungle 1v1 is tracking his camps and his tempo.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "24-84s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-uru4vXpDRY0",
+     "locator": "01:14",
+     "lang": "en",
+     "passage": "this is an extremely, extremely important thing to utilize when you are playing fast farming junglers"
+    }
+   ],
+   "mentions": [
+    "Graves (exemple)"
+   ],
+   "action": "Traque les apparitions des camps de l'adversaire et envahis-le dès qu'il montre sa position pour un gank non rentable.",
+   "observe": "Suivi du positionnement et des camps ennemis sur la minicarte.",
+   "use": {
+    "when": "l'adversaire montre sa position pour un gank lointain alors que tu as tes camps à disposition ou la possibilité d'invade",
+    "why": "punir le jungler adverse quand il gaspille son temps",
+    "who": "jungler à farm rapide",
+    "how": [
+     "Identifie le camp de départ et le sens du clear adverse",
+     "Observe le moment où il se montre sur la carte pour gank",
+     "Pénètre dans sa jungle pour voler ses camps ou prendre de l'avance"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-2DGVHHI6FLc-2",
+   "claim": "Selon Veigar v2 : pour perturber ton adversaire et empêcher sa wave de s'écraser sous ta tour, avance-toi pour freeze la wave agressivement en récupérant les sbires à distance.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "competition",
+    "rank": "Challenger",
+    "region": "LCK"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Quand la vague ennemie s'apprête à arriver sans le gros soutien de ta propre vague"
+   ],
+   "limits": [
+    "Démontré en partie pro"
+   ],
+   "nature": "opinion",
+   "levelContext": "pro",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-2DGVHHI6FLc",
+     "locator": "[00:57]",
+     "lang": "en",
+     "passage": "Faker is not just going to stand here and freeze defensively. He's going to pull them up and freeze aggressively. The difference in doing this is that now, by having the casters in this position",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "37-97s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Avance pour intercepter et geler les sbires à distance ennemis plus haut dans la lane.",
+   "observe": "L'emplacement des sbires à distance ennemis.",
+   "use": {
+    "when": "Les sbires à distance ennemis s'apprêtent à détruire les tiens et tu souhaites éviter que la wave ne réinitialise sous ta tourelle.",
+    "why": "Pour garder le contrôle de la wave, pousser plus rapidement vers l'ennemi ensuite et lui faire perdre des sbires ainsi que le canon.",
+    "who": "Mid laner souhaitant optimiser son contrôle de wave.",
+    "how": [
+     "Avance devant ta zone de sécurité classique pour intercepter les sbires à distance.",
+     "Maintiens le freeze plus haut dans la lane pour empêcher l'ennemi de setup un reset facile."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-2DGVHHI6FLc-3",
+   "claim": "Selon Veigar v2 : même à la 21e minute de jeu dans un moment creux, continue à refuser activement l'or des sbires et des canons à ton adversaire en gérant les waves plutôt que de simplement les consommer.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "macro",
+    "vagues"
+   ],
+   "context": {
+    "queue": "competition",
+    "rank": "Challenger",
+    "region": "LCK"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "En phase de milieu de partie lorsque l'adversaire gâche ses sorts sur les vagues"
+   ],
+   "limits": [
+    "Démontré en partie pro"
+   ],
+   "nature": "opinion",
+   "levelContext": "pro",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-2DGVHHI6FLc",
+     "locator": "[01:55]",
+     "lang": "en",
+     "passage": "Faker now, 21 minutes into the game, plays to deny cannon. To many players this is obvious in laning phase and stuff, but we see people do this way too little when we go into mid and late game. You still want to deny gold.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "95-155s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Surveille les sbires canons et l'utilisation des sorts ennemis en mid-game pour continuer à nier l'or.",
+   "observe": "Les sorts de l'adversaire utilisés pour nettoyer la vague et la position du sbire canon.",
+   "use": {
+    "when": "La partie est dans un état calme en milieu de partie et l'adversaire vient de gaspiller ses compétences de zone sur la wave.",
+    "why": "Pour maintenir un avantage d'or en privant l'adversaire de sbires importants comme le canon, même après la phase de lane.",
+    "who": "Tout joueur souhaitant maximiser son avantage économique en mid/late game.",
+    "how": [
+     "Repère l'utilisation des sorts de dégâts de l'adversaire sur ta wave.",
+     "Bloque ou gèle la wave pour empêcher l'ennemi de récupérer l'or des sbires et en particulier du canon."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-2DGVHHI6FLc-5",
+   "claim": "Selon Veigar v2 : gèle la wave dans les sidelanes en milieu de partie pour forcer l'adversaire à s'y déplacer sous peine de perdre des sbires, tout en t'exposant moins aux ganks et en forçant son jungler à venir briser le freeze.",
+   "champions": [
+    "Smolder"
+   ],
+   "roles": [
+    "top",
+    "bottom",
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Smolder"
+   },
+   "synergy": {
+    "with": [
+     "Pantheon"
+    ],
+    "kind": "theorique"
+   },
+   "context": {
+    "queue": "competition",
+    "rank": "Challenger",
+    "region": "LCK"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "En mid-game après un déplacement ou une téléportation en sidelane"
+   ],
+   "limits": [
+    "Démontré en partie pro"
+   ],
+   "nature": "opinion",
+   "levelContext": "pro",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-2DGVHHI6FLc",
+     "locator": "[03:38]",
+     "lang": "en",
+     "passage": "Instead of one-shotting this wave and then pushing up bot, he freezes. By freezing bot wave here, he achieves couple of things. First thing: Smolder must go to bot lane, otherwise he will lose CS.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "198-258s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Camille (exemple)"
+   ],
+   "action": "Gèle la vague dans ta sidelane pour obliger ton vis-à-vis à s'exposer loin de ses objectifs.",
+   "observe": "La position de l'adversaire qui doit farmer dans la sidelane.",
+   "use": {
+    "when": "Tu te retrouves dans une sidelane en mid-game et tu possèdes le contrôle de la wave.",
+    "why": "Pour obliger l'ennemi à se montrer dans une zone dangereuse ou perdre des ressources importantes, tout en mobilisant le jungler adverse.",
+    "who": "Joueur évoluant en sidelane en milieu de partie.",
+    "how": [
+     "Ne tape pas excessivement les sbires adverses et conserve un léger avantage numérique adverse.",
+     "Laisse la wave se stabiliser près de ta moitié de terrain pour forcer le vis-à-vis à s'avancer."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-r10CTY-1VR4-1",
+   "claim": "Selon Dishake : pour placer des wards invisibles sans que l'ennemi ne les traque, tu dois t'assurer que tu ne te fais pas voir au moment de les poser.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vision",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Ne pas se faire voir par l'adversaire lors de la pose"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-r10CTY-1VR4",
+     "locator": "[00:44]",
+     "lang": "es",
+     "passage": "Entonces, en esencia, lo importante para lograr que no traqueen tus wards, que no sepan dónde están, es que no te vean a vos en el momento de colocarlos.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "24-84s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pose tes balises de vision dans la jungle en t'assurant que l'ennemi ne te voit pas arriver ou poser le ward.",
+   "observe": "L'absence d'ennemis dans le champ de vision lors du placement du ward.",
+   "use": {
+    "when": "tu te déplaces dans la jungle pour poser de la vision",
+    "why": "pour éviter que l'ennemi ne sache où se trouvent tes wards et ne les détruise",
+    "who": "tous les rôles",
+    "how": [
+     "Vérifie que le chemin emprunté ne comporte pas de vision ennemie",
+     "Place ta ward dans un buisson ou hors de vue lorsque tu es seul"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-r10CTY-1VR4-2",
+   "claim": "Selon Dishake : avant de placer de la vision en profondeur dans la tu jungle ennemie, tu dois t'assurer d'avoir les lanes poussées pour utiliser les sbires alliés comme source principale de information et de sécurité.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vision",
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir les vagues de sbires poussées loin de ta base"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-r10CTY-1VR4",
+     "locator": "[02:02]",
+     "lang": "es",
+     "passage": "Tener las líneas presionadas te va a ayudar toneladas a poder wardear sin que te vean, porque la fuente principal de visión en el juego son los súbditos aliados.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "102-162s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse ta vague de sbires avant d'aller placer de la vision profonde dans la jungle ennemie.",
+   "observe": "La position des vagues de sbires sur la carte.",
+   "use": {
+    "when": "tes waves sont proches de la base ennemie et tu veux placer des wards",
+    "why": "car les sbires alliés t'informent des mouvements ennemis lorsqu'ils sortent de leur base",
+    "who": "tous les rôles",
+    "how": [
+     "Pousse la wave le plus loin possible de ta base",
+     "Va placer ta vision dans la jungle ennemie pendant que les ennemis gèrent la wave"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-r10CTY-1VR4-4",
+   "claim": "Selon Dishake : le jeu fonctionne par l'accumulation de petits résultats positifs répétés plutôt que par la recherche constante de l'action héroïque risquée.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer en partie classée"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-r10CTY-1VR4",
+     "locator": "[12:06]",
+     "lang": "es",
+     "passage": "La idea, o sea esto te va a funcionar una vez que acumulaste muchos pequeños resultados positivos. El juego este funciona a base de acumular pequeños resultados positivos.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "706-766s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Concentre-toi sur l'obtention de petites victoires en phase de lane (prendre l'avantage aux sbires, grignoter une tourelle, placer un ward) au lieu de chercher des combats risqués.",
+   "observe": "Les mini-avantages accumulés au fil des minutes (ferme, plaques, vision).",
+   "use": {
+    "when": "tu es en phase de lane et tu es tenté de forcer un combat risqué",
+    "why": "car accumuler de petits avantages sécurisés augmente la régularité de ton taux de victoire",
+    "who": "tous les joueurs cherchant à progresser en ligue",
+    "how": [
+     "Concentre-toi sur le push de la wave et le gain d'avantages mineurs",
+     "Recule dès que la petite victoire est acquise sans chercher à tout prix à tuer"
     ],
     "notWhen": ""
    },

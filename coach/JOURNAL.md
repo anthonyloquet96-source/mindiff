@@ -758,3 +758,10 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - **Relecture automatique (analyze.mjs, `reverifyPerRun` : 6).** À chaque passage, 6 de ces conseils sont relus par un modèle complet (sans « lite »). Ils redeviennent exploitables s'ils tiennent. Testé ce soir : le quota gratuit était épuisé, l'arrêt a été propre, on réessaie au passage suivant.
 - Tests : 57/58 réussis, 1 ignoré (transcriptions dans le cache du robot).
 - Incident du 28/10 vers 23 h : le coach privé restait bloqué sur « Ton objectif… ». Cause : le Worker utilise la même clé Riot que la collecte, et la collecte EUW occupait ~95 % de la limite Europe (100 requêtes par 2 min), d'où des refus 429 pour le coach. Correction : timelines.mjs --pace ; EUW relancée à 3,6 s par requête (~29 sur 100 utilisées, mesuré). KR et NA, sur d'autres régions, ne gênent pas les joueurs EUW.
+
+### 29/10 : retours d'Anthony après un test sur le compte d'un ami
+- **Ward adverse détruite au top.** La règle « aucune ward adverse détruite avant 20 min » utilisait un seul seuil (32 %) pour tous les postes. Mesure du 29/10 : 52 % des parties de top Diamant+ n'ont aucune ward détruite avant 20 min (4 486 parties) ; jungle 17 %, mid 39 %, ADC 26 %. Côté Fer à Argent : top 74 %, jungle 48 %, mid 69 %, ADC 55 %. Corrections dans review.mjs :
+  - plus de reproche au top ;
+  - seuils par poste pour les autres.
+- **Rangs.** « Master » et « Grandmaster » remplacent « Maître » et « Grand Maître » (coach2.js, Worker, coach-select.js, conseils udyon).
+- **Objectif par poste.** Le coach garde un seul objectif à la fois, sur le poste principal. Quand un autre poste est choisi dans les onglets, une carte l'explique au lieu d'afficher l'objectif du top sous « Jungle ».

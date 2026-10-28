@@ -5,7 +5,7 @@
   "use strict";
 
   const USABLE = ["exploitable", "provisoire", "contradictoire"];
-  const RANKS = [["non-precise", "Non précisé"], ["fer", "Fer"], ["bronze", "Bronze"], ["argent", "Argent"], ["or", "Or"], ["platine", "Platine"], ["emeraude", "Émeraude"], ["diamant", "Diamant"], ["maitre", "Maître"], ["grand-maitre", "Grand maître"], ["challenger", "Challenger"]];
+  const RANKS = [["non-precise", "Non précisé"], ["fer", "Fer"], ["bronze", "Bronze"], ["argent", "Argent"], ["or", "Or"], ["platine", "Platine"], ["emeraude", "Émeraude"], ["diamant", "Diamant"], ["maitre", "Master"], ["grand-maitre", "Grandmaster"], ["challenger", "Challenger"]];
 
   const ROLES = [["top", "Top"], ["jungle", "Jungle"], ["mid", "Mid"], ["bottom", "ADC"], ["support", "Support"]];
   const MODES = [["solo", "Solo"], ["duo", "Duo"], ["equipe", "Équipe"]];

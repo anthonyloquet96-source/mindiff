@@ -60,7 +60,7 @@ export function compute(sample) {
   }
   const patch = Object.entries(patches).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
   const bench = { level: "Diamant et plus", platform: sample.platform, queue: "classée solo", games: recent.length, patches, patch, at: new Date().toISOString(), days: DAYS, roles,
-    method: `Joueurs tirés au hasard en Challenger, Grand Maître, Maître et Diamant I à IV ; parties classées solo de plus de 15 min des ${DAYS} derniers jours ; les 10 joueurs de chaque partie, classés par rôle.` };
+    method: `Joueurs tirés au hasard en Challenger, Grandmaster, Master et Diamant I à IV ; parties classées solo de plus de 15 min des ${DAYS} derniers jours ; les 10 joueurs de chaque partie, classés par rôle.` };
   // Fiches champions : uniquement le patch le plus joué de l'échantillon (les objets et runes changent d'un patch à l'autre)
   const champs = {};
   const top = (obj, n) => Object.entries(obj).sort((a, b) => b[1].g - a[1].g).slice(0, n).map(([k, v]) => ({ id: k, games: v.g, wins: v.w }));

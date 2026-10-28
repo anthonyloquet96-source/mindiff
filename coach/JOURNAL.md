@@ -732,3 +732,11 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
   - Les cartes du coach sont reconstruites à l'identique, en grand : les aperçus officiels ne font que 716 px de large. La nuance « (sans lien certain avec ce seul moment) » est conservée.
   - À valider : on voit des icônes de champions (méta, minimap) et des logos d'équipes (esport).
 - Correctif : la pastille « tirer pour actualiser » était décalée d'environ 6 px vers la gauche sur l'iPhone d'Anthony (Coach connecté). Elle se recentre maintenant sur l'écran visible à chaque geste (app.js). Testé dans Chromium avec un décalage simulé de 12 px : centre à 215/430. Pas encore vérifié sur iPhone.
+
+### 28/10 (soir) : collecte relancée, nouvelle pastille
+- Collecte de repères dégelée par Anthony, en privé : les repères restent réservés au test sur invitation et ne sont pas publiés tant que la clé de production n'est pas là.
+  - Trois lancements en parallèle, Riot comptant ses limites par région : euw1 Diamant+ ; kr et na1 Maître+. Seulement les parties des 5 derniers jours.
+  - timelines.mjs prend maintenant les options --platform et --days.
+  - Journaux : coach/cache/logs/collecte-*.log.
+- Pastille « tirer pour actualiser » refaite et publiée : centrée par left/right 0 + marge auto, anneau qui se remplit avec le geste, flèche qui bascule au seuil, coche verte à la fin.
+- Repères Maître+ (cible des joueurs Diamant+) : ils réunissent maintenant la Corée, l'EUW et l'Amérique du Nord, toutes sources confondues (références-tiers.mjs, champ `platforms`). Envoyés dans Supabase, où le Worker les lit pour le test privé (490 lignes), puis remis à jour toutes les 2 h pendant 24 h (coach/cache/logs/maj-reperes.log).

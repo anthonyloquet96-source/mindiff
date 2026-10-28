@@ -1918,16 +1918,16 @@ function guideButton() {
   document.documentElement.classList.add("ptr-on");
   const TH = 72, MAX = 120;
   let y0 = null, dy = 0, busy = false, el = null;
-  // Pastille (refaite le 28/10 à la demande d'Anthony) : un anneau qui se remplit avec le geste autour d'une flèche fixe ;
-  // seule la flèche bascule au seuil, la pastille ne tourne plus sur elle-même (une icône asymétrique qui tourne paraissait décentrée)
+  // Indicateur (refait le 28/10, choix d'Anthony) : le logo MINDIFF descend du haut ; le « 1 » rouge se remplit de bas en haut
+  // avec le geste, puis pulse pendant le chargement. Pas de pastille.
   const pill = () => el || (el = Object.assign(document.createElement("div"), { className: "ptr", innerHTML:
-    `<svg class="ptr-ring" viewBox="0 0 44 44"><circle cx="22" cy="22" r="19" class="ptr-track"/><circle cx="22" cy="22" r="19" class="ptr-arc" pathLength="100"/></svg><span class="ptr-ic">${icon("down")}</span>` }), document.body.appendChild(el), el);
+    `<svg viewBox="8 8 50 48" aria-hidden="true"><defs><clipPath id="ptr-fill"><rect class="ptr-lvl" x="30" y="56" width="30" height="48"/></clipPath></defs><path class="ptr-d" fill-rule="evenodd" d="M12 51V13C22 13 30 26 32 51ZM19 46V24.5c4.6 4 7.1 10.5 8.1 21.5Z"/><path class="ptr-1b" d="M32 51 47 13h7v38h-7V33.5L39 51Z"/><path class="ptr-1" clip-path="url(#ptr-fill)" d="M32 51 47 13h7v38h-7V33.5L39 51Z"/></svg>` }), document.body.appendChild(el), el);
   const blocked = t => busy || window.scrollY > 0 || document.querySelector(".gd-stories, .gd-tour, .coach-intro, dialog[open]") || t.closest?.("input, textarea, select, .c2-map, .tabs, .prow, [data-noptr]");
   // Recentre sur l'écran visible : sur iPhone, la pastille pouvait être décalée de quelques pixels (vu sur le Coach connecté)
   const center = p => { p.style.setProperty("--dx", "0px"); const r = p.getBoundingClientRect(), vv = window.visualViewport, mid = vv ? vv.offsetLeft + vv.width / 2 : innerWidth / 2;
     p.style.setProperty("--dx", `${Math.round((mid - (r.left + r.width / 2)) * 10) / 10}px`); };
   const move = (p, y) => { p.style.transform = `translate(var(--dx, 0px), ${y}px)`; };
-  const set = d => { const p = pill(), k = Math.min(1, d / TH); center(p); move(p, Math.min(d, MAX) - 52); p.style.setProperty("--k", k); p.style.opacity = Math.min(1, d / 30); p.classList.toggle("ready", d >= TH); };
+  const set = d => { const p = pill(), k = Math.min(1, d / TH); center(p); move(p, Math.min(d, MAX) - 52); p.querySelector(".ptr-lvl").setAttribute("y", 56 - 48 * k); p.style.opacity = Math.min(1, d / 30); p.classList.toggle("ready", d >= TH); };
   document.addEventListener("touchstart", e => { y0 = blocked(e.target) || e.touches.length > 1 ? null : e.touches[0].clientY; dy = 0; }, { passive: true });
   document.addEventListener("touchmove", e => {
     if (y0 == null) return;
@@ -1942,7 +1942,7 @@ function guideButton() {
     if (!p) return;
     if (dy < TH) { p.classList.add("back"); move(p, -52); p.style.opacity = 0; setTimeout(() => p.classList.remove("back"), 250); return; }
     busy = true;
-    p.classList.add("back", "spin"); move(p, 28);
+    p.classList.add("back", "spin"); p.querySelector(".ptr-lvl").setAttribute("y", 8); move(p, 28);
     try {
       const jobs = [loadData()];
       if (route.view === "coach" && typeof C2 !== "undefined" && C2.account) {
@@ -1952,9 +1952,9 @@ function guideButton() {
       await Promise.allSettled(jobs);
       render(false);
     } finally {
-      p.classList.remove("spin", "ready"); p.classList.add("done"); p.querySelector(".ptr-ic").innerHTML = icon("check");
+      p.classList.remove("spin", "ready"); p.classList.add("done");
       setTimeout(() => { move(p, -52); p.style.opacity = 0; }, 350);
-      setTimeout(() => { p.classList.remove("back", "done", "ready"); p.querySelector(".ptr-ic").innerHTML = icon("down"); busy = false; }, 650);
+      setTimeout(() => { p.classList.remove("back", "done", "ready"); busy = false; }, 650);
     }
   });
 })();

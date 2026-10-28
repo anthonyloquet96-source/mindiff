@@ -1580,28 +1580,19 @@ body:not(.has-nav) .gd-help { bottom: 20px; }
 .gd-card.center.pop { animation-name: gd-pop-c; }
 @keyframes gd-pop-c { from { opacity: 0; transform: translate(-50%, -46%); } to { opacity: 1; transform: translate(-50%, -50%); } }
 
-/* Tirer pour rafraîchir : pastille centrée (left/right 0 + marge auto), anneau qui se remplit avec le geste, flèche qui bascule au seuil */
+/* Tirer pour rafraîchir : le logo MINDIFF descend du haut, son « 1 » rouge se remplit avec le geste et pulse pendant le chargement */
 html.ptr-on, html.ptr-on body { overscroll-behavior-y: none; }
-.ptr { position: fixed; top: calc(8px + env(safe-area-inset-top)); left: 0; right: 0; margin: 0 auto; z-index: 95; width: 44px; height: 44px; border-radius: 50%;
-  display: grid; place-items: center; background: var(--surface-2); color: var(--text-2);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, .35);
-  transform: translate(var(--dx, 0px), -52px); opacity: 0; pointer-events: none; --k: 0; }
-.ptr-ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
-.ptr-ring circle { fill: none; stroke-width: 2.5; }
-.ptr-track { stroke: var(--surface-3); }
-.ptr-arc { stroke: var(--accent); stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: calc(100 - var(--k) * 100); }
-.ptr-ic { display: grid; place-items: center; transition: transform .2s var(--ease); }
-.ptr .ic { width: 18px; height: 18px; }
-.ptr.ready { color: var(--accent); }
-.ptr.ready .ptr-ic { transform: rotate(180deg); }
+.ptr { position: fixed; top: calc(10px + env(safe-area-inset-top)); left: 0; right: 0; margin: 0 auto; z-index: 95; width: 46px; height: 44px;
+  transform: translate(var(--dx, 0px), -52px); opacity: 0; pointer-events: none; filter: drop-shadow(0 6px 16px rgba(0, 0, 0, .55)); }
+.ptr svg { display: block; width: 100%; height: 100%; overflow: visible; transform-origin: 50% 50%; }
+.ptr-d { fill: var(--text); }
+.ptr-1b { fill: var(--surface-3); }
+.ptr-1 { fill: var(--accent); }
+.ptr.ready { filter: drop-shadow(0 0 12px rgba(var(--accent-rgb), .7)); }
 .ptr.back { transition: transform .25s var(--ease), opacity .25s; }
-.ptr.spin .ptr-ic { opacity: 0; }
-.ptr.spin .ptr-arc { stroke-dasharray: 28 72; stroke-dashoffset: 0; }
-.ptr.spin .ptr-ring { animation: ptr-spin .8s linear infinite; }
-.ptr.done { color: #fff; background: var(--ok); box-shadow: 0 10px 28px rgba(var(--ok-rgb), .45); }
-.ptr.done .ptr-ring { opacity: 0; }
-.ptr.done .ptr-ic { transform: none; }
-@keyframes ptr-spin { from { transform: rotate(-90deg); } to { transform: rotate(270deg); } }
+.ptr.spin svg { animation: ptr-pulse .9s var(--ease) infinite; }
+.ptr.done .ptr-1 { fill: var(--ok); }
+@keyframes ptr-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(.86); opacity: .6; } }
 
 /* Page du coach cachée pendant l'écran « Bienvenue » : évite l'aperçu furtif avant l'animation */
 #view.coach-hold { opacity: 0; }

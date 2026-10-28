@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T19:33:54.468Z",
+ "generatedAt": "2026-10-28T21:30:45.487Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -152,7 +152,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 39
+    "units": 44
    },
    "support": {
     "champions": [
@@ -160,7 +160,7 @@
      "Milio",
      "Nami"
     ],
-    "units": 35
+    "units": 36
    }
   },
   "champions": {
@@ -924,15 +924,17 @@
    },
    "Kayle": {
     "role": null,
-    "units": 6,
+    "units": 8,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "lane",
+     "vagues",
+     "build"
     ],
-    "actions": 0,
+    "actions": 2,
     "official": 6,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 2
    },
    "Kayn": {
     "role": null,
@@ -1861,15 +1863,16 @@
    },
    "Yasuo": {
     "role": null,
-    "units": 8,
+    "units": 9,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "lane",
+     "vagues"
     ],
-    "actions": 1,
+    "actions": 2,
     "official": 8,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Yorick": {
     "role": null,
@@ -2017,16 +2020,16 @@
    }
   },
   "themes": {
-   "lane": 43,
-   "survie": 11,
+   "lane": 50,
+   "survie": 12,
    "teamfight": 3,
    "synergie": 1,
-   "matchup": 7,
+   "matchup": 8,
    "methode": 8,
-   "vagues": 20,
-   "vision": 10,
-   "macro": 36,
-   "jungle": 29
+   "vagues": 28,
+   "vision": 13,
+   "macro": 42,
+   "jungle": 32
   },
   "partial": [
    "Ashe"
@@ -2857,7 +2860,10 @@
    "u-ai-yt-2DGVHHI6FLc-5",
    "u-ai-yt-r10CTY-1VR4-1",
    "u-ai-yt-r10CTY-1VR4-2",
-   "u-ai-yt-r10CTY-1VR4-4"
+   "u-ai-yt-r10CTY-1VR4-4",
+   "u-ai-yt-Sbt6imQbTSs-1",
+   "u-ai-yt-Sbt6imQbTSs-2",
+   "u-ai-yt-Sbt6imQbTSs-3"
   ]
  },
  "sources": [
@@ -6826,7 +6832,7 @@
    "published": "2026-10-19",
    "retrievedAt": "2026-10-20",
    "patch": "26.21",
-   "views": 226524,
+   "views": 228925,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.8-flash le 2026-10-20 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -6884,7 +6890,7 @@
    "published": "2026-10-18",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 62978,
+   "views": 66268,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -6922,7 +6928,7 @@
    "published": "2026-10-16",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 35508,
+   "views": 36105,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.8-flash le 2026-10-20 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -6973,7 +6979,7 @@
    "published": "2026-10-12",
    "retrievedAt": "2026-10-20",
    "patch": "26.20",
-   "views": 178593,
+   "views": 179463,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.8-flash le 2026-10-20 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -7121,7 +7127,7 @@
    "published": "2026-06-24",
    "retrievedAt": "2026-10-20",
    "patch": "none",
-   "views": 9198,
+   "views": 9274,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -7164,7 +7170,7 @@
    "published": "2026-05-12",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 14423,
+   "views": 14479,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -7194,7 +7200,7 @@
    "published": "2026-03-20",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 9897,
+   "views": 9907,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -7223,7 +7229,7 @@
    "published": "2026-01-21",
    "retrievedAt": "2026-10-20",
    "patch": "S16",
-   "views": 14940,
+   "views": 14950,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.8-flash : transcription et 26 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -7264,7 +7270,7 @@
    "published": "2025-11-20",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 255657,
+   "views": 256042,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -12375,7 +12381,7 @@
    "published": "2026-10-18",
    "retrievedAt": "2026-10-21",
    "patch": "non spécifié",
-   "views": 5515,
+   "views": 5591,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.6-flash : transcription et 6 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -15381,7 +15387,7 @@
    "published": "2026-10-01",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 11196,
+   "views": 11263,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -15408,7 +15414,7 @@
    "published": "2026-09-28",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 17965,
+   "views": 18141,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -15436,7 +15442,7 @@
    "published": "2026-09-27",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 47039,
+   "views": 47236,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -15466,7 +15472,7 @@
    "published": "2026-10-19",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 9079,
+   "views": 9390,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -15495,7 +15501,7 @@
    "published": "2026-10-13",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 19103,
+   "views": 19416,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -15524,7 +15530,7 @@
    "published": "2026-10-07",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 16290,
+   "views": 16749,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -15553,7 +15559,7 @@
    "published": "2026-10-04",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 14144,
+   "views": 14342,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -15581,7 +15587,7 @@
    "published": "2026-10-01",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 11344,
+   "views": 12089,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -15610,7 +15616,7 @@
    "published": "2026-09-28",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 15854,
+   "views": 16023,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -16731,7 +16737,7 @@
    "published": "2026-07-30",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 63985,
+   "views": 64158,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -16760,7 +16766,7 @@
    "published": "2026-07-29",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 62225,
+   "views": 62578,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -16787,7 +16793,7 @@
    "published": "2026-10-03",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 14892,
+   "views": 15174,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -16865,7 +16871,7 @@
    "published": "2024-08-11",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 15345,
+   "views": 15346,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17005,7 +17011,7 @@
    "published": "2024-07-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 18739,
+   "views": 18740,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17286,7 +17292,7 @@
    "published": "2026-10-16",
    "retrievedAt": "2026-10-21",
    "patch": "non",
-   "views": 5458,
+   "views": 5569,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.5-flash-lite : transcription et 19 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -17338,7 +17344,7 @@
    "published": "2026-10-09",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 8699,
+   "views": 8855,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17367,7 +17373,7 @@
    "published": "2026-10-04",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 11275,
+   "views": 11342,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17395,7 +17401,7 @@
    "published": "2026-10-01",
    "retrievedAt": "2026-10-21",
    "patch": "aucun",
-   "views": 20612,
+   "views": 22133,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.6-flash : transcription et 24 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -17441,7 +17447,7 @@
    "published": "2026-09-20",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 12234,
+   "views": 12258,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17468,7 +17474,7 @@
    "published": "2026-09-10",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 37499,
+   "views": 38445,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17497,7 +17503,7 @@
    "published": "2026-09-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 81652,
+   "views": 84751,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17527,7 +17533,7 @@
    "published": "2026-09-03",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 9292,
+   "views": 9322,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17554,7 +17560,7 @@
    "published": "2026-08-29",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 5045,
+   "views": 5047,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17722,7 +17728,7 @@
    "published": "2026-10-17",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 11479,
+   "views": 11867,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17752,7 +17758,7 @@
    "published": "2026-09-08",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 21150,
+   "views": 21611,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17786,7 +17792,7 @@
    "published": "2026-09-04",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 37896,
+   "views": 38507,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17820,7 +17826,7 @@
    "published": "2026-08-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 35135,
+   "views": 35703,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3-flash-preview le 2026-10-26 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -17860,7 +17866,7 @@
    "published": "2026-08-11",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 22149,
+   "views": 22594,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.5-flash-lite : transcription et 20 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -17905,7 +17911,7 @@
    "published": "2026-08-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 14817,
+   "views": 15073,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.5-flash-lite le 2026-10-27 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -17945,7 +17951,7 @@
    "published": "2026-08-04",
    "retrievedAt": "2026-10-21",
    "patch": "2026-08-04",
-   "views": 13167,
+   "views": 13451,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.5-flash-lite : transcription et 21 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -17990,7 +17996,7 @@
    "published": "2026-07-27",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 18489,
+   "views": 18642,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18022,7 +18028,7 @@
    "published": "2026-07-24",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 24246,
+   "views": 24693,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18054,7 +18060,7 @@
    "published": "2026-07-19",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 12160,
+   "views": 12284,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18086,7 +18092,7 @@
    "published": "2026-07-14",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 7470,
+   "views": 7561,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18118,7 +18124,7 @@
    "published": "2026-07-11",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 6375,
+   "views": 6421,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18150,7 +18156,7 @@
    "published": "2026-07-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 11478,
+   "views": 11559,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18182,7 +18188,7 @@
    "published": "2026-07-03",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 6252,
+   "views": 6346,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18242,7 +18248,7 @@
    "published": "2026-10-20",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 8091,
+   "views": 8306,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18272,7 +18278,7 @@
    "published": "2026-10-19",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 8375,
+   "views": 8496,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18301,7 +18307,7 @@
    "published": "2026-10-17",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 9393,
+   "views": 9423,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3-flash-preview le 2026-10-25 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -18347,7 +18353,7 @@
    "published": "2026-10-14",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 5758,
+   "views": 5820,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18377,7 +18383,7 @@
    "published": "2026-10-13",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 11513,
+   "views": 12146,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18406,7 +18412,7 @@
    "published": "2026-10-12",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 13248,
+   "views": 13808,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18436,7 +18442,7 @@
    "published": "2026-10-10",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 10717,
+   "views": 11117,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18748,7 +18754,7 @@
    "published": "2026-10-12",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 15807,
+   "views": 16809,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18779,7 +18785,7 @@
    "published": "2026-10-08",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 9709,
+   "views": 10441,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18809,7 +18815,7 @@
    "published": "2026-10-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 14886,
+   "views": 15514,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18893,7 +18899,7 @@
    "published": "2024-09-23",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 10345,
+   "views": 10349,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19040,7 +19046,7 @@
    "published": "2023-11-23",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 2204,
+   "views": 2206,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19096,7 +19102,7 @@
    "published": "2023-09-23",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 11887,
+   "views": 11905,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19124,7 +19130,7 @@
    "published": "2023-09-20",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 6382,
+   "views": 6383,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19153,7 +19159,7 @@
    "published": "2026-10-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 15821,
+   "views": 16990,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19179,7 +19185,7 @@
    "published": "2026-10-17",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 23138,
+   "views": 23801,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19206,7 +19212,7 @@
    "published": "2026-10-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 97450,
+   "views": 100182,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 11 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -19257,7 +19263,7 @@
    "published": "2026-04-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 1814,
+   "views": 1827,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19288,7 +19294,7 @@
    "published": "2026-03-28",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 722,
+   "views": 723,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19346,7 +19352,7 @@
    "published": "2026-03-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 589,
+   "views": 600,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19454,7 +19460,7 @@
    "published": "2026-10-13",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 54190,
+   "views": 54658,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19486,7 +19492,7 @@
    "published": "2026-07-16",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 1046,
+   "views": 1052,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19515,7 +19521,7 @@
    "published": "2026-05-02",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 490,
+   "views": 492,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19541,7 +19547,7 @@
    "published": "2026-04-22",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 2062,
+   "views": 2071,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19593,7 +19599,7 @@
    "published": "2026-10-16",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 3434,
+   "views": 3661,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19648,7 +19654,7 @@
    "published": "2026-09-12",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 3229,
+   "views": 3231,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19703,7 +19709,7 @@
    "published": "2025-07-16",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 4937,
+   "views": 4940,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20763,7 +20769,7 @@
    "published": "2026-10-22",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 19348,
+   "views": 19900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20791,7 +20797,7 @@
    "published": "2026-10-23",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 14051,
+   "views": 14587,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20871,7 +20877,7 @@
    "published": "2026-10-23",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 8126,
+   "views": 8459,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20901,7 +20907,7 @@
    "published": "2026-10-23",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 8103,
+   "views": 8066,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20930,7 +20936,7 @@
    "published": "2026-10-22",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 7692,
+   "views": 7899,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -21631,7 +21637,7 @@
    "retrievedAt": "2026-10-25",
    "patch": "26.1",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 24,
@@ -21657,6 +21663,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 97159
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "La saison 16 modifie la macro avec une baisse de la valeur des Voidgrubs au profit des dragons, des temps de retour écourtés grâce au renfort des Homeguards, et la nécessité de ne pas sacrifier ses rotations de lanes au profit exclusif de la quête de rôle.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Le contenu détaille de nombreux concepts théoriques de macro pour la saison 16 avec des arguments structurés, mais repose sur des affirmations non étayées par des statistiques publiques vérifiables."
    }
   },
   {
@@ -21671,7 +21687,7 @@
    "retrievedAt": "2026-10-25",
    "patch": "null",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 25,
@@ -21697,6 +21713,16 @@
     "videoKind": "analyse-de-partie",
     "gameplayShown": true,
     "tokens": 204820
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Le joueur numéro 1 de Kayle compense les faiblesses du début de partie de son champion par une discipline rigoureuse de la gestion des vagues, un choix de bottes axé sur la vitesse pour le kiting, et une communication claire pour éviter les combats perdus d'avance tout en capitalisant sur le mid-game.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'analyse décortique précisément les choix de build, de gestion de vagues et de prise de décision macroscopiques d'un joueur de tout premier plan sur plusieurs phases de la partie."
    }
   },
   {
@@ -21710,7 +21736,7 @@
    "published": "2026-10-24",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 41185,
+   "views": 50100,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -21762,7 +21788,7 @@
    "published": "2026-10-24",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 6215,
+   "views": 7706,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -21790,7 +21816,7 @@
    "published": "2026-10-23",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 3296,
+   "views": 5992,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.6-flash le 2026-10-24 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -21836,7 +21862,7 @@
    "retrievedAt": "2026-10-26",
    "patch": "S14",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 26,
@@ -21864,6 +21890,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 61405
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "La Saison 14 apporte des modifications majeures de macro avec l'apparition des Larves du Néant à 5 minutes pour dynamiser le top et la jungle, un Héraut de la Faille pilotable à partir de 14 minutes, ainsi que des camps corrompus par le Baron Nashor après 20 minutes.",
+   "quality": {
+    "level": "élevée",
+    "why": "La vidéo détaille de manière structurée et précise les nouveautés de gameplay, les temps d'apparition, les conditions de buff et les rôles impactés pour la Saison 14."
    }
   },
   {
@@ -21953,7 +21989,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-26",
    "patch": "26.21",
-   "views": 24588,
+   "views": 143441,
    "access": "transcription+visuel",
    "analysis": "en-attente",
    "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -22000,7 +22036,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 100,
+   "views": 9122,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -22029,7 +22065,7 @@
    "published": "2026-10-24",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 6341,
+   "views": 7344,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -22056,7 +22092,7 @@
    "published": "2026-10-25",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 5377,
+   "views": 8477,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -22084,7 +22120,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 444,
+   "views": 25279,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -22247,7 +22283,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-27",
    "patch": null,
-   "views": 1884,
+   "views": 8276,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -23086,12 +23122,12 @@
    "published": null,
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 11,
-   "note": "File de lecture (rang 11) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 36 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 19,
     "matched": [
@@ -23101,6 +23137,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-28",
+    "sha256": "74da14768284bcc259a8c9c3e1fe03de33a61738f4a6050d80bb0b361b28573c",
+    "segments": 44,
+    "observations": 36,
+    "duration": "13:46",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 82757
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Apprends à maîtriser les états de vagues (hard push, slow push, freeze, held wave) en jouant sur la taille et la localisation des vagues pour dominer les trades et contrôler ta lane.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu détaille de manière très structurée les concepts théoriques et pratiques de la gestion des vagues avec des exemples visuels précis sur les différents états de vagues."
    }
   },
   {
@@ -23113,13 +23172,13 @@
    "lang": "tr",
    "published": null,
    "retrievedAt": "2026-10-28",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.6",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 12,
-   "note": "File de lecture (rang 12) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 35 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 19,
     "matched": [
@@ -23128,6 +23187,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-10-28",
+    "sha256": "2071eaafda86efbbd1126d7b0c4719e720a05c437fa3436a27027ea61127cf3d",
+    "segments": 25,
+    "observations": 35,
+    "duration": "21:56",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 129513
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "La vidéo montre un parti pris stratégique clair et illustré par un gameplay complet, bien que l'argumentation repose sur une seule partie en ligue Émeraude avec un ton subjectif."
    }
   },
   {
@@ -23140,13 +23222,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-10-28",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "Season 2026",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 13,
-   "note": "File de lecture (rang 13) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 21 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 18,
     "matched": [
@@ -23157,6 +23239,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-10-28",
+    "sha256": "a9b55de44813e59ea359bffac8c169ad55a803605c9f27093fc82d37aa96f99e",
+    "segments": 20,
+    "observations": 21,
+    "duration": "23:49",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 79233
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 5,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "L'auteur détaille l'utilisation pratique des différentes gestions de vagues pour un ADC (hard push, slow push, bounce, wave neutre, freeze et thinning) en fonction des objectifs et de la position du jungler.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le guide est structuré, s'appuie sur des définitions précises et des cas d'usage concrets illustrés par des exemples de notes et de parties professionnelles."
    }
   },
   {
@@ -23326,6 +23431,420 @@
      "how to",
      "explained"
     ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-1wpg2WcpR4c",
+   "sourceId": "yt-coach-leo",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=1wpg2WcpR4c",
+   "title": "Diamond Jungler Learns INSANE Concepts To Reach Apex Tiers | LoL Coaching",
+   "author": "Coach Leo",
+   "lang": "en",
+   "published": "2026-10-28",
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "views": 2190,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "Start climbing today\n➡️ https://junglegap.gg\n\n📈 TESTIMONIALS ⬇️\n https://tinyurl.com/jggaptestimonials\n\n🧾My OPGG\nhttps://op.gg/lol/summoners/oce/the%20bestest-clz?queue_type=SOLORANKED\n\n0:00 - Intro\n0:48 - OP.GG Review\n6:40 - Game Review",
+   "triage": {
+    "score": 6,
+    "matched": [
+     "jungle",
+     "jungler",
+     "coaching",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-SIRplDsZuZg",
+   "sourceId": "yt-coach-kirei",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/SIRplDsZuZg",
+   "title": "COACHING FOR HOW MUCH?!",
+   "author": "Coach Kirei",
+   "lang": "en",
+   "published": "2026-10-28",
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "views": 521,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "https://kirei.gg/courses Jungle Courses with Permanent access and updates\nhttps://kirei.gg for personalized 1 on 1 sessions \n\nSign up on bootcamp how to play like a pro individually and how to play midgame - tinyurl.com/2f54hvb7\n\nFree course videos\nSpacing - https://kirei.gg/cour",
+   "triage": {
+    "score": 10,
+    "matched": [
+     "Vi",
+     "jungle",
+     "mid",
+     "how to",
+     "fundamentals",
+     "coaching"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-5y3JonvBwko",
+   "sourceId": "yt-coach-kirei",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=5y3JonvBwko",
+   "title": "#1 JUNGLE GUIDE to 2v8 (INSANE JUNGLE FUNDAMENTALS)",
+   "author": "Coach Kirei",
+   "lang": "en",
+   "published": "2026-10-26",
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "views": 19557,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "https://kirei.gg/courses Jungle Courses with Permanent access and updates\nhttps://kirei.gg for personalized 1 on 1 sessions \n\nSign up on bootcamp how to play like a pro individually and how to play midgame - tinyurl.com/2f54hvb7\n\nFree course videos\nSpacing - https://kirei.gg/cour",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "Vi",
+     "jungle",
+     "mid",
+     "guide",
+     "how to",
+     "fundamentals",
+     "coaching"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-O1qQIjcErec",
+   "sourceId": "yt-wtl",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=O1qQIjcErec",
+   "title": "!tipmenu | OP.GG Reviews | Coach Q&A | VOD Reviews",
+   "author": "We Teach League | Broken By Concept",
+   "lang": "en",
+   "published": "2026-10-28",
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "views": 6847,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "Get 1-on-1 coaching, champion guides and more: https://weteachleague.com/\n\n➡️Twitch: https://www.twitch.tv/weteachleaguelol\n➡️Instagram: https://www.instagram.com/weteachleague\n➡️Tiktok: https://www.tiktok.com/@weteachleague\n➡️Spotify (with video): https://wtl.lol/spotify\n➡️Apple",
+   "triage": {
+    "score": 10,
+    "matched": [
+     "Vi",
+     "guide",
+     "vod review",
+     "coaching",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-VHupykugyYw",
+   "sourceId": "yt-wtl",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=VHupykugyYw",
+   "title": "!tipmenu | OP.GG Reviews | Coach Q&A | VOD Reviews",
+   "author": "We Teach League | Broken By Concept",
+   "lang": "en",
+   "published": "2026-10-27",
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "views": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "Get 1-on-1 coaching, champion guides and more: https://weteachleague.com/\n\n➡️Twitch: https://www.twitch.tv/weteachleaguelol\n➡️Instagram: https://www.instagram.com/weteachleague\n➡️Tiktok: https://www.tiktok.com/@weteachleague\n➡️Spotify (with video): https://wtl.lol/spotify\n➡️Apple",
+   "triage": {
+    "score": 10,
+    "matched": [
+     "Vi",
+     "guide",
+     "vod review",
+     "coaching",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-KeWQ6T5oeoA",
+   "sourceId": "yt-wtl",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/KeWQ6T5oeoA",
+   "title": "What's The Best VOD For Coaching? #leagueoflegends",
+   "author": "We Teach League | Broken By Concept",
+   "lang": "en",
+   "published": "2026-10-27",
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "views": 10750,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "",
+   "triage": {
+    "score": 2,
+    "matched": [
+     "coaching"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-NbrgxQkwcns",
+   "sourceId": "yt-wtl",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=NbrgxQkwcns",
+   "title": "How To Become a Well Rounded League of Legends Player",
+   "author": "We Teach League | Broken By Concept",
+   "lang": "en",
+   "published": "2026-10-26",
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "views": 17561,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "Get 1-on-1 coaching, champion guides and more: https://join.weteachleague.com/VBLBF0\n\nIt's the dream of many of us who play League of Legends to be well rounded players. In this video we break down what a well rounded league player looks like, and how to become one.\n\nTopics cover",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "Vi",
+     "guide",
+     "how to",
+     "coaching",
+     "build",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-fXTrkEv0gaM",
+   "sourceId": "yt-coach-violet",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=fXTrkEv0gaM",
+   "title": "Challenger Rank 1 TRISTANA GUIDE - League of Legends",
+   "author": "Coach Violet",
+   "lang": "en",
+   "published": "2026-10-26",
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "views": 8982,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "➡️Coaching and everything you need to climb - https://wtl.lol/violet (USE CODE:VIOLET10)\n➡️Join the Community - https://discord.gg/zVvGUPxYGw\n\n\nIn this video im explaining the core fundamentals on adc in league of legends. I hope you can learn a lot of new things!\n\nCheers !\n\n00:0",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "Tristana",
+     "Vi",
+     "adc",
+     "support",
+     "guide",
+     "fundamentals",
+     "coaching",
+     "build",
+     "runes",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-aLQvzboW4zg",
+   "sourceId": "yt-mysteriaslol",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=aLQvzboW4zg",
+   "title": "How to Carry as a Mage Mid Lane",
+   "author": "Mysteriaslol",
+   "lang": "en",
+   "published": "2026-10-28",
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "views": 1499,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📈If you want to speed up your climb and get coached by me: https://wtl.lol/mysterias \n✅Use code: TIM10 for $10 off (All Roles)\n\n\n \n\nMysterias Socials:\nTwitch ►     / https://www.twitch.tv/mysteriaslol\nX ►     / https://x.com/mysteriaslol  \nDiscord server ►    / https://discord.g",
+   "triage": {
+    "score": 7,
+    "matched": [
+     "mid",
+     "guide",
+     "how to",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-SYfvYMY7Iy4",
+   "sourceId": "yt-mysteriaslol",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=SYfvYMY7Iy4",
+   "title": "Here's How to Carry as a Mid Laner",
+   "author": "Mysteriaslol",
+   "lang": "en",
+   "published": "2026-10-27",
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "views": 7395,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "📈If you want to speed up your climb and get coached by me: https://wtl.lol/mysterias \n✅Use code: TIM10 for $10 off (All Roles)\n\n\n \n\nMysterias Socials:\nTwitch ►     / https://www.twitch.tv/mysteriaslol\nX ►     / https://x.com/mysteriaslol  \nDiscord server ►    / https://discord.g",
+   "triage": {
+    "score": 5,
+    "matched": [
+     "mid",
+     "how to",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-vGQQcy2tkZQ",
+   "sourceId": "yt-kyan",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=vGQQcy2tkZQ",
+   "title": "How to Win Lane in League of Legends - The Ultimate Laning Guide",
+   "author": "Kyan",
+   "lang": "en",
+   "published": "2026-10-27",
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "views": 254,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "Learn how to ALWAYS WIN LANE in League of Legends with this complete laning phase guide!\n\nIn this guide, I'll teach you the fundamentals of laning that every League of Legends player should understand to consistently win lane and climb in Solo Queue.\n\nWe'll cover everything from ",
+   "triage": {
+    "score": 20,
+    "matched": [
+     "top",
+     "mid",
+     "guide",
+     "how to",
+     "fundamentals",
+     "coaching",
+     "wave",
+     "laning",
+     "trading",
+     "matchup",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-z4jG-L-H9ms",
+   "sourceId": "yt-dovahndo",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=z4jG-L-H9ms",
+   "title": "🤯 ¡GUIA DIDÁCTICA para JUNGLA ESTRUCTURADA! | Teoría del Pathing",
+   "author": "DovahNDo",
+   "lang": "pt",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 20,
+   "note": "File de lecture (rang 20) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-29azwNM7s8M",
+   "sourceId": "yt-husumlol",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=29azwNM7s8M",
+   "title": "The Power of Wave Management",
+   "author": "HusumLOL",
+   "lang": "pt",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 21,
+   "note": "File de lecture (rang 21) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "wave"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Kc3B5f3Z5Ys",
+   "sourceId": "yt-fl7vob_qbs",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=Kc3B5f3Z5Ys",
+   "title": "1티어 미드 챔피언 루시안 강의 에코 상대로 10분에 CS 차이 40개 벌리는 방법",
+   "author": "챌린저 미드김홍주",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 22,
+   "note": "File de lecture (rang 22) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -59922,13 +60441,17 @@
    },
    "published": null,
    "analyzedAt": "2026-10-25",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "nuance": "Conseil de date inconnue (patch 14.14) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-fOQBQn0X54M : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -60009,6 +60532,14 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-ZzKpPJ_BNHM : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-ZzKpPJ_BNHM : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo (04:13)."
+    },
+    {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
     },
@@ -60085,12 +60616,20 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-ZzKpPJ_BNHM : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-ZzKpPJ_BNHM : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo (09:00)."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -60164,6 +60703,10 @@
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-ZzKpPJ_BNHM : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -60245,12 +60788,20 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-ZzKpPJ_BNHM : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-ZzKpPJ_BNHM : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo (12:12)."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -60325,6 +60876,10 @@
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-7a5EBaZ-ems : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
@@ -60407,8 +60962,16 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-RIro7KcXJP8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
      "code": "contenu-ancien",
      "why": "c-yt-RIro7KcXJP8 publié le 2024-05-12 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-RIro7KcXJP8 : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([06:33])."
     },
     {
      "code": "contenu-ancien",
@@ -60483,12 +61046,16 @@
    },
    "published": "2024-05-12",
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-RIro7KcXJP8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -60558,12 +61125,20 @@
    },
    "published": "2024-08-18",
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Fcb6lbPuclA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-Fcb6lbPuclA : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (00:57)."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -60626,12 +61201,16 @@
    },
    "published": "2024-08-18",
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Fcb6lbPuclA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -60695,12 +61274,16 @@
    },
    "published": "2024-08-18",
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Fcb6lbPuclA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -60770,12 +61353,20 @@
    },
    "published": "2024-08-18",
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Fcb6lbPuclA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-Fcb6lbPuclA : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (04:28)."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -60835,12 +61426,16 @@
    },
    "published": "2024-08-18",
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Fcb6lbPuclA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -60904,12 +61499,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt-V-0395F1evY : le vérificateur note un écart sur l'extrait 166-226s (La raison indiquée dans le champ 'pourquoi' n'est pas explicitement énoncée par AloisNL dans l'extrait.)."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -60973,12 +61572,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt-V-0395F1evY : le vérificateur note un écart sur l'extrait 1284-1344s (L'auteur ne mentionne pas explicitement les objectifs majeurs (Baron, Dragon) comme contre-indication dans cet extrait, précisant seulement qu'il ne faut pas rejoindre d'escarmouches sauf s'il n'y a plus rien d'autre à récolter.)."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -61049,12 +61652,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt-V-0395F1evY : le vérificateur note un écart sur l'extrait 245-305s (L'auteur n'explicite pas la perte de plaques de tourelle comme raison, ni la position du jungler comme contre-indication dans cet extrait.)."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -61290,12 +61897,20 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-zziK5rQefTc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-zziK5rQefTc : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([03:35])."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -61363,13 +61978,17 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "nuance": "Conseil de date inconnue (patch 14.14) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-zziK5rQefTc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -61443,12 +62062,20 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-zziK5rQefTc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-zziK5rQefTc : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([11:48])."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -61523,12 +62150,20 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-zziK5rQefTc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-zziK5rQefTc : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([14:26])."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -61594,12 +62229,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-7ZZEBbT_qzQ : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -61666,12 +62305,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Qb5YWQxgmzY : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -61735,12 +62378,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Qb5YWQxgmzY : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -61817,12 +62464,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Qb5YWQxgmzY : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -61900,12 +62551,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Qb5YWQxgmzY : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -61985,6 +62640,10 @@
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt-Xc_CS1JFoFc : le vérificateur note un écart sur l'extrait 0-58s (L'auteur ne mentionne pas explicitement qu'il faut éviter l'objet en cas de dégâts continus (DPS).)."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
@@ -62074,6 +62733,10 @@
    },
    "flags": [
     {
+     "code": "ecart-signale",
+     "why": "c-yt-Xc_CS1JFoFc : le vérificateur note un écart sur l'extrait 398-458s (L'auteur ne mentionne pas explicitement qu'il faut l'éviter en cas de burst, il explique seulement qu'il faut que le dégât soit continu (DPS) car il faut se faire frapper 8 fois.)."
+    },
+    {
      "code": "source-unique",
      "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     },
@@ -62162,6 +62825,14 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-tiTAC_t2Tns : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-tiTAC_t2Tns : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([00:18])."
+    },
+    {
      "code": "source-unique",
      "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
@@ -62245,6 +62916,14 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-tiTAC_t2Tns : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-tiTAC_t2Tns : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([00:46])."
+    },
+    {
      "code": "source-unique",
      "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
@@ -62324,6 +63003,10 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-Y9iqq6Vl4fM : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
      "code": "source-unique",
      "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     },
@@ -62390,12 +63073,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-YLgMgbuZ0Zk : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -62459,12 +63146,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-YLgMgbuZ0Zk : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -62529,12 +63220,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt-YLgMgbuZ0Zk : le vérificateur note un écart sur l'extrait 263-323s (La contre-indication sur un score de 7/0 n'est pas mentionnée par l'auteur dans l'extrait.)."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -62604,6 +63299,10 @@
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-YLgMgbuZ0Zk : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -62677,12 +63376,20 @@
    },
    "published": "2022-09-28",
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-_hGNfCMUO6s : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-_hGNfCMUO6s : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([03:00])."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -62764,8 +63471,16 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-_hGNfCMUO6s : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
      "code": "contenu-ancien",
      "why": "c-yt-_hGNfCMUO6s publié le 2022-09-28 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-_hGNfCMUO6s : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([05:35])."
     },
     {
      "code": "contenu-ancien",
@@ -62844,12 +63559,20 @@
    },
    "published": "2022-09-28",
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-_hGNfCMUO6s : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-_hGNfCMUO6s : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([12:05])."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -62924,6 +63647,10 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-_hGNfCMUO6s : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
      "code": "contenu-ancien",
      "why": "c-yt-_hGNfCMUO6s publié le 2022-09-28 : à confirmer sur le kit et la méta actuels."
     },
@@ -62997,12 +63724,20 @@
    },
    "published": "2022-09-28",
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-_hGNfCMUO6s : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-_hGNfCMUO6s : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([23:33])."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -63079,8 +63814,16 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-_hGNfCMUO6s : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
      "code": "contenu-ancien",
      "why": "c-yt-_hGNfCMUO6s publié le 2022-09-28 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-_hGNfCMUO6s : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([25:19])."
     },
     {
      "code": "contenu-ancien",
@@ -63165,8 +63908,16 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-_hGNfCMUO6s : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
      "code": "contenu-ancien",
      "why": "c-yt-_hGNfCMUO6s publié le 2022-09-28 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-_hGNfCMUO6s : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([26:40])."
     },
     {
      "code": "contenu-ancien",
@@ -63240,12 +63991,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-34kHa32NIKQ : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -63322,6 +64077,10 @@
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-34kHa32NIKQ : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -63481,12 +64240,20 @@
    },
    "published": "2023-01-05",
    "analyzedAt": "2026-10-26",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-fNvRQRe4n00 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-fNvRQRe4n00 : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([02:30])."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -63570,8 +64337,16 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-fNvRQRe4n00 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
      "code": "contenu-ancien",
      "why": "c-yt-fNvRQRe4n00 publié le 2023-01-05 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-fNvRQRe4n00 : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([07:15])."
     },
     {
      "code": "contenu-ancien",
@@ -63652,12 +64427,16 @@
    },
    "published": "2026-10-17",
    "analyzedAt": "2026-10-27",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt-Xq3Hs3ofEwg : le vérificateur note un écart sur l'extrait 45-105s (L'auteur ne mentionne pas la contre-indication concernant le Baron Nashor ou la menace immédiate de défaite.)."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -63735,6 +64514,10 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-X6dZ1iPt-PY : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
      "code": "source-unique",
      "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
@@ -63807,12 +64590,20 @@
    },
    "published": null,
    "analyzedAt": "2026-10-27",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-z8jp-YjOwI0 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-z8jp-YjOwI0 : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([02:05])."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -63880,12 +64671,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-27",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-z8jp-YjOwI0 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -63953,12 +64748,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-27",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-z8jp-YjOwI0 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -64027,12 +64826,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-27",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-z8jp-YjOwI0 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -64100,12 +64903,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-27",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-z8jp-YjOwI0 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -64184,8 +64991,16 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-ZI_zaftR6KY : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
      "code": "contenu-ancien",
      "why": "c-yt-ZI_zaftR6KY publié le 2023-12-02 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-ZI_zaftR6KY : lu par gemini-3.5-flash-lite (1 image/s) ; passage à vérifier sur la vidéo (00:48)."
     },
     {
      "code": "contenu-ancien",
@@ -64261,6 +65076,10 @@
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-ZI_zaftR6KY : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "contenu-ancien",
      "why": "c-yt-ZI_zaftR6KY publié le 2023-12-02 : à confirmer sur le kit et la méta actuels."
@@ -67670,12 +68489,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-mx4i9tRexVQ : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -67739,12 +68562,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-mx4i9tRexVQ : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -67808,12 +68635,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-mx4i9tRexVQ : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -67878,12 +68709,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-mx4i9tRexVQ : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -68035,12 +68870,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-e9SSpRzFwo4 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -68113,6 +68952,10 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-e9SSpRzFwo4 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
     },
@@ -68181,12 +69024,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-e9SSpRzFwo4 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -68259,12 +69106,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Ex6YzrsAHjg : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -68329,12 +69180,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Ex6YzrsAHjg : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -68402,12 +69257,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Ex6YzrsAHjg : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -68473,12 +69332,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Ex6YzrsAHjg : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -68544,12 +69407,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-kzCt68fV51k : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -68635,6 +69502,14 @@
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-uru4vXpDRY0 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-uru4vXpDRY0 : lu par gemini-3.7-flash (1 image/s) ; passage à vérifier sur la vidéo (01:14)."
+    },
+    {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
     }
@@ -68699,12 +69574,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-2DGVHHI6FLc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -68772,12 +69651,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-2DGVHHI6FLc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -68859,12 +69742,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-2DGVHHI6FLc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -68928,12 +69815,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-r10CTY-1VR4 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -68998,12 +69889,16 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-r10CTY-1VR4 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -69067,15 +69962,1166 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "exploitable",
+   "status": "provisoire",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
    },
    "flags": [
     {
+     "code": "verification-legere",
+     "why": "c-yt-r10CTY-1VR4 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Sbt6imQbTSs-1",
+   "claim": "Selon Coach Mysterias : les deux forces principales qui influencent l'état des waves sont la taille de la wave (size) et sa localisation sur la lane (location).",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Sbt6imQbTSs",
+     "locator": "00:12",
+     "lang": "en",
+     "passage": "So there are two main forces that influence wave states: size and location. Yes, size matters nowadays, guys. So the reason why size matters is because if there's a minion wave that's bigger than the other minion wave, it's always going to clear the minion wave.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "0-52s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Orianna (exemple)",
+    "Annie (exemple)"
+   ],
+   "use": {
+    "when": "en phase de laning, lorsque tu observes les waves se faire face sur la lane",
+    "why": "Une wave plus grande élimine l'autre, et une wave plus proche d'une tourelle reçoit des renforts de sbires plus rapidement en raison de la distance d'arrivée.",
+    "who": "tous les rôles en phase de laning",
+    "how": [
+     "Regarder quel camp possède le plus grand nombre de sbires vivants.",
+     "Regarder à quelle distance de chaque tourelle se trouve le point de rencontre des waves."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Sbt6imQbTSs : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Sbt6imQbTSs-2",
+   "claim": "Selon Coach Mysterias : effectuer un hard push sert à obtenir du temps et de la liberté pour effectuer un back (reset), obtenir du tempo, ou fuir une menace de gank.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Sbt6imQbTSs",
+     "locator": "02:18",
+     "lang": "en",
+     "passage": "Usually you hard push for tempo, for time. So the faster I push this wave out, the faster I can actually reset myself, which means that on the next wave after that, I'm not going to lose that many minions.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "118-178s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Pantheon (exemple)",
+    "Syndra (exemple)"
+   ],
+   "action": "Tuer rapidement les sbires adverses pour faire s'écraser ta vague sous la tourelle ennemie avant de rappeler.",
+   "observe": "Regarder si l'ennemi est absent de la lane ou si tu as besoin de quitter la lane en urgence.",
+   "use": {
+    "when": "tu as besoin de quitter ta lane pour faire un back ou pour répondre à une action sur la carte sans perdre de sbires sous ta tourelle",
+    "why": "Éliminer la wave rapidement permet de la faire s'écraser sous la tourelle ennemie, ce qui te donne le temps de revenir sans rater d'or ni d'expérience.",
+    "who": "tous les postes en phase de laning",
+    "how": [
+     "Utiliser toutes tes compétences et attaques automatiques pour vider la wave le plus vite possible.",
+     "Faire s'écraser les sbires restants dans la tourelle ennemie.",
+     "Quitter la lane immédiatement pour rappeler ou aider."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Sbt6imQbTSs : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Sbt6imQbTSs-3",
+   "claim": "Selon Coach Mysterias : créer un slow push permet de générer un avantage de sbires et d'obtenir des opportunités de trade favorables grâce aux dégâts infligés par tes sbires supplémentaires.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Sbt6imQbTSs",
+     "locator": "02:32",
+     "lang": "en",
+     "passage": "And by slow pushing, we're actually going to generate a minion advantage. And having a minion advantage means that there's more minions on our side, and that's going to give us a trading advantage.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "132-192s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Ryze (exemple)",
+    "Viktor (exemple)"
+   ],
+   "action": "Donner un léger avantage numérique à ta vague en attaquant les sbires ennemis au bon rythme.",
+   "observe": "Vérifier que ton nombre de sbires est légèrement supérieur à celui de l'adversaire sur la lane.",
+   "use": {
+    "when": "tu souhaites dominer ton vis-à-vis en combat singulier et créer des fenêtres de trade en prenant le contrôle de la lane",
+    "why": "Tes sbires en surnombre infligent des dégâts supplémentaires au champion adverse si celui-ci engage un combat.",
+    "who": "tous les postes",
+    "how": [
+     "Mettre un peu plus d'attaques automatiques ou utiliser des sorts sur les sbires pour obtenir une légère supériorité numérique.",
+     "Engager le trade lorsque l'adversaire tente de last hit ses propres sbires."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Sbt6imQbTSs : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-lm4M0i0DGaI-1",
+   "claim": "Selon Coach Violet : il faut hard push ta wave lorsqu'elle est dans de mauvaises conditions (bas PV ou bas mana) afin de pouvoir la crash sous la tourelle adverse et effectuer un back.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "tu es low PV ou low mana"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-lm4M0i0DGaI",
+     "locator": "[01:03]",
+     "lang": "en",
+     "passage": "If you're low HP or low mana, that means you need to base. So we should be looking to hard push if you want to, you know, crash the wave and then look to base.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "43-103s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Hard push la vague pour la faire s'écraser sous la tourelle ennemie quand tu manques de PV ou de mana, puis fais ton retour en base.",
+   "observe": "Le joueur pousse rapidement la vague jusqu'à la tourelle adverse quand il est bas en ressources.",
+   "use": {
+    "when": "tu es bas en points de vie ou en mana et tu souhaites back",
+    "why": "pour pouvoir crash la wave et partir en base sans perdre de waves sous ta propre tourelle",
+    "who": "rôle bottom",
+    "how": [
+     "attaque rapidement les sbires ennemis pour accélérer le rythme de la wave",
+     "fais s'crash la wave sous la tourelle adverse",
+     "effectue ton back"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-lm4M0i0DGaI : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-lm4M0i0DGaI-2",
+   "claim": "Selon Coach Violet : il faut hard push ta wave pour participer à un objectif, comme un dragon, un combat dans la rivière, une invasion de ton jungler ou pour poser une vision quand ton jungler patrouille bot.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "macro",
+    "vision"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "un objectif ou une action se prépare sur la carte"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-lm4M0i0DGaI",
+     "locator": "[01:17]",
+     "lang": "en",
+     "passage": "Or if you want to help for an objective, right? If there's a dragon that our jungler wants to hit, there's a fight in river, our jungler's invading, or we want to get a ward down because our jungler's pathing bot, right?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "57-117s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Hard push ta botlane dès qu'un objectif ou une intervention de ton jungler nécessite ton aide en dehors de la ligne.",
+   "observe": "Le joueur accélère le push pour libérer sa ligne avant de rejoindre le jungler ou l'objectif.",
+   "use": {
+    "when": "un dragon va apparaître, un combat éclate en rivière, ton jungler invade ou tu veux poser une ward bot",
+    "why": "pour te libérer de la lane en premier et gagner le surnombre sur l'action",
+    "who": "rôle bottom",
+    "how": [
+     "accélère le nettoyage des sbires",
+     "pousse la wave vers le camp adverse",
+     "rejoins ton équipe pour l'objectif ou pose la vision"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-lm4M0i0DGaI : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-lm4M0i0DGaI-3",
+   "claim": "Selon Coach Violet : il faut privilégier le slow push lorsque tu joues ton 2v2 de botlane pour maximiser le nombre de sbires que tu peux deny et pour accentuer la pression sur les last hits de l'adversaire.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "il n'y a pas d'objectif majeur à jouer sur la carte"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-lm4M0i0DGaI",
+     "locator": "[01:34]",
+     "lang": "en",
+     "passage": "Generally speaking you want to be slow pushing because this is the best option for your own 2v2 lane right, because you're able to just play your bot matchup 2v2 to maximize the amount of CS you can deny.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "74-134s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Crée une grosse vague en ne tuant les sbires qu'au dernier moment pour accumuler un avantage numérique lors d'un 2v2.",
+   "observe": "Le joueur maintient une vague plus importante que celle de l'adversaire en gérant ses attaques.",
+   "use": {
+    "when": "tu es en phase de lane 2v2 et aucun objectif majeur n'est disputé sur la carte",
+    "why": "pour maximiser la quantité de pièces d'or et d'expériences deniées à l'adversaire",
+    "who": "rôle bottom",
+    "how": [
+     "attaque uniquement les sbires au dernier moment pour les achever",
+     "laisse ta wave s'accumuler progressivement",
+     "exerce une pression sur les last hits adverses grâce à l'avantage numérique de sbires"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-lm4M0i0DGaI : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-lm4M0i0DGaI-4",
+   "claim": "Selon Coach Violet : il faut freeze (freeze) la wave de ton côté de la lane lorsque ton jungler s'éloigne de ta position et que tu es en bonne condition, afin de te rendre difficilement gankable.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "ton jungler patrouille à l'opposé",
+    "tu es en bonne condition de PV et mana"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-lm4M0i0DGaI",
+     "locator": "[03:03]",
+     "lang": "en",
+     "passage": "When should you normally freeze is your jungler is pathing away and you are in a good condition bot and this makes it very hard to gank you, right?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "163-223s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Maintiens la vague près de ta tourelle en gardant trois ou quatre sbires ennemis vivants pour interdire les ganks adverses.",
+   "observe": "Le joueur bloque les sbires juste devant sa tourelle sans les laisser s'y écraser.",
+   "use": {
+    "when": "ton jungler s'éloigne de la botlane et tu disposes d'une bonne santé",
+    "why": "pour empêcher l'adversaire de te ganker facilement en position avancée",
+    "who": "rôle bottom",
+    "how": [
+     "laisse trois à quatre sbires ennemis en vie pour maintenir le freeze",
+     "ne tape les sbires que pour conserver l'équilibre de la wave",
+     "reste proche de ta tourelle"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-lm4M0i0DGaI : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-lm4M0i0DGaI-5",
+   "claim": "Selon Coach Violet : freeze la wave près de ta tourelle contre des supports corps-à-corps rend leurs tentatives d'engagement très dangereuses car ils s'exposent aux tirs de la tourelle s'ils utilisent leurs sorts d'approche.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "matchup"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "l'équipe adverse possède un support corps-à-corps à engage",
+    "la vague est proche de ta tourelle"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-lm4M0i0DGaI",
+     "locator": "[03:27]",
+     "lang": "en",
+     "passage": "Or in certain matchups versus melee supports, if you're able to keep the wave on your side, it's very, very hard for them to all-in you if you're near your tower because, you know, they're going to be tanking tower if they hook on you or Leona E in.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "187-247s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Leona (exemple)"
+   ],
+   "action": "Maintiens le gel de la vague près de ta tourelle face à des champions corps-à-corps pour les punir sous les tirs de la tour s'ils s'engagent.",
+   "observe": "Le joueur positionne la vague en zone sécurisée face à des picks engage.",
+   "use": {
+    "when": "tu affronte un support corps-à-corps et la wave est placée près de ta tour",
+    "why": "pour que l'adversaire subisse les dégâts de la tourelle en cas d'engagement",
+    "who": "rôle bottom contre support corps-à-corps",
+    "how": [
+     "conserve le freeze de la wave dans ton camp",
+     "positionne-toi à proximité immédiate de ta tourelle",
+     "punis l'adversaire s'il tente une agression"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-lm4M0i0DGaI : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-cFMt7wVSBdo-1",
+   "claim": "Selon Skill Capped : en saison 16, les Dragons doivent systématiquement être privilégiés par rapport aux Voidgrubs, car le Dragon Soul procure une condition de victoire majeure tandis que la valeur des grubs est réduite par la persistance des plaques de tourelle.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.1"
+   },
+   "metaDependent": true,
+   "conditions": [
+    "tu te situes en phase de transition entre les objectifs neutres"
+   ],
+   "limits": [
+    "vidéo de guide généraliste sans données chiffrées précises d'échantillon"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-cFMt7wVSBdo",
+     "locator": "03:11",
+     "lang": "en",
+     "passage": "Well, in this season, you should always prioritize Dragons in your games.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "171-231s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-cFMt7wVSBdo",
+     "locator": "03:53",
+     "lang": "en",
+     "passage": "Now as for grubs, they should be more of a luxury objective this time around."
+    }
+   ],
+   "mentions": [],
+   "action": "Priorise les dragons aux dépens des voidgrubs lors des apparitions d'objectifs anticipés.",
+   "observe": "La gestion des priorités sur les objectifs neutres en début de partie.",
+   "use": {
+    "when": "l'apparition des premiers objectifs neutres (dragons et voidgrubs)",
+    "why": "la course vers l'âme de dragon dicte la fin de partie et les plaques de tourelle durent toute la partie, rendant les grubs moins urgents",
+    "who": "tous les postes",
+    "how": [
+     "Ping l'apparition du dragon à l'approche du timer",
+     "Ne sacrifie pas ton positionnement ou tes waves pour contester des grubs secondaires"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "a-revalider",
+   "lifespan": "meta",
+   "nuance": "Conseil de date inconnue (patch 26.1) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-cFMt7wVSBdo : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-cFMt7wVSBdo : lu par gemini-3.5-flash-lite (1 image/s) ; passage à vérifier sur la vidéo (03:53)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Contrôle critique : L'utilisation du terme 'always' dans la source est légèrement nuancée par la généralisation, mais le conseil global de macro sur les dragons reste cohérent pour un guide généraliste."
+    },
+    {
+     "code": "patch-incompatible",
+     "why": "Dépend de la méta, patch 26.1 : 20 patchs de retard."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-VqVHnFbGylI-1",
+   "claim": "Selon Curtis Morgan : en début de partie avec Kayle, laisse la wave arriver de ton côté et réduis-la progressivement avec des attaques de base, car le champion encaisse mal les agressions précoces tout en profitant de compétences sans mana (comme le E) pour se maintenir.",
+   "champions": [
+    "Kayle"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "champion"
+   ],
+   "matchup": {
+    "vs": "Yasuo"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer Kayle face à un champion agressif au début comme Yasuo"
+   ],
+   "limits": [
+    "Valable en haut niveau Challenger EUW"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-VqVHnFbGylI",
+     "locator": "[01:56]",
+     "lang": "en",
+     "passage": "basically, as you can see, he's just allowing the wave to come in, trying to trim it as much as possible with auto attacks.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "96-156s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Nasus (exemple)"
+   ],
+   "action": "Laisse venir les vagues de sbires sous ta moitié de terrain en début de partie et contente-toi de les réguler sans chercher à prendre l'ascendance.",
+   "observe": "Ta position par rapport à la rivière et l'état de la première vague de sbires.",
+   "use": {
+    "when": "ta wave vient d'être poussée par l'adversaire de niveau 2 et revient vers ton camp",
+    "why": "Kayle est faible en début de partie et doit minimiser les risques tout en farmant sous sa tour",
+    "who": "Kayle mid",
+    "how": [
+     "Laisse les sbires ennemis s'approcher de ta tourelle",
+     "Tape les sbires avec des attaques de base pour les réduire sans briser le freeze",
+     "Utilise le E pour sécuriser les sbires à distance sans consommer de mana"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-VqVHnFbGylI : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-VqVHnFbGylI-2",
+   "claim": "Selon Curtis Morgan : pour optimiser la mobilité offensive et défensive de Kayle après le niveau 6, le joueur achète en priorité des Bottes de célérité (Swifties) pour mieux spasser, esquiver et coller ses cibles avec les attaques de base.",
+   "champions": [
+    "Kayle"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Jouer Kayle après le niveau 6"
+   ],
+   "limits": [
+    "Basé sur les choix observés du joueur de rang 1 Kayle"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-VqVHnFbGylI",
+     "locator": "[04:35]",
+     "lang": "en",
+     "passage": "Swifties, you know, obviously a very strong boot choice nowadays, but I think it, you know, I'm not a Kayle expert, but from my observations watching this guy, um, it really allows him to space, tether, uh, kite out and really stick on target post-six",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "255-315s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète des Bottes de célérité en premier choix de chaussures sur Kayle pour améliorer ton kiting.",
+   "observe": "Ton inventaire lors de ton premier retour en base important après le niveau 6.",
+   "use": {
+    "when": "tu disposes d'assez d'or après tes premiers backs en début de partie avec Kayle",
+    "why": "Elles permettent de mieux spasser, tether, esquiver et coller les cibles post-niveau 6",
+    "who": "Kayle",
+    "how": [
+     "Accumule l'or nécessaire lors du premier ou second back",
+     "Achète les Bottes de célérité à la place des bottes magiques ou de pénétration classiques"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-VqVHnFbGylI : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-iO5vR1UtJSE-1",
+   "claim": "Les Larves du Néant (Voidgrubs) apparaissent pour la première fois à 5 minutes et réapparaissent 5 minutes après avoir été éliminées.",
+   "champions": [],
+   "roles": [
+    "jungle",
+    "top"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Le camp des larves doit être éliminé pour lancer le délai de réapparition."
+   ],
+   "limits": [
+    "Concerne uniquement les modifications de la Saison 14."
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iO5vR1UtJSE",
+     "locator": "00:30",
+     "lang": "en",
+     "passage": "The void grubs are a brand new three monster jungle camp that replaces rift herald in the ultra early game. This camp spawns in at 5 minutes and then 5 minutes after all three grubs are killed.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "10-70s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Préparer ton second clear pour être prêt à intervenir aux alentours de 5 minutes pour les Larves du Néant.",
+   "observe": "Le chronomètre d'apparition des larves à la minute 5 sur la carte.",
+   "use": {
+    "when": "La partie atteint la cinquième minute et les Larves du Néant font leur première apparition dans l'enclos.",
+    "why": "Pour donner plus d'impact au top laner et sécuriser le buff cumulable contre les tourelles.",
+    "who": "Junglers et top laners principalement.",
+    "how": [
+     "Terminer ton deuxième clear de jungle avant la cinquième minute.",
+     "Te diriger vers l'enclos des larves du néant avec ton top laner."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-iO5vR1UtJSE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-iO5vR1UtJSE-2",
+   "claim": "Obtenir 5 ou 6 charges du buff Faim du Néant (Hunger of the Void) invoque des acariens du néant (voidmites) et inflige des dégâts bruts sur la durée aux structures.",
+   "champions": [],
+   "roles": [
+    "top",
+    "jungle"
+   ],
+   "themes": [
+    "lane",
+    "macro",
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Avoir éliminé au moins 5 ou 6 larves du néant au total."
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iO5vR1UtJSE",
+     "locator": "00:30",
+     "lang": "en",
+     "passage": "Once you hit five or six however, you will also spawn voidmites in addition to dealing bonus true damage over time to any and all structures.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "10-70s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas la désactivation de la protection de porte arrière des tourelles."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Sécuriser au moins cinq larves du néant au cours de la partie pour maximiser la pression sur les tourelles.",
+   "observe": "Le nombre de charges du buff Faim du Néant sur ton champion.",
+   "use": {
+    "when": "Ton équipe a sécurisé cinq ou six Larves du Néant et tu attaques une tourelle ennemie.",
+    "why": "",
+    "who": "Top laners et junglers orientés split push.",
+    "how": [
+     "Tuer les vagues de larves nécessaires pour atteindre 5 ou 6 charges.",
+     "Mener l'offensive sur les tourelles adverses pour profiter des dégâts bruts et des invocations."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt-iO5vR1UtJSE : le vérificateur note un écart sur l'extrait 10-70s (L'auteur ne mentionne pas la désactivation de la protection de porte arrière des tourelles.)."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-iO5vR1UtJSE-3",
+   "claim": "Selon GameLeap LoL Challenger Guides : le support doit effectuer un back vers le niveau 3 après la phase de lane initiale pour se rendre directement vers les larves du néant en cas de skirmish.",
+   "champions": [],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "macro",
+    "vision"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Avoir gagné ou perdu la première phase de lane et effectuer un rappel au niveau 3."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iO5vR1UtJSE",
+     "locator": "02:34",
+     "lang": "en",
+     "passage": "As a support it is normal to base at around level 3 after you win or lose your lane. From there you can impact the map by going mid. What's going to change is that we're going to go mid straight into void grubs",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "134-194s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Fais un rappel au niveau 3 pour transiter par la voie du milieu puis rejoindre les Larves du Néant.",
+   "observe": "Le niveau 3 atteint et l'état de la vie/mana de ton support.",
+   "use": {
+    "when": "Tu joues support, ta phase de lane initiale est terminée au niveau 3 et tu disposes d'une opportunité de back.",
+    "why": "Pour éviter de perdre du temps en bas de carte et peser immédiatement sur les objectifs de la rivière.",
+    "who": "Joueurs de support.",
+    "how": [
+     "Appuyer sur ton back dès le niveau 3 après le premier affrontement botlane.",
+     "Remonter vers la mid lane puis enchaîner directement vers l'enclos des larves."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-iO5vR1UtJSE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-iO5vR1UtJSE-5",
+   "claim": "Le Carapateur amélioré par le Baron Nashor après 20 minutes octroie une version renforcée de la Fleur de cryptoblom (scryer's bloom) permettant de nettoyer la vision très facilement.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vision",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": true,
+   "conditions": [
+    "La partie a dépassé les 20 minutes et le Baron Nashor est apparu."
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iO5vR1UtJSE",
+     "locator": "08:20",
+     "lang": "en",
+     "passage": "The most important part of the baron though is that it will spawn in void-empowered camps at 20 minutes with it, including scuttle crab. This scuttle crab is really OP because it grants us an empowered version of the scryer's bloom",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "480-540s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Tue le Carapateur corrompu dès son apparition après 20 minutes pour profiter de l'effet de vision.",
+   "observe": "L'apparition du Baron Nashor à 20 minutes et l'état corrompu du Carapateur sur la carte.",
+   "use": {
+    "when": "La partie a atteint la vingtième minute et le Baron Nashor corrompt la rivière.",
+    "why": "Pour nettoyer rapidement la vision ennemie et asphyxier l'adversaire en information.",
+    "who": "Joueurs de jungle.",
+    "how": [
+     "Se rendre dans la rivière dès que le Carapateur corrompu apparaît après 20 minutes.",
+     "Éliminer le monstre pour déclencher l'effet de révélation et de nettoyage de balises."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-iO5vR1UtJSE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
     }
    ]
   }

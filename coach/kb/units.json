@@ -62011,7 +62011,1278 @@
    },
    "version": 1,
    "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-Sbt6imQbTSs-1",
+   "claim": "Selon Coach Mysterias : les deux forces principales qui influencent l'état des vagues de sbires sont la taille de la vague (size) et sa localisation sur la lane (location).",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Sbt6imQbTSs",
+     "locator": "00:12",
+     "lang": "en",
+     "passage": "So there are two main forces that influence wave states: size and location. Yes, size matters nowadays, guys. So the reason why size matters is because if there's a minion wave that's bigger than the other minion wave, it's always going to clear the minion wave.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "0-52s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Orianna (exemple)",
+    "Annie (exemple)"
+   ],
+   "use": {
+    "when": "en phase de laning, lorsque tu observes les vagues de sbires se faire face sur la lane",
+    "why": "Une vague plus grande élimine l'autre, et une vague plus proche d'une tourelle reçoit des renforts de sbires plus rapidement en raison de la distance d'arrivée.",
+    "who": "tous les rôles en phase de laning",
+    "how": [
+     "Regarder quel camp possède le plus grand nombre de sbires vivants.",
+     "Regarder à quelle distance de chaque tourelle se trouve le point de rencontre des vagues."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le principe général de gestion des vagues basé sur la taille et la localisation est intemporel et parfaitement fidèle à la source."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-Sbt6imQbTSs-2",
+   "claim": "Selon Coach Mysterias : effectuer un hard push sert à obtenir du temps et de la liberté pour effectuer un rappel (reset), obtenir du tempo, ou fuir une menace de gank.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Sbt6imQbTSs",
+     "locator": "02:18",
+     "lang": "en",
+     "passage": "Usually you hard push for tempo, for time. So the faster I push this wave out, the faster I can actually reset myself, which means that on the next wave after that, I'm not going to lose that many minions.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "118-178s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Pantheon (exemple)",
+    "Syndra (exemple)"
+   ],
+   "action": "Tuer rapidement les sbires adverses pour faire s'écraser ta vague sous la tourelle ennemie avant de rappeler.",
+   "observe": "Regarder si l'ennemi est absent de la lane ou si tu as besoin de quitter la lane en urgence.",
+   "use": {
+    "when": "tu as besoin de quitter ta lane pour faire un rappel ou pour répondre à une action sur la carte sans perdre de sbires sous ta tourelle",
+    "why": "Éliminer la vague rapidement permet de la faire s'écraser sous la tourelle ennemie, ce qui te donne le temps de revenir sans rater d'or ni d'expérience.",
+    "who": "tous les postes en phase de laning",
+    "how": [
+     "Utiliser toutes tes compétences et attaques automatiques pour vider la vague de sbires le plus vite possible.",
+     "Faire s'écraser les sbires restants dans la tourelle ennemie.",
+     "Quitter la lane immédiatement pour rappeler ou aider."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'explication sur le hard push pour le tempo et le rappel est correcte et entièrement soutenue par le passage cité."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-Sbt6imQbTSs-3",
+   "claim": "Selon Coach Mysterias : créer un slow push permet de générer un avantage de sbires et d'obtenir des opportunités de trade favorables grâce aux dégâts infligés par tes sbires supplémentaires.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Sbt6imQbTSs",
+     "locator": "02:32",
+     "lang": "en",
+     "passage": "And by slow pushing, we're actually going to generate a minion advantage. And having a minion advantage means that there's more minions on our side, and that's going to give us a trading advantage.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "132-192s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Ryze (exemple)",
+    "Viktor (exemple)"
+   ],
+   "action": "Donner un léger avantage numérique à ta vague en attaquant les sbires ennemis au bon rythme.",
+   "observe": "Vérifier que ton nombre de sbires est légèrement supérieur à celui de l'adversaire sur la lane.",
+   "use": {
+    "when": "tu souhaites dominer ton vis-à-vis en combat singulier et créer des fenêtres de trade en prenant le contrôle de la lane",
+    "why": "Tes sbires en surnombre infligent des dégâts supplémentaires au champion adverse si celui-ci engage un combat.",
+    "who": "tous les postes",
+    "how": [
+     "Mettre un peu plus d'attaques automatiques ou utiliser des sorts sur les sbires pour obtenir une légère supériorité numérique.",
+     "Engager le trade lorsque l'adversaire tente de last hit ses propres sbires."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La notion de slow push pour générer un avantage numérique et des trades favorables est intemporelle et bien sourcée."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-lm4M0i0DGaI-1",
+   "claim": "Selon Coach Violet : il faut hard push ta vague lorsqu'elle est dans de mauvaises conditions (bas PV ou bas mana) afin de pouvoir la crash sous la tourelle adverse et effectuer un retour en base.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "tu es low PV ou low mana"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-lm4M0i0DGaI",
+     "locator": "[01:03]",
+     "lang": "en",
+     "passage": "If you're low HP or low mana, that means you need to base. So we should be looking to hard push if you want to, you know, crash the wave and then look to base.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "43-103s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Hard push la vague pour la faire s'écraser sous la tourelle ennemie quand tu manques de PV ou de mana, puis fais ton retour en base.",
+   "observe": "Le joueur pousse rapidement la vague jusqu'à la tourelle adverse quand il est bas en ressources.",
+   "use": {
+    "when": "tu es bas en points de vie ou en mana et tu souhaites rentrer à la base",
+    "why": "pour pouvoir crash la vague et partir en base sans perdre de vagues sous ta propre tourelle",
+    "who": "rôle bottom",
+    "how": [
+     "attaque rapidement les sbires ennemis pour accélérer le rythme de la vague",
+     "fais s'écraser la vague sous la tourelle adverse",
+     "effectue ton retour en base"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil correspond parfaitement au passage cité et décrit de manière claire et complète une situation classique de vague."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-lm4M0i0DGaI-2",
+   "claim": "Selon Coach Violet : il faut hard push ta vague pour participer à un objectif, comme un dragon, un combat dans la rivière, une invasion de ton jungler ou pour poser une vision quand ton jungler patrouille bot.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "macro",
+    "vision"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "un objectif ou une action se prépare sur la carte"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-lm4M0i0DGaI",
+     "locator": "[01:17]",
+     "lang": "en",
+     "passage": "Or if you want to help for an objective, right? If there's a dragon that our jungler wants to hit, there's a fight in river, our jungler's invading, or we want to get a ward down because our jungler's pathing bot, right?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "57-117s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Hard push ta botlane dès qu'un objectif ou une intervention de ton jungler nécessite ton aide en dehors de la ligne.",
+   "observe": "Le joueur accélère le push pour libérer sa ligne avant de rejoindre le jungler ou l'objectif.",
+   "use": {
+    "when": "un dragon va apparaître, un combat éclate en rivière, ton jungler envahit ou tu veux poser une ward bot",
+    "why": "pour te libérer de la ligne en premier et gagner le surnombre sur l'action",
+    "who": "rôle bottom",
+    "how": [
+     "accélère le nettoyage des sbires",
+     "pousse la vague vers le camp adverse",
+     "rejoins ton équipe pour l'objectif ou pose la vision"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le passage cité justifie précisément le moment de hard push pour participer aux objectifs ou aider le jungler."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-lm4M0i0DGaI-3",
+   "claim": "Selon Coach Violet : il faut privilégier le slow push lorsque tu joues ton 2v2 de botlane pour maximiser le nombre de sbires que tu peux deny et pour accentuer la pression sur les derniers coups de l'adversaire.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "il n'y a pas d'objectif majeur à jouer sur la carte"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-lm4M0i0DGaI",
+     "locator": "[01:34]",
+     "lang": "en",
+     "passage": "Generally speaking you want to be slow pushing because this is the best option for your own 2v2 lane right, because you're able to just play your bot matchup 2v2 to maximize the amount of CS you can deny.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "74-134s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Crée une grosse vague en ne tuant les sbires qu'au dernier moment pour accumuler un avantage numérique lors d'un 2v2.",
+   "observe": "Le joueur maintient une vague plus importante que celle de l'adversaire en gérant ses attaques.",
+   "use": {
+    "when": "tu es en phase de ligne 2v2 et aucun objectif majeur n'est disputé sur la carte",
+    "why": "pour maximiser la quantité de pièces d'or et d'expériences deniées à l'adversaire",
+    "who": "rôle bottom",
+    "how": [
+     "attaque uniquement les sbires au dernier moment pour les achever",
+     "laisse ta vague s'accumuler progressivement",
+     "exerce une pression sur les derniers coups adverses grâce à l'avantage numérique de sbires"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'énoncé retranscrit fidèlement le conseil sur le slow push en phase de ligne 2v2 sans généralisation excessive."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-lm4M0i0DGaI-4",
+   "claim": "Selon Coach Violet : il faut geler (freeze) la vague de ton côté de la ligne lorsque ton jungler s'éloigne de ta position et que tu es en bonne condition, afin de te rendre difficilement gankable.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "ton jungler patrouille à l'opposé",
+    "tu es en bonne condition de PV et mana"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-lm4M0i0DGaI",
+     "locator": "[03:03]",
+     "lang": "en",
+     "passage": "When should you normally freeze is your jungler is pathing away and you are in a good condition bot and this makes it very hard to gank you, right?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "163-223s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Maintiens la vague près de ta tourelle en gardant trois ou quatre sbires ennemis vivants pour interdire les ganks adverses.",
+   "observe": "Le joueur bloque les sbires juste devant sa tourelle sans les laisser s'y écraser.",
+   "use": {
+    "when": "ton jungler s'éloigne de la botlane et tu disposes d'une bonne santé",
+    "why": "pour empêcher l'adversaire de te ganker facilement en position avancée",
+    "who": "rôle bottom",
+    "how": [
+     "laisse trois à quatre sbires ennemis en vie pour maintenir le gel",
+     "ne tape les sbires que pour conserver l'équilibre de la vague",
+     "reste proche de ta tourelle"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le contexte d'usage et la situation (jungler à l'opposé, bonne santé) sont pleinement appuyés par la transcription."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-lm4M0i0DGaI-5",
+   "claim": "Selon Coach Violet : geler la vague près de ta tourelle contre des supports corps-à-corps rend leurs tentatives d'engagement très dangereuses car ils s'exposent aux tirs de la tourelle s'ils utilisent leurs sorts d'approche.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "matchup"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "l'équipe adverse possède un support corps-à-corps à engage",
+    "la vague est proche de ta tourelle"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-lm4M0i0DGaI",
+     "locator": "[03:27]",
+     "lang": "en",
+     "passage": "Or in certain matchups versus melee supports, if you're able to keep the wave on your side, it's very, very hard for them to all-in you if you're near your tower because, you know, they're going to be tanking tower if they hook on you or Leona E in.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "187-247s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Leona (exemple)"
+   ],
+   "action": "Maintiens le gel de la vague près de ta tourelle face à des champions corps-à-corps pour les punir sous les tirs de la tour s'ils s'engagent.",
+   "observe": "Le joueur positionne la vague en zone sécurisée face à des picks engage.",
+   "use": {
+    "when": "tu affronte un support corps-à-corps et la vague est placée près de ta tour",
+    "why": "pour que l'adversaire subisse les dégâts de la tourelle en cas d'engagement",
+    "who": "rôle bottom contre support corps-à-corps",
+    "how": [
+     "conserve le gel de la vague dans ton camp",
+     "positionne-toi à proximité immédiate de ta tourelle",
+     "punis l'adversaire s'il tente une agression"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil s'appuie directement sur le passage mentionnant les supports corps-à-corps et la menace de la tour."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-cFMt7wVSBdo-1",
+   "claim": "Selon Skill Capped : en saison 16, les Dragons doivent systématiquement être privilégiés par rapport aux Voidgrubs, car le Dragon Soul procure une condition de victoire majeure tandis que la valeur des grubs est réduite par la persistance des plaques de tourelle.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.1"
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "tu te situes en phase de transition entre les objectifs neutres"
+   ],
+   "limits": [
+    "vidéo de guide généraliste sans données chiffrées précises d'échantillon"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-cFMt7wVSBdo",
+     "locator": "03:11",
+     "lang": "en",
+     "passage": "Well, in this season, you should always prioritize Dragons in your games.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "171-231s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-cFMt7wVSBdo",
+     "locator": "03:53",
+     "lang": "en",
+     "passage": "Now as for grubs, they should be more of a luxury objective this time around."
+    }
+   ],
+   "mentions": [],
+   "action": "Priorise les dragons aux dépens des voidgrubs lors des apparitions d'objectifs anticipés.",
+   "observe": "La gestion des priorités sur les objectifs neutres en début de partie.",
+   "use": {
+    "when": "l'apparition des premiers objectifs neutres (dragons et voidgrubs)",
+    "why": "la course vers l'âme de dragon dicte la fin de partie et les plaques de tourelle durent toute la partie, rendant les grubs moins urgents",
+    "who": "tous les postes",
+    "how": [
+     "Ping l'apparition du dragon à l'approche du timer",
+     "Ne sacrifie pas ton positionnement ou tes vagues pour contester des grubs secondaires"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "L'utilisation du terme 'always' dans la source est légèrement nuancée par la généralisation, mais le conseil global de macro sur les dragons reste cohérent pour un guide généraliste."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-VqVHnFbGylI-1",
+   "claim": "Selon Curtis Morgan : en début de partie avec Kayle, laisse la vague arriver de ton côté et réduis-la progressivement avec des attaques de base, car le champion encaisse mal les agressions précoces tout en profitant de compétences sans mana (comme le E) pour se maintenir.",
+   "champions": [
+    "Kayle"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "champion"
+   ],
+   "matchup": {
+    "vs": "Yasuo"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Kayle/E"
+   ],
+   "conditions": [
+    "Jouer Kayle face à un champion agressif au début comme Yasuo"
+   ],
+   "limits": [
+    "Valable en haut niveau Challenger EUW"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-VqVHnFbGylI",
+     "locator": "[01:56]",
+     "lang": "en",
+     "passage": "basically, as you can see, he's just allowing the wave to come in, trying to trim it as much as possible with auto attacks.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "96-156s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Nasus (exemple)"
+   ],
+   "action": "Laisse venir les vagues de sbires sous ta moitié de terrain en début de partie et contente-toi de les réguler sans chercher à prendre l'ascendance.",
+   "observe": "Ta position par rapport à la rivière et l'état de la première vague de sbires.",
+   "use": {
+    "when": "ta vague vient d'être poussée par l'adversaire de niveau 2 et revient vers ton camp",
+    "why": "Kayle est faible en début de partie et doit minimiser les risques tout en farmant sous sa tour",
+    "who": "Kayle mid",
+    "how": [
+     "Laisse les sbires ennemis s'approcher de ta tourelle",
+     "Tape les sbires avec des attaques de base pour les réduire sans briser le gel",
+     "Utilise le E pour sécuriser les sbires à distance sans consommer de mana"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement alignée avec la transcription source et fournit un contexte d'usage complet."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-VqVHnFbGylI-2",
+   "claim": "Selon Curtis Morgan : pour optimiser la mobilité offensive et défensive de Kayle après le niveau 6, le joueur achète en priorité des Bottes de célérité (Swifties) pour mieux spasser, esquiver et coller ses cibles avec les attaques de base.",
+   "champions": [
+    "Kayle"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Bottes de célérité"
+   ],
+   "conditions": [
+    "Jouer Kayle après le niveau 6"
+   ],
+   "limits": [
+    "Basé sur les choix observés du joueur de rang 1 Kayle"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-VqVHnFbGylI",
+     "locator": "[04:35]",
+     "lang": "en",
+     "passage": "Swifties, you know, obviously a very strong boot choice nowadays, but I think it, you know, I'm not a Kayle expert, but from my observations watching this guy, um, it really allows him to space, tether, uh, kite out and really stick on target post-six",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "255-315s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète des Bottes de célérité en premier choix de chaussures sur Kayle pour améliorer ton kiting.",
+   "observe": "Ton inventaire lors de ton premier retour en base important après le niveau 6.",
+   "use": {
+    "when": "tu disposes d'assez d'or après tes premiers rappels en début de partie avec Kayle",
+    "why": "Elles permettent de mieux spasser, tether, esquiver et coller les cibles post-niveau 6",
+    "who": "Kayle",
+    "how": [
+     "Accumule l'or nécessaire lors du premier ou second rappel",
+     "Achète les Bottes de célérité à la place des bottes magiques ou de pénétration classiques"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'analyse est fidèle aux propos du coach Curtis qui observe le joueur de rang 1, le statut provisoire reflète la nature de source unique non officielle."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-iO5vR1UtJSE-1",
+   "claim": "Les Larves du Néant (Voidgrubs) apparaissent pour la première fois à 5 minutes et réapparaissent 5 minutes après avoir été éliminées.",
+   "champions": [],
+   "roles": [
+    "jungle",
+    "top"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "Le camp des larves doit être éliminé pour lancer le délai de réapparition."
+   ],
+   "limits": [
+    "Concerne uniquement les modifications de la Saison 14."
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iO5vR1UtJSE",
+     "locator": "00:30",
+     "lang": "en",
+     "passage": "The void grubs are a brand new three monster jungle camp that replaces rift herald in the ultra early game. This camp spawns in at 5 minutes and then 5 minutes after all three grubs are killed.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "10-70s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Préparer ton second clear pour être prêt à intervenir aux alentours de 5 minutes pour les Larves du Néant.",
+   "observe": "Le chronomètre d'apparition des larves à la minute 5 sur la carte.",
+   "use": {
+    "when": "La partie atteint la cinquième minute et les Larves du Néant font leur première apparition dans l'enclos.",
+    "why": "Pour donner plus d'impact au top laner et sécuriser le buff cumulable contre les tourelles.",
+    "who": "Junglers et top laners principalement.",
+    "how": [
+     "Terminer ton deuxième clear de jungle avant la cinquième minute.",
+     "Te diriger vers l'enclos des larves du néant avec ton top laner."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement fidèle au passage textuel, son contexte d'usage et son action sont clairs et vérifiables."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-iO5vR1UtJSE-2",
+   "claim": "Obtenir 5 ou 6 charges du buff Faim du Néant (Hunger of the Void) invoque des acariens du néant (voidmites) et inflige des dégâts bruts sur la durée aux structures.",
+   "champions": [],
+   "roles": [
+    "top",
+    "jungle"
+   ],
+   "themes": [
+    "lane",
+    "macro",
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir éliminé au moins 5 ou 6 larves du néant au total."
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iO5vR1UtJSE",
+     "locator": "00:30",
+     "lang": "en",
+     "passage": "Once you hit five or six however, you will also spawn voidmites in addition to dealing bonus true damage over time to any and all structures.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "10-70s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas la désactivation de la protection de porte arrière des tourelles."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Sécuriser au moins cinq larves du néant au cours de la partie pour maximiser la pression sur les tourelles.",
+   "observe": "Le nombre de charges du buff Faim du Néant sur ton champion.",
+   "use": {
+    "when": "Ton équipe a sécurisé cinq ou six Larves du Néant et tu attaques une tourelle ennemie.",
+    "why": "",
+    "who": "Top laners et junglers orientés split push.",
+    "how": [
+     "Tuer les vagues de larves nécessaires pour atteindre 5 ou 6 charges.",
+     "Mener l'offensive sur les tourelles adverses pour profiter des dégâts bruts et des invocations."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'énoncé correspond exactement au passage cité concernant les effets des larves du néant."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-iO5vR1UtJSE-3",
+   "claim": "Selon GameLeap LoL Challenger Guides : le support doit effectuer un rappel vers le niveau 3 après la phase de lane initiale pour se rendre directement vers les larves du néant en cas de escarmouche.",
+   "champions": [],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "macro",
+    "vision"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir gagné ou perdu la première phase de lane et effectuer un rappel au niveau 3."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iO5vR1UtJSE",
+     "locator": "02:34",
+     "lang": "en",
+     "passage": "As a support it is normal to base at around level 3 after you win or lose your lane. From there you can impact the map by going mid. What's going to change is that we're going to go mid straight into void grubs",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "134-194s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Fais un rappel au niveau 3 pour transiter par la voie du milieu puis rejoindre les Larves du Néant.",
+   "observe": "Le niveau 3 atteint et l'état de la vie/mana de ton support.",
+   "use": {
+    "when": "Tu joues support, ta phase de lane initiale est terminée au niveau 3 et tu disposes d'une opportunité de rappel.",
+    "why": "Pour éviter de perdre du temps en bas de carte et peser immédiatement sur les objectifs de la rivière.",
+    "who": "Joueurs de support.",
+    "how": [
+     "Appuyer sur ton rappel dès le niveau 3 après le premier affrontement botlane.",
+     "Remonter vers la voie du milieu puis enchaîner directement vers l'enclos des larves."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil du support qui rappelle au niveau 3 puis passe par le mid vers les larves est correctement retranscrit depuis la source."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-iO5vR1UtJSE-5",
+   "claim": "Le Carapateur amélioré par le Baron Nashor après 20 minutes octroie une version renforcée de la Fleur de cryptoblom (scryer's bloom) permettant de nettoyer la vision très facilement.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vision",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "La partie a dépassé les 20 minutes et le Baron Nashor est apparu."
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iO5vR1UtJSE",
+     "locator": "08:20",
+     "lang": "en",
+     "passage": "The most important part of the baron though is that it will spawn in void-empowered camps at 20 minutes with it, including scuttle crab. This scuttle crab is really OP because it grants us an empowered version of the scryer's bloom",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "480-540s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Tue le Carapateur corrompu dès son apparition après 20 minutes pour profiter de l'effet de vision.",
+   "observe": "L'apparition du Baron Nashor à 20 minutes et l'état corrompu du Carapateur sur la carte.",
+   "use": {
+    "when": "La partie a atteint la vingtième minute et le Baron Nashor corrompt la rivière.",
+    "why": "Pour nettoyer rapidement la vision ennemie et asphyxier l'adversaire en information.",
+    "who": "Joueurs de jungle.",
+    "how": [
+     "Se rendre dans la rivière dès que le Carapateur corrompu apparaît après 20 minutes.",
+     "Éliminer le monstre pour déclencher l'effet de révélation et de nettoyage de balises."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité cite correctement l'impact du baron sur le carapateur et la version améliorée de la fleur de cryptoblom."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-28",
+   "validity": {
+    "checkedAt": "2026-10-28",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-28"
   }
  ],
- "updatedAt": "2026-10-28T19:33:53.769Z"
+ "updatedAt": "2026-10-28T21:30:44.426Z"
 }

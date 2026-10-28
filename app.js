@@ -1920,7 +1920,10 @@ function guideButton() {
   let y0 = null, dy = 0, busy = false, el = null;
   const pill = () => el || (el = Object.assign(document.createElement("div"), { className: "ptr", innerHTML: `<span class="ptr-ic">${icon("refresh")}</span>` }), document.body.appendChild(el), el);
   const blocked = t => busy || window.scrollY > 0 || document.querySelector(".gd-stories, .gd-tour, .coach-intro, dialog[open]") || t.closest?.("input, textarea, select, .c2-map, .tabs, .prow, [data-noptr]");
-  const set = d => { const p = pill(), k = Math.min(1, d / TH); p.style.transform = `translate(-50%, ${Math.min(d, MAX) - 46}px) rotate(${k * 270}deg)`; p.style.opacity = Math.min(1, d / 30); p.classList.toggle("ready", d >= TH); };
+  // Recentre la pastille sur l'écran visible : sur iPhone, « left: 50% » pouvait la décaler de quelques pixels (vu sur le Coach connecté)
+  const center = p => { p.style.marginLeft = "0px"; const r = p.getBoundingClientRect(), vv = window.visualViewport, mid = vv ? vv.offsetLeft + vv.width / 2 : innerWidth / 2;
+    p.style.marginLeft = `${Math.round((mid - (r.left + r.width / 2)) * 10) / 10}px`; };
+  const set = d => { const p = pill(), k = Math.min(1, d / TH); center(p); p.style.transform = `translate(-50%, ${Math.min(d, MAX) - 46}px) rotate(${k * 270}deg)`; p.style.opacity = Math.min(1, d / 30); p.classList.toggle("ready", d >= TH); };
   document.addEventListener("touchstart", e => { y0 = blocked(e.target) || e.touches.length > 1 ? null : e.touches[0].clientY; dy = 0; }, { passive: true });
   document.addEventListener("touchmove", e => {
     if (y0 == null) return;

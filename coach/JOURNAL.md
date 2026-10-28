@@ -699,3 +699,36 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 ## 27/10/2026 — Bouton Coach : plus d'aperçu furtif avant l'intro
 - Au clic sur Coach, la page du coach se dessinait derrière l'écran « Bienvenue » pendant que le cercle s'ouvrait : on la voyait un instant.
 - La page est maintenant cachée dès le clic (`#view.coach-hold`) et révélée dans la même image que le warp (`c2Warp(true)`, sans le délai de 40 ms). Filet de sécurité : la page réapparaît au bout de 3 s quoi qu'il arrive.
+
+## 27/10/2026 (nuit) — Agent Motion designer, DA MINDIFF, trailer
+- Nouvel agent `.claude/agents/motion-designer.md` : directeur artistique et motion designer de MINDIFF, avec la liste des refus d'Anthony et sa méthode (storyboard, vraies captures 3x, rendu MP4 Remotion, contrôle image par image).
+- DA MINDIFF publiée en artefact (Design System) : https://claude.ai/artifact/EVFbcgocuL3DJPn59x7h3Y (jetons tirés de style.css, logo, règles « Motion et publicité »).
+- Outillage vidéo hors du dépôt : `Projets/mindiff-video` (Remotion 4.0.290, Playwright 1.48.2). Trailer v8 rendu en MP4 1080×1920 60 i/s.
+- Contrôle de nuit : 57/58 tests du coach ; site en ligne vérifié au format iPhone (9 pages, thèmes sombre et clair) sans erreur, image cassée ni débordement ; service du coach en bonne santé ; collecte horaire en succès.
+
+## 28/10/2026 : formation de l'agent motion designer
+
+- Trailer refait de zéro (« The Climb », 32 s, 150 BPM, musique composée d'abord, drops à 12,8 s et 20,8 s), dans `mindiff-video` hors du dépôt. Plus de bilan de champion.
+- Anthony ne veut plus de splash arts ; les photos des Worlds (trophée, joueurs) sont exclues : photos de Riot sans licence ouverte, politique de Riot contre l'usage commercial sans licence écrite, droit à l'image des joueurs.
+- Formation de l'agent : recherches (monteurs de trailers, sound design de bande-annonce, Apple, WHOOP, Strava, habillages LCK et Worlds 2022, consignes TikTok) et brainstorm ChatGPT. Le tout est rassemblé dans `mindiff-video/PLAYBOOK.md`, avec une boîte de mouvements codée (`src/kit.jsx`) testée dans un exercice (`src/Exercice.jsx`).
+- `.claude/agents/motion-designer.md` : lit le manuel d'abord, musique avant l'image, aucune image Riot dans une pub, contrôle avec 12 questions.
+
+### 28/10 (après-midi) : trailer « ENCORE. », nouvelle DA
+- Le trailer v2 « Un seul chiffre » est refusé. Nouveau brainstorm avec ChatGPT autour des pubs Nike (Dream Crazy, Find Your Greatness, Winning Isn't for Everyone…). Concept retenu : « ENCORE. », un manifeste « répéter ne suffit pas ».
+- La musique a été composée d'abord : encore.js, 120 BPM, percussions industrielles, un silence de 11,5 à 12 s puis le drop.
+- Film : mindiff-video/src/Encore.jsx. Le rendu est out/mindiff-encore-v1.mp4 (33 s).
+- DA : fond noir, rouge seulement sur les mots clés, à la demande d'Anthony.
+- Version film (`EncoreFilm`, out/mindiff-encore-film-v1.mp4) : 20 vrais plans issus de Pixabay (licence libre, sources dans mindiff-video/stock/SOURCES.md), découpés en 9:16 et passés en noir et blanc. Même musique, même typo, rouge seulement sur les mots clés. La génération d'images et de vidéos par IA est bloquée : la clé Gemini n'a pas de facturation active, donc quota à zéro, aucun frais. Sur Pexels, les recherches sont interdites par robots.txt : on n'y est pas allé.
+- Film « MIND ON FIRE » (`Hype`, out/mindiff-mind-on-fire-v1.mp4, 31 s), à la demande d'Anthony : rap rapide de Pixabay à 90 BPM, avec le logo MINDIFF qui apparaît sur « My mind on fire ». Plans de boxe, de sport et d'esport, dont des triptyques en écran partagé façon « You Can't Stop Us ». Les plans montrant des logos de marque (Nike, adidas, gants, fauteuil) ont été écartés. Les paroles ont été vérifiées par transcription Gemini (free tier, aucune donnée personnelle envoyée).
+- « MIND ON FIRE » v2 (out/mindiff-mind-on-fire-v2.mp4) : Anthony trouve que le sport ne va pas. On ne garde plus que des plans de joueurs : souris gaming éclairée, claviers RGB, mains, joueurs au casque, regards concentrés (Pixabay, sans logo). Pas de clips en jeu : Riot interdit ses images dans une pub commerciale sans licence écrite.
+- « MIND ON FIRE » v3 (out/mindiff-mind-on-fire-v3.mp4, 28 s) : critique ChatGPT sur la planche (patchwork de personnages, micro ON AIR, mains de bureau, silhouette en ville, logo final trop long). Refonte : un seul personnage (série Pixabay 612xx) et des mains anonymes dans le noir, en cinq temps : défaite, déclic, travail, maîtrise, final. La signature passe de 4 s à 2,7 s.
+- « MIND ON FIRE » v4 (out/mindiff-mind-on-fire-v4.mp4) :
+  - texte centré ;
+  - plus aucun exemple unique d'objectif (fini « CS 48 → 56 ») : le film parle des objectifs fixés par le coach, et la carte de l'app est recadrée sur les parties qui s'allument ;
+  - ajouts : bandes de boxe, un plan de boxe, un joueur de dos en chaise gaming (logo Corsair du casque flouté) et une salle gaming.
+  Aucun plan de quelqu'un qui enfile son casque trouvé sur Pixabay.
+- « MIND ON FIRE » v5, l'app en héros (`Hero`, src/Hero.jsx, out/mindiff-mind-on-fire-v5.mp4). Anthony trouvait que la v4 ne vendait pas le projet à sa hauteur.
+  - La même ouverture, puis le produit : replay commenté sur la minimap, « Moment clé », « Ce qui aurait été mieux », bilan face à l'adversaire, objectifs, et la méta et l'esport dans un iPhone en 3D.
+  - Les cartes du coach sont reconstruites à l'identique, en grand : les aperçus officiels ne font que 716 px de large. La nuance « (sans lien certain avec ce seul moment) » est conservée.
+  - À valider : on voit des icônes de champions (méta, minimap) et des logos d'équipes (esport).
+- Correctif : la pastille « tirer pour actualiser » était décalée d'environ 6 px vers la gauche sur l'iPhone d'Anthony (Coach connecté). Elle se recentre maintenant sur l'écran visible à chaque geste (app.js). Testé dans Chromium avec un décalage simulé de 12 px : centre à 215/430. Pas encore vérifié sur iPhone.

@@ -705,3 +705,10 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - DA MINDIFF publiée en artefact (Design System) : https://claude.ai/artifact/EVFbcgocuL3DJPn59x7h3Y (jetons tirés de style.css, logo, règles « Motion et publicité »).
 - Outillage vidéo hors du dépôt : `Projets/mindiff-video` (Remotion 4.0.290, Playwright 1.48.2). Trailer v8 rendu en MP4 1080×1920 60 i/s.
 - Contrôle de nuit : 57/58 tests du coach ; site en ligne vérifié au format iPhone (9 pages, thèmes sombre et clair) sans erreur, image cassée ni débordement ; service du coach en bonne santé ; collecte horaire en succès.
+
+## 28/10/2026 : formation de l'agent motion designer
+
+- Trailer refait de zéro (« The Climb », 32 s, 150 BPM, musique composée d'abord, drops à 12,8 s et 20,8 s), dans `mindiff-video` hors du dépôt. Plus de bilan de champion.
+- Anthony ne veut plus de splash arts ; les photos des Worlds (trophée, joueurs) sont exclues : photos de Riot sans licence ouverte, politique de Riot contre l'usage commercial sans licence écrite, droit à l'image des joueurs.
+- Formation de l'agent : recherches (monteurs de trailers, sound design de bande-annonce, Apple, WHOOP, Strava, habillages LCK et Worlds 2022, consignes TikTok) et brainstorm ChatGPT. Le tout est rassemblé dans `mindiff-video/PLAYBOOK.md`, avec une boîte de mouvements codée (`src/kit.jsx`) testée dans un exercice (`src/Exercice.jsx`).
+- `.claude/agents/motion-designer.md` : lit le manuel d'abord, musique avant l'image, aucune image Riot dans une pub, contrôle avec 12 questions.

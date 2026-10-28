@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-27T16:18:02.307Z",
+ "generatedAt": "2026-10-28T01:22:01.853Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -544,15 +544,16 @@
    },
    "Diana": {
     "role": null,
-    "units": 6,
+    "units": 7,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "jungle",
+     "macro"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 6,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Draven": {
     "role": null,
@@ -568,15 +569,16 @@
    },
    "Dr. Mundo": {
     "role": null,
-    "units": 5,
+    "units": 6,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "jungle",
+     "macro"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 5,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Ekko": {
     "role": null,
@@ -1996,19 +1998,30 @@
     "actions": 1,
     "official": 0,
     "coaching": 1
+   },
+   "Viego": {
+    "role": null,
+    "units": 1,
+    "themes": [
+     "jungle",
+     "teamfight"
+    ],
+    "actions": 1,
+    "official": 0,
+    "coaching": 1
    }
   },
   "themes": {
-   "lane": 38,
+   "lane": 40,
    "survie": 11,
-   "teamfight": 2,
+   "teamfight": 3,
    "synergie": 1,
    "matchup": 7,
-   "methode": 6,
+   "methode": 7,
    "vagues": 15,
-   "vision": 6,
-   "macro": 22,
-   "jungle": 16
+   "vision": 8,
+   "macro": 30,
+   "jungle": 27
   },
   "partial": [
    "Ashe"
@@ -13994,7 +14007,7 @@
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 768
+   "queueRank": 1703
   },
   {
    "id": "c-yt-SxZepH5RkfY",
@@ -14475,7 +14488,7 @@
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 32
+   "queueRank": 71
   },
   {
    "id": "c-yt-hXYwDd0rMFY",
@@ -15662,7 +15675,7 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 1332
+   "queueRank": 1321
   },
   {
    "id": "c-yt-oH06KS_HsRY",
@@ -15812,7 +15825,7 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 1543
+   "queueRank": 1557
   },
   {
    "id": "c-yt-Jtml1Onron0",
@@ -16128,7 +16141,7 @@
     "patchMentioned": null,
     "basis": "ancien guide de perryjg ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 150
+   "queueRank": 306
   },
   {
    "id": "c-yt-m4Ww5Itl0CI",
@@ -16779,7 +16792,7 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 1305
+   "queueRank": 1295
   },
   {
    "id": "c-yt-Xc_CS1JFoFc",
@@ -17265,7 +17278,7 @@
    "patch": "non",
    "views": 5458,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.5-flash-lite : transcription et 19 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "📈If you want to speed up your climb: https://wtl.lol/coachmysterias\n✅Use code: TIM10 for $10 off (All Roles)\n\n\nIf you want to watch educational mid lane content:  @Mysteriaslol  \nIf you want to watch me play live: www.twitch.tv/mysteriaslol\n\n\n\n\n\n#leagueoflegends #coachmysterias ",
    "triage": {
@@ -17292,6 +17305,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 330242
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 3,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur détaille de manière très précise son raisonnement macroéconomique, explique ses choix de positionnement en fonction de la vision et de la force des champions, et analyse des parties de haut niveau (Challenger/LEC)."
    }
   },
   {
@@ -17481,7 +17504,7 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 1707
+   "queueRank": 1668
   },
   {
    "id": "c-yt-IgPYxU_VUkU",
@@ -17873,9 +17896,9 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "views": 14817,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.5-flash-lite le 2026-10-27 : transcription réutilisée depuis le cache de cet ordinateur.",
    "descriptionExcerpt": "➡️Coaching and everything you need to climb - https://wtl.lol/violet (USE CODE:VIOLET10)\n➡️Join the Community - https://discord.gg/zVvGUPxYGw\n\n\nIn this video im explaining the core fundamentals on adc in league of legends. I hope you can learn a lot of new things!\n\nCheers !\n00:00",
    "triage": {
     "score": 13,
@@ -17891,6 +17914,14 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-27",
+    "duration": "39:43",
+    "reused": true
    }
   },
   {
@@ -18679,7 +18710,7 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 16,
+   "queueRank": 93,
    "videoSkipped": "environ 234 min : au-delà de 90 min (vidéo pédagogique trop longue)",
    "videoAttempts": 3
   },
@@ -19419,7 +19450,7 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 30
+   "queueRank": 69
   },
   {
    "id": "c-yt-KlxfrJiUtQw",
@@ -19446,7 +19477,7 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 20,
+   "queueRank": 1344,
    "videoSkipped": "environ 47 min : au-delà de 40 min (direct ou vidéo longue)",
    "videoAttempts": 3
   },
@@ -19636,7 +19667,7 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 36
+   "queueRank": 72
   },
   {
    "id": "c-yt-DiBPTYXIIEo",
@@ -20688,7 +20719,7 @@
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 1583,
+   "queueRank": 1568,
    "note": "File de lecture (rang 16) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 16,
@@ -20908,7 +20939,7 @@
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 113,
+   "queueRank": 134,
    "note": "File de lecture (rang 19) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 14,
@@ -20977,7 +21008,7 @@
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 203,
+   "queueRank": 30,
    "note": "File de lecture (rang 25) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 13,
@@ -21347,7 +21378,7 @@
    "retrievedAt": "2026-10-25",
    "patch": "none",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 18,
@@ -21374,6 +21405,16 @@
     "videoKind": "analyse-de-partie",
     "gameplayShown": true,
     "tokens": 213987
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "Apprends à optimiser ton tempo de jungle en alternant entre le farming efficace de tes camps (greed et uptime/downtime) et le suivi des actions de ton équipe sans compenser les erreurs adverses inutilement.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'analyse détaillée par un coach d'une partie de très haut niveau (Challenger KR 2200 LP) met en avant des concepts fondamentaux précis (tempo, uptime, downtime, gestion des sorts) avec des preuves textuelles et visuelles solides."
    }
   },
   {
@@ -21388,7 +21429,7 @@
    "retrievedAt": "2026-10-25",
    "patch": "non spécifié",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 19,
@@ -21416,6 +21457,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 135924
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Un jungler de haut niveau explique comment appliquer les fondamentaux (full clear, gestion du tempo, plan de jeu et base timers) pour porter ses parties jusqu'au rang Master.",
+   "quality": {
+    "level": "élevée",
+    "why": "La vidéo détaille précisément le raisonnement en temps réel du joueur, les choix de déplacement, la gestion des camps et le timing des objectifs avec des exemples concrets en partie."
    }
   },
   {
@@ -22038,7 +22089,7 @@
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 29,
+   "queueRank": 68,
    "note": "File de lecture (rang 29) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 15,
@@ -22063,7 +22114,7 @@
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 31,
+   "queueRank": 70,
    "note": "File de lecture (rang 31) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 16,
@@ -22090,7 +22141,7 @@
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 33,
+   "queueRank": 95,
    "note": "File de lecture (rang 33) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 15,
@@ -22119,7 +22170,7 @@
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 34,
+   "queueRank": 96,
    "note": "File de lecture (rang 34) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 15,
@@ -22149,10 +22200,9 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "📈If you want to speed up your climb and get coached by me: https://wtl.lol/mysterias \n✅Use code: TIM10 for $10 off (All Roles)\n\n\n \n\nMysterias Socials:\nTwitch ►     / https://www.twitch.tv/mysteriaslol\nX ►     / https://x.com/mysteriaslol  \nDiscord server ►    / https://discord.g",
    "triage": {
-    "score": 6,
+    "score": 4,
     "matched": [
      "fundamentals",
-     "explained",
      "climb"
     ],
     "entertainment": [],
@@ -22175,7 +22225,7 @@
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 35,
+   "queueRank": 129,
    "note": "File de lecture (rang 35) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 15,
@@ -22202,7 +22252,7 @@
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 37,
+   "queueRank": 73,
    "note": "File de lecture (rang 37) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 15,
@@ -22694,6 +22744,398 @@
    },
    "learn": "Entraîner son farm (100 sbires à 10 min), jouer le farm en retard, s adapter à son support, pression sur les tourelles avec l avance.",
    "unitsAccepted": 4
+  },
+  {
+   "id": "c-yt-lZ7O7buHWio",
+   "sourceId": "yt-perryjg",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=lZ7O7buHWio",
+   "title": "Stop AFK Farming 👿 IN DEPTH Ganking guide",
+   "author": "perryjg",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 4,
+   "note": "Lue par gemini-3.6-flash le 2026-10-27 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "triage": {
+    "score": 20,
+    "matched": [
+     "guide"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-27",
+    "duration": "25:04",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 4,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "Perry explique avec précision le timing des vagues de sbires et démontre concrètement en partie comment utiliser ces fenêtres pour planifier ses ganks tout en analysant les risques et limites de l'agression continue."
+   }
+  },
+  {
+   "id": "c-yt-mx4i9tRexVQ",
+   "sourceId": "yt-coach-kirei",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=mx4i9tRexVQ",
+   "title": "#1 Complete Fullclear guide (99% Fullclear wrong) - Here is Why",
+   "author": "Coach Kirei",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 5,
+   "note": "Lue par gemini-3.6-flash le 2026-10-27 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "triage": {
+    "score": 20,
+    "matched": [
+     "guide",
+     "clear"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-27",
+    "duration": "31:25",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Apprends à optimiser tes rotations de jungle grâce à des règles strictes comme le warding niveau 1, la règle des 25 secondes avant le respawn des camps, et la priorisation du farm sur les objectifs pour maximiser ton efficacité.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu détaille de manière méthodique et structurée les étapes du full clear en jungle, avec des règles précises (règle des 25 secondes, gestion du tempo et des timers de camps)."
+   }
+  },
+  {
+   "id": "c-yt-KcCbF_siljM",
+   "sourceId": "yt-skill-capped",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=KcCbF_siljM",
+   "title": "The NEW Jungle Path That BREAKS Solo Queue - League of Legends!",
+   "author": "Skill Capped",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 7,
+   "note": "Lue par gemini-3.6-flash le 2026-10-27 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "triage": {
+    "score": 20,
+    "matched": [
+     "jungle",
+     "jungle path"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-27",
+    "duration": "13:10",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-28",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "Optimiser ses routes de jungle en réalisant des incursions sur les camps adverses ou des 3-camp clears ciblés grâce à la vitesse de déplacement offerte par les objets de départ et les mécaniques de saison 16.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu présente des routes de jungle spécifiques avec des exemples précis tirés de parties de haut rang et de compétitions professionnelles, détaillant les timings et les raisons stratégiques."
+   }
+  },
+  {
+   "id": "c-yt-MVkN8FdiKM8",
+   "sourceId": "yt-perryjg",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=MVkN8FdiKM8",
+   "title": "How to Min/Max Powerfarming WITHOUT INVADING...",
+   "author": "perryjg",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 8,
+   "note": "File de lecture (rang 8) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 20,
+    "matched": [
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-kzCt68fV51k",
+   "sourceId": "yt-coach-kirei",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=kzCt68fV51k",
+   "title": "Fullclear or Gank? | Jungle Guide",
+   "author": "Coach Kirei",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 9,
+   "note": "File de lecture (rang 9) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 20,
+    "matched": [
+     "jungle",
+     "guide",
+     "clear"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-uru4vXpDRY0",
+   "sourceId": "yt-coach-leo",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=uru4vXpDRY0",
+   "title": "The Only Fundamentals You Need To CARRY With Farming Junglers - S16 Gameplay Guide",
+   "author": "Coach Leo (JungleGap)",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 10,
+   "note": "File de lecture (rang 10) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 19,
+    "matched": [
+     "jungle",
+     "jungler",
+     "guide",
+     "fundamentals"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Sbt6imQbTSs",
+   "sourceId": "yt-coach-mysterias",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=Sbt6imQbTSs",
+   "title": "The Ultimate Wave Management Guide for League of Legends",
+   "author": "Coach Mysterias",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 11,
+   "note": "File de lecture (rang 11) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 19,
+    "matched": [
+     "guide",
+     "wave"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-NujOq4AIwHg",
+   "sourceId": "yt-krugz",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=NujOq4AIwHg",
+   "title": "ORMAN REHBERİ | FARM MACROSU - TEMPOSU NEDİR? NASIL YAPILIR? ( HER MAÇ 5 LEVEL GAP GARANTİ )",
+   "author": "KRUGZ",
+   "lang": "tr",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 12,
+   "note": "File de lecture (rang 12) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 19,
+    "matched": [
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-lm4M0i0DGaI",
+   "sourceId": "yt-coach-violet",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=lm4M0i0DGaI",
+   "title": "Ultimate ADC Wave Management Guide Season 2026!",
+   "author": "Coach Violet",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 13,
+   "note": "File de lecture (rang 13) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "adc",
+     "guide",
+     "wave"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-7iuuWs0CX0s",
+   "sourceId": "yt-shok",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=7iuuWs0CX0s",
+   "title": "HOW TO CARRY ELO HELL WITH ROAMING CHAMPS",
+   "author": "Shok",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 14,
+   "note": "File de lecture (rang 14) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt--WhqVSShg5Q",
+   "sourceId": "yt-japs-99jh_",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=-WhqVSShg5Q",
+   "title": "Jungle Pathing Guide by a 1420 LP Challenger Jungler",
+   "author": "쿨쿨",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 15,
+   "note": "File de lecture (rang 15) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "jungle",
+     "jungler",
+     "guide",
+     "jungle path"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-drdkQ0umhlc",
+   "sourceId": "yt-o8todsm2gv",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=drdkQ0umhlc",
+   "title": "From the concepts and details of mid-roaming to how to handle situations, this one video covers i...",
+   "author": "쭌베 ",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 16,
+   "note": "File de lecture (rang 16) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "mid",
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
   }
  ],
  "units": [
@@ -66962,6 +67404,881 @@
     "notWhen": ""
    },
    "analyzedAt": "2026-10-27",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-mx4i9tRexVQ-1",
+   "claim": "Selon Coach Kirei : pour maîtriser ton premier clear en jungle, place une ward de vision niveau 1 pour repérer le camp de départ de l'adversaire et anticiper ses options.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vision",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Début de partie au niveau 1"
+   ],
+   "limits": [
+    "Nécessite la participation du midlaner ou du jungler pour placer la balise"
+   ],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mx4i9tRexVQ",
+     "locator": "[00:29]",
+     "lang": "en",
+     "passage": "Number 1: Put ward level 1. Ask your mid lane or yourself, put a ward level 1. You need to know where he begins.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "9-69s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Place une balise de vision au niveau 1 pour identifier le camp de départ du jungler ennemi.",
+   "observe": "Le camp de départ de l'adversaire grâce à la vision niveau 1.",
+   "use": {
+    "when": "Au début de la partie avant l'apparition des camps de jungle au niveau 1.",
+    "why": "Savoir où commence l'adversaire permet de connaître ses options de gank et de protéger tes coéquipiers.",
+    "who": "Tout joueur jouant le rôle de jungler",
+    "how": [
+     "Demande à ton midlaner ou place toi-même une ward au niveau 1",
+     "Observe le camp de départ adverse"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-mx4i9tRexVQ-2",
+   "claim": "Selon Coach Kirei : avant de terminer ton sixième camp lors du premier clear, regarde quel camp possède la priorité de lane.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Pendant le premier clear avant le sixième camp"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mx4i9tRexVQ",
+     "locator": "[02:32]",
+     "lang": "en",
+     "passage": "Now, the third thing, okay? Before finishing 6th camp, look who has lane priority.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "132-192s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Regarde l'état des lanes avant de finir ton sixième camp pour décider de la suite.",
+   "observe": "La position des vagues et la priorité de tes alliés sur les lanes adjacentes.",
+   "use": {
+    "when": "Juste avant d'achever le sixième camp de ton premier clear.",
+    "why": "Savoir si tu disposes de la priorité pour sécuriser le crabe ou contester un objectif.",
+    "who": "Tout joueur jouant le rôle de jungler",
+    "how": [
+     "Regarde ta minicarte et l'état des waves sur les lanes avant de finir ton sixième camp"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-mx4i9tRexVQ-3",
+   "claim": "Selon Coach Kirei : applique la règle des 25 secondes : canalise ton back de base 25 secondes avant que tes camps ne réapparaissent.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "25 secondes avant la réapparition de tes camps"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mx4i9tRexVQ",
+     "locator": "[03:19]",
+     "lang": "en",
+     "passage": "When it's 25 seconds before your camps are spawning, you see my Gromp, you should be channeling base.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "179-239s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Appuie sur la touche de rappel 25 secondes avant le respawn de tes camps pour lancer ton second cycle sans perdre de temps.",
+   "observe": "Le chronomètre de réapparition de ton camp (par exemple le Gromp).",
+   "use": {
+    "when": "Quand il reste 25 secondes avant la réapparition de tes camps de jungle.",
+    "why": "Prendre ses camps en boucle dès leur réapparition est aussi important que de farmer une wave canons, pour maximiser l'or et l'expérience.",
+    "who": "Tout joueur jouant le rôle de jungler",
+    "how": [
+     "Surveille le chronomètre de réapparition de tes camps",
+     "Canalise ton back 25 secondes avant le respawn"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-mx4i9tRexVQ-4",
+   "claim": "Selon Coach Kirei : pendant ton troisième clear, effectue un full clear complet tout en suivant le jungler adverse et en jouant avec tes laners forts.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Durant le troisième clear de la partie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mx4i9tRexVQ",
+     "locator": "[08:12]",
+     "lang": "en",
+     "passage": "What you should do is now the following: literally full clear. Like yes, your third clear, you literally full clear, you jungle track, you play with strong laners for the objective.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "472-532s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Fais un nettoyage complet de tes camps lors du troisième clear tout en suivant la position ennemie.",
+   "observe": "La position des camps et du jungler adverse sur la minicarte.",
+   "use": {
+    "when": "Au moment d'entamer le troisième clear de la partie.",
+    "why": "Cela permet de rester efficace en ressources tout en se positionnant pour les objectifs.",
+    "who": "Tout joueur jouant le rôle de jungler",
+    "how": [
+     "Nettoie tous tes camps de manière consécutive",
+     "Suivez les mouvements du jungler adverse",
+     "Joue aux côtés de tes laners ayant l'avantage"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-KcCbF_siljM-2",
+   "claim": "Selon Skill Capped : réalise un clear en 3 camps (Corbins, Rouge, Krugs) pour enchaîner directement sur un gank surprise en bot lane sur un timing inattendu.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Masters",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "26.13"
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Avoir un ward sur les Corbins ennemis pour connaître leur position"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-KcCbF_siljM",
+     "locator": "[08:10]",
+     "lang": "en",
+     "passage": "Now what he does is he goes for a 3-camp clear doing his own Raptors into Red into Krugs, then transitioning straight to bot lane for a gank, forcing the Flash from Xerath and scoring a kill on the Jhin.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "470-530s",
+      "said": true,
+      "supported": false,
+      "gap": "Le conseil parle de la bot lane au lieu de la top lane montrée et commentée dans l'extrait."
+     }
+    }
+   ],
+   "mentions": [
+    "Xerath (exemple)",
+    "Jhin (exemple)",
+    "Draven (exemple)"
+   ],
+   "action": "Enchaîne Corbins, Rouge et Krugs pour gank la bot lane au niveau 3.",
+   "observe": "Un gank réussi ou un Flash forcé avant que les lanières n'aient posé des balises.",
+   "use": {
+    "when": "Tu veux punir les laners adverses avant qu'ils ne posent de vision et que ton jungler adverse soit de l'autre côté.",
+    "why": "Ce timing est inhabituel, ce qui surprend les laners qui n'ont pas encore de vision défensive.",
+    "who": "Junglers cherchant à snowball ou à impacter tôt",
+    "how": [
+     "Fais tes Corbins, ton Rouge puis tes Krugs.",
+     "Transitionne immédiatement vers la bot lane pour gank."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "a-revalider",
+   "lifespan": "meta",
+   "nuance": "Conseil de date inconnue (patch 26.13) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "sur-generalisation",
+     "why": "c-yt-KcCbF_siljM : l'extrait 470-530s ne dit pas exactement cela (Le conseil parle de la bot lane au lieu de la top lane montrée et commentée dans l'extrait.)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    },
+    {
+     "code": "patch-incompatible",
+     "why": "Dépend de la méta, patch 26.13 : 8 patchs de retard."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-e9SSpRzFwo4-1",
+   "claim": "Selon Coach Leo : en début de partie, attends le plus longtemps possible dans le buisson de ton premier buff pour observer la rivière et recueillir des informations avant de lancer ton camp.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger 2200 LP",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Début de partie (premiers camps)"
+   ],
+   "limits": [
+    "Valable à haut niveau"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-e9SSpRzFwo4",
+     "locator": "[02:55]",
+     "lang": "en",
+     "passage": "As you can see already, it's something that I've talked about a lot, you always want to just wait here. You want to wait here as long as you can to spot things like this. Simple information that he's just gathering here. And he's waiting here for as long as he can until he wants to start his camp.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "155-215s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Attends dans le buisson de ton buff au début de la partie pour observer la rivière le plus longtemps possible.",
+   "observe": "La collecte d'informations sur les mouvements ennemis au tout début de la partie.",
+   "use": {
+    "when": "Au tout début de la partie, juste avant de lancer ton premier camp de jungle.",
+    "why": "Pour rassembler des informations simples sur les mouvements de l'adversaire.",
+    "who": "Jungler",
+    "how": [
+     "Positionne-toi dans le buisson du buff rouge ou bleu au début de la partie.",
+     "Attends sans lancer le camp pour repérer les passages ennemis dans la rivière.",
+     "Commence ton camp une fois l'observation terminée."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-e9SSpRzFwo4-2",
+   "claim": "Selon Coach Leo : pendant ton tempo régulier (clear normal), ne cherche pas à ganker sauf s'il y a un kill garanti. Réserve tes ganks pour ton spare tempo (quand tes camps sont morts).",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger 2200 LP",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "En cours de partie lors du nettoyage des camps"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-e9SSpRzFwo4",
+     "locator": "[07:23]",
+     "lang": "en",
+     "passage": "In your regular tempo, don't gank unless it's a kill. You know, there's some instances where you're playing Jarvan into an Orianna, and burning her flash will mean the repeat gank is a kill. But in general, don't gank unless it's your spare tempo, spare tempo meaning your camps are down.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "423-483s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Jarvan IV (exemple)"
+   ],
+   "action": "Ne ganke pas pendant ton tempo de clear régulier et attends d'avoir vidé tes camps pour le spare tempo.",
+   "observe": "Le respect des temps de passage entre le farming et les interventions sur les lignes.",
+   "use": {
+    "when": "Quand tes camps de jungle sont vivants et que tu effectues ton clear régulier.",
+    "why": "Pour maintenir une efficacité de farm optimale sans perdre de temps inutilement.",
+    "who": "Jungler",
+    "how": [
+     "Ferme tes camps de jungle en priorité lors de ton tempo régulier sans chercher à ganker à tout prix.",
+     "Utilise uniquement ton spare tempo (quand les camps sont abattus) pour aller sur les lanes ou faire des actions."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-e9SSpRzFwo4-3",
+   "claim": "Selon Coach Leo : avec un champion orienté follow-up comme Viego, ne cherche pas à engager le combat en premier. Laisse ton équipe initier et joue sur les opportunités et les réinitialisations.",
+   "champions": [
+    "Viego"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger 2200 LP",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "En combat d'équipe ou escarmouche"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-e9SSpRzFwo4",
+     "locator": "[12:35]",
+     "lang": "en",
+     "passage": "Viego, you do not want to be the one who starts the fight. You don't want to be the one who has the focus of the enemy team. You kind of want to let your team work a little bit, and then play around that.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "735-795s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Attends que ton équipe initie l'affrontement avant d'intervenir en tant que Viego.",
+   "observe": "La position en retrait au début des combats pour capitaliser sur les dégâts et le passif de réinitialisation.",
+   "use": {
+    "when": "Lorsqu'un combat ou un skirmish se prépare avec ton équipe.",
+    "why": "Pour éviter de subir le focus de l'équipe ennemie et maximiser l'impact de ton passif.",
+    "who": "Viego",
+    "how": [
+     "Laisse tes coéquipiers initier le combat et attirer les premiers sorts.",
+     "Interviens en second pour enchaîner les éliminations et utiliser les réinitialisations."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Ex6YzrsAHjg-1",
+   "claim": "Selon Coach Kirei : sur des champions de jungle dépendants de leurs niveaux et de leurs items comme Diana, il est recommandé de privilégier un full clear de ses camps plutôt que de chercher des actions risquées hâtives.",
+   "champions": [
+    "Diana"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Dr. Mundo"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "jouer Diana ou un champion nécessitant des objets et des niveaux"
+   ],
+   "limits": [
+    "sauf si le matchup change complètement le cours de la partie"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Ex6YzrsAHjg",
+     "locator": "01:04",
+     "lang": "en",
+     "passage": "And as Diana in general, you don't want to look for a play unless you're a thousand percent sure. Even if you're a thousand percent sure, usually on Diana you still want to full clear. Very often.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "44-104s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Dr. Mundo (exemple)"
+   ],
+   "action": "Effectuer un full clear de ta jungle sans chercher de gank précoce forcé avec Diana.",
+   "observe": "Le joueur réalise son nettoyage complet de camps avant d'intervenir sur la carte.",
+   "use": {
+    "when": "en début de partie avec Diana dans la jungle",
+    "why": "les items et les niveaux sont très importants sur ce champion",
+    "who": "les joueurs jouant Diana dans la jungle",
+    "how": [
+     "Enchaîner tous tes camps de la jungle de manière consécutive",
+     "Ne pas interrompre ton cheminement pour un gank incertain"
+    ],
+    "notWhen": "si le matchup de la partie change complètement la donne"
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Ex6YzrsAHjg-2",
+   "claim": "Selon Coach Kirei : avant de te diriger vers une rivière ou un objectif du côté haut, identifie rapidement sur la mini-carte quel laner a la priorité et qui remporte les combats du côté haut.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "vision",
+    "macro",
+    "jungle"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "se déplacer vers la rivière ou un objectif du côté haut"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Ex6YzrsAHjg",
+     "locator": "01:29",
+     "lang": "en",
+     "passage": "Right before I go to top side river, I look at top, I look at mid. I identify, okay, who has lane priority and who wins fighting in the top side.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "69-129s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Regarder la situation des voies du haut et du milieu avant de s'engager sur un objectif ou une rivière du haut.",
+   "observe": "Le jungler jette un œil sur les voies adjacentes avant de s'avancer dans la rivière.",
+   "use": {
+    "when": "juste avant de se déplacer vers la rivière du haut",
+    "why": "savoir si l'on dispose du soutien nécessaire pour remporter un éventuel affrontement",
+    "who": "les joueurs jouant dans la jungle",
+    "how": [
+     "Regarder la carte sur les lanes du haut et du milieu",
+     "Identifier qui possède la priorité de wave et l'avantage en combat"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Ex6YzrsAHjg-3",
+   "claim": "Selon Coach Kirei : en haute élo, lorsque le jungler ennemi sécurise les Larves du Néant, il profite d'un tempo qu'il peut utiliser pour invade ton côté de carte opposé ; il faut donc se dépêcher d'aller défendre son côté bas pour l'empêcher de tout prendre.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "en partie de haut niveau",
+    "l'adversaire vient de prendre les Larves du Néant"
+   ],
+   "limits": [
+    "valable uniquement en haut niveau, en basse élo il est conseillé de plutôt clear le côté haut"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Ex6YzrsAHjg",
+     "locator": "06:28",
+     "lang": "en",
+     "passage": "This is only for high elo, okay? Low elo, feel free to clear top side. High elo, just please rush to your bot side, make sure he doesn't take it.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "368-428s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Te précipiter vers ton côté de jungle inférieur dès que l'ennemi prend les objectifs du haut pour contrer son invasion.",
+   "observe": "Le jungler se déplace rapidement vers l'autre côté de la carte après un objectif adverse.",
+   "use": {
+    "when": "l'adversaire vient de valider les Larves du Néant et dispose d'un tempo",
+    "why": "empêcher le jungler adverse de piller tes camps de l'autre côté de la carte",
+    "who": "les joueurs de haut niveau dans la jungle",
+    "how": [
+     "Te dépêcher de te rendre dans ta jungle inférieure",
+     "Communiquer tes intentions à tes coéquipiers",
+     "Protéger au minimum tes derniers camps valables comme les Krugs"
+    ],
+    "notWhen": "en basse élo où il est préférable de continuer à nettoyer son côté haut"
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Ex6YzrsAHjg-4",
+   "claim": "Selon Coach Kirei : avant l'apparition d'un Dragon, si la situation est calme, il faut éviter de chercher des ganks et plutôt prioriser le réapparition et le nettoyage de ses camps pour s'assurer une option cohérente en cas de mort.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "le dragon va apparaître dans une minute",
+    "il n'y a pas d'action garantie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Ex6YzrsAHjg",
+     "locator": "07:20",
+     "lang": "en",
+     "passage": "Because Drake is spawning, especially if Drake is spawning and there's nothing going on, I will not look for a gank. If I'm really sure I get something, even then I might not go for the play, because I prioritize respawning my camps.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-28",
+      "window": "420-480s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Nettoyer tes camps pour les faire réapparaître avant l'apparition imminente d'un dragon.",
+   "observe": "Le joueur nettoie sa jungle à l'approche du chronomètre de dragon.",
+   "use": {
+    "when": "un dragon va spawn dans une minute et aucune opportunité de gank évidente n'est ouverte",
+    "why": "pour que même en cas de mort lors de l'affrontement au dragon, tes camps soient en train de réapparaître et tu ne perdes pas en efficacité",
+    "who": "les joueurs de jungle",
+    "how": [
+     "Ignorer les appels de ganks non garantis de tes coéquipiers",
+     "Faire un nettoyage complet de tes camps de jungle",
+     "Te rendre à l'objectif avec de l'or dépensé"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-28",
    "status": "exploitable",
    "lifespan": "intemporel",
    "review": {

@@ -1918,12 +1918,16 @@ function guideButton() {
   document.documentElement.classList.add("ptr-on");
   const TH = 72, MAX = 120;
   let y0 = null, dy = 0, busy = false, el = null;
-  const pill = () => el || (el = Object.assign(document.createElement("div"), { className: "ptr", innerHTML: `<span class="ptr-ic">${icon("refresh")}</span>` }), document.body.appendChild(el), el);
+  // Pastille (refaite le 28/10 à la demande d'Anthony) : un anneau qui se remplit avec le geste autour d'une flèche fixe ;
+  // seule la flèche bascule au seuil, la pastille ne tourne plus sur elle-même (une icône asymétrique qui tourne paraissait décentrée)
+  const pill = () => el || (el = Object.assign(document.createElement("div"), { className: "ptr", innerHTML:
+    `<svg class="ptr-ring" viewBox="0 0 44 44"><circle cx="22" cy="22" r="19" class="ptr-track"/><circle cx="22" cy="22" r="19" class="ptr-arc" pathLength="100"/></svg><span class="ptr-ic">${icon("down")}</span>` }), document.body.appendChild(el), el);
   const blocked = t => busy || window.scrollY > 0 || document.querySelector(".gd-stories, .gd-tour, .coach-intro, dialog[open]") || t.closest?.("input, textarea, select, .c2-map, .tabs, .prow, [data-noptr]");
-  // Recentre la pastille sur l'écran visible : sur iPhone, « left: 50% » pouvait la décaler de quelques pixels (vu sur le Coach connecté)
-  const center = p => { p.style.marginLeft = "0px"; const r = p.getBoundingClientRect(), vv = window.visualViewport, mid = vv ? vv.offsetLeft + vv.width / 2 : innerWidth / 2;
-    p.style.marginLeft = `${Math.round((mid - (r.left + r.width / 2)) * 10) / 10}px`; };
-  const set = d => { const p = pill(), k = Math.min(1, d / TH); center(p); p.style.transform = `translate(-50%, ${Math.min(d, MAX) - 46}px) rotate(${k * 270}deg)`; p.style.opacity = Math.min(1, d / 30); p.classList.toggle("ready", d >= TH); };
+  // Recentre sur l'écran visible : sur iPhone, la pastille pouvait être décalée de quelques pixels (vu sur le Coach connecté)
+  const center = p => { p.style.setProperty("--dx", "0px"); const r = p.getBoundingClientRect(), vv = window.visualViewport, mid = vv ? vv.offsetLeft + vv.width / 2 : innerWidth / 2;
+    p.style.setProperty("--dx", `${Math.round((mid - (r.left + r.width / 2)) * 10) / 10}px`); };
+  const move = (p, y) => { p.style.transform = `translate(var(--dx, 0px), ${y}px)`; };
+  const set = d => { const p = pill(), k = Math.min(1, d / TH); center(p); move(p, Math.min(d, MAX) - 52); p.style.setProperty("--k", k); p.style.opacity = Math.min(1, d / 30); p.classList.toggle("ready", d >= TH); };
   document.addEventListener("touchstart", e => { y0 = blocked(e.target) || e.touches.length > 1 ? null : e.touches[0].clientY; dy = 0; }, { passive: true });
   document.addEventListener("touchmove", e => {
     if (y0 == null) return;
@@ -1936,9 +1940,9 @@ function guideButton() {
     y0 = null;
     const p = el;
     if (!p) return;
-    if (dy < TH) { p.classList.add("back"); p.style.transform = "translate(-50%, -46px)"; p.style.opacity = 0; setTimeout(() => p.classList.remove("back"), 250); return; }
+    if (dy < TH) { p.classList.add("back"); move(p, -52); p.style.opacity = 0; setTimeout(() => p.classList.remove("back"), 250); return; }
     busy = true;
-    p.classList.add("back", "spin"); p.style.transform = "translate(-50%, 28px)";
+    p.classList.add("back", "spin"); move(p, 28);
     try {
       const jobs = [loadData()];
       if (route.view === "coach" && typeof C2 !== "undefined" && C2.account) {
@@ -1948,9 +1952,9 @@ function guideButton() {
       await Promise.allSettled(jobs);
       render(false);
     } finally {
-      p.classList.remove("spin"); p.classList.add("done");
-      setTimeout(() => { p.style.transform = "translate(-50%, -46px)"; p.style.opacity = 0; }, 350);
-      setTimeout(() => { p.classList.remove("back", "done", "ready"); busy = false; }, 650);
+      p.classList.remove("spin", "ready"); p.classList.add("done"); p.querySelector(".ptr-ic").innerHTML = icon("check");
+      setTimeout(() => { move(p, -52); p.style.opacity = 0; }, 350);
+      setTimeout(() => { p.classList.remove("back", "done", "ready"); p.querySelector(".ptr-ic").innerHTML = icon("down"); busy = false; }, 650);
     }
   });
 })();

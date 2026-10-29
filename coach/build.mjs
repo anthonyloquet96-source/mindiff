@@ -55,6 +55,12 @@ export async function run() {
     const t = tu[u.id];
     if (t && rest.claim.endsWith(t.riot)) rest.claim = rest.claim.slice(0, -t.riot.length) + t.tu;
     if (!rest.conditions?.length) delete rest.conditions;
+    // Conseil général marqué « tous les postes » mais qui ne parle que de la lane (audit des rôles du 29/10) : un jungler
+    // n'a pas de wave à freeze ni de last hit à placer, un support ne farme pas. Rôles ramenés aux postes concernés
+    if (rest.roles?.includes("all") && !rest.champions?.length && !rest.matchup?.vs && rest.nature !== "officiel") {
+      if (/last[- ]?hit|slow ?push|freez\w*|congel\w*/i.test(rest.claim)) rest.roles = ["top", "mid", "bottom"];
+      else if (/aggro des sbires|pousser la wave|pousser ta wave|fait pousser ta wave/i.test(rest.claim)) rest.roles = ["top", "mid", "bottom", "support"];
+    }
     // Mesure faite avec la clé de développement : jamais publiée (riot.publish)
     if (rest.dataCheck?.source === "riot-dev" && !L.config.riot?.publish) delete rest.dataCheck;
     if (rest.context?.queue === "tous" && rest.context?.rank === "tous") delete rest.context;

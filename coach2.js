@@ -141,21 +141,40 @@ const C2_LEARN = {
 const C2_KIND_TIP = {
   "mort-avant-objectif": "Dans la minute qui précède un dragon ou un Baron, rejoins ton équipe et évite de mourir seul loin de l'objectif : l'adversaire le prendrait en surnombre.",
   "plaques-perdues": "Avant de quitter ta lane (back, aide à un combat), pousse ta wave vers la tourelle adverse : elle ne s'écrasera pas sous la tienne pendant ton absence.",
-  "retard-en-ligne": "Quand ton adversaire a l'avantage, joue la sécurité : prends les sbires près de ta tourelle, signale-le à ton jungler et ne te bats qu'avec un avantage net.",
-  "morts-phase-de-ligne": "En phase de lane, recule quand ton adversaire disparaît de la carte ou que son jungler est vu de ton côté.",
+  // Un conseil par poste quand le geste diffère (audit des rôles du 29/10 : un jungler ou un support recevait des conseils de laner)
+  "retard-en-ligne": {
+    default: "Quand ton adversaire a l'avantage, joue la sécurité : prends les sbires près de ta tourelle, signale-le à ton jungler et ne te bats qu'avec un avantage net.",
+    jungle: "Quand le jungler adverse a pris de l'avance, ne le défie pas seul : farme du côté opposé au sien, joue autour des lanes qui ont l'avantage et ne conteste un objectif qu'avec tes laners à côté.",
+    support: "Quand le duo adverse a l'avantage, reste près de ton ADC, pose une ward dans la rivière contre les ganks et n'engage que si l'adversaire a utilisé ses sorts importants.",
+  },
+  "morts-phase-de-ligne": {
+    default: "En phase de lane, recule quand ton adversaire disparaît de la carte ou que son jungler est vu de ton côté.",
+    jungle: "Avant 14 min, n'entre dans la jungle adverse ou ne gank une lane que si tu sais où est le jungler adverse et que tes laners peuvent te suivre ; sinon, reste dans ta jungle.",
+    support: "En phase de lane, ne pars pas seul poser une ward quand le jungler adverse n'est pas visible : va-y avec ton ADC ou quand ta wave pousse vers l'adversaire.",
+  },
   "or-non-depense": "Back dès que tu peux acheter un composant important, de préférence après avoir poussé ta wave.",
   "mort-isolee": "Après la phase de lane, ne pousse pas seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : reste à portée de ton équipe ou replie-toi avant leur arrivée.",
   "gank-subi": "En phase de lane, quand le jungler adverse n'a pas été vu depuis un moment et que ta wave est poussée, rapproche-toi de ta tourelle ; une ward dans la rivière te montre son arrivée.",
   "absent-objectif": "Environ une minute avant un dragon ou un Baron, pousse ta wave puis rejoins ton équipe : l'adversaire prend les objectifs quand vous êtes moins nombreux.",
   "objectif-inferiorite": "Si un allié est mort ou absent, cède l'objectif et prends plutôt une tourelle ou une wave de l'autre côté de la carte, au lieu de combattre en infériorité.",
   "combat-sans-toi": "Garde un œil sur la minimap : quand ton équipe se bat près de toi, la rejoindre change le rapport de force ; sinon, signale de ne pas engager.",
-  "aucune-balise-detruite": "Après ton premier retour, échange ton trinket jaune contre la Lentille de l'oracle (trinket rouge, gratuit à la boutique) : active-la en passant près d'un buisson de rivière ou d'une entrée de jungle, ou pose une control ward, et détruis les wards adverses que tu trouves.",
+  "aucune-balise-detruite": {
+    default: "Après ton premier retour, échange ton trinket jaune contre la Lentille de l'oracle (trinket rouge, gratuit à la boutique) : active-la en passant près d'un buisson de rivière ou d'une entrée de jungle, ou pose une control ward, et détruis les wards adverses que tu trouves.",
+    // ADC : garde son trinket jaune ; la control ward révèle et désactive les wards adverses autour d'elle
+    bottom: "Achète une control ward à chaque back et pose-la dans la rivière près du dragon ou dans un buisson de ta lane : elle révèle les wards adverses autour d'elle, que tu peux alors détruire.",
+  },
   "peu-de-retours": "Back dès que tu as l'or d'un composant, juste après avoir poussé tes sbires vers la tourelle adverse (en jungle : après un camp ou un gank) : tu reviens à temps et avec un item de plus.",
-  "premier-objet-tardif": "Vise ton premier grand item vers 11 min : prends chaque sbire possible et back dès que tu as l'or d'un composant, plutôt que de rester sur la carte avec peu de points de vie.",
+  "premier-objet-tardif": {
+    default: "Vise ton premier grand item vers 11 min : prends chaque sbire possible et back dès que tu as l'or d'un composant, plutôt que de rester sur la carte avec peu de points de vie.",
+    jungle: "Vise ton premier grand item vers 11 min : enchaîne tes camps entre deux ganks et back dès que tu as l'or d'un composant, plutôt que de rester sur la carte avec peu de points de vie.",
+  },
   "balises-controle": "Achète une control ward à chaque back et pose-la près du prochain objectif (dragon, Larves, Héraut) ou dans ta jungle. Tu ne peux en poser qu'une à la fois : si l'ancienne est encore en place, déplace-la vers le prochain objectif.",
   "temps-mort": "Moins de morts, c'est plus de temps pour farmer et peser sur les objectifs. Commence par les morts après 20 min : tu attends plus longtemps avant de revenir, et l'adversaire en profite pour prendre un objectif.",
 };
-const c2TipOf = f => C2_KIND_TIP[f.kind] || C2_PLAIN[f.metric]?.steps(C2.profile ? c2Role(C2.profile) : null)?.[0] || C2_LEARN[f.metric]?.tip || "";
+const c2TipOf = (f, role = C2.profile ? c2Role(C2.profile) : null) => {
+  const t = C2_KIND_TIP[f.kind];
+  return (typeof t === "object" ? t[role] || t.default : t) || C2_PLAIN[f.metric]?.steps(role)?.[0] || C2_LEARN[f.metric]?.tip || "";
+};
 
 // ---------- Champions (noms français, images Data Dragon)
 let c2Champs = null;
@@ -815,7 +834,7 @@ function c2Goal(p) {
     const S = C2.reports?.[role], top = S?.top;
     if (top) return `<section class="c2-card c2-goal"><p class="label">Ta priorité · ${roleName}</p><h2 class="c2-goal-title">${esc(top.title)}</h2>
       <p class="fine">${esc(top.detail || "")}</p>
-      ${c2TipOf(top) ? `<p class="c2-better"><b>Ce qu'il faut faire</b> ${esc(c2TipOf(top))}</p>` : ""}
+      ${c2TipOf(top) ? `<p class="c2-better"><b>Ce qu'il faut faire</b> ${esc(c2TipOf(top, role))}</p>` : ""}
       <p class="fine">D'après ton bilan sur ${S.games} parties (${c2Ago(S.at)})${S.more > 0 ? ` · ${S.more} autre${S.more > 1 ? "s" : ""} point${S.more > 1 ? "s" : ""} à travailler ensuite` : ""}.</p></section>`;
     if (S) return `<section class="c2-card c2-goal ok"><p class="label">Ta priorité · ${roleName}</p><h2 class="c2-goal-title">Aucune erreur qui revient</h2><p class="fine">Ton bilan sur ${S.games} parties (${c2Ago(S.at)}) ne trouve aucune erreur répétée : garde ce qui marche.</p>${picker(g.R.tally)}</section>`;
     return `<section class="c2-card c2-goal"><p class="label">Ta priorité · ${roleName}</p><h2 class="c2-goal-title">Trouve ce qui te coûte des parties</h2>
@@ -1030,7 +1049,7 @@ function c2Game(id) {
       ${r.absent ? `<p class="note">${icon("alert")}<span>Pas de conseil sur cette partie : tu semblais absent (aucun kill ni assist, presque aucun dégât ni sbire). Elle ne compte pas dans tes objectifs ni dans ton bilan.</span></p>` : ""}
       ${r.absent ? "" : `<section class="sec"><div class="sec-head"><h2 class="sec-title">Ce qui a pesé</h2></div>
         ${r.findings.length ? r.findings.map((f, i) => `<article class="c2-card c2-finding"><p class="label">Constat ${i + 1}</p><h3 class="c2-f-title">${esc(f.title)}</h3>${bullets(f.facts)}
-          ${f.metric || C2_KIND_TIP[f.kind] ? `<details class="more"${i === 0 ? " open" : ""}><summary>Ce qu'il faut faire</summary>${C2_KIND_TIP[f.kind] || !f.metric ? `<p>${esc(c2TipOf(f))}</p>` : ""}${f.metric ? c2LessonsHtml(f.metric, s.role, s.champion, !C2_KIND_TIP[f.kind], f.kind) : ""}</details>` : ""}</article>`).join("") : `<p class="inline-empty">Aucun écart net avec la référence Diamant+ sur cette partie.</p>`}
+          ${f.metric || C2_KIND_TIP[f.kind] ? `<details class="more"${i === 0 ? " open" : ""}><summary>Ce qu'il faut faire</summary>${C2_KIND_TIP[f.kind] || !f.metric ? `<p>${esc(c2TipOf(f, s.role))}</p>` : ""}${f.metric ? c2LessonsHtml(f.metric, s.role, s.champion, !C2_KIND_TIP[f.kind], f.kind) : ""}</details>` : ""}</article>`).join("") : `<p class="inline-empty">Aucun écart net avec la référence Diamant+ sur cette partie.</p>`}
       </section>`}
       ${r.tactics?.lessons?.length ? `<button class="c2-ready" data-action="c2-gview" data-id="carte">${icon("compass")}<span><b>${r.tactics.lessons.length} moment${r.tactics.lessons.length > 1 ? "s" : ""} clé${r.tactics.lessons.length > 1 ? "s" : ""} à revoir en replay</b><span class="fine">La partie rejouée sur la minimap, avec ce qui aurait été mieux</span></span>${icon("chevron")}</button>` : ""}`}
     <p class="fine c2-foot">${esc(r.note)}${r.benchmark ? ` Référence : ${c2n(r.benchmark.games)} parties ${esc(r.benchmark.level)}, patch ${esc(c2Patch(r.benchmark.patch))}.` : ""}</p>`;
@@ -1536,7 +1555,7 @@ function c2Synthesis(d, { role, champ }) {
   const short = t => t.replace(/ dans \d+ parties sur \d+$/, "");
   return `<section class="c2-card c2-plan"><p class="label">Synthèse du coach · ${champ ? esc(c2Name(champ)) : esc(C2_ROLE[role])} · ${d.winsReviewed ?? d.wins} victoire${(d.winsReviewed ?? d.wins) > 1 ? "s" : ""} sur les ${d.games} parties relues</p>
       <h2 class="c2-goal-title">${top.length ? `À corriger en priorité : ${esc(short(top[0].title).replace(/^./, c => c.toLowerCase()))}` : "Aucun point faible récurrent : garde ce qui marche"}</h2>
-      ${top.length ? `<p class="c2-better"><b>Ce qu'il faut faire</b> ${esc(c2TipOf(top[0]) || top[0].detail)}</p>` : ""}
+      ${top.length ? `<p class="c2-better"><b>Ce qu'il faut faire</b> ${esc(c2TipOf(top[0], role) || top[0].detail)}</p>` : ""}
       ${top.length > 1 ? `<p class="fine"><b>Ensuite</b> : ${top.slice(1).map(m => esc(short(m.title))).join(" · ")}.</p>` : ""}
       ${d.plus.length ? `<p class="fine"><b>Tes forces</b> : ${d.plus.map(x => esc(x.title)).join(" · ")}.</p>` : ""}
     </section>`;
@@ -1588,7 +1607,7 @@ function c2Report() {
     : (d.minus.length ? [["decision", "Ce qui t'a coûté des parties", "Des erreurs qui font souvent perdre la partie où elles arrivent."], ["niveau", "Les habitudes des bons joueurs qui te manquent", "Plus rares chez les Diamant et plus : à travailler dans le temps, partie après partie."]].map(([fam, title, sub]) => {
         const list = d.minus.filter(m => (m.family || "decision") === fam);
         return list.length ? `<section class="sec">${secHead(title)}<p class="fine">${sub}</p>${list.map(m => `<article class="c2-card c2-finding ${fam}"><h3 class="c2-f-title">${esc(m.title)}</h3><p class="fine">${esc(m.detail)}</p>${m.evidence ? `<p class="c2-evidence">${esc(m.evidence)}</p>` : ""}${dots(m.games)}
-        <details class="more"><summary>Ce qu'il faut faire</summary>${C2_KIND_TIP[m.kind] || !m.metric ? `<p>${esc(c2TipOf(m))}</p>` : ""}${m.metric ? c2LessonsHtml(m.metric, role, d.champions[0]?.champion, !C2_KIND_TIP[m.kind], m.kind) : ""}</details></article>`).join("")}</section>` : "";
+        <details class="more"><summary>Ce qu'il faut faire</summary>${C2_KIND_TIP[m.kind] || !m.metric ? `<p>${esc(c2TipOf(m, role))}</p>` : ""}${m.metric ? c2LessonsHtml(m.metric, role, d.champions[0]?.champion, !C2_KIND_TIP[m.kind], m.kind) : ""}</details></article>`).join("")}</section>` : "";
       }).join("") : `<p class="inline-empty">Aucun point faible qui revient dans plusieurs parties.</p>`);
   return `${pick}
     ${c2Synthesis(d, { role, champ })}

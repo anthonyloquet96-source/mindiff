@@ -63672,7 +63672,367 @@
    },
    "version": 1,
    "firstSeen": "2026-10-29"
+  },
+  {
+   "id": "u-ai-yt-DzwLn5Dtb94-1",
+   "claim": "Selon hybradge : un pathing de jungle en trois camps (Corbins, Rouge, Krugs) suivi d'un gank (si garanti) puis d'un rappel immédiat permet d'acheter un composant sans perdre de vitesse de vider de camp grâce aux statistiques transférées au compagnon de jungle.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "high elo",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "system:compagnons-de-jungle"
+   ],
+   "conditions": [
+    "Démarrer aux Corbins",
+    "Ganker seulement si le kill est garanti"
+   ],
+   "limits": [
+    "Ne pas tenter de gank incertain"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-DzwLn5Dtb94",
+     "locator": "[00:20]",
+     "lang": "en",
+     "passage": "So effectively what this pathing is, is it is a three-camp gank into reset, okay? You don't have to gank, but effectively what you do, I'll just draw it on red side, but it's the same for both sides, is you want to go Raptors, Red, Krugs.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-10-29",
+      "window": "0-60s",
+      "said": true,
+      "supported": false,
+      "gap": "L'explication concernant l'achat d'un composant et les dégâts du compagnon de jungle n'est pas mentionnée dans cet extrait."
+     }
+    },
+    {
+     "content": "c-yt-DzwLn5Dtb94",
+     "locator": "[01:58]",
+     "lang": "en",
+     "passage": "So this what this means is if you factor a reset into your clear and you buy a component, you're still going to be at the same speed because of the way jungle pet works, okay?"
+    }
+   ],
+   "mentions": [],
+   "action": "Tester le chemin Corbins, Rouge, Krugs suivi d'un rappel immédiat pour acheter un composant avant de vider le reste de la jungle.",
+   "observe": "Vérifier que le composant acheté compense le temps du rappel lors de l'élimination des camps suivants.",
+   "use": {
+    "when": "En tout début de partie, au premier vider de la jungle.",
+    "why": "",
+    "who": "Les junglers, particulièrement les bruiseurs.",
+    "how": [
+     "Effectue les Corbins, le Buff rouge puis les Krugs.",
+     "Prends un gank uniquement si l'élimination est garantie, sinon rappelle-toi directement.",
+     "Achète un composant (Épée longue ou Cristal de rubis) puis pars sur les camps opposés."
+    ],
+    "notWhen": "Ne tente pas de gank si l'élimination n'est pas certaine."
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est fidele a la transcription, mais reste provisoire en l'absence de validation humaine de l'extrait video et de precision du patch."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-29",
+   "validity": {
+    "checkedAt": "2026-10-29",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-29",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-29"
+  },
+  {
+   "id": "u-ai-yt-DzwLn5Dtb94-2",
+   "claim": "Selon hybradge : grâce à l'avantage de composant acheté lors du rappel précoce, tu secures plus facilement le Carapateur et abordes le premier Dragon avec un avantage d'or accumulé sur la deuxième rotation.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "high elo",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-DzwLn5Dtb94",
+     "locator": "[02:22]",
+     "lang": "en",
+     "passage": "When you go fight on Scuttle Crab, what this means is if you based for a component before, you're always going to be stronger than the enemy jungler because you have a component advantage.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-10-29",
+      "window": "122-182s",
+      "said": true,
+      "supported": false,
+      "gap": "L'extrait ne mentionne pas le premier Dragon, mais se concentre uniquement sur le combat et la prise du Carapateur (Scuttle Crab)."
+     }
+    },
+    {
+     "content": "c-yt-DzwLn5Dtb94",
+     "locator": "[04:30]",
+     "lang": "en",
+     "passage": "So whilst the enemy jungler's only farming six camps or seven camps before he resets, you're farming eight or even nine or even 10 camps. So you have you can have a four-camp advantage with the space, which will allow you to play the dragon with more with more gold, right?"
+    }
+   ],
+   "mentions": [],
+   "action": "Contester le Carapateur ou le premier Dragon après avoir fait le rappel du 3-camp.",
+   "observe": "Observer si la présence de l'objet supplémentaire permet de remporter le combat ou d'obliger l'adversaire à céder l'objectif.",
+   "use": {
+    "when": "Lors de l'apparition du Carapateur ou durant la prise du premier Dragon.",
+    "why": "Tu affrontes un jungler adverse qui n'a pas encore effectué de rappel et qui possède moins de statistiques sur lui.",
+    "who": "Tout jungler exécutant le pathing 3 camps avec rappel précoce.",
+    "how": [
+     "Fais ton rappel après les trois premiers camps et achète un composant.",
+     "Vide le deuxième côté de ta jungle (Loups, Gromp) puis prends le Carapateur.",
+     "Enchaîne les camps qui réapparaissent avant d'engager le premier Dragon avec un avantage d'équipement."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'analyse sur l'avantage d'equipement pour le Carapateur et le Dragon est bien appuyee par les citations, mais demeure provisoire du fait de la source video traitee par IA."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-29",
+   "validity": {
+    "checkedAt": "2026-10-29",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-29",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-29"
+  },
+  {
+   "id": "u-ai-yt-DzwLn5Dtb94-3",
+   "claim": "Selon hybradge : la condition critique du pathing trois camps avec rappel est d'être présent sur ses Corbins dès leur réapparition pour ne pas laisser le jungler adverse les voler.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "high elo",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Être sur les Corbins exactement au moment où ils réapparaissent"
+   ],
+   "limits": [
+    "Ignorer des camps secondaires ou le Carapateur si l'on est en retard pour le timing des Corbins"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-DzwLn5Dtb94",
+     "locator": "[11:08]",
+     "lang": "en",
+     "passage": "The limitation is very, very simple: you have to be back there before the Raptors respawn on the on the initial respawn, okay?",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-10-29",
+      "window": "648-708s",
+      "said": true,
+      "supported": false,
+      "gap": "Le geste préconisant de sauter un camp secondaire ou le Carapateur en cas de retard n'est pas mentionné dans l'extrait."
+     }
+    },
+    {
+     "content": "c-yt-DzwLn5Dtb94",
+     "locator": "[11:42]",
+     "lang": "en",
+     "passage": "It is the most paramount thing of this pathing, is you have to be at Raptors respawn no matter what happens, no matter even if you skip freaking Gromp and Blue, maybe skip Gromp, Blue, and Scuttle, you have to be there for Raptors respawn."
+    }
+   ],
+   "mentions": [],
+   "action": "Chronométrer le délai de réapparition des Corbins et adapter son trajet pour y être dès le respawn.",
+   "observe": "S'assurer que l'adversaire ne trouve aucun créneau pour envahir et voler le camp.",
+   "use": {
+    "when": "Pendant la deuxième rotation du vider de la jungle.",
+    "why": "Si tu es en retard, le jungler adverse peut envahir tes Corbins, provoquant un retard de 8 CS qui annule l'intérêt de la stratégie.",
+    "who": "Les junglers appliquant le pathing 3 camps avec rappel.",
+    "how": [
+     "Garde un œil sur le chronomètre de réapparition des Corbins.",
+     "Saute un camp secondaire ou le Carapateur si tu es en retard.",
+     "Sécurise tes Corbins immédiatement à leur réapparition."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La condition impérative sur la reapparition des Corbins reflete fidelement les propos de l'auteur, avec un statut provisoire dans l'attente d'une seconde lecture de la sequence."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-29",
+   "validity": {
+    "checkedAt": "2026-10-29",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-29",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-29"
+  },
+  {
+   "id": "u-ai-yt-z4jG-L-H9ms-5",
+   "claim": "Selon DovahNDo : erreur fréquente : splitpusher seul en tant qu'ADC. L'auteur conseille de toujours rester entouré d'alliés pour éviter les assassins.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "survie",
+    "macro"
+   ],
+   "synergy": {
+    "with": [
+     "support"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "argent",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "argent",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-z4jG-L-H9ms",
+     "locator": "20:01",
+     "lang": "pt",
+     "passage": "Y como ADC tú no puedes splitpushear, no puedes porque si no te llega el asesino y te mata. Un ADC siempre tiene que estar rodeado de muchas personas, al menos uno que sería el support, o si no siempre estás buscando posicionarte atrás de alguien",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-10-29",
+      "window": "1181-1241s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Caitlyn (exemple)"
+   ],
+   "action": "Rester groupé avec ton support ou ton équipe.",
+   "observe": "",
+   "use": {
+    "when": "En milieu ou fin de partie, quand les vagues sont loin des tours alliées.",
+    "why": "Un ADC seul est une cible facile pour n'importe quel assassin et ne peut pas se défendre seul.",
+    "who": "ADC (rôle bottom)",
+    "how": [
+     "Ne jamais dépasser la moitié de la carte seul",
+     "Attendre qu'un allié (support ou tank) t'accompagne pour push",
+     "Rester en retrait derrière la ligne de front"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Correction d'une erreur fondamentale en bas élo (splitpush ADC), conforme aux règles v3 sur les unités de niveau Émeraude ou inférieur."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-29",
+   "validity": {
+    "checkedAt": "2026-10-29",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-29",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-29"
   }
  ],
- "updatedAt": "2026-10-29T07:34:51.172Z"
+ "updatedAt": "2026-10-29T13:36:13.450Z"
 }

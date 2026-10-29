@@ -124,29 +124,29 @@ export const units = [
 
   // ---------- udyon : top après la phase de lane (meilleur rang maître, Urgot)
   u(UD, "ja", 1, {
-    levelContext: "maitre", context: { queue: "solo", rank: "diamant 2 (maître au mieux)", region: "JP" },
-    claim: "Selon udyon (top, maître au mieux) : après avoir pris la première tourelle du top, pousse ta vague lentement à l'attaque de base jusqu'à la deuxième tourelle adverse. Ton adversaire ne peut plus prendre la vague et perd de l'expérience, ou doit partir roam.",
+    levelContext: "maitre", context: { queue: "solo", rank: "diamant 2 (Master au mieux)", region: "JP" },
+    claim: "Selon udyon (top, Master au mieux) : après avoir pris la première tourelle du top, pousse ta vague lentement à l'attaque de base jusqu'à la deuxième tourelle adverse. Ton adversaire ne peut plus prendre la vague et perd de l'expérience, ou doit partir roam.",
     roles: ["top"], themes: ["vagues", "macro"], published: "2026-02-15",
     evidence: [["・レーン勝利時の立ち位置", "基本的な動きとしてはミニオンを敵セカンドタワーに押し付ける。"], ["・レーン勝利時の立ち位置", "ここではスキルを使わずにＡＡ（オートアタック）で基本ミニオンを食べてゆっくり押しましょう。なぜなら相手がウェーブを食べれない+相手はやることがなく経験値ロスト及びロームするしかなくなるからです。"]],
     use: { when: "Tu as gagné ta lane au top et détruit la première tourelle adverse.", why: "L'adversaire ne peut plus farmer sa vague : il perd de l'expérience ou doit quitter la lane.", who: "Top laner qui a gagné sa lane.", how: ["Tue les sbires à l'attaque de base, sans tes compétences.", "Laisse la vague avancer lentement jusqu'à la deuxième tourelle.", "Reste prêt à fuir si le jungler ou le support adverse vient."], notWhen: "" },
   }),
   u(UD, "ja", 2, {
-    levelContext: "maitre", context: { queue: "solo", rank: "diamant 2 (maître au mieux)", region: "JP" },
-    claim: "Selon udyon (top, maître au mieux) : quand le dragon apparaît dans 1 minute à 30 secondes, quitte ta pression sur la tourelle et rejoins le dragon.",
+    levelContext: "maitre", context: { queue: "solo", rank: "diamant 2 (Master au mieux)", region: "JP" },
+    claim: "Selon udyon (top, Master au mieux) : quand le dragon apparaît dans 1 minute à 30 secondes, quitte ta pression sur la tourelle et rejoins le dragon.",
     roles: ["top"], themes: ["macro"], published: "2026-02-15",
     evidence: [["・レーン勝利時の立ち位置", "この動きをドラゴンが始まる１分～３０秒まで繰り返す。"], ["・レーン勝利時の立ち位置", "ドラゴンまでの時間が１分～３０秒になったらドラゴンに寄るようにする。"]],
     use: { when: "Tu mets la pression sur la deuxième tourelle du top et le dragon apparaît dans 1 minute à 30 secondes.", why: "Ta pression au top a attiré l'adversaire : le côté du dragon est moins surveillé, et il faut y être à temps.", who: "Top laner.", how: ["Surveille le minuteur du dragon.", "Entre 1 minute et 30 secondes avant, quitte la lane.", "Rejoins ton équipe autour du dragon."], notWhen: "" },
   }),
   u(UD, "ja", 3, {
-    levelContext: "maitre", context: { queue: "solo", rank: "diamant 2 (maître au mieux)", region: "JP" },
-    claim: "Selon udyon (top, maître au mieux) : après la phase de lane, la répartition habituelle est la suivante : le duo du bot va au mid, le mid au top, et le top au bot, grâce à sa Téléportation et à sa résistance. Pousse les lanes où il n'y a personne plutôt que d'attendre tous au mid.",
+    levelContext: "maitre", context: { queue: "solo", rank: "diamant 2 (Master au mieux)", region: "JP" },
+    claim: "Selon udyon (top, Master au mieux) : après la phase de lane, la répartition habituelle est la suivante : le duo du bot va au mid, le mid au top, et le top au bot, grâce à sa Téléportation et à sa résistance. Pousse les lanes où il n'y a personne plutôt que d'attendre tous au mid.",
     roles: ["all"], themes: ["macro", "vagues"], published: "2026-02-15", metaDependent: true, dependsOn: ["system:Téléportation"],
     evidence: [["❷レーンスワップタイミング", "基本的にはMIDレーナーはTOPが側、TOPレーナーはBOT側に行くのがセオリーだ。なぜTOPレーナーはBOTに行くかは単純にテレポートと体が硬いからだ。"], ["❷レーンスワップタイミング", "BOT２人はMIDレーン、MIDはTOPレーン、TOPはBOTレーンに行く構図となる。"]],
     use: { when: "Entre 15 et 20 minutes, quand les premières tourelles tombent et que la phase de lane se termine.", why: "Le duo du bot au mid peut voir le dragon et le Baron ; le top, résistant et avec sa Téléportation, tient la lane du bot.", who: "Toute l'équipe.", how: ["Duo du bot : va au mid.", "Mid : va au top ; top : va au bot.", "Pousse la lane où personne ne te fait face au lieu d'attendre au mid."], notWhen: "Avant d'avoir terminé ta quête de rôle, selon l'auteur (règle de sa saison)." },
   }),
   u(UD, "ja", 4, {
-    levelContext: "maitre", context: { queue: "solo", rank: "diamant 2 (maître au mieux)", region: "JP" },
-    claim: "Selon udyon (top, maître au mieux) : en lane de côté, ne dépasse la rivière vers le camp adverse que si ton équipe a l'avantage, si les adversaires sont visibles sur la carte, ou si une ward te montre que la zone est vide. Sinon, tu risques de mourir et de faire perdre un objectif.",
+    levelContext: "maitre", context: { queue: "solo", rank: "diamant 2 (Master au mieux)", region: "JP" },
+    claim: "Selon udyon (top, Master au mieux) : en lane de côté, ne dépasse la rivière vers le camp adverse que si ton équipe a l'avantage, si les adversaires sont visibles sur la carte, ou si une ward te montre que la zone est vide. Sinon, tu risques de mourir et de faire perdre un objectif.",
     roles: ["top", "all"], themes: ["survie", "macro", "vision"], published: "2026-02-15",
     evidence: [["❸ＴＯＰレーンからＢＯＴレーンスワップ後の動き", "これは防衛ラインだ。このラインよりも相手陣地に行くのは"], ["❸ＴＯＰレーンからＢＯＴレーンスワップ後の動き", "上記のような条件がないときに森に行くのは無謀であり、死ぬリスクが非常に高くなる。"]],
     use: { when: "Milieu de partie, tu pousses une lane de côté seul.", why: "Mourir en lane de côté peut coûter un dragon ou un Baron à ton équipe.", who: "Joueurs qui poussent une lane de côté, surtout le top.", how: ["Vérifie si ton équipe a l'avantage.", "Regarde si les adversaires sont visibles sur la carte, ou si une ward montre que la zone est vide.", "Sans aucune de ces conditions, reste de ton côté de la rivière."], notWhen: "" },

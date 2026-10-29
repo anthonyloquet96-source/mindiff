@@ -72,12 +72,12 @@ export function gameEvents(prev, cur, meta, teams, lang = "fr") {
   // Scores dans l'ordre du titre de la notification (« KC vs CFO ») : tours pour les tours, kills pour les objectifs
   const sideOf = id => (meta?.blueTeamMetadata?.esportsTeamId === id ? "blue" : meta?.redTeamMetadata?.esportsTeamId === id ? "red" : null);
   const [sa, sb] = (teams || []).slice(0, 2).map(t => sideOf(t.id));
-  // Chaque score avec le nom de son équipe (« kills : KC 9, CFO 7 ») : un score seul prête à confusion (retour d'Anthony, 29/10)
+  // Chaque score avec le nom de son équipe (« Kills KC 9-7 CFO », format choisi par Anthony) : un score seul prête à confusion (retour d'Anthony, 29/10)
   const [ca, cb] = (teams || []).map(t => t.code);
-  const score = (label, k) => ` · ${label} : ${ca} ${cur[sa][k]}, ${cb} ${cur[sb][k]}`;
+  const score = (label, k) => ` · ${label} ${ca} ${cur[sa][k]}-${cur[sb][k]} ${cb}`;
   if (sa && sb) for (const e of out) {
-    if (e.kind === "tower" || e.kind === "first_tower") e.text += score(en ? "towers" : "tours", "towers");
-    if (!["first_blood", "fight"].includes(e.kind)) e.text += score("kills", "kills");
+    if (e.kind === "tower" || e.kind === "first_tower") e.text += score(en ? "Towers" : "Tours", "towers");
+    if (!["first_blood", "fight"].includes(e.kind)) e.text += score("Kills", "kills");
   }
   return out;
 }

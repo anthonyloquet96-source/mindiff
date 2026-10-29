@@ -61,6 +61,20 @@ export function gameEvents(prev, cur, meta, teams, lang = "fr") {
     if (cur[s].inhibs > prev[s].inhibs) out.push({ kind: "inhib", side: s, text: en ? `${N.code(s)} destroys an inhibitor` : `${N.code(s)} détruit un inhibiteur` });
     // Ace de l'équipe d'en face : notifié une fois, tant qu'elle ne revient pas en vie
     if (cur.aced[other(s)] && !prev.aced[other(s)]) out.push({ kind: "ace", side: s, text: en ? `ACE for ${N.code(s)}: all 5 ${N.code(other(s))} players are dead` : `ACE pour ${N.code(s)} : les 5 joueurs de ${N.code(other(s))} sont morts` });
+    // Niveau « détaillé » (detail: true) : chaque tour après la première, avec le score des tours. Le flux ne dit pas
+    // laquelle tombe (voie, position) : seulement le nombre de tours détruites par équipe.
+    const tw = cur[s].towers - prev[s].towers;
+    if (tw > 0 && prev.blue.towers + prev.red.towers > 0) out.push({ kind: "tower", side: s, detail: true, text: en ? `${N.code(s)} destroys ${tw > 1 ? `${tw} towers` : "a tower"}` : `${N.code(s)} détruit ${tw > 1 ? `${tw} tours` : "une tour"}` });
+    // Combat gagné : au moins 3 kills pour une équipe et au plus 1 en face depuis le relevé précédent (10 à 15 s)
+    const ks = cur[s].kills - prev[s].kills, ko = cur[other(s)].kills - prev[other(s)].kills;
+    if (ks >= 3 && ko <= 1 && total(prev) > 0) out.push({ kind: "fight", side: s, detail: true, text: en ? `${N.code(s)} wins a fight: ${ks} kills to ${ko}` : `${N.code(s)} gagne un combat : ${ks} kills à ${ko}` });
+  }
+  // Scores dans l'ordre du titre de la notification (« KC vs CFO ») : tours pour les tours, kills pour les objectifs
+  const sideOf = id => (meta?.blueTeamMetadata?.esportsTeamId === id ? "blue" : meta?.redTeamMetadata?.esportsTeamId === id ? "red" : null);
+  const [sa, sb] = (teams || []).slice(0, 2).map(t => sideOf(t.id));
+  if (sa && sb) for (const e of out) {
+    if (e.kind === "tower" || e.kind === "first_tower") e.text += en ? ` · towers ${cur[sa].towers}-${cur[sb].towers}` : ` · tours ${cur[sa].towers}-${cur[sb].towers}`;
+    if (!["first_blood", "fight"].includes(e.kind)) e.text += ` · kills ${cur[sa].kills}-${cur[sb].kills}`;
   }
   return out;
 }
@@ -90,6 +104,8 @@ export function matchEvents(prev, m, lang = "fr") {
 
 // Matchs suivis : « big » = compétitions internationales et ligues majeures, plus les équipes favorites ; « fav » = favorites seules
 export const BIG = /^(worlds|msi|first_stand|lck|lpl|lec|lcs|lcp)$/i;
+// Niveau de détail d'un appareil pour un match : « detaille » demandé, ou une de ses équipes favorites joue
+export const detailed = (level, teamNames, favTeams = []) => level === "detaille" || teamNames.some(n => favTeams.includes(n));
 export function followed(mode, leagueSlug, teamNames, favTeams = []) {
   if (!mode || mode === "off") return false;
   const fav = teamNames.some(n => favTeams.includes(n));

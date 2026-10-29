@@ -1347,15 +1347,19 @@ await t("Notifications : chiffrement Web Push (vecteur RFC 8291), signature VAPI
   const s0 = N.gameSnapshot([fr(0, { ace: true, max: 0 })]), s1 = N.gameSnapshot([fr(1, { t: 1, d: ["ocean"] })]), s2 = N.gameSnapshot([fr(4, { t: 1, d: ["ocean"], b: 1, ace: true })]);
   const e1 = N.gameEvents(s0, s1, meta, teams).map(e => e.text), e2 = N.gameEvents(s1, s2, meta, teams).map(e => e.text), e3 = N.gameEvents(s2, s2, meta, teams);
   assert(!s0.aced.red, "début de partie pris pour un ace");
-  assert(e1.join(" | ") === "First blood : Canna (KC) | Première tour pour KC | KC prend le dragon de l'océan", e1.join(" | "));
-  assert(e2.join(" | ") === "KC prend le Baron Nashor | ACE pour KC : les 5 joueurs de CFO sont morts", e2.join(" | "));
+  assert(e1.join(" | ") === "First blood : Canna (KC) | Première tour pour KC · tours 1-0 · kills 1-0 | KC prend le dragon de l'océan · kills 1-0", e1.join(" | "));
+  assert(e2.join(" | ") === "KC prend le Baron Nashor · kills 4-0 | ACE pour KC : les 5 joueurs de CFO sont morts · kills 4-0 | KC gagne un combat : 3 kills à 0", e2.join(" | "));
+  // Niveau détaillé : le combat et chaque tour après la première sont marqués detail ; favoris toujours en détaillé
+  const e4 = N.gameEvents(s2, N.gameSnapshot([fr(4, { t: 3, d: ["ocean"], b: 1, ace: true })]), meta, teams);
+  assert(N.gameEvents(s1, s2, meta, teams).find(e => e.kind === "fight")?.detail && e4.length === 1 && e4[0].detail && e4[0].text === "KC détruit 2 tours · tours 3-0 · kills 4-0", JSON.stringify(e4));
+  assert(N.detailed("detaille", ["A"]) && N.detailed("essentiel", ["A", "KC"], ["KC"]) && !N.detailed("essentiel", ["A"], ["KC"]), "niveau de détail");
   assert(!e3.length, "événement répété");
   // Matchs suivis et rappels du coach
   assert(N.followed("big", "worlds", ["A", "B"]) && !N.followed("big", "lfl", ["A", "B"]) && N.followed("big", "lfl", ["Karmine Corp Blue", "B"], ["Karmine Corp Blue"]) && !N.followed("fav", "worlds", ["A", "B"]) && !N.followed("off", "worlds", ["A"]), "choix des matchs suivis");
   const g = { label: "CS à 10 min", role: "JUNGLE", target: "62", unit: "CS", status: "active", left: 2 };
   assert(N.coachMessage(g, 0) === "Encore 2 games pour ton objectif : CS à 10 min, vise 62 CS.", N.coachMessage(g, 0));
   assert(/jungle/.test(N.coachMessage(g, 1)) && /prêt/.test(N.coachMessage({ ...g, status: "proposed" }, 0)) && /t'attend/.test(N.coachMessage(null, 0)), "messages du coach");
-  return "chiffrement identique à la RFC 8291 ; VAPID vérifié ; début, games, match, first blood, tour, dragon, Baron, ace sans doublon ; rappels du coach.";
+  return "chiffrement identique à la RFC 8291 ; VAPID vérifié ; début, games, match, first blood, tour, dragon, Baron, ace sans doublon ; niveau détaillé (tours, combats) ; rappels du coach.";
 });
 
 // ---------- Rapport

@@ -1735,6 +1735,7 @@ document.addEventListener("click", e => {
     case "notif-test": pushOn(true); return;
     case "notif-off": pushOff(); return;
     case "notif-matches": prefs.notif.matches = id; savePrefs(); pushSync(true); notifSheetRefresh(); return;
+    case "notif-detail": prefs.notif.detail = id; savePrefs(); pushSync(true); notifSheetRefresh(); return;
     case "notif-coach": prefs.notif.coach = id === "1"; savePrefs(); pushSync(true); notifSheetRefresh(); return;
     case "close-sheet": closeSheet(); return;
     case "skip": document.getElementById("view").focus(); return;
@@ -2002,7 +2003,7 @@ const PUSH_API = window.MINDIFF_PILOT?.api || null;
 const IS_IOS = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 const STANDALONE = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
 const pushSupported = () => !!PUSH_API && "serviceWorker" in navigator && "PushManager" in window && "Notification" in window;
-prefs.notif = { matches: "big", coach: true, push: false, ...(prefs.notif || {}) };
+prefs.notif = { matches: "big", detail: "essentiel", coach: true, push: false, ...(prefs.notif || {}) };
 let swReg = null;
 async function swReady() {
   if (!("serviceWorker" in navigator)) return null;
@@ -2012,7 +2013,7 @@ const b64key = s => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/")
 // Ce qui part au service : l'abonnement, les choix, et le résumé de l'objectif si les rappels du coach sont activés (pas de Riot ID)
 function pushBody(sub, extra = {}) {
   const S = prefs.notif.coach && typeof C2 !== "undefined" && C2.v1Snap;
-  return { sub: sub.toJSON(), matches: prefs.notif.matches, fav: prefs.favTeams, coach: prefs.notif.coach, lang: window.LANG === "en" ? "en" : "fr",
+  return { sub: sub.toJSON(), matches: prefs.notif.matches, detail: prefs.notif.detail, fav: prefs.favTeams, coach: prefs.notif.coach, lang: window.LANG === "en" ? "en" : "fr",
     goal: S ? { label: S.label, role: S.role, target: S.target, unit: S.unit, status: S.status, counted: S.counted, of: S.of } : null, ...extra };
 }
 const pushPost = (path, body) => fetch(`${PUSH_API}/api/push/${path}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
@@ -2065,6 +2066,8 @@ function notifPanelHtml() {
         <p class="fine">Début de chaque game, first blood, première tour, dragons, Baron, inhibiteurs, ace, game et match gagnés.
         ${N.matches === "big" ? "Gros matchs : Worlds, MSI, First Stand, LCK, LPL, LEC, LCS et LCP, plus tes équipes favorites." : ""}
         ${N.matches !== "off" && !prefs.favTeams.length ? "Ajoute des équipes en favori (étoile sur leur fiche) pour suivre aussi leurs matchs." : ""}</p>
+        ${N.matches !== "off" ? `<p class="label">Niveau de détail</p>${seg("notif-detail", [["essentiel", "Essentiel"], ["detaille", "Détaillé"]], N.detail, "Niveau de détail", "small")}
+        <p class="fine">${N.detail === "detaille" ? "En plus : chaque tour détruite et chaque combat gagné (3 kills ou plus d'affilée)." : "Les moments clés, avec le score des kills. Tes équipes favorites sont toujours en détaillé : chaque tour et chaque combat gagné."}</p>` : ""}
         ${prefs.noSpoil && !N.push ? `<p class="fine">Mode sans spoilers activé : pas d'alerte de match dans le site.</p>` : ""}</section>
       <section><p class="label">Coach</p>
         ${seg("notif-coach", [["1", "Rappels activés"], ["0", "Désactivés"]], N.coach ? "1" : "0", "Rappels du coach", "small")}
@@ -2111,7 +2114,8 @@ async function notifTick() {
       S.match = N.matchState(m);
       const snap = L.game && L.frames ? N.gameSnapshot(L.frames) : null;
       if (snap) { ev.push(...N.gameEvents(S.game?.id === L.game ? S.game.snap : null, snap, L.meta, m.teams, lang)); S.game = { id: L.game, snap }; }
-      if (ev.length) toast(`${m.teams[0].code} vs ${m.teams[1].code} · ${x.t.name}`, ev.map(e => e.text), href("lol", "tournoi", x.t.id, "matchs", id));
+      const names = x.m.teams.map(t => t.name), shown = ev.filter(e => !e.detail || N.detailed(prefs.notif.detail, names, prefs.favTeams));
+      if (shown.length) toast(`${m.teams[0].code} vs ${m.teams[1].code} · ${x.t.name}`, shown.map(e => e.text), href("lol", "tournoi", x.t.id, "matchs", id));
     }
   } catch { /* flux indisponible : prochain passage */ }
   notifBusy = false;

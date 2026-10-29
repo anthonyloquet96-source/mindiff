@@ -8,7 +8,7 @@
 // Limite de l'offre gratuite : 50 appels sortants par passage ; suffisant pour le test (quelques dizaines d'appareils).
 
 import { createSupabaseRest } from "../coach/v1/store-supabase.mjs";
-import { gameSnapshot, gameEvents, matchState, matchEvents, followed, coachMessage } from "../notif-events.mjs";
+import { gameSnapshot, gameEvents, matchState, matchEvents, followed, detailed, coachMessage } from "../notif-events.mjs";
 import { sendPush } from "./webpush.mjs";
 
 const LOLE_KEY = "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"; // clé publique du site LoL Esports (déjà utilisée par le site)
@@ -38,6 +38,7 @@ export async function pushApi(request, env, cors) {
       endpoint: sub.endpoint, p256dh: String(sub.keys.p256dh).slice(0, 200), auth: String(sub.keys.auth).slice(0, 100),
       matches: ["big", "fav", "off"].includes(b.matches) ? b.matches : "big",
       fav_teams: (Array.isArray(b.fav) ? b.fav : []).slice(0, 30).map(x => String(x).slice(0, 60)),
+      detail: b.detail === "detaille" ? "detaille" : "essentiel",
       coach: b.coach !== false, lang: b.lang === "en" ? "en" : "fr", seen_at: new Date().toISOString(),
       // Résumé de l'objectif seulement : pas d'identifiant Riot
       goal: g ? { label: String(g.label || "").slice(0, 120), role: String(g.role || "").slice(0, 12), target: String(g.target ?? "").slice(0, 20), unit: String(g.unit || "").slice(0, 12), status: String(g.status || "").slice(0, 12), left: Math.max(0, Math.min(20, Number(g.of) - Number(g.counted) || 0)) } : null,
@@ -69,7 +70,7 @@ export async function pushLive(env) {
   const sb = createSupabaseRest({ url: env.SUPABASE_URL, serviceKey: env.SUPABASE_SERVICE_KEY });
   const [live, subs, rows] = await Promise.all([
     LOLE("getLive?hl=fr-FR"),
-    sb.rest("GET", "push_subs?matches=neq.off&select=endpoint,p256dh,auth,matches,fav_teams,lang&limit=500"),
+    sb.rest("GET", "push_subs?matches=neq.off&select=endpoint,p256dh,auth,matches,fav_teams,detail,lang&limit=500"),
     sb.rest("GET", "push_live?select=match_id,state,updated_at"),
   ]);
   if (!subs?.length) return { subs: 0 };
@@ -116,8 +117,10 @@ export async function pushLive(env) {
       }
       if (out.fr.length) {
         const [A, B] = m.teams, url = `${SITE}#/lol/competitions/matchs`;
-        const who = subs.filter(s => followed(s.matches, info.league, info.names, s.fav_teams));
-        sent += await fanout(sb, env, who, s => ({ title: `${A.code} vs ${B.code}${info.tournament ? ` · ${info.tournament}` : ""}`, body: out[s.lang === "en" ? "en" : "fr"].map(e => e.text).join("\n"), url, tag: `m${x.id}-${Date.now()}` }));
+        // Niveau « essentiel » : sans les moments marqués detail (chaque tour, combats) ; rien à envoyer → pas de notification
+        const body = s => out[s.lang === "en" ? "en" : "fr"].filter(e => !e.detail || detailed(s.detail, info.names, s.fav_teams)).map(e => e.text).join("\n");
+        const who = subs.filter(s => followed(s.matches, info.league, info.names, s.fav_teams) && body(s));
+        sent += await fanout(sb, env, who, s => ({ title: `${A.code} vs ${B.code}${info.tournament ? ` · ${info.tournament}` : ""}`, body: body(s), url, tag: `m${x.id}-${Date.now()}` }));
         calls += who.length;
       }
       S.prev = state;

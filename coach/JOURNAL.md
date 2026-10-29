@@ -2,6 +2,12 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-29, nuit — notifications : niveau de détail
+- **Demande d’Anthony** : toutes les tours, voire tous les kills, sans « blinder » de notifs.
+- **Choix** : réglage « Niveau de détail ». *Essentiel* (par défaut) : les moments clés, avec le score des kills (« CFO prend le Baron Nashor · kills 9-3 »). *Détaillé* : en plus chaque tour (« KC détruit 2 tours · tours 3-0 · kills 9-2 ») et chaque combat gagné (au moins 3 kills contre 1 au plus en 10 à 15 s). Les équipes favorites sont toujours en détaillé.
+- **Pas fait** : chaque kill (20 à 40 notifs par game) ; la position des tours (voie, tier) n’est pas dans le flux officiel, seulement leur nombre par équipe.
+- Colonne `detail` ajoutée à `push_subs` (migration 20261029010000, appliquée dans l’éditeur SQL). Premier appareil abonné : l’iPhone d’Anthony.
+
 ## 2026-10-29, nuit — notifications plus proches du direct
 - **Demande d’Anthony** : que la notif arrive presque au même moment que l’action.
 - **Avant** : un relevé par minute, image d’il y a 60 s → notif 1 à 2 min après l’action.

@@ -7,7 +7,7 @@ Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et c
 - **Moments forts** : `notif-events.mjs`, partagé par le site et le Worker. Compteurs cumulés du flux LoL Esports (rien n’est perdu entre deux relevés) ; ace lu sur les images (5 joueurs à 0 PV, en ignorant l’avant-partie où les PV max sont à 0). First blood non annoncé si les deux équipes ont un kill dans le même intervalle (ordre inconnu). Rejoué sur la game 1 réelle de KC–CFO : dragons, première tour, Baron et inhibiteur dans l’ordre, bonne équipe.
 - **Site ouvert** : bouton cloche, réglages (gros matchs, favoris seuls ou aucun ; rappels du coach), bandeau en haut, relevé toutes les 15 s. Pas d’alerte de match en mode sans spoilers. Rappel du coach une fois par jour à l’ouverture.
 - **Site fermé** : Web Push écrit sans bibliothèque (chiffrement identique au vecteur de la RFC 8291, signature VAPID vérifiée), `sw.js`, routes `/api/push/*`, passage chaque minute et rappels à 17 h UTC. Stocké : adresse de notification, choix, résumé d’objectif ; ni e-mail ni Riot ID. Page de confidentialité mise à jour.
-- **Reste à faire par Anthony** : migration SQL, `node worker/put-secrets.mjs`, `wrangler deploy` (worker/README.md).
+- **Migration SQL appliquée** le 29/10 au soir dans l’éditeur SQL de Supabase (succès). **Reste à faire par Anthony** : `node worker/put-secrets.mjs` et `wrangler deploy` (bloqués pour Claude Code).
 - **Limites** : 50 appels sortants par passage sur l’offre gratuite (quelques dizaines d’appareils) ; textes des réglages pas encore traduits en anglais.
 
 ## 2026-10-29, soir — Accueil : derniers résultats et carte de l’objectif

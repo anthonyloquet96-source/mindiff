@@ -63282,7 +63282,106 @@
    },
    "version": 1,
    "firstSeen": "2026-10-28"
+  },
+  {
+   "id": "u-ai-yt-V2_UctNAB4w-1",
+   "claim": "Selon Titans Coaching : erreur fréquente consistant à jouer trop de champions différents et à multiplier les rôles lors d'une mauvaise passe. L'auteur conseille de réduire sa sélection à un champion principal et un de secours sur un seul rôle pour stabiliser son winrate.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "LAS"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir une série de défaites ou un winrate stagnant autour de 50%"
+   ],
+   "limits": [
+    "Cas illustré sur le profil d'un joueur en Master"
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-V2_UctNAB4w",
+     "locator": "02:50",
+     "lang": "es",
+     "passage": "Paso 1: Arma un pool de 2 campeones en 1 rol",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-29",
+      "window": "150-210s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-V2_UctNAB4w",
+     "locator": "07:54",
+     "lang": "es",
+     "passage": "Jugaste 10 campeones distintos en 12 partidas en 3 roles. Mueres el triple cuando pierdes. O sea ¿qué te está diciendo?"
+    }
+   ],
+   "mentions": [
+    "Shen (exemple)",
+    "Ornn (exemple)",
+    "Malphite (exemple)",
+    "Cho'Gath (exemple)",
+    "Wukong (exemple)",
+    "Jinx (exemple)",
+    "Vayne (exemple)",
+    "Mordekaiser (exemple)",
+    "Caitlyn (exemple)"
+   ],
+   "action": "Restreindre sa sélection à un champion principal et un backup sur un seul rôle.",
+   "observe": "Le nombre de champions différents joués sur les dernières parties.",
+   "use": {
+    "when": "Tu enchaînes les défaites ou ton winrate stagne à 50% en parties classées.",
+    "why": "Jouer trop de champions différents augmente les morts et coûte des League Points inutilement.",
+    "who": "Joueurs en file solo cherchant à stabiliser leur progression.",
+    "how": [
+     "Identifier ton champion le plus performant et un champion de secours",
+     "Ne jouer que ce pool restreint sur un seul rôle"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est parfaitement fidèle aux passages cités, intemporel et son contexte d'usage est complet."
+   },
+   "published": "2026-10-23",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-29",
+   "validity": {
+    "checkedAt": "2026-10-29",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-29",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-29"
   }
  ],
- "updatedAt": "2026-10-28T21:30:44.426Z"
+ "updatedAt": "2026-10-29T01:14:52.824Z"
 }

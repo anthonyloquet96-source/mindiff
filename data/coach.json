@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T21:30:45.487Z",
+ "generatedAt": "2026-10-29T01:14:53.834Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -2025,7 +2025,7 @@
    "teamfight": 3,
    "synergie": 1,
    "matchup": 8,
-   "methode": 8,
+   "methode": 9,
    "vagues": 28,
    "vision": 13,
    "macro": 42,
@@ -2863,7 +2863,8 @@
    "u-ai-yt-r10CTY-1VR4-4",
    "u-ai-yt-Sbt6imQbTSs-1",
    "u-ai-yt-Sbt6imQbTSs-2",
-   "u-ai-yt-Sbt6imQbTSs-3"
+   "u-ai-yt-Sbt6imQbTSs-3",
+   "u-ai-yt-V2_UctNAB4w-1"
   ]
  },
  "sources": [
@@ -21818,7 +21819,7 @@
    "patch": null,
    "views": 5992,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.6-flash le 2026-10-24 : transcription réutilisée depuis le cache de cet ordinateur.",
    "descriptionExcerpt": "👉 Inscríbete en mi comunidad de Skool para subir a Challenger: https://titanscoaching.cl/academia-de-league-of-legends-page\n\n✅ Si quieres subir a Challenger, agenda una llamada aquí: https://titanscoaching.cl/challenger\n\n➡ Si quieres subir a Maestro en 90 días, accede a mi siste",
    "triage": {
@@ -21848,6 +21849,16 @@
     "at": "2026-10-24",
     "duration": "14:59",
     "reused": true
+   },
+   "analyzedAt": "2026-10-29",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Utiliser un outil d'intelligence artificielle connecté à ses données OP.GG permet d'analyser objectivement ses erreurs de discipline, de restreindre sa palette de champions et d'appliquer des règles de session strictes pour progresser.",
+   "quality": {
+    "level": "moyenne",
+    "why": "La vidéo présente une méthodologie de coaching structurée basée sur l'utilisation d'IA et de données statistiques, mais comporte des aspects promotionnels pour une communauté payante."
    }
   },
   {
@@ -21914,7 +21925,7 @@
    "retrievedAt": "2026-10-26",
    "patch": "null",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 27,
@@ -21938,6 +21949,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 125847
+   },
+   "analyzedAt": "2026-10-29",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 5,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu propose une analyse détaillée par un joueur Challenger sur un champion spécifique (Hwei), couvrant les combos de phase de lane, la gestion des sorts et la macro-stratégie en teamfight."
    }
   },
   {
@@ -21952,7 +21973,7 @@
    "retrievedAt": "2026-10-26",
    "patch": "14",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 28,
@@ -21976,6 +21997,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 78103
+   },
+   "analyzedAt": "2026-10-29",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "La vidéo détaille un plan de jeu précis basé sur les modifications de la carte et les matchups de jungle, bien que l'analyse repose sur une transcription visuelle par IA."
    }
   },
   {
@@ -23275,12 +23306,12 @@
    "published": null,
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 14,
-   "note": "File de lecture (rang 14) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 18,
     "matched": [
@@ -23289,6 +23320,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-29",
+    "sha256": "2cdf2a3fea89cc63e8effaeae33c96ffb05c43a9565610314164a1cf352d8956",
+    "segments": 133,
+    "observations": 40,
+    "duration": "29:06",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 173913
+   },
+   "analyzedAt": "2026-10-29",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 5,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur explique en détail son raisonnement macroéconomique, la gestion de ses vagues, le choix de ses objets et l'importance de ne pas faire de roams aléatoires, offrant un contenu structuré et très formateur."
    }
   },
   {
@@ -23301,13 +23355,13 @@
    "lang": "ko",
    "published": null,
    "retrievedAt": "2026-10-28",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "null",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 15,
-   "note": "File de lecture (rang 15) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 18,
     "matched": [
@@ -23319,6 +23373,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-10-29",
+    "sha256": "98b466e684b93cb64bee3726c4fcd955e1344a810b514c10307624e7a5f7a8f7",
+    "segments": 139,
+    "observations": 40,
+    "duration": "12:55",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 96870
+   },
+   "analyzedAt": "2026-10-29",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur détaille de manière méthodique et structurée la logique derrière le choix d'un chemin de jungle, en s'appuyant sur des exemples précis de matchups de lignes."
    }
   },
   {
@@ -23332,12 +23409,12 @@
    "published": null,
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 16,
-   "note": "File de lecture (rang 16) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 21 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 18,
     "matched": [
@@ -23347,6 +23424,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-29",
+    "sha256": "75ceb0388a607f736c3010e7b4b01198199e6eb840a343ca48366fef1a051987",
+    "segments": 277,
+    "observations": 21,
+    "duration": "18:24",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 114322
+   },
+   "analyzedAt": "2026-10-29",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 7,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "Le guide détaille de façon structurée et méthodique les principes fondamentaux du roaming en midlane (gestion de la vague, choix de la ligne cible, adaptation face aux mages ou aux roameurs) avec de nombreux exemples concrets."
    }
   },
   {
@@ -23482,13 +23582,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "https://kirei.gg/courses Jungle Courses with Permanent access and updates\nhttps://kirei.gg for personalized 1 on 1 sessions \n\nSign up on bootcamp how to play like a pro individually and how to play midgame - tinyurl.com/2f54hvb7\n\nFree course videos\nSpacing - https://kirei.gg/cour",
    "triage": {
-    "score": 10,
+    "score": 8,
     "matched": [
      "Vi",
      "jungle",
      "mid",
      "how to",
-     "fundamentals",
      "coaching"
     ],
     "entertainment": [],
@@ -23513,15 +23612,14 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "https://kirei.gg/courses Jungle Courses with Permanent access and updates\nhttps://kirei.gg for personalized 1 on 1 sessions \n\nSign up on bootcamp how to play like a pro individually and how to play midgame - tinyurl.com/2f54hvb7\n\nFree course videos\nSpacing - https://kirei.gg/cour",
    "triage": {
-    "score": 12,
+    "score": 10,
     "matched": [
      "Vi",
      "jungle",
      "mid",
      "guide",
      "how to",
-     "fundamentals",
-     "coaching"
+     "fundamentals"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -23545,13 +23643,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Get 1-on-1 coaching, champion guides and more: https://weteachleague.com/\n\n➡️Twitch: https://www.twitch.tv/weteachleaguelol\n➡️Instagram: https://www.instagram.com/weteachleague\n➡️Tiktok: https://www.tiktok.com/@weteachleague\n➡️Spotify (with video): https://wtl.lol/spotify\n➡️Apple",
    "triage": {
-    "score": 10,
+    "score": 8,
     "matched": [
      "Vi",
      "guide",
      "vod review",
-     "coaching",
-     "climb"
+     "coaching"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -23575,13 +23672,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Get 1-on-1 coaching, champion guides and more: https://weteachleague.com/\n\n➡️Twitch: https://www.twitch.tv/weteachleaguelol\n➡️Instagram: https://www.instagram.com/weteachleague\n➡️Tiktok: https://www.tiktok.com/@weteachleague\n➡️Spotify (with video): https://wtl.lol/spotify\n➡️Apple",
    "triage": {
-    "score": 10,
+    "score": 8,
     "matched": [
      "Vi",
      "guide",
      "vod review",
-     "coaching",
-     "climb"
+     "coaching"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -23631,14 +23727,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Get 1-on-1 coaching, champion guides and more: https://join.weteachleague.com/VBLBF0\n\nIt's the dream of many of us who play League of Legends to be well rounded players. In this video we break down what a well rounded league player looks like, and how to become one.\n\nTopics cover",
    "triage": {
-    "score": 12,
+    "score": 8,
     "matched": [
      "Vi",
      "guide",
      "how to",
-     "coaching",
-     "build",
-     "climb"
+     "coaching"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -23662,23 +23756,22 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "➡️Coaching and everything you need to climb - https://wtl.lol/violet (USE CODE:VIOLET10)\n➡️Join the Community - https://discord.gg/zVvGUPxYGw\n\n\nIn this video im explaining the core fundamentals on adc in league of legends. I hope you can learn a lot of new things!\n\nCheers !\n\n00:0",
    "triage": {
-    "score": 18,
+    "score": 13,
     "matched": [
      "Tristana",
      "Vi",
      "adc",
-     "support",
      "guide",
      "fundamentals",
      "coaching",
-     "build",
-     "runes",
      "climb"
     ],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "videoSkipped": "environ 97 min : au-delà de 90 min (vidéo pédagogique trop longue)",
+   "videoAttempts": 3
   },
   {
    "id": "c-yt-aLQvzboW4zg",
@@ -23697,10 +23790,9 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "📈If you want to speed up your climb and get coached by me: https://wtl.lol/mysterias \n✅Use code: TIM10 for $10 off (All Roles)\n\n\n \n\nMysterias Socials:\nTwitch ►     / https://www.twitch.tv/mysteriaslol\nX ►     / https://x.com/mysteriaslol  \nDiscord server ►    / https://discord.g",
    "triage": {
-    "score": 7,
+    "score": 5,
     "matched": [
      "mid",
-     "guide",
      "how to",
      "climb"
     ],
@@ -23738,6 +23830,35 @@
    }
   },
   {
+   "id": "c-yt-SSouIWwze0E",
+   "sourceId": "yt-sinerias",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=SSouIWwze0E",
+   "title": "CLIMB LIKE A CHALLENGER PLAYER | DIANA GUIDE",
+   "author": "Sinerias",
+   "lang": "en",
+   "published": "2026-10-28",
+   "retrievedAt": "2026-10-28",
+   "patch": null,
+   "views": 558,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "CLIMB YOURSELF HERE https://sinerias.podia.com/the-complete-climbing-course\n► Training Academy here: https://sinerias.podia.com/the-sinerias-training-academy\n► I ALSO ACCEPT CRYPTO PAYMENTS ► DM me on Discord\n► SOLO COACHING - DM me on Discord\n► Discord - https://discord.gg/we-ar",
+   "triage": {
+    "score": 8,
+    "matched": [
+     "Diana",
+     "guide",
+     "coaching",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
    "id": "c-yt-vGQQcy2tkZQ",
    "sourceId": "yt-kyan",
    "type": "video",
@@ -23754,18 +23875,12 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "Learn how to ALWAYS WIN LANE in League of Legends with this complete laning phase guide!\n\nIn this guide, I'll teach you the fundamentals of laning that every League of Legends player should understand to consistently win lane and climb in Solo Queue.\n\nWe'll cover everything from ",
    "triage": {
-    "score": 20,
+    "score": 10,
     "matched": [
-     "top",
-     "mid",
      "guide",
      "how to",
      "fundamentals",
-     "coaching",
-     "wave",
      "laning",
-     "trading",
-     "matchup",
      "climb"
     ],
     "entertainment": [],
@@ -23845,6 +23960,92 @@
    "triage": {
     "score": 18,
     "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-k7p-L-gE8fM",
+   "sourceId": "yt-coach-leo",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=k7p-L-gE8fM",
+   "title": "Jungle Pathing Fundamentals Explained & How To Give Your Game Structure",
+   "author": "Coach Leo (JungleGap)",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-29",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 23,
+   "note": "File de lecture (rang 23) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 19,
+    "matched": [
+     "jungle",
+     "how to",
+     "fundamentals",
+     "explained",
+     "jungle path"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Zu_X0KkI41c",
+   "sourceId": "yt-coach-kirei",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=Zu_X0KkI41c",
+   "title": "Fullclearing and LOSING? (5 Reasons) and how to FIX IT",
+   "author": "Coach Kirei",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-29",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 24,
+   "note": "File de lecture (rang 24) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 19,
+    "matched": [
+     "how to",
+     "clear"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-DQMTfTFEc0k",
+   "sourceId": "yt-mysteriaslol",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=DQMTfTFEc0k",
+   "title": "How Chovy Gaps Lane Using Wave Management",
+   "author": "Mysteriaslol",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-29",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 25,
+   "note": "File de lecture (rang 25) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "wave"
+    ],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -59987,7 +60188,7 @@
    "id": "u-cl-note-udyon-macro-1",
    "context": {
     "queue": "solo",
-    "rank": "diamant 2 (maître au mieux)",
+    "rank": "diamant 2 (Master au mieux)",
     "region": "JP"
    },
    "patch": {
@@ -60000,7 +60201,7 @@
    "nature": "opinion",
    "levelContext": "maitre",
    "usage": "reference",
-   "claim": "Selon udyon (top, maître au mieux) : après avoir pris la première tourelle du top, pousse ta wave lentement à l'attaque de base jusqu'à la deuxième tourelle adverse. Ton adversaire ne peut plus prendre la wave et perd de l'expérience, ou doit partir roam.",
+   "claim": "Selon udyon (top, Master au mieux) : après avoir pris la première tourelle du top, pousse ta wave lentement à l'attaque de base jusqu'à la deuxième tourelle adverse. Ton adversaire ne peut plus prendre la wave et perd de l'expérience, ou doit partir roam.",
    "roles": [
     "top"
    ],
@@ -60051,7 +60252,7 @@
    "id": "u-cl-note-udyon-macro-2",
    "context": {
     "queue": "solo",
-    "rank": "diamant 2 (maître au mieux)",
+    "rank": "diamant 2 (Master au mieux)",
     "region": "JP"
    },
    "patch": {
@@ -60064,7 +60265,7 @@
    "nature": "opinion",
    "levelContext": "maitre",
    "usage": "reference",
-   "claim": "Selon udyon (top, maître au mieux) : quand le dragon apparaît dans 1 minute à 30 secondes, quitte ta pression sur la tourelle et rejoins le dragon.",
+   "claim": "Selon udyon (top, Master au mieux) : quand le dragon apparaît dans 1 minute à 30 secondes, quitte ta pression sur la tourelle et rejoins le dragon.",
    "roles": [
     "top"
    ],
@@ -60114,7 +60315,7 @@
    "id": "u-cl-note-udyon-macro-3",
    "context": {
     "queue": "solo",
-    "rank": "diamant 2 (maître au mieux)",
+    "rank": "diamant 2 (Master au mieux)",
     "region": "JP"
    },
    "patch": {
@@ -60127,7 +60328,7 @@
    "nature": "opinion",
    "levelContext": "maitre",
    "usage": "reference",
-   "claim": "Selon udyon (top, maître au mieux) : après la phase de lane, la répartition habituelle est la suivante : le duo du bot va au mid, le mid au top, et le top au bot, grâce à sa Téléportation et à sa résistance. Pousse les lanes où il n'y a personne plutôt que d'attendre tous au mid.",
+   "claim": "Selon udyon (top, Master au mieux) : après la phase de lane, la répartition habituelle est la suivante : le duo du bot va au mid, le mid au top, et le top au bot, grâce à sa Téléportation et à sa résistance. Pousse les lanes où il n'y a personne plutôt que d'attendre tous au mid.",
    "roles": [
     "all"
    ],
@@ -60178,7 +60379,7 @@
    "id": "u-cl-note-udyon-macro-4",
    "context": {
     "queue": "solo",
-    "rank": "diamant 2 (maître au mieux)",
+    "rank": "diamant 2 (Master au mieux)",
     "region": "JP"
    },
    "patch": {
@@ -60191,7 +60392,7 @@
    "nature": "opinion",
    "levelContext": "maitre",
    "usage": "reference",
-   "claim": "Selon udyon (top, maître au mieux) : en side lane, ne dépasse la rivière vers le camp adverse que si ton équipe a l'avantage, si les adversaires sont visibles sur la carte, ou si une ward te montre que la zone est vide. Sinon, tu risques de mourir et de faire perdre un objectif.",
+   "claim": "Selon udyon (top, Master au mieux) : en side lane, ne dépasse la rivière vers le camp adverse que si ton équipe a l'avantage, si les adversaires sont visibles sur la carte, ou si une ward te montre que la zone est vide. Sinon, tu risques de mourir et de faire perdre un objectif.",
    "roles": [
     "top",
     "all"
@@ -71122,6 +71323,101 @@
     {
      "code": "verification-legere",
      "why": "c-yt-iO5vR1UtJSE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-V2_UctNAB4w-1",
+   "claim": "Selon Titans Coaching : erreur fréquente consistant à jouer trop de champions différents et à multiplier les rôles lors d'une mauvaise passe. L'auteur conseille de réduire sa sélection à un champion principal et un de secours sur un seul rôle pour stabiliser son winrate.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "LAS"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir une série de défaites ou un winrate stagnant autour de 50%"
+   ],
+   "limits": [
+    "Cas illustré sur le profil d'un joueur en Master"
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-V2_UctNAB4w",
+     "locator": "02:50",
+     "lang": "es",
+     "passage": "Paso 1: Arma un pool de 2 campeones en 1 rol",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-29",
+      "window": "150-210s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-V2_UctNAB4w",
+     "locator": "07:54",
+     "lang": "es",
+     "passage": "Jugaste 10 campeones distintos en 12 partidas en 3 roles. Mueres el triple cuando pierdes. O sea ¿qué te está diciendo?"
+    }
+   ],
+   "mentions": [
+    "Shen (exemple)",
+    "Ornn (exemple)",
+    "Malphite (exemple)",
+    "Cho'Gath (exemple)",
+    "Wukong (exemple)",
+    "Jinx (exemple)",
+    "Vayne (exemple)",
+    "Mordekaiser (exemple)",
+    "Caitlyn (exemple)"
+   ],
+   "action": "Restreindre sa sélection à un champion principal et un backup sur un seul rôle.",
+   "observe": "Le nombre de champions différents joués sur les dernières parties.",
+   "use": {
+    "when": "Tu enchaînes les défaites ou ton winrate stagne à 50% en parties classées.",
+    "why": "Jouer trop de champions différents augmente les morts et coûte des League Points inutilement.",
+    "who": "Joueurs en file solo cherchant à stabiliser leur progression.",
+    "how": [
+     "Identifier ton champion le plus performant et un champion de secours",
+     "Ne jouer que ce pool restreint sur un seul rôle"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-23",
+   "analyzedAt": "2026-10-29",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-V2_UctNAB4w : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-V2_UctNAB4w : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (07:54)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
     }
    ]
   }

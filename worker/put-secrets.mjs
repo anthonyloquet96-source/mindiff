@@ -1,6 +1,7 @@
 // Pose les secrets du Worker depuis ../.env, sans jamais les afficher : à lancer par Anthony, depuis la racine du projet :
 //   node worker/put-secrets.mjs
-// Secrets : RIOT_API_KEY (clé personnelle, app 897844), SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_KEY, PILOT_CODE.
+// Secrets : RIOT_API_KEY (clé personnelle, app 897844), SUPABASE_URL, SUPABASE_ANON_KEY, SUPABASE_SERVICE_KEY, PILOT_CODE,
+// VAPID_PUBLIC_KEY et VAPID_PRIVATE_KEY (notifications ; créées une fois par node worker/vapid-keys.mjs).
 // GEMINI_API_KEY n'est pas envoyé : aucune donnée de testeur ne doit partir vers l'offre gratuite de Gemini.
 
 import { readFileSync } from "node:fs";
@@ -9,7 +10,7 @@ import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
 const env = Object.fromEntries(readFileSync(`${root}.env`, "utf8").split(/\r?\n/).map(l => l.match(/^([A-Z_]+)=(.*)$/)).filter(Boolean).map(m => [m[1], m[2].trim()]));
-const NAMES = ["RIOT_API_KEY", "SUPABASE_URL", "SUPABASE_ANON_KEY", "SUPABASE_SERVICE_KEY", "PILOT_CODE"];
+const NAMES = ["RIOT_API_KEY", "SUPABASE_URL", "SUPABASE_ANON_KEY", "SUPABASE_SERVICE_KEY", "PILOT_CODE", "VAPID_PUBLIC_KEY", "VAPID_PRIVATE_KEY"];
 const missing = NAMES.filter(n => !env[n]);
 if (missing.length) { console.error(`Manquant dans .env : ${missing.join(", ")}`); process.exit(1); }
 for (const name of NAMES) {

@@ -1625,3 +1625,16 @@ html.ptr-on, html.ptr-on body { overscroll-behavior-y: none; }
 .hgoal-txt .fine b { color: var(--text-2); }
 .hgoal > .ic:last-child { color: var(--text-3); flex: none; }
 @media (min-width: 900px) { .home-main .hgoal { margin-top: var(--s2); } }
+
+/* ---------- Notifications : bandeau dans le site et réglages (29/10) ---------- */
+#toasts { position: fixed; z-index: 60; top: calc(10px + env(safe-area-inset-top)); left: 12px; right: 12px; max-width: 440px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
+.toast { pointer-events: auto; display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: var(--r); background: var(--surface); border: 1px solid rgba(var(--accent-rgb), .35); box-shadow: 0 12px 34px rgba(0, 0, 0, .38); animation: toast-in .35s var(--ease); transition: opacity .5s, transform .5s; }
+.toast.out { opacity: 0; transform: translateY(-12px); }
+.toast > .ic { flex: none; width: 18px; height: 18px; padding: 7px; box-sizing: content-box; border-radius: 9px; background: var(--accent); color: #fff; }
+.toast > span { display: flex; flex-direction: column; gap: 2px; min-width: 0; font-size: 14px; line-height: 1.35; }
+.toast b { font-size: 12px; color: var(--text-3); font-weight: 600; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(-14px); } }
+.nt section { display: flex; flex-direction: column; gap: var(--s2); }
+.nt-on { display: flex; align-items: center; gap: 8px; margin: 0; font-weight: 700; color: var(--ok); }
+.nt-btns { display: flex; gap: var(--s2); flex-wrap: wrap; }
+.nt .btn.primary { align-self: flex-start; }

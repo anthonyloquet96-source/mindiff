@@ -1,0 +1,129 @@
+// Notifications site fermé (Web Push) : abonnements (/api/push/*) et surveillance des matchs (déclencheur planifié).
+//   - Chaque minute : matchs en cours (getLive), moments forts (notif-events.mjs), une notification par match et par passage.
+//     Un match qui vient de finir est relu une dernière fois pour annoncer le vainqueur.
+//   - Chaque jour à 17 h UTC : rappel du coach, au plus tous les 2 jours, à partir du résumé d'objectif envoyé par l'appareil.
+// Stockage : tables push_subs et push_live (supabase/migrations/20261029000000_push.sql), clé de service.
+// Secrets : VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY (worker/vapid-keys.mjs), SUPABASE_URL, SUPABASE_SERVICE_KEY.
+// Limite de l'offre gratuite : 50 appels sortants par passage ; suffisant pour le test (quelques dizaines d'appareils).
+
+import { createSupabaseRest } from "../coach/v1/store-supabase.mjs";
+import { gameSnapshot, gameEvents, matchState, matchEvents, followed, coachMessage } from "../notif-events.mjs";
+import { sendPush } from "./webpush.mjs";
+
+const LOLE_KEY = "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"; // clé publique du site LoL Esports (déjà utilisée par le site)
+const LOLE = path => fetch(`https://esports-api.lolesports.com/persisted/gw/${path}`, { headers: { "x-api-key": LOLE_KEY } }).then(r => (r.ok ? r.json() : null)).catch(() => null);
+const SITE = "https://anthonyloquet96-source.github.io/mindiff/";
+// Services de push des navigateurs : on n'envoie rien ailleurs
+const PUSH_HOSTS = /^https:\/\/([a-z0-9-]+\.)*(fcm\.googleapis\.com|push\.services\.mozilla\.com|push\.apple\.com|notify\.windows\.com)\//i;
+const vapid = env => ({ publicKey: env.VAPID_PUBLIC_KEY, privateKey: env.VAPID_PRIVATE_KEY, subject: SITE });
+const hits = new Map();
+const hit = (k, max, ms) => { const now = Date.now(), list = (hits.get(k) || []).filter(t => now - t < ms); if (list.length >= max) return false; list.push(now); hits.set(k, list); return true; };
+
+// --- Routes appelées par le site
+export async function pushApi(request, env, cors) {
+  const url = new URL(request.url), json = (status, body) => new Response(JSON.stringify(body), { status, headers: { ...cors, "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" } });
+  if (url.pathname === "/api/push/key" && request.method === "GET") return json(env.VAPID_PUBLIC_KEY ? 200 : 503, { key: env.VAPID_PUBLIC_KEY || null });
+  if (request.method !== "POST") return json(404, { error: "introuvable" });
+  if (!hit(`ip:${request.headers.get("CF-Connecting-IP") || "?"}`, 30, 3600e3)) return json(429, { error: "trop de demandes" });
+  const b = await request.json().catch(() => null), sub = b?.sub;
+  if (!sub?.endpoint || !PUSH_HOSTS.test(sub.endpoint) || sub.endpoint.length > 1000) return json(400, { error: "abonnement invalide" });
+  const sb = createSupabaseRest({ url: env.SUPABASE_URL, serviceKey: env.SUPABASE_SERVICE_KEY });
+  const key = `push_subs?endpoint=eq.${encodeURIComponent(sub.endpoint)}`;
+  if (url.pathname === "/api/push/unsubscribe") { await sb.rest("DELETE", key); return json(200, { ok: true }); }
+  if (url.pathname === "/api/push/subscribe") {
+    if (!sub.keys?.p256dh || !sub.keys?.auth) return json(400, { error: "clés manquantes" });
+    const g = b.goal && typeof b.goal === "object" ? b.goal : null;
+    const row = {
+      endpoint: sub.endpoint, p256dh: String(sub.keys.p256dh).slice(0, 200), auth: String(sub.keys.auth).slice(0, 100),
+      matches: ["big", "fav", "off"].includes(b.matches) ? b.matches : "big",
+      fav_teams: (Array.isArray(b.fav) ? b.fav : []).slice(0, 30).map(x => String(x).slice(0, 60)),
+      coach: b.coach !== false, lang: b.lang === "en" ? "en" : "fr", seen_at: new Date().toISOString(),
+      // Résumé de l'objectif seulement : pas d'identifiant Riot
+      goal: g ? { label: String(g.label || "").slice(0, 120), role: String(g.role || "").slice(0, 12), target: String(g.target ?? "").slice(0, 20), unit: String(g.unit || "").slice(0, 12), status: String(g.status || "").slice(0, 12), left: Math.max(0, Math.min(20, Number(g.of) - Number(g.counted) || 0)) } : null,
+    };
+    await sb.rest("POST", "push_subs", { body: row, prefer: "resolution=merge-duplicates,return=minimal" });
+    if (b.test) {
+      const s = await sendPush(sub, { title: "MINDIFF", body: row.lang === "en" ? "Notifications are on." : "Les notifications sont activées.", url: SITE }, vapid(env), { ttl: 60 });
+      return json(200, { ok: true, test: s });
+    }
+    return json(200, { ok: true });
+  }
+  return json(404, { error: "introuvable" });
+}
+
+// --- Envoi à une liste d'abonnés ; abonnements expirés supprimés
+async function fanout(sb, env, subs, message) {
+  let sent = 0;
+  for (const s of subs) {
+    const st = await sendPush({ endpoint: s.endpoint, keys: { p256dh: s.p256dh, auth: s.auth } }, typeof message === "function" ? message(s) : message, vapid(env)).catch(() => 0);
+    if (st === 404 || st === 410) await sb.rest("DELETE", `push_subs?endpoint=eq.${encodeURIComponent(s.endpoint)}`).catch(() => null);
+    else if (st >= 200 && st < 300) sent++;
+  }
+  return sent;
+}
+
+// --- Matchs en direct (chaque minute)
+export async function pushLive(env) {
+  if (!env.VAPID_PRIVATE_KEY || !env.SUPABASE_URL) return { skipped: true };
+  const sb = createSupabaseRest({ url: env.SUPABASE_URL, serviceKey: env.SUPABASE_SERVICE_KEY });
+  const [live, subs, rows] = await Promise.all([
+    LOLE("getLive?hl=fr-FR"),
+    sb.rest("GET", "push_subs?matches=neq.off&select=endpoint,p256dh,auth,matches,fav_teams,lang&limit=500"),
+    sb.rest("GET", "push_live?select=match_id,state,updated_at"),
+  ]);
+  if (!subs?.length) return { subs: 0 };
+  // Flux LoL Esports muet : on ne conclut pas que les matchs suivis sont finis
+  if (!live?.data?.schedule) return { subs: subs.length, live: null };
+  const events = (live?.data?.schedule?.events || []).filter(e => e.type === "match" && e.match?.id && e.state === "inProgress");
+  const saved = Object.fromEntries((rows || []).map(r => [r.match_id, r]));
+  // Matchs suivis par au moins un abonné, plus ceux qui viennent de quitter le direct (annonce du vainqueur)
+  const todo = events.map(e => ({ id: e.match.id, league: e.league?.slug, names: (e.match.teams || []).map(t => t.name), tournament: e.league?.name }))
+    .filter(x => subs.some(s => followed(s.matches, x.league, x.names, s.fav_teams)));
+  for (const r of rows || []) if (!todo.some(x => x.id === r.match_id)) todo.push({ id: r.match_id, ...r.state.info, ended: true });
+  let sent = 0;
+  for (const x of todo.slice(0, 4)) {
+    const det = await LOLE(`getEventDetails?hl=fr-FR&id=${encodeURIComponent(x.id)}`), m = det?.data?.event?.match;
+    if (!m) continue;
+    // Match vu pour la première fois à 0-0 en game 1 (le passage a lieu chaque minute) : on annonce son début
+    const first = !saved[x.id] && m.teams.every(t => !t.result?.gameWins) ? { wins: {}, game: null } : null;
+    const prev = saved[x.id]?.state, info = { league: x.league, names: x.names, tournament: x.tournament };
+    const state = { info, match: matchState(m), game: prev?.game || null };
+    const out = { fr: matchEvents(prev?.match || first, m, "fr"), en: matchEvents(prev?.match || first, m, "en") };
+    const g = m.games?.find(y => y.state === "inProgress");
+    if (g) {
+      // Relevé d'il y a environ une minute (le flux refuse les images trop récentes)
+      const t = new Date(Date.now() - 60000); t.setUTCSeconds(Math.floor(t.getUTCSeconds() / 10) * 10, 0);
+      const w = await fetch(`https://feed.lolesports.com/livestats/v1/window/${g.id}?startingTime=${t.toISOString()}`).then(r => (r.status === 200 ? r.json() : null)).catch(() => null);
+      const snap = gameSnapshot(w?.frames);
+      if (snap) {
+        const before = prev?.game?.id === g.id ? prev.game.snap : null;
+        out.fr.push(...gameEvents(before, snap, w.gameMetadata, m.teams, "fr"));
+        out.en.push(...gameEvents(before, snap, w.gameMetadata, m.teams, "en"));
+        state.game = { id: g.id, snap };
+      }
+    }
+    if (out.fr.length) {
+      const [A, B] = m.teams, url = `${SITE}#/lol/competitions/matchs`;
+      const who = subs.filter(s => followed(s.matches, info.league, info.names, s.fav_teams));
+      sent += await fanout(sb, env, who, s => ({ title: `${A.code} vs ${B.code}${info.tournament ? ` · ${info.tournament}` : ""}`, body: out[s.lang === "en" ? "en" : "fr"].map(e => e.text).join("\n"), url, tag: `m${x.id}-${Date.now()}` }));
+    }
+    const over = m.games?.length && m.games.every(y => y.state !== "inProgress" && y.state !== "unstarted") || m.teams.some(t => t.result?.outcome);
+    if (x.ended || over) await sb.rest("DELETE", `push_live?match_id=eq.${encodeURIComponent(x.id)}`);
+    else await sb.rest("POST", "push_live", { body: { match_id: x.id, state, updated_at: new Date().toISOString() }, prefer: "resolution=merge-duplicates,return=minimal" });
+  }
+  return { subs: subs.length, matches: todo.length, sent };
+}
+
+// --- Rappels du coach (une fois par jour au plus, et tous les 2 jours au plus par appareil)
+export async function pushCoach(env, now = Date.now()) {
+  if (!env.VAPID_PRIVATE_KEY || !env.SUPABASE_URL) return { skipped: true };
+  const sb = createSupabaseRest({ url: env.SUPABASE_URL, serviceKey: env.SUPABASE_SERVICE_KEY });
+  const before = new Date(now - 2 * 864e5 + 3600e3).toISOString();
+  // Appareils vus dans les 14 derniers jours : pas de rappel à quelqu'un qui n'utilise plus le site
+  const subs = await sb.rest("GET", `push_subs?coach=eq.true&seen_at=gt.${new Date(now - 14 * 864e5).toISOString()}&or=(coach_at.is.null,coach_at.lt.${before})&select=endpoint,p256dh,auth,goal,lang&limit=40`);
+  if (!subs?.length) return { sent: 0 };
+  const day = Math.floor(now / 864e5);
+  const sent = await fanout(sb, env, subs, s => ({ title: "MINDIFF · Coach", body: coachMessage(s.goal, day, s.lang), url: `${SITE}#/lol/coach`, tag: "coach" }));
+  await sb.rest("PATCH", `push_subs?endpoint=in.(${subs.map(s => `"${encodeURIComponent(s.endpoint)}"`).join(",")})`, { body: { coach_at: new Date(now).toISOString() }, prefer: "return=minimal" }).catch(() => null);
+  return { sent };
+}

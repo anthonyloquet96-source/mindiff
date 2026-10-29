@@ -6,3 +6,7 @@ compatibility_flags = ["nodejs_compat"]
 
 # Offre gratuite : 100 000 requêtes par jour, aucune carte bancaire.
 # Secret à définir une fois : npx wrangler secret put RIOT_API_KEY
+
+# Notifications : matchs en direct chaque minute, rappels du coach à 17 h UTC (worker/push.mjs)
+[triggers]
+crons = ["* * * * *", "0 17 * * *"]

@@ -316,6 +316,7 @@ const ICONS = {
   left: '<path d="m15 6-6 6 6 6"/>',
   down: '<path d="m6 9 6 6 6-6"/>',
   close: '<path d="M6 6l12 12M18 6 6 18"/>',
+  bell: '<path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15zM10 20.5a2 2 0 0 0 4 0"/>',
   external: '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
   alert: '<circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.01"/>',
   refresh: '<path d="M20 11a8 8 0 0 0-14.6-4.5L4 8M4 4v4h4M4 13a8 8 0 0 0 14.6 4.5L20 16M20 20v-4h-4"/>',
@@ -655,12 +656,22 @@ async function liveTick() {
   const ids = [...new Set([...document.querySelectorAll("[data-live-match]")].map(e => e.dataset.liveMatch))];
   if (!ids.length) return;
   for (const id of ids) {
-    const L = (LIVE[id] ||= {});
+    await livePoll(id);
+    for (const el of document.querySelectorAll(`[data-live-match="${CSS.escape(id)}"]`)) el.innerHTML = liveStripInner(id);
+  }
+  liveTimer = setTimeout(liveTick, 10000);
+}
+// Un relevé du direct d'un match (au plus un toutes les 8 s) : détails du match chaque minute, dernière image de la game
+async function livePoll(id) {
+  const L = (LIVE[id] ||= {});
+  if (L.at && Date.now() - L.at < 8000) return L;
+  L.at = Date.now();
+  {
     try {
       if (!L.evAt || Date.now() - L.evAt > 60000) {
         const ev = await (await fetch(`https://esports-api.lolesports.com/persisted/gw/getEventDetails?hl=fr-FR&id=${encodeURIComponent(id)}`, { headers: { "x-api-key": LOLE_KEY } })).json();
         const mt = ev?.data?.event?.match, g = mt?.games?.find(x => x.state === "inProgress");
-        L.teams = mt?.teams; L.evAt = Date.now();
+        L.teams = mt?.teams; L.match = mt; L.evAt = Date.now();
         if (g?.id !== L.game) Object.assign(L, { game: g?.id || null, gameNo: g?.number || null, start: null, f: null });
         L.none = !g; L.over = !g && !!mt?.games?.length && mt.games.every(x => x.state !== "unstarted" && x.state !== "inProgress");
       }
@@ -671,13 +682,12 @@ async function liveTick() {
         const t = new Date(Date.now() - L.lag); t.setUTCSeconds(Math.floor(t.getUTCSeconds() / 10) * 10, 0);
         const res = await fetch(`https://feed.lolesports.com/livestats/v1/window/${L.game}?startingTime=${t.toISOString()}`);
         const w = res.status === 200 ? await res.json() : null, f = w?.frames?.at(-1);
-        if (f) { L.f = f; L.meta = w.gameMetadata; L.ok = (L.ok || 0) + 1; if (L.ok > 30 && L.lag > 20000) { L.lag -= 10000; L.ok = 0; } }
+        if (f) { L.f = f; L.frames = w.frames; L.meta = w.gameMetadata; L.ok = (L.ok || 0) + 1; if (L.ok > 30 && L.lag > 20000) { L.lag -= 10000; L.ok = 0; } }
         else { L.lag = Math.min(60000, L.lag + 10000); L.ok = 0; }
       }
     } catch { /* flux momentanément indisponible : on garde le dernier relevé */ }
-    for (const el of document.querySelectorAll(`[data-live-match="${CSS.escape(id)}"]`)) el.innerHTML = liveStripInner(id);
   }
-  liveTimer = setTimeout(liveTick, 10000);
+  return L;
 }
 // Matchs qui démarrent entre deux collectes : la liste officielle des matchs en cours est relue chaque minute
 const LIVE_IDS = new Set();
@@ -1529,7 +1539,7 @@ function syncSheet() {
   const dlg = document.getElementById("sheet");
   const want = route.sheet;
   if (want) {
-    dlg.innerHTML = want === "__sync" ? syncPanelHtml() : sheetHtml(route.sheetGame || route.game, want);
+    dlg.innerHTML = want === "__sync" ? syncPanelHtml() : want === "__notif" ? notifPanelHtml() : sheetHtml(route.sheetGame || route.game, want);
     if (!dlg.open) { sheetOpener = document.activeElement; dlg.showModal(); }
     dlg.querySelector('[data-action="close-sheet"]')?.focus();
   } else if (dlg.open) {
@@ -1538,7 +1548,7 @@ function syncSheet() {
   }
 }
 function closeSheet() {
-  if (route.sheet === "__sync") { route.sheet = null; syncSheet(); return; }
+  if (route.sheet === "__sync" || route.sheet === "__notif") { route.sheet = null; syncSheet(); return; }
   // La fiche fait partie de l'adresse : la fermer revient à l'écran d'origine
   if (history.state?.sheetFromApp) history.back();
   else location.hash = location.hash.replace(/\/fiche\/[^/]*$/, "");
@@ -1599,6 +1609,7 @@ function renderHeader() {
       <div class="top-actions">
         ${g ? `<button class="icon-btn ${prefs.noSpoil ? "on" : ""}" data-action="spoil" aria-pressed="${prefs.noSpoil}" aria-label="Mode sans spoilers${prefs.noSpoil ? " activé" : ""}" title="Mode sans spoilers">${icon(prefs.noSpoil ? "eyeOff" : "eye")}</button>
         <a class="icon-btn" href="${href(g, "favoris")}" aria-label="Favoris" ${route.view === "favoris" ? 'aria-current="page"' : ""}>${icon("star")}</a>
+        <button class="icon-btn ${prefs.notif?.push ? "on" : ""}" data-action="notif-panel" aria-label="Notifications" title="Notifications">${icon("bell")}</button>
         <button class="icon-btn" data-action="sync-panel" aria-label="Sources et synchronisation">${icon("info")}</button>` : ""}
         <button class="icon-btn lang-btn" data-action="lang" data-id="${window.LANG === "en" ? "fr" : "en"}" aria-label="${window.LANG === "en" ? "Language: English. Switch to French" : "Langue : français. Passer en anglais"}" title="${window.LANG === "en" ? "Français" : "English"}" translate="no">${window.LANG === "en" ? "EN" : "FR"}</button>
         <button class="icon-btn" data-action="theme" aria-label="${THEMES[prefs.theme]?.[1] || THEMES.auto[1]}" title="${THEMES[prefs.theme]?.[1] || THEMES.auto[1]}">${icon(THEMES[prefs.theme]?.[0] || "contrast")}</button>
@@ -1705,7 +1716,7 @@ document.addEventListener("click", e => {
     case "reveal": revealed.add(id); break;
     case "pp": { const [g, j] = id.split("|"); PP[g] = PP[g] === Number(j) ? null : Number(j); break; }
     case "fav-game": prefs.favGames = prefs.favGames.includes(id) ? prefs.favGames.filter(x => x !== id) : [...prefs.favGames, id]; savePrefs(); break;
-    case "fav-team": prefs.favTeams = prefs.favTeams.includes(id) ? prefs.favTeams.filter(x => x !== id) : [...prefs.favTeams, id]; savePrefs(); break;
+    case "fav-team": prefs.favTeams = prefs.favTeams.includes(id) ? prefs.favTeams.filter(x => x !== id) : [...prefs.favTeams, id]; savePrefs(); pushSync(true); break;
     case "save": prefs.saved = prefs.saved.includes(id) ? prefs.saved.filter(x => x !== id) : [...prefs.saved, id]; savePrefs(); break;
     case "t-filter": ui.tFilter = id; break;
     case "t-stage": ui.tStage = Number(id); break;
@@ -1719,6 +1730,12 @@ document.addEventListener("click", e => {
     case "more": ui.limit += 20; break;
     case "tabs-scroll": { const nav = el.parentElement.querySelector(".tabs"); nav.scrollBy({ left: Number(id) * nav.clientWidth * 0.6, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); return; }
     case "sync-panel": route.sheet = "__sync"; syncSheet(); return;
+    case "notif-panel": ui.notifMsg = ""; route.sheet = "__notif"; syncSheet(); return;
+    case "notif-on": pushOn(); return;
+    case "notif-test": pushOn(true); return;
+    case "notif-off": pushOff(); return;
+    case "notif-matches": prefs.notif.matches = id; savePrefs(); pushSync(true); notifSheetRefresh(); return;
+    case "notif-coach": prefs.notif.coach = id === "1"; savePrefs(); pushSync(true); notifSheetRefresh(); return;
     case "close-sheet": closeSheet(); return;
     case "skip": document.getElementById("view").focus(); return;
     case "retry": dataLoaded = false; render(false); loadData().then(() => render(false)); return;
@@ -1973,9 +1990,149 @@ function guideButton() {
   });
 })();
 
+// ============================================================ Notifications
+// Deux voies (demande d'Anthony, 29/10) :
+//   - site ouvert : bandeau en haut de l'écran (et notification du téléphone si l'onglet est en arrière-plan), à partir du
+//     même flux que le direct, relu toutes les 15 s pour les matchs suivis ;
+//   - site fermé : Web Push (sw.js, worker/push.mjs), activé ici par le joueur. Sur iPhone : seulement depuis l'icône de
+//     l'écran d'accueil (iOS 16.4 et plus). Quand le push est actif, le site n'affiche plus ses propres alertes de match
+//     (pas de doublon).
+// Moments forts et messages du coach : notif-events.mjs (window.NOTIF), partagé avec le Worker.
+const PUSH_API = window.MINDIFF_PILOT?.api || null;
+const IS_IOS = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+const STANDALONE = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+const pushSupported = () => !!PUSH_API && "serviceWorker" in navigator && "PushManager" in window && "Notification" in window;
+prefs.notif = { matches: "big", coach: true, push: false, ...(prefs.notif || {}) };
+let swReg = null;
+async function swReady() {
+  if (!("serviceWorker" in navigator)) return null;
+  try { swReg ||= await navigator.serviceWorker.register("sw.js"); await navigator.serviceWorker.ready; return swReg; } catch { return null; }
+}
+const b64key = s => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((s.length + 3) % 4)), c => c.charCodeAt(0));
+// Ce qui part au service : l'abonnement, les choix, et le résumé de l'objectif si les rappels du coach sont activés (pas de Riot ID)
+function pushBody(sub, extra = {}) {
+  const S = prefs.notif.coach && typeof C2 !== "undefined" && C2.v1Snap;
+  return { sub: sub.toJSON(), matches: prefs.notif.matches, fav: prefs.favTeams, coach: prefs.notif.coach, lang: window.LANG === "en" ? "en" : "fr",
+    goal: S ? { label: S.label, role: S.role, target: S.target, unit: S.unit, status: S.status, counted: S.counted, of: S.of } : null, ...extra };
+}
+const pushPost = (path, body) => fetch(`${PUSH_API}/api/push/${path}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+function notifSheetRefresh() { if (route.sheet === "__notif") syncSheet(); }
+async function pushOn(test = true) {
+  ui.notifBusy = true; ui.notifMsg = ""; notifSheetRefresh();
+  try {
+    if (await Notification.requestPermission() !== "granted") throw new Error("Autorisation refusée. Tu peux la redonner dans les réglages du téléphone, rubrique Notifications.");
+    const reg = await swReady();
+    if (!reg) throw new Error("Ce navigateur ne permet pas les notifications.");
+    const { key } = await fetch(`${PUSH_API}/api/push/key`).then(r => (r.ok ? r.json() : {})).catch(() => ({}));
+    if (!key) throw new Error("Le service des notifications n'est pas encore en ligne.");
+    const sub = (await reg.pushManager.getSubscription()) || (await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: b64key(key) }));
+    const r = await pushPost("subscribe", pushBody(sub, { test }));
+    if (!r.ok) throw new Error("Le service des notifications ne répond pas. Réessaie dans un moment.");
+    Object.assign(prefs.notif, { push: true, syncAt: Date.now() }); savePrefs();
+    ui.notifMsg = test ? "C'est activé : une notification de test arrive." : "";
+  } catch (e) { ui.notifMsg = e.message || "Activation impossible."; }
+  ui.notifBusy = false; notifSheetRefresh(); render(false);
+}
+async function pushOff() {
+  try {
+    const sub = await (await swReady())?.pushManager.getSubscription();
+    if (sub) { await pushPost("unsubscribe", { sub: sub.toJSON() }).catch(() => null); await sub.unsubscribe(); }
+  } catch { /* déjà désabonné */ }
+  prefs.notif.push = false; savePrefs(); ui.notifMsg = "Notifications désactivées sur cet appareil."; notifSheetRefresh();
+}
+// Choix et résumé de l'objectif renvoyés au service : à chaque changement, et une fois par jour à l'ouverture
+async function pushSync(force = false) {
+  if (!prefs.notif.push || !pushSupported() || (!force && Date.now() - (prefs.notif.syncAt || 0) < 864e5)) return;
+  try {
+    const sub = await (await swReady())?.pushManager.getSubscription();
+    if (!sub) { prefs.notif.push = false; savePrefs(); return; }
+    if ((await pushPost("subscribe", pushBody(sub))).ok) { prefs.notif.syncAt = Date.now(); savePrefs(); }
+  } catch { /* réessayé à la prochaine ouverture */ }
+}
+
+function notifPanelHtml() {
+  const N = prefs.notif, denied = "Notification" in window && Notification.permission === "denied";
+  const device = !PUSH_API ? `<p class="fine">Service des notifications indisponible sur cette version du site.</p>`
+    : !pushSupported() ? (IS_IOS && !STANDALONE
+      ? `<p class="note">${icon("info")}<span>Sur iPhone, les notifications marchent depuis l'icône de MINDIFF sur l'écran d'accueil : bouton Partager, puis « Sur l'écran d'accueil ». Ouvre ensuite MINDIFF depuis cette icône et reviens ici.</span></p>`
+      : `<p class="fine">Ce navigateur ne permet pas les notifications quand le site est fermé.</p>`)
+    : N.push ? `<p class="nt-on">${icon("check")}<span>Activées sur cet appareil</span></p><div class="nt-btns"><button class="btn ghost sm" data-action="notif-test"${ui.notifBusy ? " disabled" : ""}>Envoyer un test</button><button class="btn ghost sm" data-action="notif-off">Désactiver</button></div>`
+    : `<button class="btn primary" data-action="notif-on"${ui.notifBusy ? " disabled" : ""}>${icon("bell")}${ui.notifBusy ? "Activation…" : "Activer les notifications"}</button>`;
+  return `<div class="sheet-head"><div><p class="label">Réglages</p><h2 class="sheet-title" id="sheet-title">Notifications</h2></div><button class="icon-btn" data-action="close-sheet" aria-label="Fermer">${icon("close")}</button></div>
+    <div class="sheet-body nt">
+      <section><p class="label">Matchs en direct</p>
+        ${seg("notif-matches", [["big", "Gros matchs"], ["fav", "Mes favoris"], ["off", "Aucun"]], N.matches, "Matchs suivis", "small")}
+        <p class="fine">Début de chaque game, first blood, première tour, dragons, Baron, inhibiteurs, ace, game et match gagnés.
+        ${N.matches === "big" ? "Gros matchs : Worlds, MSI, First Stand, LCK, LPL, LEC, LCS et LCP, plus tes équipes favorites." : ""}
+        ${N.matches !== "off" && !prefs.favTeams.length ? "Ajoute des équipes en favori (étoile sur leur fiche) pour suivre aussi leurs matchs." : ""}</p>
+        ${prefs.noSpoil && !N.push ? `<p class="fine">Mode sans spoilers activé : pas d'alerte de match dans le site.</p>` : ""}</section>
+      <section><p class="label">Coach</p>
+        ${seg("notif-coach", [["1", "Rappels activés"], ["0", "Désactivés"]], N.coach ? "1" : "0", "Rappels du coach", "small")}
+        <p class="fine">Ton objectif, les games qui restent, un mot pour t'encourager. Un rappel tous les 2 jours au plus, en fin d'après-midi.</p></section>
+      <section><p class="label">Sur cet appareil, site fermé</p>${device}
+        ${denied ? `<p class="fine">Les notifications de MINDIFF sont bloquées dans les réglages de l'appareil.</p>` : ""}
+        ${ui.notifMsg ? `<p class="note">${icon("info")}<span>${esc(ui.notifMsg)}</span></p>` : ""}
+        <p class="fine">Sans activation, les alertes de match s'affichent en bandeau quand MINDIFF est ouvert.</p></section>
+      <p class="fine">Le service garde seulement l'adresse technique des notifications de cet appareil, tes choix et, si les rappels sont activés, le résumé de ton objectif (intitulé, poste, cible, games restantes). Ni e-mail, ni compte Riot. <a href="confidentialite.html" style="text-decoration: underline">Confidentialité</a></p>
+    </div>`;
+}
+
+// --- Bandeau dans le site
+function toast(title, lines, to) {
+  let box = document.getElementById("toasts");
+  if (!box) { box = document.createElement("div"); box.id = "toasts"; box.setAttribute("role", "status"); box.setAttribute("aria-live", "polite"); document.body.appendChild(box); }
+  const t = document.createElement("a");
+  t.className = "toast"; t.href = to || "#";
+  t.innerHTML = `${icon("bell")}<span><b>${esc(title)}</b>${lines.map(l => `<span>${esc(l)}</span>`).join("")}</span>`;
+  box.prepend(t);
+  [...box.children].slice(3).forEach(x => x.remove());
+  setTimeout(() => t.classList.add("out"), 7000);
+  setTimeout(() => t.remove(), 7600);
+  // Onglet en arrière-plan : notification de l'appareil, si elle a été autorisée
+  if (document.visibilityState === "hidden" && "Notification" in window && Notification.permission === "granted") {
+    swReady().then(reg => reg?.showNotification(title, { body: lines.join("\n"), icon: "icon-192.png", tag: `t${Date.now()}`, data: { url: to || "./" } })).catch(() => null);
+  }
+}
+const NSTATE = {};
+let notifBusy = false;
+async function notifTick() {
+  const N = window.NOTIF;
+  if (notifBusy || !N || !dataLoaded || prefs.notif.push || prefs.notif.matches === "off" || prefs.noSpoil) return;
+  notifBusy = true;
+  try {
+    await liveList();
+    const all = allTournaments().filter(t => t.game === "lol").flatMap(t => tMatches(t).map(m => ({ m, t })));
+    for (const id of LIVE_IDS) {
+      const x = all.find(y => y.m.id === id);
+      if (!x || !N.followed(prefs.notif.matches, x.t.leagueSlug, x.m.teams.map(t => t.name), prefs.favTeams)) continue;
+      const L = await livePoll(id), m = L.match;
+      if (!m?.teams?.length) continue;
+      const S = (NSTATE[id] ||= {}), lang = window.LANG === "en" ? "en" : "fr", ev = N.matchEvents(S.match, m, lang);
+      S.match = N.matchState(m);
+      const snap = L.game && L.frames ? N.gameSnapshot(L.frames) : null;
+      if (snap) { ev.push(...N.gameEvents(S.game?.id === L.game ? S.game.snap : null, snap, L.meta, m.teams, lang)); S.game = { id: L.game, snap }; }
+      if (ev.length) toast(`${m.teams[0].code} vs ${m.teams[1].code} · ${x.t.name}`, ev.map(e => e.text), href("lol", "tournoi", x.t.id, "matchs", id));
+    }
+  } catch { /* flux indisponible : prochain passage */ }
+  notifBusy = false;
+}
+// Rappel du coach à l'ouverture, une fois par jour, si un objectif est connu sur cet appareil
+function notifCoach() {
+  const N = window.NOTIF, S = typeof C2 !== "undefined" && C2.account && C2.v1Snap?.for === C2.account.riotId ? C2.v1Snap : null;
+  const day = Math.floor(Date.now() / 864e5);
+  if (!N || !S || !prefs.notif.coach || prefs.notif.coachDay === day || route.view === "coach") return;
+  prefs.notif.coachDay = day; savePrefs();
+  toast("Coach", [N.coachMessage({ ...S, left: Math.max(0, S.of - S.counted) }, day, window.LANG === "en" ? "en" : "fr")], href("lol", "coach"));
+}
+function notifBoot() {
+  pushSync();
+  setTimeout(notifCoach, 2500);
+  setInterval(() => { if (route.game === "lol" || route.game === "all") notifTick(); }, 15000);
+}
+
 if (!location.hash && prefs.game && (prefs.game === "all" || ENABLED_GAMES.includes(prefs.game))) history.replaceState(null, "", href(prefs.game));
 route = parseRoute();
 render();
-loadData().then(() => { lastBase = ""; onRoute(); connectLive(); });
+loadData().then(() => { lastBase = ""; onRoute(); connectLive(); notifBoot(); });
 loadRosters();
 loadDiamond();

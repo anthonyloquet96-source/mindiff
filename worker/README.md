@@ -42,3 +42,19 @@ Le site (`index.html`, `window.MINDIFF_PILOT`) affiche la connexion des volontai
 
 Pendant le test, l'ancien coach (/api/coach) n'est servi qu'aux volontaires inscrits, sans les repères Diamant+
 de la clé de développement ; `COACH_ACCESS = "public"` rouvrira tout après la clé de production.
+
+## Notifications (29/10/2026)
+
+Site fermé : Web Push (`worker/push.mjs`, `worker/webpush.mjs`, `sw.js`), moments forts calculés par `notif-events.mjs`
+(partagé avec le site, qui affiche les mêmes alertes en bandeau quand il est ouvert).
+- Routes publiques : `GET /api/push/key`, `POST /api/push/subscribe` (choix, résumé d'objectif, `test: true` envoie une notification d'essai), `POST /api/push/unsubscribe`.
+- Déclencheurs (`wrangler.toml`) : chaque minute les matchs en direct, à 17 h UTC les rappels du coach (tous les 2 jours au plus par appareil).
+- Tables `push_subs` et `push_live` : `supabase/migrations/20261029000000_push.sql`.
+- Clés VAPID : `node worker/vapid-keys.mjs` (fait le 29/10, dans `.env`), posées par `put-secrets.mjs`.
+- iPhone : seulement depuis l'icône de l'écran d'accueil (iOS 16.4+), activation par un appui sur le bouton.
+- Limite de l'offre gratuite : 50 appels sortants par passage, donc quelques dizaines d'appareils ; au-delà, envoyer par lots (file d'attente).
+
+À lancer par Anthony :
+1. Supabase → SQL Editor : coller et exécuter `supabase/migrations/20261029000000_push.sql`.
+2. `node worker/put-secrets.mjs` (ajoute `VAPID_PUBLIC_KEY` et `VAPID_PRIVATE_KEY`, sans les afficher).
+3. `cd worker && npx wrangler deploy`.

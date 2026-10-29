@@ -40,7 +40,7 @@ const TYPES = {
   ".json": "application/json; charset=utf-8", ".svg": "image/svg+xml", ".png": "image/png", ".webmanifest": "application/manifest+json",
 };
 // Seuls ces fichiers sont servis : jamais le collecteur, le cache, node_modules ou .env.
-const PUBLIC = [/^(index|admin|confidentialite)\.html$/, /^(i18n|app|coach|coach-select|coach2|admin)\.js$/, /^story\.mjs$/, /^style\.css$/, /^manifest\.webmanifest$/, /^(icon|logo)\.svg$/, /^(icon-\d+|icon-maskable-512|apple-touch-icon|coach-apercu-[a-z-]+)\.png$/, /^data\/[\w-]+\.(js|json)$/];
+const PUBLIC = [/^(index|admin|confidentialite)\.html$/, /^(i18n|app|coach|coach-select|coach2|admin)\.js$/, /^(story|notif-events)\.mjs$/, /^sw\.js$/, /^style\.css$/, /^manifest\.webmanifest$/, /^(icon|logo)\.svg$/, /^(icon-\d+|icon-maskable-512|apple-touch-icon|coach-apercu-[a-z-]+)\.png$/, /^data\/[\w-]+\.(js|json)$/];
 
 // Coach V1 : créé une fois (stockage, client Riot avec la clé du .env, file de synchronisation)
 let v1 = null;

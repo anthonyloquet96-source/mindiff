@@ -1322,6 +1322,42 @@ await t("COACH-002 Normaliseur sur de vraies parties anonymisées (cache privé)
   return `${games} parties : 10:00 lue à ${worst} ms près au pire, adversaire de lane sûr pour ${Math.round(1000 * sure / roles) / 10} % des joueurs.`;
 });
 
+await t("Notifications : chiffrement Web Push (vecteur RFC 8291), signature VAPID, moments forts d'un match, rappels du coach", "fixture", async () => {
+  const { encrypt, vapidHeader, b64u } = await import("../../worker/webpush.mjs");
+  const N = await import("../../notif-events.mjs");
+  const out = await encrypt("When I grow up, I want to be a watermelon", { keys: { p256dh: "BCVxsr7N_eNgVRqvHtD0zTZsEc6-VV-JvLexhqUzORcxaOzi6-AYWXvTBHm4bjyPjs7Vd8pZGH6SRpkNtoIAiw4", auth: "BTBZMqHH6r4Tts7J_aSIgg" } },
+    { asPublic: b64u.dec("BP4z9KsN6nGRTbVYI_c7VJSPQTBtkgcy27mlmlMoZIIgDll6e3vCYLocInmYWAmS6TlzAC8wEqKK6PBru3jl7A8"), asPrivate: b64u.dec("yfWPiYE-n46HLnH0KqZOF1fJJU3MYrct3AELtAQ-oRw"), salt: b64u.dec("DGv6ra1nlYgDCS1FRnbzlw") });
+  assert(b64u.enc(out) === "DGv6ra1nlYgDCS1FRnbzlwAAEABBBP4z9KsN6nGRTbVYI_c7VJSPQTBtkgcy27mlmlMoZIIgDll6e3vCYLocInmYWAmS6TlzAC8wEqKK6PBru3jl7A_yl95bQpu6cVPTpK4Mqgkf1CXztLVBSt2Ks3oZwbuwXPXLWyouBWLVWGNWQexSgSxsj_Qulcy4a-fN", "chiffrement différent du vecteur RFC 8291");
+  // Clé VAPID jetable : la signature se vérifie avec la clé publique annoncée
+  const kp = await crypto.subtle.generateKey({ name: "ECDSA", namedCurve: "P-256" }, true, ["sign", "verify"]);
+  const pub = b64u.enc(await crypto.subtle.exportKey("raw", kp.publicKey)), d = (await crypto.subtle.exportKey("jwk", kp.privateKey)).d;
+  const [, tok] = (await vapidHeader("https://fcm.googleapis.com/fcm/send/x", { publicKey: pub, privateKey: d, subject: "https://example.org/" })).match(/^vapid t=(.+), k=/);
+  const [h, p, sig] = tok.split(".");
+  assert(await crypto.subtle.verify({ name: "ECDSA", hash: "SHA-256" }, kp.publicKey, b64u.dec(sig), new TextEncoder().encode(`${h}.${p}`)), "signature VAPID invalide");
+  // Match : début, games gagnées, match gagné, sans doublon
+  const m = g => ({ strategy: { count: 3 }, teams: [{ id: "k", code: "KC", result: { gameWins: g[0] } }, { id: "c", code: "CFO", result: { gameWins: g[1] } }], games: [1, 2, 3].map(n => ({ number: n, state: n === g[2] ? "inProgress" : "completed" })) });
+  let st = { wins: {}, game: null }, said = [];
+  for (const s of [[0, 0, 1], [0, 0, 1], [1, 0, null], [1, 0, 2], [2, 0, null]]) { said.push(...N.matchEvents(st, m(s)).map(e => e.text)); st = N.matchState(m(s)); }
+  assert(said.join(" | ") === "Le match commence : KC vs CFO (Bo3) | KC remporte la game 1 (1-0) | La game 2 commence : KC vs CFO (1-0) | KC remporte le match 2-0 !", said.join(" | "));
+  // Partie : first blood avec le joueur, première tour, dragon, Baron, ace une seule fois ; PV max à 0 (avant le début) n'est pas un ace
+  const P = (id, k = 0, hp = 100, max = 100) => ({ participantId: id, kills: k, currentHealth: hp, maxHealth: max });
+  const fr = (bk, o = {}) => ({ blueTeam: { totalKills: bk, towers: o.t || 0, inhibitors: 0, barons: o.b || 0, dragons: o.d || [], participants: [P(1, bk), P(2), P(3), P(4), P(5)] }, redTeam: { totalKills: 0, towers: 0, inhibitors: 0, barons: 0, dragons: [], participants: [6, 7, 8, 9, 10].map(i => P(i, 0, o.ace ? 0 : 100, o.max ?? 100)) } });
+  const meta = { blueTeamMetadata: { esportsTeamId: "k", participantMetadata: [{ participantId: 1, summonerName: "KC Canna" }] }, redTeamMetadata: { esportsTeamId: "c", participantMetadata: [] } };
+  const teams = [{ id: "k", code: "KC" }, { id: "c", code: "CFO" }];
+  const s0 = N.gameSnapshot([fr(0, { ace: true, max: 0 })]), s1 = N.gameSnapshot([fr(1, { t: 1, d: ["ocean"] })]), s2 = N.gameSnapshot([fr(4, { t: 1, d: ["ocean"], b: 1, ace: true })]);
+  const e1 = N.gameEvents(s0, s1, meta, teams).map(e => e.text), e2 = N.gameEvents(s1, s2, meta, teams).map(e => e.text), e3 = N.gameEvents(s2, s2, meta, teams);
+  assert(!s0.aced.red, "début de partie pris pour un ace");
+  assert(e1.join(" | ") === "First blood : Canna (KC) | Première tour pour KC | KC prend le dragon de l'océan", e1.join(" | "));
+  assert(e2.join(" | ") === "KC prend le Baron Nashor | ACE pour KC : les 5 joueurs de CFO sont morts", e2.join(" | "));
+  assert(!e3.length, "événement répété");
+  // Matchs suivis et rappels du coach
+  assert(N.followed("big", "worlds", ["A", "B"]) && !N.followed("big", "lfl", ["A", "B"]) && N.followed("big", "lfl", ["Karmine Corp Blue", "B"], ["Karmine Corp Blue"]) && !N.followed("fav", "worlds", ["A", "B"]) && !N.followed("off", "worlds", ["A"]), "choix des matchs suivis");
+  const g = { label: "CS à 10 min", role: "JUNGLE", target: "62", unit: "CS", status: "active", left: 2 };
+  assert(N.coachMessage(g, 0) === "Encore 2 games pour ton objectif : CS à 10 min, vise 62 CS.", N.coachMessage(g, 0));
+  assert(/jungle/.test(N.coachMessage(g, 1)) && /prêt/.test(N.coachMessage({ ...g, status: "proposed" }, 0)) && /t'attend/.test(N.coachMessage(null, 0)), "messages du coach");
+  return "chiffrement identique à la RFC 8291 ; VAPID vérifié ; début, games, match, first blood, tour, dragon, Baron, ace sans doublon ; rappels du coach.";
+});
+
 // ---------- Rapport
 const ok = results.filter(r => r.ok).length;
 for (const r of results) console.log(`${r.skipped ? "–" : r.ok ? "✔" : "✘"} ${r.name} [${r.kind}]\n    ${r.detail}`);

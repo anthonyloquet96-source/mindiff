@@ -536,6 +536,8 @@ async function c2V1Load(force = false) {
   V.busy = false; render(false);
 }
 const C2_V1_ROLE = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "ADC", UTILITY: "support" };
+// « en tant que top », « en tant qu'ADC » : l'objectif est toujours donné pour un poste précis (retour d'Anthony, 29/10)
+const c2AsRole = r => { const n = C2_V1_ROLE[r] || r || "ce poste"; return `en tant ${/^[aeiouy]/i.test(n) ? "qu'" : "que "}<b>${esc(n)}</b>`; };
 // Motion design de la carte objectif : entrée en cascade, chiffres qui défilent, bordure lumineuse, onde au lancement.
 // Rejoué seulement quand l'objectif ou son statut change ; coupé si le joueur a réduit les animations (style.css).
 const c2Seen = new Set();
@@ -620,7 +622,7 @@ function c2V1Card(p) {
   const V1_POS = { top: "TOP", jungle: "JUNGLE", mid: "MIDDLE", bottom: "BOTTOM", support: "UTILITY" }, picked = V1_POS[C2.role];
   if (g && picked && picked !== g.role) {
     const n = p?.byRole?.[C2.role]?.games ?? 0;
-    return `<section class="c2-card c2-v1"><p class="label">Mon objectif · ${esc(C2_ROLE[C2.role] || C2.role)}</p><p>Ton objectif en cours est au <b>${esc(C2_V1_ROLE[g.role] || g.role)}</b>, ton poste principal : le coach te fait travailler une seule chose à la fois.</p><p class="fine">${esc(C2_ROLE[C2.role] || C2.role)} : ${n} partie${n > 1 ? "s" : ""} classée${n > 1 ? "s" : ""} récente${n > 1 ? "s" : ""}. Quand ce poste deviendra ton poste principal, ton prochain objectif y sera adapté (ses champions, ses repères).</p><button class="btn ghost sm" data-action="c2-role" data-id="${esc(Object.keys(V1_POS).find(k => V1_POS[k] === g.role) || "")}">Voir mon objectif ${esc(C2_V1_ROLE[g.role] || g.role)}</button></section>`;
+    return `<section class="c2-card c2-v1"><p class="label">Mon objectif · ${esc(C2_ROLE[C2.role] || C2.role)}</p><p>Ton objectif en cours t'est donné ${c2AsRole(g.role)}, ton poste principal : le coach te fait travailler une seule chose à la fois.</p><p class="fine">${esc(C2_ROLE[C2.role] || C2.role)} : ${n} partie${n > 1 ? "s" : ""} classée${n > 1 ? "s" : ""} récente${n > 1 ? "s" : ""}. Quand ce poste deviendra ton poste principal, ton prochain objectif y sera adapté (ses champions, ses repères).</p><button class="btn ghost sm" data-action="c2-role" data-id="${esc(Object.keys(V1_POS).find(k => V1_POS[k] === g.role) || "")}">Voir mon objectif ${esc(C2_V1_ROLE[g.role] || g.role)}</button></section>`;
   }
   if (!g) {
     const rows = V.diagnostic?.rows || [], why = rows.find(r => r.reason)?.reason;
@@ -640,13 +642,13 @@ function c2V1Card(p) {
   const unit = g.unit && g.unit !== "%" ? `<small>${esc(g.unit === "/min" ? " / min" : " " + g.unit)}</small>` : "";
   const seenKey = `${g.id}:${g.status}`, enter = !c2Seen.has(seenKey);
   if (enter) { c2Seen.add(seenKey); setTimeout(c2CountUp, 0); }
-  const head = `<p class="label">${g.status === "proposed" ? "Ton prochain objectif" : "Ton objectif en cours"} · ${esc(C2_V1_ROLE[g.role] || g.role)}</p>
+  const head = `<p class="label">${g.status === "proposed" ? "Ton prochain objectif" : "Ton objectif en cours"} ${c2AsRole(g.role)}</p>
     <h3 class="c2-v1-title">${esc(g.label)}</h3>
     <div class="c2-v1-nums"><div><span class="fine">Toi aujourd'hui</span><b><span data-count>${esc(g.baseline_text)}</span>${unit}</b></div><span class="c2-v1-arrow" aria-hidden="true">→</span><div class="goal"><span class="fine">${g.direction === "lower" ? "Au plus" : "Ta cible"}</span><b><span data-count data-delay="250">${esc(g.target_text)}</span>${unit}</b></div></div>`;
   const tips = c2V1Tips(g);
   const more = `<details class="more c2-fold" data-fold="v1-why"${c2ui.fold?.["v1-why"] ? " open" : ""}><summary>Pourquoi cette cible</summary><ul class="c2-v1-why"><li><b>${esc(g.baseline_text)}</b><span>C'est ce que tu fais d'habitude (tes dernières ranked ${esc(C2_V1_ROLE[g.role] || "à ce poste")}).</span></li><li><b>${g.reference?.source === "metric_references" ? esc(c2V1Fmt(g, g.reference.value)) : esc(g.target_text)}</b><span>${g.reference?.source === "metric_references" ? `C'est ce que font les joueurs ${esc(g.reference.level || "Diamant+")} ${g.reference.quantile === "p50" ? "en moyenne" : "les plus forts"}. On y va par petites marches : ${esc(g.target_text)} d'abord.` : "C'est le repère du coach pour ce poste."}</span></li><li><b>${g.success_required}/${g.evaluation_games}</b><span>L'objectif est réussi si tu atteins ${esc(g.target_text)} dans ${g.success_required} de tes ${g.evaluation_games} prochaines ranked. Gagner ou perdre ne compte pas.</span></li></ul></details>
     ${tips.length ? `<details class="more c2-fold" data-fold="v1-tips"${c2ui.fold?.["v1-tips"] ? " open" : ""}><summary>Ce qu'en disent les coachs (${tips.length})</summary><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></details>` : ""}`;
-  const howHtml = how ? `<div class="c2-v1-ex"><span class="label">En partie</span><p>${gloss(esc(how))}</p></div>` : "";
+  const howHtml = how ? `<div class="c2-v1-ex"><span class="label">En partie, ${c2AsRole(g.role)}</span><p>${gloss(esc(how))}</p></div>` : "";
   const body = g.status === "proposed"
     ? `${howHtml}<button class="btn primary" data-action="c2-v1-start" data-id="${esc(g.id)}">Je commence</button>${more}`
     : `<div class="c2-v1-prog"><div class="c2-v1-dots" aria-label="${evs.filter(e => e.met).length} cibles atteintes sur ${evs.length} parties">${dots}</div>

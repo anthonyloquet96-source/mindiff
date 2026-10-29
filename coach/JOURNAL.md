@@ -2,6 +2,13 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-29, soir — Accueil : derniers résultats et carte de l’objectif
+- **Refonte testée sur la branche `refonte-accueil`** : Anthony préfère l’Accueil actuel. La branche reste de côté, non publiée.
+- **Gardé de la refonte, à sa demande** :
+  - **Derniers résultats** : les 5 derniers matchs, une ligne chacun, gagnant en blanc, perdant en gris ; le mode sans spoilers masque les scores.
+  - **Carte de l’objectif** : anneau de réussites, poste (« en tant que jungle »), cible, parties restantes. Le coach garde sur l’appareil un résumé du dernier objectif reçu (`C2.v1Snap`) : l’Accueil l’affiche sans relancer de synchronisation Riot. Sans résumé, la ligne « Mon coach » reste comme avant.
+- Le reste de l’Accueil ne change pas.
+
 ## 2026-10-21, 19 h 30 — coach restructuré, plus simple (branche `coach-v2-suite`, à valider)
 - **Demande d'Anthony** : une organisation à l'image du reste de l'application ; aujourd'hui il y a trop d'informations partout, on s'y perd.
 - **4 onglets**, comme Compétitions :

@@ -800,6 +800,20 @@ function viewHome() {
     ${upcoming.length ? `<div class="mlist">${upcoming.map(x => matchCard(x.m, x.t)).join("")}</div>` : `<p class="inline-empty">Aucun match programmé dans les données${g === "val" ? " : le calendrier Valorant n'est pas encore relié à une source automatique" : ""}.</p>`}
   </section>`;
 
+  // 3 bis. Derniers résultats (29/10, gardé de la refonte) : une ligne par match, gagnant en blanc, perdant en gris ;
+  // score masqué en mode sans spoilers
+  const team = x => `<span class="hrow-team">${logo(x.name, x.image)}<b>${esc(x.code || x.name)}</b></span>`;
+  const recent = ts.flatMap(t => tMatches(t).map(m => ({ m, t }))).filter(x => x.m.state === "completed" && x.m.start && known(x.m))
+    .sort((a, b) => b.m.start.localeCompare(a.m.start)).slice(0, 5);
+  const resHtml = recent.length ? `<section class="sec">${secHead("Derniers résultats", seeAll(href(g, "competitions", "matchs")))}
+    <div class="hlist">${recent.map(({ m, t }) => {
+      const [a, b] = m.teams, hide = hidden(m.id), w = x => (!hide && x.outcome === "win" ? "win" : !hide && x.outcome === "loss" ? "loss" : "");
+      return `<a class="hrow res" href="${href(t.game, "tournoi", t.id, "matchs", m.id)}" aria-label="${esc(`${a.name} contre ${b.name}, ${hide ? "score masqué" : `${a.score} à ${b.score}`}, ${t.name}`)}">
+        <span class="hrow-side a ${w(a)}">${team(a)}</span>
+        <span class="hrow-score">${hide ? `<span class="mc-hidden">Masqué</span>` : a.score != null ? `${a.score}<i>–</i>${b.score}` : "Terminé"}</span>
+        <span class="hrow-side b ${w(b)}">${team(b)}</span></a>`;
+    }).join("")}</div></section>` : "";
+
   // 4. Méta en bref
   const metaHtml = (g === "all" ? ENABLED_GAMES : [g]).map(gg => {
     const p = latestPatch(gg);
@@ -834,7 +848,7 @@ function viewHome() {
 
   return `<div class="home">
     <div class="home-main">${leadHtml || empty("Aucune compétition suivie", "Aucun tournoi n'est disponible dans les données pour ce jeu.")}${g === "lol" ? coachHomeCard() : ""}${quick}</div>
-    <div class="home-side">${nextHtml}${metaHtml ? `<section class="sec">${secHead("Méta en bref", seeAll(href(g, "meta")))}${metaHtml}</section>` : ""}${briefs}</div>
+    <div class="home-side">${nextHtml}${resHtml}${metaHtml ? `<section class="sec">${secHead("Méta en bref", seeAll(href(g, "meta")))}${metaHtml}</section>` : ""}${briefs}</div>
   </div>`;
 }
 

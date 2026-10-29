@@ -1596,3 +1596,32 @@ html.ptr-on, html.ptr-on body { overscroll-behavior-y: none; }
 
 /* Page du coach cachée pendant l'écran « Bienvenue » : évite l'aperçu furtif avant l'animation */
 #view.coach-hold { opacity: 0; }
+
+/* ---------- Accueil : derniers résultats en lignes compactes et carte de l'objectif du coach (29/10) ---------- */
+.hlist { display: flex; flex-direction: column; background: var(--surface); border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow); }
+.hlist > * + * { border-top: 1px solid var(--line); }
+.hrow { display: grid; align-items: center; gap: var(--s3); min-height: 52px; padding: 10px var(--s4); transition: background .15s; }
+.hrow:hover { background: var(--surface-2); }
+.hrow-team { display: inline-flex; align-items: center; gap: 6px; min-width: 0; }
+.hrow-team .logo { width: 24px; height: 24px; border-radius: 6px; }
+.hrow-team b { font-size: var(--fs); font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hrow.res { grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr); }
+.hrow-side { display: flex; min-width: 0; }
+.hrow-side.b { justify-content: flex-end; }
+.hrow-side.b .hrow-team { flex-direction: row-reverse; }
+.hrow-side.loss { color: var(--text-3); }
+.hrow-side.loss .logo { opacity: .55; }
+.hrow-score { text-align: center; font-size: var(--fs); font-weight: 800; font-variant-numeric: tabular-nums; }
+.hrow-score i { font-style: normal; margin: 0 5px; color: var(--text-3); }
+.hrow-score .mc-hidden { font-size: 12px; }
+.hgoal { display: flex; align-items: center; gap: 14px; padding: var(--s4); background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow); transition: background .15s; }
+.hgoal:hover { background: var(--surface-2); }
+.hgoal.hot { background: linear-gradient(90deg, rgba(var(--accent-rgb), .14), transparent 80%), var(--surface); }
+.hgoal-ring { flex: none; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--accent) var(--deg), var(--surface-2) 0); }
+.hgoal-ring b { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--surface); font-size: 13px; font-weight: 800; }
+.hgoal:hover .hgoal-ring b { background: var(--surface-2); }
+.hgoal-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.hgoal-txt > b { font-size: 16px; font-weight: 700; line-height: 1.3; }
+.hgoal-txt .fine b { color: var(--text-2); }
+.hgoal > .ic:last-child { color: var(--text-3); flex: none; }
+@media (min-width: 900px) { .home-main .hgoal { margin-top: var(--s2); } }

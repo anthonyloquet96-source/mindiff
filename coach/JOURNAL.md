@@ -2,6 +2,12 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-29, nuit — notifications plus proches du direct
+- **Demande d’Anthony** : que la notif arrive presque au même moment que l’action.
+- **Avant** : un relevé par minute, image d’il y a 60 s → notif 1 à 2 min après l’action.
+- **Maintenant** : chaque passage (une minute) dure environ 50 s et relit les matchs suivis toutes les 10 s ; image la plus récente acceptée par le flux (décalage de 20 s, allongé si le flux refuse, raccourci au passage suivant). Notif 20 à 30 s après l’action, à peu près le décalage de la diffusion. Le flux officiel lui-même a environ 20 s de retard : impossible de faire mieux.
+- Simulation accélérée : first blood envoyé 20 s après le début du passage, première tour 10 s plus tard ; arrêt sous 36 appels sortants (limite de 50 de l’offre gratuite).
+
 ## 2026-10-29, nuit — notifications (matchs en direct et coach)
 - **Demande d’Anthony** : des notifs pendant les gros matchs (début de game, first blood avec le joueur, première tour, dragon, Baron, ace, game et match gagnés) et des rappels du coach (« ton coach t’attend », games restantes, messages motivants). Dans le site et site fermé, y compris depuis l’icône de l’écran d’accueil de l’iPhone.
 - **Moments forts** : `notif-events.mjs`, partagé par le site et le Worker. Compteurs cumulés du flux LoL Esports (rien n’est perdu entre deux relevés) ; ace lu sur les images (5 joueurs à 0 PV, en ignorant l’avant-partie où les PV max sont à 0). First blood non annoncé si les deux équipes ont un kill dans le même intervalle (ordre inconnu). Rejoué sur la game 1 réelle de KC–CFO : dragons, première tour, Baron et inhibiteur dans l’ordre, bonne équipe.

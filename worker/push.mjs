@@ -1,5 +1,6 @@
 // Notifications site fermé (Web Push) : abonnements (/api/push/*) et surveillance des matchs (déclencheur planifié).
-//   - Chaque minute : matchs en cours (getLive), moments forts (notif-events.mjs), une notification par match et par passage.
+//   - Chaque minute, un passage d'environ 50 s qui relit les matchs suivis toutes les 10 s (getLive, notif-events.mjs) :
+//     notification 20 à 30 s après l'action, à peu près le décalage de la diffusion.
 //     Un match qui vient de finir est relu une dernière fois pour annoncer le vainqueur.
 //   - Chaque jour à 17 h UTC : rappel du coach, au plus tous les 2 jours, à partir du résumé d'objectif envoyé par l'appareil.
 // Stockage : tables push_subs et push_live (supabase/migrations/20261029000000_push.sql), clé de service.
@@ -80,36 +81,57 @@ export async function pushLive(env) {
   const todo = events.map(e => ({ id: e.match.id, league: e.league?.slug, names: (e.match.teams || []).map(t => t.name), tournament: e.league?.name }))
     .filter(x => subs.some(s => followed(s.matches, x.league, x.names, s.fav_teams)));
   for (const r of rows || []) if (!todo.some(x => x.id === r.match_id)) todo.push({ id: r.match_id, ...r.state.info, ended: true });
-  let sent = 0;
-  for (const x of todo.slice(0, 4)) {
-    const det = await LOLE(`getEventDetails?hl=fr-FR&id=${encodeURIComponent(x.id)}`), m = det?.data?.event?.match;
-    if (!m) continue;
-    // Match vu pour la première fois à 0-0 en game 1 (le passage a lieu chaque minute) : on annonce son début
-    const first = !saved[x.id] && m.teams.every(t => !t.result?.gameWins) ? { wins: {}, game: null } : null;
-    const prev = saved[x.id]?.state, info = { league: x.league, names: x.names, tournament: x.tournament };
-    const state = { info, match: matchState(m), game: prev?.game || null };
-    const out = { fr: matchEvents(prev?.match || first, m, "fr"), en: matchEvents(prev?.match || first, m, "en") };
-    const g = m.games?.find(y => y.state === "inProgress");
-    if (g) {
-      // Relevé d'il y a environ une minute (le flux refuse les images trop récentes)
-      const t = new Date(Date.now() - 60000); t.setUTCSeconds(Math.floor(t.getUTCSeconds() / 10) * 10, 0);
-      const w = await fetch(`https://feed.lolesports.com/livestats/v1/window/${g.id}?startingTime=${t.toISOString()}`).then(r => (r.status === 200 ? r.json() : null)).catch(() => null);
-      const snap = gameSnapshot(w?.frames);
-      if (snap) {
-        const before = prev?.game?.id === g.id ? prev.game.snap : null;
-        out.fr.push(...gameEvents(before, snap, w.gameMetadata, m.teams, "fr"));
-        out.en.push(...gameEvents(before, snap, w.gameMetadata, m.teams, "en"));
-        state.game = { id: g.id, snap };
+  // Passage d'environ 45 s : chaque match suivi est relu toutes les 10 s (le déclencheur ne tourne qu'une fois par minute).
+  // Image la plus récente que le flux accepte : décalage de 20 s au départ, allongé de 10 s si le flux la refuse,
+  // raccourci de 10 s à chaque nouveau passage pour revenir au plus près du direct.
+  const t0 = Date.now(), W = {};
+  let calls = 3, sent = 0;
+  const list = todo.slice(0, 3);
+  for (let round = 0; ; round++) {
+    const roundAt = Date.now();
+    for (const x of list) {
+      const S = (W[x.id] ||= { prev: saved[x.id]?.state || null, lag: Math.max(20000, (saved[x.id]?.state?.lag || 20000) - 10000) });
+      if (S.done || (x.ended && round > 0)) continue;
+      // Détails du match (games, victoires) : au premier tour puis toutes les 30 s
+      if (!S.m || round % 3 === 0) { const det = await LOLE(`getEventDetails?hl=fr-FR&id=${encodeURIComponent(x.id)}`); calls++; if (det?.data?.event?.match) S.m = det.data.event.match; }
+      const m = S.m;
+      if (!m) continue;
+      const info = { league: x.league, names: x.names, tournament: x.tournament };
+      // Match vu pour la première fois à 0-0 en game 1 : on annonce son début
+      const first = round === 0 && !saved[x.id] && m.teams.every(t => !t.result?.gameWins) ? { wins: {}, game: null } : null;
+      const out = { fr: matchEvents(S.prev?.match || first, m, "fr"), en: matchEvents(S.prev?.match || first, m, "en") };
+      const state = { info, match: matchState(m), game: S.prev?.game || null, lag: S.lag };
+      const g = m.games?.find(y => y.state === "inProgress");
+      if (g) {
+        const t = new Date(Date.now() - S.lag); t.setUTCSeconds(Math.floor(t.getUTCSeconds() / 10) * 10, 0);
+        const w = await fetch(`https://feed.lolesports.com/livestats/v1/window/${g.id}?startingTime=${t.toISOString()}`).then(r => (r.status === 200 ? r.json() : null)).catch(() => null);
+        calls++;
+        const snap = gameSnapshot(w?.frames);
+        if (snap) {
+          const before = S.prev?.game?.id === g.id ? S.prev.game.snap : null;
+          out.fr.push(...gameEvents(before, snap, w.gameMetadata, m.teams, "fr"));
+          out.en.push(...gameEvents(before, snap, w.gameMetadata, m.teams, "en"));
+          state.game = { id: g.id, snap };
+        } else S.lag = state.lag = Math.min(60000, S.lag + 10000);
       }
+      if (out.fr.length) {
+        const [A, B] = m.teams, url = `${SITE}#/lol/competitions/matchs`;
+        const who = subs.filter(s => followed(s.matches, info.league, info.names, s.fav_teams));
+        sent += await fanout(sb, env, who, s => ({ title: `${A.code} vs ${B.code}${info.tournament ? ` · ${info.tournament}` : ""}`, body: out[s.lang === "en" ? "en" : "fr"].map(e => e.text).join("\n"), url, tag: `m${x.id}-${Date.now()}` }));
+        calls += who.length;
+      }
+      S.prev = state;
+      S.done = !!(m.games?.length && m.games.every(y => y.state !== "inProgress" && y.state !== "unstarted") || m.teams.some(t => t.result?.outcome));
     }
-    if (out.fr.length) {
-      const [A, B] = m.teams, url = `${SITE}#/lol/competitions/matchs`;
-      const who = subs.filter(s => followed(s.matches, info.league, info.names, s.fav_teams));
-      sent += await fanout(sb, env, who, s => ({ title: `${A.code} vs ${B.code}${info.tournament ? ` · ${info.tournament}` : ""}`, body: out[s.lang === "en" ? "en" : "fr"].map(e => e.text).join("\n"), url, tag: `m${x.id}-${Date.now()}` }));
-    }
-    const over = m.games?.length && m.games.every(y => y.state !== "inProgress" && y.state !== "unstarted") || m.teams.some(t => t.result?.outcome);
-    if (x.ended || over) await sb.rest("DELETE", `push_live?match_id=eq.${encodeURIComponent(x.id)}`);
-    else await sb.rest("POST", "push_live", { body: { match_id: x.id, state, updated_at: new Date().toISOString() }, prefer: "resolution=merge-duplicates,return=minimal" });
+    // Arrêt avant le passage suivant (chaque minute) et sous la limite de 50 appels sortants de l'offre gratuite
+    if (Date.now() - t0 > 40000 || calls > 36 || list.every(x => W[x.id]?.done || x.ended)) break;
+    await new Promise(r => setTimeout(r, Math.max(0, 10000 - (Date.now() - roundAt))));
+  }
+  for (const x of list) {
+    const S = W[x.id];
+    if (!S) continue;
+    if (x.ended || S.done) await sb.rest("DELETE", `push_live?match_id=eq.${encodeURIComponent(x.id)}`);
+    else if (S.prev) await sb.rest("POST", "push_live", { body: { match_id: x.id, state: S.prev, updated_at: new Date().toISOString() }, prefer: "resolution=merge-duplicates,return=minimal" });
   }
   return { subs: subs.length, matches: todo.length, sent };
 }

@@ -2,6 +2,16 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-29, soir — refonte de l’Accueil (branche `refonte-accueil`, à tester)
+- **Demande d’Anthony** : développer la maquette de l’Accueil sur une branche à part pour la tester.
+- **Prochain match en tête** : les deux équipes en grand, l’heure, le tournoi en petit et une barre d’avancée (matchs joués sur le total). Sans prochain match, le tournoi à la une reste affiché.
+- **Objectif du coach** sur une ligne : anneau de réussites, poste (« en tant que jungle »), cible. Le coach garde sur l’appareil un résumé du dernier objectif reçu (`C2.v1Snap`) pour ne pas relancer de synchronisation Riot à chaque ouverture de l’Accueil.
+- **À suivre** et **Derniers résultats** (nouveau) en lignes compactes ; le mode sans spoilers masque toujours les scores.
+- **Méta** : le meilleur winrate du tier S de chaque poste dans la tier list ranked (source et patch affichés). Sans tier list (Valorant, tous jeux), l’ancien encart des plus joués en compétition reste affiché.
+- **Actus** : un article en grand avec image, puis deux en liste.
+- **Retirés** : les 4 boutons d’accès rapide, qui faisaient doublon avec la barre de navigation.
+- Rien ne change dans les données, la collecte ou le coach côté serveur.
+
 ## 2026-10-21, 19 h 30 — coach restructuré, plus simple (branche `coach-v2-suite`, à valider)
 - **Demande d'Anthony** : une organisation à l'image du reste de l'application ; aujourd'hui il y a trop d'informations partout, on s'y perd.
 - **4 onglets**, comme Compétitions :

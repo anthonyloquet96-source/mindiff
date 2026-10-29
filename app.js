@@ -766,76 +766,114 @@ function viewHome() {
   const ts = forGame(allTournaments());
   const lead = featuredTournament(ts);
 
-  // 1. Tournoi à la une
+  // 1. Prochain match du tournoi à la une (refonte 29/10 : le match d'abord, le tournoi en petit au-dessus)
   let leadHtml = "";
   if (lead) {
-    const img = tournamentImage(lead);
     const st = lead.stages[currentStage(lead)];
-    const nxt = nextMatchOf(lead);
-    leadHtml = `<section class="hero" aria-label="Tournoi à la une">
-      <div class="hero-media">${img ? `<img src="${esc(img)}" alt="" decoding="async" onerror="this.remove()">` : `<span class="hero-mono">${esc(initials(lead.name))}</span>`}</div>
-      <div class="hero-body">
-        <div class="hero-top">${statusChip(lead.status)}${st && lead.status !== "finished" ? `<span class="hero-phase">${esc(st.name)}</span>` : ""}</div>
-        <h1 class="hero-title" tabindex="-1">${esc(lead.name)}</h1>
-        ${nxt ? `<div class="hero-next"><span class="label">${nxt.state === "inProgress" ? "En cours" : "Prochain match"}</span>${matchCard(nxt, lead, { withComp: false })}</div>`
-          : lead.status === "finished" ? `<p class="hero-note">Compétition terminée${lead.manual ? " · résultats vérifiés à la main" : ""}.</p>` : ""}
+    let nxt = nextMatchOf(lead);
+    if (nxt?.state === "unstarted" && LIVE_IDS.has(nxt.id)) nxt = { ...nxt, state: "inProgress" };
+    const all = tMatches(lead), played = all.filter(m => m.state === "completed").length;
+    const bar = all.length && lead.status !== "finished" ? `<div class="hx-prog"><div class="hx-prog-txt"><span>Avancée du tournoi</span><span>${played} / ${all.length} matchs</span></div><div class="hbar" role="img" aria-label="${played} matchs joués sur ${all.length}"><i style="width:${Math.round(played / all.length * 100)}%"></i></div></div>` : "";
+    const tLink = `<a class="hx-comp" href="${href(lead.game, "tournoi", lead.id)}">${esc(lead.name)}${st && lead.status !== "finished" ? ` · ${esc(st.name)}` : ""}${nxt?.bo ? ` · Bo${nxt.bo}` : ""}</a>`;
+    if (nxt) {
+      const live = nxt.state === "inProgress", [a, b] = nxt.teams;
+      const side = x => `<span class="hx-team">${logo(x.name, x.image, "xl")}<span class="hx-name">${esc(x.name)}</span></span>`;
+      leadHtml = `<section class="hx" aria-label="Prochain match">
+        <div class="hx-head"><span class="hx-kick${live ? " live" : ""}">${live ? "En cours" : "Prochain match"}</span>${tLink}</div>
+        <a class="hx-match" href="${href(lead.game, "tournoi", lead.id, "matchs", nxt.id)}" aria-label="${esc(`${a.name} contre ${b.name}, ${live ? "en cours" : fmtDayTime(nxt.start)}`)}">
+          ${side(a)}<span class="hx-center">${live ? `<span class="mc-live">En direct</span>` : `<b class="hx-time">${fmtTime(nxt.start)}</b><span class="hx-day">${esc(dayLabel(nxt.start))}</span>`}</span>${side(b)}
+        </a>
+        ${live && lead.game === "lol" && !prefs.noSpoil ? liveStrip(nxt.id) : ""}
+        ${bar}
+        <a class="btn primary" href="${href(lead.game, "tournoi", lead.id, "matchs", nxt.id)}">Voir le match</a>
+      </section>`;
+    } else {
+      leadHtml = `<section class="hx" aria-label="Tournoi à la une">
+        <div class="hx-head"><span class="hx-kick">À la une</span>${statusChip(lead.status)}</div>
+        <h2 class="hx-title">${esc(lead.name)}</h2>
+        ${lead.status === "finished" ? `<p class="hero-note">Compétition terminée${lead.manual ? " · résultats vérifiés à la main" : ""}.</p>` : ""}${bar}
         <a class="btn primary" href="${href(lead.game, "tournoi", lead.id)}">Explorer le tournoi${icon("chevron")}</a>
-      </div>
-    </section>`;
+      </section>`;
+    }
   }
 
-  // 2. Accès rapides
-  const quick = `<nav class="quick" aria-label="Accès rapides">
-    <a class="qcell" href="${href(g, "competitions")}">${icon("trophy")}<span>Tournois</span></a>
-    <a class="qcell" href="${href(g, "competitions", "matchs")}">${icon("calendar")}<span>Matchs</span></a>
-    <a class="qcell" href="${href(g, "meta")}">${icon("tiers")}<span>Tier lists</span></a>
-    <a class="qcell" href="${href(g, "coach")}">${icon("target")}<span>Coach</span></a>
-  </nav>`;
-
-  // 3. Prochains matchs (2 ou 3)
+  // 2. À suivre : lignes compactes (heure, équipes, format)
   const heroMatch = lead && nextMatchOf(lead);
   const upcoming = ts.flatMap(t => tMatches(t).map(m => ({ m, t }))).filter(x => (x.m.state === "unstarted" || x.m.state === "inProgress") && x.m.start && known(x.m) && x.m.id !== heroMatch?.id)
     .sort((a, b) => (a.m.state === "inProgress" ? -1 : 0) - (b.m.state === "inProgress" ? -1 : 0) || a.m.start.localeCompare(b.m.start)).slice(0, 3);
-  const nextHtml = `<section class="sec">${secHead("Prochains matchs", seeAll(href(g, "competitions", "matchs")))}
-    ${upcoming.length ? `<div class="mlist">${upcoming.map(x => matchCard(x.m, x.t)).join("")}</div>` : `<p class="inline-empty">Aucun match programmé dans les données${g === "val" ? " : le calendrier Valorant n'est pas encore relié à une source automatique" : ""}.</p>`}
+  const team = x => `<span class="hrow-team">${logo(x.name, x.image)}<b>${esc(x.code || x.name)}</b></span>`;
+  const nextHtml = `<section class="sec">${secHead("À suivre", seeAll(href(g, "competitions", "matchs")))}
+    ${upcoming.length ? `<div class="hlist">${upcoming.map(({ m, t }) => `<a class="hrow" href="${href(t.game, "tournoi", t.id, "matchs", m.id)}" aria-label="${esc(`${m.teams[0].name} contre ${m.teams[1].name}, ${fmtDayTime(m.start)}, ${t.name}`)}">
+      <span class="hrow-when">${m.state === "inProgress" || LIVE_IDS.has(m.id) ? `<span class="mc-live">En cours</span>` : `<b>${fmtTime(m.start)}</b><span>${esc(dayLabel(m.start))}</span>`}</span>
+      <span class="hrow-vs">${team(m.teams[0])}<i>vs</i>${team(m.teams[1])}</span>
+      <span class="hrow-fmt">${m.bo ? `Bo${m.bo}` : ""}</span></a>`).join("")}</div>`
+      : `<p class="inline-empty">Aucun match programmé dans les données${g === "val" ? " : le calendrier Valorant n'est pas encore relié à une source automatique" : ""}.</p>`}
   </section>`;
 
-  // 4. Méta en bref
-  const metaHtml = (g === "all" ? ENABLED_GAMES : [g]).map(gg => {
-    const p = latestPatch(gg);
-    const pe = p && editOf(p);
-    const proT = (AUTO?.tournaments || []).filter(t => t.game === gg && t.stats?.totalGames >= 10).sort((a, b) => prestige(a) - prestige(b))[0];
-    const ranked = TIERLISTS.find(t => t.game === gg && t.scope === "ranked");
-    const S = (ranked?.groups.flatMap(gr => gr.tiers.S || []) || []).filter((x, i, arr) => arr.findIndex(y => entKey(y) === entKey(x)) === i);
-    // Sans statistiques pros automatiques : tier list pro sourcée (S puis A), sinon le haut du ranked
-    const proTl = !proT && TIERLISTS.find(t => t.game === gg && t.scope === "pro");
-    const proTlEnts = proTl ? proTl.groups.flatMap(gr => [...(gr.tiers.S || []), ...(gr.tiers.A || [])]) : [];
-    const ents = proT ? proT.stats.champions.slice(0, 5).map(c => ({ id: c.champ, stat: pct(c.presence) })) : proTlEnts.length ? proTlEnts.slice(0, 5) : S.slice(0, 5);
-    if (!p && !ents.length) return "";
-    return `<div class="metabox">
-      <div class="metabox-head">
-        ${p ? `<a class="patch-badge" href="${href(gg, "actus", keyOf(p))}"><span class="label">Patch</span><b>${esc(patchOf(p, pe) || "—")}</b></a>` : ""}
-        <div class="metabox-txt"><p class="metabox-title">${proT ? `Les plus joués · ${esc(proT.name)}` : proTlEnts.length ? `Les plus joués · ${esc(proTl.title.replace(/^Pro\s*—\s*/, ""))}` : ranked ? `En haut du classement ranked` : ""}</p>
-          <p class="fine">${proT ? `Taux de sélection sur ${proT.stats.totalGames} parties officielles` : proTlEnts.length ? esc(proTl.context || "") : ranked ? esc(ranked.context || "") : ""}${g === "all" ? ` · ${esc(SHORT[gg])}` : ""}</p></div>
-      </div>
-      ${portraitRow(ents, { game: gg, stat: x => x.stat || "", label: "Méta du moment" })}
-      <div class="metabox-links"><a class="btn ghost sm" href="${href(gg, "meta")}">Tier list</a>${p ? `<a class="btn ghost sm" href="${href(gg, "actus", keyOf(p))}">Changements du patch</a>` : ""}</div>
-    </div>`;
-  }).join("");
-
-  // 5. À retenir : trois brèves
-  const news = forGame(allNews()).filter(editOf).sort((a, b) => importance(b) - importance(a)).slice(0, 3);
-  const briefs = news.length ? `<section class="sec">${secHead("À retenir", seeAll(href(g, "actus")))}
-    <div class="briefs">${news.map(i => {
-      const e = editOf(i);
-      const spoil = i.type === "esport" && hidden("n-" + keyOf(i));
-      return `<a class="brief" href="${href(i.game, "actus", keyOf(i))}"><span class="brief-cat">${esc(TYPE_LABEL[i.type] || "Actu")}</span><span class="brief-title">${spoil ? "Résultat masqué (mode sans spoilers)" : esc(e.titre)}</span><span class="brief-date">${isEstimated(i) ? "date inconnue" : fmtDay(pubDate(i))}</span></a>`;
+  // 3. Derniers résultats : gagnant en blanc, perdant en gris ; score masqué en mode sans spoilers
+  const recent = ts.flatMap(t => tMatches(t).map(m => ({ m, t }))).filter(x => x.m.state === "completed" && x.m.start && known(x.m))
+    .sort((a, b) => b.m.start.localeCompare(a.m.start)).slice(0, 5);
+  const resHtml = recent.length ? `<section class="sec">${secHead("Derniers résultats", seeAll(href(g, "competitions", "matchs")))}
+    <div class="hlist">${recent.map(({ m, t }) => {
+      const [a, b] = m.teams, hide = hidden(m.id), w = x => (!hide && x.outcome === "win" ? "win" : !hide && x.outcome === "loss" ? "loss" : "");
+      return `<a class="hrow res" href="${href(t.game, "tournoi", t.id, "matchs", m.id)}" aria-label="${esc(`${a.name} contre ${b.name}, ${hide ? "score masqué" : `${a.score} à ${b.score}`}, ${t.name}`)}">
+        <span class="hrow-side a ${w(a)}">${team(a)}</span>
+        <span class="hrow-score">${hide ? `<span class="mc-hidden">Masqué</span>` : a.score != null ? `${a.score}<i>–</i>${b.score}` : "Terminé"}</span>
+        <span class="hrow-side b ${w(b)}">${team(b)}</span></a>`;
     }).join("")}</div></section>` : "";
 
+  // 4. Méta : le champion le plus fort de chaque poste en solo queue (tier S de la tier list ranked), sinon l'ancien encart
+  const ranked = g === "lol" && TIERLISTS.find(t => t.game === "lol" && t.scope === "ranked");
+  const wrOf = x => parseFloat(String(x.stat || "").replace(",", "."));
+  const best = ranked ? ranked.groups.map(gr => ({ role: gr.name, x: (gr.tiers.S || []).filter(x => !isNaN(wrOf(x))).sort((a, b) => wrOf(b) - wrOf(a))[0] })).filter(r => r.x) : [];
+  const metaHtml = best.length ? `<section class="sec">${secHead("Les plus forts en ranked", seeAll(href(g, "meta"), "Méta"))}
+    <div class="hmeta">${best.map(r => { const ent = entity("lol", entKey(r.x)); return `<div class="hmeta-row">
+      <span class="hmeta-role">${esc(r.role)}</span>${portrait(ent)}<b class="hmeta-name">${esc(ent.name || r.x.name)}</b><span class="hmeta-wr">${esc(r.x.stat)}</span>
+      <span class="hbar" aria-hidden="true"><i style="width:${Math.max(4, Math.min(100, Math.round((wrOf(r.x) - 48) / 8 * 100)))}%"></i></span></div>`; }).join("")}
+      <p class="fine">Winrate solo queue, patch ${esc(ranked.patch)} · ${esc(ranked.sources?.[0]?.name || "")}</p></div></section>` : oldMeta();
+
+  // 5. Actus : un article en grand, puis deux en liste
+  const news = forGame(allNews()).filter(editOf).sort((a, b) => importance(b) - importance(a)).slice(0, 3);
+  const nMeta = i => `${esc(TYPE_LABEL[i.type] || "Actu")} · ${isEstimated(i) ? "date inconnue" : fmtDay(pubDate(i))}`;
+  const nItem = (i, k) => {
+    const e = editOf(i), spoil = i.type === "esport" && hidden("n-" + keyOf(i)), title = spoil ? "Résultat masqué (mode sans spoilers)" : esc(e.titre);
+    const img = i.image && !spoil ? `<img src="${esc(i.image)}" alt="" loading="lazy" decoding="async" onerror="this.parentNode.remove()">` : "";
+    const body = `<span class="hnews-body"><span class="hnews-meta">${nMeta(i)}</span><span class="hnews-title">${title}</span></span>`;
+    return k === 0 ? `<a class="hnews-lead" href="${href(i.game, "actus", keyOf(i))}">${img ? `<span class="hnews-img">${img}</span>` : ""}${body}</a>`
+      : `<a class="hnews-row" href="${href(i.game, "actus", keyOf(i))}">${img ? `<span class="hnews-thumb">${img}</span>` : ""}${body}</a>`;
+  };
+  const briefs = news.length ? `<section class="sec">${secHead("Actus", seeAll(href(g, "actus")))}${nItem(news[0], 0)}${news.length > 1 ? `<div class="hlist">${news.slice(1).map((i, k) => nItem(i, k + 1)).join("")}</div>` : ""}</section>` : "";
+
   return `<div class="home">
-    <div class="home-main">${leadHtml || empty("Aucune compétition suivie", "Aucun tournoi n'est disponible dans les données pour ce jeu.")}${g === "lol" ? coachHomeCard() : ""}${quick}</div>
-    <div class="home-side">${nextHtml}${metaHtml ? `<section class="sec">${secHead("Méta en bref", seeAll(href(g, "meta")))}${metaHtml}</section>` : ""}${briefs}</div>
+    <div class="home-main">${leadHtml || empty("Aucune compétition suivie", "Aucun tournoi n'est disponible dans les données pour ce jeu.")}${g === "lol" ? coachHomeCard() : ""}${nextHtml}${resHtml}</div>
+    <div class="home-side">${metaHtml}${briefs}</div>
   </div>`;
+
+  // Autres jeux (ou tier list absente) : encart précédent, les plus joués en compétition
+  function oldMeta() {
+    const html = (g === "all" ? ENABLED_GAMES : [g]).map(gg => {
+      const p = latestPatch(gg);
+      const pe = p && editOf(p);
+      const proT = (AUTO?.tournaments || []).filter(t => t.game === gg && t.stats?.totalGames >= 10).sort((a, b) => prestige(a) - prestige(b))[0];
+      const ranked = TIERLISTS.find(t => t.game === gg && t.scope === "ranked");
+      const S = (ranked?.groups.flatMap(gr => gr.tiers.S || []) || []).filter((x, i, arr) => arr.findIndex(y => entKey(y) === entKey(x)) === i);
+      // Sans statistiques pros automatiques : tier list pro sourcée (S puis A), sinon le haut du ranked
+      const proTl = !proT && TIERLISTS.find(t => t.game === gg && t.scope === "pro");
+      const proTlEnts = proTl ? proTl.groups.flatMap(gr => [...(gr.tiers.S || []), ...(gr.tiers.A || [])]) : [];
+      const ents = proT ? proT.stats.champions.slice(0, 5).map(c => ({ id: c.champ, stat: pct(c.presence) })) : proTlEnts.length ? proTlEnts.slice(0, 5) : S.slice(0, 5);
+      if (!p && !ents.length) return "";
+      return `<div class="metabox">
+        <div class="metabox-head">
+          ${p ? `<a class="patch-badge" href="${href(gg, "actus", keyOf(p))}"><span class="label">Patch</span><b>${esc(patchOf(p, pe) || "—")}</b></a>` : ""}
+          <div class="metabox-txt"><p class="metabox-title">${proT ? `Les plus joués · ${esc(proT.name)}` : proTlEnts.length ? `Les plus joués · ${esc(proTl.title.replace(/^Pro\s*—\s*/, ""))}` : ranked ? `En haut du classement ranked` : ""}</p>
+            <p class="fine">${proT ? `Taux de sélection sur ${proT.stats.totalGames} parties officielles` : proTlEnts.length ? esc(proTl.context || "") : ranked ? esc(ranked.context || "") : ""}${g === "all" ? ` · ${esc(SHORT[gg])}` : ""}</p></div>
+        </div>
+        ${portraitRow(ents, { game: gg, stat: x => x.stat || "", label: "Méta du moment" })}
+        <div class="metabox-links"><a class="btn ghost sm" href="${href(gg, "meta")}">Tier list</a>${p ? `<a class="btn ghost sm" href="${href(gg, "actus", keyOf(p))}">Changements du patch</a>` : ""}</div>
+      </div>`;
+    }).join("");
+    return html ? `<section class="sec">${secHead("Méta en bref", seeAll(href(g, "meta")))}${html}</section>` : "";
+  }
 }
 
 // --- Compétitions : Tournois (par défaut) et Matchs

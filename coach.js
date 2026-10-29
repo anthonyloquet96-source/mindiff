@@ -249,6 +249,19 @@ function coachResources() {
 function coachHomeCard() {
   if (!COACH) return "";
   // Nouveau coach (aperçu) : compte connecté et service disponible → objectif en cours et dernière partie
+  // Objectif en cours (dernier résumé reçu du coach) : anneau de réussites, poste, cible
+  const S = typeof C2 !== "undefined" && C2_API != null && C2.v1Snap?.for === C2.account?.riotId ? C2.v1Snap : null;
+  if (S) {
+    const last = C2.profile?.games?.[0], fresh = last && Array.isArray(C2.seen) && !C2.seen.includes(last.id);
+    const unit = S.unit && S.unit !== "%" ? (S.unit === "/min" ? " / min" : " " + S.unit) : "";
+    const left = Math.max(0, S.of - S.counted), deg = Math.round(Math.min(1, S.met / (S.need || 1)) * 360);
+    const sub = fresh ? `Nouvelle partie à relire : ${c2Name(last.champion)}, ${last.win ? "victoire" : "défaite"}`
+      : S.status === "proposed" ? "Prêt à commencer : ouvre le coach" : `${S.met} réussite${S.met > 1 ? "s" : ""} sur ${S.counted} · ${left} partie${left > 1 ? "s" : ""} à jouer`;
+    return `<a class="hgoal${fresh ? " hot" : ""}" href="${c2Href()}">
+      <span class="hgoal-ring" style="--deg:${deg}deg" aria-label="${S.met} réussites sur ${S.need} nécessaires"><b>${S.met}/${S.need}</b></span>
+      <span class="hgoal-txt"><span class="fine">${S.status === "proposed" ? "Ton prochain objectif" : "Ton objectif"} ${c2AsRole(S.role)}</span>
+        <b>${esc(S.label)} : vise ${esc(S.target)}${esc(unit)}</b><span class="fine">${esc(sub)}</span></span>${icon("chevron")}</a>`;
+  }
   if (typeof C2 !== "undefined" && C2_API != null && C2.account && C2.profile) {
     const P = C2.profile, g = c2GoalState(P, c2Role(P)), last = P.games[0];
     const fresh = last && Array.isArray(C2.seen) && !C2.seen.includes(last.id);

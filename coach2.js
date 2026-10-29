@@ -551,6 +551,10 @@ async function c2V1Load(force = false) {
     V.syncing = false;
     const [active, progress, diag] = await Promise.all([c2V1(`/players/${V.pid}/goals/active`), c2V1(`/players/${V.pid}/progress`), c2V1(`/players/${V.pid}/diagnostic`)]);
     Object.assign(V, { goal: active.goal, evaluations: active.evaluations, history: progress.goals, series: progress.series, diagnostic: diag });
+    // Résumé gardé sur l'appareil pour la carte de l'Accueil (sans relancer de synchronisation à chaque ouverture)
+    const g = active.goal, evs = (active.evaluations || []).filter(e => e.counted);
+    C2.v1Snap = g ? { for: C2.account.riotId, label: g.label, role: g.role, target: g.target_text, unit: g.unit, status: g.status, met: evs.filter(e => e.met).length, counted: evs.length, need: g.success_required, of: g.evaluation_games } : null;
+    c2Save();
   } catch (e) { V.error = e.message; V.syncing = false; }
   V.busy = false; render(false);
 }

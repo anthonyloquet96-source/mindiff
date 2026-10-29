@@ -47,6 +47,10 @@ export function checkUnit(u, ctx) {
   if (!u.roles?.length || u.roles.some(r => !ROLES.includes(r))) flag("schema", "Rôle manquant ou inconnu.", true);
   if (!u.evidence?.length) flag("schema", "Aucun passage cité.", true);
   if (!u.patch || typeof u.patch.known !== "boolean") flag("schema", "Patch non renseigné (même inconnu, il doit être déclaré).", true);
+  // Énoncé resté dans la langue de la vidéo (audit du 28/10 : deux conseils de Dishake en espagnol) : jamais affiché au joueur.
+  // Mots outils espagnols absents du français (« es » écarté : « tu es ») ; 3 ou plus dans l'énoncé ou le « quand »
+  const foreign = (`${u.claim || ""} ${u.use?.when || ""}`.match(/\b(el|los|las|del|una|cuando|para|muy|pero|tienes|puedes|hacer|objeto|partida|equipo|daño|contra|también)\b/gi) || []).length;
+  if (foreign >= 3) flag("langue", "Énoncé non traduit en français : à retraduire depuis le passage cité.", true);
 
   const ev = u.evidence || [];
   // Seconde lecture fiable (audit du 28/10) : faite par un modèle complet (pas « lite ») et sans écart signalé par le vérificateur lui-même

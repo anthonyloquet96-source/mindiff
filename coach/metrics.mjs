@@ -13,7 +13,7 @@ const MIN = 60000;
 // Mêmes motifs côté site (coach2.js, C2_V1_TIPS), vérifiés par les tests.
 const LATE = /baron|nashor|inhib|atakhan|ancien|elder/i;
 // Farm : « vague » seule ne suffit pas (presque tous les conseils de lane la citent) ; un conseil de ward n'est pas un conseil de farm
-const FARM_KB = { kbMatch: /\b(cs|farm\w*|sbires?|last[- ]?hit\w*|freeze|slow ?push|camps?|clear)\b/i, kbMatchRole: { JUNGLE: /\b(camps?|clear\w*|farm\w*|pathing|chemin|full ?clear|cs)\b/i }, kbThemesRole: { JUNGLE: ["lane", "vagues", "jungle"] }, kbAvoid: /baron|nashor|inhib|atakhan|ancien|elder|teamfight|siège|\bwards?\b|balise|jungler adverse/i };
+const FARM_KB = { kbMatch: /\b(cs|farm\w*|sbires?|last[- ]?hit\w*|freeze|slow ?push|camps?|clear)\b/i, kbMatchRole: { JUNGLE: /\b(camps?|clear\w*|farm\w*|pathing|chemin|full ?clear|cs)\b/i }, kbThemesRole: { JUNGLE: ["lane", "vagues", "jungle"] }, kbAvoid: /baron|nashor|inhib|atakhan|ancien|elder|teamfight|siège|\bwards?\b|balise|jungler adverse|saute|sauter|skip/i };
 
 // Niveau atteint avec une quantité d'XP (paliers cumulés de League of Legends, niveaux 2 à 11)
 const XP_LEVELS = [280, 660, 1140, 1720, 2400, 3180, 4060, 5040, 6120, 7300];
@@ -25,17 +25,28 @@ export const CATALOG = {
   cs_at_10: {
     label: "Sbires à 10 min", family: "farm", unit: "sbires", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.8, actionability: 0.9,
     pedagogical: { MIDDLE: 70, TOP: 65, BOTTOM: 70, JUNGLE: 55 }, decimals: 0, kbThemes: ["lane", "vagues"], ...FARM_KB,
-    exercise: t => `Vise ${t} sbires à 10:00. Repère intermédiaire : environ ${Math.round(t / 2)} à 5:00 ; si tu es en dessous, ne force pas d'échange qui te fait rater des sbires.`,
+    // Jungle : le compteur inclut les monstres (audit du 29/10 : les textes parlaient de wave et d'échanges en lane). Repère à 5:00 mesuré
+    // sur 30 000 joueurs Diamant+ : 44 % du farm de 10 min en lane, 48 % en jungle (et non la moitié)
+    labelRole: { JUNGLE: "CS à 10 min (sbires et monstres)" }, unitRole: { JUNGLE: "CS" },
+    exercise: (t, role) => role === "JUNGLE"
+      ? `Vise ${t} CS à 10:00, sbires et monstres. Repère intermédiaire : environ ${Math.round(t * 0.48)} à 5:00 ; enchaîne tes camps et, après un gank ou un combat, reprends tout de suite tes camps.`
+      : `Vise ${t} sbires à 10:00. Repère intermédiaire : environ ${Math.round(t * 0.44)} à 5:00 ; si tu es en dessous, ne force pas d'échange qui te fait rater des sbires.`,
   },
   cs_at_15: {
     label: "Sbires à 15 min", family: "farm", unit: "sbires", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.7, actionability: 0.8,
     pedagogical: { MIDDLE: 110, TOP: 100, BOTTOM: 110, JUNGLE: 90 }, decimals: 0, kbThemes: ["lane", "vagues"], ...FARM_KB,
-    exercise: t => `Vise ${t} sbires à 15:00 : après chaque back, reviens prendre la wave avant de chercher un combat.`,
+    labelRole: { JUNGLE: "CS à 15 min (sbires et monstres)" }, unitRole: { JUNGLE: "CS" },
+    exercise: (t, role) => role === "JUNGLE"
+      ? `Vise ${t} CS à 15:00, sbires et monstres : après chaque back, refais les camps sur ton chemin avant de chercher un combat.`
+      : `Vise ${t} sbires à 15:00 : après chaque back, reviens prendre la wave avant de chercher un combat.`,
   },
   cs_per_min: {
     label: "Sbires par minute", family: "farm", unit: "/min", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.6, actionability: 0.7,
     pedagogical: { MIDDLE: 7, TOP: 6.5, BOTTOM: 7, JUNGLE: 5.5 }, decimals: 1, kbThemes: ["lane", "vagues"], ...FARM_KB,
-    exercise: t => `Vise ${String(t).replace(".", ",")} sbires par minute sur toute la partie : entre deux combats, prends les waves proches de toi.`,
+    labelRole: { JUNGLE: "CS par minute (sbires et monstres)" }, unitRole: { JUNGLE: "CS / min" },
+    exercise: (t, role) => role === "JUNGLE"
+      ? `Vise ${String(t).replace(".", ",")} CS par minute sur toute la partie, sbires et monstres : entre deux combats ou objectifs, refais les camps réapparus.`
+      : `Vise ${String(t).replace(".", ",")} sbires par minute sur toute la partie : entre deux combats, prends les waves proches de toi.`,
   },
   farm_15_25: {
     label: "Farm entre 15 et 25 min", family: "farm", unit: "/min", direction: "higher", roles: ["MIDDLE", "JUNGLE", "TOP", "BOTTOM"], trainable: true, impact: 0.7, actionability: 0.7,
@@ -75,13 +86,16 @@ export const CATALOG = {
     label: "Participation aux kills", unit: "%", direction: "higher", roles: ["MIDDLE", "JUNGLE", "UTILITY"], trainable: true, impact: 0.6, actionability: 0.6, percent: true,
     pedagogical: { MIDDLE: 0.5, JUNGLE: 0.55, UTILITY: 0.55 }, decimals: 0, kbThemes: ["teamfight", "macro"],
     kbMatch: /roam|rejoin|escarmouche|skirmish|combat|teamfight|gank|\baide|\bkills?\b|minimap/i, kbAvoid: LATE,
-    exercise: t => `Vise ${Math.round(t * 100)} % de participation aux kills : après avoir poussé ta wave, regarde la minimap et rejoins les combats proches.`,
+    // Geste par poste : un support ne pousse pas sa wave, un jungler n'en a pas (audit du 29/10)
+    exercise: (t, role) => `Vise ${Math.round(t * 100)} % de participation aux kills : ${role === "UTILITY" ? "quand ton ADC est en sécurité ou rentre à la base, suis ton jungler ou ton mid vers les combats proches au lieu de rester seul en bot lane."
+      : role === "JUNGLE" ? "après chaque clear, regarde la minimap et va là où un combat se prépare (gank, contre-gank, escarmouche)."
+      : "après avoir poussé ta wave, regarde la minimap et rejoins les combats proches."}`,
   },
   vision_per_min: {
     label: "Score de vision par minute", unit: "/min", direction: "higher", roles: ["JUNGLE", "UTILITY", "MIDDLE"], trainable: true, impact: 0.5, actionability: 0.8,
     pedagogical: { JUNGLE: 0.8, UTILITY: 1.6, MIDDLE: 0.6 }, decimals: 2, kbThemes: ["vision", "methode"],
     kbMatch: /\bwards?\b|vision|balise|trinket|contr[ôo]le|sweep|oracle|lentille/i,
-    exercise: t => `Vise un score de vision de ${String(t).replace(".", ",")} par minute : une ward à chaque back et ton trinket dès qu'il est rechargé.`,
+    exercise: (t, role) => `Vise un score de vision de ${String(t).replace(".", ",")} par minute : ${role === "UTILITY" ? "pose les wards de ton item de support dès qu'elles sont disponibles et achète une control ward à chaque back." : "une control ward à chaque back et ton trinket dès qu'il est rechargé."}`,
   },
   wards_per_min: { label: "Wards posées par minute", unit: "/min", direction: "higher", roles: ["JUNGLE", "UTILITY"], trainable: false, impact: 0.4, actionability: 0.7, decimals: 2 },
   // Diagnostic seulement (brief) : dépendent trop du champion et de l'issue de la partie pour devenir un objectif
@@ -156,6 +170,9 @@ export function computeMetrics(match, timeline, puuid) {
 }
 
 // Affichage d'une valeur selon le catalogue
+// Nom et unité d'une métrique pour un poste (en jungle, le farm compte aussi les monstres)
+export const labelOf = (key, role) => CATALOG[key]?.labelRole?.[role] || CATALOG[key]?.label || key;
+export const unitOf = (key, role) => CATALOG[key]?.unitRole?.[role] ?? CATALOG[key]?.unit ?? "";
 export function formatMetric(key, v) {
   const c = CATALOG[key];
   if (v == null || !c) return "—";

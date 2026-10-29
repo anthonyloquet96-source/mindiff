@@ -88,7 +88,7 @@ export function prioritize(games, role, { references = null, exclude = [], quant
     const obs = comparable.map(g => g.metrics[key]?.value ?? null);
     const valid = obs.filter(v => v != null);
     const share = comparable.length ? valid.length / comparable.length : 0;
-    const row = { metric: key, label: c.label, games: comparable.length, valid: valid.length, eligible: false, reason: null };
+    const row = { metric: key, label: c.labelRole?.[role] || c.label, games: comparable.length, valid: valid.length, eligible: false, reason: null };
     if (comparable.length < RULES.minGames) { out.push({ ...row, reason: `moins de ${RULES.minGames} parties comparables` }); continue; }
     if (share < RULES.minValidShare) { out.push({ ...row, reason: `moins de ${Math.round(RULES.minValidShare * 100)} % d'observations valides` }); continue; }
     if (exclude.includes(key)) { out.push({ ...row, reason: "mise de côté après un échec ou une alerte, jusqu'au prochain diagnostic" }); continue; }

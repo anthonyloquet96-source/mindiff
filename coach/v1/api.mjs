@@ -17,7 +17,7 @@
 import { PLATFORMS } from "./riot.mjs";
 import { syncPlayer, mainRole, refsForPlayer } from "./sync.mjs";
 import { prioritize, transition, GOAL_VERSION, OUTCOMES } from "../goals.mjs";
-import { CATALOG, METRIC_VERSION, formatMetric } from "../metrics.mjs";
+import { CATALOG, METRIC_VERSION, formatMetric, labelOf, unitOf } from "../metrics.mjs";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 const fail = (status, code, message) => ({ status, body: { error: { code, message } } });
@@ -119,7 +119,7 @@ export async function handleV1({ method, path, query = {}, body = null }, ctx) {
 
 function withLabels(g) {
   const c = CATALOG[g.metric];
-  return { ...g, label: c?.label || g.metric, unit: c?.unit || "", baseline_text: formatMetric(g.metric, g.baseline), target_text: formatMetric(g.metric, g.target), ...(c?.exercise && g.target != null ? { exercise: c.exercise(g.target, g.role) } : {}) };
+  return { ...g, label: labelOf(g.metric, g.role), unit: unitOf(g.metric, g.role), baseline_text: formatMetric(g.metric, g.baseline), target_text: formatMetric(g.metric, g.target), ...(c?.exercise && g.target != null ? { exercise: c.exercise(g.target, g.role) } : {}) };
 }
 
 // Traitement d'une synchronisation (appelé par la file)

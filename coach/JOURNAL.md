@@ -766,3 +766,16 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
 - **Rangs.** « Master » et « Grandmaster » remplacent « Maître » et « Grand Maître » (coach2.js, Worker, coach-select.js, conseils udyon).
 - **Objectif par poste.** Le coach garde un seul objectif à la fois, sur le poste principal. Quand un autre poste est choisi dans les onglets, une carte l'explique au lieu d'afficher l'objectif du top sous « Jungle ».
 - **Poste de l'objectif affiché.** Un seul objectif à la fois, validé par Anthony (« ça permet de ne pas se perdre »). La carte dit maintenant pour quel poste il est donné : « Ton objectif en cours en tant que top », « En partie, en tant que top » (en tant qu'ADC, etc.).
+
+### 29/10 : audit des objectifs par poste
+Moteur d'objectifs rejoué sur les 32 joueurs du banc d'essai (Fer à Challenger, 23 couples joueur-poste), avec les repères du rang au-dessus, comme le coach privé. Conseils de coachs listés pour chaque couple poste-objectif.
+- **Jungle.** Les 9 objectifs proposés étaient du farm, avec des textes de lane : « sbires », « ne force pas d'échange », « reviens prendre la wave ». Or le compteur inclut les monstres. Corrigé :
+  - nom « CS à 10 min (sbires et monstres) » ;
+  - unité « CS » ;
+  - exercices sur les camps (metrics.mjs labelRole/unitRole, labelOf/unitOf dans l'API et le tuteur).
+- **Repère à 5:00.** L'exercice annonçait la moitié du farm de 10 min. Mesure sur 30 000 joueurs Diamant+ : 44 % en lane, 48 % en jungle. Le texte utilise désormais ces parts.
+- **Participation aux kills.** Le texte « après avoir poussé ta wave » était faux pour le support et la jungle. Il y a maintenant un geste propre à chaque poste.
+- **Vision du support.** L'exercice parle des wards de l'item de support et des control wards.
+- **Conseils sous un objectif de farm.** « Tu peux sauter des camps pour ganker » s'affichait sous un objectif de CS en jungle, ce qui contredit l'objectif. Les conseils qui parlent de sauter ou de skip sont désormais écartés (site et tuteur).
+- **Langue.** Le contrôle critique bloque un énoncé resté en espagnol (3 mots outils espagnols ou plus). Il attrape exactement les 2 conseils de Dishake (Rukerno, Force de la nature), sans faux positif sur les 1 022 conseils.
+- **Restent bons.** Top et ADC (farm, textes de lane), mid (farm, XP, vision, kills).

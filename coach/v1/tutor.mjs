@@ -6,7 +6,7 @@
 //   - les conseils cités doivent exister dans le contexte (identifiants).
 // Coût maîtrisé : offre gratuite Gemini, réponse courte, quota par joueur et par jour, question bornée.
 
-import { CATALOG, formatMetric } from "../metrics.mjs";
+import { CATALOG, formatMetric, labelOf } from "../metrics.mjs";
 
 export const TUTOR_VERSION = "tuteur-1";
 const MAX_QUESTION = 400, PER_DAY = 20;
@@ -34,11 +34,11 @@ export function tutorContext({ goal, evaluations = [], diagnostic = null, tips =
   const c = goal ? CATALOG[goal.metric] : null;
   const f = v => (goal ? formatMetric(goal.metric, v) : String(v));
   return {
-    objectif: goal ? { metrique: c?.label || goal.metric, poste: goal.role, statut: goal.status, depart: f(goal.baseline), cible: f(goal.target), sens: goal.direction === "lower" ? "au plus" : "au moins",
+    objectif: goal ? { metrique: labelOf(goal.metric, goal.role), poste: goal.role, statut: goal.status, depart: f(goal.baseline), cible: f(goal.target), sens: goal.direction === "lower" ? "au plus" : "au moins",
       repere: goal.reference ? { valeur: f(goal.reference.value), source: goal.reference.source === "metric_references" ? `médiane ${goal.reference.level || "Diamant+"} sur ${goal.reference.n} parties` : "repère pédagogique" } : null,
       regle: `réussi si la cible est atteinte dans ${goal.success_required} des ${goal.evaluation_games} parties suivantes à ce poste`, exercice: goal.exercise || null } : null,
     parties_evaluees: evaluations.filter(e => e.counted).map((e, i) => ({ partie: i + 1, valeur: e.value == null ? "donnée manquante" : f(e.value), cible_atteinte: e.met })),
-    diagnostic: (diagnostic?.rows || []).slice(0, 4).map(r => ({ metrique: CATALOG[r.metric]?.label || r.metric, mediane: r.baseline == null ? null : formatMetric(r.metric, r.baseline), retenue: r.eligible, raison: r.reason || null })),
+    diagnostic: (diagnostic?.rows || []).slice(0, 4).map(r => ({ metrique: labelOf(r.metric, goal?.role ?? r.role), mediane: r.baseline == null ? null : formatMetric(r.metric, r.baseline), retenue: r.eligible, raison: r.reason || null })),
     conseils: tips.map(u => ({ id: u.id, conseil: u.claim, quand: u.use?.when || null, comment: u.use?.how || [] })),
   };
 }

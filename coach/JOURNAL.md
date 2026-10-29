@@ -779,3 +779,15 @@ Moteur d'objectifs rejoué sur les 32 joueurs du banc d'essai (Fer à Challenger
 - **Conseils sous un objectif de farm.** « Tu peux sauter des camps pour ganker » s'affichait sous un objectif de CS en jungle, ce qui contredit l'objectif. Les conseils qui parlent de sauter ou de skip sont désormais écartés (site et tuteur).
 - **Langue.** Le contrôle critique bloque un énoncé resté en espagnol (3 mots outils espagnols ou plus). Il attrape exactement les 2 conseils de Dishake (Rukerno, Force de la nature), sans faux positif sur les 1 022 conseils.
 - **Restent bons.** Top et ADC (farm, textes de lane), mid (farm, XP, vision, kills).
+
+### 29/10 : audit des conseils par poste
+Bilan rejoué sur les 1 600 parties du banc d'essai (Fer à Challenger) avec les règles actuelles, pour savoir quel constat sort à quel poste et quel conseil l'accompagne.
+- **Conseils « Ce qu'il faut faire » propres au poste.** Trois constats donnaient un geste de laner à tous :
+  - « retard en ligne » (19 % des parties de jungler, 18 % de support) : « prends les sbires près de ta tourelle » ;
+  - « morts avant 14 min » (31 % des junglers) : « recule quand ton adversaire disparaît » ;
+  - « premier grand item tardif » (22 % des junglers) : « prends chaque sbire ».
+  
+  Le jungler et le support ont désormais leur propre geste.
+- **Lentille de l'oracle.** Ce conseil ne sort plus au top (règle du matin). Chez l'ADC (36 % des parties), le conseil devient une control ward : l'ADC garde son trinket jaune.
+- **Base de conseils.** 9 conseils généraux étaient marqués « tous les postes » alors qu'ils ne parlent que de lane (last hit, freeze, slow push, aggro des sbires). Ils sont désormais réservés au top, au mid et à l'ADC (aussi au support pour l'aggro). La règle est appliquée à la publication (build.mjs), sans réécrire les conseils.
+- **Contrôle.** Base reconstruite en local : exactement ces 9 conseils changent, et les 2 conseils en espagnol passent « à revalider » (cachés au joueur). Tests : 57/58 (1 ignoré faute de cache).

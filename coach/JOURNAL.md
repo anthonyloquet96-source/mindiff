@@ -6,6 +6,7 @@ Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et c
 - **Demande d’Anthony** : toutes les tours, voire tous les kills, sans « blinder » de notifs.
 - **Choix** : réglage « Niveau de détail ». *Essentiel* (par défaut) : les moments clés, avec le score des kills (« CFO prend le Baron Nashor · kills 9-3 »). *Détaillé* : en plus chaque tour (« KC détruit 2 tours · tours 3-0 · kills 9-2 ») et chaque combat gagné (au moins 3 kills contre 1 au plus en 10 à 15 s). Les équipes favorites sont toujours en détaillé.
 - **Pas fait** : chaque kill (20 à 40 notifs par game) ; la position des tours (voie, tier) n’est pas dans le flux officiel, seulement leur nombre par équipe.
+- **Retour d’Anthony** : « kills 9-7 » ne dit pas qui en a 9. Chaque score porte maintenant le nom de son équipe : « kills : KC 9, CFO 7 », « tours : KC 3, CFO 0 ».
 - Colonne `detail` ajoutée à `push_subs` (migration 20261029010000, appliquée dans l’éditeur SQL). Premier appareil abonné : l’iPhone d’Anthony.
 
 ## 2026-10-29, nuit — notifications plus proches du direct

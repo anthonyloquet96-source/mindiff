@@ -765,3 +765,4 @@ Sur les 6 vidéos analysées ce soir, 18 conseils ont été rejetés. Les motifs
   - seuils par poste pour les autres.
 - **Rangs.** « Master » et « Grandmaster » remplacent « Maître » et « Grand Maître » (coach2.js, Worker, coach-select.js, conseils udyon).
 - **Objectif par poste.** Le coach garde un seul objectif à la fois, sur le poste principal. Quand un autre poste est choisi dans les onglets, une carte l'explique au lieu d'afficher l'objectif du top sous « Jungle ».
+- **Poste de l'objectif affiché.** Un seul objectif à la fois, validé par Anthony (« ça permet de ne pas se perdre »). La carte dit maintenant pour quel poste il est donné : « Ton objectif en cours en tant que top », « En partie, en tant que top » (en tant qu'ADC, etc.).

@@ -127,7 +127,7 @@ const c2Href = (...p) => href("lol", "coach", ...p);
 
 const C2_REGIONS = [["euw1", "EUW"], ["eun1", "EUNE"], ["na1", "NA"], ["kr", "KR"], ["br1", "BR"], ["la1", "LAN"], ["la2", "LAS"], ["tr1", "TR"], ["jp1", "JP"], ["oc1", "OCE"], ["me1", "ME"], ["ru", "RU"]];
 const C2_ROLE = { top: "Top", jungle: "Jungle", mid: "Mid", bottom: "ADC", support: "Support" };
-const C2_TIER = { IRON: "Fer", BRONZE: "Bronze", SILVER: "Argent", GOLD: "Or", PLATINUM: "Platine", EMERALD: "Émeraude", DIAMOND: "Diamant", MASTER: "Maître", GRANDMASTER: "Grand Maître", CHALLENGER: "Challenger" };
+const C2_TIER = { IRON: "Fer", BRONZE: "Bronze", SILVER: "Argent", GOLD: "Or", PLATINUM: "Platine", EMERALD: "Émeraude", DIAMOND: "Diamant", MASTER: "Master", GRANDMASTER: "Grandmaster", CHALLENGER: "Challenger" };
 // Comment progresser sur chaque indicateur : thèmes de la base et mots-clés des vidéos de coachs
 const C2_LEARN = {
   cs10: { themes: ["lane", "vagues"], re: /wave|vague|trading|farm|\bcs\b|last ?hit|clear|jungle path|tempo/i, tip: "Vise la référence Diamant+ à 10 min : chaque wave perdue, ce sont 6 sbires et leur or." },
@@ -615,13 +615,20 @@ function c2V1Card(p) {
   const last = V.history?.[0];
   const lastTxt = last ? `<p class="c2-v1-last ${last.outcome}">${C2_V1_OUTCOME[last.outcome] || "Objectif précédent sans verdict"} : ${esc(last.label)}, cible ${esc(last.target_text)} (${last.progress?.met ?? "?"}/${last.progress?.counted ?? "?"} parties)${last.progress?.review ? ` ; ${esc(last.progress.review)}` : ""}.</p>${c2V1Feedback(last)}` : "";
   const g = V.goal;
+  // Un seul objectif à la fois (brief V1), sur le poste principal : si un autre poste est choisi au-dessus, on le dit au lieu de
+  // montrer l'objectif du top sous l'onglet Jungle (retour d'Anthony, 29/10)
+  const V1_POS = { top: "TOP", jungle: "JUNGLE", mid: "MIDDLE", bottom: "BOTTOM", support: "UTILITY" }, picked = V1_POS[C2.role];
+  if (g && picked && picked !== g.role) {
+    const n = p?.byRole?.[C2.role]?.games ?? 0;
+    return `<section class="c2-card c2-v1"><p class="label">Mon objectif · ${esc(C2_ROLE[C2.role] || C2.role)}</p><p>Ton objectif en cours est au <b>${esc(C2_V1_ROLE[g.role] || g.role)}</b>, ton poste principal : le coach te fait travailler une seule chose à la fois.</p><p class="fine">${esc(C2_ROLE[C2.role] || C2.role)} : ${n} partie${n > 1 ? "s" : ""} classée${n > 1 ? "s" : ""} récente${n > 1 ? "s" : ""}. Quand ce poste deviendra ton poste principal, ton prochain objectif y sera adapté (ses champions, ses repères).</p><button class="btn ghost sm" data-action="c2-role" data-id="${esc(Object.keys(V1_POS).find(k => V1_POS[k] === g.role) || "")}">Voir mon objectif ${esc(C2_V1_ROLE[g.role] || g.role)}</button></section>`;
+  }
   if (!g) {
     const rows = V.diagnostic?.rows || [], why = rows.find(r => r.reason)?.reason;
     // Déjà au niveau sur tout : pas d'objectif à proposer, ce n'est pas un manque de parties
     const atLevel = rows.length && rows.some(r => r.reason === "déjà au niveau de la référence") && rows.every(r => r.reason === "déjà au niveau de la référence" || /suspendu/.test(r.reason || ""));
     const msg = atLevel ? `Pas d'objectif à te proposer : tu es déjà au niveau des repères du coach sur tout ce qu'il suit à ce poste${V.diagnostic?.target_tier ? ` (meilleurs joueurs ${esc(C2_TIER[V.diagnostic.target_tier] || V.diagnostic.target_tier)})` : ""}.`
       : why ? `Pas encore d'objectif : ${esc(why)}.` : "Pas encore d'objectif : joue quelques ranked de plus.";
-    return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${msg}</p>${atLevel ? "" : `<p class="fine">Il faut au moins 15 parties classées au même poste.</p>`}${c2V1Erase()}</section>`;
+    return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${msg}</p>${atLevel ? "" : `<p class="fine">Il faut au moins 8 parties classées au même poste.</p>`}${c2V1Erase()}</section>`;
   }
   // Carte aérée (demande d'Anthony, 27/10) : l'essentiel d'abord (objectif, deux chiffres, ce qu'il faut faire en partie),
   // le détail (repère, règle de réussite, conseils de coachs) replié

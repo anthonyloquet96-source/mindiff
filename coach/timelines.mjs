@@ -21,11 +21,13 @@ const DAYS = arg("days", 0), SINCE = DAYS ? Math.floor(Date.now() / 1000 - DAYS 
 const DIR = sarg("dir", "coach/cache/timelines"), SEEN = `${DIR}/seen${PLATFORM === "euw1" ? "" : "-" + PLATFORM}.json`;
 const TIERS = sarg("tiers", "DIAMOND,MASTER,GRANDMASTER,CHALLENGER").split(",");
 
-// Clé de développement : 100 requêtes par 2 minutes, on reste en dessous
+// Clé de développement : 100 requêtes par 2 minutes, on reste en dessous. --pace (secondes entre deux requêtes) : la même clé sert
+// le coach privé (Worker) ; sur le serveur de ses joueurs (euw1), aller plus lentement pour lui laisser de la marge (incident du 28/10)
+const PACE = Number(sarg("pace", "1.3")) * 1000;
 let used = 0;
 async function riot(url) {
   for (let i = 0; i < 5; i++) {
-    await wait(1300); used++;
+    await wait(PACE); used++;
     const r = await fetch(url, { headers: { "X-Riot-Token": process.env.RIOT_API_KEY.trim() } });
     if (r.ok) return r.json();
     if (r.status === 429) { await wait((Number(r.headers.get("retry-after")) || 10) * 1000); continue; }

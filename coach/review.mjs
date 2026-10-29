@@ -205,7 +205,8 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   const legendaryMin = firstLegendary ? Math.round(firstLegendary.timestamp / 6000) / 10 : null;
   const habits = { wardKills20, control20, backs14, legendaryMin };
   const long = s.minutes >= 20;
-  if (!support && long && wardKills20 === 0) findings.push({ kind: "aucune-balise-detruite", family: "niveau", weight: 1.2, title: "Aucune ward adverse détruite avant 20 min", facts: ["Les bons joueurs détruisent en moyenne 1 à 2 wards adverses avant 20 min (d'après 800 parties analysées, de Fer à Challenger)."], metric: "visionMin" });
+  // Pas au top : 52 % des parties de top Diamant+ n'ont aucune ward détruite avant 20 min (mesure du 29/10 sur 4 486 parties)
+  if (!support && s.role !== "top" && long && wardKills20 === 0) findings.push({ kind: "aucune-balise-detruite", family: "niveau", weight: 1.2, title: "Aucune ward adverse détruite avant 20 min", facts: ["À ton poste, la plupart des bons joueurs détruisent au moins une ward adverse avant 20 min (parties Diamant+ analysées)."], metric: "visionMin" });
   if (!support && backs14 <= 1) findings.push({ kind: "peu-de-retours", family: "niveau", weight: 1.1, title: `${backs14 ? "Un seul retour" : "Aucun retour"} volontaire à la base avant 14 min`, facts: ["Les bons joueurs backent environ 3 fois avant 14 min, au bon moment (d'après 800 parties analysées, de Fer à Challenger)."], metric: null });
   // Référence du rythme d'objets : Diamant+ du même champion au même poste (chronologies, coach/situations.mjs), sinon du poste, sinon 14 min
   const sitChamp = situations?.byChamp?.[`${s.champion}|${s.role}`], sitRole = situations?.byRole?.[s.role];
@@ -491,14 +492,18 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
     else if (top / list.length >= 0.5 && list[0].p50 > 0) plus.push({ kind: `fort-${k}`, title: `${METRICS[k].plain} au niveau des meilleurs dans ${top} parties sur ${list.length}`, detail: `Toi, en général : ${METRICS[k].say(med)}. Les joueurs Diamant et plus à ton poste : ${METRICS[k].say(list[0].p50)}.` });
   }
   // Habitudes des bons joueurs (banc d'essai : part des parties où l'habitude manque, Fer à Argent → Diamant et plus, à rôle égal)
-  const H = (kind, test, eligible, diamond, low, title, detail, metric = null) => {
+  // diamond et low : pourcentage de parties où l'habitude manque, chez les Diamant+ et chez les Fer à Argent ; un nombre, ou un seuil par poste
+  const H = (kind, test, eligible, diamondIn, lowIn, title, detail, metric = null) => {
     const pool = reviews.filter(r => r.habits && eligible(r)), miss = pool.filter(test);
+    const roles = pool.map(r => r.summary.role), mainRole = roles.sort((a, b) => roles.filter(x => x === b).length - roles.filter(x => x === a).length)[0];
+    const per = v => (typeof v === "object" ? v[mainRole] : v), diamond = per(diamondIn), low = per(lowIn);
+    if (diamond == null) return;
     if (pool.length < 3 || miss.length < need || miss.length / pool.length < diamond / 100 + 0.15) return;
     minus.push({ kind, family: "niveau", metric, weight: 1 + miss.length / 2, title: `${title} dans ${miss.length} parties sur ${pool.length}`, detail, games: miss.map(r => r.summary.id),
       evidence: `D'après 800 parties analysées, à poste égal : « ${title.charAt(0).toLowerCase() + title.slice(1)} » dans ${low} % des parties des joueurs Fer à Argent, et seulement ${diamond} % de celles des Diamant et plus.` });
   };
   const notSup = r => r.summary.role !== "support", long = r => r.summary.minutes >= 20;
-  H("aucune-balise-detruite", r => r.habits.wardKills20 === 0, r => notSup(r) && long(r), 32, 66, "Aucune ward adverse détruite avant 20 min", "Détruire les wards adverses (trinket rouge, control ward) prive l'adversaire de vision et protège tes déplacements.", "visionMin");
+  H("aucune-balise-detruite", r => r.habits.wardKills20 === 0, r => notSup(r) && long(r), { jungle: 17, mid: 39, bottom: 26 }, { jungle: 48, mid: 69, bottom: 55 }, "Aucune ward adverse détruite avant 20 min", "Détruire les wards adverses (trinket rouge, control ward) prive l'adversaire de vision et protège tes déplacements.", "visionMin");
   H("peu-de-retours", r => r.habits.backs14 <= 1, notSup, 9, 25, "Au plus un back volontaire avant 14 min", "Les bons joueurs backent environ 3 fois avant 14 min, au bon moment (sbires poussés, or suffisant).");
   H("premier-objet-tardif", r => r.habits.legendaryMin == null || r.habits.legendaryMin > 14, r => notSup(r) && r.summary.minutes >= 14, 12, 23, "Premier grand item terminé après 14 min", "Les bons joueurs terminent leur premier grand item vers 11 min : plus de farm et des retours au bon moment.", "csMin");
   H("balises-controle", r => (r.summary.role === "jungle" ? r.habits.control20 === 0 : r.habits.control20 <= 1), r => long(r) && ["jungle", "support"].includes(r.summary.role), 40, 68, "Peu de control wards posées avant 20 min", "Une control ward (75 golds) reste posée jusqu'à ce qu'on la détruise : elle montre et coupe la vision adverse autour d'un objectif.", "controlWards");

@@ -21,7 +21,7 @@ import { createSupabaseRest, createSupabaseStore } from "../coach/v1/store-supab
 export const ORIGINS = ["https://anthonyloquet96-source.github.io", "http://localhost:3000"];
 export const QUOTAS = { sync: 20, chat: 20, resolve: 30, join: 5, ipPer5min: 120 };
 // Version des conditions du test privé acceptées à l'inscription (texte affiché par coach2.js)
-const TIER_LABEL = { IRON: "Fer", BRONZE: "Bronze", SILVER: "Argent", GOLD: "Or", PLATINUM: "Platine", EMERALD: "Émeraude", DIAMOND: "Diamant", MASTER: "Maître", GRANDMASTER: "Grand Maître", CHALLENGER: "Challenger" };
+const TIER_LABEL = { IRON: "Fer", BRONZE: "Bronze", SILVER: "Argent", GOLD: "Or", PLATINUM: "Platine", EMERALD: "Émeraude", DIAMOND: "Diamant", MASTER: "Master", GRANDMASTER: "Grandmaster", CHALLENGER: "Challenger" };
 export const CONSENT_VERSION = "test-prive-2026-10-27";
 const json = (status, body, cors) => new Response(body == null ? null : JSON.stringify(body), { status, headers: { ...cors, "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" } });
 const err = (status, code, message, cors) => json(status, { error: { code, message } }, cors);

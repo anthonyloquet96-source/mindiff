@@ -63381,7 +63381,298 @@
    },
    "version": 1,
    "firstSeen": "2026-10-29"
+  },
+  {
+   "id": "u-ai-yt-IaWNQu9peB8-1",
+   "claim": "Selon Veigar v2 : en début de partie sur un champion de mêlée faible au niveau 1, laisse le champion à distance adverse t'attaquer une fois pour attirer l'agressivité des sbires ennemis et forcer la vague à avancer rapidement vers toi.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "13.22"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Champion de mêlée faible au niveau 1",
+    "Adversaire à distance avec peu de burst au niveau 1"
+   ],
+   "limits": [
+    "Ne pas faire contre un champion ayant un niveau 1 très agressif"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-IaWNQu9peB8",
+     "locator": "01:39",
+     "lang": "en",
+     "passage": "A champion like Ekko that is weak level one and a melee champion and I want them to push, if you can make her tank creep aggro in a situation where it's not so good for her, then go for it.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.7-flash",
+      "at": "2026-10-29",
+      "window": "79-139s",
+      "said": true,
+      "supported": false,
+      "gap": "L'extrait coupe au moment d'aborder le niveau 1 adverse sans mentionner Lucian ni Attaque soutenue, le conseil évoque par erreur l'agression des sbires ennemis plutôt qu'alliés, et le fait de reculer immédiatement n'est pas précisé."
+     }
+    },
+    {
+     "content": "c-yt-IaWNQu9peB8",
+     "locator": "02:18",
+     "lang": "en",
+     "passage": "Now, if her champion is really OP level one, then you might not wanna do that. If they have like a PTA Lucian mid, right, then we're not talking 70 damage, we're talking an auto into E into double auto from passive with PTA proc, 250 damage.",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Ekko (exemple)",
+    "Lucian (exemple)",
+    "Orianna (exemple)"
+   ],
+   "action": "Au niveau 1 dès que les vagues se croisent, avance pour te faire attaquer une fois par le champion à distance puis recule pour faire push la vague.",
+   "observe": "Vérifie si les sbires ennemis cessent d'attaquer tes sbires pour cibler l'adversaire, accélérant le push vers ta tour.",
+   "use": {
+    "when": "Au niveau 1 sur la voie du milieu, dès que les deux premières vagues de sbires se rencontrent et commencent à s'attaquer mutuellement.",
+    "why": "L'attaque ennemie redirige l'agressivité de tes sbires sur l'adversaire, ce qui préserve les sbires ennemis et fait avancer rapidement la vague vers ta tourelle pour farmer en sécurité.",
+    "who": "Midlaner de mêlée faible au niveau 1 jouant contre un champion à distance aux dégâts modérés.",
+    "how": [
+     "Attends que les sbires des deux vagues entrent en contact au centre de la voie.",
+     "Avance et reste immobile à portée d'attaque de l'adversaire pour encaisser une attaque de base et un sort léger.",
+     "Recule immédiatement après l'attaque pour laisser les sbires ennemis avancer vers ton camp."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe intemporel de gestion du minion aggro au niveau 1 pour les mêlées contre les champions à distance, fidèlement retranscrit avec ses contre-indications."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-29",
+   "validity": {
+    "checkedAt": "2026-10-29",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-29",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-29"
+  },
+  {
+   "id": "u-ai-yt-IaWNQu9peB8-2",
+   "claim": "Selon Veigar v2 : erreur fréquente sur Ekko : s'avancer trop près pour que le A touche immédiatement le sbire. Il faut viser sur le côté et exploiter l'extension maximale du sort pour sécuriser les sbires à distance sans s'exposer.",
+   "champions": [
+    "Ekko"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "13.22"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Ekko/Q"
+   ],
+   "conditions": [
+    "Jouer Ekko",
+    "Vouloir maintenir la vague proche de soi sans push"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-IaWNQu9peB8",
+     "locator": "04:20",
+     "lang": "en",
+     "passage": "So you need to practice throwing your Q like on the side. And you should also, something I noticed, is that you keep standing like this so that your Q like insta hits it. But you can stand here and cast Q and it'll still reach this, you know?",
+     "autoChecked": {
+      "by": "gemini-3.7-flash",
+      "at": "2026-10-29",
+      "window": "240-300s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-IaWNQu9peB8",
+     "locator": "04:35",
+     "lang": "en",
+     "passage": "because when your Q hits, right, it hits and then does like that, right? It travels a bit. And that's a massive skill to have as an Ekko player because you're going to have matchups where you cannot stand this close to farm, right?"
+    }
+   ],
+   "mentions": [
+    "Cassiopeia (exemple)"
+   ],
+   "action": "Lance le A d'Ekko depuis une position reculée et décalée sur le côté pour sécuriser le sbire avec l'extension finale du sort.",
+   "observe": "Vérifie que les autres sbires ennemis ne sont pas touchés par le projectile afin d'éviter de pousser la vague.",
+   "use": {
+    "when": "Sur la voie au niveau 1 ou 2 avec Ekko, quand tu dois sécuriser un sbire précis sans faire pousser la vague vers la tourelle ennemie.",
+    "why": "Toucher tous les sbires pousse la vague vers l'adversaire et te force à t'exposer, alors que lancer le sort à distance maximale sur le flanc permet de farmer sans s'exposer au poke ennemi.",
+    "who": "Joueur d'Ekko sur la voie du milieu, en particulier face à des champions à distance avec une forte pression.",
+    "how": [
+     "Reste en retrait à distance maximale sans t'aligner directement au contact du sbire.",
+     "Oriente ton A (Rétro-rembobinage) vers le flanc extérieur de la vague pour n'accrocher que le sbire voulu.",
+     "Laisse le projectile voyager jusqu'à son extension maximale pour sécuriser le coup de grâce à distance."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "citation-insuffisante",
+     "sur-generalisation"
+    ],
+    "why": "Le coach insiste sur la portée maximale et le lancer décalé pour farmer à distance sans s'exposer au poke, sans mentionner l'évitement du push involontaire de la vague."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-29",
+   "validity": {
+    "checkedAt": "2026-10-29",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-29",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-29"
+  },
+  {
+   "id": "u-ai-yt-IaWNQu9peB8-3",
+   "claim": "Selon Veigar v2 : après un décalage réussi sur la voie du bas pour plonger sous tourelle (dive), rappelle-toi immédiatement à la base au lieu de remonter à pied sur ta voie.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "macro",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "13.22"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir réussi un dive en botlane après avoir poussé sa propre vague"
+   ],
+   "limits": [
+    "Ne s'applique pas si le joueur a 100 % de ressources et aucun or à dépenser"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-IaWNQu9peB8",
+     "locator": "12:41",
+     "lang": "en",
+     "passage": "When you decide to do this play, you have given this wave. You are not getting this wave. You can't kill her and walk back to lane.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-10-29",
+      "window": "741-801s",
+      "said": true,
+      "supported": true,
+      "gap": "La contre-indication (à éviter) n'est pas mentionnée par l'auteur dans l'extrait vidéo."
+     }
+    },
+    {
+     "content": "c-yt-IaWNQu9peB8",
+     "locator": "13:02",
+     "lang": "en",
+     "passage": "Always when you kill here, you recall. Because you're going to make it for this wave from base anyways. You're never making this wave."
+    }
+   ],
+   "mentions": [],
+   "action": "Appuie sur le sort de Rappel immédiatement après l'élimination en botlane au lieu de marcher vers la voie du milieu.",
+   "observe": "Observe le timing de la prochaine vague au mid : tu l'atteindras en revenant de la base avec des objets achetés et tes ressources pleines.",
+   "use": {
+    "when": "Immédiatement après avoir achevé un dive réussi sur la voie du bas et pris une élimination.",
+    "why": "Remonter à pied prend trop de temps pour sauver la vague en cours qui est déjà perdue, alors que rentrer à la fontaine permet de dépenser son or, régénérer ses ressources et arriver à temps pour la vague suivante.",
+    "who": "Midlaner après un décalage plongeant sur la voie du bas.",
+    "how": [
+     "Ne commence pas à marcher vers la voie du milieu après le kill sous tourelle.",
+     "Trouve une position sécurisée en botlane et lance ton Rappel immédiatement.",
+     "Achète tes objets à la fontaine et repars directement au mid pour réceptionner la vague suivante."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil macro intemporel sur le tempo de rappel après un dive sur la voie du bas, conforme aux citations de l'auteur."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-29",
+   "validity": {
+    "checkedAt": "2026-10-29",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-29",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-29"
   }
  ],
- "updatedAt": "2026-10-29T01:14:52.824Z"
+ "updatedAt": "2026-10-29T07:34:51.172Z"
 }

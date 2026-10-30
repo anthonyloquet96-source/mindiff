@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T13:39:57.315Z",
+ "generatedAt": "2026-10-30T01:13:34.206Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -9,552 +9,552 @@
  "discovery": {
   "wtl-blog": {
    "attempts": 0,
-   "lastOk": "2026-10-29T13:02:28.286Z",
+   "lastOk": "2026-10-30T01:04:15.814Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 3
   },
   "yt-skill-capped": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:28.470Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:15.930Z)",
+   "nextTry": "2026-10-30T02:04:15.930Z",
    "lastCount": 15
   },
   "yt-coach-curtis": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:28.646Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:16.256Z)",
+   "nextTry": "2026-10-30T02:04:16.256Z",
    "lastCount": 15
   },
   "yt-doublelift": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:28.843Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:16.339Z)",
+   "nextTry": "2026-10-30T02:04:16.339Z",
    "lastCount": 15
   },
   "yt-veigar-v2": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:29.015Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:16.410Z)",
+   "nextTry": "2026-10-30T02:04:16.410Z",
    "lastCount": 15
   },
   "yt-pekinwoof": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:29.262Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:16.660Z)",
+   "nextTry": "2026-10-30T02:04:16.660Z",
    "lastCount": 15
   },
   "yt-aloisnl": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:29.416Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:16.729Z)",
+   "nextTry": "2026-10-30T02:04:16.729Z",
    "lastCount": 15
   },
   "yt-chreak": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:29.712Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:16.809Z)",
+   "nextTry": "2026-10-30T02:04:16.809Z",
    "lastCount": 15
   },
   "yt-sixen": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:29.966Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:16.937Z)",
+   "nextTry": "2026-10-30T02:04:16.937Z",
    "lastCount": 15
   },
   "yt-perryjg": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:30.090Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:17.143Z)",
+   "nextTry": "2026-10-30T02:04:17.143Z",
    "lastCount": 15
   },
   "yt-coach-leo": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:30.342Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:17.217Z)",
+   "nextTry": "2026-10-30T02:04:17.217Z",
    "lastCount": 15
   },
   "yt-coach-kirei": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:30.476Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:17.337Z)",
+   "nextTry": "2026-10-30T02:04:17.337Z",
    "lastCount": 15
   },
   "yt-wtl": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:30.711Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:17.424Z)",
+   "nextTry": "2026-10-30T02:04:17.424Z",
    "lastCount": 15
   },
   "yt-ls": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:30.884Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-30T01:04:17.692Z)",
+   "nextTry": "2026-10-30T02:04:17.692Z",
    "lastCount": 15
   },
   "yt-dishake": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:31.096Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:17.765Z)",
+   "nextTry": "2026-10-30T02:04:17.765Z",
    "lastCount": 15
   },
   "yt-gameleap-lol-challenger-guid": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:31.313Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:17.844Z)",
+   "nextTry": "2026-10-30T02:04:17.844Z",
    "lastCount": 15
   },
   "yt-coach-mysterias": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:31.468Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:17.977Z)",
+   "nextTry": "2026-10-30T02:04:17.977Z",
    "lastCount": 15
   },
   "yt-hybradge": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:31.621Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:18.162Z)",
+   "nextTry": "2026-10-30T02:04:18.162Z",
    "lastCount": 15
   },
   "yt-ramyaura": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:31.887Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:18.232Z)",
+   "nextTry": "2026-10-30T02:04:18.232Z",
    "lastCount": 15
   },
   "yt-coach-violet": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:32.055Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:18.346Z)",
+   "nextTry": "2026-10-30T02:04:18.346Z",
    "lastCount": 15
   },
   "yt-mysteriaslol": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:32.326Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:18.440Z)",
+   "nextTry": "2026-10-30T02:04:18.440Z",
    "lastCount": 15
   },
   "yt-sinerias": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:32.525Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:18.618Z)",
+   "nextTry": "2026-10-30T02:04:18.618Z",
    "lastCount": 15
   },
   "yt-coach-chippys": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:32.726Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:18.697Z)",
+   "nextTry": "2026-10-30T02:04:18.697Z",
    "lastCount": 15
   },
   "yt-makkro": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:32.911Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:18.844Z)",
+   "nextTry": "2026-10-30T02:04:18.844Z",
    "lastCount": 15
   },
   "yt-coach-k": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:33.080Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-30T01:04:18.994Z)",
+   "nextTry": "2026-10-30T02:04:18.994Z",
    "lastCount": 15
   },
   "yt-shok": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:33.343Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:19.090Z)",
+   "nextTry": "2026-10-30T02:04:19.090Z",
    "lastCount": 15
   },
   "yt-rebrrt": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:33.529Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-30T01:04:19.248Z)",
+   "nextTry": "2026-10-30T02:04:19.248Z",
    "lastCount": 15
   },
   "yt-scrubnoob": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:33.856Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:19.377Z)",
+   "nextTry": "2026-10-30T02:04:19.377Z",
    "lastCount": 15
   },
   "yt-broxah": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:34.106Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:19.451Z)",
+   "nextTry": "2026-10-30T02:04:19.451Z",
    "lastCount": 15
   },
   "yt-zen-coaching": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:34.297Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:19.592Z)",
+   "nextTry": "2026-10-30T02:04:19.592Z",
    "lastCount": 15
   },
   "yt-gaethan-league-of-legends": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:34.485Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:19.664Z)",
+   "nextTry": "2026-10-30T02:04:19.664Z",
    "lastCount": 15
   },
   "yt-misanthiel-coach-toplane": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:34.803Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:19.737Z)",
+   "nextTry": "2026-10-30T02:04:19.737Z",
    "lastCount": 15
   },
   "yt-kyan": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:34.930Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:19.868Z)",
+   "nextTry": "2026-10-30T02:04:19.868Z",
    "lastCount": 15
   },
   "yt-potent": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:35.224Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:19.946Z)",
+   "nextTry": "2026-10-30T02:04:19.946Z",
    "lastCount": 15
   },
   "yt-bardinette": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:35.348Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:20.013Z)",
+   "nextTry": "2026-10-30T02:04:20.013Z",
    "lastCount": 15
   },
   "yt-trayton": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:35.529Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:20.096Z)",
+   "nextTry": "2026-10-30T02:04:20.096Z",
    "lastCount": 15
   },
   "yt-bizyze-coaching-league-of-le": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:35.837Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:20.218Z)",
+   "nextTry": "2026-10-30T02:04:20.218Z",
    "lastCount": 15
   },
   "yt-sol1xd": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:36.104Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:20.295Z)",
+   "nextTry": "2026-10-30T02:04:20.295Z",
    "lastCount": 15
   },
   "yt-titans-coaching": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:36.229Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:20.363Z)",
+   "nextTry": "2026-10-30T02:04:20.363Z",
    "lastCount": 15
   },
   "yt-el-blu-lol": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:36.360Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:20.436Z)",
+   "nextTry": "2026-10-30T02:04:20.436Z",
    "lastCount": 15
   },
   "yt-shintalx-coach-de-lol": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:36.505Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:20.572Z)",
+   "nextTry": "2026-10-30T02:04:20.572Z",
    "lastCount": 15
   },
   "yt-raiko-league-of-legends": {
    "attempts": 0,
-   "lastOk": "2026-10-29T13:02:36.650Z",
+   "lastOk": "2026-10-30T01:04:20.873Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-maurogarih": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:36.785Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:20.962Z)",
+   "nextTry": "2026-10-30T02:04:20.962Z",
    "lastCount": 15
   },
   "yt-odysseus": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:36.944Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:21.033Z)",
+   "nextTry": "2026-10-30T02:04:21.033Z",
    "lastCount": 15
   },
   "yt-dovahndo": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:37.059Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:21.116Z)",
+   "nextTry": "2026-10-30T02:04:21.116Z",
    "lastCount": 15
   },
   "yt-husumlol": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:37.193Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:21.249Z)",
+   "nextTry": "2026-10-30T02:04:21.249Z",
    "lastCount": 15
   },
   "yt-que-aula": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:37.336Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:21.341Z)",
+   "nextTry": "2026-10-30T02:04:21.341Z",
    "lastCount": 15
   },
   "yt-asteek": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:37.494Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:21.416Z)",
+   "nextTry": "2026-10-30T02:04:21.416Z",
    "lastCount": 15
   },
   "yt-keshaeuw": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:37.687Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:21.491Z)",
+   "nextTry": "2026-10-30T02:04:21.491Z",
    "lastCount": 15
   },
   "yt-phantasm": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:37.812Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:21.657Z)",
+   "nextTry": "2026-10-30T02:04:21.657Z",
    "lastCount": 15
   },
   "yt-powerofevil": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:37.970Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:21.771Z)",
+   "nextTry": "2026-10-30T02:04:21.771Z",
    "lastCount": 15
   },
   "yt-fl7vob_qbs": {
    "attempts": 0,
-   "lastOk": "2026-10-29T13:02:38.115Z",
+   "lastOk": "2026-10-30T01:04:22.027Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-japs-99jh_": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:38.310Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:22.102Z)",
+   "nextTry": "2026-10-30T02:04:22.102Z",
    "lastCount": 15
   },
   "yt-mzthr5qzga": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:38.503Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:22.180Z)",
+   "nextTry": "2026-10-30T02:04:22.180Z",
    "lastCount": 15
   },
   "yt-cq2-jrbuz4": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:38.650Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:22.275Z)",
+   "nextTry": "2026-10-30T02:04:22.275Z",
    "lastCount": 15
   },
   "yt-erhqgfd8dn": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:38.800Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-30T01:04:22.524Z)",
+   "nextTry": "2026-10-30T02:04:22.524Z",
    "lastCount": 15
   },
   "yt-ga52d8qlv3": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:38.963Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:22.601Z)",
+   "nextTry": "2026-10-30T02:04:22.601Z",
    "lastCount": 15
   },
   "yt-6izv_x6edr": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:39.070Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:22.674Z)",
+   "nextTry": "2026-10-30T02:04:22.674Z",
    "lastCount": 15
   },
   "yt-fmmwh9er3z": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:39.254Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:22.764Z)",
+   "nextTry": "2026-10-30T02:04:22.764Z",
    "lastCount": 15
   },
   "yt-dmevbthdzh": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:39.388Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:22.882Z)",
+   "nextTry": "2026-10-30T02:04:22.882Z",
    "lastCount": 15
   },
   "yt-o8todsm2gv": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:39.538Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-30T01:04:23.062Z)",
+   "nextTry": "2026-10-30T02:04:23.062Z",
    "lastCount": 15
   },
   "yt-2-8sga9qex": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:39.737Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-30T01:04:23.217Z)",
+   "nextTry": "2026-10-30T02:04:23.217Z",
    "lastCount": 15
   },
   "yt-6-vilhl-lv": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:39.878Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:23.296Z)",
+   "nextTry": "2026-10-30T02:04:23.296Z",
    "lastCount": 15
   },
   "yt-9fhrv-_tww": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:40.008Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:23.375Z)",
+   "nextTry": "2026-10-30T02:04:23.375Z",
    "lastCount": 15
   },
   "yt-guy1cnuajr": {
    "attempts": 0,
-   "lastOk": "2026-10-29T13:02:40.193Z",
+   "lastOk": "2026-10-30T01:04:23.653Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
   },
   "yt-japanesekoreanug": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:40.358Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:23.742Z)",
+   "nextTry": "2026-10-30T02:04:23.742Z",
    "lastCount": 15
   },
   "yt-02kyy9q5fy": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:40.478Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-30T01:04:23.890Z)",
+   "nextTry": "2026-10-30T02:04:23.890Z",
    "lastCount": 15
   },
   "yt-mjdqfb68q1": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:40.600Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:23.971Z)",
+   "nextTry": "2026-10-30T02:04:23.971Z",
    "lastCount": 15
   },
   "yt-yamato-natsuna-lol-katarina": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:40.814Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:24.040Z)",
+   "nextTry": "2026-10-30T02:04:24.040Z",
    "lastCount": 15
   },
   "yt-wcnac9zs-i": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:40.959Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:24.114Z)",
+   "nextTry": "2026-10-30T02:04:24.114Z",
    "lastCount": 15
   },
   "yt-iqjmsczied": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:41.107Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:24.249Z)",
+   "nextTry": "2026-10-30T02:04:24.249Z",
    "lastCount": 15
   },
   "yt-zwyro": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:41.304Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:24.338Z)",
+   "nextTry": "2026-10-30T02:04:24.338Z",
    "lastCount": 15
   },
   "yt-jankos": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:41.422Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-30T01:04:24.492Z)",
+   "nextTry": "2026-10-30T02:04:24.492Z",
    "lastCount": 15
   },
   "yt-krugz": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:41.583Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:24.569Z)",
+   "nextTry": "2026-10-30T02:04:24.569Z",
    "lastCount": 15
   },
   "yt-turkish-taliyah": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:41.757Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:24.642Z)",
+   "nextTry": "2026-10-30T02:04:24.642Z",
    "lastCount": 15
   },
   "yt-taowb": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:41.906Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:24.711Z)",
+   "nextTry": "2026-10-30T02:04:24.711Z",
    "lastCount": 15
   },
   "yt-hansuo": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:42.047Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 500 (2026-10-30T01:04:24.932Z)",
+   "nextTry": "2026-10-30T02:04:24.932Z",
    "lastCount": 15
   },
   "yt-proguides-challenger-league": {
-   "attempts": 0,
+   "attempts": 1,
    "lastOk": "2026-10-29T13:02:42.178Z",
-   "lastError": null,
-   "nextTry": null,
+   "lastError": "HTTP 404 (2026-10-30T01:04:25.005Z)",
+   "nextTry": "2026-10-30T02:04:25.005Z",
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-10-29T13:02:42.195Z",
+ "lastDiscovery": "2026-10-30T01:04:25.041Z",
  "failures": [],
  "quarantine": [
   {
@@ -2847,6 +2847,147 @@
    ],
    "at": "2026-10-29",
    "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-Kc3B5f3Z5Ys-1",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Lucian."
+    }
+   ],
+   "at": "2026-10-29",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-Kc3B5f3Z5Ys-2",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Lucian."
+    }
+   ],
+   "at": "2026-10-29",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-Zu_X0KkI41c-5",
+   "reasons": [
+    {
+     "code": "mention",
+     "why": "Master Yi n'est cité qu'en exemple : ce n'est pas un conseil sur Master Yi."
+    }
+   ],
+   "at": "2026-10-29",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt--I7iBIabOok-3",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt--I7iBIabOok : « Vladimir, one of his main weaknesses, people think he is wea… »"
+    },
+    {
+     "code": "mention",
+     "why": "Vladimir n'est cité qu'en exemple : ce n'est pas un conseil sur Vladimir."
+    }
+   ],
+   "at": "2026-10-29",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-Kc3B5f3Z5Ys-1",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Lucian."
+    }
+   ],
+   "at": "2026-10-30",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-Kc3B5f3Z5Ys-2",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Lucian."
+    }
+   ],
+   "at": "2026-10-30",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-Zu_X0KkI41c-1",
+   "reasons": [
+    {
+     "code": "citation-non-entendue",
+     "why": "c-yt-Zu_X0KkI41c : passage absent de l'extrait 35-95s relu par gemini-3.5-flash-lite."
+    }
+   ],
+   "at": "2026-10-30",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-Zu_X0KkI41c-5",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-Zu_X0KkI41c : « So as I'm like obviously hitting the Xin Zhao right I'm anti… »"
+    },
+    {
+     "code": "mention",
+     "why": "Master Yi n'est cité qu'en exemple : ce n'est pas un conseil sur Master Yi."
+    },
+    {
+     "code": "mention",
+     "why": "Master Yi (exemple) : mention, pas conseil."
+    }
+   ],
+   "at": "2026-10-30",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-BnwE5CD1-qA-3",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Ahri."
+    }
+   ],
+   "at": "2026-10-30",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt--I7iBIabOok-2",
+   "reasons": [
+    {
+     "code": "citation-trop-longue",
+     "why": "Passage de plus de 320 caractères : résumer plutôt que republier."
+    },
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt--I7iBIabOok : « Vladimir, one of his main weaknesses, people think he is wea… »"
+    },
+    {
+     "code": "mention",
+     "why": "Vladimir n'est cité qu'en exemple : ce n'est pas un conseil sur Vladimir."
+    }
+   ],
+   "at": "2026-10-30",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-2pC3FmEJAkU-2",
+   "reasons": [
+    {
+     "code": "citation-non-entendue",
+     "why": "c-yt-2pC3FmEJAkU : passage absent de l'extrait 189-249s relu par gemini-3.5-flash-lite."
+    }
+   ],
+   "at": "2026-10-30",
+   "origin": "analyse-automatique"
   }
  ],
  "pending": [
@@ -2885,17 +3026,14 @@
   "c-riot-dev-yuumi-s-rework",
   "c-yt-S3F9CpeiSNE",
   "c-riot-champion-insights-zeri",
-  "c-yt-BnwE5CD1-qA",
   "c-yt-WO5Vc9BCNZU",
   "c-yt-6DYcD-pcMdA",
   "c-yt-uB3DBca5uEw",
   "c-yt-v6dgAHQHx78",
   "c-yt-IG5H_Zm8_k8",
-  "c-yt--I7iBIabOok",
+  "c-yt-LUllgzA2Q80",
   "c-inven-board-baron",
-  "c-wtl-4072",
-  "c-yt-2pC3FmEJAkU",
-  "c-yt-29azwNM7s8M"
+  "c-wtl-4072"
  ],
  "review": [
   "u-lucian-2620-ad",
@@ -3913,7 +4051,19 @@
   "u-ai-yt-DzwLn5Dtb94-1",
   "u-ai-yt-DzwLn5Dtb94-2",
   "u-ai-yt-DzwLn5Dtb94-3",
-  "u-ai-yt-z4jG-L-H9ms-5"
+  "u-ai-yt-z4jG-L-H9ms-5",
+  "u-ai-yt-29azwNM7s8M-1",
+  "u-ai-yt-29azwNM7s8M-2",
+  "u-ai-yt-Zu_X0KkI41c-2",
+  "u-ai-yt-Zu_X0KkI41c-3",
+  "u-ai-yt-Zu_X0KkI41c-4",
+  "u-ai-yt-BnwE5CD1-qA-1",
+  "u-ai-yt-BnwE5CD1-qA-2",
+  "u-ai-yt-BnwE5CD1-qA-4",
+  "u-ai-yt--I7iBIabOok-1",
+  "u-ai-yt-2pC3FmEJAkU-1",
+  "u-ai-yt-2pC3FmEJAkU-3",
+  "u-ai-yt-2pC3FmEJAkU-4"
  ],
  "contested": [],
  "retired": [
@@ -4795,241 +4945,33 @@
   "month": 0,
   "calls": [
    {
-    "at": "2026-10-29T01:09:45.359Z",
-    "content": "c-yt--WhqVSShg5Q",
+    "at": "2026-10-29T19:21:09.781Z",
+    "content": "c-yt-BnwE5CD1-qA",
     "model": "gemini-3.5-flash-lite",
-    "input": 10171,
-    "output": 1229,
+    "input": 5989,
+    "output": 1714,
     "usd": 0
    },
    {
-    "at": "2026-10-29T01:09:54.194Z",
-    "content": "c-yt--WhqVSShg5Q",
+    "at": "2026-10-29T19:21:17.100Z",
+    "content": "c-yt-BnwE5CD1-qA",
     "model": "gemini-3.5-flash-lite",
-    "input": 6032,
-    "output": 191,
+    "input": 6779,
+    "output": 244,
     "usd": 0
    },
    {
-    "at": "2026-10-29T01:10:08.459Z",
-    "content": "c-yt--WhqVSShg5Q",
+    "at": "2026-10-29T19:21:35.003Z",
+    "content": "c-yt-BnwE5CD1-qA",
     "model": "gemini-3.5-flash-lite",
-    "input": 4475,
+    "input": 5854,
     "output": 46,
     "usd": 0,
     "kind": "verification-extrait"
    },
    {
-    "at": "2026-10-29T01:10:17.324Z",
-    "content": "c-yt--WhqVSShg5Q",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5897,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:10:39.720Z",
-    "content": "c-yt-drdkQ0umhlc",
-    "model": "gemini-3.5-flash-lite",
-    "input": 13826,
-    "output": 4064,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T01:10:52.016Z",
-    "content": "c-yt-drdkQ0umhlc",
-    "model": "gemini-3.5-flash-lite",
-    "input": 8803,
-    "output": 614,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T01:11:00.207Z",
-    "content": "c-yt-drdkQ0umhlc",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5884,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:11:08.076Z",
-    "content": "c-yt-drdkQ0umhlc",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5896,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:11:17.392Z",
-    "content": "c-yt-drdkQ0umhlc",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5884,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:11:25.161Z",
-    "content": "c-yt-drdkQ0umhlc",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5932,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:11:32.727Z",
-    "content": "c-yt-drdkQ0umhlc",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5893,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:11:41.902Z",
-    "content": "c-yt-drdkQ0umhlc",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5899,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:11:50.829Z",
-    "content": "c-yt-drdkQ0umhlc",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5940,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:12:04.481Z",
-    "content": "c-yt-691R_SN1BWU",
-    "model": "gemini-3.5-flash-lite",
-    "input": 10773,
-    "output": 2724,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T01:12:14.334Z",
-    "content": "c-yt-691R_SN1BWU",
-    "model": "gemini-3.5-flash-lite",
-    "input": 6865,
-    "output": 383,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T01:12:24.631Z",
-    "content": "c-yt-691R_SN1BWU",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5941,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:12:34.746Z",
-    "content": "c-yt-691R_SN1BWU",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5491,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:12:43.834Z",
-    "content": "c-yt-691R_SN1BWU",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5873,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:12:54.175Z",
-    "content": "c-yt-691R_SN1BWU",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5898,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:13:03.695Z",
-    "content": "c-yt-691R_SN1BWU",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5903,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:13:18.447Z",
-    "content": "c-yt-P24dEcz2egE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 7085,
-    "output": 1363,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T01:13:26.329Z",
-    "content": "c-yt-P24dEcz2egE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5200,
-    "output": 287,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T01:13:50.954Z",
-    "content": "c-yt-P24dEcz2egE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5890,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:14:00.024Z",
-    "content": "c-yt-P24dEcz2egE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5852,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:14:11.214Z",
-    "content": "c-yt-V2_UctNAB4w",
-    "model": "gemini-3.5-flash-lite",
-    "input": 9252,
-    "output": 1715,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T01:14:19.678Z",
-    "content": "c-yt-V2_UctNAB4w",
-    "model": "gemini-3.5-flash-lite",
-    "input": 6612,
-    "output": 245,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T01:14:28.684Z",
-    "content": "c-yt-V2_UctNAB4w",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5832,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T01:14:37.725Z",
-    "content": "c-yt-V2_UctNAB4w",
+    "at": "2026-10-29T19:21:49.697Z",
+    "content": "c-yt-BnwE5CD1-qA",
     "model": "gemini-3.5-flash-lite",
     "input": 5826,
     "output": 46,
@@ -5037,192 +4979,400 @@
     "kind": "verification-extrait"
    },
    {
-    "at": "2026-10-29T01:14:46.675Z",
-    "content": "c-yt-V2_UctNAB4w",
+    "at": "2026-10-29T19:22:05.097Z",
+    "content": "c-yt-BnwE5CD1-qA",
     "model": "gemini-3.5-flash-lite",
-    "input": 5832,
+    "input": 5845,
     "output": 46,
     "usd": 0,
     "kind": "verification-extrait"
    },
    {
-    "at": "2026-10-29T07:21:10.401Z",
-    "content": "c-yt-IaWNQu9peB8",
-    "model": "gemini-3.8-flash",
-    "input": 12343,
-    "output": 7713,
+    "at": "2026-10-29T19:22:23.226Z",
+    "content": "c-yt--I7iBIabOok",
+    "model": "gemini-3.5-flash-lite",
+    "input": 20379,
+    "output": 3679,
     "usd": 0
    },
    {
-    "at": "2026-10-29T07:22:38.270Z",
-    "content": "c-yt-IaWNQu9peB8",
-    "model": "gemini-3.8-flash",
-    "input": 8419,
-    "output": 4748,
+    "at": "2026-10-29T19:22:31.144Z",
+    "content": "c-yt--I7iBIabOok",
+    "model": "gemini-3.5-flash-lite",
+    "input": 8667,
+    "output": 457,
     "usd": 0
    },
    {
-    "at": "2026-10-29T07:28:22.523Z",
-    "content": "c-yt-IaWNQu9peB8",
-    "model": "gemini-3.7-flash",
-    "input": 6009,
-    "output": 106,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T07:34:13.501Z",
-    "content": "c-yt-IaWNQu9peB8",
-    "model": "gemini-3.7-flash",
-    "input": 5995,
+    "at": "2026-10-29T19:22:44.761Z",
+    "content": "c-yt--I7iBIabOok",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5873,
     "output": 46,
     "usd": 0,
     "kind": "verification-extrait"
    },
    {
-    "at": "2026-10-29T07:34:44.967Z",
-    "content": "c-yt-IaWNQu9peB8",
-    "model": "gemini-3.6-flash",
-    "input": 5953,
-    "output": 53,
+    "at": "2026-10-29T19:23:28.165Z",
+    "content": "c-yt--I7iBIabOok",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5878,
+    "output": 46,
     "usd": 0,
     "kind": "verification-extrait"
    },
    {
-    "at": "2026-10-29T13:23:48.869Z",
-    "content": "c-yt-DzwLn5Dtb94",
-    "model": "gemini-3.6-flash",
-    "input": 10534,
-    "output": 6157,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T13:24:07.359Z",
-    "content": "c-yt-DzwLn5Dtb94",
-    "model": "gemini-3.6-flash",
-    "input": 6831,
-    "output": 2138,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T13:24:59.976Z",
-    "content": "c-yt-DzwLn5Dtb94",
-    "model": "gemini-3.6-flash",
-    "input": 5954,
-    "output": 78,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T13:25:22.226Z",
-    "content": "c-yt-DzwLn5Dtb94",
-    "model": "gemini-3.6-flash",
-    "input": 5893,
-    "output": 77,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T13:25:58.158Z",
-    "content": "c-yt-DzwLn5Dtb94",
-    "model": "gemini-3.6-flash",
-    "input": 5856,
-    "output": 60,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T13:26:23.850Z",
-    "content": "c-yt-3BBAOasKM-o",
-    "model": "gemini-3.6-flash",
-    "input": 10643,
-    "output": 4045,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T13:26:39.025Z",
-    "content": "c-yt-3BBAOasKM-o",
-    "model": "gemini-3.6-flash",
-    "input": 6031,
-    "output": 1596,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T13:26:59.575Z",
-    "content": "c-yt-3BBAOasKM-o",
-    "model": "gemini-3.6-flash",
-    "input": 5916,
-    "output": 84,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T13:27:38.802Z",
-    "content": "c-yt-3BBAOasKM-o",
-    "model": "gemini-3-flash-preview",
-    "input": 5890,
-    "output": 30,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T13:29:24.747Z",
-    "content": "c-yt-z4jG-L-H9ms",
-    "model": "gemini-3-flash-preview",
-    "input": 13188,
-    "output": 5385,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T13:29:43.546Z",
-    "content": "c-yt-z4jG-L-H9ms",
-    "model": "gemini-3-flash-preview",
-    "input": 8379,
-    "output": 2307,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-29T13:31:26.839Z",
-    "content": "c-yt-z4jG-L-H9ms",
-    "model": "gemini-3-flash-preview",
-    "input": 5892,
-    "output": 30,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-29T13:31:55.246Z",
-    "content": "c-yt-z4jG-L-H9ms",
-    "model": "gemini-3-flash-preview",
+    "at": "2026-10-29T19:23:40.468Z",
+    "content": "c-yt--I7iBIabOok",
+    "model": "gemini-3.5-flash-lite",
     "input": 5864,
     "output": 46,
     "usd": 0,
     "kind": "verification-extrait"
    },
    {
-    "at": "2026-10-29T13:32:23.801Z",
-    "content": "c-yt-z4jG-L-H9ms",
-    "model": "gemini-3-flash-preview",
-    "input": 5910,
+    "at": "2026-10-29T19:23:48.655Z",
+    "content": "c-yt--I7iBIabOok",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5852,
     "output": 46,
     "usd": 0,
     "kind": "verification-extrait"
    },
    {
-    "at": "2026-10-29T13:32:48.672Z",
-    "content": "c-yt-z4jG-L-H9ms",
-    "model": "gemini-3-flash-preview",
+    "at": "2026-10-29T19:23:57.331Z",
+    "content": "c-yt--I7iBIabOok",
+    "model": "gemini-3.5-flash-lite",
     "input": 5871,
     "output": 46,
     "usd": 0,
     "kind": "verification-extrait"
    },
    {
-    "at": "2026-10-29T13:36:07.338Z",
-    "content": "c-yt-z4jG-L-H9ms",
-    "model": "gemini-3-flash-preview",
+    "at": "2026-10-29T19:24:49.080Z",
+    "content": "c-yt--I7iBIabOok",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5834,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-29T19:25:02.887Z",
+    "content": "c-yt-2pC3FmEJAkU",
+    "model": "gemini-3.5-flash-lite",
+    "input": 9970,
+    "output": 2978,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-29T19:25:15.425Z",
+    "content": "c-yt-2pC3FmEJAkU",
+    "model": "gemini-3.5-flash-lite",
+    "input": 8167,
+    "output": 388,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-29T19:25:24.180Z",
+    "content": "c-yt-2pC3FmEJAkU",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5937,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-29T19:25:38.363Z",
+    "content": "c-yt-2pC3FmEJAkU",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5895,
+    "output": 100,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-29T19:26:14.914Z",
+    "content": "c-yt-2pC3FmEJAkU",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5897,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-29T19:26:42.826Z",
+    "content": "c-yt-2pC3FmEJAkU",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5929,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:07:53.610Z",
+    "content": "c-yt-29azwNM7s8M",
+    "model": "gemini-3.5-flash-lite",
+    "input": 9892,
+    "output": 1098,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-30T01:08:00.702Z",
+    "content": "c-yt-29azwNM7s8M",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5849,
+    "output": 161,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-30T01:08:10.097Z",
+    "content": "c-yt-29azwNM7s8M",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5841,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:08:40.362Z",
+    "content": "c-yt-29azwNM7s8M",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5796,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:08:50.349Z",
+    "content": "c-yt-Kc3B5f3Z5Ys",
+    "model": "gemini-3.5-flash-lite",
+    "input": 6632,
+    "output": 1234,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-30T01:08:57.987Z",
+    "content": "c-yt-Kc3B5f3Z5Ys",
+    "model": "gemini-3.5-flash-lite",
+    "input": 6320,
+    "output": 279,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-30T01:09:07.660Z",
+    "content": "c-yt-Kc3B5f3Z5Ys",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5229,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:09:18.874Z",
+    "content": "c-yt-Kc3B5f3Z5Ys",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5845,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:09:34.531Z",
+    "content": "c-yt-Zu_X0KkI41c",
+    "model": "gemini-3.5-flash-lite",
+    "input": 10665,
+    "output": 3396,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-30T01:09:42.087Z",
+    "content": "c-yt-Zu_X0KkI41c",
+    "model": "gemini-3.5-flash-lite",
+    "input": 8184,
+    "output": 400,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-30T01:09:52.332Z",
+    "content": "c-yt-Zu_X0KkI41c",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5858,
+    "output": 72,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:10:06.991Z",
+    "content": "c-yt-Zu_X0KkI41c",
+    "model": "gemini-3.5-flash-lite",
     "input": 5861,
-    "output": 30,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:10:16.477Z",
+    "content": "c-yt-Zu_X0KkI41c",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5913,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:10:26.584Z",
+    "content": "c-yt-Zu_X0KkI41c",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5894,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:10:35.244Z",
+    "content": "c-yt-Zu_X0KkI41c",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5935,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:10:47.654Z",
+    "content": "c-yt-BnwE5CD1-qA",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5989,
+    "output": 2196,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-30T01:10:55.445Z",
+    "content": "c-yt-BnwE5CD1-qA",
+    "model": "gemini-3.5-flash-lite",
+    "input": 7329,
+    "output": 301,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-30T01:11:09.037Z",
+    "content": "c-yt-BnwE5CD1-qA",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5869,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:11:28.763Z",
+    "content": "c-yt-BnwE5CD1-qA",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5818,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:11:39.872Z",
+    "content": "c-yt-BnwE5CD1-qA",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5851,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:11:48.809Z",
+    "content": "c-yt-BnwE5CD1-qA",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5844,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:11:59.230Z",
+    "content": "c-yt--I7iBIabOok",
+    "model": "gemini-3.5-flash-lite",
+    "input": 20379,
+    "output": 1236,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-30T01:12:06.516Z",
+    "content": "c-yt--I7iBIabOok",
+    "model": "gemini-3.5-flash-lite",
+    "input": 6053,
+    "output": 151,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-30T01:12:15.600Z",
+    "content": "c-yt--I7iBIabOok",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5873,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:12:24.375Z",
+    "content": "c-yt--I7iBIabOok",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5846,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:12:36.403Z",
+    "content": "c-yt-2pC3FmEJAkU",
+    "model": "gemini-3.5-flash-lite",
+    "input": 9970,
+    "output": 2356,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-30T01:12:43.860Z",
+    "content": "c-yt-2pC3FmEJAkU",
+    "model": "gemini-3.5-flash-lite",
+    "input": 7540,
+    "output": 322,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-30T01:12:53.123Z",
+    "content": "c-yt-2pC3FmEJAkU",
+    "model": "gemini-3.5-flash-lite",
+    "input": 4006,
+    "output": 84,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:13:04.199Z",
+    "content": "c-yt-2pC3FmEJAkU",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5868,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:13:15.798Z",
+    "content": "c-yt-2pC3FmEJAkU",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5872,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-30T01:13:27.014Z",
+    "content": "c-yt-2pC3FmEJAkU",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5860,
+    "output": 46,
     "usd": 0,
     "kind": "verification-extrait"
    }

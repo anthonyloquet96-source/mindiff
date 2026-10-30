@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T13:39:57.315Z",
+ "generatedAt": "2026-10-30T01:13:34.206Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -152,7 +152,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 45
+    "units": 47
    },
    "support": {
     "champions": [
@@ -329,15 +329,18 @@
    },
    "Ahri": {
     "role": null,
-    "units": 5,
+    "units": 8,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "lane",
+     "macro",
+     "teamfight",
+     "vagues"
     ],
-    "actions": 0,
+    "actions": 3,
     "official": 5,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 3
    },
    "Akali": {
     "role": null,
@@ -534,28 +537,30 @@
    },
    "Darius": {
     "role": null,
-    "units": 4,
+    "units": 5,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "patch"
     ],
     "actions": 0,
     "official": 4,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Diana": {
     "role": null,
-    "units": 7,
+    "units": 8,
     "themes": [
      "champion",
      "matchup",
      "jungle",
-     "macro"
+     "macro",
+     "lane",
+     "vagues"
     ],
-    "actions": 1,
+    "actions": 2,
     "official": 6,
-    "coaching": 1
+    "coaching": 2
    },
    "Draven": {
     "role": null,
@@ -1120,15 +1125,16 @@
    },
    "Miss Fortune": {
     "role": null,
-    "units": 5,
+    "units": 6,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "patch",
+     "build"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 5,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Wukong": {
     "role": null,
@@ -1598,15 +1604,16 @@
    },
    "Taliyah": {
     "role": null,
-    "units": 3,
+    "units": 4,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "lane",
+     "macro"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 3,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Talon": {
     "role": null,
@@ -1792,27 +1799,27 @@
    },
    "Viktor": {
     "role": null,
-    "units": 4,
+    "units": 5,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "patch"
     ],
     "actions": 0,
     "official": 4,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Vladimir": {
     "role": null,
-    "units": 6,
+    "units": 7,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "build"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 6,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Warwick": {
     "role": null,
@@ -2032,16 +2039,16 @@
    }
   },
   "themes": {
-   "lane": 53,
+   "lane": 57,
    "survie": 13,
-   "teamfight": 3,
+   "teamfight": 4,
    "synergie": 1,
    "matchup": 8,
-   "methode": 9,
-   "vagues": 30,
+   "methode": 10,
+   "vagues": 32,
    "vision": 13,
-   "macro": 47,
-   "jungle": 35
+   "macro": 53,
+   "jungle": 38
   },
   "partial": [
    "Ashe"
@@ -2876,7 +2883,8 @@
    "u-ai-yt-Sbt6imQbTSs-1",
    "u-ai-yt-Sbt6imQbTSs-2",
    "u-ai-yt-Sbt6imQbTSs-3",
-   "u-ai-yt-V2_UctNAB4w-1"
+   "u-ai-yt-V2_UctNAB4w-1",
+   "u-ai-yt--I7iBIabOok-1"
   ]
  },
  "sources": [
@@ -17416,7 +17424,7 @@
    "patch": "aucun",
    "views": 22422,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.6-flash : transcription et 24 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "📈If you want to speed up your climb and get coached by me: https://wtl.lol/mysterias \n✅Use code: TIM10 for $10 off\n\n\n0:00 How to climb on Ahri\n6:40 Runes & Build\n12:00 Vods breakdown, what are we covering?\n14:04 Ahri educational commentary: how to win and carry on Ahri\n42:04 Ahr",
    "triage": {
@@ -17447,6 +17455,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 380525
+   },
+   "analyzedAt": "2026-10-30",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "L'auteur enseigne comment jouer Ahri sur la mid lane en adoptant un style opportuniste basé sur l'utilisation de l'Électrocution, de ses temps de recharge, de son ultime pour les escarmouches, ainsi qu'une bonne gestion des vagues et des rappels.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le guide détaille les runes, les objets, la stratégie de lane avec des exemples précis de matchups (Lucian, Anivia) et des séquences de sorts expliquées."
    }
   },
   {
@@ -18055,9 +18073,9 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "views": 24829,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.5-flash-lite le 2026-10-29 : transcription réutilisée depuis le cache de cet ordinateur.",
    "descriptionExcerpt": "➡️Coaching and everything you need to climb - https://wtl.lol/violet (USE CODE:VIOLET10)\n➡️Join the Community - https://discord.gg/zVvGUPxYGw\n\nIn this video im explaining the core fundamentals on adc in league of legends. I hope you can learn a lot of new things!\n\nCheers !\n\n#leag",
    "triage": {
     "score": 13,
@@ -18073,6 +18091,14 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-29",
+    "duration": "30:20",
+    "reused": true
    }
   },
   {
@@ -19442,7 +19468,7 @@
    "patch": "non spécifié",
    "views": 2657,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.6-flash : transcription et 23 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "Subscribe to the channel, like the video and leave a comment ;)\n\nIf you're interested in my personal coaching:\nhttps://www.fiverr.com/kyanleague/coach-you-in-league-of-legends\n\nIf you're interested in seeing me live: \nhttps://www.twitch.tv/mynameiskyan\n\nVladimir build guide video",
    "triage": {
@@ -19473,6 +19499,17 @@
     "videoKind": "guide",
     "gameplayShown": false,
     "tokens": 315513
+   },
+   "partial": true,
+   "analyzedAt": "2026-10-30",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "L'auteur explique les choix optimaux de runes pour Vladimir, en privilégiant l'arbre Sorcellerie avec Phrasé Rassasié pour le scaling et la mobilité, tout en détaillant des alternatives situationnelles orientées vers la phase de lane ou les matchups de mêlée.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur détaille de manière très méthodique chaque choix de rune, de sous-arbre et de situation de jeu pour Vladimir avec des arguments précis."
    }
   },
   {
@@ -19625,7 +19662,7 @@
    "published": "2026-10-16",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 3714,
+   "views": 3759,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -22074,7 +22111,7 @@
    "patch": "26.21",
    "views": 150325,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "►𝐖𝐄𝐁𝐒𝐈𝐓𝐄: https://www.skill-capped.com/lol#update2621\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUALLY WORK b",
    "triage": {
@@ -22106,6 +22143,16 @@
     "videoKind": "tier-list",
     "gameplayShown": true,
     "tokens": 72399
+   },
+   "analyzedAt": "2026-10-30",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "L'analyse de la tier list du patch 26.21 montre que les buffs et nerfs récents impactent fortement la méta : Darius et Miss Fortune progressent en palier S, Zyra domine la jungle avec un clear ultra-rapide, tandis que Viktor chute lourdement suite à ses nerfs.",
+   "quality": {
+    "level": "élevée",
+    "why": "La vidéo détaille précisément les changements de patch 26.21 rôle par rôle, appuyés par des variations statistiques claires sur les taux de victoire et de placement."
    }
   },
   {
@@ -24074,7 +24121,7 @@
    "retrievedAt": "2026-10-28",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 21,
@@ -24100,6 +24147,16 @@
     "videoKind": "analyse-de-partie",
     "gameplayShown": true,
     "tokens": 103410
+   },
+   "analyzedAt": "2026-10-30",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Un joueur de midlane peut apprendre à punir les décalages infructueux adverses en maintenant un gel de vague strict pour créer un avantage massif d'expérience et briser le tempo de l'ennemi.",
+   "quality": {
+    "level": "moyenne",
+    "why": "L'auteur illustre bien les concepts de wave management et de punition de tempo, mais sous forme de gameplay commenté en direct avec une lecture par IA."
    }
   },
   {
@@ -24113,18 +24170,36 @@
    "published": null,
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 22,
-   "note": "File de lecture (rang 22) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash le 2026-10-29 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 18,
     "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-29",
+    "duration": "22:45",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-30",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "La vidéo contient des explications utiles sur le matchup Lucian contre Ekko, mais inclut de longs segments de publicité pour un jeu mobile."
    }
   },
   {
@@ -24156,7 +24231,9 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "videoAttempts": 1,
+   "videoError": "Unexpected end of JSON input (2026-10-30)"
   },
   {
    "id": "c-yt-Zu_X0KkI41c",
@@ -24169,12 +24246,12 @@
    "published": null,
    "retrievedAt": "2026-10-29",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 24,
-   "note": "File de lecture (rang 24) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview le 2026-10-29 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 19,
     "matched": [
@@ -24184,6 +24261,24 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-10-29",
+    "duration": "16:30",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-30",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Améliorer son efficacité en jungle ne se résume pas à faire un full clear, il faut maîtriser la gestion du tempo, le choix des retours en base, le nettoyage préalable de la vision pour les ganks, l'acceptation de céder des objectifs et la maîtrise technique de son champion.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu est structuré avec des exemples précis, des situations de jeu concrètes analysées étape par étape et des notions théoriques de haut niveau (tempo, down time, gestion des tours)."
    }
   },
   {
@@ -24314,6 +24409,63 @@
    "triage": {
     "score": 18,
     "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-cRoLLHb0bro",
+   "sourceId": "yt-coach-leo",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=cRoLLHb0bro",
+   "title": "5 Must Know Pathing Rules Explained In 20 Minutes - Learn How To Jungle In 2026",
+   "author": "Coach Leo (JungleGap)",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-30",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 32,
+   "note": "File de lecture (rang 32) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 19,
+    "matched": [
+     "jungle",
+     "how to",
+     "explained"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-7upo6KzBnbs",
+   "sourceId": "yt-coach-kirei",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=7upo6KzBnbs",
+   "title": "LEARN how to FULLCLEAR to DIAMOND - Step by Step",
+   "author": "Coach Kirei",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-30",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 33,
+   "note": "File de lecture (rang 33) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 19,
+    "matched": [
+     "how to",
+     "clear"
+    ],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -61619,7 +61771,10 @@
    "claim": "Selon Chreak : toucher un sort ciblé (point and click) ou une auto-attaque sur un champion adverse provoque l'aggro des sbires ennemis, ce qui fait pousser ta wave pendant que la leur te cible.",
    "champions": [],
    "roles": [
-    "all"
+    "top",
+    "mid",
+    "bottom",
+    "support"
    ],
    "themes": [
     "lane",
@@ -61691,7 +61846,10 @@
    "claim": "Selon Chreak : toucher un sort de zone non-ciblé (skillshot) ne déclenche pas l'aggro des sbires, ce qui permet de poke et de pousser la wave simultanément en toute sécurité.",
    "champions": [],
    "roles": [
-    "all"
+    "top",
+    "mid",
+    "bottom",
+    "support"
    ],
    "themes": [
     "lane",
@@ -61764,7 +61922,9 @@
    "claim": "Selon Chreak : pour réussir un freeze efficace et durable, il est préférable d'avoir un maximum de sbires sous ton contrôle afin de réduire le risque de transformer involontairement le freeze en slow push et de tolérer de légers dégâts de zone.",
    "champions": [],
    "roles": [
-    "all"
+    "top",
+    "mid",
+    "bottom"
    ],
    "themes": [
     "lane",
@@ -61847,7 +62007,9 @@
    "claim": "Selon Chreak : le slow push consiste à tuer les sbires adverses le plus tard possible pour laisser le temps à tes waves de s'accumuler, ce qui crée un avantage massif pour les trades, les dives ou les changements de rythme.",
    "champions": [],
    "roles": [
-    "all"
+    "top",
+    "mid",
+    "bottom"
    ],
    "themes": [
     "lane",
@@ -63571,7 +63733,9 @@
    "claim": "Selon Dishake : pour freeze (freezer) une wave, il faut maintenir un excédent de sbires ennemis : quatre sbires d'avance font freeze près de la tour, tandis qu'un ou deux sbires d'avance maintiennent le freeze plus haut sur la lane.",
    "champions": [],
    "roles": [
-    "all"
+    "top",
+    "mid",
+    "bottom"
    ],
    "themes": [
     "vagues",
@@ -63644,7 +63808,9 @@
    "claim": "Selon Dishake : freeze la wave est particulièrement utile lorsque l'adversaire est absent de la lane, car il perd or et expérience pendant que tu sécurises ta position.",
    "champions": [],
    "roles": [
-    "all"
+    "top",
+    "mid",
+    "bottom"
    ],
    "themes": [
     "vagues",
@@ -63718,7 +63884,9 @@
    "claim": "Selon Dishake : le slowpush permet d'accumuler une grande quantité de sbires pour s'assurer que la wave finisse par s'écraser sous la tour ennemie et t'offre un meilleur tempo.",
    "champions": [],
    "roles": [
-    "all"
+    "top",
+    "mid",
+    "bottom"
    ],
    "themes": [
     "vagues",
@@ -65401,7 +65569,9 @@
    "claim": "Selon Chreak : le last hit rend immobile et vulnérable, ce qui en fait le moment idéal pour lancer un sort ou une auto-attaque sur ton adversaire.",
    "champions": [],
    "roles": [
-    "all"
+    "top",
+    "mid",
+    "bottom"
    ],
    "themes": [
     "lane"
@@ -70605,7 +70775,9 @@
    "claim": "Selon Coach Mysterias : créer un slow push permet de générer un avantage de sbires et d'obtenir des opportunités de trade favorables grâce aux dégâts infligés par tes sbires supplémentaires.",
    "champions": [],
    "roles": [
-    "all"
+    "top",
+    "mid",
+    "bottom"
    ],
    "themes": [
     "vagues",
@@ -72301,6 +72473,1006 @@
     {
      "code": "sur-generalisation",
      "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-29azwNM7s8M-1",
+   "claim": "Selon HusumLOL : en bloquant ta wave au milieu (freeze), tu prives l'adversaire d'XP et de ressources pendant qu'il tente des décalages (roams) infructueux.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Diana"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "L'adversaire rate ses décalages (roams)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-29azwNM7s8M",
+     "locator": "04:12",
+     "lang": "pt",
+     "passage": "I'm keeping the wave frozen, I'm denying her farm. She falls behind CS, she's level 4. I'm level 6",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-30",
+      "window": "232-292s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Diana (exemple)"
+   ],
+   "action": "Maintenir un gel de vague sur ta ligne quand l'adversaire tente un roam inutile.",
+   "observe": "L'adversaire perd des sbires et accumule un retard d'XP.",
+   "use": {
+    "when": "Ton vis-à-vis quitte sa lane pour un décalage sans succès.",
+    "why": "Pour le priver d'expérience et d'or en creusant l'écart de niveau.",
+    "who": "Mage de contrôle sur la mid lane",
+    "how": [
+     "Conserver la wave gelée de ton côté",
+     "Ne pas le suivre aveuglément dans des actions aléatoires",
+     "Engranger l'avance d'XP pendant qu'il perd sa lane"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-30",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-29azwNM7s8M : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-29azwNM7s8M-2",
+   "claim": "Selon HusumLOL : interrompre un back d'un ennemi en arrivant à son contact casse son tempo et le pénalise lourdement dans sa gestion de carte.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Taliyah"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "L'ennemi tente de rappeler à proximité sans sécurité"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-29azwNM7s8M",
+     "locator": "02:26",
+     "lang": "pt",
+     "passage": "That's gonna cost your tempo a little, bro, actually. That's then peace tempo. Now my jungler is gonna want to 1v9 game this shit.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-30",
+      "window": "126-186s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Avancer pour annuler le rappel d'un adversaire imprudent.",
+   "observe": "L'adversaire perd son temps et son rythme d'achat.",
+   "use": {
+    "when": "Tu vois un ennemi tenter de rappeler à proximité de ta position.",
+    "why": "Pour détruire son tempo et le forcer à reperdre du temps.",
+    "who": "Joueur midlane",
+    "how": [
+     "Marcher vers l'adversaire qui rappelle",
+     "Annuler son canal de back"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-30",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-29azwNM7s8M : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Zu_X0KkI41c-2",
+   "claim": "Selon Coach Kirei : pour optimiser tes backs, base en même temps que le respawn du jungler adverse ou lorsque tu as un avantage de tempo, plutôt que de courir immédiatement vers un objectif neutre éloigné.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro",
+    "methode"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Le jungler adverse va réapparaître et un objectif apparaît"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Zu_X0KkI41c",
+     "locator": "03:00",
+     "lang": "en",
+     "passage": "Rengar is respawning in 12 seconds and there's a top crab up ready to take here.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-30",
+      "window": "160-220s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-Zu_X0KkI41c",
+     "locator": "03:27",
+     "lang": "en",
+     "passage": "Here instead of running towards the top crab I instantly base match Rengar tempo get your items and clear top to bot.",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Rengar (exemple)",
+    "Hecarim (exemple)"
+   ],
+   "action": "Rappelle-te à temps pour acheter tes objets et synchroniser ton tempo avec le jungler adverse au lieu de courir à l'aveugle vers le premier camp disponible.",
+   "observe": "Regarde les chronomètres de réapparition du jungler adverse et l'état de ton or.",
+   "use": {
+    "when": "le jungler adverse est sur le point de réapparaître et un objectif neutre est disponible de l'autre côté de la carte",
+    "why": "cela te permet d'obtenir tes items et de matcher le rythme du jungler adverse pour nettoyer tes camps efficacement",
+    "who": "rôle de jungle",
+    "how": [
+     "Observe le chronomètre de réapparition du jungler adverse",
+     "Appuie sur Rappel pour acheter tes items au lieu de courir directement vers l'objectif",
+     "Reprends ton clear de camps de haut en bas ou de bas en haut selon ton plan"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-30",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Zu_X0KkI41c : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-Zu_X0KkI41c : lu par gemini-3-flash-preview (1 image/s) ; passage à vérifier sur la vidéo (03:27)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Zu_X0KkI41c-3",
+   "claim": "Selon Coach Kirei : en période de 'down time' (lorsque tu es en retard de tempo ou que tu as fait une action et que tes camps ne sont pas prêts), tu dois farmer en priorité et surveiller la carte pour empêcher tes coéquipiers de mourir.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Tu es en down time (respawn ennemi, base timer ou action sur-étendue)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Zu_X0KkI41c",
+     "locator": "04:29",
+     "lang": "en",
+     "passage": "Every single time you know you're down tempo and how do you know if you're down tempo which is the following: 1. Enemy respawn timer, 2. Your base timer, 3. You overextending on a play.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-30",
+      "window": "249-309s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-Zu_X0KkI41c",
+     "locator": "05:27",
+     "lang": "en",
+     "passage": "So it is the following: whenever you're on your down time you want to jungle track and you want to make sure your laners don't die. That is the most important thing."
+    }
+   ],
+   "mentions": [
+    "Hecarim (exemple)",
+    "Rengar (exemple)",
+    "Soraka (exemple)"
+   ],
+   "action": "Ferme les camps de ta jungle et ping tes coéquipiers en danger lorsque tu identifies que tu es en down time.",
+   "observe": "Identifie si tu es en retard de tempo par rapport au jungler adverse.",
+   "use": {
+    "when": "tu viens d'effectuer une action ou un camp, et le jungler adverse dispose de la liberté d'action (tempo favorable)",
+    "why": "le jungler adverse peut faire une action pendant que tu ne peux pas, tu dois donc sécuriser ton farm et protéger tes lanes",
+    "who": "rôle de jungle",
+    "how": [
+     "Identifie ton down time via le timer de respawn ennemi, ton base timer ou une action prolongée",
+     "Concentre-toi sur le farm de tes camps restants",
+     "Suis la position du jungler adverse (jungle tracking) et préviens tes coéquipiers avec des pings"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-30",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Zu_X0KkI41c : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-Zu_X0KkI41c : lu par gemini-3-flash-preview (1 image/s) ; passage à vérifier sur la vidéo (05:27)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-Zu_X0KkI41c-4",
+   "claim": "Selon Coach Kirei : league of Legends est un jeu au tour par tour : céder un objectif neutre (comme les larves du néant) te permet de gagner du tempo pour faire une action ailleurs sur la carte.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Tu es potentiellement plus faible, sans ultime, ou tu disposes d'une opportunité sur une autre ligne"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Zu_X0KkI41c",
+     "locator": "09:35",
+     "lang": "en",
+     "passage": "In the end League of Legends is a turn based game! Just because you give something it doesn't mean you're going to actually lose something always because the moment you're up tempo and you use that tempo you can always use it for something else.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-30",
+      "window": "555-615s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-Zu_X0KkI41c",
+     "locator": "10:10",
+     "lang": "en",
+     "passage": "So when you get let's say juicy kills or you get the drake and they might be doing the rift herald it's fine to give something because in the end League of Legends is a turn based game"
+    }
+   ],
+   "mentions": [
+    "Master Yi (exemple)",
+    "Xin Zhao (exemple)",
+    "Ezreal (exemple)"
+   ],
+   "action": "Cède l'objectif adverse si tu n'as pas tes sorts clés ou si tu peux rentabiliser ton temps en intervenant sur une autre ligne.",
+   "observe": "Regarde tes disponibilités d'ultime et l'or de tes coéquipiers face à l'ennemi.",
+   "use": {
+    "when": "l'ennemi commence un objectif neutre alors que tu n'as pas ton ult ou que tu préfères capitaliser sur une autre lane",
+    "why": "obtenir du tempo en retour pour faire un kill ou sécuriser une autre ressource",
+    "who": "rôle de jungle",
+    "how": [
+     "Accepte de concéder l'objectif si le combat est défavorable (ex: manque d'ultime)",
+     "Récupère tes camps ou décale immédiatement sur une lane pour punir l'adversaire",
+     "Utilise le tempo généré pour impacter une autre zone de la carte"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-30",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-Zu_X0KkI41c : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-Zu_X0KkI41c : lu par gemini-3-flash-preview (1 image/s) ; passage à vérifier sur la vidéo (10:10)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-BnwE5CD1-qA-1",
+   "claim": "Selon Coach Mysterias : pour jouer Ahri en phase de lane de manière opportuniste, force des échanges basés sur tes cooldown et Électrocution lorsque l'adversaire fait une erreur ou gaspille un sort.",
+   "champions": [
+    "Ahri"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "l'adversaire fait une erreur ou utilise un de ses sorts"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-BnwE5CD1-qA",
+     "locator": "00:54",
+     "lang": "en",
+     "passage": "What do I mean with opportunistic trades? It means if the enemy gives us an angle because they make a mistake or use one of their cooldowns, then you can force a trade around your cooldowns and Electrocute.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-30",
+      "window": "34-94s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Attends que ton adversaire rate un sort ou commets une erreur de placement pour utiliser ton Z et Électrocution.",
+   "observe": "Observe le temps de recharge des sorts adverses avant d'engager.",
+   "use": {
+    "when": "ton vis-à-vis utilise un sort défensif ou offensif dans le vide et te donne une ouverture",
+    "why": "Ahri n'est ni la plus forte ni la plus faible en lane, elle doit donc capitaliser sur les erreurs adverses grâce à son Z et ses runes.",
+    "who": "Ahri mid",
+    "how": [
+     "Repère l'utilisation d'un sort ennemi en lane",
+     "Engage l'échange en utilisant tes cooldown et l'effet d'Électrocution"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-01",
+   "analyzedAt": "2026-10-30",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-BnwE5CD1-qA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-BnwE5CD1-qA-2",
+   "claim": "Selon Coach Mysterias : utilise ton ult pour gagner les skirmishs et jouer autour des objectifs neutres, car Ahri est très faible sans son ult qui active tout son kit.",
+   "champions": [
+    "Ahri"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "macro",
+    "teamfight",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "ton ultime est disponible",
+    "un combat ou un objectif neutre se prépare"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-BnwE5CD1-qA",
+     "locator": "02:38",
+     "lang": "en",
+     "passage": "Play around your R cooldown and complement your jungler with good quality warding and leaning. Ahri is terrible without her ult. Her ult enables her kit.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-30",
+      "window": "138-198s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Vérifie le délai de récupération de ton ultime avant de te déplacer pour une escarmouche.",
+   "observe": "Vérifie le chronomètre de l'ultime et la position du jungler.",
+   "use": {
+    "when": "tes camps ou les objectifs neutres vont apparaître et ton ult est prêt",
+    "why": "L'ultime d'Ahri active l'ensemble de son kit et la rend indispensable dans les skirmishs.",
+    "who": "Ahri mid",
+    "how": [
+     "Surveille le cooldown de ton R",
+     "Place des wards et décale avec ton jungler"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-01",
+   "analyzedAt": "2026-10-30",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-BnwE5CD1-qA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-BnwE5CD1-qA-4",
+   "claim": "Selon Coach Mysterias : pour réussir ton back avec Ahri, assure-toi de ne pas perdre trop de sbires sous ta tourelle et évite de gaspiller tes sorts inutilement sur une wave poussée.",
+   "champions": [
+    "Ahri"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-BnwE5CD1-qA",
+     "locator": "45:30",
+     "lang": "en",
+     "passage": "One key thing to note is that on this pushout timer, you don't want to be wasting your spells randomly when you can't get full value or plates.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-30",
+      "window": "2710-2770s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-BnwE5CD1-qA",
+     "locator": "52:32",
+     "lang": "en",
+     "passage": "The most important thing when you want to reset is to make sure you don't lose too many minions on your turret."
+    }
+   ],
+   "mentions": [],
+   "action": "Conserve tes sorts lorsque tu gères un timer de poussée si tu ne peux pas sécuriser de plaques ou de valeur complète, et gère ton rappel pour éviter de rater des sbires.",
+   "observe": "Compte le nombre de sbires qui s'apprêtent à mourir sous ta tourelle ou celle de l'adversaire.",
+   "use": {
+    "when": "tu t'apprêtes à pousser ta wave pour retourner à la boutique",
+    "why": "Évite le gaspillage de mana et de ressources tout en maximisant l'or récupéré sans perdre de waves.",
+    "who": "Ahri mid",
+    "how": [
+     "Vérifie l'état de la wave et les sbires sous tourelle avant de rappeler",
+     "Économise tes sorts si tu ne peux pas détruire de plaques"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-01",
+   "analyzedAt": "2026-10-30",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-BnwE5CD1-qA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-BnwE5CD1-qA : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (52:32)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt--I7iBIabOok-1",
+   "claim": "Selon Kyan : pour Vladimir, Phrasé Rassasié (Phase Rush) est la rune clé standard et la plus optimale car le champion manque cruellement de mobilité, ce qui permet d'échapper aux ralentissements et de coller aux adversaires dans les skirmishs en side lane et les teamfights.",
+   "champions": [
+    "Vladimir"
+   ],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "champion",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Face à des champions qui cherchent à te courir après ou qui possèdent des ralentissements"
+   ],
+   "limits": [
+    "Analyse d'un accès partiel au texte."
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--I7iBIabOok",
+     "locator": "[00:40]",
+     "lang": "en",
+     "passage": "Vladimir is a champion that inherently lacks movement speed. That is why Phase Rush is so amazing on him, right?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-30",
+      "window": "20-80s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Karma (exemple)"
+   ],
+   "action": "Joue Phrasé Rassasié comme rune principale sur Vladimir pour compenser son manque de mobilité dans les échanges en side lane.",
+   "observe": "Observe si tu parviens à t'enfuir ou à coller l'adversaire après avoir déclenché Phrasé Rassasié.",
+   "use": {
+    "when": "tu subis des ralentissements ou un champion adverse essaie de te courir après dans une longue lane ou en teamfight",
+    "why": "Vladimir manque intrinsèquement de vitesse de déplacement et Phrasé Rassasié offre de la résistance aux ralentissements ainsi qu'un boost de vitesse pour s'enfuir ou coller la cible.",
+    "who": "Vladimir",
+    "how": [
+     "touche l'adversaire avec trois attaques ou compétences distinctes",
+     "bénéficie du bonus de vitesse de déplacement et de la résistance aux ralentissements pour fuir ou poursuivre"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-07-25",
+   "analyzedAt": "2026-10-30",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2025 : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt--I7iBIabOok : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt--I7iBIabOok publié le 2025-07-25 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-2pC3FmEJAkU-1",
+   "claim": "Selon Skill Capped : sur le patch 26.21, Darius est replacé en palier S sur la top lane grâce à un buff de son Q réduisant son délai de récupération de 1 seconde au niveau 9 une fois le sort maxé, ce qui augmente sa force de skirmish en milieu de partie.",
+   "champions": [
+    "Darius"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "patch",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "26.21"
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Avoir le sort Q maxé au niveau 9"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-2pC3FmEJAkU",
+     "locator": "[00:00]",
+     "lang": "en",
+     "passage": "Darius is now back as one of the best top laners for solo queue, Viktor's fallen off really hard, while Zyra is in an extremely powerful spot for jungle.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-30",
+      "window": "0-40s",
+      "said": true,
+      "supported": false,
+      "gap": "Le conseil ajoute des détails sur le buff du Q (délai de récupération réduit de 1 seconde au niveau 9) qui ne sont pas prononcés dans l'extrait."
+     }
+    },
+    {
+     "content": "c-yt-2pC3FmEJAkU",
+     "locator": "[01:58]",
+     "lang": "en",
+     "passage": "Darius has seen about a 1.5% boost in win rate from his buff, and it's not much of a surprise because a whole one second off of Darius' Q when you reach level 9 and have the spell fully maxed out makes his skirmish strength in the mid game so much better."
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "",
+    "why": "Un délai de récupération réduit d'une seconde sur le Q au niveau 9 renforce la puissance en skirmish en mid-game.",
+    "who": "Darius top lane",
+    "how": [],
+    "notWhen": ""
+   },
+   "published": "2026-10-26",
+   "analyzedAt": "2026-10-30",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "sur-generalisation",
+     "why": "c-yt-2pC3FmEJAkU : l'extrait 0-40s ne dit pas exactement cela (Le conseil ajoute des détails sur le buff du Q (délai de récupération réduit de 1 seconde au niveau 9) qui ne sont pas prononcés dans l'extrait.)."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-2pC3FmEJAkU : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([01:58])."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    },
+    {
+     "code": "contexte-manquant",
+     "why": "Aucune situation de partie reconnaissable : ce n'est pas une consigne applicable."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-2pC3FmEJAkU-3",
+   "claim": "Selon Skill Capped : sur le patch 26.21, Viktor subit une forte baisse de performance suite aux nerfs combinés de sa vitesse de déplacement de base (passée de 335 à 330) et du bouclier de son A (Siphon Power) réduit à 30-130, ce qui le fait descendre en palier B au mid et au bot.",
+   "champions": [
+    "Viktor"
+   ],
+   "roles": [
+    "mid",
+    "bottom"
+   ],
+   "themes": [
+    "patch",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "26.21"
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-2pC3FmEJAkU",
+     "locator": "[06:08]",
+     "lang": "en",
+     "passage": "The biggest meta shift coming out of the mid lane in 26.21 has been Viktor falling off a significant amount. Base movement speed nerfs are always more impactful than you'd think, and combined with the Q shield nerf, it's led to Viktor losing over 2% win rate.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-30",
+      "window": "348-408s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-2pC3FmEJAkU",
+     "locator": "[09:06]",
+     "lang": "en",
+     "passage": "If you've been playing Viktor bot lane in recent patches, then it's best to pivot to an alternate mage moving forward, as he's not only a weak mid laner, but also a weak bot laner now"
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "",
+    "why": "Les nerfs de la vitesse de déplacement de base et du bouclier du sort A diminuent drastiquement son taux de victoire.",
+    "who": "Viktor mid ou bot",
+    "how": [],
+    "notWhen": ""
+   },
+   "published": "2026-10-26",
+   "analyzedAt": "2026-10-30",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-2pC3FmEJAkU : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-2pC3FmEJAkU : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([09:06])."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    },
+    {
+     "code": "contexte-manquant",
+     "why": "Aucune situation de partie reconnaissable : ce n'est pas une consigne applicable."
+    },
+    {
+     "code": "traduction",
+     "why": "Terme à risque (shield) dans un passage en en sans note de traduction."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-2pC3FmEJAkU-4",
+   "claim": "Selon Skill Capped : sur le patch 26.21, Miss Fortune monte en palier S grâce à des buffs directs qui dépassent l'impact des nerfs de l'item Hubris, rendant ce dernier comparable au Soif de sang (Bloodthirster) selon les compos adverses.",
+   "champions": [
+    "Miss Fortune"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "patch",
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "26.21"
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Adapter le choix d'objet entre Hubris et Soif de sang selon la composition ennemie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-2pC3FmEJAkU",
+     "locator": "[08:16]",
+     "lang": "en",
+     "passage": "Miss Fortune changes have landed extremely impactful, as the direct buffs she received have outweighed the nerfs to Hubris.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-30",
+      "window": "476-536s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-2pC3FmEJAkU",
+     "locator": "[08:27]",
+     "lang": "en",
+     "passage": "Hubris can still work great into comps that are more squishy, but into more bruisers or tank, then you can go Bloodthirster for stronger extended fight power."
+    }
+   ],
+   "mentions": [],
+   "action": "Choisir Hubris contre des compositions fragiles et Soif de sang contre des tanks ou des combattants.",
+   "observe": "",
+   "use": {
+    "when": "En phase de choix d'items sur Miss Fortune en partie",
+    "why": "Le bonus de dégâts de Hubris convient aux cibles squishy, tandis que Soif de sang apporte plus de puissance dans les combats prolongés face aux tanks et bruiteurs.",
+    "who": "Miss Fortune ADC",
+    "how": [
+     "acheter Hubris si la composition ennemie est fragile",
+     "acheter Soif de sang si la composition ennemie comporte des bruiteurs ou des tanks"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-26",
+   "analyzedAt": "2026-10-30",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-2pC3FmEJAkU : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-2pC3FmEJAkU : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([08:27])."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   }

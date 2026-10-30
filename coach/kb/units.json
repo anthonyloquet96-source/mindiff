@@ -65099,7 +65099,385 @@
    },
    "version": 1,
    "firstSeen": "2026-10-30"
+  },
+  {
+   "id": "u-ai-yt-k7p-L-gE8fM-1",
+   "claim": "Selon Coach Leo : pour maintenir la pression sur ta lane de condition de victoire, vide immédiatement tes camps de jungle côté faible dès leur réapparition, puis saute tes camps côté fort si une action se présente.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Une lane a été identifiée comme condition de victoire / lane volatile dès le début de la partie"
+   ],
+   "limits": [
+    "Si aucune opportunité (gank, invade, dragon) n'est réalisable côté fort, terminer le full clear complet"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-k7p-L-gE8fM",
+     "locator": "[02:19]-[02:34]",
+     "lang": "en",
+     "passage": "Okay, so you do your bot play, right? And then what you're going to do in the top side is you don't want to waste any time. You don't want to waste time going for this top gank. You don't want to waste time like walking in here doing something like random. You want to clear these camps instantly.",
+     "autoChecked": {
+      "by": "gemini-3.8-flash",
+      "at": "2026-10-30",
+      "window": "119-179s",
+      "said": true,
+      "supported": false,
+      "gap": "L'extrait s'interrompt pendant l'énumération des opportunités et ne mentionne pas l'alternative de vider ses camps côté fort en l'absence d'action."
+     }
+    },
+    {
+     "content": "c-yt-k7p-L-gE8fM",
+     "locator": "[03:03]",
+     "lang": "en",
+     "passage": "You want to clear your weak side camps and skip your strong side camps. Now, that doesn't mean it doesn't mean that you have to skip. So, like if you run here and you say, okay, there's no invade, there's no dragon, and there's no bot gank. So, what do I do? I just full clear."
+    }
+   ],
+   "mentions": [
+    "Draven (exemple)",
+    "Samira (exemple)",
+    "Malphite (exemple)",
+    "Gragas (exemple)",
+    "Karma (exemple)",
+    "Ashe (exemple)",
+    "Pyke (exemple)"
+   ],
+   "action": "À ta première sortie de base après le premier clear, cours vider directement tes camps weakside puis évalue immédiatement un gank ou objectif sur ta strongside en sautant les camps intermédiaires.",
+   "observe": "L'impact et la présence accrus sur ta lane forte sans concéder de retard de réapparition sur tes camps du côté opposé.",
+   "use": {
+    "when": "Au deuxième tour de jungle (~4:15), après ton premier gank ou escarmouche et ton premier rappel en base.",
+    "why": "Ne pas perdre de temps sur le côté faible pour conserver le tempo et arriver disponible sur la lane prioritaire pour contester un gank, un objectif ou envahir.",
+    "who": "Tout jungler ayant une lane prioritaire (win condition) définie en début de partie.",
+    "how": [
+     "Sors de la base directement vers tes camps opposés à ta condition de victoire pour les vider instantanément dès leur réapparition.",
+     "Descends vers ta strongside et évalue les opportunités sur la carte (gank, carapateur, dragon, invasion).",
+     "Saute tes camps forts pour exécuter l'action immédiatement, ou farme-les si aucune action n'est possible."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe intemporel de macro jungle fidèlement appuyé par les citations et contextualisé avec ses conditions d'application."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-30",
+   "validity": {
+    "checkedAt": "2026-10-30",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-30",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-30"
+  },
+  {
+   "id": "u-ai-yt-k7p-L-gE8fM-2",
+   "claim": "Selon Coach Leo : synchronise ton rappel en base avec celui de ta carry lane lorsque tu as assez d'or pour acheter, afin de ressortir en même temps qu'eux sur la carte.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Posséder suffisamment d'or en réserve pour effectuer un achat utile en boutique"
+   ],
+   "limits": [
+    "Si l'or en réserve est insignifiant (ex. 400 pièces d'or), il vaut mieux continuer de farm et attendre leur tempo suivant"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-k7p-L-gE8fM",
+     "locator": "[09:16]",
+     "lang": "en",
+     "passage": "But yeah, you want to sync tempo with your carry lane, is pretty much it. So if they start basing here, say you pathed up here, they start basing, right, and you want to do this camp and this camp, or like you're on these camps right now, you're on these camps right now, they start channeling their recall,",
+     "autoChecked": {
+      "by": "gemini-3.8-flash",
+      "at": "2026-10-30",
+      "window": "536-596s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur explique qu'on ressort ensemble de la base pour se regrouper, mais ne mentionne pas le risque que les alliés se retrouvent avancés sans soutien."
+     }
+    },
+    {
+     "content": "c-yt-k7p-L-gE8fM",
+     "locator": "[09:37]-[09:48]",
+     "lang": "en",
+     "passage": "you're going to base right here, right? Yeah. And then and then you're all going to come out together. Yeah, if you have a buy. If you don't have a buy, you full clear. So say you have like 4 400 gold, okay, now you just full clear and you wait for them."
+    }
+   ],
+   "mentions": [],
+   "action": "Regarde la canalisation de rappel de tes carries : dès qu'ils rappellent et si tu as des achats à faire, clique sur ton rappel en même temps.",
+   "observe": "Ta capacité à te déplacer et contester des zones sur la carte au moment exact où tes carries poussent leurs vagues.",
+   "use": {
+    "when": "Pendant ton farming en jungle, au moment où ta carry lane commence à canaliser son rappel vers la base.",
+    "why": "",
+    "who": "Tout jungler cherchant à synchroniser son tempo d'intervention avec ses carries.",
+    "how": [
+     "Surveille l'état et le rappel de ta carry lane sur la carte.",
+     "Dès qu'ils canalisent leur retour en base, vérifie ton or en banque ; si tu as un achat d'objet à faire, rappelle immédiatement.",
+     "Quitte la base en même temps qu'eux pour te repositionner en soutien de leur avancée."
+    ],
+    "notWhen": "Si tu n'as pas de quoi acheter (par exemple seulement 400 pièces d'or), continue ton clear de camps et attends le timing de regroupement suivant."
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Règle claire de synchronisation de tempo appuyée mot pour mot par la transcription et assortie de son contre-exemple."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-30",
+   "validity": {
+    "checkedAt": "2026-10-30",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-30",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-30"
+  },
+  {
+   "id": "u-ai-yt-k7p-L-gE8fM-3",
+   "claim": "Selon Coach Leo : en milieu de partie, réserve le farm de tes camps aux temps morts où tes alliés sont morts ou en base, et cesse de farmer dès qu'ils avancent sur la carte.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Phase de mid game (après 14 minutes de jeu)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-k7p-L-gE8fM",
+     "locator": "[08:08]-[08:16]",
+     "lang": "en",
+     "passage": "The only thing also I can tell you is that it's something called downtime. So when your team is either dead or in base, this is your time to actually just farm your camps. This is called downtime. Then when when they start to move up like this,",
+     "autoChecked": {
+      "by": "gemini-3.8-flash",
+      "at": "2026-10-30",
+      "window": "468-528s",
+      "said": true,
+      "supported": false,
+      "gap": "La mention temporelle « (après 14 minutes) » ajoutée dans la situation n'est pas formulée dans l'extrait, l'auteur évoquant simplement le « mid game »."
+     }
+    },
+    {
+     "content": "c-yt-k7p-L-gE8fM",
+     "locator": "[08:16]-[08:26]",
+     "lang": "en",
+     "passage": "so say they start to move up now, you will stop farming and you'll come like this and look look for you know, these kinds of things with your pushing lanes."
+    }
+   ],
+   "mentions": [],
+   "action": "Dès que tes alliés qui sortent de la base dépassent le milieu de la carte, arrête de frapper les monstres neutres et viens prendre la vision ou la pression avec eux.",
+   "observe": "Une diminution des combats perdus en infériorité numérique et un meilleur contrôle des priorités d'objectifs.",
+   "use": {
+    "when": "En milieu de partie (après 14 minutes), lorsque tes alliés terminent leur temps de base ou réapparaissent et commencent à remonter les voies.",
+    "why": "Le rôle du jungler en mid game n'est pas de full clear en continu, mais d'exploiter les temps morts d'équipe pour farm et d'être immédiatement disponible pour accompagner les vagues poussées.",
+    "who": "Tout jungler en phase de milieu de partie.",
+    "how": [
+     "Nettoie tes camps de jungle pendant que tes coéquipiers sont en base ou éliminés (pendant le temps mort).",
+     "Interromps ton farming dès que tes coéquipiers s'avancent sur les voies.",
+     "Déplace-toi dans la rivière ou la jungle adverse pour sécuriser la vision et soutenir la pression de tes voies."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Notion de temps mort en milieu de partie conforme aux propos du coach et directement applicable en jeu."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-30",
+   "validity": {
+    "checkedAt": "2026-10-30",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-30",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-30"
+  },
+  {
+   "id": "u-ai-yt-DQMTfTFEc0k-4",
+   "claim": "Selon Mysteriaslol : dans un matchup comme face à Viktor au milieu, évite d'installer un gel de vague complet (full freeze) : privilégie une vague neutre avec l'avantage des échanges pour conserver l'initiative et te déplacer en premier sur la carte.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Viktor"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.4"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Matchup de mages au milieu",
+    "Avoir l'ascendant dans les trades"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-DQMTfTFEc0k",
+     "locator": "[09:20]",
+     "lang": "en",
+     "passage": "And once again we keep a neutral wave state. We don't want a full freeze, by the way, in this matchup. A full freeze in this matchup can be a little bit awkward because of the fact that he might then be able to do stuff around the map.",
+     "autoChecked": {
+      "by": "gemini-3.8-flash",
+      "at": "2026-10-30",
+      "window": "540-600s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur ne mentionne pas d'empêcher les vagues adverses de s'empiler ni le fait qu'un gel enfermerait sous la tourelle, et restreint son propos à ce face-à-face précis plutôt qu'à tous les mages."
+     }
+    },
+    {
+     "content": "c-yt-DQMTfTFEc0k",
+     "locator": "[09:37]",
+     "lang": "en",
+     "passage": "So a full freeze is something we want to avoid. We rather want to just keep it a little bit neutral and always have the position where we can move onto the map, just like this spot. We always have first move because we're winning the trades and we're doing a great job with the wave management."
+    }
+   ],
+   "mentions": [
+    "Viktor (exemple)"
+   ],
+   "action": "Maintiens la vague proche du centre sans accumuler excessivement de sbires adverses pour un gel prolongé sous ta tour.",
+   "observe": "Tu conserves la liberté de décaler immédiatement dès qu'un combat éclate dans la rivière ou la jungle.",
+   "use": {
+    "when": "En phase de voie lorsque tu domines l'adversaire en points de vie et en gestion de vague.",
+    "why": "",
+    "who": "Joueurs de voie du milieu opposés à un autre mage.",
+    "how": [
+     "Équilibre les éliminations de sbires pour stabiliser la vague dans une zone relativement neutre.",
+     "Refuse de laisser empiler une trop grosse vague adverse pour bloquer un freeze passif.",
+     "Maintiens la pression de trade au centre pour être le premier à bouger vers la rivière."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "L'auteur restreint explicitement son conseil d'éviter le gel complet à ce matchup précis (« in this matchup ») pour empêcher les décalages adverses, ce qui ne s'applique pas universellement à tous les duels de mages."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-30",
+   "validity": {
+    "checkedAt": "2026-10-30",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-30",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-30"
   }
  ],
- "updatedAt": "2026-10-30T01:13:33.186Z"
+ "updatedAt": "2026-10-30T07:48:33.422Z"
 }

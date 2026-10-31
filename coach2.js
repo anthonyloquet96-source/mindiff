@@ -183,8 +183,10 @@ function c2ChampList() {
   c2Champs = COACH.contents.filter(c => c.sourceId === "riot-data-dragon").map(c => ({ id: c.url.match(/champion\/(\w+)\.json/)?.[1], name: c.title.split(" — ")[0] })).filter((c, i, a) => c.id && a.findIndex(x => x.id === c.id) === i).sort((a, b) => a.name.localeCompare(b.name, "fr"));
   return c2Champs;
 }
-const c2Name = id => c2ChampList().find(c => c.id === id || c.id.toLowerCase() === String(id).toLowerCase())?.name || id;
-const c2Id = name => c2ChampList().find(c => c.name.toLowerCase() === String(name).toLowerCase() || c.id.toLowerCase() === String(name).toLowerCase())?.id || null;
+// Site anglais : nom officiel anglais (Seraphine, Master Yi), dès que i18n.js a chargé les noms de Data Dragon
+const c2NameEn = n => (window.LANG === "en" && window.i18nName ? window.i18nName(n) : n);
+const c2Name = id => c2NameEn(c2ChampList().find(c => c.id === id || c.id.toLowerCase() === String(id).toLowerCase())?.name || id);
+const c2Id = name => c2ChampList().find(c => [c.name, c.id, c2NameEn(c.name)].some(x => x.toLowerCase() === String(name).toLowerCase()))?.id || null;
 const c2Img = (id, cls = "c2-av") => id ? `<img class="${cls}" src="https://ddragon.leagueoflegends.com/cdn/${esc(COACH?.ddragonVersion || "16.21.1")}/img/champion/${esc(id)}.png" alt="" loading="lazy" width="40" height="40">` : `<span class="${cls} c2-av-empty"></span>`;
 // Version du client (16.20) → numéro de patch affiché par Riot (26.20)
 const c2Patch = p => String(p ?? "").replace(/^1([56])./, "2$1.");
@@ -560,7 +562,8 @@ async function c2V1Load(force = false) {
 }
 const C2_V1_ROLE = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "ADC", UTILITY: "support" };
 // « en tant que top », « en tant qu'ADC » : l'objectif est toujours donné pour un poste précis (retour d'Anthony, 29/10)
-const c2AsRole = r => { const n = C2_V1_ROLE[r] || r || "ce poste"; return `en tant ${/^[aeiouy]/i.test(n) ? "qu'" : "que "}<b>${esc(n)}</b>`; };
+// Site anglais : « as <b>mid</b> », le texte qui précède est traduit par i18n.js (« Ton objectif » → « Your goal »)
+const c2AsRole = r => { const n = C2_V1_ROLE[r] || r || "ce poste"; if (window.LANG === "en") return `<span>as <b>${esc(C2_V1_ROLE[r] || r || "this role")}</b></span>`; return `en tant ${/^[aeiouy]/i.test(n) ? "qu'" : "que "}<b>${esc(n)}</b>`; };
 // Motion design de la carte objectif : entrée en cascade, chiffres qui défilent, bordure lumineuse, onde au lancement.
 // Rejoué seulement quand l'objectif ou son statut change ; coupé si le joueur a réduit les animations (style.css).
 const c2Seen = new Set();
@@ -668,9 +671,11 @@ function c2V1Card(p) {
   const head = `<p class="label">${g.status === "proposed" ? "Ton prochain objectif" : "Ton objectif en cours"} ${c2AsRole(g.role)}</p>
     <h3 class="c2-v1-title">${esc(g.label)}</h3>
     <div class="c2-v1-nums"><div><span class="fine">Toi aujourd'hui</span><b><span data-count>${esc(g.baseline_text)}</span>${unit}</b></div><span class="c2-v1-arrow" aria-hidden="true">→</span><div class="goal"><span class="fine">${g.direction === "lower" ? "Au plus" : "Ta cible"}</span><b><span data-count data-delay="250">${esc(g.target_text)}</span>${unit}</b></div></div>`;
+  // Conseils sourcés rédigés en français (non traduits) : en anglais, le bloc entier reste en français, annoncé comme tel,
+  // plutôt que « When: Ta wave est freezée… »
   const tips = c2V1Tips(g);
   const more = `<details class="more c2-fold" data-fold="v1-why"${c2ui.fold?.["v1-why"] ? " open" : ""}><summary>Pourquoi cette cible</summary><ul class="c2-v1-why"><li><b>${esc(g.baseline_text)}</b><span>C'est ce que tu fais d'habitude (tes dernières ranked ${esc(C2_V1_ROLE[g.role] || "à ce poste")}).</span></li><li><b>${g.reference?.source === "metric_references" ? esc(c2V1Fmt(g, g.reference.value)) : esc(g.target_text)}</b><span>${g.reference?.source === "metric_references" ? `C'est ce que font les joueurs ${esc(g.reference.level || "Diamant+")} ${g.reference.quantile === "p50" ? "en moyenne" : "les plus forts"}. On y va par petites marches : ${esc(g.target_text)} d'abord.` : "C'est le repère du coach pour ce poste."}</span></li><li><b>${g.success_required}/${g.evaluation_games}</b><span>L'objectif est réussi si tu atteins ${esc(g.target_text)} dans ${g.success_required} de tes ${g.evaluation_games} prochaines ranked. Gagner ou perdre ne compte pas.</span></li></ul></details>
-    ${tips.length ? `<details class="more c2-fold" data-fold="v1-tips"${c2ui.fold?.["v1-tips"] ? " open" : ""}><summary>Ce qu'en disent les coachs (${tips.length})</summary><ul class="c2-tiplist">${tips.map(c2Tip).join("")}</ul></details>` : ""}`;
+    ${tips.length ? `<details class="more c2-fold" data-fold="v1-tips"${c2ui.fold?.["v1-tips"] ? " open" : ""}><summary>Ce qu'en disent les coachs (${tips.length})</summary><ul class="c2-tiplist"${window.LANG === "en" ? ' lang="fr" translate="no"' : ""}>${tips.map(c2Tip).join("")}</ul></details>` : ""}`;
   const howHtml = how ? `<div class="c2-v1-ex"><span class="label">En partie, ${c2AsRole(g.role)}</span><p>${gloss(esc(how))}</p></div>` : "";
   const body = g.status === "proposed"
     ? `${howHtml}<button class="btn primary" data-action="c2-v1-start" data-id="${esc(g.id)}">Je commence</button>${more}`
@@ -1552,11 +1557,13 @@ function c2ReportPicker(p, role, champ) {
 function c2Synthesis(d, { role, champ }) {
   const top = d.minus.slice(0, 3);
   const short = t => t.replace(/ dans \d+ parties sur \d+$/, "");
+  // Un titre par nœud de texte : i18n.js traduit chaque titre seul (sinon « Then : » suivi de titres restés en français)
+  const list = a => a.map(x => `<span>${esc(x)}</span>`).join(" · "), colon = window.LANG === "en" ? ":" : " :";
   return `<section class="c2-card c2-plan"><p class="label">Synthèse du coach · ${champ ? esc(c2Name(champ)) : esc(C2_ROLE[role])} · ${d.winsReviewed ?? d.wins} victoire${(d.winsReviewed ?? d.wins) > 1 ? "s" : ""} sur les ${d.games} parties relues</p>
       <h2 class="c2-goal-title">${top.length ? `À corriger en priorité : ${esc(short(top[0].title).replace(/^./, c => c.toLowerCase()))}` : "Aucun point faible récurrent : garde ce qui marche"}</h2>
       ${top.length ? `<p class="c2-better"><b>Ce qu'il faut faire</b> ${esc(c2TipOf(top[0], role) || top[0].detail)}</p>` : ""}
-      ${top.length > 1 ? `<p class="fine"><b>Ensuite</b> : ${top.slice(1).map(m => esc(short(m.title))).join(" · ")}.</p>` : ""}
-      ${d.plus.length ? `<p class="fine"><b>Tes forces</b> : ${d.plus.map(x => esc(x.title)).join(" · ")}.</p>` : ""}
+      ${top.length > 1 ? `<p class="fine"><b>Ensuite</b>${colon} ${list(top.slice(1).map(m => short(m.title)))}.</p>` : ""}
+      ${d.plus.length ? `<p class="fine"><b>Tes forces</b>${colon} ${list(d.plus.map(x => x.title))}.</p>` : ""}
     </section>`;
 }
 // Vue « Profil » : indicateurs tactiques, adversaires à préparer, plan de session

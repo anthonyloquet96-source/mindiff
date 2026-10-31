@@ -349,7 +349,7 @@
     [/^(Champions les plus joués|Les plus joués) · (.+)$/, (m, k, x) => (k === "Les plus joués" ? "Most played · " : "Most played champions · ") + x],
     [/^Taux de sélection sur (\d+) parties officielles$/, "Pick rate over $1 official games"],
     [/^En cours : /, "Live: "], [/^Prochain : /, "Next: "],
-    [/^Heures de (.+?) \((UTC[^)]*)\)( · fuseau de votre appareil)?$/, (m, c, u, d) => `Times in ${c} (${u})${d ? " · your device's time zone" : ""}`],
+    [/^Heures de (.+?) \((UTC[^)]*)\)( · fuseau de votre appareil)?$/, (m, c, u, d) => `Times in ${CITY[c] || c} (${u})${d ? " · your device's time zone" : ""}`],
     [/^Données officielles du (.+?)( ·)?$/, "Official data from $1$2"], [/^Notes du (.+)$/, "Notes from $1"], [/^Patch (.+) : notes officielles du (.+)$/, "Patch $1: official notes from $2"],
     [/^Pour chaque champion, on compte les parties officielles où il a été choisi, divisé par le nombre total de parties analysées \((\d+)\)\. Un champion ne peut être choisi qu'une fois par partie : ce taux de sélection va donc de 0 à 100 %\.$/, "For each champion, we count the official games where it was picked, divided by the total number of games analyzed ($1). A champion can only be picked once per game, so this pick rate ranges from 0 to 100%."],
     [/^Versions client des parties \(numéro technique du jeu\) : (.+)\. Riot ne publie pas leur correspondance avec les noms de patch\.$/, "Client versions of the games (technical game number): $1. Riot does not publish how they map to patch names."],
@@ -510,7 +510,7 @@
     // Moments clés du replay
     [/^(.+) pris par l'adversaire à (\d+:\d\d) : disputé à (\d+) contre (\d+), après un combat perdu à (\d+:\d\d)$/, (m, k, at, a, b, at2) => `Enemy took the ${objEn(k)} at ${at}: contested ${a} vs ${b}, after a fight lost at ${at2}`],
     [/^Absents : (.+)\.$/, (m, l) => `Missing: ${l.split(", ").map(x => x === "toi" ? "you" : x.replace(/\((.+)\)$/, (mm, z) => `(${z === "mort, en attente de réapparition" ? "dead, waiting to respawn" : ZONE(z)})`)).join(", ")}.`],
-    [/^Il te restait (\d+) % de tes points de vie une minute avant : rentrer à la base t'aurait évité ce risque\.$/, "You had $1% of your health a minute before: backing would have avoided this risk."],
+    [/^Il te restait (\d+) % de tes points de vie une minute avant : (?:rentrer à la base|un back) t'aurait évité ce risque\.$/, "You had $1% of your health a minute before: backing would have avoided this risk."],
     [/^Mort seul à (\d+:\d\d) \((.+)\), contre (\d+) adversaires$/, (m, at, z, n) => `Died alone at ${at} (${ZONE(z)}), against ${n} enemies`],
     [/^Tes adversaires : (.+)\.$/, (m, l) => `Your attackers: ${l.split(", ").map(who).join(", ")}.`],
     [/^Combat perdu à (\d+:\d\d) \((.+)\) sans toi ; à ta dernière position connue, tu étais (.+)$/, (m, at, z, f) => `Fight lost at ${at} (${ZONE(z)}) without you; at your last known position, you were ${farEn(f)}`],
@@ -522,7 +522,181 @@
       .replace(/^combat (.+?) \((?:(\d+) adversaires? éliminés?|aucun adversaire éliminé), (?:(\d+) pertes? de ton côté|aucune perte de ton côté)\)$/, (mm, z, e, a) => `fight ${ZONE(z)} (${e ? `${e} ${e === "1" ? "enemy" : "enemies"} killed` : "no enemy killed"}, ${a ? `${a} lost on your side` : "no loss on your side"})`)
       .replace(/^pris : (.+)$/, (mm, x) => `taken: ${lossEn(x)}`).replace(/^perdu : (.+)$/, (mm, x) => `lost: ${lossEn(x)}`).replace(/^ta mort à (.+)$/, "your death at $1")).join("; ")}` : ""}`],
   );
-  const SKIP = ".nrow-title, .nrow-dek, .article-title, .reading, .summary, .brief-title, .scard-title, .scard-dek, .place-why, .c2-videos, [translate=no], script, style, code";
+  // ---- Coach V1 (carte « Mon objectif », avis, test privé), notifications, carte d'objectif de l'Accueil (relecture du 31/10)
+  const TIER_EN = { Fer: "Iron", Bronze: "Bronze", Argent: "Silver", Or: "Gold", Platine: "Platinum", "Émeraude": "Emerald", Diamant: "Diamond", Master: "Master", Grandmaster: "Grandmaster", Challenger: "Challenger" };
+  const tierEn = s => s.replace(/^\p{L}+/u, w => TIER_EN[w] || w);
+  const numEn = v => v.replace(/(\d),(\d)/g, "$1.$2").replace(/(\d)[\s  ]%/g, "$1%");
+  const unitEn = v => numEn(v).replace(/ sbires$/, " CS").replace(/ morts?$/, " deaths").replace(/ or$/, " gold");
+  // Intitulés des objectifs (coach/metrics.mjs, CATALOG : label et labelRole)
+  const GOAL_EN = {
+    "Sbires à 10 min": "CS at 10 min", "CS à 10 min (sbires et monstres)": "CS at 10 min (minions and monsters)",
+    "Sbires à 15 min": "CS at 15 min", "CS à 15 min (sbires et monstres)": "CS at 15 min (minions and monsters)",
+    "Sbires par minute": "CS per minute", "CS par minute (sbires et monstres)": "CS per minute (minions and monsters)",
+    "Farm entre 15 et 25 min": "Farm between 15 and 25 min", "Or à 10 min": "Gold at 10 min", "Expérience à 10 min": "XP at 10 min",
+    "Écart d'or à 15 min face à ton adversaire": "Gold difference at 15 min vs your opponent", "Écart d'XP à 15 min face à ton adversaire": "XP difference at 15 min vs your opponent",
+    "Morts avant 14 min": "Deaths before 14 min", "Participation aux kills": "Kill participation", "Score de vision par minute": "Vision score per minute",
+    "Wards posées par minute": "Wards placed per minute", "Dégâts aux champions par or": "Damage to champions per gold", "Dégâts aux champions par minute": "Damage to champions per minute",
+    "Participation aux objectifs de ton équipe": "Participation in your team's objectives",
+  };
+  const goalEn = l => GOAL_EN[l] || Object.entries(GOAL_EN).find(([k]) => k.toLowerCase() === l.toLowerCase())?.[1] || null;
+  const OUTCOME_EN = {
+    "Objectif précédent maîtrisé": "Previous goal mastered", "Tu progresses sur l'objectif précédent, on continue": "You're improving on the previous goal, let's keep going",
+    "Pas encore de progrès net sur l'objectif précédent, on continue": "No clear progress on the previous goal yet, let's keep going",
+    "Objectif précédent mis en pause pour vérification": "Previous goal paused for review", "Objectif précédent mis de côté après deux séries sans progrès": "Previous goal set aside after two series without progress",
+    "Objectif précédent sans verdict (pas assez de parties au même poste)": "No verdict on the previous goal (not enough games in the same role)", "Objectif précédent sans verdict": "No verdict on the previous goal",
+  };
+  // Raisons du diagnostic (coach/goals.mjs) : « Pas encore d'objectif : … »
+  const reasonEn = r => r
+    .replace(/^moins de (\d+) parties comparables$/, "fewer than $1 comparable games").replace(/^moins de (\d+) % d'observations valides$/, "less than $1% valid data")
+    .replace(/^mise de côté après un échec ou une alerte, jusqu'au prochain diagnostic$/, "set aside after a failure or an alert, until the next diagnostic")
+    .replace(/^deux échecs de suite : mise de côté jusqu'au prochain diagnostic$/, "two failures in a row: set aside until the next diagnostic")
+    .replace(/^aucune référence pour ce rôle$/, "no benchmark for this role").replace(/^déjà au niveau de la référence$/, "already at the benchmark level")
+    .replace(/^objectif automatique suspendu \(risque de jeu passif\)$/, "automatic goal suspended (risk of passive play)");
+  // Exercices des objectifs (coach/metrics.mjs, champ exercise), traduits morceau par morceau ; la phrase n'est traduite que si
+  // tous ses morceaux sont reconnus (jamais de phrase mi-française, mi-anglaise)
+  const EX = [
+    [/Vise ([\d.,]+) CS à (10|15):00, sbires et monstres ?([.:])/, (m, n, t, p) => `Aim for ${n} CS at ${t}:00, minions and monsters${p}`],
+    [/Vise ([\d.,]+) sbires à (10|15):00 ?([.:])/, "Aim for $1 CS at $2:00$3"],
+    [/Repère intermédiaire : environ (\d+) à 5:00 ;/, "Checkpoint: about $1 at 5:00;"],
+    [/enchaîne tes camps et, après un gank ou un combat, reprends tout de suite tes camps\./, "chain your camps and, after a gank or a fight, go straight back to your camps."],
+    [/si tu es en dessous, ne force pas d'échange qui te fait rater des sbires\./, "if you're below that, don't force trades that make you miss CS."],
+    [/après chaque back, refais les camps sur ton chemin avant de chercher un combat\./, "after each back, clear the camps on your way before looking for a fight."],
+    [/après chaque back, reviens prendre la wave avant de chercher un combat\./, "after each back, come back for the wave before looking for a fight."],
+    [/Vise ([\d.,]+) CS par minute sur toute la partie, sbires et monstres :/, "Aim for $1 CS per minute over the whole game, minions and monsters:"],
+    [/entre deux combats ou objectifs, refais les camps réapparus\./, "between fights or objectives, clear the camps that have respawned."],
+    [/Vise ([\d.,]+) sbires par minute sur toute la partie :/, "Aim for $1 CS per minute over the whole game:"],
+    [/entre deux combats, prends les waves proches de toi\./, "between fights, take the waves near you."],
+    [/Vise ([\d.,]+) (?:sbires et monstres|sbires) par minute entre 15:00 et 25:00\./, "Aim for $1 CS per minute between 15:00 and 25:00."],
+    [/Entre deux combats ou objectifs, refais tes camps au lieu d'attendre ; rejoins ton équipe dès qu'un combat se prépare\./, "Between fights or objectives, clear your camps instead of waiting; join your team as soon as a fight is building."],
+    [/Entre deux combats, va prendre la wave la plus proche, de préférence sur une side lane ; rejoins ton équipe dès qu'elle part sur un objectif\./, "Between fights, take the closest wave, preferably in a side lane; join your team as soon as it heads for an objective."],
+    [/Vise ([\d.,]+) XP à 10:00, soit environ le niveau (\d+)\./, "Aim for $1 XP at 10:00, about level $2."],
+    [/Enchaîne tes camps sans temps mort et, après un gank, reprends tout de suite tes camps au lieu de rester sur la lane\./, "Chain your camps without downtime and, after a gank, go straight back to your camps instead of staying in lane."],
+    [/Reste sur ta lane pour prendre l'expérience de chaque wave ; ne quitte ta lane qu'après avoir poussé ta wave\./, "Stay in lane to get the XP from every wave; only leave your lane after pushing your wave."],
+    [/Au plus (\d+) morts? avant 14:00 :/, (m, n) => `At most ${n} death${n === "1" ? "" : "s"} before 14:00:`],
+    [/quand ton adversaire disparaît de la carte ou que leur jungler est vu de ton côté, recule avant de pousser\./, "when your opponent goes missing or their jungler is seen on your side, back off before pushing."],
+    [/Vise (\d+) % de participation aux kills :/, "Aim for $1% kill participation:"],
+    [/quand ton ADC est en sécurité ou rentre à la base, suis ton jungler ou ton mid vers les combats proches au lieu de rester seul en bot lane\./, "when your ADC is safe or backing, follow your jungler or mid to nearby fights instead of staying alone in bot lane."],
+    [/après chaque clear, regarde la minimap et va là où un combat se prépare \(gank, contre-gank, escarmouche\)\./, "after each clear, check the minimap and go where a fight is building (gank, counter-gank, skirmish)."],
+    [/après avoir poussé ta wave, regarde la minimap et rejoins les combats proches\./, "after pushing your wave, check the minimap and join nearby fights."],
+    [/Vise un score de vision de ([\d.,]+) par minute :/, "Aim for a vision score of $1 per minute:"],
+    [/pose les wards de ton item de support dès qu'elles sont disponibles et achète une control ward à chaque back\./, "place your support item's wards as soon as they're available and buy a control ward every back."],
+    [/une control ward à chaque back et ton trinket dès qu'il est rechargé\./, "a control ward every back and your trinket as soon as it's back up."],
+  ];
+  const exEn = s => {
+    let r = s;
+    for (const [re, rep] of EX) r = r.replace(re, (...a) => `\u0001${numEn(typeof rep === "function" ? rep(...a) : a[0].replace(re, rep))}\u0002`);
+    return r !== s && !r.replace(/\u0001[^\u0002]*\u0002/g, "").trim() ? r.replace(/[\u0001\u0002]/g, "") : null;
+  };
+  // Titres du bilan complet (« À corriger en priorité : … ») : traduits seulement s'ils sont connus
+  const titleEn = s => {
+    const u = s.charAt(0).toUpperCase() + s.slice(1), e = HEAD[u] || T[u], m = u.match(/^(.+) (?:: moins bien que les bons joueurs|au niveau des meilleurs)$/);
+    return e || (m && PLAIN[m[1]] ? headEn(u) : null);
+  };
+  const CITY = { Londres: "London", "Montréal": "Montreal", "La Réunion": "Réunion", "Séoul": "Seoul" };
+  // Titres du bilan complet seuls dans leur nœud (synthèse : « Ensuite : <span>…</span> · <span>…</span> »)
+  Object.assign(T, HEAD, GOAL_EN, OUTCOME_EN, {
+    // Carte « Mon objectif »
+    "Aller au contenu": "Skip to content", "Mon objectif": "My goal", "Tes données du coach ont été supprimées : parties, mesures, objectifs et avis.": "Your coach data has been deleted: games, measurements, goals and feedback.",
+    "Recommencer avec le coach": "Start over with the coach", "Lecture de tes dernières ranked": "Reading your recent ranked games",
+    "Clé Riot refusée ou expirée : les parties ne peuvent pas être mises à jour.": "Riot key refused or expired: your games can't be updated.",
+    "La mise à jour des parties a échoué.": "Updating your games failed.", "Pas de connexion au service du coach.": "Can't reach the coach service.",
+    "Ton prochain objectif": "Your next goal", "Ton objectif en cours": "Your current goal", "Ton objectif en cours t'est donné": "Your current goal is set",
+    ", ton poste principal : le coach te fait travailler une seule chose à la fois.": ", your main role: the coach has you work on one thing at a time.",
+    "Pas encore d'objectif : joue quelques ranked de plus.": "No goal yet: play a few more ranked games.",
+    "Il faut au moins 8 parties classées au même poste.": "You need at least 8 ranked games in the same role.",
+    "donnée manquante": "missing data", "à jouer": "to play", "Toi aujourd'hui": "You today", "sbires": "CS", "morts": "deaths", "or": "gold",
+    "Pourquoi cette cible": "Why this target", "C'est le repère du coach pour ce poste.": "That's the coach's benchmark for this role.",
+    "En partie,": "In game,", "Je commence": "Start", "Mise à jour…": "Updating…", "Mettre à jour mes parties": "Update my games",
+    "Supprimer mes données du coach": "Delete my coach data", "Oui, tout supprimer": "Yes, delete everything",
+    "Tes parties, mesures, objectifs et avis seront effacés définitivement. Ton Riot ID reste enregistré sur cet appareil.": "Your games, measurements, goals and feedback will be permanently deleted. Your Riot ID stays saved on this device.",
+    "Merci pour ton avis sur cet objectif.": "Thanks for your feedback on this goal.", "Ton avis sur cet objectif (test privé)": "Your feedback on this goal (private test)",
+    "Utile pour ton jeu ? 1 = pas du tout, 5 = beaucoup": "Useful for your game? 1 = not at all, 5 = a lot", "Effets indésirables pendant ces parties :": "Side effects during these games:",
+    "J'ai joué plus passif": "I played more passively", "J'ai moins farmé": "I farmed less", "J'ai moins participé aux kills": "I took part in fewer kills", "Plus de stress": "More stress",
+    "Moins de plaisir": "Less fun", "Conseils pas adaptés": "The tips didn't fit", "Je n'ai pas compris l'objectif": "I didn't understand the goal",
+    "Un commentaire ? (facultatif)": "A comment? (optional)", "Envoyer": "Send", "Bienvenue dans": "Welcome to", "Un objectif à la fois.": "One goal at a time.",
+    // Accès au test privé
+    "Test privé": "Private test", "Le coach est en test, sur invitation": "The coach is in testing, by invitation",
+    "Tu as reçu un code d'invitation ? Crée ton compte avec ton e-mail, puis entre le code.": "Got an invitation code? Create your account with your e-mail, then enter the code.",
+    "Tu as reçu un code d'invitation ? Connecte-toi avec ton e-mail, puis entre le code.": "Got an invitation code? Log in with your e-mail, then enter the code.",
+    "Mot de passe": "Password", "Créer mon compte": "Create my account", "Me connecter": "Log in", "J'ai déjà un compte": "I already have an account", "Créer un compte": "Create an account",
+    "Tu as quitté le test. Pour revenir, demande à la personne qui t'a invité.": "You left the test. To come back, ask the person who invited you.", "Me déconnecter": "Log out",
+    "Code d'invitation": "Invitation code", "Conditions du test (à lire)": "Test terms (please read)",
+    "Test privé d'environ deux semaines, réservé aux personnes majeures invitées.": "Private test of about two weeks, for invited adults only.",
+    "À partir de ton Riot ID, le coach lit tes parties classées via l'API de Riot Games et les garde pour te proposer un objectif et le suivre sur tes parties suivantes.": "From your Riot ID, the coach reads your ranked games through the Riot Games API and keeps them to suggest a goal and track it over your next games.",
+    "Données gardées : ton e-mail (pour te connecter), ton Riot ID, tes parties, tes objectifs et tes avis. Hébergées en Europe (Supabase, Irlande), visibles par toi seul, jamais vendues ni partagées, sans publicité, et aucune n'est envoyée à un service d'IA.": "Data kept: your e-mail (to log in), your Riot ID, your games, your goals and your feedback. Hosted in Europe (Supabase, Ireland), visible only to you, never sold or shared, no ads, and none of it is sent to an AI service.",
+    "Le bouton « Supprimer mes données du coach » efface tout à tout moment. Tout est effacé à la fin du test.": "The “Delete my coach data” button erases everything at any time. Everything is erased at the end of the test.",
+    "MINDIFF n'est ni approuvé ni soutenu par Riot Games.": "MINDIFF isn't endorsed or sponsored by Riot Games.",
+    "J'ai 18 ans ou plus": "I'm 18 or older", "J'ai lu et j'accepte les conditions du test": "I have read and accept the test terms", "Rejoindre le test": "Join the test",
+    "Pas de connexion : réessaie dans un instant.": "No connection: try again in a moment.", "E-mail ou mot de passe incorrect.": "Incorrect e-mail or password.",
+    "Un compte existe déjà avec cet e-mail : connecte-toi.": "An account already exists with this e-mail: log in.", "Mot de passe trop court : 8 caractères au moins.": "Password too short: at least 8 characters.",
+    "Session expirée : reconnecte-toi.": "Session expired: log in again.", "Le service du coach ne répond pas : réessaie dans quelques minutes.": "The coach service isn't responding: try again in a few minutes.",
+    "Le coach est en test privé, sur invitation.": "The coach is in private testing, by invitation.", "Compte créé : confirme ton e-mail puis connecte-toi.": "Account created: confirm your e-mail, then log in.",
+    "E-mail valide et mot de passe de 8 caractères au moins.": "A valid e-mail and a password of at least 8 characters.", "Entre le code, confirme ton âge et accepte les conditions.": "Enter the code, confirm your age and accept the terms.",
+    "Aperçu": "Preview", "Ce que le coach te montrera": "What the coach will show you",
+    "Une fois dans le test, entre ton Riot ID : le coach lit tes parties classées. Voici ce qu'il te montrera, sur une vraie partie.": "Once in the test, enter your Riot ID: the coach reads your ranked games. Here's what it will show you, on a real game.",
+    // Carte d'objectif de l'Accueil
+    "Prêt à commencer : ouvre le coach": "Ready to start: open the coach",
+    // Notifications (cloche)
+    "Réglages": "Settings", "Matchs en direct": "Live matches", "Gros matchs": "Big matches", "Mes favoris": "My favorites", "Aucun": "None", "Matchs suivis": "Matches followed",
+    "Début de chaque game, first blood, première tour, dragons, Baron, inhibiteurs, ace, game et match gagnés.": "Start of each game, first blood, first tower, dragons, Baron, inhibitors, ace, game and match won.",
+    "Gros matchs : Worlds, MSI, First Stand, LCK, LPL, LEC, LCS et LCP, plus tes équipes favorites.": "Big matches: Worlds, MSI, First Stand, LCK, LPL, LEC, LCS and LCP, plus your favorite teams.",
+    "Ajoute des équipes en favori (étoile sur leur fiche) pour suivre aussi leurs matchs.": "Add teams to your favorites (star on their page) to follow their matches too.",
+    "Niveau de détail": "Level of detail", "Essentiel": "Essentials", "Détaillé": "Detailed",
+    "En plus : chaque tour détruite et chaque combat gagné (3 kills ou plus d'affilée).": "Also: every tower destroyed and every fight won (3 or more kills in a row).",
+    "Les moments clés, avec le score des kills. Tes équipes favorites sont toujours en détaillé : chaque tour et chaque combat gagné.": "Key moments, with the kill score. Your favorite teams are always detailed: every tower and every fight won.",
+    "Mode sans spoilers activé : pas d'alerte de match dans le site.": "Spoiler-free mode on: no match alerts on the site.",
+    "Rappels activés": "Reminders on", "Désactivés": "Off", "Rappels du coach": "Coach reminders",
+    "Ton objectif, les games qui restent, un mot pour t'encourager. Un rappel tous les 2 jours au plus, en fin d'après-midi.": "Your goal, the games left, a word of encouragement. At most one reminder every 2 days, in the late afternoon.",
+    "Sur cet appareil, site fermé": "On this device, site closed", "Service des notifications indisponible sur cette version du site.": "Notification service unavailable on this version of the site.",
+    "Sur iPhone, les notifications marchent depuis l'icône de MINDIFF sur l'écran d'accueil : bouton Partager, puis « Sur l'écran d'accueil ». Ouvre ensuite MINDIFF depuis cette icône et reviens ici.": "On iPhone, notifications work from the MINDIFF icon on your home screen: Share button, then “Add to Home Screen”. Then open MINDIFF from that icon and come back here.",
+    "Ce navigateur ne permet pas les notifications quand le site est fermé.": "This browser doesn't support notifications when the site is closed.",
+    "Activées sur cet appareil": "On for this device", "Envoyer un test": "Send a test", "Désactiver": "Turn off", "Activation…": "Turning on…", "Activer les notifications": "Turn on notifications",
+    "Les notifications de MINDIFF sont bloquées dans les réglages de l'appareil.": "MINDIFF notifications are blocked in your device settings.",
+    "Sans activation, les alertes de match s'affichent en bandeau quand MINDIFF est ouvert.": "Without turning them on, match alerts show as a banner while MINDIFF is open.",
+    "Le service garde seulement l'adresse technique des notifications de cet appareil, tes choix et, si les rappels sont activés, le résumé de ton objectif (intitulé, poste, cible, games restantes). Ni e-mail, ni compte Riot.": "The service only keeps this device's technical notification address, your choices and, if reminders are on, a summary of your goal (title, role, target, games left). No e-mail, no Riot account.",
+    "Confidentialité": "Privacy",
+    "Autorisation refusée. Tu peux la redonner dans les réglages du téléphone, rubrique Notifications.": "Permission denied. You can grant it again in your phone settings, under Notifications.",
+    "Ce navigateur ne permet pas les notifications.": "This browser doesn't support notifications.", "Le service des notifications n'est pas encore en ligne.": "The notification service isn't online yet.",
+    "Le service des notifications ne répond pas. Réessaie dans un moment.": "The notification service isn't responding. Try again in a moment.",
+    "C'est activé : une notification de test arrive.": "Done: a test notification is on its way.", "Activation impossible.": "Couldn't turn them on.",
+    "Notifications désactivées sur cet appareil.": "Notifications turned off on this device.",
+    // Fiche champion, équipe, aide, ancien coach, synthèse du bilan
+    "Préparer avec ce champion": "Prepare with this champion", "des parties": "of games", "victoires : —": "wins: —", "en séries": "in series",
+    "Aide : visite de cette page": "Help: tour of this page", "Aide": "Help", "Mes ressources": "My resources", "Tes forces": "Your strengths",
+  });
+  R.push(
+    [/^(.+?) : (.+), cible (.+) \(([\d?]+)\/([\d?]+) parties\)(?: ; (.+))?\.$/, (m, o, l, t, a, b, rv) => {
+      const oe = OUTCOME_EN[o], le = goalEn(l);
+      const re = rv && rv.replace(/^garde-fou dégradé : (.+)$/, (mm, x) => { const g = x.split(", ").map(goalEn); return g.every(Boolean) ? `guardrail worsened: ${g.map(y => y.charAt(0).toLowerCase() + y.slice(1)).join(", ")}` : mm; }).replace(/^recul sur la métrique travaillée$/, "regression on the metric being worked on");
+      return oe && le && (!rv || re !== rv) ? `${oe}: ${le}, target ${numEn(t)} (${a}/${b} games)${rv ? `; ${re}` : ""}.` : m;
+    }],
+    [/^Mon objectif · (.+)$/, "My goal · $1"], [/^Voir mon objectif (.+)$/, "See my $1 goal"],
+    [/^(Top|Jungle|Mid|ADC|Support) : (\d+) parties? classées? récentes?\. Quand ce poste deviendra ton poste principal, ton prochain objectif y sera adapté \(ses champions, ses repères\)\.$/, (m, r, n) => `${r}: ${n} recent ranked game${n === "1" ? "" : "s"}. When this becomes your main role, your next goal will be adapted to it (its champions, its benchmarks).`],
+    [/^Pas d'objectif à te proposer : tu es déjà au niveau des repères du coach sur tout ce qu'il suit à ce poste(?: \(meilleurs joueurs (.+)\))?\.$/, (m, t) => `No goal to suggest: you're already at the coach's benchmarks on everything it tracks in this role${t ? ` (top ${tierEn(t)} players)` : ""}.`],
+    [/^Pas encore d'objectif : (.+)\.$/, (m, r) => { const e = reasonEn(r); return e !== r ? `No goal yet: ${e}.` : m; }],
+    [/^C'est ce que tu fais d'habitude \(tes dernières ranked (.+)\)\.$/, (m, r) => `That's what you usually do (your recent ranked games ${r === "à ce poste" ? "in this role" : `as ${r}`}).`],
+    [/^C'est ce que font les joueurs (.+?) (en moyenne|les plus forts)\. On y va par petites marches : (.+) d'abord\.$/, (m, l, q, t) => `That's what ${q === "en moyenne" ? "" : "the best "}${tierEn(l)} players do${q === "en moyenne" ? " on average" : ""}. We'll get there in small steps: ${numEn(t)} first.`],
+    [/^L'objectif est réussi si tu atteins (.+) dans (\d+) de tes (\d+) prochaines ranked\. Gagner ou perdre ne compte pas\.$/, (m, t, a, b) => `The goal is met if you reach ${numEn(t)} in ${a} of your next ${b} ranked games. Winning or losing doesn't count.`],
+    [/^Ce qu'en disent les coachs \((\d+)\)$/, "What coaches say ($1, in French)"],
+    [/^(\d+) cibles? atteintes? sur (\d+) parties?$/, (m, a, b) => `Target reached in ${a} of ${b} game${b === "1" ? "" : "s"}`],
+    [/^(\d+) \/ (\d+) réussites? · (\d+) \/ (\d+) parties?$/, "$1 / $2 successes · $3 / $4 games"],
+    [/^(?:Vise|Au plus|Repère intermédiaire) .+$/, m => exEn(m) || m],
+    // Carte d'objectif de l'Accueil
+    [/^(.+) : vise (.+)$/, (m, l, t) => { const e = goalEn(l); return e ? `${e}: aim for ${unitEn(t).replace(/ /g, " ")}` : m; }],
+    [/^(\d+) réussites? sur (\d+) · (\d+) parties? à jouer$/, (m, a, b, n) => `${a} success${a === "1" ? "" : "es"} out of ${b} · ${n} game${n === "1" ? "" : "s"} to play`],
+    [/^(\d+) réussites? sur (\d+) nécessaires$/, "$1 of $2 successes needed"],
+    [/^(Objectif atteint|Objectif) : (.+) · (\d+)\/(\d+) réussies$/, (m, o, l, a, b) => { const e = goalEn(l); return e ? `${o === "Objectif" ? "Goal" : "Goal reached"}: ${e} · ${a}/${b} successful` : m; }],
+    // Fiche champion, page match, équipe, méta
+    [/^victoires \((\d+)\)$/, "wins ($1)"], [/^(\d+) autres podiums$/, "$1 more podiums"],
+    [/^heure de (.+?)( \(UTC[^)]*\))?$/, (m, c, u) => `${CITY[c] || c} time${u || ""}`],
+    [/^Seed n°(\d+) de la (\S+)(?: \((.+)\))?$/, (m, n, l, x) => `${l} seed #${n}${x ? ` (${({ "été": "Summer", "finale régionale": "regional finals", "points de championnat": "championship points" })[x] || x.replace(/^split/, "Split")})` : ""}`],
+    [/^(.+) · (\d+) maps d'équipe$/, "$1 · $2 team maps"],
+    [/^(.+) n'est pas encore couvert par le coach : conseils de méthode seulement\.$/, "$1 isn't covered by the coach yet: method tips only."],
+    [/^(.+) (?:: moins bien que les bons joueurs|au niveau des meilleurs)$/, (m, p) => (PLAIN[p] ? headEn(m) : m)],
+    [/^(\d+) sbires · (\d+) min$/, "$1 CS · $2 min"],
+    [/^À corriger en priorité : (.+)$/, (m, x) => { const e = titleEn(x); return e ? `Fix first: ${e.charAt(0).toLowerCase() + e.slice(1)}` : m; }],
+  );
+  const SKIP =".nrow-title, .nrow-dek, .article-title, .reading, .summary, .brief-title, .scard-title, .scard-dek, .place-why, .c2-videos, [translate=no], script, style, code";
   function tr(s) {
     const t0 = s.trim(), t = t0.replace(/[\s\u00a0\u202f]+/g, " "); // espaces insécables normalisés
     if (/^\d+,\d+$/.test(t)) return s.replace(t0, t.replace(",", "."));
@@ -553,6 +727,8 @@
     }
   }
   window.i18nTr = tr;
+  // Nom officiel anglais d'un champion, d'un objet ou d'une rune (nom français de Data Dragon), une fois les noms chargés
+  window.i18nName = n => (Object.hasOwn(NAMES, n) ? NAMES[n] : n);
   // Noms officiels Riot (Data Dragon fr_FR → en_US) des objets, runes et sorts : chargés seulement pour le coach, gardés par patch
   let NAMES = {}, NAME_RE = null, namesLoading = false;
   const setNames = map => {
@@ -562,15 +738,20 @@
     NAME_RE = list.length ? new RegExp(`(?<![\\p{L}'’])(?:${list.map(k => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})(?![\\p{L}'’])`, "gu") : null;
   };
   async function loadNames() {
-    if (namesLoading || NAME_RE || !/coach/.test(location.hash)) return;
+    // Coach, ou Accueil d'un joueur connecté au coach (carte d'objectif, « Nouvelle partie à relire : Seraphine »)
+    let coachUser = false;
+    try { coachUser = /"riotId"/.test(localStorage.getItem("mindiff-coach2-v1") || ""); } catch (e) { /* ignoré */ }
+    if (namesLoading || NAME_RE || !(/coach/.test(location.hash) || coachUser)) return;
     namesLoading = true;
     try {
       const v = (await fetch("https://ddragon.leagueoflegends.com/api/versions.json").then(r => r.json()))[0];
       let map = null;
-      try { const c = JSON.parse(localStorage.getItem("tm-names-en") || "null"); if (c?.v === v) map = c.map; } catch (e) { /* ignoré */ }
+      try { const c = JSON.parse(localStorage.getItem("tm-names-en2") || "null"); if (c?.v === v) map = c.map; } catch (e) { /* ignoré */ }
       if (!map) {
         const get = (l, f) => fetch(`https://ddragon.leagueoflegends.com/cdn/${v}/data/${l}/${f}.json`).then(r => r.json());
         const [fi, ei, fr, er, fs, es] = await Promise.all([get("fr_FR", "item"), get("en_US", "item"), get("fr_FR", "runesReforged"), get("en_US", "runesReforged"), get("fr_FR", "summoner"), get("en_US", "summoner")]);
+        // Champions : noms officiels anglais (Séraphine → Seraphine, Maître Yi → Master Yi)
+        const [fc, ec] = await Promise.all([get("fr_FR", "champion"), get("en_US", "champion")]);
         map = {};
         const add = (f, e, spell) => { if (f && e && f !== e) { map[f] = e; if (spell) map["~" + f] = 1; } };
         for (const id in fi.data) add(fi.data[id].name, ei.data[id]?.name);
@@ -578,7 +759,8 @@
         const rf = runes(fr), re = runes(er);
         for (const id in rf) add(rf[id], re[id]);
         for (const k in fs.data) add(fs.data[k].name, es.data[k]?.name, true);
-        try { localStorage.setItem("tm-names-en", JSON.stringify({ v, map })); } catch (e) { /* ignoré */ }
+        for (const k in fc.data) add(fc.data[k].name, ec.data[k]?.name);
+        try { localStorage.setItem("tm-names-en2", JSON.stringify({ v, map })); } catch (e) { /* ignoré */ }
       }
       setNames(map);
       walk(document.body);

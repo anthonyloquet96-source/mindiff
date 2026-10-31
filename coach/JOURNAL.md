@@ -2,6 +2,17 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-31 — tour de contrôle avec 7 agents
+- **Agents** : banc d’essai (analyste de données), relecteur joueur (80 joueurs, FR et EN), récolte et contrôle critique, chercheur de sources, deux nouveaux testeurs (site, service et notifs : `.claude/agents/testeur-*.md`), traducteur.
+- **Notifs** : ace jamais détecté en vrai (un mort garde 1 à 8 PV dans le flux : mort = 10 PV ou moins) ; plusieurs inhibiteurs comptés ; décalage de départ à 30 s (le flux refuse plus près) ; match gardé 20 min hors du direct (plus de « Le match commence » en double, vainqueur annoncé) ; limite de 50 appels respectée au-delà de 20 abonnés ; délai de 8 s par appel ; objectif fini annoncé une seule fois, objectif sans compteurs jamais dit « terminé ». Simulations du testeur rejouées : sans erreur.
+- **Confidentialité** : 113 adresses e-mail de créateurs (descriptions YouTube) étaient publiées dans `data/coach.json` : masquées dans la base et à la source (`noEmail`, coach/lib.mjs).
+- **Coach** : plus d’objectif de l’ancien moteur dans « En bref » ; cible en % toujours au moins un point au-dessus du départ ; « trop irrégulier » au lieu de « moins bien » quand le chiffre habituel est meilleur que le repère ; vrais noms de champions dans les textes (Wukong, Cho’Gath) ; bouton « Préparer avec ce champion » vers la fiche du nouveau coach.
+- **Base** : 34 corrections de la relecture critique (dont u-ai-yt-r10CTY-1VR4-2 retraduite, deux contresens sur les vagues, noms de runes Kai’Sa et Vladimir, un timing inventé retiré).
+- **Version anglaise** : carte d’objectif, cloche, Accueil, accès au test privé, pages match, équipe et champion traduits ; plus de phrases à moitié françaises. Les conseils de coachs sourcés restent en français (annoncé dans leur titre).
+- **Serveur local** : une adresse mal formée ne l’arrête plus.
+- **À trancher par Anthony** : la veille lit `/feeds/videos.xml` de YouTube, interdit par son robots.txt ; proposition : couper cette détection et passer par l’API officielle (clé Google à créer). Mise en ligne du worker en attente de son feu vert.
+- **Reste** : conseils de jungler proposés aux autres postes (c2CoachTips), objectifs à « +1 » peu sensibles, exercice de farm sans unité, appli hors ligne sans cache.
+
 ## 2026-10-29, nuit — notifications : niveau de détail
 - **Demande d’Anthony** : toutes les tours, voire tous les kills, sans « blinder » de notifs.
 - **Choix** : réglage « Niveau de détail ». *Essentiel* (par défaut) : les moments clés, avec le score des kills (« CFO prend le Baron Nashor · kills 9-3 »). *Détaillé* : en plus chaque tour (« KC détruit 2 tours · tours 3-0 · kills 9-2 ») et chaque combat gagné (au moins 3 kills contre 1 au plus en 10 à 15 s). Les équipes favorites sont toujours en détaillé.

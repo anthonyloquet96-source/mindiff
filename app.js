@@ -26,6 +26,8 @@ const T_TABS = [["apercu", "Vue d'ensemble"], ["matchs", "Matchs"], ["classement
 const LOL_ROLES = [["top", "Top"], ["jungle", "Jungle"], ["mid", "Mid"], ["bottom", "ADC"], ["support", "Support"]];
 const ROLE_LABEL = Object.fromEntries(LOL_ROLES);
 const MATCH_STATE = { unstarted: "À venir", inProgress: "En cours", completed: "Terminé", postponed: "Reporté", unneeded: "Annulé" };
+// Libellés aria composés en une phrase (« G2 vs HLE, Finished, 0 to 2 ») : écrits directement en anglais sur le site anglais
+const MATCH_STATE_EN = { unstarted: "Upcoming", inProgress: "Live", completed: "Finished", postponed: "Postponed", unneeded: "Cancelled" };
 const VAL_ROLE_FR = { Duelist: "Duelliste", Initiator: "Initiateur", Controller: "Contrôleur", Sentinel: "Sentinelle" };
 
 const PREF_KEY = "tm-prefs-v1";
@@ -205,10 +207,11 @@ function autoSummary(m) {
   const [a, b] = m.teams;
   const w = a.outcome === "win" ? a : b;
   const l = w === a ? b : a;
-  let s = `${w.name} bat ${l.name}${w.score != null ? ` ${w.score}–${l.score}` : ""}.`;
+  // Rendu dans un bloc .summary (non traduit par i18n.js) : écrit directement dans la langue du site
+  let s = `${w.name} ${EN() ? "beat" : "bat"} ${l.name}${w.score != null ? ` ${w.score}–${l.score}` : ""}.`;
   if (m.games?.length && m.verified && w.id) {
     const k = id => m.games.reduce((n, g) => n + (g.kills ? (g.blue.teamId === id ? g.kills.blue : g.kills.red) : 0), 0);
-    s += ` ${k(w.id)} kills à ${k(l.id)} sur la série.`;
+    s += EN() ? ` ${k(w.id)} kills to ${k(l.id)} in the series.` : ` ${k(w.id)} kills à ${k(l.id)} sur la série.`;
   }
   return s;
 }
@@ -350,7 +353,8 @@ async function loadRosters() {
     lolVersion = versions[0];
     const champs = await (await fetch(`https://ddragon.leagueoflegends.com/cdn/${lolVersion}/data/fr_FR/champion.json`)).json();
     const TAG = { Fighter: "Combattant", Tank: "Tank", Mage: "Mage", Assassin: "Assassin", Marksman: "Tireur", Support: "Support" };
-    rosters.lol = Object.values(champs.data).map(c => ({ id: c.id, name: c.name, tags: c.tags.map(t => TAG[t] || t) })).sort((a, b) => a.name.localeCompare(b.name, "fr"));
+    // Classes : françaises en français, officielles (Fighter, Marksman) sur le site anglais
+    rosters.lol = Object.values(champs.data).map(c => ({ id: c.id, name: c.name, tags: c.tags.map(t => (EN() ? t : TAG[t] || t)) })).sort((a, b) => a.name.localeCompare(b.name, "fr"));
   } catch (e) { console.warn("Liste des champions indisponible", e); }
   try {
     const res = await (await fetch("https://valorant-api.com/v1/agents?isPlayableCharacter=true")).json();
@@ -441,7 +445,8 @@ function matchCard(m, t, { withComp = true, line = false, day = true } = {}) {
     : done ? (hide ? `<span class="mc-hidden">Score masqué</span>` : a.score != null ? `<span class="mc-score"><b class="${a.outcome === "win" ? "w" : ""}">${a.score}</b><i>–</i><b class="${b.outcome === "win" ? "w" : ""}">${b.score}</b></span>` : `<span class="mc-score">Terminé</span>`)
     : m.start ? `${day ? `<span class="mc-day">${esc(dayLabel(m.start))}</span>` : ""}<span class="mc-time">${fmtTime(m.start)}</span>` : `<span class="mc-time small">${esc(MATCH_STATE[m.state] || "—")}</span>`;
   const fmt = [done && day && m.start ? fmtDay(m.start) : "", m.bo ? `Bo${m.bo}` : ""].filter(Boolean).join(" · ");
-  const label = `${a.name} contre ${b.name}, ${MATCH_STATE[m.state] || ""}${done ? (hide ? ", score masqué" : a.score != null ? `, ${a.score} à ${b.score}` : "") : m.start ? `, ${fmtDayTime(m.start)}` : ""}, ${t.name}`;
+  const label = EN() ? `${a.name} vs ${b.name}, ${MATCH_STATE_EN[m.state] || ""}${done ? (hide ? ", score hidden" : a.score != null ? `, ${a.score} to ${b.score}` : "") : m.start ? `, ${fmtDayTime(m.start)}` : ""}, ${t.name}`
+    : `${a.name} contre ${b.name}, ${MATCH_STATE[m.state] || ""}${done ? (hide ? ", score masqué" : a.score != null ? `, ${a.score} à ${b.score}` : "") : m.start ? `, ${fmtDayTime(m.start)}` : ""}, ${t.name}`;
   const side = (x, cls) => `<span class="mc-team ${cls} ${done && !hide && x.outcome === "win" ? "win" : ""} ${done && !hide && x.outcome === "loss" ? "loss" : ""}">${logo(x.name, x.image)}<span class="mc-name">${esc(x.name)}</span>${prefs.favTeams.includes(x.name) ? icon("star", "fav-ic") : ""}</span>`;
   const summary = line && done && !hide ? (EDITORIAL.matches?.[m.id]?.resume || autoSummary(m) || m.summary || "") : "";
   return `<a class="mcard" href="${href(t.game, "tournoi", t.id, "matchs", m.id)}" aria-label="${esc(label)}">
@@ -460,7 +465,7 @@ const LIVE = {};
 const LOLE_KEY = "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"; // clé publique du site LoL Esports (déjà utilisée par la collecte)
 let liveTimer = null;
 const liveStrip = (id, big = false) => `<span class="livestrip${big ? " big" : ""}" data-live-match="${esc(id)}">${liveStripInner(id)}</span>`;
-const kfmt = n => (n >= 1000 ? `${(n / 1000).toFixed(1).replace(".", ",")}k` : String(n));
+const kfmt = n => (n >= 1000 ? `${(n / 1000).toFixed(1).replace(".", EN() ? "." : ",")}k` : String(n));
 const DRAKE = { infernal: "#ff5a2e", ocean: "#3d9df0", mountain: "#a07a4f", cloud: "#cfd8e3", hextech: "#36c6d6", chemtech: "#6ccf3a", elder: "#b47cff" };
 const mmss = secs => `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
 function liveStripInner(id) {
@@ -818,7 +823,7 @@ function viewHome() {
   const resHtml = recent.length ? `<section class="sec">${secHead("Derniers résultats", seeAll(href(g, "competitions", "matchs")))}
     <div class="hlist">${recent.map(({ m, t }) => {
       const [a, b] = m.teams, hide = hidden(m.id), w = x => (!hide && x.outcome === "win" ? "win" : !hide && x.outcome === "loss" ? "loss" : "");
-      return `<a class="hrow res" href="${href(t.game, "tournoi", t.id, "matchs", m.id)}" aria-label="${esc(`${a.name} contre ${b.name}, ${hide ? "score masqué" : `${a.score} à ${b.score}`}, ${t.name}`)}">
+      return `<a class="hrow res" href="${href(t.game, "tournoi", t.id, "matchs", m.id)}" aria-label="${esc(EN() ? `${a.name} vs ${b.name}, ${hide ? "score hidden" : `${a.score} to ${b.score}`}, ${t.name}` : `${a.name} contre ${b.name}, ${hide ? "score masqué" : `${a.score} à ${b.score}`}, ${t.name}`)}">
         <span class="hrow-side a ${w(a)}">${team(a)}</span>
         <span class="hrow-score">${hide ? `<span class="mc-hidden">Masqué</span>` : a.score != null ? `${a.score}<i>–</i>${b.score}` : "Terminé"}</span>
         <span class="hrow-side b ${w(b)}">${team(b)}</span></a>`;
@@ -1101,7 +1106,7 @@ function matchPage(t, mid) {
       <a class="back" href="${href(t.game, "tournoi", t.id, "matchs")}">${icon("left")}${esc(t.name)}</a>
     </header>
     <section class="scoreboard" aria-label="Score">
-      <p class="sb-meta">${esc(m.block || "")}${m.bo ? ` · Bo${m.bo}` : ""} · ${esc(MATCH_STATE[m.state] || "")}${m.start ? ` · ${fmtDayTime(m.start)} (heure de ${esc(tzLabel(m.start))})` : ""}</p>
+      <p class="sb-meta"><span>${esc(m.block || "")}</span>${m.bo ? ` · Bo${m.bo}` : ""} · <span>${esc(MATCH_STATE[m.state] || "")}</span>${m.start ? ` · <span>${fmtDayTime(m.start)}</span> · <span>heure de ${esc(tzLabel(m.start))}</span>` : ""}</p>
       <div class="sb-row">
         ${side(a)}
         <div class="sb-center">${m.state === "inProgress" ? `<span class="mc-live">En cours</span>` : done ? (hide ? `<button class="btn ghost sm" data-action="reveal" data-id="${esc(m.id)}">${icon("eye")}Afficher le score</button>` : `<span class="sb-score"><b class="${a.outcome === "win" ? "w" : ""}">${a.score ?? "V"}</b><i>–</i><b class="${b.outcome === "win" ? "w" : ""}">${b.score ?? "D"}</b></span>`) : m.start ? `<span class="sb-time">${fmtTime(m.start)}</span>` : ""}</div>
@@ -2010,11 +2015,13 @@ async function swReady() {
   try { swReg ||= await navigator.serviceWorker.register("sw.js"); await navigator.serviceWorker.ready; return swReg; } catch { return null; }
 }
 const b64key = s => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/") + "===".slice((s.length + 3) % 4)), c => c.charCodeAt(0));
+// Intitulé et unité de l'objectif, enregistrés en français : en anglais pour le site anglais (rappels du coach)
+const goalText = s => (window.LANG === "en" && window.i18nTr && s ? window.i18nTr(s) : s);
 // Ce qui part au service : l'abonnement, les choix, et le résumé de l'objectif si les rappels du coach sont activés (pas de Riot ID)
 function pushBody(sub, extra = {}) {
   const S = prefs.notif.coach && typeof C2 !== "undefined" && C2.v1Snap;
   return { sub: sub.toJSON(), matches: prefs.notif.matches, detail: prefs.notif.detail, fav: prefs.favTeams, coach: prefs.notif.coach, lang: window.LANG === "en" ? "en" : "fr",
-    goal: S ? { label: S.label, role: S.role, target: S.target, unit: S.unit, status: S.status, counted: S.counted, of: S.of } : null, ...extra };
+    goal: S ? { label: goalText(S.label), role: S.role, target: S.target, unit: S.unit && S.unit !== "%" && S.unit !== "/min" ? goalText(S.unit) : S.unit, status: S.status, counted: S.counted, of: S.of } : null, ...extra };
 }
 const pushPost = (path, body) => fetch(`${PUSH_API}/api/push/${path}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
 function notifSheetRefresh() { if (route.sheet === "__notif") syncSheet(); }
@@ -2063,9 +2070,9 @@ function notifPanelHtml() {
     <div class="sheet-body nt">
       <section><p class="label">Matchs en direct</p>
         ${seg("notif-matches", [["big", "Gros matchs"], ["fav", "Mes favoris"], ["off", "Aucun"]], N.matches, "Matchs suivis", "small")}
-        <p class="fine">Début de chaque game, first blood, première tour, dragons, Baron, inhibiteurs, ace, game et match gagnés.
-        ${N.matches === "big" ? "Gros matchs : Worlds, MSI, First Stand, LCK, LPL, LEC, LCS et LCP, plus tes équipes favorites." : ""}
-        ${N.matches !== "off" && !prefs.favTeams.length ? "Ajoute des équipes en favori (étoile sur leur fiche) pour suivre aussi leurs matchs." : ""}</p>
+        <p class="fine"><span>Début de chaque game, first blood, première tour, dragons, Baron, inhibiteurs, ace, game et match gagnés.</span>
+        ${N.matches === "big" ? "<span>Gros matchs : Worlds, MSI, First Stand, LCK, LPL, LEC, LCS et LCP, plus tes équipes favorites.</span>" : ""}
+        ${N.matches !== "off" && !prefs.favTeams.length ? "<span>Ajoute des équipes en favori (étoile sur leur fiche) pour suivre aussi leurs matchs.</span>" : ""}</p>
         ${N.matches !== "off" ? `<p class="label">Niveau de détail</p>${seg("notif-detail", [["essentiel", "Essentiel"], ["detaille", "Détaillé"]], N.detail, "Niveau de détail", "small")}
         <p class="fine">${N.detail === "detaille" ? "En plus : chaque tour détruite et chaque combat gagné (3 kills ou plus d'affilée)." : "Les moments clés, avec le score des kills. Tes équipes favorites sont toujours en détaillé : chaque tour et chaque combat gagné."}</p>` : ""}
         ${prefs.noSpoil && !N.push ? `<p class="fine">Mode sans spoilers activé : pas d'alerte de match dans le site.</p>` : ""}</section>
@@ -2126,7 +2133,7 @@ function notifCoach() {
   const day = Math.floor(Date.now() / 864e5);
   if (!N || !S || !prefs.notif.coach || prefs.notif.coachDay === day || route.view === "coach") return;
   prefs.notif.coachDay = day; savePrefs();
-  toast("Coach", [N.coachMessage({ ...S, left: Math.max(0, S.of - S.counted) }, day, window.LANG === "en" ? "en" : "fr")], href("lol", "coach"));
+  toast("Coach", [N.coachMessage({ ...S, label: goalText(S.label), unit: S.unit && S.unit !== "%" && S.unit !== "/min" ? goalText(S.unit) : S.unit, left: Math.max(0, S.of - S.counted) }, day, window.LANG === "en" ? "en" : "fr")], href("lol", "coach"));
 }
 function notifBoot() {
   pushSync();

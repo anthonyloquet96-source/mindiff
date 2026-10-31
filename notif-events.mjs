@@ -2,7 +2,7 @@
 // Entrées : flux public de LoL Esports, le même que le bandeau du direct.
 //   - gameEvents : deux relevés successifs d'une partie (livestats « window ») → first blood, première tour, dragon, Baron,
 //     inhibiteur, ace. Les compteurs sont cumulés : rien n'est perdu entre deux relevés, même espacés d'une minute.
-//     L'ace est lu sur les images du relevé (5 joueurs à 0 PV au même instant) : un ace très bref peut passer entre deux images.
+//     L'ace est lu sur les images du relevé (5 joueurs morts au même instant) : un ace très bref peut passer entre deux images.
 //   - matchEvents : début de chaque game, games et match gagnés (getEventDetails : games[].state, teams[].result.gameWins).
 // Le premier relevé d'une partie sert de point de départ : on ne notifie pas ce qui s'est passé avant.
 
@@ -17,8 +17,9 @@ export function gameSnapshot(frames) {
     kills: s.totalKills || 0, towers: s.towers || 0, inhibs: s.inhibitors || 0, barons: s.barons || 0, dragons: [...(s.dragons || [])],
     pk: Object.fromEntries((s.participants || []).map(p => [p.participantId, p.kills || 0])),
   });
-  // Ace : une image où les 5 joueurs d'une équipe sont morts en même temps (avant le début, PV max à 0 : ignoré)
-  const dead = s => (s.participants || []).length === 5 && s.participants.every(p => p.maxHealth > 0 && p.currentHealth === 0);
+  // Ace : une image où les 5 joueurs d'une équipe sont morts en même temps (avant le début, PV max à 0 : ignoré).
+  // Dans le flux, un joueur mort garde parfois quelques PV (1 à 8 relevés sur KC-CFO aux Worlds) : mort = 10 PV ou moins.
+  const dead = s => (s.participants || []).length === 5 && s.participants.every(p => p.maxHealth > 0 && p.currentHealth <= 10);
   return { blue: side(f.blueTeam), red: side(f.redTeam), aced: { blue: frames.some(x => x.blueTeam && dead(x.blueTeam)), red: frames.some(x => x.redTeam && dead(x.redTeam)) }, state: f.gameState };
 }
 
@@ -58,7 +59,8 @@ export function gameEvents(prev, cur, meta, teams, lang = "fr") {
       out.push({ kind: d === "elder" ? "elder" : "dragon", side: s, text: en ? `${N.code(s)} takes the ${DRAGON_EN[d] || ""} Drake`.replace("  ", " ") : `${N.code(s)} prend le dragon ${DRAGON[d] || ""}`.trim() });
     }
     if (cur[s].barons > prev[s].barons) out.push({ kind: "baron", side: s, text: en ? `${N.code(s)} takes Baron Nashor` : `${N.code(s)} prend le Baron Nashor` });
-    if (cur[s].inhibs > prev[s].inhibs) out.push({ kind: "inhib", side: s, text: en ? `${N.code(s)} destroys an inhibitor` : `${N.code(s)} détruit un inhibiteur` });
+    const ih = cur[s].inhibs - prev[s].inhibs;
+    if (ih > 0) out.push({ kind: "inhib", side: s, text: en ? `${N.code(s)} destroys ${ih > 1 ? `${ih} inhibitors` : "an inhibitor"}` : `${N.code(s)} détruit ${ih > 1 ? `${ih} inhibiteurs` : "un inhibiteur"}` });
     // Ace de l'équipe d'en face : notifié une fois, tant qu'elle ne revient pas en vie
     if (cur.aced[other(s)] && !prev.aced[other(s)]) out.push({ kind: "ace", side: s, text: en ? `ACE for ${N.code(s)}: all 5 ${N.code(other(s))} players are dead` : `ACE pour ${N.code(s)} : les 5 joueurs de ${N.code(other(s))} sont morts` });
     // Niveau « détaillé » (detail: true) : chaque tour après la première, avec le score des tours. Le flux ne dit pas
@@ -116,12 +118,16 @@ export function followed(mode, leagueSlug, teamNames, favTeams = []) {
 }
 
 // Rappels du coach (notification site fermé, et bandeau à l'ouverture du site) : à partir du résumé de l'objectif,
-// sans chiffre inventé ; goal.left = parties restantes dans le cycle de l'objectif
+// sans chiffre inventé ; goal.left = parties restantes dans le cycle de l'objectif (null : compteurs inconnus).
+// Objectif fini (ni proposé, ni en cours) : annoncé une fois, puis plus rien (status « notified », null renvoyé).
+export const goalDone = g => !!g && g.status !== "proposed" && g.status !== "notified" && (!["active", "evaluating", ""].includes(g.status || "") || g.left === 0);
 const ROLE = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "ADC", UTILITY: "support" };
 export function coachMessage(goal, day, lang = "fr") {
   const en = lang === "en";
   if (!goal) return en ? "Your coach is waiting: review your last game and get your next goal." : "Ton coach t'attend : relis ta dernière partie et découvre ton prochain objectif.";
   if (goal.status === "proposed") return en ? "Your coach is waiting: your next goal is ready." : "Ton coach t'attend : ton prochain objectif est prêt.";
+  if (goal.status === "notified") return null;
+  if (goalDone(goal)) return en ? "Your goal is complete: open your coach to see the verdict." : "Ton objectif est terminé : ouvre ton coach pour voir le bilan.";
   const unit = goal.unit && goal.unit !== "%" ? ` ${goal.unit === "/min" ? "/ min" : goal.unit}` : "", left = goal.left, role = ROLE[goal.role] || goal.role;
   const games = n => `${n} game${n > 1 ? "s" : ""}`;
   const list = en ? [
@@ -133,5 +139,6 @@ export function coachMessage(goal, day, lang = "fr") {
     `Une ranked ce soir ? Ton objectif en ${role} : ${goal.target}${unit}. Une seule chose à la fois.`,
     `Chaque game compte : encore ${games(left)} sur ${goal.label}.`,
   ];
-  return left > 0 ? list[day % list.length] : en ? "Your goal is complete: open your coach to see the verdict." : "Ton objectif est terminé : ouvre ton coach pour voir le bilan.";
+  if (!(left > 0)) return en ? `Your ${role} goal: ${goal.label}, aim for ${goal.target}${unit}. One thing at a time.` : `Ton objectif en ${role} : ${goal.label}, vise ${goal.target}${unit}. Une seule chose à la fois.`;
+  return list[day % list.length];
 }

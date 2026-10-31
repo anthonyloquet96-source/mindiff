@@ -1,7 +1,7 @@
 // Bilan de parties à partir des données officielles de Riot (match-v5 et sa chronologie) : faits exacts, sans IA.
 // Module sans dépendance (fetch uniquement) : utilisé par le serveur local et par le service en ligne (Cloudflare Worker).
 // Comparaisons : uniquement au niveau Diamant et plus, par rôle (coach/cache/benchmarks.json, construit par coach/benchmarks.mjs).
-import { tactics } from "./tactics.mjs";
+import { tactics, champName } from "./tactics.mjs";
 import { frameAt as readFrame } from "./normalize.mjs";
 import { adviseBuild, THREATS } from "./builds.mjs";
 
@@ -185,9 +185,9 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   const tac = (() => { try { return tactics(match, timeline, puuid); } catch { return null; } })(); // données incomplètes : le bilan reste disponible sans la relecture
   const onMap = d => tac?.lessons?.some(l => Math.abs(l.t - d.t) < 60000);
   const lateObj = deaths.filter(d => d.beforeObjective);
-  if (lateObj.length >= 2) findings.push({ kind: "mort-avant-objectif", family: "decision", weight: 3 + lateObj.length, title: `${lateObj.length} mort${lateObj.length > 1 ? "s" : ""} juste avant un objectif adverse`, facts: lateObj.map(d => `${d.at} : tué par ${d.killer}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}, puis ${d.beforeObjective}${onMap(d) ? " (à revoir dans le Replay)" : ""}`), metric: "deaths30" });
+  if (lateObj.length >= 2) findings.push({ kind: "mort-avant-objectif", family: "decision", weight: 3 + lateObj.length, title: `${lateObj.length} mort${lateObj.length > 1 ? "s" : ""} juste avant un objectif adverse`, facts: lateObj.map(d => `${d.at} : tué par ${champName(d.killer)}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}, puis ${d.beforeObjective}${onMap(d) ? " (à revoir dans le Replay)" : ""}`), metric: "deaths30" });
   const earlyDeaths = deaths.filter(d => d.t < 14 * 60000);
-  if (earlyDeaths.length >= 3) findings.push({ kind: "morts-phase-de-ligne", family: "decision", weight: 1 + earlyDeaths.length, title: `${earlyDeaths.length} morts avant 14 min`, facts: earlyDeaths.map(d => `${d.at} : tué par ${d.killer}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}${d.enemyHalf ? ", dans la moitié adverse" : ""}`), metric: "deaths30" });
+  if (earlyDeaths.length >= 3) findings.push({ kind: "morts-phase-de-ligne", family: "decision", weight: 1 + earlyDeaths.length, title: `${earlyDeaths.length} morts avant 14 min`, facts: earlyDeaths.map(d => `${d.at} : tué par ${champName(d.killer)}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}${d.enemyHalf ? ", dans la moitié adverse" : ""}`), metric: "deaths30" });
   for (const c of comparisons.filter(c => c.level === "sous")) findings.push({ kind: `ecart-${c.metric}`, family: "niveau", weight: 1 + c.gap, title: `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, moins bien que les bons joueurs (${METRICS[c.metric].say(c.p50)})`, facts: [`Les bons joueurs à ton poste (Diamant et plus) : ${METRICS[c.metric].say(c.p50)}.`], metric: c.metric });
   // Retard net en phase de lane : seuil par rôle (20 % des parties les plus en retard au banc d'essai du 21/10/2026, 800 parties)
   const a10 = lane.at10;
@@ -488,7 +488,10 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
     if (list.length < 3) continue;
     const sous = list.filter(c => c.level === "sous").length, top = list.filter(c => c.level === "au-dessus").length;
     const vals = list.map(c => c.value).sort((a, b) => a - b), med = vals[Math.floor(vals.length / 2)];
-    if (sous / list.length >= 0.5) minus.push({ kind: `ecart-${k}`, family: "niveau", metric: k, weight: 1 + sous / 2, title: `${METRICS[k].plain} : moins bien que les bons joueurs dans ${sous} parties sur ${list.length}`, detail: `Toi, en général : ${METRICS[k].say(med)}. Les joueurs Diamant et plus à ton poste : ${METRICS[k].say(list[0].p50)}.` });
+    // Chiffre « en général » meilleur que la référence malgré les parties sous le seuil : irrégularité, pas un niveau plus bas
+    // (relecture du 31/10 : « moins bien… Toi 67 %, Diamant+ 57 % »)
+    const worse = METRICS[k].better === "low" ? med > list[0].p50 : med < list[0].p50;
+    if (sous / list.length >= 0.5) minus.push({ kind: `ecart-${k}`, family: "niveau", metric: k, weight: 1 + sous / 2, title: worse ? `${METRICS[k].plain} : moins bien que les bons joueurs dans ${sous} parties sur ${list.length}` : `${METRICS[k].plain} : trop irrégulier, sous le niveau des bons joueurs dans ${sous} parties sur ${list.length}`, detail: `Toi, en général : ${METRICS[k].say(med)}. Les joueurs Diamant et plus à ton poste : ${METRICS[k].say(list[0].p50)}.` });
     else if (top / list.length >= 0.5 && list[0].p50 > 0) plus.push({ kind: `fort-${k}`, title: `${METRICS[k].plain} au niveau des meilleurs dans ${top} parties sur ${list.length}`, detail: `Toi, en général : ${METRICS[k].say(med)}. Les joueurs Diamant et plus à ton poste : ${METRICS[k].say(list[0].p50)}.` });
   }
   // Habitudes des bons joueurs (banc d'essai : part des parties où l'habitude manque, Fer à Argent → Diamant et plus, à rôle égal)

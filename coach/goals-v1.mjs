@@ -79,7 +79,12 @@ export function prioritize(games, role, { references = null, exclude = [], stepF
     // L'arrondi ne doit pas faire passer la cible au-delà de la référence (0,5187 arrondi à 0,52)
     if (dir > 0 && target > ref.value) target = Math.floor(ref.value * 10 ** dec + 1e-9) / 10 ** dec;
     if (dir < 0 && target < ref.value) target = Math.ceil(ref.value * 10 ** dec - 1e-9) / 10 ** dec;
-    out.push({ ...row, eligible: gap > 0, reason: gap > 0 ? null : "déjà au niveau de la référence", baseline: round(baseline, 3), spread: round(s, 3), reference: ref, target,
+    // Pourcentages affichés au point près : la cible doit se lire au moins un point au-dessus du départ (relecture du 31/10 :
+    // « Toi aujourd'hui 50 % → Ta cible 50 % »), sinon l'écart n'est pas assez net pour un objectif
+    const shown = v => Math.round(v * 100);
+    if (c.percent && dir * (shown(target) - shown(baseline)) <= 0) target = (shown(baseline) + dir) / 100;
+    const visible = !c.percent || dir * (ref.value - target) >= -1e-9;
+    out.push({ ...row, eligible: gap > 0 && visible, reason: gap > 0 ? null : "déjà au niveau de la référence", baseline: round(baseline, 3), spread: round(s, 3), reference: ref, target,
       factors: { G: round(G, 3), I: c.impact, F: round(F, 3), A: c.actionability, C: round(C, 3) }, score: round(score, 2) });
   }
   return out.sort((a, b) => (b.eligible - a.eligible) || ((b.score ?? -1) - (a.score ?? -1)) || a.metric.localeCompare(b.metric));

@@ -183,7 +183,7 @@ function c2ChampList() {
   c2Champs = COACH.contents.filter(c => c.sourceId === "riot-data-dragon").map(c => ({ id: c.url.match(/champion\/(\w+)\.json/)?.[1], name: c.title.split(" — ")[0] })).filter((c, i, a) => c.id && a.findIndex(x => x.id === c.id) === i).sort((a, b) => a.name.localeCompare(b.name, "fr"));
   return c2Champs;
 }
-const c2Name = id => c2ChampList().find(c => c.id === id)?.name || id;
+const c2Name = id => c2ChampList().find(c => c.id === id || c.id.toLowerCase() === String(id).toLowerCase())?.name || id;
 const c2Id = name => c2ChampList().find(c => c.name.toLowerCase() === String(name).toLowerCase() || c.id.toLowerCase() === String(name).toLowerCase())?.id || null;
 const c2Img = (id, cls = "c2-av") => id ? `<img class="${cls}" src="https://ddragon.leagueoflegends.com/cdn/${esc(COACH?.ddragonVersion || "16.21.1")}/img/champion/${esc(id)}.png" alt="" loading="lazy" width="40" height="40">` : `<span class="${cls} c2-av-empty"></span>`;
 // Version du client (16.20) → numéro de patch affiché par Riot (26.20)
@@ -653,7 +653,7 @@ function c2V1Card(p) {
     const atLevel = rows.length && rows.some(r => r.reason === "déjà au niveau de la référence") && rows.every(r => r.reason === "déjà au niveau de la référence" || /suspendu/.test(r.reason || ""));
     const msg = atLevel ? `Pas d'objectif à te proposer : tu es déjà au niveau des repères du coach sur tout ce qu'il suit à ce poste${V.diagnostic?.target_tier ? ` (meilleurs joueurs ${esc(C2_TIER[V.diagnostic.target_tier] || V.diagnostic.target_tier)})` : ""}.`
       : why ? `Pas encore d'objectif : ${esc(why)}.` : "Pas encore d'objectif : joue quelques ranked de plus.";
-    return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${msg}</p>${atLevel ? "" : `<p class="fine">Il faut au moins 8 parties classées au même poste.</p>`}${c2V1Erase()}</section>`;
+    return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${msg}</p>${atLevel || why ? "" : `<p class="fine">Il faut au moins 8 parties classées au même poste.</p>`}${c2V1Erase()}</section>`;
   }
   // Carte aérée (demande d'Anthony, 27/10) : l'essentiel d'abord (objectif, deux chiffres, ce qu'il faut faire en partie),
   // le détail (repère, règle de réussite, conseils de coachs) replié
@@ -1071,13 +1071,8 @@ function c2Brief(r, id) {
   if (r.findings[0]) rows.push(["down", "À travailler", esc(r.findings[0].title)]);
   if (r.strengths[0]) rows.push(["up", "Point fort", esc(r.strengths[0])]);
   if (s.deadSeconds != null && s.deadSeconds / (r.duration || 1) >= 0.1) rows.push(["down", "Temps passé mort", `${Math.round(s.deadSeconds / 60)} min, soit ${Math.round((s.deadSeconds / r.duration) * 100)} % de la partie`]);
-  // Objectif du joueur dans ce rôle : réussi ou non sur cette partie
-  const g = C2.profile && s.role && !r.absent ? c2GoalState(C2.profile, s.role) : null;
-  const v = g?.t ? s.metrics?.[g.t.metric] : null;
-  if (v != null) {
-    const ok = g.t.better === "high" ? v >= g.target : v <= g.target;
-    rows.push([ok ? "up" : "down", "Ton objectif", `${esc((C2_PLAIN[g.t.metric]?.goal || g.t.label))} : ${ok ? "réussi" : "pas encore"} (${esc(C2_PLAIN[g.t.metric] ? C2_PLAIN[g.t.metric].say(v) : c2n(v))}, cible ${esc(C2_PLAIN[g.t.metric] ? C2_PLAIN[g.t.metric].say(g.target) : c2n(g.target))})`]);
-  }
+  // Pas de ligne « Ton objectif » ici : l'ancien moteur en proposait un autre que la carte « Mon objectif » (relecture du 31/10),
+  // et le coach V1 n'en donne qu'un seul à la fois
   if (!rows.length) return "";
   return `<section class="c2-card c2-brief"><p class="label">En bref</p><ul>${rows.map(([k, t, x]) => `<li class="${k}"><b>${t}</b><span>${x}</span></li>`).join("")}</ul></section>`;
 }

@@ -59,4 +59,6 @@ export const patchGap = (from, to) => {
   return (Math.floor(b / 100) - Math.floor(a / 100)) * 24 + (b % 100) - (a % 100);
 };
 
+// Adresses e-mail recopiées des descriptions de vidéos (contacts pro des créateurs) : jamais gardées ni publiées
+export const noEmail = s => String(s || "").replace(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g, "[e-mail]");
 export const today = () => new Date().toISOString().slice(0, 10);

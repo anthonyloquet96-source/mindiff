@@ -97,6 +97,525 @@
    "unit": "u-dd-milio-e2",
    "by": "Claude Code (tour du coach demandé par Anthony le 24/10)",
    "reason": "Erreur des données officielles de Riot (Data Dragon) : ce conseil est une copie de celui de Rakan, il ne décrit pas le kit de Milio."
+  },
+  {
+   "at": "2026-10-31T13:34:15.470Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-r10CTY-1VR4-2",
+   "field": "claim",
+   "before": "Selon Dishake : avant de placer de la vision en profondeur dans la tu jungle ennemie, tu dois t'assurer d'avoir les lignes poussées pour utiliser les sbires alliés comme source principale de information et de sécurité.",
+   "after": "Selon Dishake : avoir tes lanes poussées t'aide énormément à poser de la vision sans être vu, car la principale source de vision du jeu, ce sont tes sbires alliés. Pousse donc tes vagues avant d'aller poser des balises en profondeur dans la jungle ennemie.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Traduction corrigée sur le passage espagnol (« la fuente principal de visión en el juego son los súbditos aliados ») : fautes (« la tu jungle », « de information ») et sens déformé (« information et sécurité », « tu dois »). https://www.youtube.com/watch?v=r10CTY-1VR4 [02:02]"
+  },
+  {
+   "at": "2026-10-31T13:34:15.554Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-r10CTY-1VR4-2",
+   "field": "use",
+   "before": {
+    "when": "tes vagues de sbires sont proches de la base ennemie et tu veux placer des balises",
+    "why": "car les sbires alliés t'informent des mouvements ennemis lorsqu'ils sortent de leur base",
+    "who": "tous les rôles",
+    "how": [
+     "Pousse la vague de sbires le plus loin possible de ta base",
+     "Va placer ta vision dans la jungle ennemie pendant que les ennemis gèrent la vague"
+    ],
+    "notWhen": ""
+   },
+   "after": {
+    "when": "tes vagues de sbires sont poussées vers la base ennemie et tu veux poser des balises",
+    "why": "tes sbires alliés sont ta principale source de vision : avec des vagues poussées, tu peux aller poser tes balises sans être vu",
+    "who": "tous les rôles",
+    "how": [
+     "Pousse ta vague de sbires le plus loin possible de ta base",
+     "Va poser ta vision dans la jungle ennemie pendant que les ennemis gèrent la vague"
+    ],
+    "notWhen": ""
+   },
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Raison corrigée selon le passage : les sbires alliés donnent la vision et permettent de poser des balises sans être vu (et non « t'informent des mouvements ennemis »). https://www.youtube.com/watch?v=r10CTY-1VR4 [02:02]"
+  },
+  {
+   "at": "2026-10-31T13:34:15.644Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-YJtOWRVdwyc-1",
+   "field": "claim",
+   "before": "Selon DovahNDo : pour anticiper quelle vague va pousser naturellement sans intervention, observe la première vague dont le sbire canon meurt. Si le sbire canon rouge meurt en premier, la vague rouge va pousser car les sbires mages ont plus de dégâts que les sbires corps-à-corps.",
+   "after": "Selon DovahNDo : pour anticiper quelle vague va pousser naturellement sans intervention, observe quel sbire canon meurt en premier : la vague qui perd son canon la première est battue. Si le canon rouge survit et que les sbires rouges tuent le canon bleu, c'est la vague rouge qui va pousser.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Sens inversé dans la traduction : le passage dit que la vague dont le canon meurt en premier est battue (« si el lado rojo sobrevive su minion cannon y pueden matar al minion cannon azul … el lado rojo va a pushear »). Raison sur les sbires mages retirée : absente du passage cité. https://www.youtube.com/watch?v=YJtOWRVdwyc [02:00]"
+  },
+  {
+   "at": "2026-10-31T13:34:15.736Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-YJtOWRVdwyc-1",
+   "field": "use",
+   "before": {
+    "when": "en début de partie lorsque les premières vagues de sbires arrivent sur la lane sans que personne ne les touche",
+    "why": "les sbires mages disposent de beaucoup plus de dégâts que les sbires corps-à-corps, et la vague qui garde ses mages en vie ou dont le canon survit finit par l'emporter et repousser",
+    "who": "tous les rôles",
+    "how": [
+     "Regarde les deux vagues arriver au milieu de la lane",
+     "Identifie quel sbire canon meurt le premier entre les deux camps"
+    ],
+    "notWhen": ""
+   },
+   "after": {
+    "when": "en début de partie lorsque les premières vagues de sbires arrivent sur la lane sans que personne ne les touche",
+    "why": "la vague qui perd son sbire canon la première est la première battue : l'autre vague prend l'avantage et pousse",
+    "who": "tous les rôles",
+    "how": [
+     "Regarde les deux vagues arriver au milieu de la lane",
+     "Identifie quel sbire canon meurt le premier entre les deux camps"
+    ],
+    "notWhen": ""
+   },
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Raison alignée sur le passage cité (la précédente reprenait le sens inversé). https://www.youtube.com/watch?v=YJtOWRVdwyc [02:00]"
+  },
+  {
+   "at": "2026-10-31T13:34:15.822Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-YJtOWRVdwyc-3",
+   "field": "claim",
+   "before": "Selon DovahNDo : pour créer une macro-vague (grosse vague de sbires) idéale pour pousser les tours ou faire du split push, tues uniquement les sbires mages de chaque vague en laissant les sbires corps-à-corps en vie.",
+   "after": "Selon DovahNDo : pour créer une macro-vague (grosse vague de sbires) idéale pour pousser les tours ou faire du split push, tue uniquement les sbires mages de chaque vague en laissant les sbires corps-à-corps en vie.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Faute de conjugaison (« tues » → « tue »)."
+  },
+  {
+   "at": "2026-10-31T13:34:15.905Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-YJtOWRVdwyc-3",
+   "field": "action",
+   "before": "Elimine seulement les sbires mages (casters) et garde en vie les sbires corps-à-corps pour accumuler une énorme vague.",
+   "after": "Élimine seulement les sbires mages (casters) et garde en vie les sbires corps-à-corps pour accumuler une énorme vague.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Accent manquant (« Elimine »)."
+  },
+  {
+   "at": "2026-10-31T13:34:15.990Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-IaWNQu9peB8-1",
+   "field": "claim",
+   "before": "Selon Veigar v2 : en début de partie sur un champion de mêlée faible au niveau 1, laisse le champion à distance adverse t'attaquer une fois pour attirer l'agressivité des sbires ennemis et forcer la vague à avancer rapidement vers toi.",
+   "after": "Selon Veigar v2 : au niveau 1, sur un champion de mêlée faible à ce niveau (comme Ekko) et si tu veux que la vague pousse vers toi, fais prendre à l'adversaire l'aggro de tes sbires quand ça ne l'arrange pas. À éviter si son champion est très fort au niveau 1 (par exemple Lucian avec Attaque soutenue).",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Contresens corrigé : le passage parle de faire prendre à l'adversaire l'aggro de TES sbires (« make her tank creep aggro »), pas d'attirer les sbires ennemis. Limite du passage suivant ajoutée (Lucian Attaque soutenue, nom Data Dragon). https://www.youtube.com/watch?v=IaWNQu9peB8 [01:39] et [02:18]"
+  },
+  {
+   "at": "2026-10-31T13:34:16.078Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-IaWNQu9peB8-1",
+   "field": "observe",
+   "before": "Vérifie si les sbires ennemis cessent d'attaquer tes sbires pour cibler l'adversaire, accélérant le push vers ta tour.",
+   "after": "Vérifie si tes sbires cessent de frapper les sbires ennemis pour cibler l'adversaire : la vague ennemie est préservée et pousse vers toi.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Contresens corrigé (ce sont tes sbires qui changent de cible, pas les sbires ennemis)."
+  },
+  {
+   "at": "2026-10-31T13:34:16.166Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-IaWNQu9peB8-1",
+   "field": "use",
+   "before": {
+    "when": "Au niveau 1 sur la voie du milieu, dès que les deux premières vagues de sbires se rencontrent et commencent à s'attaquer mutuellement.",
+    "why": "L'attaque ennemie redirige l'agressivité de tes sbires sur l'adversaire, ce qui préserve les sbires ennemis et fait avancer rapidement la vague vers ta tourelle pour farmer en sécurité.",
+    "who": "Midlaner de mêlée faible au niveau 1 jouant contre un champion à distance aux dégâts modérés.",
+    "how": [
+     "Attends que les sbires des deux vagues entrent en contact au centre de la voie.",
+     "Avance et reste immobile à portée d'attaque de l'adversaire pour encaisser une attaque de base et un sort léger.",
+     "Recule immédiatement après l'attaque pour laisser les sbires ennemis avancer vers ton camp."
+    ],
+    "notWhen": ""
+   },
+   "after": {
+    "when": "Au niveau 1 sur la voie du milieu, dès que les deux premières vagues de sbires se rencontrent.",
+    "why": "Quand l'adversaire prend l'aggro de tes sbires, ils le frappent au lieu de tuer les sbires ennemis : la vague ennemie est préservée et pousse vers toi.",
+    "who": "Midlaner de mêlée faible au niveau 1 face à un adversaire qui n'est pas très fort au niveau 1.",
+    "how": [
+     "Attends que les sbires des deux vagues entrent en contact.",
+     "Incite l'adversaire à t'attaquer près de tes sbires pour qu'il prenne leur aggro.",
+     "Recule ensuite et laisse la vague pousser vers toi."
+    ],
+    "notWhen": "L'adversaire est très fort au niveau 1 (exemple cité : Lucian avec Attaque soutenue)."
+   },
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Étape inventée retirée (« encaisser une attaque de base et un sort léger », absente du passage) ; limite du passage [02:18] reportée dans notWhen. https://www.youtube.com/watch?v=IaWNQu9peB8"
+  },
+  {
+   "at": "2026-10-31T13:34:16.245Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-6DYcD-pcMdA-5",
+   "field": "claim",
+   "before": "Selon Coach Violet : prendre Savoir-faire et Transmutation cosmique en runes secondaires sur Kai'Sa pour accélérer l'obtention des objets.",
+   "after": "Selon Coach Violet : sur Kai'Sa, prends l'arbre Inspiration en secondaire avec Remise immédiate et Savoir cosmique.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Noms faux (« Savoir-faire », « Transmutation cosmique ») : Cashback = Remise immédiate, Cosmic Insight = Savoir cosmique (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026). Raison « accélérer l'obtention des objets » retirée : absente du passage."
+  },
+  {
+   "at": "2026-10-31T13:34:16.334Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-6DYcD-pcMdA-5",
+   "field": "action",
+   "before": "Prends l'arbre Inspiration en secondaire avec Savoir-faire et Transmutation cosmique sur Kai'Sa.",
+   "after": "Prends l'arbre Inspiration en secondaire avec Remise immédiate et Savoir cosmique sur Kai'Sa.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Noms de runes corrigés (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:16.421Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-6DYcD-pcMdA-5",
+   "field": "use",
+   "before": {
+    "when": "Tu configures tes runes secondaires pour Kai'Sa.",
+    "why": "Savoir-faire aide essentiellement à obtenir tes objets plus rapidement.",
+    "who": "Kai'Sa",
+    "how": [
+     "Sélectionne Inspiration comme arbre secondaire.",
+     "Prends Savoir-faire et Transmutation cosmique."
+    ],
+    "notWhen": ""
+   },
+   "after": {
+    "when": "Tu configures tes runes secondaires pour Kai'Sa.",
+    "why": "Choix de runes secondaires recommandé par la coach ; la vidéo ne donne pas de raison dans le passage cité.",
+    "who": "Kai'Sa",
+    "how": [
+     "Sélectionne Inspiration comme arbre secondaire.",
+     "Prends Remise immédiate et Savoir cosmique."
+    ],
+    "notWhen": ""
+   },
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Raison inventée retirée, noms corrigés (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:16.505Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-6DYcD-pcMdA-5",
+   "field": "dependsOn",
+   "before": [
+    "Kai'Sa",
+    "rune:Savoir-faire",
+    "rune:Transmutation-cosmique"
+   ],
+   "after": [
+    "Kai'Sa",
+    "rune:Remise immédiate",
+    "rune:Savoir cosmique"
+   ],
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Noms de runes corrigés (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:16.587Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-6DYcD-pcMdA-3",
+   "field": "claim",
+   "before": "Selon Coach Violet : préférer Légende : Lignée pour le vol de vie général et constant sur Kai'Sa, ou Légende : Alacrité face à de nombreux tanks.",
+   "after": "Selon Coach Violet : préférer Légende : sangsue pour le vol de vie, choix plus sûr et constant sur Kai'Sa, ou Légende : alacrité face à de nombreux tanks.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Nom faux (« Légende : Lignée ») : Bloodline = Légende : sangsue (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:16.672Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-6DYcD-pcMdA-3",
+   "field": "action",
+   "before": "Choisis Légende : Lignée par défaut sur Kai'Sa, ou Légende : Alacrité contre les compositions pleines de tanks.",
+   "after": "Choisis Légende : sangsue par défaut sur Kai'Sa, ou Légende : alacrité contre les compositions pleines de tanks.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Nom de rune corrigé (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:16.760Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-6DYcD-pcMdA-3",
+   "field": "use",
+   "before": {
+    "when": "Tu choisis tes runes de légende selon la composition ennemie.",
+    "why": "Lignée offre une option de vol de vie plus sûre et constante, tandis qu'Alacrité maximise la vitesse d'attaque contre les tanks.",
+    "who": "Kai'Sa",
+    "how": [
+     "Sélectionne Légende : Lignée par défaut, ou bascule sur Légende : Alacrité si l'ennemi a beaucoup de tanks."
+    ],
+    "notWhen": ""
+   },
+   "after": {
+    "when": "Tu choisis ta rune de légende selon la composition ennemie.",
+    "why": "Légende : sangsue offre un vol de vie plus sûr et constant, tandis que Légende : alacrité convient quand l'ennemi a beaucoup de tanks et que tu n'as pas besoin du vol de vie.",
+    "who": "Kai'Sa",
+    "how": [
+     "Sélectionne Légende : sangsue par défaut, ou bascule sur Légende : alacrité si l'ennemi a beaucoup de tanks."
+    ],
+    "notWhen": ""
+   },
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Nom de rune corrigé (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:16.843Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-6DYcD-pcMdA-3",
+   "field": "dependsOn",
+   "before": [
+    "Kai'Sa",
+    "rune:Legende-Lignee"
+   ],
+   "after": [
+    "Kai'Sa",
+    "rune:Légende : sangsue"
+   ],
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Nom de rune corrigé (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:16.926Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-6DYcD-pcMdA-11",
+   "field": "claim",
+   "before": "Selon Coach Violet : le E de Kai'Sa (Surcapacité) est un sort utilitaire de mobilité qui ne doit pas être utilisé uniquement de manière offensive ou défensive.",
+   "after": "Selon Coach Violet : le E de Kai'Sa (Surpresseur) est un sort utilitaire de mobilité qui ne doit pas être utilisé uniquement de manière offensive ou défensive.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Nom du sort faux (« Surcapacité ») : E = Surpresseur (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:17.006Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-6DYcD-pcMdA-11",
+   "field": "action",
+   "before": "Adapte l'utilisation de ton E (Surcapacité) pour fuir, esquiver ou te positionner agressivement selon la situation.",
+   "after": "Adapte l'utilisation de ton E (Surpresseur) pour fuir, esquiver ou te positionner agressivement selon la situation.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Nom du sort corrigé (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:17.101Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-6DYcD-pcMdA-11",
+   "field": "use",
+   "before": {
+    "when": "Tu dois t'engager dans un combat ou t'extraire d'une mauvaise position.",
+    "why": "Le sort offre des usages multiples de mobilité et ne doit pas être gaspillé bêtement.",
+    "who": "Kai'Sa",
+    "how": [
+     "Évalue si tu as besoin de fuir ou de rattraper une cible.",
+     "Active ton E (Surcapacité) pour ajuster ton positionnement en conséquence."
+    ],
+    "notWhen": ""
+   },
+   "after": {
+    "when": "Tu dois t'engager dans un combat ou t'extraire d'une mauvaise position.",
+    "why": "Le sort offre des usages multiples de mobilité et ne doit pas être gaspillé bêtement.",
+    "who": "Kai'Sa",
+    "how": [
+     "Évalue si tu as besoin de fuir ou de rattraper une cible.",
+     "Active ton E (Surpresseur) pour ajuster ton positionnement en conséquence."
+    ],
+    "notWhen": ""
+   },
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Nom du sort corrigé (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:17.186Z",
+   "action": "corrige",
+   "unit": "u-ai-yt--I7iBIabOok-1",
+   "field": "claim",
+   "before": "Selon Kyan : pour Vladimir, Phrasé Rassasié (Phase Rush) est la rune clé standard et la plus optimale car le champion manque cruellement de mobilité, ce qui permet d'échapper aux ralentissements et de coller aux adversaires dans les escarmouches en side lane et les teamfights.",
+   "after": "Selon Kyan : pour Vladimir, Assaut du maraudeur (Phase Rush) est la rune clé standard et la plus optimale car le champion manque cruellement de mobilité, ce qui permet d'échapper aux ralentissements et de coller aux adversaires dans les escarmouches en side lane et les teamfights.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Nom inexistant (« Phrasé Rassasié ») : Phase Rush = Assaut du maraudeur (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:17.267Z",
+   "action": "corrige",
+   "unit": "u-ai-yt--I7iBIabOok-1",
+   "field": "action",
+   "before": "Joue Phrasé Rassasié comme rune principale sur Vladimir pour compenser son manque de mobilité dans les échanges en side lane.",
+   "after": "Joue Assaut du maraudeur comme rune principale sur Vladimir pour compenser son manque de mobilité dans les échanges en side lane.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Nom de rune corrigé : Phase Rush = Assaut du maraudeur (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:17.349Z",
+   "action": "corrige",
+   "unit": "u-ai-yt--I7iBIabOok-1",
+   "field": "observe",
+   "before": "Observe si tu parviens à t'enfuir ou à coller l'adversaire après avoir déclenché Phrasé Rassasié.",
+   "after": "Observe si tu parviens à t'enfuir ou à coller l'adversaire après avoir déclenché Assaut du maraudeur.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Nom de rune corrigé : Phase Rush = Assaut du maraudeur (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:17.435Z",
+   "action": "corrige",
+   "unit": "u-ai-yt--I7iBIabOok-1",
+   "field": "use",
+   "before": {
+    "when": "tu subis des ralentissements ou un champion adverse essaie de te courir après dans une longue lane ou en teamfight",
+    "why": "Vladimir manque intrinsèquement de vitesse de déplacement et Phrasé Rassasié offre de la résistance aux ralentissements ainsi qu'un boost de vitesse pour s'enfuir ou coller la cible.",
+    "who": "Vladimir",
+    "how": [
+     "touche l'adversaire avec trois attaques ou compétences distinctes",
+     "bénéficie du bonus de vitesse de déplacement et de la résistance aux ralentissements pour fuir ou poursuivre"
+    ],
+    "notWhen": ""
+   },
+   "after": {
+    "when": "tu subis des ralentissements ou un champion adverse essaie de te courir après dans une longue lane ou en teamfight",
+    "why": "Vladimir manque intrinsèquement de vitesse de déplacement et Assaut du maraudeur offre de la résistance aux ralentissements ainsi qu'un bonus de vitesse pour s'enfuir ou coller la cible.",
+    "who": "Vladimir",
+    "how": [
+     "touche l'adversaire avec trois attaques ou compétences distinctes",
+     "profite du bonus de vitesse de déplacement et de la résistance aux ralentissements pour fuir ou poursuivre"
+    ],
+    "notWhen": ""
+   },
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Nom de rune corrigé : Phase Rush = Assaut du maraudeur (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:17.518Z",
+   "action": "corrige",
+   "unit": "u-ai-yt--I7iBIabOok-1",
+   "field": "dependsOn",
+   "before": [
+    "rune:Phase Rush"
+   ],
+   "after": [
+    "rune:Assaut du maraudeur"
+   ],
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Nom de rune corrigé : Phase Rush = Assaut du maraudeur (noms français vérifiés dans Data Dragon 16.21.1 fr_FR (runesReforged.json, Kaisa.json) le 31/10/2026)."
+  },
+  {
+   "at": "2026-10-31T13:34:17.602Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-035a4GhaLOE-1",
+   "field": "action",
+   "before": "En outil d'entraînement, frappe la plante de jungle avec Rengar précisément à 1:22 (8 secondes avant le spawn à 1:30) pour aborder le buff Rouge avec une charge et ton A prêt.",
+   "after": "Avant l'apparition de ton premier camp avec Rengar, frappe la plante de jungle quand il reste entre 10 et 6 secondes avant l'apparition du camp, pour arriver sur le camp avec une charge de férocité et ton A de nouveau disponible.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Timing inventé retiré (« 1:22 », « 8 secondes », « spawn à 1:30 », « buff Rouge » absents du passage) : seule la fenêtre de 10 à 6 secondes est dite. https://www.youtube.com/watch?v=035a4GhaLOE [00:16]-[00:22]"
+  },
+  {
+   "at": "2026-10-31T13:34:17.686Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-035a4GhaLOE-1",
+   "field": "use",
+   "before": {
+    "when": "Au début de la partie, avant l'apparition de ton premier camp de jungle (buff Rouge).",
+    "why": "Le délai de récupération du A est de 6 secondes ; frapper la plante entre 6 et 10 secondes avant l'apparition permet d'entrer en combat, de générer une charge de férocité et d'avoir le A de nouveau disponible dès l'apparition du monstre.",
+    "who": "Joueur de Rengar jungle.",
+    "how": [
+     "Attends qu'il reste entre 6 et 10 secondes avant l'apparition du camp.",
+     "Saute sur la plante de jungle avec ton A.",
+     "Reste en position pour attaquer le camp dès qu'il apparaît avec le A disponible."
+    ],
+    "notWhen": ""
+   },
+   "after": {
+    "when": "Au début de la partie, avant l'apparition de ton premier camp de jungle.",
+    "why": "Le délai de récupération du A est de 6 secondes ; frapper entre 10 et 6 secondes avant l'apparition permet de générer une charge de férocité et d'avoir le A de nouveau disponible dès l'apparition du monstre.",
+    "who": "Joueur de Rengar jungle.",
+    "how": [
+     "Attends qu'il reste entre 10 et 6 secondes avant l'apparition du camp.",
+     "Saute sur la plante de jungle avec ton A.",
+     "Reste en position pour attaquer le camp dès qu'il apparaît avec le A disponible."
+    ],
+    "notWhen": ""
+   },
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Camp précis (« buff Rouge ») retiré : absent du passage. https://www.youtube.com/watch?v=035a4GhaLOE"
+  },
+  {
+   "at": "2026-10-31T13:34:17.779Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-Zu_X0KkI41c-2",
+   "field": "action",
+   "before": "Rappelle-te à temps pour acheter tes objets et synchroniser ton tempo avec le jungler adverse au lieu de courir à l'aveugle vers le premier camp disponible.",
+   "after": "Rentre à la base à temps pour acheter tes objets et caler ton tempo sur celui du jungler adverse, au lieu de courir à l'aveugle vers le premier camp disponible.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Faute (« Rappelle-te »)."
+  },
+  {
+   "at": "2026-10-31T13:34:17.879Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-Zu_X0KkI41c-4",
+   "field": "claim",
+   "before": "Selon Coach Kirei : league of Legends est un jeu au tour par tour : céder un objectif neutre (comme les larves du néant) te permet de gagner du tempo pour faire une action ailleurs sur la carte.",
+   "after": "Selon Coach Kirei : League of Legends est un jeu au tour par tour : céder un objectif neutre (comme les larves du néant) te permet de gagner du tempo pour faire une action ailleurs sur la carte.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Majuscule manquante (« league of Legends »)."
+  },
+  {
+   "at": "2026-10-31T13:34:18.002Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-BnwE5CD1-qA-1",
+   "field": "action",
+   "before": "Attends que ton adversaire rate un sort ou commets une erreur de placement pour utiliser ton Z et Électrocution.",
+   "after": "Attends que ton adversaire rate un sort ou commette une erreur de placement pour forcer un échange autour de tes temps de recharge et d'Électrocution.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Faute (« commets ») et sort inventé (« ton Z ») : le passage dit « force a trade around your cooldowns and Electrocute ». https://www.youtube.com/watch?v=BnwE5CD1-qA [00:54]"
+  },
+  {
+   "at": "2026-10-31T13:34:18.114Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-2pC3FmEJAkU-1",
+   "field": "claim",
+   "before": "Selon Skill Capped : sur le patch 26.21, Darius est replacé en palier S sur la top lane grâce à un buff de son Q réduisant son délai de récupération de 1 seconde au niveau 9 une fois le sort maxé, ce qui augmente sa force de escarmouche en milieu de partie.",
+   "after": "Selon Skill Capped : sur le patch 26.21, Darius est replacé en palier S sur la top lane grâce à un buff de son Q réduisant son délai de récupération de 1 seconde au niveau 9 une fois le sort maxé, ce qui augmente sa force d'escarmouche en milieu de partie.",
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Faute (« de escarmouche »). Valeur vérifiée dans les notes officielles 26.21 (Q, délai 9/8/7/6/5 s → 9/8/7/6/4 s) : https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-21-notes/"
+  },
+  {
+   "at": "2026-10-31T13:34:18.206Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-0wsrN1DFtt8-1",
+   "field": "patch",
+   "before": {
+    "known": true,
+    "value": "14.20"
+   },
+   "after": {
+    "known": false
+   },
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Patch « 14.20 » impossible pour une vidéo publiée le 14/10/2026 (patch en cours : 26.20) : lecture erronée, patch inconnu. https://www.youtube.com/watch?v=0wsrN1DFtt8"
+  },
+  {
+   "at": "2026-10-31T13:34:18.303Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-0wsrN1DFtt8-2",
+   "field": "patch",
+   "before": {
+    "known": true,
+    "value": "14.20"
+   },
+   "after": {
+    "known": false
+   },
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Patch « 14.20 » impossible pour une vidéo publiée le 14/10/2026 (patch en cours : 26.20) : lecture erronée, patch inconnu. https://www.youtube.com/watch?v=0wsrN1DFtt8"
+  },
+  {
+   "at": "2026-10-31T13:34:18.390Z",
+   "action": "corrige",
+   "unit": "u-ai-yt-0wsrN1DFtt8-3",
+   "field": "patch",
+   "before": {
+    "known": true,
+    "value": "14.20"
+   },
+   "after": {
+    "known": false
+   },
+   "by": "Claude Code (analyste LoL, récolte du 31/10)",
+   "reason": "Patch « 14.20 » impossible pour une vidéo publiée le 14/10/2026 (patch en cours : 26.20) : lecture erronée, patch inconnu. https://www.youtube.com/watch?v=0wsrN1DFtt8"
   }
  ]
 }

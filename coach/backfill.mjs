@@ -4,7 +4,7 @@
 // Usage : node coach/backfill.mjs <sourceId> [priorité] "<recherche>" ["<recherche>" …]
 //   ex. node coach/backfill.mjs yt-chreak 12 guide "dans la tete d'un challenger" coaching
 
-import { P, readJson, writeJson, today } from "./lib.mjs";
+import { P, readJson, writeJson, today, noEmail } from "./lib.mjs";
 import { triage } from "./discover.mjs";
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36";
@@ -50,7 +50,7 @@ export async function run(sourceId, priority, queries) {
     const tr = triage(`${v.title} ${description}`, config.pilot, null, src.credibility.level);
     contents.contents.push({
       id, sourceId, type: "video", url: `https://www.youtube.com/watch?v=${v.id}`, title: v.title, author: src.author, lang: src.langs[0], published, retrievedAt: today(), patch: null,
-      access: "metadonnees", analysis: "non-analysee", descriptionExcerpt: description, backfill: true,
+      access: "metadonnees", analysis: "non-analysee", descriptionExcerpt: noEmail(description), backfill: true,
       note: "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
       triage: { ...tr, score: priority, basis: `ancien guide de ${src.name} ciblé à la demande ; ${tr.basis}` },
     });

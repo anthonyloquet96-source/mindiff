@@ -4,7 +4,7 @@
 // Usage : node coach/discover.mjs [--force]
 
 import { XMLParser } from "fast-xml-parser";
-import { P, readJson, writeJson, today } from "./lib.mjs";
+import { P, readJson, writeJson, today, noEmail } from "./lib.mjs";
 
 const FORCE = process.argv.includes("--force");
 const UA = "MINDIFF-coach/1.0 (+https://anthonyloquet96-source.github.io/mindiff/)";
@@ -70,7 +70,7 @@ export async function run() {
           id: `c-yt-${v.videoId}`, sourceId: s.id, type: "video", url: v.url, title: v.title, author: v.author || s.author, lang: s.langs[0],
           published: v.published?.slice(0, 10), retrievedAt: today(), patch: null, views: v.views,
           access: "metadonnees", analysis: "non-analysee", note: VIDEO_NOTE,
-          descriptionExcerpt: String(v.description).slice(0, 280),
+          descriptionExcerpt: noEmail(String(v.description).slice(0, 280)),
           triage: triage(`${v.title} ${v.description}`, config.pilot, NAMES, s.credibility.level),
         }));
       } else {

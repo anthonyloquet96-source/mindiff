@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T07:27:25.855Z",
+ "generatedAt": "2026-10-31T13:31:40.726Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -2057,16 +2057,16 @@
    }
   },
   "themes": {
-   "lane": 63,
+   "lane": 64,
    "survie": 13,
    "teamfight": 5,
    "synergie": 2,
    "matchup": 8,
-   "methode": 10,
+   "methode": 11,
    "vagues": 40,
-   "vision": 13,
-   "macro": 64,
-   "jungle": 45
+   "vision": 14,
+   "macro": 67,
+   "jungle": 49
   },
   "partial": [
    "Ashe"
@@ -2905,7 +2905,8 @@
    "u-ai-yt--I7iBIabOok-1",
    "u-ai-yt-YJtOWRVdwyc-1",
    "u-ai-yt-YJtOWRVdwyc-2",
-   "u-ai-yt-YJtOWRVdwyc-3"
+   "u-ai-yt-YJtOWRVdwyc-3",
+   "u-ai-yt-7upo6KzBnbs-3"
   ]
  },
  "sources": [
@@ -18259,9 +18260,9 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "views": 11608,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.7-flash : transcription et 35 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "➡️Coaching and everything you need to climb - https://wtl.lol/violet (USE CODE:VIOLET10)\n➡️Join the Community - https://discord.gg/zVvGUPxYGw\n\nIntro 00:00\nExample 1 00:36\nExample 2 11:04\nExample 3 21:38\n\nIn this video im explaining the core fundamentals on adc in league of legend",
    "triage": {
     "score": 13,
@@ -18277,6 +18278,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.7-flash",
+    "fps": 1,
+    "at": "2026-10-31",
+    "sha256": "5faad2061123af4b71c4d6e340ed8594a095d57bae3418ca24b7874a58319bfb",
+    "segments": 44,
+    "observations": 35,
+    "duration": "31:01",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 182608
    }
   },
   {
@@ -21969,7 +21983,7 @@
    "published": "2026-10-24",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 54268,
+   "views": 54802,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -23887,7 +23901,7 @@
    "published": "2026-10-28",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 10456,
+   "views": 12242,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -23917,7 +23931,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 22786,
+   "views": 23148,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24661,7 +24675,7 @@
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "videoAttempts": 1,
+   "videoAttempts": 2,
    "videoError": "gemini-3.8-flash HTTP 403 : The caller does not have permission (2026-10-31)"
   },
   {
@@ -24676,7 +24690,7 @@
    "retrievedAt": "2026-10-30",
    "patch": "25.09",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 32,
@@ -24704,6 +24718,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 121602
+   },
+   "analyzedAt": "2026-10-31",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Un jungler peut apprendre à structurer son début de partie autour de 5 règles fondamentales : définir son côté fort selon la volatilité des lanes, maintenir son tempo en rentrant en base au bon moment, utiliser le temps mort pour des tâches légères, tracker le jungler ennemi par miroir de camps et ne jamais abandonner un camp entamé à plus de la moitié.",
+   "quality": {
+    "level": "élevée",
+    "why": "Guide méthodique dispensé par un coach Challenger expliquant les principes fondamentaux du tempo, de la gestion du temps et du tracking en jungle avec des règles claires et illustrées."
    }
   },
   {
@@ -24716,13 +24740,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-10-30",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "non mentionné",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 33,
-   "note": "File de lecture (rang 33) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.7-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 19,
     "matched": [
@@ -24732,6 +24756,34 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.7-flash",
+    "fps": 1,
+    "at": "2026-10-31",
+    "sha256": "84d8a44d515dfe404a23a45a16ce29638b293f0fa17a1d2750266e40d414c33f",
+    "segments": 54,
+    "observations": 40,
+    "duration": "16:42",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 99272
+   },
+   "analyzedAt": "2026-10-31",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 4,
+   "alertes": [
+    {
+     "code": "traduction",
+     "detail": "L'auteur mentionne l'objectif 'Atakhan', qui est un monstre spécifique à un mode de jeu ou un patch très récent, non présent dans la Faille standard classique."
+    }
+   ],
+   "learn": "Pour atteindre le Diamant en jungle, il faut adopter une routine stricte de 'Fullclear -> Une action -> Base' afin de maximiser ses ressources et son impact sans prendre de risques inutiles.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le guide fournit une méthodologie claire et répétable, illustrée par une démonstration en direct avec des explications sur la prise de décision et la gestion des ressources."
    }
   },
   {
@@ -24810,12 +24862,12 @@
    "published": null,
    "retrievedAt": "2026-10-30",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 34,
-   "note": "File de lecture (rang 34) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Écarté : contenu jugé de faible qualité (La vidéo est un divertissement avec du gameplay non structuré, des blagues, et ne constitue pas un tutoriel technique avec des conseils d'apprentissage exploitables.).",
    "triage": {
     "score": 17,
     "matched": [
@@ -24825,7 +24877,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-31",
+    "sha256": "fab8471441e45488d6f2a2f8ab4b1bee915a79102fc3997d84acf58e29bb80ab",
+    "segments": 171,
+    "observations": 20,
+    "duration": "15:28",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 91982
+   },
+   "analyzedAt": "2026-10-31",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "quality": {
+    "level": "faible",
+    "why": "La vidéo est un divertissement avec du gameplay non structuré, des blagues, et ne constitue pas un tutoriel technique avec des conseils d'apprentissage exploitables."
+   },
+   "learn": null,
+   "rejectedForQuality": true
   },
   {
    "id": "c-yt-BeS1VgKiBoY",
@@ -24960,6 +25034,62 @@
     "matched": [
      "guide",
      "clear"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-dYxdKho6dHg",
+   "sourceId": "yt-coach-chippys",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=dYxdKho6dHg",
+   "title": "Why You Have Low CS and How to Fix It - Farming Guide",
+   "author": "Coach Chippys",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-31",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 42,
+   "note": "File de lecture (rang 42) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 17,
+    "matched": [
+     "guide",
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-bVuMSIMLJcE",
+   "sourceId": "yt-skill-capped",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=bVuMSIMLJcE",
+   "title": "Why Full Clear SUCKS for Climbing! - Diamond in 90 Days",
+   "author": "Skill Capped",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-31",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 43,
+   "note": "File de lecture (rang 43) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "clear",
+     "climb"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -76151,6 +76281,375 @@
     {
      "code": "sur-generalisation",
      "why": "Contrôle critique : Le passage cité est un commentaire en direct tiré d'une seule partie que l'unité érige en règle générale sans nuance."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-cRoLLHb0bro-1",
+   "claim": "Selon Coach Leo : en début de partie en jungle, il faut orienter son pathing initial vers le côté de la carte qui présente la plus grande volatilité ou possibilité d'action (strong side), tout en acceptant de délaisser le côté opposé (weak side).",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "25.09"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "En début de partie pendant la phase de planification du pathing."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-cRoLLHb0bro",
+     "locator": "[01:08]",
+     "lang": "en",
+     "passage": "Pathing towards the side of volatility, okay? Pathing towards the action.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-10-31",
+      "window": "48-108s",
+      "said": true,
+      "supported": true,
+      "gap": "La justification donnée dans le champ 'pourquoi' n'est pas explicitement énoncée par l'auteur dans l'extrait."
+     }
+    }
+   ],
+   "mentions": [
+    "Volibear (exemple)"
+   ],
+   "action": "Identifier le côté le plus volatil au chargement de la partie et orienter sa route de jungle vers cette lane.",
+   "observe": "Nombre d'opportunités créées sur le côté fort de la carte.",
+   "use": {
+    "when": "Pendant la phase de planification du premier chemin de farm en début de partie.",
+    "why": "",
+    "who": "Tous les junglers en début de partie.",
+    "how": [
+     "Identifier la lane avec le plus fort potentiel de combat ou de volatilité",
+     "Tracer son chemin de farm vers cette lane spécifique (strong side)",
+     "Accepter de jouer de manière passive sur le côté opposé (weak side)"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt-cRoLLHb0bro : le vérificateur note un écart sur l'extrait 48-108s (La justification donnée dans le champ 'pourquoi' n'est pas explicitement énoncée par l'auteur dans l'extrait.)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-cRoLLHb0bro-2",
+   "claim": "Selon Coach Leo : pour maintenir un bon tempo en jungle, il faut back dès que sa première séquence de camps est terminée, sauf si une action à très haut pourcentage de réussite est disponible.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "25.09"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Camps de jungle entièrement vidés."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-cRoLLHb0bro",
+     "locator": "[01:30]",
+     "lang": "en",
+     "passage": "Keep good tempo, which means always back at our krugs unless high percent kill/objective/enemy camps, okay?",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-10-31",
+      "window": "70-130s",
+      "said": true,
+      "supported": true,
+      "gap": "La explication selon laquelle rester sur la carte décale la réapparition des prochains camps n'est pas mentionnée dans l'extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer son rappel en base juste après avoir fini ses Krugs ou son dernier camp si aucune opportunité nette n'existe.",
+   "observe": "Ponctualité lors de la réapparition de sa deuxième rotation de camps.",
+   "use": {
+    "when": "Lorsque la première rotation complète de tes camps de jungle vient de se terminer.",
+    "why": "",
+    "who": "Tous les junglers cherchant à maintenir un tempo optimal.",
+    "how": [
+     "Finir le dernier camp de sa rotation initiale",
+     "Vérifier s'il existe une action garantie (kill évident, objectif ou vol de camp)",
+     "Si aucune action évidente n'existe, lancer immédiatement son back"
+    ],
+    "notWhen": "Si une action à haut pourcentage (kill garanti, objectif neutre libre ou camps adverses à prendre) est immédiatement disponible."
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt-cRoLLHb0bro : le vérificateur note un écart sur l'extrait 70-130s (La explication selon laquelle rester sur la carte décale la réapparition des prochains camps n'est pas mentionnée dans l'extrait.)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-cRoLLHb0bro-4",
+   "claim": "Selon Coach Leo : il est possible de suivre la position et les timers de réapparition des camps du jungler adverse en calquant son pathing sur les timers de ses propres camps (camp mirroring).",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "25.09"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir repéré le camp de départ du jungler adverse en début de partie."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-cRoLLHb0bro",
+     "locator": "[00:29]",
+     "lang": "en",
+     "passage": "So you want to download enemy jungler's pathing, and then mirror his camps to your camp timers.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-10-31",
+      "window": "9-69s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Tryndamere (exemple)"
+   ],
+   "action": "Assovier l'apparition des camps ennemis au décompte de ses propres camps correspondants pour anticiper les mouvements adverses.",
+   "observe": "Précision dans l'anticipation de la position du jungler ennemi.",
+   "use": {
+    "when": "Dès le début de partie après avoir identifié le camp initial de l'adversaire.",
+    "why": "Les durées de nettoyage et de réapparition étant similaires, tes propres timers reflètent le rythme des camps ennemis.",
+    "who": "Tous les junglers voulant tracker le jungler adverse.",
+    "how": [
+     "Déterminer quel buisson ou camp le jungler adverse a commencé en début de match",
+     "Associer l'état de ses propres camps à celui des camps équivalents en miroir chez l'ennemi",
+     "Anticiper les déplacements adverses en fonction des waves de réapparition de ses camps"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-cRoLLHb0bro-6",
+   "claim": "Selon Coach Leo : erreur fréquente : tenter un gank sur un adversaire en pleine santé et disposant de son Flash. L'auteur conseille d'éviter ce genre de gank à faible pourcentage de réussite et d'évaluer la présence du Flash avant de se déplacer.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "lane"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "25.09"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "L'ennemi visé a toute sa vie et son Flash disponible."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-cRoLLHb0bro",
+     "locator": "[06:54]",
+     "lang": "en",
+     "passage": "He's full HP, and something very important, something very important here: it's about flash. It's about this summoner spell. This flash summoner spell is super broken in League of Legends. If he has flash, there is a chance he could live very easily, okay?",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-10-31",
+      "window": "394-454s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Teemo (exemple)"
+   ],
+   "action": "Annuler la tentative de gank si la cible a 100 % de sa vie et son Flash, et se concentrer sur ses camps ou une lane sans Flash.",
+   "observe": "Nombre de ganks manqués ou de temps perdu sans obtenir d'élimination.",
+   "use": {
+    "when": "En phase d'approche pour un gank, en observant l'état de la cible adverse.",
+    "why": "Le Flash permet à l'adversaire de s'échapper facilement lorsqu'il est full vie, rendant l'investissement en temps très peu rentable.",
+    "who": "Tous les junglers évaluant la priorité de leurs ganks.",
+    "how": [
+     "Vérifier la barre de vie et l'historique des Sorts d'invocateur de la lane visée",
+     "Si l'adversaire est pleine vie et possède son Flash, renoncer au gank",
+     "Privilégier le farm ou préparer un coup sur une lane dont le Flash est déjà tombé"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "exploitable",
+   "lifespan": "meta",
+   "nuance": "Conseil de date inconnue (patch 25.09) : le jeu a pu changer depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-7upo6KzBnbs-3",
+   "claim": "Selon Coach Kirei : erreur fréquente en bas elo : se contenter de pinger le jungler adverse sur la carte. Il est plus efficace de pinger l'alerte directement sur tes alliés pour qu'ils se sentent concernés.",
+   "champions": [],
+   "roles": [
+    "jungle",
+    "all"
+   ],
+   "themes": [
+    "vision",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "Bas elo (Iron à Platine)",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-7upo6KzBnbs",
+     "locator": "01:56",
+     "lang": "en",
+     "passage": "Common mistake in low elo: people just ping this. Mistake. Ping this. You want to ping people in their face so they're like, ah, he can gank me on bot.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-10-31",
+      "window": "96-156s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utilise le ping 'Danger' ou 'Attention' directement sur le champion de ton allié menacé.",
+   "observe": "Vérifie si tes alliés reculent plus souvent après tes pings.",
+   "use": {
+    "when": "Tu as repéré le jungler adverse se dirigeant vers une lane alliée.",
+    "why": "Les joueurs de bas niveau ignorent souvent les pings éloignés de leur propre personnage ; pinger 'sur leur visage' force leur attention.",
+    "who": "Joueurs souhaitant améliorer la communication en solo queue.",
+    "how": [
+     "Repère le jungler ennemi.",
+     "Déplace ta caméra sur la lane menacée.",
+     "Pinge l'alerte directement sur tes alliés."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
     }
    ]
   }

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T07:27:25.855Z",
+ "generatedAt": "2026-10-31T13:31:40.726Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -9,7 +9,7 @@
  "discovery": {
   "wtl-blog": {
    "attempts": 0,
-   "lastOk": "2026-10-31T01:03:05.744Z",
+   "lastOk": "2026-10-31T12:54:52.692Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 3
@@ -30,7 +30,7 @@
   },
   "yt-doublelift": {
    "attempts": 0,
-   "lastOk": "2026-10-31T01:03:06.157Z",
+   "lastOk": "2026-10-31T12:54:53.140Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
@@ -86,7 +86,7 @@
   },
   "yt-coach-kirei": {
    "attempts": 0,
-   "lastOk": "2026-10-31T01:03:07.099Z",
+   "lastOk": "2026-10-31T12:54:53.274Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
@@ -478,7 +478,7 @@
   },
   "yt-mjdqfb68q1": {
    "attempts": 0,
-   "lastOk": "2026-10-31T01:03:13.149Z",
+   "lastOk": "2026-10-31T12:54:53.543Z",
    "lastError": null,
    "nextTry": null,
    "lastCount": 15
@@ -554,7 +554,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-10-31T06:57:11.175Z",
+ "lastDiscovery": "2026-10-31T12:54:53.566Z",
  "failures": [],
  "quarantine": [
   {
@@ -566,100 +566,6 @@
   }
  ],
  "rejected": [
-  {
-   "id": "u-ai-yt-eceSyaVnz3M-4",
-   "reasons": [
-    {
-     "code": "citation-insuffisante",
-     "why": "Aucun passage ne porte sur Rell."
-    }
-   ],
-   "at": "2026-10-24",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-RIro7KcXJP8-1",
-   "reasons": [
-    {
-     "code": "citation-insuffisante",
-     "why": "Aucun passage ne porte sur Hecarim."
-    }
-   ],
-   "at": "2026-10-24",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-eceSyaVnz3M-1",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-eceSyaVnz3M : « In bot lane, you will hit level 2 on the second wave after t… »"
-    },
-    {
-     "code": "citation-insuffisante",
-     "why": "Aucun passage ne porte sur Thresh."
-    },
-    {
-     "code": "rang-sous-reference",
-     "why": "Contenu tiré de parties de niveau argent : utilisable seulement comme erreur à corriger, pas comme référence."
-    }
-   ],
-   "at": "2026-10-25",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-eceSyaVnz3M-2",
-   "reasons": [
-    {
-     "code": "rang-sous-reference",
-     "why": "Contenu tiré de parties de niveau argent : utilisable seulement comme erreur à corriger, pas comme référence."
-    }
-   ],
-   "at": "2026-10-25",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-eceSyaVnz3M-3",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-eceSyaVnz3M : « All you're doing is pushing a minion wave as deep into the e… »"
-    },
-    {
-     "code": "citation-insuffisante",
-     "why": "Aucun passage ne porte sur Wukong."
-    },
-    {
-     "code": "rang-sous-reference",
-     "why": "Contenu tiré de parties de niveau argent : utilisable seulement comme erreur à corriger, pas comme référence."
-    }
-   ],
-   "at": "2026-10-25",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-eceSyaVnz3M-4",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-eceSyaVnz3M : « When you're playing a split pusher, you want to look for sit… »"
-    },
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-eceSyaVnz3M : « pressuring a tower before your teammates have a chance to di… »"
-    },
-    {
-     "code": "citation-insuffisante",
-     "why": "Aucun passage ne porte sur Diana."
-    },
-    {
-     "code": "rang-sous-reference",
-     "why": "Contenu tiré de parties de niveau platine : utilisable seulement comme erreur à corriger, pas comme référence."
-    }
-   ],
-   "at": "2026-10-25",
-   "origin": "analyse-automatique"
-  },
   {
    "id": "u-ai-yt-eceSyaVnz3M-5",
    "reasons": [
@@ -3061,6 +2967,76 @@
    ],
    "at": "2026-10-31",
    "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-cRoLLHb0bro-3",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-cRoLLHb0bro : « After our camps are down we want to use that extra time on t… »"
+    }
+   ],
+   "at": "2026-10-31",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-cRoLLHb0bro-5",
+   "reasons": [
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-cRoLLHb0bro : « if I'm already halfway done the camp, I'm never getting off … »"
+    }
+   ],
+   "at": "2026-10-31",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-7upo6KzBnbs-1",
+   "reasons": [
+    {
+     "code": "rang-sous-reference",
+     "why": "Contenu tiré de parties de niveau emeraude : utilisable seulement comme erreur à corriger, pas comme référence."
+    }
+   ],
+   "at": "2026-10-31",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-7upo6KzBnbs-2",
+   "reasons": [
+    {
+     "code": "rang-sous-reference",
+     "why": "Contenu tiré de parties de niveau emeraude : utilisable seulement comme erreur à corriger, pas comme référence."
+    }
+   ],
+   "at": "2026-10-31",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-7upo6KzBnbs-4",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Nocturne."
+    },
+    {
+     "code": "rang-sous-reference",
+     "why": "Contenu tiré de parties de niveau emeraude : utilisable seulement comme erreur à corriger, pas comme référence."
+    }
+   ],
+   "at": "2026-10-31",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-7upo6KzBnbs-5",
+   "reasons": [
+    {
+     "code": "rang-sous-reference",
+     "why": "Contenu tiré de parties de niveau emeraude : utilisable seulement comme erreur à corriger, pas comme référence."
+    }
+   ],
+   "at": "2026-10-31",
+   "origin": "analyse-automatique"
   }
  ],
  "pending": [
@@ -3104,9 +3080,9 @@
   "c-yt-IG5H_Zm8_k8",
   "c-yt-LUllgzA2Q80",
   "c-yt--J8fOgYCRbI",
+  "c-yt-hADG2i46dEQ",
   "c-inven-board-baron",
-  "c-wtl-4072",
-  "c-yt-cRoLLHb0bro"
+  "c-wtl-4072"
  ],
  "review": [
   "u-lucian-2620-ad",
@@ -4164,7 +4140,12 @@
   "u-ai-yt-6DYcD-pcMdA-12",
   "u-ai-yt-035a4GhaLOE-1",
   "u-ai-yt-035a4GhaLOE-2",
-  "u-ai-yt-035a4GhaLOE-3"
+  "u-ai-yt-035a4GhaLOE-3",
+  "u-ai-yt-cRoLLHb0bro-1",
+  "u-ai-yt-cRoLLHb0bro-2",
+  "u-ai-yt-cRoLLHb0bro-4",
+  "u-ai-yt-cRoLLHb0bro-6",
+  "u-ai-yt-7upo6KzBnbs-3"
  ],
  "contested": [],
  "retired": [
@@ -5046,128 +5027,6 @@
   "month": 0,
   "calls": [
    {
-    "at": "2026-10-30T19:03:44.821Z",
-    "content": "c-yt-6DYcD-pcMdA",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5880,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-30T19:04:00.573Z",
-    "content": "c-yt-6DYcD-pcMdA",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5866,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-30T19:04:41.015Z",
-    "content": "c-yt-6DYcD-pcMdA",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5886,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-30T19:04:51.559Z",
-    "content": "c-yt-6DYcD-pcMdA",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5844,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-31T01:04:06.176Z",
-    "content": "c-yt-kq8OpEr6oGs",
-    "model": "gemini-3.8-flash",
-    "input": 9678,
-    "output": 1940,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-31T01:05:01.610Z",
-    "content": "c-yt-kq8OpEr6oGs",
-    "model": "gemini-3.6-flash",
-    "input": 6743,
-    "output": 2942,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-31T01:05:18.279Z",
-    "content": "c-yt-kq8OpEr6oGs",
-    "model": "gemini-3.5-flash",
-    "input": 5968,
-    "output": 91,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-31T01:05:36.913Z",
-    "content": "c-yt-kq8OpEr6oGs",
-    "model": "gemini-3-flash-preview",
-    "input": 5914,
-    "output": 65,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-31T01:05:47.706Z",
-    "content": "c-yt-kq8OpEr6oGs",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5913,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-31T01:06:03.907Z",
-    "content": "c-yt-X-D04vxrk7c",
-    "model": "gemini-3.5-flash-lite",
-    "input": 14989,
-    "output": 3485,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-31T01:06:11.497Z",
-    "content": "c-yt-X-D04vxrk7c",
-    "model": "gemini-3.5-flash-lite",
-    "input": 8292,
-    "output": 407,
-    "usd": 0
-   },
-   {
-    "at": "2026-10-31T01:06:22.520Z",
-    "content": "c-yt-X-D04vxrk7c",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5941,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-31T01:06:31.515Z",
-    "content": "c-yt-X-D04vxrk7c",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5910,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-10-31T01:06:40.506Z",
-    "content": "c-yt-X-D04vxrk7c",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5917,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
     "at": "2026-10-31T01:06:49.554Z",
     "content": "c-yt-X-D04vxrk7c",
     "model": "gemini-3.5-flash-lite",
@@ -5481,6 +5340,127 @@
     "output": 82,
     "usd": 0,
     "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-31T13:16:26.149Z",
+    "content": "c-yt-cRoLLHb0bro",
+    "model": "gemini-3.6-flash",
+    "input": 13395,
+    "output": 6664,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-31T13:20:11.948Z",
+    "content": "c-yt-cRoLLHb0bro",
+    "model": "gemini-3.5-flash-lite",
+    "input": 8228,
+    "output": 488,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-31T13:20:30.940Z",
+    "content": "c-yt-cRoLLHb0bro",
+    "model": "gemini-3.6-flash",
+    "input": 5861,
+    "output": 56,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-31T13:22:09.940Z",
+    "content": "c-yt-cRoLLHb0bro",
+    "model": "gemini-3.6-flash",
+    "input": 5880,
+    "output": 57,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-31T13:23:04.454Z",
+    "content": "c-yt-cRoLLHb0bro",
+    "model": "gemini-3.6-flash",
+    "input": 5913,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-31T13:23:18.141Z",
+    "content": "c-yt-cRoLLHb0bro",
+    "model": "gemini-3.6-flash",
+    "input": 5872,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-31T13:23:54.763Z",
+    "content": "c-yt-cRoLLHb0bro",
+    "model": "gemini-3.6-flash",
+    "input": 5916,
+    "output": 72,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-31T13:24:12.028Z",
+    "content": "c-yt-cRoLLHb0bro",
+    "model": "gemini-3-flash-preview",
+    "input": 5942,
+    "output": 30,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-31T13:24:38.728Z",
+    "content": "c-yt-7upo6KzBnbs",
+    "model": "gemini-3-flash-preview",
+    "input": 10573,
+    "output": 4383,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-31T13:26:11.700Z",
+    "content": "c-yt-7upo6KzBnbs",
+    "model": "gemini-3.5-flash-lite",
+    "input": 7550,
+    "output": 380,
+    "usd": 0
+   },
+   {
+    "at": "2026-10-31T13:26:29.165Z",
+    "content": "c-yt-7upo6KzBnbs",
+    "model": "gemini-3-flash-preview",
+    "input": 4076,
+    "output": 67,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-31T13:27:10.766Z",
+    "content": "c-yt-7upo6KzBnbs",
+    "model": "gemini-3-flash-preview",
+    "input": 5863,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-31T13:27:33.874Z",
+    "content": "c-yt-7upo6KzBnbs",
+    "model": "gemini-3-flash-preview",
+    "input": 5864,
+    "output": 71,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-10-31T13:29:27.295Z",
+    "content": "c-yt-WcQWPUme4VQ",
+    "model": "gemini-3.5-flash-lite",
+    "input": 9109,
+    "output": 183,
+    "usd": 0
    }
   ],
   "budget": {

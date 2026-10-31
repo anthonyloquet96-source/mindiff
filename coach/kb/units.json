@@ -67553,7 +67553,428 @@
    },
    "version": 1,
    "firstSeen": "2026-10-31"
+  },
+  {
+   "id": "u-ai-yt-cRoLLHb0bro-1",
+   "claim": "Selon Coach Leo : en début de partie en jungle, il faut orienter son pathing initial vers le côté de la carte qui présente la plus grande volatilité ou possibilité d'action (strong side), tout en acceptant de délaisser le côté opposé (weak side).",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "25.09"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "En début de partie pendant la phase de planification du pathing."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-cRoLLHb0bro",
+     "locator": "[01:08]",
+     "lang": "en",
+     "passage": "Pathing towards the side of volatility, okay? Pathing towards the action.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-10-31",
+      "window": "48-108s",
+      "said": true,
+      "supported": true,
+      "gap": "La justification donnée dans le champ 'pourquoi' n'est pas explicitement énoncée par l'auteur dans l'extrait."
+     }
+    }
+   ],
+   "mentions": [
+    "Volibear (exemple)"
+   ],
+   "action": "Identifier le côté le plus volatil au chargement de la partie et orienter sa route de jungle vers cette lane.",
+   "observe": "Nombre d'opportunités créées sur le côté fort de la carte.",
+   "use": {
+    "when": "Pendant la phase de planification du premier chemin de farm en début de partie.",
+    "why": "",
+    "who": "Tous les junglers en début de partie.",
+    "how": [
+     "Identifier la lane avec le plus fort potentiel de combat ou de volatilité",
+     "Tracer son chemin de farm vers cette lane spécifique (strong side)",
+     "Accepter de jouer de manière passive sur le côté opposé (weak side)"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil sur le pathing vers le côté fort est bien soutenu par le passage et constitue un principe macro intemporel pour la jungle."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-31",
+   "validity": {
+    "checkedAt": "2026-10-31",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-31",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-31"
+  },
+  {
+   "id": "u-ai-yt-cRoLLHb0bro-2",
+   "claim": "Selon Coach Leo : pour maintenir un bon tempo en jungle, il faut rentrer en base dès que sa première séquence de camps est terminée, sauf si une action à très haut pourcentage de réussite est disponible.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "25.09"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Camps de jungle entièrement vidés."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-cRoLLHb0bro",
+     "locator": "[01:30]",
+     "lang": "en",
+     "passage": "Keep good tempo, which means always back at our krugs unless high percent kill/objective/enemy camps, okay?",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-10-31",
+      "window": "70-130s",
+      "said": true,
+      "supported": true,
+      "gap": "La explication selon laquelle rester sur la carte décale la réapparition des prochains camps n'est pas mentionnée dans l'extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer son rappel en base juste après avoir fini ses Krugs ou son dernier camp si aucune opportunité nette n'existe.",
+   "observe": "Ponctualité lors de la réapparition de sa deuxième rotation de camps.",
+   "use": {
+    "when": "Lorsque la première rotation complète de tes camps de jungle vient de se terminer.",
+    "why": "",
+    "who": "Tous les junglers cherchant à maintenir un tempo optimal.",
+    "how": [
+     "Finir le dernier camp de sa rotation initiale",
+     "Vérifier s'il existe une action garantie (kill évident, objectif ou vol de camp)",
+     "Si aucune action évidente n'existe, lancer immédiatement son retour en base"
+    ],
+    "notWhen": "Si une action à haut pourcentage (kill garanti, objectif neutre libre ou camps adverses à prendre) est immédiatement disponible."
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La gestion du tempo en rentrant après les camps est directement liée au passage et présente un contexte d'usage complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-31",
+   "validity": {
+    "checkedAt": "2026-10-31",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-31",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-31"
+  },
+  {
+   "id": "u-ai-yt-cRoLLHb0bro-4",
+   "claim": "Selon Coach Leo : il est possible de suivre la position et les timers de réapparition des camps du jungler adverse en calquant son pathing sur les timers de ses propres camps (camp mirroring).",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "25.09"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir repéré le camp de départ du jungler adverse en début de partie."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-cRoLLHb0bro",
+     "locator": "[00:29]",
+     "lang": "en",
+     "passage": "So you want to download enemy jungler's pathing, and then mirror his camps to your camp timers.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-10-31",
+      "window": "9-69s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Tryndamere (exemple)"
+   ],
+   "action": "Assovier l'apparition des camps ennemis au décompte de ses propres camps correspondants pour anticiper les mouvements adverses.",
+   "observe": "Précision dans l'anticipation de la position du jungler ennemi.",
+   "use": {
+    "when": "Dès le début de partie après avoir identifié le camp initial de l'adversaire.",
+    "why": "Les durées de nettoyage et de réapparition étant similaires, tes propres timers reflètent le rythme des camps ennemis.",
+    "who": "Tous les junglers voulant tracker le jungler adverse.",
+    "how": [
+     "Déterminer quel buisson ou camp le jungler adverse a commencé en début de match",
+     "Associer l'état de ses propres camps à celui des camps équivalents en miroir chez l'ennemi",
+     "Anticiper les déplacements adverses en fonction des vagues de réapparition de ses camps"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le mirroring des camps pour suivre le jungler ennemi est correctement rapporté et documenté."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-31",
+   "validity": {
+    "checkedAt": "2026-10-31",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-31",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-31"
+  },
+  {
+   "id": "u-ai-yt-cRoLLHb0bro-6",
+   "claim": "Selon Coach Leo : erreur fréquente : tenter un gank sur un adversaire en pleine santé et disposant de son Flash. L'auteur conseille d'éviter ce genre de gank à faible pourcentage de réussite et d'évaluer la présence du Flash avant de se déplacer.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "lane"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "25.09"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "L'ennemi visé a toute sa vie et son Flash disponible."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-cRoLLHb0bro",
+     "locator": "[06:54]",
+     "lang": "en",
+     "passage": "He's full HP, and something very important, something very important here: it's about flash. It's about this summoner spell. This flash summoner spell is super broken in League of Legends. If he has flash, there is a chance he could live very easily, okay?",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-10-31",
+      "window": "394-454s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Teemo (exemple)"
+   ],
+   "action": "Annuler la tentative de gank si la cible a 100 % de sa vie et son Flash, et se concentrer sur ses camps ou une lane sans Flash.",
+   "observe": "Nombre de ganks manqués ou de temps perdu sans obtenir d'élimination.",
+   "use": {
+    "when": "En phase d'approche pour un gank, en observant l'état de la cible adverse.",
+    "why": "Le Flash permet à l'adversaire de s'échapper facilement lorsqu'il est full vie, rendant l'investissement en temps très peu rentable.",
+    "who": "Tous les junglers évaluant la priorité de leurs ganks.",
+    "how": [
+     "Vérifier la barre de vie et l'historique des Sorts d'invocateur de la lane visée",
+     "Si l'adversaire est pleine vie et possède son Flash, renoncer au gank",
+     "Privilégier le farm ou préparer un coup sur une lane dont le Flash est déjà tombé"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'évaluation de la vie et du Flash pour éviter les ganks à faible pourcentage est correctement formulée sous l'usage de correction."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-31",
+   "validity": {
+    "checkedAt": "2026-10-31",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-31",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-31"
+  },
+  {
+   "id": "u-ai-yt-7upo6KzBnbs-3",
+   "claim": "Selon Coach Kirei : erreur fréquente en bas elo : se contenter de pinger le jungler adverse sur la carte. Il est plus efficace de pinger l'alerte directement sur tes alliés pour qu'ils se sentent concernés.",
+   "champions": [],
+   "roles": [
+    "jungle",
+    "all"
+   ],
+   "themes": [
+    "vision",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "Bas elo (Iron à Platine)",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-7upo6KzBnbs",
+     "locator": "01:56",
+     "lang": "en",
+     "passage": "Common mistake in low elo: people just ping this. Mistake. Ping this. You want to ping people in their face so they're like, ah, he can gank me on bot.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-10-31",
+      "window": "96-156s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utilise le ping 'Danger' ou 'Attention' directement sur le champion de ton allié menacé.",
+   "observe": "Vérifie si tes alliés reculent plus souvent après tes pings.",
+   "use": {
+    "when": "Tu as repéré le jungler adverse se dirigeant vers une lane alliée.",
+    "why": "Les joueurs de bas niveau ignorent souvent les pings éloignés de leur propre personnage ; pinger 'sur leur visage' force leur attention.",
+    "who": "Joueurs souhaitant améliorer la communication en solo queue.",
+    "how": [
+     "Repère le jungler ennemi.",
+     "Déplace ta caméra sur la lane menacée.",
+     "Pinge l'alerte directement sur tes alliés."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité formalise correctement une erreur courante et une correction de pings explicitée dans la source."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-31",
+   "validity": {
+    "checkedAt": "2026-10-31",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-31",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-31"
   }
  ],
- "updatedAt": "2026-10-31T07:27:24.742Z"
+ "updatedAt": "2026-10-31T13:27:56.175Z"
 }

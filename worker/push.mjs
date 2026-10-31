@@ -1,18 +1,20 @@
 // Notifications site fermé (Web Push) : abonnements (/api/push/*) et surveillance des matchs (déclencheur planifié).
 //   - Chaque minute, un passage d'environ 50 s qui relit les matchs suivis toutes les 10 s (getLive, notif-events.mjs) :
-//     notification 20 à 30 s après l'action, à peu près le décalage de la diffusion.
-//     Un match qui vient de finir est relu une dernière fois pour annoncer le vainqueur.
+//     notification 30 à 40 s après l'action (le flux n'accepte pas d'image plus récente), à peu près le décalage de la diffusion.
+//     Un match qui quitte le direct est relu chaque minute pendant 20 min au plus, jusqu'à pouvoir annoncer le vainqueur ;
+//     s'il revient entre-temps (coupure du flux), son état est gardé : pas de « Le match commence » en double.
 //   - Chaque jour à 17 h UTC : rappel du coach, au plus tous les 2 jours, à partir du résumé d'objectif envoyé par l'appareil.
 // Stockage : tables push_subs et push_live (supabase/migrations/20261029000000_push.sql), clé de service.
 // Secrets : VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY (worker/vapid-keys.mjs), SUPABASE_URL, SUPABASE_SERVICE_KEY.
 // Limite de l'offre gratuite : 50 appels sortants par passage ; suffisant pour le test (quelques dizaines d'appareils).
 
 import { createSupabaseRest } from "../coach/v1/store-supabase.mjs";
-import { gameSnapshot, gameEvents, matchState, matchEvents, followed, detailed, coachMessage } from "../notif-events.mjs";
+import { gameSnapshot, gameEvents, matchState, matchEvents, followed, detailed, coachMessage, goalDone } from "../notif-events.mjs";
 import { sendPush } from "./webpush.mjs";
 
 const LOLE_KEY = "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z"; // clé publique du site LoL Esports (déjà utilisée par le site)
-const LOLE = path => fetch(`https://esports-api.lolesports.com/persisted/gw/${path}`, { headers: { "x-api-key": LOLE_KEY } }).then(r => (r.ok ? r.json() : null)).catch(() => null);
+// Délai maximal de 8 s par appel : un passage ne doit pas déborder sur le suivant
+const LOLE = path => fetch(`https://esports-api.lolesports.com/persisted/gw/${path}`, { headers: { "x-api-key": LOLE_KEY }, signal: AbortSignal.timeout(8000) }).then(r => (r.ok ? r.json() : null)).catch(() => null);
 const SITE = "https://anthonyloquet96-source.github.io/mindiff/";
 // Services de push des navigateurs : on n'envoie rien ailleurs
 const PUSH_HOSTS = /^https:\/\/([a-z0-9-]+\.)*(fcm\.googleapis\.com|push\.services\.mozilla\.com|push\.apple\.com|notify\.windows\.com)\//i;
@@ -41,7 +43,7 @@ export async function pushApi(request, env, cors) {
       detail: b.detail === "detaille" ? "detaille" : "essentiel",
       coach: b.coach !== false, lang: b.lang === "en" ? "en" : "fr", seen_at: new Date().toISOString(),
       // Résumé de l'objectif seulement : pas d'identifiant Riot
-      goal: g ? { label: String(g.label || "").slice(0, 120), role: String(g.role || "").slice(0, 12), target: String(g.target ?? "").slice(0, 20), unit: String(g.unit || "").slice(0, 12), status: String(g.status || "").slice(0, 12), left: Math.max(0, Math.min(20, Number(g.of) - Number(g.counted) || 0)) } : null,
+      goal: g ? { label: String(g.label || "").slice(0, 120), role: String(g.role || "").slice(0, 12), target: String(g.target ?? "").slice(0, 20), unit: String(g.unit || "").slice(0, 12), status: String(g.status || "").slice(0, 12), left: g.of != null && Number.isFinite(Number(g.of)) ? Math.max(0, Math.min(20, Number(g.of) - (Number(g.counted) || 0))) : null } : null,
     };
     await sb.rest("POST", "push_subs", { body: row, prefer: "resolution=merge-duplicates,return=minimal" });
     if (b.test) {
@@ -83,15 +85,15 @@ export async function pushLive(env) {
     .filter(x => subs.some(s => followed(s.matches, x.league, x.names, s.fav_teams)));
   for (const r of rows || []) if (!todo.some(x => x.id === r.match_id)) todo.push({ id: r.match_id, ...r.state.info, ended: true });
   // Passage d'environ 45 s : chaque match suivi est relu toutes les 10 s (le déclencheur ne tourne qu'une fois par minute).
-  // Image la plus récente que le flux accepte : décalage de 20 s au départ, allongé de 10 s si le flux la refuse,
-  // raccourci de 10 s à chaque nouveau passage pour revenir au plus près du direct.
+  // Image la plus récente que le flux accepte (il refuse une fenêtre qui finit moins de 20 s avant l'heure, soit un départ
+  // à moins de 30 s) : décalage de 30 s au départ, allongé de 10 s si le flux la refuse, raccourci de 10 s à chaque passage.
   const t0 = Date.now(), W = {};
   let calls = 3, sent = 0;
   const list = todo.slice(0, 3);
   for (let round = 0; ; round++) {
     const roundAt = Date.now();
     for (const x of list) {
-      const S = (W[x.id] ||= { prev: saved[x.id]?.state || null, lag: Math.max(20000, (saved[x.id]?.state?.lag || 20000) - 10000) });
+      const S = (W[x.id] ||= { prev: saved[x.id]?.state || null, lag: Math.max(30000, (saved[x.id]?.state?.lag || 30000) - 10000) });
       if (S.done || (x.ended && round > 0)) continue;
       // Détails du match (games, victoires) : au premier tour puis toutes les 30 s
       if (!S.m || round % 3 === 0) { const det = await LOLE(`getEventDetails?hl=fr-FR&id=${encodeURIComponent(x.id)}`); calls++; if (det?.data?.event?.match) S.m = det.data.event.match; }
@@ -105,7 +107,7 @@ export async function pushLive(env) {
       const g = m.games?.find(y => y.state === "inProgress");
       if (g) {
         const t = new Date(Date.now() - S.lag); t.setUTCSeconds(Math.floor(t.getUTCSeconds() / 10) * 10, 0);
-        const w = await fetch(`https://feed.lolesports.com/livestats/v1/window/${g.id}?startingTime=${t.toISOString()}`).then(r => (r.status === 200 ? r.json() : null)).catch(() => null);
+        const w = await fetch(`https://feed.lolesports.com/livestats/v1/window/${g.id}?startingTime=${t.toISOString()}`, { signal: AbortSignal.timeout(8000) }).then(r => (r.status === 200 ? r.json() : null)).catch(() => null);
         calls++;
         const snap = gameSnapshot(w?.frames);
         if (snap) {
@@ -119,7 +121,10 @@ export async function pushLive(env) {
         const [A, B] = m.teams, url = `${SITE}#/lol/competitions/matchs`;
         // Niveau « essentiel » : sans les moments marqués detail (chaque tour, combats) ; rien à envoyer → pas de notification
         const body = s => out[s.lang === "en" ? "en" : "fr"].filter(e => !e.detail || detailed(s.detail, info.names, s.fav_teams)).map(e => e.text).join("\n");
-        const who = subs.filter(s => followed(s.matches, info.league, info.names, s.fav_teams) && body(s));
+        // Limite de 50 appels sortants par passage (offre gratuite) : on garde de quoi enregistrer l'état des matchs,
+        // sinon le passage suivant renverrait les mêmes moments. Au-delà, les appareils en trop ne reçoivent pas ce moment.
+        const room = Math.max(0, 48 - calls - list.length);
+        const who = subs.filter(s => followed(s.matches, info.league, info.names, s.fav_teams) && body(s)).slice(0, room);
         sent += await fanout(sb, env, who, s => ({ title: `${A.code} vs ${B.code}${info.tournament ? ` · ${info.tournament}` : ""}`, body: body(s), url, tag: `m${x.id}-${Date.now()}` }));
         calls += who.length;
       }
@@ -133,8 +138,10 @@ export async function pushLive(env) {
   for (const x of list) {
     const S = W[x.id];
     if (!S) continue;
-    if (x.ended || S.done) await sb.rest("DELETE", `push_live?match_id=eq.${encodeURIComponent(x.id)}`);
-    else if (S.prev) await sb.rest("POST", "push_live", { body: { match_id: x.id, state: S.prev, updated_at: new Date().toISOString() }, prefer: "resolution=merge-duplicates,return=minimal" });
+    // Hors du direct : gardé 20 min (vainqueur pas encore dans les détails, ou coupure du flux), sans repousser cette limite
+    const since = x.ended ? Date.parse(saved[x.id]?.updated_at) || 0 : Date.now();
+    if (S.done || Date.now() - since > 20 * 60e3) await sb.rest("DELETE", `push_live?match_id=eq.${encodeURIComponent(x.id)}`);
+    else if (S.prev) await sb.rest("POST", "push_live", { body: { match_id: x.id, state: S.prev, updated_at: new Date(since).toISOString() }, prefer: "resolution=merge-duplicates,return=minimal" });
   }
   return { subs: subs.length, matches: todo.length, sent };
 }
@@ -148,7 +155,11 @@ export async function pushCoach(env, now = Date.now()) {
   const subs = await sb.rest("GET", `push_subs?coach=eq.true&seen_at=gt.${new Date(now - 14 * 864e5).toISOString()}&or=(coach_at.is.null,coach_at.lt.${before})&select=endpoint,p256dh,auth,goal,lang&limit=40`);
   if (!subs?.length) return { sent: 0 };
   const day = Math.floor(now / 864e5);
-  const sent = await fanout(sb, env, subs, s => ({ title: "MINDIFF · Coach", body: coachMessage(s.goal, day, s.lang), url: `${SITE}#/lol/coach`, tag: "coach" }));
-  await sb.rest("PATCH", `push_subs?endpoint=in.(${subs.map(s => `"${encodeURIComponent(s.endpoint)}"`).join(",")})`, { body: { coach_at: new Date(now).toISOString() }, prefer: "return=minimal" }).catch(() => null);
+  const who = subs.filter(s => coachMessage(s.goal, day, s.lang));
+  const sent = await fanout(sb, env, who, s => ({ title: "MINDIFF · Coach", body: coachMessage(s.goal, day, s.lang), url: `${SITE}#/lol/coach`, tag: "coach" }));
+  if (who.length) await sb.rest("PATCH", `push_subs?endpoint=in.(${who.map(s => `"${encodeURIComponent(s.endpoint)}"`).join(",")})`, { body: { coach_at: new Date(now).toISOString() }, prefer: "return=minimal" }).catch(() => null);
+  // Objectif fini : annoncé une seule fois ; le site renverra le nouvel objectif à la prochaine visite
+  for (const s of who.filter(s => goalDone(s.goal)))
+    await sb.rest("PATCH", `push_subs?endpoint=eq.${encodeURIComponent(s.endpoint)}`, { body: { goal: { ...s.goal, status: "notified" } }, prefer: "return=minimal" }).catch(() => null);
   return { sent };
 }

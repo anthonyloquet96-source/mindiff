@@ -107,8 +107,10 @@ const send = (res, code, body, type = "application/json; charset=utf-8") => {
 };
 
 const server = http.createServer(async (req, res) => {
-  const url = new URL(req.url, "http://localhost");
-  const path = decodeURIComponent(url.pathname);
+  // Adresse mal formée (« // », « %E0 ») : refusée, sans arrêter le serveur
+  let url, path;
+  try { url = new URL(req.url, "http://localhost"); path = decodeURIComponent(url.pathname); }
+  catch { return send(res, 400, JSON.stringify({ error: "Adresse invalide" })); }
 
   if (path === "/api/data" && req.method === "GET") {
     if (!latest) latest = await readFile(join(ROOT, "data", "auto.json"), "utf8").catch(() => null);

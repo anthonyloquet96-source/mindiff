@@ -25,6 +25,10 @@ export function zone(p, team) {
 }
 const half = (p, team) => (team === 100 ? p.x + p.y > MAP + 600 : p.x + p.y < MAP - 600); // moitié adverse
 
+// Identifiants Riot (« MonkeyKing », « Chogath ») → noms connus des joueurs (« Wukong », « Cho'Gath »), pour les textes affichés
+const CHAMP_NAME = { aurelionsol: "Aurelion Sol", belveth: "Bel'Veth", chogath: "Cho'Gath", drmundo: "Dr. Mundo", fiddlesticks: "Fiddlesticks", jarvaniv: "Jarvan IV", kaisa: "Kai'Sa", khazix: "Kha'Zix", kogmaw: "Kog'Maw", ksante: "K'Sante", leblanc: "LeBlanc", leesin: "Lee Sin", masteryi: "Master Yi", missfortune: "Miss Fortune", monkeyking: "Wukong", nunu: "Nunu et Willump", reksai: "Rek'Sai", renata: "Renata Glasc", tahmkench: "Tahm Kench", twistedfate: "Twisted Fate", velkoz: "Vel'Koz", xinzhao: "Xin Zhao" };
+export const champName = id => CHAMP_NAME[String(id || "").toLowerCase()] || id;
+
 export function tactics(match, timeline, puuid) {
   const info = match.info, frames = timeline.info.frames;
   const me = info.participants.find(p => p.puuid === puuid);
@@ -110,7 +114,7 @@ export function tactics(match, timeline, puuid) {
   // Distances en repères compréhensibles plutôt qu'en unités du jeu
   const far = d => (d < 2500 ? "tout près" : d < 6000 ? "à quelques secondes" : d < 9000 ? "loin" : "à l'autre bout de la carte");
   // Liste des absents : le joueur est désigné par « toi »
-  const absents = list => { const me = list.some(a => a.me), others = list.filter(a => !a.me).map(a => `${a.champion} (${a.zone})`); return [me ? "toi" : null, ...others].filter(Boolean).join(", "); };
+  const absents = list => { const me = list.some(a => a.me), others = list.filter(a => !a.me).map(a => `${champName(a.champion)} (${a.zone})`); return [me ? "toi" : null, ...others].filter(Boolean).join(", "); };
   for (const o of objectives.filter(o => !o.ours)) {
     if (deadAt(o.t) || diedBefore(o.t)) continue; // le joueur réapparaissait : c'est sa mort d'avant qui compte, pas son absence
     const early = o.t < 14 * 60000;
@@ -129,7 +133,7 @@ export function tactics(match, timeline, puuid) {
     if (!d.alliesNear.length && d.attackers.length >= 2 && d.t >= 14 * 60000) lessons.push({ kind: "mort-isolee", t: d.t, at: d.at, title: `Mort seul à ${d.at} (${d.zone}), contre ${d.attackers.length} adversaires`,
       better: ["top", "bottom"].includes(role) && /lane/.test(d.zone) ? "Sur une side lane, quand 2 adversaires ou plus disparaissent de la minimap, recule vers ta tourelle : ils arrivent peut-être sur toi."
         : d.enemyHalf ? "Évite d'avancer seul dans la moitié adverse quand plusieurs adversaires ne sont pas visibles : reste à portée de ton équipe ou replie-toi." : "Aucun allié n'était proche : replie-toi vers ton équipe avant que plusieurs adversaires arrivent.",
-      facts: [`Tes adversaires : ${d.attackers.join(", ")}.`, "Aucun allié n'était tout près de toi.", ...lowHp] });
+      facts: [`Tes adversaires : ${d.attackers.map(champName).join(", ")}.`, "Aucun allié n'était tout près de toi.", ...lowHp] });
   }
   for (const f of fightView.filter(f => f.won === false && !f.me && !deadAt(f.t) && !diedBefore(f.t, 60000) && f.allies >= 2 && f.allies < f.enemies && f.myDist < 6000)) lessons.push({ kind: "combat-sans-toi", t: f.t, at: f.at, title: `Combat perdu à ${f.at} (${f.zone}) sans toi ; à ta dernière position connue, tu étais ${far(f.myDist)}`,
     better: "Quand ton équipe se bat près de toi, rejoins-la : un joueur de plus change le rapport de force. Sinon, signale-lui de ne pas engager.", facts: [`${f.allies} de ton équipe contre ${f.enemies} : ${f.alliesDead} perte${f.alliesDead > 1 ? "s" : ""} de ton côté, ${f.enemiesDead ? `${f.enemiesDead} en face` : "aucune en face"}.`] });

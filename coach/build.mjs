@@ -4,7 +4,7 @@
 // Usage : node coach/build.mjs
 
 import { unitVocab } from "./vocab.mjs";
-import { P, readJson, writeJson, today } from "./lib.mjs";
+import { P, readJson, writeJson, today, noEmail } from "./lib.mjs";
 import { evaluateAll, rulesLockStatus } from "./kb.mjs";
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -72,7 +72,7 @@ export async function run() {
   const cited = new Set(units.flatMap(u => (u.evidence || []).map(e => e.content)));
   const contents = L.contents.contents
     .filter(c => c.type !== "video" || c.analysis !== "non-analysee" || cited.has(c.id) || c.queueRank || isTeaching(c))
-    .map(({ wpBase, wpId, attempts, lastError, ...c }) => c);
+    .map(({ wpBase, wpId, attempts, lastError, ...c }) => (c.descriptionExcerpt ? { ...c, descriptionExcerpt: noEmail(c.descriptionExcerpt) } : c));
   const out = {
     generatedAt: new Date().toISOString(),
     rules: { version: "v1", prompts: { extraction: "v1", critique: "v1", recommandation: "v1" }, locked: lock.ok },

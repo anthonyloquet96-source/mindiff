@@ -249,7 +249,8 @@ function coachResources() {
 function coachHomeCard() {
   if (!COACH) return "";
   // Nouveau coach (aperçu) : compte connecté et service disponible → objectif en cours et dernière partie
-  // Objectif en cours (dernier résumé reçu du coach) : anneau de réussites, poste, cible
+  // Objectif en cours (dernier résumé reçu du coach) : anneau de réussites, poste, cible. « vise » et la cible restent sur
+  // la même ligne (espaces insécables) ; en anglais, i18n.js traduit la ligne entière (« CS at 10 min: aim for 70 CS »)
   const S = typeof C2 !== "undefined" && C2_API != null && C2.v1Snap?.for === C2.account?.riotId ? C2.v1Snap : null;
   if (S) {
     const last = C2.profile?.games?.[0], fresh = last && Array.isArray(C2.seen) && !C2.seen.includes(last.id);
@@ -260,7 +261,7 @@ function coachHomeCard() {
     return `<a class="hgoal${fresh ? " hot" : ""}" href="${c2Href()}">
       <span class="hgoal-ring" style="--deg:${deg}deg" aria-label="${S.met} réussites sur ${S.need} nécessaires"><b>${S.met}/${S.need}</b></span>
       <span class="hgoal-txt"><span class="fine">${S.status === "proposed" ? "Ton prochain objectif" : "Ton objectif"} ${c2AsRole(S.role)}</span>
-        <b>${esc(S.label)} : vise ${esc(S.target)}${esc(unit)}</b><span class="fine">${esc(sub)}</span></span>${icon("chevron")}</a>`;
+        <b>${esc(S.label)} : vise&nbsp;${esc(S.target + unit).replace(/ /g, "&nbsp;")}</b><span class="fine">${esc(sub)}</span></span>${icon("chevron")}</a>`;
   }
   if (typeof C2 !== "undefined" && C2_API != null && C2.account && C2.profile) {
     const P = C2.profile, g = c2GoalState(P, c2Role(P)), last = P.games[0];
@@ -291,7 +292,9 @@ function coachPatchBlock(patch) {
 const coachCovered = name => !!COACH?.coverage.champions[name] && !COACH.coverage.champions[name].partial;
 function coachPrepLink(name, label = "Préparer avec ce champion") {
   if (!COACH) return "";
-  return `<a class="btn ghost sm" href="${href("lol", "coach", "avec", name)}">${icon("target")}${esc(label)}</a>${coachCovered(name) ? "" : `<span class="fine">${esc(name)} n'est pas encore couvert par le coach : conseils de méthode seulement.</span>`}`;
+  // Fiche du champion dans le nouveau coach (l'ancienne préparation, #/lol/coach/avec, menait à l'ancien coach et perdait le champion)
+  const id = typeof c2Id === "function" ? c2Id(name) : null;
+  return `<a class="btn ghost sm" href="${id ? href("lol", "coach", "champions", id) : href("lol", "coach", "avec", name)}">${icon("target")}${esc(label)}</a>${coachCovered(name) ? "" : `<span class="fine">${esc(name)} n'est pas encore couvert par le coach : conseils de méthode seulement.</span>`}`;
 }
 
 // ---------- Événements propres au coach

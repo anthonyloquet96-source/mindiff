@@ -5,7 +5,7 @@
 // Le registre (coach/kb/contents.json) est publié dans l'application : on n'y verse que ce qui va être lu bientôt.
 
 import { readFile } from "node:fs/promises";
-import { P, readJson, writeJson, today } from "./lib.mjs";
+import { P, readJson, writeJson, today, noEmail } from "./lib.mjs";
 import { triage } from "./discover.mjs";
 import { TEACH, DROP } from "./inventory.mjs";
 
@@ -170,7 +170,7 @@ export async function refill(contents, sources, { ahead = 12 } = {}) {
     const description = (page.match(/"shortDescription":"((?:[^"\\]|\\.)*)"/)?.[1] || "").replace(/\\n/g, "\n").replace(/\\"/g, '"').slice(0, 280);
     const tr = triage(`${title} ${description}`, { champions: {}, partial: [] }, null, src.credibility?.level);
     const entry = { id: it.id, sourceId: src.id, type: "video", url: `https://www.youtube.com/watch?v=${it.videoId}`, title, author: src.author, lang: src.langs[0], published, retrievedAt: today(), patch: null,
-      access: "metadonnees", analysis: "non-analysee", descriptionExcerpt: description, backfill: true, queueRank: it.rank,
+      access: "metadonnees", analysis: "non-analysee", descriptionExcerpt: noEmail(description), backfill: true, queueRank: it.rank,
       note: `File de lecture (rang ${it.rank}) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.`,
       triage: { ...tr, score: Math.max(tr.score, Math.round(it.score)), basis: `file de lecture (inventaire du 21/10/2026) ; ${tr.basis}` } };
     contents.contents.push(entry); byId.set(entry.id, entry);

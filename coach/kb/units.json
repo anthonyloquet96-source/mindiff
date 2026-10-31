@@ -67276,7 +67276,284 @@
    },
    "version": 1,
    "firstSeen": "2026-10-31"
+  },
+  {
+   "id": "u-ai-yt-035a4GhaLOE-1",
+   "claim": "Selon ScrubNoob : avant l'apparition du premier camp avec Rengar, saute sur une plante de jungle entre 6 et 10 secondes restantes pour charger de la férocité tout en récupérant le délai de récupération du A.",
+   "champions": [
+    "Rengar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Rengar/Q",
+    "Rengar/passive"
+   ],
+   "conditions": [
+    "Démarrer le premier camp avec une plante de jungle accessible à proximité"
+   ],
+   "limits": [
+    "Nécessite de respecter strictement la fenêtre de timing (entre 6 et 10 secondes)"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-035a4GhaLOE",
+     "locator": "[00:16]",
+     "lang": "en",
+     "passage": "Not before there's 10 seconds left, and not after there's 6 seconds to the camp, cuz your Q CD is 6 seconds.",
+     "autoChecked": {
+      "by": "gemini-3.8-flash",
+      "at": "2026-10-31",
+      "window": "0-56s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-035a4GhaLOE",
+     "locator": "[00:22]",
+     "lang": "en",
+     "passage": "So, you want to hit it between 6 and 10 seconds. So like now, I can jump on it right now."
+    }
+   ],
+   "mentions": [],
+   "action": "En outil d'entraînement, frappe la plante de jungle avec Rengar précisément à 1:22 (8 secondes avant le spawn à 1:30) pour aborder le buff Rouge avec une charge et ton A prêt.",
+   "observe": "Vérifie que ton A est réinitialisé et que tes charges de passif ne se dissipent pas avant de frapper le camp.",
+   "use": {
+    "when": "Au début de la partie, avant l'apparition de ton premier camp de jungle (buff Rouge).",
+    "why": "Le délai de récupération du A est de 6 secondes ; frapper la plante entre 6 et 10 secondes avant l'apparition permet d'entrer en combat, de générer une charge de férocité et d'avoir le A de nouveau disponible dès l'apparition du monstre.",
+    "who": "Joueur de Rengar jungle.",
+    "how": [
+     "Attends qu'il reste entre 6 et 10 secondes avant l'apparition du camp.",
+     "Saute sur la plante de jungle avec ton A.",
+     "Reste en position pour attaquer le camp dès qu'il apparaît avec le A disponible."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'instruction de timing sur la plante est précise, directement appuyée par les citations et immédiatement exploitable."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-31",
+   "validity": {
+    "checkedAt": "2026-10-31",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-31",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-31"
+  },
+  {
+   "id": "u-ai-yt-035a4GhaLOE-2",
+   "claim": "Selon ScrubNoob : sur le camp des Corbins avec Rengar, saute sur le grand Corbin puis kite-le légèrement vers l'extérieur avant de te diriger vers le buisson, afin d'éviter qu'il ne soit bloqué par les petits Corbins.",
+   "champions": [
+    "Rengar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Rengar/passive"
+   ],
+   "conditions": [
+    "Nettoyer le camp des Corbins en partant d'un buisson"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-035a4GhaLOE",
+     "locator": "[03:24]",
+     "lang": "en",
+     "passage": "You never want to just like run to the bush and kite, because then the Raptor is going to get minion blocked and it's going to have to run all the way around, and you're going to end up losing a lot of time.",
+     "autoChecked": {
+      "by": "gemini-3.8-flash",
+      "at": "2026-10-31",
+      "window": "184-244s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-035a4GhaLOE",
+     "locator": "[03:32]",
+     "lang": "en",
+     "passage": "So you jump on the big Raptor, and you kind of kite it out like out here, not too far, just so you can get like a path. You want to get the mini Raptors away from the wall."
+    }
+   ],
+   "mentions": [],
+   "action": "Lors du saut sur les Corbins, fais 1 à 2 pas vers l'extérieur pour déplacer les petits monstres avant de reculer vers le buisson.",
+   "observe": "Le grand Corbin doit te suivre de façon fluide vers le buisson sans être bloqué ni faire de détour autour des petits.",
+   "use": {
+    "when": "Au moment d'attaquer le camp des Corbins depuis le buisson.",
+    "why": "Si tu kites immédiatement vers le buisson, le grand Corbin subit un blocage d'unités (minion block) par les petits Corbins et doit faire tout le tour, ce qui fait perdre du temps sur le clean.",
+    "who": "Joueur de Rengar jungle.",
+    "how": [
+     "Saute sur le grand Corbin depuis le buisson.",
+     "Kite-le légèrement vers l'extérieur pour écarter les petits Corbins du mur.",
+     "Commence à kiter vers le buisson une fois le passage dégagé pour le grand Corbin."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le geste pour éviter le blocage d'unités du grand Corbin est fidèlement décrit et conforme à l'explication de l'auteur."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-31",
+   "validity": {
+    "checkedAt": "2026-10-31",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-31",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-31"
+  },
+  {
+   "id": "u-ai-yt-035a4GhaLOE-3",
+   "claim": "Selon ScrubNoob, lorsque Rengar n'a pas son ultime disponible, se regrouper est souvent peu utile et il est préférable d'exercer de la pression sur les voies latérales.",
+   "champions": [
+    "Rengar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "macro",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Rengar/R"
+   ],
+   "conditions": [
+    "Compétence ultime en récupération"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-035a4GhaLOE",
+     "locator": "[11:31]",
+     "lang": "en",
+     "passage": "We don't have ult, so grouping is pretty useless for us, so I'm going to start putting pressure on sides.",
+     "autoChecked": {
+      "by": "gemini-3.8-flash",
+      "at": "2026-10-31",
+      "window": "671-731s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur ne mentionne ni la prise de vision sur le flanc dans les gestes, ni le fait d'attirer des adversaires isolés dans la justification."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Quand ton R est en recharge, isole une voie latérale dégagée pour pousser la vague plutôt que d'attendre au milieu avec ton équipe.",
+   "observe": "Regarde si ta présence en side attire un adversaire loin de la zone de regroupement adverse.",
+   "use": {
+    "when": "En milieu de partie lorsque ta compétence ultime Chasseur-né est en rechargement et que les équipes se regroupent.",
+    "why": "",
+    "who": "Joueur de Rengar jungle.",
+    "how": [
+     "Contrôle le délai de récupération de ton ultime.",
+     "Dirige-toi vers une vague latérale au lieu de te regrouper au centre.",
+     "Pousse la vague et prends de la vision sur le flanc."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "une-partie",
+     "sur-generalisation"
+    ],
+    "why": "Le passage cité est un commentaire en direct tiré d'une seule partie que l'unité érige en règle générale sans nuance."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-10-31",
+   "validity": {
+    "checkedAt": "2026-10-31",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-10-31",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-10-31"
   }
  ],
- "updatedAt": "2026-10-31T01:11:52.336Z"
+ "updatedAt": "2026-10-31T07:27:24.742Z"
 }

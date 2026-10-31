@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T01:11:53.278Z",
+ "generatedAt": "2026-10-31T07:27:25.855Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -1386,17 +1386,18 @@
    },
    "Rengar": {
     "role": null,
-    "units": 7,
+    "units": 10,
     "themes": [
      "champion",
      "matchup",
      "vision",
      "survie",
-     "jungle"
+     "jungle",
+     "macro"
     ],
-    "actions": 0,
+    "actions": 3,
     "official": 6,
-    "coaching": 1
+    "coaching": 4
    },
    "Riven": {
     "role": null,
@@ -2064,8 +2065,8 @@
    "methode": 10,
    "vagues": 40,
    "vision": 13,
-   "macro": 63,
-   "jungle": 43
+   "macro": 64,
+   "jungle": 45
   },
   "partial": [
    "Ashe"
@@ -18242,7 +18243,9 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "videoSkipped": "environ 92 min : au-delà de 90 min (vidéo pédagogique trop longue)",
+   "videoAttempts": 3
   },
   {
    "id": "c-yt-hADG2i46dEQ",
@@ -19782,6 +19785,31 @@
    }
   },
   {
+   "id": "c-yt-uSDI6rrZl2E",
+   "sourceId": "yt-japs-99jh_",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=uSDI6rrZl2E",
+   "title": "정글 동선 가이드! 바이 정글 기초부터 핵심까지 알려드립니다",
+   "author": "챌린저 정글선생 쿨쿨",
+   "lang": "ko",
+   "published": "2026-05-11",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 26001,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "#정글 #정글강의 #리그오브레전드\n\n아마추어 1위 강의:https://www.notion.so/1-e67f08ed2fce832e94690179e311e008?source=copy_link\n생방송 주소 : chzzk.naver.com/504ad973700dfe9085fd19f23c02e796",
+   "triage": {
+    "score": 0,
+    "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "queueRank": 39
+  },
+  {
    "id": "c-yt-vvkBCSbLtYs",
    "sourceId": "yt-fmmwh9er3z",
    "type": "video",
@@ -21224,13 +21252,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-10-24",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "aucun",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 30,
-   "note": "File de lecture (rang 25) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 13,
     "matched": [
@@ -21240,6 +21268,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-31",
+    "sha256": "dd90b09d29187b653b18b950ac4bc39f2bc1667f9e2b1f8dfbd35e0585e7792c",
+    "segments": 84,
+    "observations": 40,
+    "duration": "18:44",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 109464
+   },
+   "analyzedAt": "2026-10-31",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Optimiser le premier clean de jungle de Rengar grâce au pré-chargement de férocité sur plante et au kiting précis des Corbins, puis adapter sa macro en split-pushant dès que l'ultime est en rechargement.",
+   "quality": {
+    "level": "élevée",
+    "why": "Démonstration technique précise en mode entraînement avec timings de compétences explicites et justifications de déplacement, complétée par l'application en partie commentée."
    }
   },
   {
@@ -24609,7 +24660,9 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "videoAttempts": 1,
+   "videoError": "gemini-3.8-flash HTTP 403 : The caller does not have permission (2026-10-31)"
   },
   {
    "id": "c-yt-cRoLLHb0bro",
@@ -24621,13 +24674,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-10-30",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "25.09",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 32,
-   "note": "File de lecture (rang 32) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 19,
     "matched": [
@@ -24638,6 +24691,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-10-31",
+    "sha256": "296d96e2fbc0bb22d09a91506ac1941f8f35867f170efb5e6f0de8b274699a61",
+    "segments": 160,
+    "observations": 40,
+    "duration": "20:01",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 121602
    }
   },
   {
@@ -24832,6 +24898,65 @@
    "note": "File de lecture (rang 38) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 18,
+    "matched": [
+     "guide",
+     "clear"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-e8mDDPj4DjQ",
+   "sourceId": "yt-coach-leo",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=e8mDDPj4DjQ",
+   "title": "How To MAXIMIZE Farming Junglers To Climb SoloQ - Educational Gameplay Guide",
+   "author": "Coach Leo (JungleGap)",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-31",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 40,
+   "note": "File de lecture (rang 40) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 19,
+    "matched": [
+     "jungle",
+     "jungler",
+     "guide",
+     "how to",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-PDRr_YJlDP8",
+   "sourceId": "yt-hybradge",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=PDRr_YJlDP8",
+   "title": "You’re Playing Volibear Wrong – 9 Camp Clear Guide",
+   "author": "hybradge",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-31",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 41,
+   "note": "File de lecture (rang 41) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 17,
     "matched": [
      "guide",
      "clear"
@@ -75787,6 +75912,245 @@
     {
      "code": "traduction",
      "why": "Terme à risque (shield) dans un passage en en sans note de traduction."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-035a4GhaLOE-1",
+   "claim": "Selon ScrubNoob : avant l'apparition du premier camp avec Rengar, saute sur une plante de jungle entre 6 et 10 secondes restantes pour charger de la férocité tout en récupérant le délai de récupération du A.",
+   "champions": [
+    "Rengar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Démarrer le premier camp avec une plante de jungle accessible à proximité"
+   ],
+   "limits": [
+    "Nécessite de respecter strictement la fenêtre de timing (entre 6 et 10 secondes)"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-035a4GhaLOE",
+     "locator": "[00:16]",
+     "lang": "en",
+     "passage": "Not before there's 10 seconds left, and not after there's 6 seconds to the camp, cuz your Q CD is 6 seconds.",
+     "autoChecked": {
+      "by": "gemini-3.8-flash",
+      "at": "2026-10-31",
+      "window": "0-56s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-035a4GhaLOE",
+     "locator": "[00:22]",
+     "lang": "en",
+     "passage": "So, you want to hit it between 6 and 10 seconds. So like now, I can jump on it right now."
+    }
+   ],
+   "mentions": [],
+   "action": "En outil d'entraînement, frappe la plante de jungle avec Rengar précisément à 1:22 (8 secondes avant le spawn à 1:30) pour aborder le buff Rouge avec une charge et ton A prêt.",
+   "observe": "Vérifie que ton A est réinitialisé et que tes charges de passif ne se dissipent pas avant de frapper le camp.",
+   "use": {
+    "when": "Au début de la partie, avant l'apparition de ton premier camp de jungle (buff Rouge).",
+    "why": "Le délai de récupération du A est de 6 secondes ; frapper la plante entre 6 et 10 secondes avant l'apparition permet d'entrer en combat, de générer une charge de férocité et d'avoir le A de nouveau disponible dès l'apparition du monstre.",
+    "who": "Joueur de Rengar jungle.",
+    "how": [
+     "Attends qu'il reste entre 6 et 10 secondes avant l'apparition du camp.",
+     "Saute sur la plante de jungle avec ton A.",
+     "Reste en position pour attaquer le camp dès qu'il apparaît avec le A disponible."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "exploitable",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-035a4GhaLOE-2",
+   "claim": "Selon ScrubNoob : sur le camp des Corbins avec Rengar, saute sur le grand Corbin puis kite-le légèrement vers l'extérieur avant de te diriger vers le buisson, afin d'éviter qu'il ne soit bloqué par les petits Corbins.",
+   "champions": [
+    "Rengar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Nettoyer le camp des Corbins en partant d'un buisson"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-035a4GhaLOE",
+     "locator": "[03:24]",
+     "lang": "en",
+     "passage": "You never want to just like run to the bush and kite, because then the Raptor is going to get minion blocked and it's going to have to run all the way around, and you're going to end up losing a lot of time.",
+     "autoChecked": {
+      "by": "gemini-3.8-flash",
+      "at": "2026-10-31",
+      "window": "184-244s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-035a4GhaLOE",
+     "locator": "[03:32]",
+     "lang": "en",
+     "passage": "So you jump on the big Raptor, and you kind of kite it out like out here, not too far, just so you can get like a path. You want to get the mini Raptors away from the wall."
+    }
+   ],
+   "mentions": [],
+   "action": "Lors du saut sur les Corbins, fais 1 à 2 pas vers l'extérieur pour déplacer les petits monstres avant de reculer vers le buisson.",
+   "observe": "Le grand Corbin doit te suivre de façon fluide vers le buisson sans être bloqué ni faire de détour autour des petits.",
+   "use": {
+    "when": "Au moment d'attaquer le camp des Corbins depuis le buisson.",
+    "why": "Si tu kites immédiatement vers le buisson, le grand Corbin subit un blocage d'unités (minion block) par les petits Corbins et doit faire tout le tour, ce qui fait perdre du temps sur le clean.",
+    "who": "Joueur de Rengar jungle.",
+    "how": [
+     "Saute sur le grand Corbin depuis le buisson.",
+     "Kite-le légèrement vers l'extérieur pour écarter les petits Corbins du mur.",
+     "Commence à kiter vers le buisson une fois le passage dégagé pour le grand Corbin."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "exploitable",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-035a4GhaLOE-3",
+   "claim": "Selon ScrubNoob, lorsque Rengar n'a pas son ult disponible, se regrouper est souvent peu utile et il est préférable d'exercer de la pression sur les side lanes.",
+   "champions": [
+    "Rengar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "macro",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Compétence ultime en récupération"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-035a4GhaLOE",
+     "locator": "[11:31]",
+     "lang": "en",
+     "passage": "We don't have ult, so grouping is pretty useless for us, so I'm going to start putting pressure on sides.",
+     "autoChecked": {
+      "by": "gemini-3.8-flash",
+      "at": "2026-10-31",
+      "window": "671-731s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur ne mentionne ni la prise de vision sur le flanc dans les gestes, ni le fait d'attirer des adversaires isolés dans la justification."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Quand ton R est en recharge, isole une voie latérale dégagée pour pousser la vague plutôt que d'attendre au milieu avec ton équipe.",
+   "observe": "Regarde si ta présence en side attire un adversaire loin de la zone de regroupement adverse.",
+   "use": {
+    "when": "En milieu de partie lorsque ta compétence ultime Chasseur-né est en rechargement et que les équipes se regroupent.",
+    "why": "",
+    "who": "Joueur de Rengar jungle.",
+    "how": [
+     "Contrôle le délai de récupération de ton ult.",
+     "Dirige-toi vers une wave latérale au lieu de te regrouper au centre.",
+     "Pousse la wave et prends de la vision sur le flanc."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "sur-generalisation",
+     "why": "c-yt-035a4GhaLOE : l'extrait 671-731s ne dit pas exactement cela (L'auteur ne mentionne ni la prise de vision sur le flanc dans les gestes, ni le fait d'attirer des adversaires isolés dans la justification.)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Contrôle critique : Le passage cité est un commentaire en direct tiré d'une seule partie que l'unité érige en règle générale sans nuance."
     }
    ]
   }

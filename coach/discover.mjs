@@ -1,10 +1,12 @@
 // Découverte des nouveaux contenus des sources suivies (séparée de l'analyse).
-// Vidéos : métadonnées du flux RSS public uniquement. Articles : liste publique de l'API WordPress.
+// Vidéos : première page publique de l'onglet « vidéos » de la chaîne (titre, durée, âge, vues). Articles : liste publique de l'API WordPress.
+// Le flux RSS (/feeds/videos.xml) n'est plus lu : le robots.txt de YouTube l'interdit (vérifié le 31/10/2026).
 // Le tri par pertinence se fait sur les métadonnées : il fixe une priorité, jamais une preuve du contenu.
 // Usage : node coach/discover.mjs [--force]
 
 import { XMLParser } from "fast-xml-parser";
 import { P, readJson, writeJson, today, noEmail } from "./lib.mjs";
+import { catalogue } from "./inventory.mjs";
 
 const FORCE = process.argv.includes("--force");
 const UA = "MINDIFF-coach/1.0 (+https://anthonyloquet96-source.github.io/mindiff/)";
@@ -36,6 +38,9 @@ async function get(url, type) {
   return type === "json" ? r.json() : r.text();
 }
 
+// « 12K views », « 1.2M views », « 845 views » → nombre
+const viewCount = t => { const m = String(t || "").replace(/,/g, "").match(/([\d.]+)\s*([KMB])?/i); return m ? Math.round(+m[1] * ({ k: 1e3, m: 1e6, b: 1e9 }[m[2]?.toLowerCase()] || 1)) || null : null; };
+
 const xml = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: "@" });
 export function parseYoutubeFeed(text) {
   const feed = xml.parse(text).feed || {};
@@ -57,7 +62,7 @@ export async function run() {
   // Nouveau calcul de priorité appliqué aussi aux vidéos déjà repérées et pas encore lues
   // Les pages officielles des champions sans conseils (coach/insights.mjs) et les anciens guides ciblés (coach/backfill.mjs) gardent leur priorité fixe
   for (const c of contents.contents.filter(c => c.type === "video" && c.access === "metadonnees" && c.sourceId !== "riot-champion-insights" && !c.backfill)) { const src = reg.sources.find(x => x.id === c.sourceId); c.triage = triage(`${c.title} ${c.descriptionExcerpt || ""}`, config.pilot, NAMES, src?.credibility.level); }
-  const active = reg.sources.filter(s => s.active && ["youtube-rss", "wp-json"].includes(s.access.discovery?.type)).slice(0, d.maxSources);
+  const active = reg.sources.filter(s => s.active && ["youtube-page", "wp-json"].includes(s.access.discovery?.type)).slice(0, d.maxSources);
   for (const s of active) {
     const st = state.discovery[s.id] ||= { attempts: 0 };
     const now = Date.now();
@@ -65,13 +70,14 @@ export async function run() {
     if (!FORCE && st.nextTry && now < new Date(st.nextTry)) { log.push(`· ${s.id} : nouvel essai prévu ${st.nextTry}`); continue; }
     try {
       let items = [];
-      if (s.access.discovery.type === "youtube-rss") {
-        items = parseYoutubeFeed(await get(s.access.discovery.url, "text")).slice(0, d.maxItemsPerSource).map(v => ({
-          id: `c-yt-${v.videoId}`, sourceId: s.id, type: "video", url: v.url, title: v.title, author: v.author || s.author, lang: s.langs[0],
-          published: v.published?.slice(0, 10), retrievedAt: today(), patch: null, views: v.views,
+      if (s.access.discovery.type === "youtube-page") {
+        // La page ne donne ni description ni date exacte : seulement l'âge (« 3 months ago »), gardé tel quel avec le jour de lecture
+        const cat = await catalogue(s.channelId || s.access.discovery.url.match(/channel\/(UC[\w-]+)/)?.[1]);
+        items = cat.videos.filter(v => v.id && v.title).slice(0, d.maxItemsPerSource).map(v => ({
+          id: `c-yt-${v.id}`, sourceId: s.id, type: "video", url: `https://www.youtube.com/watch?v=${v.id}`, title: v.title, author: s.author, lang: s.langs[0],
+          published: null, ageMonths: v.age != null ? Math.round(v.age * 10) / 10 : null, retrievedAt: today(), patch: null, views: viewCount(v.views),
           access: "metadonnees", analysis: "non-analysee", note: VIDEO_NOTE,
-          descriptionExcerpt: noEmail(String(v.description).slice(0, 280)),
-          triage: triage(`${v.title} ${v.description}`, config.pilot, NAMES, s.credibility.level),
+          triage: triage(v.title, config.pilot, NAMES, s.credibility.level),
         }));
       } else {
         const posts = await get(s.access.discovery.url, "json");

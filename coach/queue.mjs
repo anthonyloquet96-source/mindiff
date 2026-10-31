@@ -119,7 +119,7 @@ export async function build({ perChannel = 25, months = 24 } = {}) {
         id: sourceId(ch.name, id, reg.sources), name: ch.name, author: ch.name, url: `https://www.youtube.com/channel/${id}`, channelId: id,
         langs: [LANG[c.lang] || "en"], kind: "createur", format: "video", roles: roles.length ? roles : ["all"], champions: [],
         expertise: [{ claim: (c.description || "").slice(0, 160) || "Chaîne pédagogique League of Legends", evidence: `https://www.youtube.com/channel/${id}/about`, how: `déclaration du créateur (description de la chaîne) ; ${ch.subscribers || "abonnés inconnus"} ; trouvée par recherche YouTube (${c.query || "inventaire"}) ; non vérifié indépendamment au ${today()}` }],
-        access: { mode: "rss-metadonnees", detail: "Flux RSS public ; lecture des vidéos par Gemini.", discovery: { type: "youtube-rss", url: `https://www.youtube.com/feeds/videos.xml?channel_id=${id}` } },
+        access: { mode: "page-metadonnees", detail: "Page publique des vidéos de la chaîne (première page) ; lecture des vidéos par Gemini.", discovery: { type: "youtube-page", url: `https://www.youtube.com/channel/${id}/videos` } },
         credibility: { level: "à établir", why: tier === "B" ? "Profil haut niveau déclaré par le créateur, à confirmer ; chaque vidéo est jugée sur sa qualité réelle." : "Chaîne de coaching ou de guides sans niveau déclaré : priorité basse, chaque vidéo est jugée sur sa qualité réelle." },
         lastChecked: today(), active: true, addedBy: "inventaire 21/10/2026",
       };
@@ -133,7 +133,7 @@ export async function build({ perChannel = 25, months = 24 } = {}) {
   for (const c of contents.contents.filter(c => c.type === "video" && c.access === "metadonnees" && !known.has(c.id) && (c.videoAttempts || 0) < 3)) {
     const src = reg.sources.find(s => s.id === c.sourceId);
     if (!src || src.kind === "officiel" || !(c.backfill || (TEACH.test(c.title) && !DROP.test(c.title))) || LOW.test(c.title)) continue;
-    const age = c.published ? (Date.now() - Date.parse(c.published)) / (30 * 864e5) : 12;
+    const age = c.published ? (Date.now() - Date.parse(c.published)) / (30 * 864e5) : c.ageMonths != null && c.retrievedAt ? c.ageMonths + (Date.now() - Date.parse(c.retrievedAt)) / (30 * 864e5) : 12;
     items.push({ id: c.id, videoId: c.url.split("v=")[1], channelId: src.channelId || src.id, sourceId: src.id, title: c.title, min: 20, ageMonths: Math.round(age), views: c.views || "", tier: "A", score: c.backfill
       // Anciens guides ciblés à la demande d'Anthony (ex. Chreak : « même les anciens, les guides sont universels ») : l'ancienneté ne les pénalise pas
       ? scoreVideo({ title: c.title, min: 20, age: 6, views: c.views }, "A", champs) + 2

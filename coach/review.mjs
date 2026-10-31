@@ -187,7 +187,12 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   const lateObj = deaths.filter(d => d.beforeObjective);
   if (lateObj.length >= 2) findings.push({ kind: "mort-avant-objectif", family: "decision", weight: 3 + lateObj.length, title: `${lateObj.length} mort${lateObj.length > 1 ? "s" : ""} juste avant un objectif adverse`, facts: lateObj.map(d => `${d.at} : tué par ${champName(d.killer)}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}, puis ${d.beforeObjective}${onMap(d) ? " (à revoir dans le Replay)" : ""}`), metric: "deaths30" });
   const earlyDeaths = deaths.filter(d => d.t < 14 * 60000);
-  if (earlyDeaths.length >= 3) findings.push({ kind: "morts-phase-de-ligne", family: "decision", weight: 1 + earlyDeaths.length, title: `${earlyDeaths.length} morts avant 14 min`, facts: earlyDeaths.map(d => `${d.at} : tué par ${champName(d.killer)}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}${d.enemyHalf ? ", dans la moitié adverse" : ""}`), metric: "deaths30" });
+  // Banc d'essai du 31/10 (1 600 parties) : le nombre de morts avant 14 min ne distingue le niveau qu'en jungle, à partir de 4
+  // (18 / 10 / 11 % des parties, 13 % de victoires contre 49 %) ; en support, 3 morts arrivaient plus souvent chez les Diamant+ (52 %) que chez les Fer à Argent (40 %).
+  // Aux autres postes, c'est le temps passé mort qui compte (15 % de la partie ou plus : 29 / 26 / 15 %, 29 % de victoires contre 52 %)
+  const deadShare = me.totalTimeSpentDead != null && info.gameDuration ? me.totalTimeSpentDead / info.gameDuration : null;
+  if (deadShare >= 0.15) findings.push({ kind: "temps-mort", family: "decision", weight: 1 + deadShare * 10, title: `${Math.round(deadShare * 100)} % de la partie passés mort`, facts: [`Environ ${Math.round(me.totalTimeSpentDead / 60)} min sans pouvoir agir, sur ${Math.round(info.gameDuration / 60)} min de jeu.`, "Chez les joueurs Diamant et plus, c'est arrivé dans 15 % des parties, contre 29 % chez les Fer à Argent (1 600 parties analysées)."], metric: "deaths30" });
+  if (s.role === "jungle" && earlyDeaths.length >= 4) findings.push({ kind: "morts-phase-de-ligne", family: "decision", weight: 1 + earlyDeaths.length, title: `${earlyDeaths.length} morts avant 14 min`, facts: earlyDeaths.map(d => `${d.at} : tué par ${champName(d.killer)}${d.helpers ? ` (+${d.helpers} aide${d.helpers > 1 ? "s" : ""})` : ""}${d.enemyHalf ? ", dans la moitié adverse" : ""}`), metric: "deaths30" });
   for (const c of comparisons.filter(c => c.level === "sous")) findings.push({ kind: `ecart-${c.metric}`, family: "niveau", weight: 1 + c.gap, title: `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, moins bien que les bons joueurs (${METRICS[c.metric].say(c.p50)})`, facts: [`Les bons joueurs à ton poste (Diamant et plus) : ${METRICS[c.metric].say(c.p50)}.`], metric: c.metric });
   // Retard net en phase de lane : seuil par rôle (20 % des parties les plus en retard au banc d'essai du 21/10/2026, 800 parties)
   const a10 = lane.at10;
@@ -207,6 +212,8 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   const long = s.minutes >= 20;
   // Pas au top : 52 % des parties de top Diamant+ n'ont aucune ward détruite avant 20 min (mesure du 29/10 sur 4 486 parties)
   if (!support && s.role !== "top" && long && wardKills20 === 0) findings.push({ kind: "aucune-balise-detruite", family: "niveau", weight: 1.2, title: "Aucune ward adverse détruite avant 20 min", facts: ["À ton poste, la plupart des bons joueurs détruisent au moins une ward adverse avant 20 min (parties Diamant+ analysées)."], metric: "visionMin" });
+  // Support : au plus une ward détruite avant 20 min dans 34 % des parties Fer à Argent, 14 % des Diamant+ (banc d'essai du 31/10, 329 parties de support)
+  if (support && long && wardKills20 <= 1) findings.push({ kind: "aucune-balise-detruite", family: "niveau", weight: 1.2, title: wardKills20 ? "Une seule ward adverse détruite avant 20 min" : "Aucune ward adverse détruite avant 20 min", facts: ["En support, les bons joueurs en détruisent au moins deux avant 20 min dans 86 % de leurs parties (parties Diamant+ analysées)."], metric: "visionMin" });
   if (!support && backs14 <= 1) findings.push({ kind: "peu-de-retours", family: "niveau", weight: 1.1, title: `${backs14 ? "Un seul retour" : "Aucun retour"} volontaire à la base avant 14 min`, facts: ["Les bons joueurs backent environ 3 fois avant 14 min, au bon moment (d'après 800 parties analysées, de Fer à Challenger)."], metric: null });
   // Référence du rythme d'objets : Diamant+ du même champion au même poste (chronologies, coach/situations.mjs), sinon du poste, sinon 14 min
   const sitChamp = situations?.byChamp?.[`${s.champion}|${s.role}`], sitRole = situations?.byRole?.[s.role];
@@ -217,15 +224,20 @@ export async function review(riot, { matchId, puuid, region, benchmarks, champst
   if (long && ((s.role === "jungle" && control20 === 0) || (support && control20 <= 1))) findings.push({ kind: "balises-controle", family: "niveau", weight: 1.1, title: `${control20 ? "Une seule ward" : "Aucune ward"} de contrôle posée avant 20 min`, facts: [s.role === "jungle" ? "En jungle, les bons joueurs en posent au moins une avant 20 min pour sécuriser leurs camps et les objectifs." : "En support, les bons joueurs en posent au moins 2 avant 20 min."], metric: "controlWards" });
   // Farm à 10 min et farm sur la partie : un seul constat, avec les deux chiffres
   const cs10 = findings.find(f => f.kind === "ecart-cs10"), csMin = findings.find(f => f.kind === "ecart-csMin");
-  if (cs10 && csMin) { csMin.facts = [cs10.title, ...csMin.facts]; csMin.weight = Math.max(csMin.weight, cs10.weight); findings.splice(findings.indexOf(cs10), 1); }
-  if (findings.some(f => f.kind === "morts-phase-de-ligne")) { const i = findings.findIndex(f => f.kind === "ecart-deaths30"); if (i >= 0) findings.splice(i, 1); }
+  // Seul, l'écart de farm à 10 min ne distingue pas le niveau (5 / 10 / 8 % des parties, banc d'essai du 31/10) : il ne sert que de détail
+  if (cs10 && csMin) { csMin.facts = [cs10.title, ...csMin.facts]; csMin.weight = Math.max(csMin.weight, cs10.weight); }
+  if (cs10) findings.splice(findings.indexOf(cs10), 1);
+  // Un seul constat sur les morts ; l'écart de morts par 30 min, seul, se déclenche autant de Fer à Challenger (9 / 7 / 9 %, banc d'essai du 31/10) : la comparaison reste affichée
+  const drop = k => { const i = findings.findIndex(f => f.kind === k); if (i >= 0) findings.splice(i, 1); };
+  if (findings.some(f => f.kind === "morts-phase-de-ligne")) drop("temps-mort");
+  drop("ecart-deaths30");
   findings.sort((a, b) => b.weight - a.weight);
   const strengths = comparisons.filter(c => c.level === "au-dessus" && c.p50 > 0).map(c => `${METRICS[c.metric].plain} : ${METRICS[c.metric].say(c.value)}, au niveau des meilleurs`);
   if (a10 && a10.gold >= 1000) strengths.unshift(`Phase de lane : ${a10.duo ? "ton duo avait " : ""}${a10.gold.toLocaleString("fr-FR")} golds d'avance sur ${a10.duo ? "le duo adverse" : lane.opponent} à 10 min`);
   if (lane.platesTaken >= 3) strengths.push(`${lane.platesTaken} plaques de tourelle prises sur ta lane`);
 
   return {
-    textVersion: 2, // textes revus après la relecture « joueur Argent » du 23/10/2026 (les bilans gardés sur le téléphone sont relus)
+    textVersion: 3, // 2 : textes revus après la relecture « joueur Argent » du 23/10/2026 ; 3 : règles revues au banc d'essai du 31/10 (les bilans gardés sur le téléphone sont relus)
     // Partie où le joueur était absent : faits gardés, aucun conseil (ils n'auraient pas de sens)
     absent: s.absent, summary: { ...s, deadSeconds: me.totalTimeSpentDead ?? null }, lane, deaths, bases, objectives,
     comparisons: s.absent ? [] : comparisons, findings: s.absent ? [] : findings.slice(0, 3), findingsAll: s.absent ? [] : findings.map(f => f.kind), habits, strengths: s.absent ? [] : strengths,
@@ -471,10 +483,11 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
     if (behind.length >= need && behind.length > ahead.length) minus.push({ kind: "retard-en-ligne", family: "decision", metric: "cs10", weight: 2 + behind.length / 2, title: `Au moins 500 golds de retard sur ton adversaire direct (le duo adverse pour la bot lane) à 10 min dans ${behind.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} golds à 10 min.`, games: behind.map(r => r.summary.id) });
     if (ahead.length >= Math.max(need, Math.ceil(lanes.length / 2)) && ahead.length > behind.length) plus.push({ kind: "avance-en-ligne", title: `Au moins 500 golds d'avance sur ton adversaire à 10 min dans ${ahead.length} parties sur ${lanes.length}`, detail: `Écart moyen : ${avg > 0 ? "+" : ""}${fr(avg)} golds à 10 min.` });
   }
-  // Morts en phase de lane : au moins 3 avant 14 min (2 arrivait dans 65 % des parties, à tous les rangs)
-  const early = reviews.filter(r => r.deaths.filter(d => d.t < 14 * 60000).length >= 3);
-  if (early.length >= need) minus.push({ kind: "morts-phase-de-ligne", family: "decision", metric: "deaths30", weight: 2 + early.length / 2, title: `Au moins 3 morts avant 14 min dans ${early.length} parties sur ${n}`, detail: "Chaque mort en phase de lane coûte des sbires, de l'expérience et souvent les plaques de ta tourelle (l'or donné par ses protections avant 14 min).",
-    evidence: "Mesuré sur 800 parties : avec 3 morts ou plus avant 14 min, les parties sont gagnées 40 % du temps, contre 58 % sans.", games: early.map(r => r.summary.id) });
+  // Morts en début de partie : seulement en jungle, au moins 4 avant 14 min (banc d'essai du 31/10 : aux autres postes, ce nombre ne distingue pas
+  // le niveau ; le temps passé mort, plus bas, le fait)
+  const jg = reviews.filter(r => r.summary.role === "jungle"), early = jg.filter(r => r.deaths.filter(d => d.t < 14 * 60000).length >= 4);
+  if (early.length >= need) minus.push({ kind: "morts-phase-de-ligne", family: "decision", metric: "deaths30", weight: 2 + early.length / 2, title: `En jungle, au moins 4 morts avant 14 min dans ${early.length} parties sur ${jg.length}`, detail: "Chaque mort en début de partie laisse à l'adversaire tes camps, tes ganks et les premiers objectifs.",
+    evidence: "Mesuré sur 1 600 parties, dont 289 en jungle : avec 4 morts ou plus avant 14 min, une partie de jungle est gagnée 13 fois sur 100, contre 49 sans.", games: early.map(r => r.summary.id) });
   const dead = reviews.filter(r => r.summary.deadSeconds != null);
   if (dead.length >= 3) {
     const avg = dead.reduce((a, r) => a + r.summary.deadSeconds / r.duration, 0) / dead.length;
@@ -496,27 +509,27 @@ export async function report(riot, { puuid, region, ids = null, role = null, cha
   }
   // Habitudes des bons joueurs (banc d'essai : part des parties où l'habitude manque, Fer à Argent → Diamant et plus, à rôle égal)
   // diamond et low : pourcentage de parties où l'habitude manque, chez les Diamant+ et chez les Fer à Argent ; un nombre, ou un seuil par poste
-  const H = (kind, test, eligible, diamondIn, lowIn, title, detail, metric = null) => {
+  const H = (kind, test, eligible, diamondIn, lowIn, title, detail, metric = null, measured = "800") => {
     const pool = reviews.filter(r => r.habits && eligible(r)), miss = pool.filter(test);
     const roles = pool.map(r => r.summary.role), mainRole = roles.sort((a, b) => roles.filter(x => x === b).length - roles.filter(x => x === a).length)[0];
     const per = v => (typeof v === "object" ? v[mainRole] : v), diamond = per(diamondIn), low = per(lowIn);
-    if (diamond == null) return;
+    if (diamond == null || minus.some(m => m.kind === kind)) return;
     if (pool.length < 3 || miss.length < need || miss.length / pool.length < diamond / 100 + 0.15) return;
     minus.push({ kind, family: "niveau", metric, weight: 1 + miss.length / 2, title: `${title} dans ${miss.length} parties sur ${pool.length}`, detail, games: miss.map(r => r.summary.id),
-      evidence: `D'après 800 parties analysées, à poste égal : « ${title.charAt(0).toLowerCase() + title.slice(1)} » dans ${low} % des parties des joueurs Fer à Argent, et seulement ${diamond} % de celles des Diamant et plus.` });
+      evidence: `D'après ${measured} parties analysées, à poste égal : « ${title.charAt(0).toLowerCase() + title.slice(1)} » dans ${low} % des parties des joueurs Fer à Argent, et seulement ${diamond} % de celles des Diamant et plus.` });
   };
   const notSup = r => r.summary.role !== "support", long = r => r.summary.minutes >= 20;
   H("aucune-balise-detruite", r => r.habits.wardKills20 === 0, r => notSup(r) && long(r), { jungle: 17, mid: 39, bottom: 26 }, { jungle: 48, mid: 69, bottom: 55 }, "Aucune ward adverse détruite avant 20 min", "Détruire les wards adverses (trinket rouge, control ward) prive l'adversaire de vision et protège tes déplacements.", "visionMin");
+  // Support : banc d'essai du 31/10 (1 600 parties, dont 329 de support de 20 min ou plus)
+  H("aucune-balise-detruite", r => r.habits.wardKills20 <= 1, r => r.summary.role === "support" && long(r), { support: 14 }, { support: 34 }, "Au plus une ward adverse détruite avant 20 min", "En support, détruire les wards adverses (trinket rouge, control ward) prive l'adversaire de vision autour de la bot lane et des objectifs.", "visionMin", "1 600");
   H("peu-de-retours", r => r.habits.backs14 <= 1, notSup, 9, 25, "Au plus un back volontaire avant 14 min", "Les bons joueurs backent environ 3 fois avant 14 min, au bon moment (sbires poussés, or suffisant).");
   H("premier-objet-tardif", r => r.habits.legendaryMin == null || r.habits.legendaryMin > 14, r => notSup(r) && r.summary.minutes >= 14, 12, 23, "Premier grand item terminé après 14 min", "Les bons joueurs terminent leur premier grand item vers 11 min : plus de farm et des retours au bon moment.", "csMin");
   H("balises-controle", r => (r.summary.role === "jungle" ? r.habits.control20 === 0 : r.habits.control20 <= 1), r => long(r) && ["jungle", "support"].includes(r.summary.role), 40, 68, "Peu de control wards posées avant 20 min", "Une control ward (75 golds) reste posée jusqu'à ce qu'on la détruise : elle montre et coupe la vision adverse autour d'un objectif.", "controlWards");
   // Relecture tactique : seules les erreurs dont l'effet est mesuré au-delà de l'état de la partie
   const T = reviews.map(r => r.tactics).filter(Boolean);
   const lessonGames = kind => reviews.filter(r => r.tactics?.lessons.some(l => l.kind === kind));
-  const iso = lessonGames("mort-isolee"), contested = lessonGames("objectif-inferiorite");
+  const iso = lessonGames("mort-isolee");
   if (iso.length >= need) minus.push({ kind: "mort-isolee", family: "decision", metric: "deaths30", weight: 1.5 + iso.length / 2, title: `Morts seul face à plusieurs adversaires après 14 min dans ${iso.length} parties sur ${n}`, detail: "Au moment de la mort, aucun allié n'était tout près et plusieurs adversaires ont participé au kill. Revois ces minutes dans le Replay pour voir ce qui s'est passé.", games: iso.map(r => r.summary.id) });
-  if (contested.length >= need) minus.push({ kind: "objectif-inferiorite", family: "decision", metric: null, weight: 3 + contested.length / 2, title: `Objectifs disputés en infériorité numérique dans ${contested.length} parties sur ${n}`, detail: "Combat perdu autour d'un objectif alors que l'équipe était moins nombreuse (souvent avec un allié mort).",
-    evidence: "Sur 800 parties analysées, une équipe qui dispute un objectif en étant moins nombreuse gagne environ 9 parties sur 100 de moins, qu'elle soit devant ou derrière.", games: contested.map(r => r.summary.id) });
   // Participation aux combats et aux objectifs
   const near = T.flatMap(t => t.fights.filter(f => f.myDist < 6000 || f.me)), joined = near.filter(f => f.me);
   const objs = T.flatMap(t => t.objectives), present = objs.filter(o => o.myDist < 4500);

@@ -2,6 +2,29 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-10-31, soir — feu vert d'Anthony : notifs en ligne, YouTube conforme, règles du coach revues
+- **Notifs** : worker redéployé avec les corrections du tour de contrôle (ace, inhibiteurs, décalage, plafond d'envois, rappels).
+- **YouTube** : la veille ne lit plus `/feeds/videos.xml`, `/results` ni `/youtubei/` (interdits par le robots.txt). Elle lit la première page publique de l'onglet « vidéos » des 77 chaînes, sous le vrai nom du robot. Le titre, la durée, l'âge et les vues y sont, mais pas la description ni la date exacte. Essai : 78 sources lues sans erreur. La recherche de nouvelles chaînes est arrêtée, il faut les ajouter à la main.
+- **Règles du bilan** (banc d'essai, 1 600 parties de Fer à Challenger) :
+  - **retirées** : « objectif disputé en infériorité » et « combat perdu sans toi ». Elles sont aussi fréquentes à tous les rangs, même quand le joueur était présent ou tout près.
+  - **retirés comme constats seuls** : l'écart de sbires à 10 min et l'écart de morts par 30 min. C'est du bruit, mais les chiffres restent dans la comparaison.
+  - **« 3 morts avant 14 min »** : remplacé par « 15 % de la partie passés mort » (29 / 26 / 15 %), sauf en jungle, où la règle passe à 4 morts (18 / 10 / 11 %).
+  - **nouveau pour le support** : « au plus une ward détruite avant 20 min » (34 / 11 / 14 %).
+  - Version des bilans passée à 3 : ceux gardés sur les téléphones sont recalculés à leur prochaine ouverture.
+- **Objectifs** (`goals.mjs`, le moteur en service ; `goals-v1.mjs` est l'ancien, remis tel quel) :
+  - la cible dépasse la médiane d'au moins 0,25 écart typique, le seuil de progrès du moteur. Rejeu sur 57 objectifs : réussite au hasard de 42 % à 34 %, objectifs toujours atteignables ;
+  - pourcentages affichés au point près ;
+  - « 15 parties » au lieu de « 8 » sur l'écran.
+- **Carte de l'objectif** :
+  - elle dit « cible atteinte, joue encore N parties pour valider » dès 3 réussites ;
+  - elle dit « ce cycle ne sera pas réussi » quand c'est devenu impossible ;
+  - elle rappelle que seules les ranked au poste comptent.
+- **Reste** :
+  - poste de l'objectif choisi sur 30 parties sans regarder les 10 dernières (4 objectifs sur 82) ;
+  - conseils de jungler aux autres postes ;
+  - exercice de farm sans unité ;
+  - appli hors ligne.
+
 ## 2026-10-31 — tour de contrôle avec 7 agents
 - **Agents** : banc d’essai (analyste de données), relecteur joueur (80 joueurs, FR et EN), récolte et contrôle critique, chercheur de sources, deux nouveaux testeurs (site, service et notifs : `.claude/agents/testeur-*.md`), traducteur.
 - **Notifs** : ace jamais détecté en vrai (un mort garde 1 à 8 PV dans le flux : mort = 10 PV ou moins) ; plusieurs inhibiteurs comptés ; décalage de départ à 30 s (le flux refuse plus près) ; match gardé 20 min hors du direct (plus de « Le match commence » en double, vainqueur annoncé) ; limite de 50 appels respectée au-delà de 20 abonnés ; délai de 8 s par appel ; objectif fini annoncé une seule fois, objectif sans compteurs jamais dit « terminé ». Simulations du testeur rejouées : sans erreur.

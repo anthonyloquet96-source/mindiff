@@ -125,7 +125,8 @@ await t("Bilan de partie (données Riot) : faits exacts, comparaison Diamant+", 
   assert(r.bases.length === 3 && r.bases[1].afterDeath && !r.bases[0].afterDeath && r.bases[0].items.join() === "Bottes,Balise de contrôle", JSON.stringify(r.bases));
   assert(r.lane.opponent === "C2" && r.lane.at10.gold === -200 && r.lane.at10.cs === -10, JSON.stringify(r.lane));
   // Une seule mort avant un objectif reste datée dans la liste des morts ; le constat demande au moins 2 morts (banc d'essai du 25/10/2026)
-  assert(!r.findings.some(f => f.kind === "mort-avant-objectif") && r.findings.some(f => f.kind === "ecart-cs10"), r.findings.map(f => f.kind).join());
+  // Farm à 10 min sous la référence : comparaison gardée, mais pas de constat seul (bruit au banc d'essai du 31/10)
+  assert(!r.findings.some(f => f.kind === "mort-avant-objectif") && !r.findings.some(f => f.kind === "ecart-cs10") && r.comparisons.some(c => c.metric === "cs10" && c.level === "sous"), r.findings.map(f => f.kind).join());
   assert(r.bases[0].goldBefore === 2600, "or en poche avant le retour");
   assert(!r.findings.some(f => f.kind === "ecart-deaths30"), "6 morts/30 min jugées sous la référence alors qu'elles sont dans la moyenne Diamant+");
   assert(compare("cs10", 82, null) === null && compare("cs10", 82, { cs10: { n: 10, p25: 1, p50: 2, p75: 3 } }) === null, "comparaison sans référence suffisante");
@@ -222,7 +223,8 @@ await t("Relecture tactique : combats, objectifs, morts isolées, alliés morts"
   assert(o.kind === "Dragon" && !o.ours && o.allies === 2 && o.enemies === 5 && o.absent.some(a => a.champion === "C2" && a.dead) && o.absent.some(a => a.me), JSON.stringify(o));
   assert(r.fights.length === 2 && r.fights[0].allies === 2 && r.fights[0].enemies === 4 && r.fights[0].won === false, "combat au dragon mal reconstitué : " + JSON.stringify(r.fights));
   const kinds = r.lessons.map(l => l.kind);
-  assert(kinds.includes("objectif-inferiorite") && kinds.includes("mort-isolee") && !kinds.includes("absent-objectif"), kinds.join());
+  // « Objectif disputé en infériorité » retiré au banc d'essai du 31/10 : il décrit la partie perdue, pas une erreur du joueur
+  assert(kinds.includes("mort-isolee") && !kinds.includes("objectif-inferiorite") && !kinds.includes("absent-objectif"), kinds.join());
   assert(r.summary.deathsIsolated === 1 && r.map.length === 31 && r.map[20][2][0] === 2000, "résumé ou mini-carte");
   assert(zone({ x: 7400, y: 7400 }, 100) === "mid lane" && zone({ x: 13900, y: 13900 }, 100) === "base adverse", "zones de la carte");
   // Élimination isolée en 1 contre 1 : pas un « combat »

@@ -107,7 +107,10 @@ export function prioritize(games, role, { references = null, exclude = [], quant
     const q = quantileFor(key);
     const unit = 10 ** -(c.percent ? 2 : c.decimals ?? 0), dec = c.percent ? 2 : c.decimals ?? 0;
     const personal = quantileOf([...recent].sort((x, y) => x - y), q, c.direction);
-    let target = dir > 0 ? Math.min(ref.value, Math.max(personal, baseline + unit)) : Math.max(ref.value, Math.min(personal, baseline - unit));
+    // Marche minimale : 0,25·s, le seuil où le moteur parle de progrès (banc d'essai du 31/10 : avec une seule unité, 80 objectifs
+    // sur 82 demandaient moins, « 62 → 63 sbires », et la cible était déjà atteinte dans 45 % des parties de départ)
+    const minStep = Math.max(unit, RULES.progressSd * s);
+    let target = dir > 0 ? Math.min(ref.value, Math.max(personal, baseline + minStep)) : Math.max(ref.value, Math.min(personal, baseline - minStep));
     target = c.direction === "lower" ? Math.floor(target + 1e-9) : round(target, dec);
     if (dir * (target - baseline) <= 0) target = round(baseline + dir * unit, dec);
     // Après une maîtrise : la cible suivante dépasse l'ancienne d'au moins 0,25·s (une unité au minimum). Sinon, 5 bonnes
@@ -121,10 +124,15 @@ export function prioritize(games, role, { references = null, exclude = [], quant
     // L'arrondi ne doit pas faire passer la cible au-delà de la référence (0,5187 arrondi à 0,52)
     if (dir > 0 && target > ref.value) target = Math.floor(ref.value * 10 ** dec + 1e-9) / 10 ** dec;
     if (dir < 0 && target < ref.value) target = Math.ceil(ref.value * 10 ** dec - 1e-9) / 10 ** dec;
+    // Pourcentages affichés au point près : la cible doit se lire au moins un point au-delà du départ (relecture du 31/10 :
+    // « Toi aujourd'hui 50 % → Ta cible 50 % ») ; si la référence est à moins d'un point, l'écart est trop petit pour un objectif
+    const shown = v => Math.round(v * 100);
+    if (c.percent && dir * (shown(target) - shown(baseline)) <= 0) target = (shown(baseline) + dir) / 100;
+    const visible = !c.percent || dir * (ref.value - target) >= -1e-9;
     // Proposition automatique suspendue (catalogue : autoPropose false) : la métrique reste au diagnostic
     const auto = c.autoPropose !== false;
-    const eligible = gap > 0 && auto;
-    out.push({ ...row, eligible, reason: gap <= 0 ? "déjà au niveau de la référence" : auto ? null : "objectif automatique suspendu (risque de jeu passif)", baseline: round(baseline, 3), spread: round(s, 3), reference: ref, target, target_quantile: q,
+    const eligible = gap > 0 && auto && visible;
+    out.push({ ...row, eligible, reason: gap <= 0 ? "déjà au niveau de la référence" : !visible ? "à moins d'un point de la référence" : auto ? null : "objectif automatique suspendu (risque de jeu passif)", baseline: round(baseline, 3), spread: round(s, 3), reference: ref, target, target_quantile: q,
       factors: { G: round(G, 3), I: c.impact, F: round(F, 3), A: c.actionability, C: round(C, 3) }, score: round(score, 2) });
   }
   return out.sort((a, b) => (b.eligible - a.eligible) || ((b.score ?? -1) - (a.score ?? -1)) || a.metric.localeCompare(b.metric));

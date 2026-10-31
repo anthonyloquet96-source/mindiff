@@ -333,7 +333,7 @@ async function c2LoadChamp(id) {
   render(false);
 }
 async function c2LoadReview(id) {
-  if ((C2.reviews[id]?.tactics?.kills && C2.reviews[id]?.textVersion >= 2) || c2ui.loading) return; // bilans plus anciens (sans relecture tactique ou sans les kills du replay) : relus
+  if ((C2.reviews[id]?.tactics?.kills && C2.reviews[id]?.textVersion >= 3) || c2ui.loading) return; // bilans plus anciens (sans relecture tactique ou sans les kills du replay) : relus
   c2ui.loading = id; c2ui.error = null; render(false);
   try { C2.reviews[id] = await c2Fetch("review", { match: id, puuid: C2.account.puuid, platform: C2.account.platform }); c2MarkSeen(id); c2Save(); } catch (e) { c2ui.error = e.message; }
   c2ui.loading = null; render(false);
@@ -656,7 +656,7 @@ function c2V1Card(p) {
     const atLevel = rows.length && rows.some(r => r.reason === "déjà au niveau de la référence") && rows.every(r => r.reason === "déjà au niveau de la référence" || /suspendu/.test(r.reason || ""));
     const msg = atLevel ? `Pas d'objectif à te proposer : tu es déjà au niveau des repères du coach sur tout ce qu'il suit à ce poste${V.diagnostic?.target_tier ? ` (meilleurs joueurs ${esc(C2_TIER[V.diagnostic.target_tier] || V.diagnostic.target_tier)})` : ""}.`
       : why ? `Pas encore d'objectif : ${esc(why)}.` : "Pas encore d'objectif : joue quelques ranked de plus.";
-    return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${msg}</p>${atLevel || why ? "" : `<p class="fine">Il faut au moins 8 parties classées au même poste.</p>`}${c2V1Erase()}</section>`;
+    return `<section class="c2-card c2-v1"><p class="label">Mon objectif</p>${lastTxt}<p>${msg}</p>${atLevel || why ? "" : `<p class="fine">Il faut au moins 15 parties classées au même poste.</p>`}${c2V1Erase()}</section>`;
   }
   // Carte aérée (demande d'Anthony, 27/10) : l'essentiel d'abord (objectif, deux chiffres, ce qu'il faut faire en partie),
   // le détail (repère, règle de réussite, conseils de coachs) replié
@@ -680,10 +680,21 @@ function c2V1Card(p) {
   const body = g.status === "proposed"
     ? `${howHtml}<button class="btn primary" data-action="c2-v1-start" data-id="${esc(g.id)}">Je commence</button>${more}`
     : `<div class="c2-v1-prog"><div class="c2-v1-dots" aria-label="${evs.filter(e => e.met).length} cibles atteintes sur ${evs.length} parties">${dots}</div>
-      <p class="fine">${evs.filter(e => e.met).length} / ${g.success_required} réussites · ${evs.length} / ${g.evaluation_games} parties</p></div>
+      <p class="fine">${evs.filter(e => e.met).length} / ${g.success_required} réussites · ${evs.length} / ${g.evaluation_games} parties</p>${c2V1Verdict(g, evs)}</div>
       ${howHtml}${more}
       <button class="btn ghost sm" data-action="c2-v1-sync"${V.busy ? " disabled" : ""}>${V.busy ? "Mise à jour…" : "Mettre à jour mes parties"}</button>`;
   return `<section class="c2-card c2-v1 c2-v1-live${enter ? " c2-v1-enter" : ""}">${lastTxt}${head}${body}${V.error ? `<p class="fine">${esc(V.error)}</p>` : ""}${c2V1Erase()}</section>`;
+}
+// Où en est le cycle, dit dès qu'on le sait (banc d'essai du 31/10 : réussite acquise avant la 5e partie dans 22 objectifs sur 82,
+// devenue impossible dans 28, sans que la carte le dise). Le verdict officiel reste donné après la dernière partie (garde-fous)
+function c2V1Verdict(g, evs) {
+  const met = evs.filter(e => e.met).length, left = Math.max(0, g.evaluation_games - evs.length), need = g.success_required;
+  const games = n => `${n} partie${n > 1 ? "s" : ""}`;
+  const state = !left ? ""
+    : met >= need ? `<p class="c2-v1-last achieved">Cible atteinte ${met} fois : c'est assez. Joue encore ${games(left)} pour valider l'objectif.</p>`
+    : met + left < need ? `<p class="c2-v1-last">Ce cycle ne sera pas réussi : il reste ${games(left)} et il faudrait encore ${need - met} réussite${need - met > 1 ? "s" : ""}. Ce n'est pas un échec : finis-le, le coach mesure aussi ton progrès et peut relancer le même objectif.</p>`
+    : "";
+  return `${state}<p class="fine">Seules tes ranked ${c2AsRole(g.role)} comptent : les parties à un autre poste ne font pas avancer le compteur.</p>`;
 }
 // Suppression RGPD de tout ce que le coach garde sur le joueur (DELETE /players/:id), confirmée dans la page
 function c2V1Erase() {
@@ -1033,7 +1044,7 @@ function c2Game(id) {
   if (!C2.account) return empty("Compte non connecté", "", `<a class="btn" href="${c2Href()}">Connecter mon compte</a>`);
   const r = C2.reviews[id]?.tactics ? C2.reviews[id] : null;
   // Bilan déjà lu avant le replay (sans les kills) : relu une fois en arrière-plan
-  if (r && (!r.tactics.kills || !(r.textVersion >= 2)) && C2_API != null && !(c2ui.refreshed ||= new Set()).has(id)) { c2ui.refreshed.add(id); setTimeout(() => c2LoadReview(id), 0); }
+  if (r && (!r.tactics.kills || !(r.textVersion >= 3)) && C2_API != null && !(c2ui.refreshed ||= new Set()).has(id)) { c2ui.refreshed.add(id); setTimeout(() => c2LoadReview(id), 0); }
   if (!r && !C2.account.puuid) { setTimeout(() => c2LoadProfile(), 0); return `<div class="c2-card c2-loading">Lecture de la partie…</div>`; }
   if (!r) {
     if (C2_API != null && !c2ui.error) setTimeout(() => c2LoadReview(id), 0);

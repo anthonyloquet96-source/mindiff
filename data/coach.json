@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-30T07:48:34.295Z",
+ "generatedAt": "2026-10-31T01:11:53.278Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -152,7 +152,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 47
+    "units": 58
    },
    "support": {
     "champions": [
@@ -344,15 +344,16 @@
    },
    "Akali": {
     "role": null,
-    "units": 5,
+    "units": 6,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "vagues",
+     "macro"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 5,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Alistar": {
     "role": null,
@@ -858,15 +859,16 @@
    },
    "Kai'Sa": {
     "role": null,
-    "units": 6,
+    "units": 17,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "build",
+     "synergie"
     ],
-    "actions": 0,
-    "official": 6,
-    "coaching": 0,
-    "officialOnly": true
+    "actions": 11,
+    "official": 11,
+    "coaching": 6
    },
    "Kalista": {
     "role": null,
@@ -1261,15 +1263,16 @@
    },
    "Orianna": {
     "role": null,
-    "units": 4,
+    "units": 5,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "vagues",
+     "macro"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 4,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Ornn": {
     "role": null,
@@ -2039,19 +2042,30 @@
     "actions": 1,
     "official": 0,
     "coaching": 1
+   },
+   "Yone": {
+    "role": null,
+    "units": 2,
+    "themes": [
+     "vagues",
+     "lane"
+    ],
+    "actions": 2,
+    "official": 0,
+    "coaching": 2
    }
   },
   "themes": {
-   "lane": 58,
+   "lane": 63,
    "survie": 13,
-   "teamfight": 4,
-   "synergie": 1,
+   "teamfight": 5,
+   "synergie": 2,
    "matchup": 8,
    "methode": 10,
-   "vagues": 33,
+   "vagues": 40,
    "vision": 13,
-   "macro": 57,
-   "jungle": 41
+   "macro": 63,
+   "jungle": 43
   },
   "partial": [
    "Ashe"
@@ -2887,7 +2901,10 @@
    "u-ai-yt-Sbt6imQbTSs-2",
    "u-ai-yt-Sbt6imQbTSs-3",
    "u-ai-yt-V2_UctNAB4w-1",
-   "u-ai-yt--I7iBIabOok-1"
+   "u-ai-yt--I7iBIabOok-1",
+   "u-ai-yt-YJtOWRVdwyc-1",
+   "u-ai-yt-YJtOWRVdwyc-2",
+   "u-ai-yt-YJtOWRVdwyc-3"
   ]
  },
  "sources": [
@@ -17862,8 +17879,8 @@
    "patch": null,
    "views": 36061,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
-   "note": "Lue par gemini-3-flash-preview le 2026-10-26 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "analysis": "analysee",
+   "note": "Écarté : contenu jugé de faible qualité (Le contenu traite d'un champion personnalisé ou non officiel (Yunara) qui ne fait pas partie du jeu officiel League of Legends, rendant les informations inexploitables pour le coach MINDIFF.).",
    "descriptionExcerpt": "➡️Coaching and everything you need to climb - https://wtl.lol/violet (USE CODE:VIOLET10)\n➡️Join the Community - https://discord.gg/zVvGUPxYGw\n\n\nIn this video im explaining the core fundamentals on adc in league of legends. I hope you can learn a lot of new things!\n\nCheers !\n\n00:0",
    "triage": {
     "score": 13,
@@ -17887,7 +17904,16 @@
     "at": "2026-10-26",
     "duration": "07:56",
     "reused": true
-   }
+   },
+   "analyzedAt": "2026-10-31",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "quality": {
+    "level": "faible",
+    "why": "Le contenu traite d'un champion personnalisé ou non officiel (Yunara) qui ne fait pas partie du jeu officiel League of Legends, rendant les informations inexploitables pour le coach MINDIFF."
+   },
+   "learn": null,
+   "rejectedForQuality": true
   },
   {
    "id": "c-yt-6DYcD-pcMdA",
@@ -17902,7 +17928,7 @@
    "patch": null,
    "views": 22825,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.5-flash-lite : transcription et 20 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "➡️Coaching and everything you need to climb - https://wtl.lol/violet (USE CODE:VIOLET10)\n➡️Join the Community - https://discord.gg/zVvGUPxYGw\n\n\nIn this video im explaining the core fundamentals on adc in league of legends. I hope you can learn a lot of new things!\n\nCheers !\n00:00",
    "triage": {
@@ -17932,6 +17958,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 169168
+   },
+   "analyzedAt": "2026-10-31",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 11,
+   "unitsRejected": 3,
+   "alertes": [],
+   "learn": "Apprendre à maîtriser le kit, les runes et les évolutions de Kai'Sa, ainsi que la gestion de la priorité de vague en botlane face à une composition à distance.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu est un guide éducatif de haut niveau réalisé par un ancien joueur professionnel en rang Challenger, détaillant précisément chaque compétence, rune et choix de positionnement."
    }
   },
   {
@@ -18116,9 +18152,9 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "views": 12349,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.6-flash le 2026-10-30 : transcription réutilisée depuis le cache de cet ordinateur.",
    "descriptionExcerpt": "➡️Coaching and everything you need to climb - https://wtl.lol/violet (USE CODE:VIOLET10)\n➡️Join the Community - https://discord.gg/zVvGUPxYGw\n\nIn this video im explaining the core fundamentals on adc in league of legends. I hope you can learn a lot of new things!\n\nCheers !\n\n00:00",
    "triage": {
     "score": 13,
@@ -18134,6 +18170,14 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-30",
+    "duration": "33:45",
+    "reused": true
    }
   },
   {
@@ -19776,6 +19820,51 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "views": 6779,
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "note": "Lue par gemini-3.6-flash le 2026-10-30 : transcription réutilisée depuis le cache de cet ordinateur.",
+   "descriptionExcerpt": "#challenger #leagueoflegends #jungle\nBu tarz maçları canlı takip etmek için ► https://kick.com/krugzlol\n\nDostlar ben Krugz. Yıllardır euwest challenger jungle,support oyuncusuyum. Artık boosterlığı bırakarak yayın ve sosyal medya'ya başladım. Beni takip edip fikirlerinizi yorumla",
+   "triage": {
+    "score": 1,
+    "matched": [
+     "jungle"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "queueRank": 29,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-30",
+    "duration": "28:31",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-31",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "L'auteur montre comment optimiser son cheminement de jungle en anticipant les mouvements adverses, en volant les camps pour prendre de l'avance aux niveaux et en économisant ses charges de Châtiment pour sécuriser les objectifs.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu détaille précisément le raisonnement macroéconomique, le timing des camps, l'utilisation du Châtiment et la gestion des avantages de niveau en jungle."
+   }
+  },
+  {
+   "id": "c-yt-gsdYLoWGc20",
+   "sourceId": "yt-krugz",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=gsdYLoWGc20",
+   "title": "FARM YAPMADAN MAÇ TAŞIYABİLEN TEK KARAKTER FULL ÖĞRETİCİ JUNGLE",
+   "author": "KRUGZ",
+   "lang": "tr",
+   "published": "2026-10-13",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 6946,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19789,7 +19878,7 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 29
+   "queueRank": 36
   },
   {
    "id": "c-yt-DiBPTYXIIEo",
@@ -21829,7 +21918,7 @@
    "published": "2026-10-24",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 53291,
+   "views": 54268,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -23747,7 +23836,7 @@
    "published": "2026-10-28",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 6335,
+   "views": 10456,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -23777,7 +23866,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 22165,
+   "views": 22786,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24369,7 +24458,7 @@
    "retrievedAt": "2026-10-29",
    "patch": "inconnu",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 26,
@@ -24395,6 +24484,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 107056
+   },
+   "analyzedAt": "2026-10-31",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 3,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "Démonstration concrète et commentée en continu dans une partie de niveau Diamant 2, illustrant l'impact du powerfarming et du séquençage d'objectifs."
    }
   },
   {
@@ -24408,12 +24507,12 @@
    "published": null,
    "retrievedAt": "2026-10-29",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 27,
-   "note": "File de lecture (rang 27) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash le 2026-10-30 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 18,
     "matched": [
@@ -24422,6 +24521,24 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-30",
+    "duration": "35:33",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-31",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Apprends à manipuler l'aggro des sbires et les timers de vagues pour créer des fenêtres de trade sans contre-jeu, aligner tes pushs sur les objectifs neutres et dominer ta phase de lane en midlane.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu présente des concepts de gestion de vagues de haut niveau avec des explications claires, appuyées par des exemples concrets de joueurs professionnels (Chovy) et des analyses détaillées de mécaniques de jeu."
    }
   },
   {
@@ -24435,12 +24552,12 @@
    "published": null,
    "retrievedAt": "2026-10-29",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 28,
-   "note": "File de lecture (rang 28) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash le 2026-10-30 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 18,
     "matched": [
@@ -24449,6 +24566,24 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-10-30",
+    "duration": "28:57",
+    "reused": true
+   },
+   "analyzedAt": "2026-10-31",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "L'auteur explique les principes fondamentaux du contrôle de vagues (gestion de la première vague, gel infini, création de macro-vagues, résistance des sbires sous tourelle et conditions de dive) applicables à tous les rôles pour dominer sa lane et ses ganks.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu détaille de manière méthodique et visuelle (avec des démonstrations en outil d'entraînement et en 1v1) les mécaniques mathématiques et physiques du mouvement des vagues de sbires, sans généralités vagues."
    }
   },
   {
@@ -24550,23 +24685,17 @@
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
    "descriptionExcerpt": "The ultimate Lillia jungle guide for League of Legends 2026, taught by EUW Challenger Lillia main, Kirei. Learn how to play Lillia, the best Lillia build, runes, matchups and mechanics in Episode 24 of Challenger Teaches Me.\n\nGet 1-on-1 coaching, champion guides and more: https:/",
    "triage": {
-    "score": 28,
+    "score": 17,
     "matched": [
      "Lillia",
-     "Vi",
      "jungle",
-     "mid",
      "guide",
      "how to",
-     "tips",
      "coaching",
-     "jungle path",
-     "clear",
      "matchup",
      "build",
      "runes",
-     "climb",
-     "mistakes"
+     "climb"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -24653,6 +24782,59 @@
     "score": 17,
     "matched": [
      "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-eSiqAlivejM",
+   "sourceId": "yt-dishake",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=eSiqAlivejM",
+   "title": "El manejo de oleadas te puede subir UNA LIGA GRATIS; Curso BOT. EP 7",
+   "author": "Dishake",
+   "lang": "es",
+   "published": "2026-05-26",
+   "retrievedAt": "2026-10-31",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "Ayudo a adultos +25 a subir a Diamante con 1-3 rankeds al día\nSistema diseñado para subir CON POCO TIEMPO y disfrutando el juego (más de 7000 casos de éxito)\n\nEscribime \"ACADEMIA\" por privado en instagram y armamos un plan personalizado para que subas consistentemente.\nhttps://ww",
+   "backfill": true,
+   "queueRank": 37,
+   "note": "File de lecture (rang 37) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-wJ9HxFdoY_g",
+   "sourceId": "yt-scrubnoob",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=wJ9HxFdoY_g",
+   "title": "RANK 1 RENGAR FULL CLEAR GUIDE",
+   "author": "ScrubNoob",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-10-31",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 38,
+   "note": "File de lecture (rang 38) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 18,
+    "matched": [
+     "guide",
+     "clear"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -74025,6 +74207,1586 @@
     {
      "code": "sur-generalisation",
      "why": "Contrôle critique : L'auteur restreint explicitement son conseil d'éviter le gel complet à ce matchup précis (« in this matchup ») pour empêcher les décalages adverses, ce qui ne s'applique pas universellement à tous les duels de mages."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-X-D04vxrk7c-1",
+   "claim": "Selon Coach Mysterias : pour créer des fenêtres de trade sans contre-jeu à la première wave, attaque un sbire mage adverse afin de réinitialiser l'aggro des sbires, ce qui décale les points de vie des sbires et oblige l'adversaire à s'exposer pour farmer.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Yone"
+   },
+   "context": {
+    "queue": "competition",
+    "rank": "Challenger / Pro",
+    "region": "Monde"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.24"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Première vague de sbires",
+    "Ne pas attaquer pendant que l'attaque du sbire est dans les airs"
+   ],
+   "limits": [
+    "Demande un timing précis pour que l'attaque touche au bon moment"
+   ],
+   "nature": "opinion",
+   "levelContext": "pro",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-X-D04vxrk7c",
+     "locator": "06:26",
+     "lang": "en",
+     "passage": "And what we're going to be seeing is that he's going to be hitting on the first wave the caster minions right here. Why does he hit the caster minions? Well, you can see right now that by hitting the caster minions, the minion aggro is going to be swapping up",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "366-426s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Yone (exemple)",
+    "Chovy (exemple)"
+   ],
+   "action": "Attaque un sbire mage adverse sur la première vague au bon timing pour changer l'aggro des sbires et dé-synchroniser leur mort.",
+   "observe": "L'indicateur d'aggro s'affiche au-dessus des sbires lorsque le changement cible le joueur.",
+   "use": {
+    "when": "Tu es sur la midlane au tout début de la partie lors de l'arrivée de la première wave.",
+    "why": "Pour dé-synchroniser les PV des sbires et forcer l'adversaire à s'exposer lorsqu'il veut prendre ses sbires, créant des opportunités de trade gratuites.",
+    "who": "Midlaner",
+    "how": [
+     "Identifie le sbire mage adverse sur la première wave.",
+     "Attaque-le au moment où son attaque n'est pas en l'air pour forcer le changement d'aggro.",
+     "Utilise le décalage de PV des sbires pour agresser l'adversaire quand il avance pour last-hit."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-X-D04vxrk7c : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-X-D04vxrk7c-3",
+   "claim": "Selon Coach Mysterias : réaliser un cycle de double crash (deux waves successives poussées sous la tour en même temps) permet d'obtenir les pics de niveau avant l'adversaire et de le zoner de l'expérience tout en l'harcelant sous sa tourelle.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Yone"
+   },
+   "context": {
+    "queue": "competition",
+    "rank": "Pro / Challenger",
+    "region": "Monde"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.24"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Gestion rigoureuse des vagues successives",
+    "Slow push préparé en amont"
+   ],
+   "limits": [
+    "Difficile à exécuter si l'adversaire conteste activement le push"
+   ],
+   "nature": "opinion",
+   "levelContext": "pro",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-X-D04vxrk7c",
+     "locator": "18:04",
+     "lang": "en",
+     "passage": "What is the strategy that we use to maximize trading windows and put pressure onto the enemies? That is a double 2-wave cycle. So we do a 2-wave crash into another 2-wave crash.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "1064-1124s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Yone (exemple)",
+    "Chovy (exemple)"
+   ],
+   "action": "Empile deux vagues de sbires pour les faire s'écraser ensemble sous la tourelle ennemie, puis enchaîne sur un second crash.",
+   "observe": "Une grosse horde de sbires alliés entre sous la tourelle en même temps que la vague suivante.",
+   "use": {
+    "when": "Tu veux maximiser la pression sur ton vis-à-vis en midlane et prendre un avantage d'expérience décisif.",
+    "why": "Pour atteindre les pics de niveau avant l'adversaire, le bloquer sous sa tour et l'empêcher de récupérer l'expérience paisiblement.",
+    "who": "Midlaner cherchant à dominer la phase de lane",
+    "how": [
+     "Construis un slow push dès les premières waves en ne tuant pas trop vite les sbires.",
+     "Fais s'empiler deux waves pour les écraser sous la tour ennemie.",
+     "Enchaîne immédiatement avec un second cycle de push pour maintenir la pression."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-X-D04vxrk7c : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-X-D04vxrk7c-5",
+   "claim": "Selon Coach Mysterias : prépare et synchronise le crash d'une grosse wave sous la tourelle ennemie exactement au moment où un objectif neutre (comme les Void Grubs ou le Héraut) va apparaître, pour forcer l'adversaire à choisir entre rater des sbires ou abandonner l'objectif.",
+   "champions": [
+    "Orianna"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Akali"
+   },
+   "context": {
+    "queue": "competition",
+    "rank": "Pro / Challenger",
+    "region": "Monde"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.24"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Connaître le timer exact d'apparition de l'objectif neutre",
+    "Avoir le contrôle du slow push préparé à l'avance"
+   ],
+   "limits": [
+    "Demande d'anticiper le timing une à deux minutes avant l'apparition de l'objectif"
+   ],
+   "nature": "opinion",
+   "levelContext": "pro",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-X-D04vxrk7c",
+     "locator": "30:40",
+     "lang": "en",
+     "passage": "What's going to happen is that this Orianna is going to perfectly build a slow push and a crash on the Grubs timer of the objective.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "1820-1880s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Akali (exemple)"
+   ],
+   "action": "Construis un slow push progressif pour faire s'écraser une grande vague sous la tour adverse pile au timer d'un objectif.",
+   "observe": "Une grosse horde de sbires tape la tourelle ennemie au moment exact où les Grubs ou le Héraut spawnent.",
+   "use": {
+    "when": "Un objectif neutre va apparaître sur la carte dans un délai d'une à deux minutes et tu veux libérer ton temps de jeu.",
+    "why": "Pour obliger l'adversaire à bloquer sa position sous sa tour pour clear la wave, te donnant la liberté totale de rejoindre ton équipe sur l'objectif.",
+    "who": "Midlaner ou laner cherchant à impacter les objectifs",
+    "how": [
+     "Anticipe le timer de l'objectif neutre 1 à 2 minutes en avance.",
+     "Laisse la wave push vers toi puis monte un slow push progressif.",
+     "Fais s'écraser la grosse wave sous la tourelle ennemie juste au moment où l'objectif apparaît."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de date inconnue (patch 14.24) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-X-D04vxrk7c : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-YJtOWRVdwyc-1",
+   "claim": "Selon DovahNDo : pour anticiper quelle wave va pousser naturellement sans intervention, observe la première wave dont le sbire canon meurt. Si le sbire canon rouge meurt en premier, la wave rouge va pousser car les sbires mages ont plus de dégâts que les sbires corps-à-corps.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Personne ne touche aux vagues au départ"
+   ],
+   "limits": [
+    "Basé sur la mécanique de base des vagues sans interaction des joueurs"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YJtOWRVdwyc",
+     "locator": "02:00",
+     "lang": "pt",
+     "passage": "La primera wave que se muera su minion cannon va a ser la primera que sea derrotada. Es decir, si el lado rojo ahora sobrevive su minion cannon y pueden matar al minion cannon azul, eso significa que el lado rojo va a pushear.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "100-160s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Observe l'affrontement des sbires sur les premières vagues sans les toucher pour identifier quelle vague va naturellement pousser.",
+   "observe": "Le moment où le sbire canon d'un camp meurt le premier.",
+   "use": {
+    "when": "en début de partie lorsque les premières waves arrivent sur la lane sans que personne ne les touche",
+    "why": "les sbires mages disposent de beaucoup plus de dégâts que les sbires corps-à-corps, et la wave qui garde ses mages en vie ou dont le canon survit finit par l'emporter et repousser",
+    "who": "tous les rôles",
+    "how": [
+     "Regarde les deux waves arriver au milieu de la lane",
+     "Identifie quel sbire canon meurt le premier entre les deux camps"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-YJtOWRVdwyc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-YJtOWRVdwyc-2",
+   "claim": "Selon DovahNDo : pour réussir un freeze de wave (freeze) dès le niveau 1 sans attaquer les sbires, amène les sbires ennemis vers le haut dans la zone des buissons pour qu'ils ciblent tous un seul de tes sbires, puis cache-toi dans le buisson pour perdre l'aggro.",
+   "champions": [],
+   "roles": [
+    "top",
+    "mid",
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Ne pas faire de leash au jungler",
+    "Ne pas attaquer les sbires inutilement"
+   ],
+   "limits": [
+    "Nécessite d'arriver à temps pour manipuler la première vague"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YJtOWRVdwyc",
+     "locator": "04:46",
+     "lang": "pt",
+     "passage": "cuando vengan por aquí los minions, vamos a agruparlos hacia arriba para que se queden estáticos aquí, y luego vamos a meternos en el bush para que queden totalmente agrupados y así le puedan pegar simplemente a un minion de la oleada.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "266-326s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Attire la première vague ennemie vers le haut en prenant brièvement l'aggro, puis entre dans un buisson pour que tous les sbires ennemis se concentrent sur un seul de tes sbires.",
+   "observe": "Les sbires ennemis se regroupant sur un unique sbire allié.",
+   "use": {
+    "when": "au tout début de la partie lorsque la première wave ennemis arrive sur ta lane",
+    "why": "cela permet de tuer ton sbire plus vite et de créer un déséquilibre numérique favorable pour freeze la lane de l'autre côté",
+    "who": "tous les joueurs souhaitant freeze leur lane",
+    "how": [
+     "Intercepte les sbires ennemis à leur arrivée et décale-les vers le haut de la lane",
+     "Entre immédiatement dans un buisson pour casser l'aggro des sbires",
+     "Laisse les sbires ennemis se focaliser sur un seul de tes sbires"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-YJtOWRVdwyc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-YJtOWRVdwyc-3",
+   "claim": "Selon DovahNDo : pour créer une macro-wave (grosse wave) idéale pour pousser les tours ou faire du split push, tues uniquement les sbires mages de chaque wave en laissant les sbires corps-à-corps en vie.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Ne pas tuer les sbires corps-à-corps"
+   ],
+   "limits": [
+    "Demande de laisser les sbires corps-à-corps s'accumuler au fil des vagues"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YJtOWRVdwyc",
+     "locator": "16:48",
+     "lang": "pt",
+     "passage": "solo vamos a matar a los minion casters y vamos a dejar vivos a todos los minion melé.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "988-1048s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Elimine seulement les sbires mages (casters) et garde en vie les sbires corps-à-corps pour accumuler une énorme vague.",
+   "observe": "Une accumulation massive de sbires alliés s'amassant sur la lane.",
+   "use": {
+    "when": "quand tu souhaites préparer une wave géante pour faire pression sur une tourelle ou un inhibiteur",
+    "why": "les sbires corps-à-corps ont beaucoup de résistance (aguante) et s'accumulent au fil des waves pendant que les mages meurent, formant une wave gigantesque",
+    "who": "split pushers et joueurs voulant détruire des tours",
+    "how": [
+     "Attaque uniquement les sbires mages de la wave ennemie",
+     "Laisse les sbires corps-à-corps ennemis et alliés s'empiler",
+     "Attends l'arrivée des waves suivantes en répétant l'opération pour grossir la wave"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-YJtOWRVdwyc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-YJtOWRVdwyc-4",
+   "claim": "Selon DovahNDo : pour réussir un dive sous tourelle en toute sécurité, tu dois t'assurer d'avoir au moins six sbires pour pouvoir commencer à attaquer l'adversaire au corps à corps sans prendre trop de dégâts de la tourelle trop tôt.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "vagues",
+    "lane",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir une vague de sbires conséquente sous la tourelle ennemie"
+   ],
+   "limits": [
+    "Nécessite d'attendre que la vague pénètre sous la tourelle"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YJtOWRVdwyc",
+     "locator": "23:05",
+     "lang": "pt",
+     "passage": "Siempre divea con wave. Por lo menos tienes que tener seis minions antes de divear para que puedas empezar a pegarle desde que tú estás a melé de él.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "1365-1425s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse la vague sous la tourelle ennemie en conservant au moins six sbires vivants avant d'engager le combat sous tour.",
+   "observe": "Un groupe d'au moins six sbires pénétrant sous la tourelle ennemie.",
+   "use": {
+    "when": "quand ton adversaire est retranché sous sa tourelle avec peu de PV et que tu veux le dive",
+    "why": "les sbires prennent les tirs de la tourelle à ta place et inflocent des dégâts supplémentaires à l'adversaire",
+    "who": "top laners et champions réalisant des dives",
+    "how": [
+     "Pousse la wave pour qu'elle s'écrase sous la tourelle ennemie",
+     "Vérifie la présence d'au moins six sbires dans la zone",
+     "Engage l'adversaire au corps à corps pendant que la tour cible les sbires"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-YJtOWRVdwyc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-0wsrN1DFtt8-1",
+   "claim": "Selon KRUGZ : prendre un camp de jungle adverse avant 5:30 permet de faire progresser son Châtiment plus tôt et d'accéder au niveau 6 plus facilement grâce à l'expérience supplémentaire.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14.20"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir l'opportunité de voler ou prendre un camp adverse tôt dans la partie"
+   ],
+   "limits": [
+    "Dépend de la capacité à clear rapidement"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-0wsrN1DFtt8",
+     "locator": "00:54",
+     "lang": "tr",
+     "passage": "Oyunda erken aşamada bir camp almak çok önemli 5:30'dan önce. Neden? Smite'ınız 5:30'u beklemeden gelişiyor. Adamınki %100 gelişmiyor ve 6 level olabiliyorsunuz",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "34-94s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Planifie un vol de camp ou un passage dans la jungle ennemie avant 5:30 pour accélérer la progression de ton Châtiment.",
+   "observe": "Vérifie le timing de progression de ton Châtiment par rapport à celui du jungler adverse.",
+   "use": {
+    "when": "en début de partie avant 5:30, lorsque tu as la vision ou la priorité pour pénétrer dans la jungle ennemie",
+    "why": "Le Châtiment se développe plus rapidement et cela aide à atteindre le niveau 6 en combinant l'XP.",
+    "who": "Jungler",
+    "how": [
+     "Observe la position du jungler adverse sur la carte.",
+     "Entre dans sa jungle pour sécuriser ou voler un camp avant 5:30."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-14",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-0wsrN1DFtt8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "contexte-manquant",
+     "why": "Contrôle critique : Le conseil général sur le vol de camp pour accélérer le Châtiment ne dépend pas spécifiquement de Karthus mentionné dans l'unité."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-0wsrN1DFtt8-2",
+   "claim": "Selon KRUGZ : ne pas utiliser Châtiment sur les camps avant de faire un objectif comme le Dragon permet de cumuler deux charges de Châtiment pour sécuriser l'objectif plus facilement.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14.20"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir deux charges de Châtiment disponibles"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-0wsrN1DFtt8",
+     "locator": "03:28",
+     "lang": "tr",
+     "passage": "Şimdi dostlarım burada Smite kullanmayacağım camp'lere. Neden kullanmayacağım? Double Smite olup ilk ejderi alabilirim. Double Smite'ın bize ne gibi avantajı var? Direkt iki tane Smite biriktiriyorum.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "188-248s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Économise tes charges de Châtiment sur les derniers camps avant de te lancer sur un objectif neutre.",
+   "observe": "Regarde tes charges de Châtiment avant d'entamer le Dragon ou le Baron.",
+   "use": {
+    "when": "juste avant de lancer un combat sur un objectif neutre comme le Dragon",
+    "why": "Avoir deux charges de Châtiment permet de les cumuler et d'assurer le secures de l'objectif face à l'adversaire.",
+    "who": "Jungler",
+    "how": [
+     "Arrête d'utiliser ton Châtiment sur les petits camps avant l'apparition de l'objectif.",
+     "Laisse les charges s'accumuler."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-14",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-0wsrN1DFtt8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "contexte-manquant",
+     "why": "Contrôle critique : L'unité cite Karthus alors qu'il s'agit d'un conseil macro général de gestion des charges de Châtiment pour les objectifs."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-0wsrN1DFtt8-3",
+   "claim": "Selon KRUGZ : pousser une wave libre avec un canon lorsqu'elle est disponible permet de récupérer un maximum d'or avant de se diriger vers ses camps de jungle.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14.20"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Une vague de sbires avec un canon est présente sur une lane et libre d'accès"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-0wsrN1DFtt8",
+     "locator": "15:25",
+     "lang": "tr",
+     "passage": "Mid'de free wave var. Hani var ya kanon wave, en sevdiğim. Önce geldim wave'i alıyorum, ondan sonra camp'lerime gideceğim. Free wave varken free wave'i alacaksınız, sonra kendi camp'leriniz.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "905-965s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Nettoie la vague de sbires avec canon libre sur une lane avant de retourner dans ta jungle.",
+   "observe": "Vérifie la présence de vagues de sbires libres sur les lanes après un combat ou un retour en base.",
+   "use": {
+    "when": "quand une wave avec un canon est libre d'accès sur une lane",
+    "why": "Cela permet de maximiser l'or gagné avant de reprendre le clear de la jungle.",
+    "who": "Jungler",
+    "how": [
+     "Va sur la lane pour sécuriser la wave.",
+     "Tue les sbires puis retourne farmer tes camps."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-14",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-0wsrN1DFtt8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "contexte-manquant",
+     "why": "Contrôle critique : Ce conseil de gestion de vague libre s'adresse à tout jungler et ne dépend pas de Karthus."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-6DYcD-pcMdA-1",
+   "claim": "Selon Coach Violet : prendre Tempo mortel sur Kai'Sa pour synergiser avec son passif et réussir les longs échanges prolongés en accumulant les charges de plasma.",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-6DYcD-pcMdA",
+     "locator": "00:26",
+     "lang": "en",
+     "passage": "First up we have Lethal Tempo. This just synergizes really well with Kaisa's passive right she wants to take long extended trades and you want to get out as many plasma stacks as possible.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "6-66s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Joue Kai'Sa avec la rune Tempo mortel pour maximiser tes charges de plasma lors des longs combats.",
+   "observe": "Le choix de la rune Tempo mortel sur l'interface des runes en début de partie.",
+   "use": {
+    "when": "Tu es en phase de sélection des runes avant de lancer une partie avec Kai'Sa.",
+    "why": "Cela synergise très bien avec son passif pour placer un maximum de charges de plasma lors des longs échanges prolongés.",
+    "who": "Kai'Sa",
+    "how": [
+     "Sélectionne la branche Précision.",
+     "Choisis la rune Tempo mortel."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-08-11",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-6DYcD-pcMdA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-6DYcD-pcMdA-2",
+   "claim": "Selon Coach Violet : privilégier Triomphe plutôt que Présence d'esprit sur Kai'Sa car tu ne dois pas spammer tes sorts inutilement.",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-6DYcD-pcMdA",
+     "locator": "00:38",
+     "lang": "en",
+     "passage": "Next up we want to be going Triumph. You don't really need Presence of Mind. I don't think you really run out of mana on Kaisa unless you really spam your spells",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "18-78s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Prends Triomphe dans ton arbre de runes secondaire avec Kai'Sa.",
+   "observe": "La sélection de Triomphe dans l'arbre Précision.",
+   "use": {
+    "when": "Tu configures tes runes pour une partie avec Kai'Sa.",
+    "why": "Tu ne manques pas de mana si tu ne spams pas tes sorts inutilement.",
+    "who": "Kai'Sa",
+    "how": [
+     "Sélectionne Triomphe dans la deuxième ligne de la branche Précision."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-08-11",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-6DYcD-pcMdA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-6DYcD-pcMdA-3",
+   "claim": "Selon Coach Violet : préférer Légende : Lignée pour le vol de vie général et constant sur Kai'Sa, ou Légende : Alacrité face à de nombreux tanks.",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Si l'équipe adverse comporte de nombreux tanks"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-6DYcD-pcMdA",
+     "locator": "00:57",
+     "lang": "en",
+     "passage": "Next up we want to be running Bloodline for the life steal. You can go Alacrity if they have a lot of tanks and you don't think you need the life steal, but I think Bloodline is just a more safer general consistent option",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "37-97s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Choisis Légende : Lignée par défaut sur Kai'Sa, ou Légende : Alacrité contre les compositions pleines de tanks.",
+   "observe": "Le choix de la rune de légende dans l'arbre Précision.",
+   "use": {
+    "when": "Tu choisis tes runes de légende selon la composition ennemie.",
+    "why": "Lignée offre une option de vol de vie plus sûre et constante, tandis qu'Alacrité maximise la vitesse d'attaque contre les tanks.",
+    "who": "Kai'Sa",
+    "how": [
+     "Sélectionne Légende : Lignée par défaut, ou bascule sur Légende : Alacrité si l'ennemi a beaucoup de tanks."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-08-11",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-6DYcD-pcMdA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-6DYcD-pcMdA-4",
+   "claim": "Selon Coach Violet : utiliser Abattage sur Kai'Sa car la rune s'active dès le début de la partie.",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-6DYcD-pcMdA",
+     "locator": "01:12",
+     "lang": "en",
+     "passage": "Next up we want to be running Cut Down. This just activates at the start of the game so you should pretty much always be running this.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "52-112s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Sélectionne Abattage dans la dernière ligne de la branche Précision pour Kai'Sa.",
+   "observe": "La sélection de la rune Abattage dans l'interface.",
+   "use": {
+    "when": "Tu choisis tes runes de la dernière ligne de la branche Précision.",
+    "why": "La rune s'active dès le début de la partie.",
+    "who": "Kai'Sa",
+    "how": [
+     "Sélectionne Abattage."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-08-11",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-6DYcD-pcMdA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-6DYcD-pcMdA-5",
+   "claim": "Selon Coach Violet : prendre Savoir-faire et Transmutation cosmique en runes secondaires sur Kai'Sa pour accélérer l'obtention des items.",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-6DYcD-pcMdA",
+     "locator": "01:16",
+     "lang": "en",
+     "passage": "And then for the secondary tree you want to be running Cashback into Cosmic Insight.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "56-116s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Prends l'arbre Inspiration en secondaire avec Savoir-faire et Transmutation cosmique sur Kai'Sa.",
+   "observe": "L'utilisation de l'arbre Inspiration en rune secondaire.",
+   "use": {
+    "when": "Tu configures tes runes secondaires pour Kai'Sa.",
+    "why": "Savoir-faire aide essentiellement à obtenir tes items plus rapidement.",
+    "who": "Kai'Sa",
+    "how": [
+     "Sélectionne Inspiration comme arbre secondaire.",
+     "Prends Savoir-faire et Transmutation cosmique."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-08-11",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-6DYcD-pcMdA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-6DYcD-pcMdA-6",
+   "claim": "Le passif de Kai'Sa applique du plasma à chaque attaque de base, infligeant des dégâts magiques bonus sur la cinquième attaque.",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-6DYcD-pcMdA",
+     "locator": "01:36",
+     "lang": "en",
+     "passage": "Essentially what it does is that she applies plasma on every single auto attack and on the fifth auto attack it's going to deal bonus magic damage.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "76-136s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Place cinq attaques de base consécutives pour déclencher les dégâts magiques bonus du passif de Kai'Sa.",
+   "observe": "Le compteur de charges de plasma au-dessus de la cible après les attaques de base.",
+   "use": {
+    "when": "Tu échanges des coups avec une cible ennemie en utilisant des attaques de base.",
+    "why": "La cinquième attaque inflige des dégâts magiques bonus grâce au plasma.",
+    "who": "Kai'Sa",
+    "how": [
+     "Attaque la cible quatre fois de suite.",
+     "Porte la cinquième attaque pour déclencher les dégâts bonus."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-08-11",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-6DYcD-pcMdA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-6DYcD-pcMdA-7",
+   "claim": "Les sorts de contrôle et d'immobilisation des alliés appliquent une charge de plasma pour Kai'Sa, ce qui la rend très synergique avec les supports corps à corps.",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "synergie",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir un support corps à corps plaçant des contrôles"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-6DYcD-pcMdA",
+     "locator": "01:54",
+     "lang": "en",
+     "passage": "Another really big factor about Kaisa's passive is that your teammates CC and immobilizing spells can also apply one stack of plasma. This is why Kaisa synergizes really well with the melee supports.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "94-154s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Repère le contrôle de ton support pour enchaîner rapidement avec ton passif ou ton ultime sur Kai'Sa.",
+   "observe": "Une charge de plasma qui apparaît sur la cible lorsque ton allié applique un contrôle.",
+   "use": {
+    "when": "Ton support touche un adversaire avec un sort de contrôle ou d'immobilisation.",
+    "why": "Les contrôles des alliés appliquent une charge de plasma, facilitant le déclenchement du passif.",
+    "who": "Kai'Sa",
+    "how": [
+     "Attends qu'un allié touche l'ennemi avec un contrôle.",
+     "Observe la charge de plasma s'ajouter sur l'adversaire."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-08-11",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-6DYcD-pcMdA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-6DYcD-pcMdA-8",
+   "claim": "Obtenir 100 de dégâts d'attaque bonus, 100 de puissance bonus ou 100% de vitesse d'attaque bonus permet d'évoluer respectivement le A, le Z et le E de Kai'Sa.",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion",
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-6DYcD-pcMdA",
+     "locator": "02:05",
+     "lang": "en",
+     "passage": "When she gets 100 bonus AD she gets a bonus evolution effect on her Q. When she gets 100 bonus AP there's a bonus effect evolution on her W and when she gets 100% bonus attack speed she also gets a special you know upgrade on her E as well.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "105-165s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète des objets pour atteindre les seuils d'évolution de 100 AD, 100 AP ou 100% de vitesse d'attaque sur Kai'Sa.",
+   "observe": "L'interface d'amélioration des compétences qui s'illumine lorsque le seuil requis est atteint.",
+   "use": {
+    "when": "Tu achètes des composants ou des objets complets dans la boutique avec assez d'or.",
+    "why": "Atteindre ces seuils confère des effets d'évolution spéciaux et puissants sur tes sorts.",
+    "who": "Kai'Sa",
+    "how": [
+     "Vérifie tes statistiques bonus dans l'inventaire.",
+     "Achète des objets pour atteindre 100 AD, 100 AP ou 100% de vitesse d'attaque."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-08-11",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-6DYcD-pcMdA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-6DYcD-pcMdA-10",
+   "claim": "Le Z de Kai'Sa (Rayon du néant) applique deux charges de plasma et possède un long délai de récupération, il faut donc l'utiliser avec patience et le synchroniser avec les contrôles alliés.",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-6DYcD-pcMdA",
+     "locator": "02:49",
+     "lang": "en",
+     "passage": "So this is a great tool to apply plasma quickly on top of your teammate's CC, right? So it's very important you try to time it with your teammate's CC effects when they go in.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "149-209s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Attends qu'un allié touche sa cible avec un contrôle pour lancer ton Z (Rayon du néant) afin d'appliquer deux charges de plasma.",
+   "observe": "L'application instantanée de deux charges de plasma sur la cible touchée par le Z.",
+   "use": {
+    "when": "Un allié vient de placer un sort de contrôle sur un champion ennemi.",
+    "why": "Le sort a un long délai de récupération et n'est pas facile à placer, il faut le synchroniser pour garantir l'impact.",
+    "who": "Kai'Sa",
+    "how": [
+     "Patiente et garde ton Z en réserve.",
+     "Observe le contrôle de ton allié.",
+     "Lance ton Z (Rayon du néant) sur la cible immobilisée."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-08-11",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-6DYcD-pcMdA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-6DYcD-pcMdA-11",
+   "claim": "Selon Coach Violet : le E de Kai'Sa (Surcapacité) est un sort utilitaire de mobilité qui ne doit pas être utilisé uniquement de manière offensive ou défensive.",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-6DYcD-pcMdA",
+     "locator": "03:28",
+     "lang": "en",
+     "passage": "So it's very important you really view this as your your utility spell. You don't really want to just be using it aggressively nor do you just want to be using defensively only right. It has multiple uses.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "188-248s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Adapte l'utilisation de ton E (Surcapacité) pour fuir, esquiver ou te positionner agressivement selon la situation.",
+   "observe": "Le buff de vitesse de mouvement et la canalisation du E de Kai'Sa.",
+   "use": {
+    "when": "Tu dois t'engager dans un combat ou t'extraire d'une mauvaise position.",
+    "why": "Le sort offre des usages multiples de mobilité et ne doit pas être gaspillé bêtement.",
+    "who": "Kai'Sa",
+    "how": [
+     "Évalue si tu as besoin de fuir ou de rattraper une cible.",
+     "Active ton E (Surcapacité) pour ajuster ton positionnement en conséquence."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-08-11",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-6DYcD-pcMdA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-6DYcD-pcMdA-12",
+   "claim": "L'ultime de Kai'Sa (Instinct meurtrier) confère un bouclier et lui permet de se téléporter près d'une cible marquée par le plasma pour fuir ou engager.",
+   "champions": [
+    "Kai'Sa"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "La cible possède au moins une charge de plasma"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-6DYcD-pcMdA",
+     "locator": "03:40",
+     "lang": "en",
+     "passage": "Essentially what this does, it is her reposition tool and her mobility spell as well. It gives her a shield, very important it gives her a shield. And you can also teleport anywhere inside the circle.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-10-31",
+      "window": "200-260s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utilise l'ultime de Kai'Sa pour te placer autour d'un ennemi marqué par le plasma tout en bénéficiant d'un bouclier protecteur.",
+   "observe": "L'apparition du cercle de portée autour de la cible marquée et le bouclier octroyé à Kai'Sa.",
+   "use": {
+    "when": "Un ennemi possède des charges de plasma sur lui à portée de ton ultime.",
+    "why": "Cela permet de se repositionner, d'obtenir un bouclier et de suivre les actions de l'équipe.",
+    "who": "Kai'Sa",
+    "how": [
+     "Identifie une cible portant des charges de plasma.",
+     "Active ton R (Instinct meurtrier) pour te téléporter dans le cercle autour d'elle."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-08-11",
+   "analyzedAt": "2026-10-31",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-6DYcD-pcMdA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "traduction",
+     "why": "Terme à risque (shield) dans un passage en en sans note de traduction."
     }
    ]
   }

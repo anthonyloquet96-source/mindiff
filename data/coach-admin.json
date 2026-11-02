@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-01T19:54:17.426Z",
+ "generatedAt": "2026-11-02T01:23:52.383Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -554,7 +554,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-11-01T19:51:13.123Z",
+ "lastDiscovery": "2026-11-02T01:10:50.215Z",
  "failures": [],
  "quarantine": [
   {
@@ -566,28 +566,6 @@
   }
  ],
  "rejected": [
-  {
-   "id": "u-ai-yt-RIro7KcXJP8-1",
-   "reasons": [
-    {
-     "code": "citation-insuffisante",
-     "why": "Aucun passage ne porte sur Hecarim."
-    }
-   ],
-   "at": "2026-10-25",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-eceSyaVnz3M-1",
-   "reasons": [
-    {
-     "code": "rang-sous-reference",
-     "why": "Contenu tiré de parties de niveau argent : utilisable seulement comme erreur à corriger, pas comme référence."
-    }
-   ],
-   "at": "2026-10-26",
-   "origin": "analyse-automatique"
-  },
   {
    "id": "u-ai-yt-eceSyaVnz3M-2",
    "reasons": [
@@ -2921,17 +2899,6 @@
    "origin": "analyse-automatique"
   },
   {
-   "id": "u-ai-yt-C9mbXu7HgEA-4",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-C9mbXu7HgEA : « I'm going to prioritize going to this fight. One, it's a ver… »"
-    }
-   ],
-   "at": "2026-11-01",
-   "origin": "analyse-automatique"
-  },
-  {
    "id": "u-ai-yt-_rORbB3xpYo-1",
    "reasons": [
     {
@@ -2974,6 +2941,43 @@
    ],
    "at": "2026-11-01",
    "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-7INR8Gl5Fvw-2",
+   "reasons": [
+    {
+     "code": "mention",
+     "why": "Rengar n'est cité qu'en exemple : ce n'est pas un conseil sur Rengar."
+    },
+    {
+     "code": "mention",
+     "why": "Rengar (exemple) : mention, pas conseil."
+    }
+   ],
+   "at": "2026-11-02",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-Bzbo-zAKl04-1",
+   "reasons": [
+    {
+     "code": "rang-sous-reference",
+     "why": "Contenu tiré de parties de niveau emeraude : utilisable seulement comme erreur à corriger, pas comme référence."
+    }
+   ],
+   "at": "2026-11-02",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-Bzbo-zAKl04-2",
+   "reasons": [
+    {
+     "code": "citation-trop-longue",
+     "why": "Passage de plus de 320 caractères : résumer plutôt que republier."
+    }
+   ],
+   "at": "2026-11-02",
+   "origin": "analyse-automatique"
   }
  ],
  "pending": [
@@ -3014,11 +3018,8 @@
   "c-riot-champion-insights-zeri",
   "c-yt-hXYwDd0rMFY",
   "c-yt--V4SmNK_tjU",
-  "c-yt-C9mbXu7HgEA",
   "c-inven-board-baron",
-  "c-wtl-4072",
-  "c-yt-mS9pvlvJvco",
-  "c-yt-La2O9Zjk414"
+  "c-wtl-4072"
  ],
  "review": [
   "u-lucian-2620-ad",
@@ -4128,7 +4129,23 @@
   "u-ai-yt-hADG2i46dEQ-2",
   "u-ai-yt-hADG2i46dEQ-3",
   "u-ai-yt-_rORbB3xpYo-2",
-  "u-ai-yt-_rORbB3xpYo-3"
+  "u-ai-yt-_rORbB3xpYo-3",
+  "u-ai-yt-mS9pvlvJvco-1",
+  "u-ai-yt-mS9pvlvJvco-2",
+  "u-ai-yt-La2O9Zjk414-1",
+  "u-ai-yt-La2O9Zjk414-2",
+  "u-ai-yt-La2O9Zjk414-3",
+  "u-ai-yt-La2O9Zjk414-4",
+  "u-ai-yt-La2O9Zjk414-5",
+  "u-ai-yt-7INR8Gl5Fvw-1",
+  "u-ai-yt-7INR8Gl5Fvw-3",
+  "u-ai-yt-sY2TNSo3FqQ-1",
+  "u-ai-yt-sY2TNSo3FqQ-2",
+  "u-ai-yt-C9mbXu7HgEA-1",
+  "u-ai-yt-C9mbXu7HgEA-2",
+  "u-ai-yt-C9mbXu7HgEA-3",
+  "u-ai-yt-C9mbXu7HgEA-4",
+  "u-ai-yt-C9mbXu7HgEA-5"
  ],
  "contested": [],
  "retired": [
@@ -5529,272 +5546,6 @@
   "month": 0,
   "calls": [
    {
-    "at": "2026-11-01T19:29:21.403Z",
-    "content": "c-yt-dYxdKho6dHg",
-    "model": "gemini-3.5-flash-lite",
-    "input": 7941,
-    "output": 380,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-01T19:29:31.067Z",
-    "content": "c-yt-dYxdKho6dHg",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5880,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:29:39.496Z",
-    "content": "c-yt-dYxdKho6dHg",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5890,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:29:50.119Z",
-    "content": "c-yt-dYxdKho6dHg",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5869,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:29:57.704Z",
-    "content": "c-yt-dYxdKho6dHg",
-    "model": "gemini-3.5-flash-lite",
-    "input": 4626,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:30:11.085Z",
-    "content": "c-yt-bVuMSIMLJcE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 12189,
-    "output": 2307,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-01T19:30:18.558Z",
-    "content": "c-yt-bVuMSIMLJcE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 7014,
-    "output": 305,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-01T19:30:26.916Z",
-    "content": "c-yt-bVuMSIMLJcE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5901,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:30:35.855Z",
-    "content": "c-yt-bVuMSIMLJcE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5890,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:30:47.893Z",
-    "content": "c-yt-hADG2i46dEQ",
-    "model": "gemini-3.5-flash-lite",
-    "input": 15508,
-    "output": 1834,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-01T19:30:55.357Z",
-    "content": "c-yt-hADG2i46dEQ",
-    "model": "gemini-3.5-flash-lite",
-    "input": 6497,
-    "output": 260,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-01T19:31:08.014Z",
-    "content": "c-yt-hADG2i46dEQ",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5886,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:31:18.888Z",
-    "content": "c-yt-hADG2i46dEQ",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5876,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:31:28.577Z",
-    "content": "c-yt-hADG2i46dEQ",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5870,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:31:40.958Z",
-    "content": "c-yt-_rORbB3xpYo",
-    "model": "gemini-3.5-flash-lite",
-    "input": 7851,
-    "output": 1959,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-01T19:31:48.407Z",
-    "content": "c-yt-_rORbB3xpYo",
-    "model": "gemini-3.5-flash-lite",
-    "input": 6825,
-    "output": 260,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-01T19:31:57.936Z",
-    "content": "c-yt-_rORbB3xpYo",
-    "model": "gemini-3.5-flash-lite",
-    "input": 4093,
-    "output": 79,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:32:07.421Z",
-    "content": "c-yt-_rORbB3xpYo",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5914,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:32:17.368Z",
-    "content": "c-yt-_rORbB3xpYo",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5950,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:32:31.689Z",
-    "content": "c-yt-C9mbXu7HgEA",
-    "model": "gemini-3.5-flash-lite",
-    "input": 9441,
-    "output": 2693,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-01T19:32:39.409Z",
-    "content": "c-yt-C9mbXu7HgEA",
-    "model": "gemini-3.5-flash-lite",
-    "input": 7564,
-    "output": 347,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-01T19:32:48.847Z",
-    "content": "c-yt-C9mbXu7HgEA",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5944,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:33:07.128Z",
-    "content": "c-yt-C9mbXu7HgEA",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5872,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:33:18.893Z",
-    "content": "c-yt-C9mbXu7HgEA",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5859,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:36:20.313Z",
-    "content": "c-yt-PDRr_YJlDP8",
-    "model": "gemini-3.6-flash",
-    "input": 15576,
-    "output": 6056,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-01T19:37:08.309Z",
-    "content": "c-yt-PDRr_YJlDP8",
-    "model": "gemini-3-flash-preview",
-    "input": 7153,
-    "output": 9280,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-01T19:37:27.182Z",
-    "content": "c-yt-PDRr_YJlDP8",
-    "model": "gemini-3-flash-preview",
-    "input": 5927,
-    "output": 30,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:37:37.459Z",
-    "content": "c-yt-PDRr_YJlDP8",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5951,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:37:45.635Z",
-    "content": "c-yt-PDRr_YJlDP8",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5923,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-01T19:38:01.665Z",
-    "content": "c-yt-dYxdKho6dHg",
-    "model": "gemini-3.5-flash-lite",
-    "input": 10837,
-    "output": 3363,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-01T19:38:09.281Z",
-    "content": "c-yt-dYxdKho6dHg",
-    "model": "gemini-3.5-flash-lite",
-    "input": 8115,
-    "output": 394,
-    "usd": 0
-   },
-   {
     "at": "2026-11-01T19:38:17.496Z",
     "content": "c-yt-dYxdKho6dHg",
     "model": "gemini-3.5-flash-lite",
@@ -5955,6 +5706,273 @@
     "content": "c-yt-_rORbB3xpYo",
     "model": "gemini-3.5-flash-lite",
     "input": 5895,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:18:56.575Z",
+    "content": "c-yt-mS9pvlvJvco",
+    "model": "gemini-3.5-flash-lite",
+    "input": 10437,
+    "output": 2381,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T01:19:03.986Z",
+    "content": "c-yt-mS9pvlvJvco",
+    "model": "gemini-3.5-flash-lite",
+    "input": 7132,
+    "output": 319,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T01:19:13.262Z",
+    "content": "c-yt-mS9pvlvJvco",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5848,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:19:22.146Z",
+    "content": "c-yt-mS9pvlvJvco",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5825,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:19:36.326Z",
+    "content": "c-yt-La2O9Zjk414",
+    "model": "gemini-3.5-flash-lite",
+    "input": 10179,
+    "output": 2925,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T01:19:43.825Z",
+    "content": "c-yt-La2O9Zjk414",
+    "model": "gemini-3.5-flash-lite",
+    "input": 7702,
+    "output": 379,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T01:19:53.749Z",
+    "content": "c-yt-La2O9Zjk414",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5577,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:20:03.462Z",
+    "content": "c-yt-La2O9Zjk414",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5857,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:20:12.883Z",
+    "content": "c-yt-La2O9Zjk414",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5857,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:20:21.898Z",
+    "content": "c-yt-La2O9Zjk414",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5887,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:20:31.008Z",
+    "content": "c-yt-La2O9Zjk414",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5895,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:20:42.900Z",
+    "content": "c-yt-7INR8Gl5Fvw",
+    "model": "gemini-3.5-flash-lite",
+    "input": 10506,
+    "output": 1859,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T01:20:50.432Z",
+    "content": "c-yt-7INR8Gl5Fvw",
+    "model": "gemini-3.5-flash-lite",
+    "input": 6793,
+    "output": 242,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T01:20:59.432Z",
+    "content": "c-yt-7INR8Gl5Fvw",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5881,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:21:07.821Z",
+    "content": "c-yt-7INR8Gl5Fvw",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5855,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:21:16.737Z",
+    "content": "c-yt-7INR8Gl5Fvw",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5854,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:21:27.912Z",
+    "content": "c-yt-sY2TNSo3FqQ",
+    "model": "gemini-3.5-flash-lite",
+    "input": 8968,
+    "output": 1518,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T01:21:35.083Z",
+    "content": "c-yt-sY2TNSo3FqQ",
+    "model": "gemini-3.5-flash-lite",
+    "input": 6361,
+    "output": 179,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T01:21:43.832Z",
+    "content": "c-yt-sY2TNSo3FqQ",
+    "model": "gemini-3.5-flash-lite",
+    "input": 4997,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:21:52.126Z",
+    "content": "c-yt-sY2TNSo3FqQ",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5955,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:22:03.409Z",
+    "content": "c-yt-Bzbo-zAKl04",
+    "model": "gemini-3.5-flash-lite",
+    "input": 10997,
+    "output": 1370,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T01:22:10.608Z",
+    "content": "c-yt-Bzbo-zAKl04",
+    "model": "gemini-3.5-flash-lite",
+    "input": 6157,
+    "output": 175,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T01:22:20.966Z",
+    "content": "c-yt-Bzbo-zAKl04",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5881,
+    "output": 68,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:22:30.408Z",
+    "content": "c-yt-Bzbo-zAKl04",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5938,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:22:48.766Z",
+    "content": "c-yt-C9mbXu7HgEA",
+    "model": "gemini-3.5-flash-lite",
+    "input": 9441,
+    "output": 4205,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T01:22:57.283Z",
+    "content": "c-yt-C9mbXu7HgEA",
+    "model": "gemini-3.5-flash-lite",
+    "input": 8937,
+    "output": 771,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T01:23:07.871Z",
+    "content": "c-yt-C9mbXu7HgEA",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5989,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:23:17.616Z",
+    "content": "c-yt-C9mbXu7HgEA",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5990,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:23:27.733Z",
+    "content": "c-yt-C9mbXu7HgEA",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5971,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:23:36.369Z",
+    "content": "c-yt-C9mbXu7HgEA",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5995,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T01:23:45.043Z",
+    "content": "c-yt-C9mbXu7HgEA",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5953,
     "output": 46,
     "usd": 0,
     "kind": "verification-extrait"

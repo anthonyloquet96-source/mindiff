@@ -10544,7 +10544,9 @@
     ],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "videoAttempts": 1,
+   "videoError": "gemini-3.5-flash : réponse tronquée (2026-11-02)"
   },
   {
    "id": "c-yt-ACqPD0ovcik",
@@ -17440,7 +17442,7 @@
    "patch": null,
    "views": 7600,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 28 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "➡️Coaching and everything you need to climb - https://wtl.lol/violet (USE CODE:VIOLET10)\n➡️Join the Community - https://discord.gg/zVvGUPxYGw\n\nIntro 0:00\nExample 1 0:41\nExample 2 2:54\nExample 3 4:32\nExample 4 6:22\nExample 5 7:43\n\nIn this video im explaining the core fundamentals ",
    "triage": {
@@ -17470,6 +17472,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 68828
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 5,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "En milieu de partie, l'ADC doit constamment arbitrer entre pousser la ligne du milieu pour sécuriser le farm et l'or des tourelles ou décaler vers un combat en fonction des informations de la mini-carte, de la présence des menaces ennemies et de l'état des ressources (ultimes et PV) de ses coéquipiers.",
+   "quality": {
+    "level": "élevée",
+    "why": "La vidéo propose une analyse détaillée de plusieurs séquences de jeu concrètes avec un raisonnement tactique précis et structuré par un joueur professionnel de haut niveau."
    }
   },
   {
@@ -62404,7 +62416,7 @@
    "patch": "null",
    "views": 7900,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.5-flash-lite : transcription et 17 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 4,
@@ -62429,6 +62441,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 64651
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Apprends à gérer tes vagues de sbires en évitant les erreurs courantes comme le hard push systématique sur une grosse vague, le forfeit passif sous tourelle dans un mauvais matchup, ou le freeze sans objectif précis.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu détaille des erreurs concrètes de gestion de vagues avec des exemples précis, une argumentation claire et des conseils de correction directement applicables."
    }
   },
   {
@@ -68652,7 +68674,7 @@
    "retrievedAt": "2026-11-01",
    "patch": "null",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 46,
@@ -68679,6 +68701,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 90448
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 5,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Apprends à adapter ton wave management en ADC (quand pousser, quand geler, et comment réagir selon les objectifs, les combats et le timing de la partie).",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur détaille de multiples situations précises (objectifs, vagues, confrontations) avec des explications logiques et nuancées pour le rôle d'ADC."
    }
   },
   {
@@ -68691,13 +68723,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-11-01",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.1",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 47,
-   "note": "File de lecture (rang 47) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 37 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 19,
     "matched": [
@@ -68710,6 +68742,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-11-02",
+    "sha256": "a5ce7bda4d03710f00861736ebca737fbb4328f1885dcb9becbd07ce0e58223b",
+    "segments": 43,
+    "observations": 37,
+    "duration": "16:59",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 100693
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "Apprends à adapter ton cheminement de jungle en fonction de l'état de la botlane et de la menace d'invasion de l'adversaire.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur détaille précisément ses choix de pathing, ses anticipations d'invades et la logique stratégique liée aux forces de la composition."
    }
   },
   {
@@ -68722,13 +68777,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-11-01",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "non précisé",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 48,
-   "note": "File de lecture (rang 48) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 16 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -68737,6 +68792,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-02",
+    "sha256": "0842e10482127aa319c0e2d0b3f2e0eb5be75dd615bf540e7243abfce9adcc07",
+    "segments": 61,
+    "observations": 16,
+    "duration": "14:23",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 88980
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "L'auteur explique comment optimiser les phases d'invasion au niveau 1 en équipe bleue, identifier les fenêtres de roaming face à des compositions passives et punir les champions immobiles au mid comme Ryze.",
+   "quality": {
+    "level": "moyenne",
+    "why": "L'auteur fournit des explications de son raisonnement en cours de partie (Diamant 3), mais le contenu repose sur une analyse subjective de sa propre VOD sans statistiques globales de patch."
    }
   },
   {
@@ -69055,13 +69133,13 @@
    "lang": "es",
    "published": null,
    "retrievedAt": "2026-11-01",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.23",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 49,
-   "note": "File de lecture (rang 49) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -69071,6 +69149,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-11-02",
+    "sha256": "5bb9b8d2be5a946981318e210354fc9b507d545a13258548d174fbe182e15f37",
+    "segments": 1,
+    "observations": 40,
+    "duration": "22:20",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 184209
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "La vidéo montre un gameplay réel en partie classée avec des explications sur la prise de décision, mais l'argumentation repose sur un seul match en niveau Émeraude."
    }
   },
   {
@@ -69215,6 +69316,86 @@
      "how to",
      "breakdown"
     ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-DoXG3IySf4k",
+   "sourceId": "yt-raiko-league-of-legends",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=DoXG3IySf4k",
+   "title": "JE VOUS EXPLIQUE TOUT CE QUE JE FAIS DANS CETTE GAME POUR LA CARRY ( tips , combo , solo kill , roam",
+   "author": "Raiko - League of Legends",
+   "lang": "es",
+   "published": null,
+   "retrievedAt": "2026-11-02",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 56,
+   "note": "File de lecture (rang 56) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "tips"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-zCtZhJbkE8g",
+   "sourceId": "yt-rebrrt",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=zCtZhJbkE8g",
+   "title": "How to Punish Roaming Mid Laners 😤 | Aurora vs Fizz",
+   "author": "rebrrt",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-02",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 59,
+   "note": "File de lecture (rang 59) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "mid",
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-DZDYY56-maw",
+   "sourceId": "yt-2-8sga9qex",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=DZDYY56-maw",
+   "title": "10분에 스몰더 \"CS 10개 만드는 방법\"  [그레이브즈 강의, 그브 강의]",
+   "author": "경희대 챌린저 정글러 [비굿펄]",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-11-02",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 60,
+   "note": "File de lecture (rang 60) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"

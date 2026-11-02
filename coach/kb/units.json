@@ -72167,7 +72167,1489 @@
    },
    "version": 1,
    "firstSeen": "2026-11-01"
+  },
+  {
+   "id": "u-ai-yt-mS9pvlvJvco-1",
+   "claim": "Selon Gaëthan - League Of Legends : pour réussir ton slow push lorsque tu reçois une grosse vague sous ta tourelle, évite de hard push immédiatement et pratique le last itching en acceptant quelques dégâts sur la tourelle pour préparer une vague plus importante.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "tu reçois une grande vague sous ta tourelle"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mS9pvlvJvco",
+     "locator": "[01:21]",
+     "lang": "en",
+     "passage": "Donc vraiment être dans une situation de last itching tu vois, plutôt que de de situation de hard push en fait.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "61-121s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Last hit les sbires sous ta tourelle au lieu d'utiliser tes sorts pour tout nettoyer instantanément.",
+   "observe": "La taille de ta vague lors du rebond et ta capacité à créer un slow push efficace.",
+   "use": {
+    "when": "une grande vague ennemie arrive sous ta tourelle",
+    "why": "pour obtenir une plus grande vague (big wave) lors du push suivant et empêcher l'adversaire de t'agresser facilement",
+    "who": "tous les joueurs en phase de lane",
+    "how": [
+     "Laisse les sbires ennemis taper ta tourelle",
+     "Fais uniquement les derniers coups (last hit) au lieu de gaspiller tes sorts",
+     "Laisse la vague se reformer pour créer ton propre slow push"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est parfaitement soutenu par les passages et les consignes contextuelles de wave management sont claires."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-mS9pvlvJvco-2",
+   "claim": "Selon Gaëthan - League Of Legends : ne fais pas un gel de vague (freeze) sans objectif précis, car cela peut te faire perdre des points de vie, te rendre plus faible et te mener au dive.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "tu décides de geler la vague"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mS9pvlvJvco",
+     "locator": "[06:23]",
+     "lang": "en",
+     "passage": "Il faut traiter le freeze comme un outil qui te permet d'accomplir tes objectifs.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "363-423s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utilise le gel de vague uniquement si tu as un objectif clair et un combat avantageux.",
+   "observe": "Tes points de vie et la position de l'adversaire avant de décider de geler.",
+   "use": {
+    "when": "tu penses à geler la vague devant ta tourelle",
+    "why": "pour forcer l'adversaire à s'avancer et à perdre des sbires dans un combat avantageux",
+    "who": "tous les joueurs en phase de lane",
+    "how": [
+     "Identifie ton objectif précis avant de geler",
+     "Vérifie que le combat t'est favorable et que tu ne perds pas trop de PV pour maintenir le gel"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le principe du gel de vague conditionné par des objectifs est fidèle aux propos et contextuellement complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-La2O9Zjk414-1",
+   "claim": "Selon BIZYZE Coaching | League of Legends : les trois raisons principales pour pousser ta vague en ADC sont : pour préparer un rappel (recall), pour participer à un événement proche sur la carte (comme un combat en rivière), ou pour accélérer la pression (obtenir des plaques de tourelle ou empêcher les rappels ennemis).",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "diamond",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir un objectif ou un rappel en vue",
+    "Avoir un combat proche"
+   ],
+   "limits": [
+    "Contexte de partie niveau Diamant/Master"
+   ],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-La2O9Zjk414",
+     "locator": "[00:17]",
+     "lang": "fr",
+     "passage": "You should push if one, you want to go for the recall. Two, you need to participate for something that happens around you. Three, you want to accelerate the push in order to increase the pressure.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "0-57s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse ta vague uniquement lorsque tu souhaites rappeler, participer à un combat proche ou augmenter la pression sur les plaques.",
+   "observe": "Regarde si tu as un rappel, un combat ou une opportunité de plaque avant de pousser.",
+   "use": {
+    "when": "tu te demandes si tu dois pousser ou geler ta vague en botlane",
+    "why": "Ces trois raisons couvrent les nécessités tactiques pour rentabiliser l'action de pousser.",
+    "who": "AD carry",
+    "how": [
+     "Identifie ton besoin (rappel, combat proche, plaques)",
+     "Pousse la vague en conséquence"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement fidèle à son passage et décrit clairement les conditions d'usage pour un ADC."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-La2O9Zjk414-2",
+   "claim": "Selon BIZYZE Coaching | League of Legends : lorsque tu veux rappeler, assure-toi d'avoir assez d'or pour un pic de puissance significatif, d'être bas en mana/PV, ou de te préparer à un objectif qui apparaît dans 45 secondes à 1 minute.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "diamond",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir l'or nécessaire ou un timing d'objectif"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-La2O9Zjk414",
+     "locator": "[00:27]",
+     "lang": "fr",
+     "passage": "Remember that by you want to recall, this will mean you have enough gold for a significant power spike in base, or you're really low on mana or HP, or you simply want to get ready for an objective that is spawning in like around 45 seconds to one minute.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "7-67s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse et rappelle seulement si tu remplis l'une de ces conditions de timing ou d'or.",
+   "observe": "Vérifie ton or et le chronomètre des objectifs avant de décider de rappeler.",
+   "use": {
+    "when": "tu hésites à rappeler après avoir nettoyé ou poussé ta vague",
+    "why": "Cela évite de perdre de l'expérience et des sbires inutilement.",
+    "who": "AD carry",
+    "how": [
+     "Vérifie ton or ou ton niveau de PV/mana",
+     "Regarde le chrono du prochain objectif"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est directement tiré de la source et donne des critères précis et exploitables pour le rappel."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-La2O9Zjk414-3",
+   "claim": "Selon BIZYZE Coaching | League of Legends : si un combat a lieu très près de toi en rivière, suis et rejoins immédiatement sans t'embêter à pousser la vague. S'il est très loin et que tu ne peux pas arriver à temps, pousse d'abord la vague avant de suivre.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "teamfight",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "diamond",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Distance du combat par rapport à ta position"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-La2O9Zjk414",
+     "locator": "[02:13]",
+     "lang": "fr",
+     "passage": "So, fight is really close to you, follow right away. Don't bother pushing. Fighting really really far from you and you still want to join later on, make sure you push the wave and then you follow afterwards.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "113-173s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Rejoins directement les combats proches de toi, ou pousse la vague d'abord si le combat est lointain.",
+   "observe": "Évalue la distance du combat sur la mini-carte avant de bouger.",
+   "use": {
+    "when": "un combat éclate dans la rivière pendant que tu es sur ta lane",
+    "why": "Pour optimiser ton temps d'arrivée ou ne pas perdre de vagues pour rien.",
+    "who": "AD carry",
+    "how": [
+     "Estime la distance du combat",
+     "Rejoins immédiatement si c'est proche, ou pousse la vague si c'est loin"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La situation de combat et la distinction selon la distance sont conformes à la transcription."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-La2O9Zjk414-4",
+   "claim": "Selon BIZYZE Coaching | League of Legends : ne fais jamais de slow push aux stades avancés de la partie (après la chute de la première tour, vers 30 minutes de jeu) en Solo Q, car tes coéquipiers vont se battre et tu dois pousser rapidement pour la vision du Baron ou éviter de perdre des vagues.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "macro",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "diamond",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Phase de lane terminée",
+    "File en Solo Q"
+   ],
+   "limits": [
+    "Ne s'applique pas forcément en équipe organisée ou en clash avec bonne communication"
+   ],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-La2O9Zjk414",
+     "locator": "[05:01]",
+     "lang": "fr",
+     "passage": "In the later stages, you never slow push, right? Because if you're like 30 minutes in the game and you're slow pushing the mid lane wave when everyone is grouped, I mean, you have to just push and just get vision for Baron.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "281-341s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-La2O9Zjk414",
+     "locator": "[05:43]",
+     "lang": "fr",
+     "passage": "So, slow pushing in the later stages, slow pushing after the tower is gone, is good in competitive clash or when your teammates are going to be smart enough to not fight. This is not going to happen in solo Q. In solo Q, everyone is going to do ooga-booga-ooga-booga fighting, so do not slow push after the lane phase."
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse rapidement les vagues en mid/late game au lieu de faire un slow push en Solo Q.",
+   "observe": "Regarde le chronomètre de la partie et l'état des tours extérieures.",
+   "use": {
+    "when": "la première tour est détruite et les joueurs se regroupent sur la carte en Solo Q",
+    "why": "En Solo Q, les joueurs se battent constamment sans attendre, il faut donc agir vite.",
+    "who": "AD carry",
+    "how": [
+     "Nettoie et pousse la vague rapidement",
+     "Rejoins ton équipe ou prends la vision"
+    ],
+    "notWhen": "En partie organisée ou clash avec une équipe coordonnée."
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil s'appuie directement sur les propos de l'auteur concernant le late game et la Solo Q."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-La2O9Zjk414-5",
+   "claim": "Selon BIZYZE Coaching | League of Legends : si ton jungler fait un Drake, ne pousse pas automatiquement ta vague si le Drake est déjà très bas en points de vie (par exemple entre 600 et 1000 PV) et que ton jungler peut le finir rapidement, car cela risque de faire geler la vague en faveur de l'ennemi.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "diamond",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Le jungler fait le Drake",
+    "Les PV du Drake sont très bas"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-La2O9Zjk414",
+     "locator": "[11:46]",
+     "lang": "fr",
+     "passage": "The problem is that if if the Drake is actually 1,000 HP or 600 HP or 700 HP, like really low, and you have a jungle that can immediately take it in like the next 5 seconds, there is absolutely no reason for you to push here.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "686-746s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-La2O9Zjk414",
+     "locator": "[11:59]",
+     "lang": "fr",
+     "passage": "So, this bronze thinking of, oh, I'm going to push when my jungle is doing Drake is good, but first you can look there, see the HP of the Drake, see what's going on there and after that you can take the decision if you want to push or not."
+    }
+   ],
+   "mentions": [],
+   "action": "Vérifie les points de vie du Drake avant de décider de pousser ta vague pour aider ton jungler.",
+   "observe": "Regarde la barre de vie du Drake sur la mini-carte ou l'écran.",
+   "use": {
+    "when": "ton jungler commence ou est en train de faire le Drake pendant que tu es en botlane",
+    "why": "Si le Drake est presque mort, pousser va juste ruiner le placement de ta vague sans utilité.",
+    "who": "AD carry",
+    "how": [
+     "Regarde les PV du Drake",
+     "Évalue la vitesse de ton jungler pour finir l'objectif avant de pousser"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle au passage sur la gestion du wave push en fonction des PV du Drake."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-7INR8Gl5Fvw-1",
+   "claim": "Selon Coach Leo : en tant que jungler, si ton équipe se concentre sur le côté bot et que le matchup de ta botlane offre plus de pression, tu dois prioriser ton trajet (pathing) vers le bas de la carte dès l'entame de partie.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Ton équipe se focalise sur le bas de la carte",
+    "Ton matchup de botlane possède la priorité"
+   ],
+   "limits": [
+    "Dépendant du choix des champions en botlane"
+   ],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-7INR8Gl5Fvw",
+     "locator": "01:10",
+     "lang": "en",
+     "passage": "this game is very much about bot. It like takes prio, you know, over top. So if like my bot lane matchup was like Lulu versus, or like less less prio, I would path to top. But this game it's very important that we path to the bot side.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "50-110s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Lulu (exemple)",
+    "Zyra (exemple)",
+    "Rengar (exemple)"
+   ],
+   "action": "Orienter ton premier trajet de jungle vers le côté bot lorsque ta botlane a l'avantage de la pression.",
+   "observe": "Le cheminement du jungler vers le camp bot au premier clear.",
+   "use": {
+    "when": "au début de la partie, avant ton premier clear de jungle",
+    "why": "la partie se joue en grande partie sur la botlane et nécessite de sécuriser la priorité de cette zone",
+    "who": "les joueurs de jungle",
+    "how": [
+     "Évaluer le matchup de la botlane alliée avant le lancement",
+     "Diriger ton premier clear vers le côté bot si le matchup est favorable"
+    ],
+    "notWhen": "si ton matchup de botlane est dominé et perd la priorité"
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle au passage cité, son contexte d'usage est complet et le principe macro est intemporel."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-7INR8Gl5Fvw-3",
+   "claim": "Selon Coach Leo : pour obtenir de l'aide de tes coéquipiers sur la vision de ta jungle, demande-leur précisément via des pings de placer une balise là où tu as besoin d'informations.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "vision",
+    "jungle",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tu as besoin d'informations sur les mouvements ennemis dans ta jungle",
+    "Tu souhaites éviter de te déplacer toi-même dans des zones non sécurisées"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-7INR8Gl5Fvw",
+     "locator": "06:18",
+     "lang": "en",
+     "passage": "I'm going to really try and tell my Yone to ward it. Okay? This is how you want to use your teammates so you can be greedier. So please ward. Tell them exactly what you want. There you go, he drops the ward. Perfect.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "358-418s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Yone (exemple)",
+    "Rengar (exemple)"
+   ],
+   "action": "Demander explicitement à un coéquipier de placer une balise de vision dans une zone critique de ta jungle.",
+   "observe": "Un allié posant une balise suite à un ping de demande.",
+   "use": {
+    "when": "quand tu suspectes une invasion ennemie dans ta jungle mais que tu dois farmer ailleurs",
+    "why": "pour utiliser tes coéquipiers afin d'obtenir des informations en toute sécurité et garder ton rythme de farm",
+    "who": "les joueurs de jungle",
+    "how": [
+     "Identifier la zone à surveiller",
+     "Pinguer ton coéquipier pour lui demander de poser une balise à cet endroit précis"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil correspond exactement au passage cité, illustrant comment communiquer avec ses coéquipiers pour sécuriser sa jungle."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-sY2TNSo3FqQ-1",
+   "claim": "Selon Coach K : en début de partie sur la bot lane en équipe bleue, les supports de bas niveau se cachent à l'intérieur du buisson de la rivière par paresse. Pour réussir un premier contact ou un invade, il faut longer le mur par l'extérieur du buisson pour que l'adversaire soit obligé de s'exposer s'il veut vous voir.",
+   "champions": [],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "vision"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Diamond 3",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jouer en équipe bleue",
+    "Être en tout début de partie"
+   ],
+   "limits": [
+    "Valable principalement en équipe bleue"
+   ],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-sY2TNSo3FqQ",
+     "locator": "00:10",
+     "lang": "en",
+     "passage": "So here I want to explain the level one that we do. If you go through this hugging this corner through the river in bot lane, the enemy support needs to be covering here outside the bush. He needs to be outside the bush so he can see you, all right?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "0-50s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-sY2TNSo3FqQ",
+     "locator": "00:27",
+     "lang": "en",
+     "passage": "So what most of the supports do in lower Elo, like even in below Master, is that they will cover inside this bush because they are lazy and they are not covering anything here."
+    }
+   ],
+   "mentions": [],
+   "action": "En équipe bleue au niveau 1, longe le coin extérieur du buisson de la rivière bot lane plutôt que de t'y cacher à l'intérieur.",
+   "observe": "Le positionnement du support adverse s'il sort ou non du buisson pour te repérer.",
+   "use": {
+    "when": "Au tout début de la partie, avant l'apparition des sbires, lorsque tu te diriges vers la rivière côté bot lane en équipe bleue.",
+    "why": "Car les supports adverses se cachent dedans par paresse et ne voient pas les unités qui longent l'extérieur.",
+    "who": "Support",
+    "how": [
+     "Passe en longeant le coin extérieur du mur vers la rivière bot lane",
+     "Observe si le support adverse se trouve à l'extérieur ou à l'intérieur du buisson"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle aux passages cités, apporte un contexte d'usage complet et un conseil positionnel clair en début de partie."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-sY2TNSo3FqQ-2",
+   "claim": "Selon Coach K : contre une bot lane défensive composée de Sona et Ezreal qui ne peuvent pas dive ton ADC, ne perds pas ton temps à forcer des actions bot lane. Profite des timers pour roam et laisser ton carry s'isoler pour récupérer de l'expérience en solo.",
+   "champions": [
+    "Sona",
+    "Ezreal",
+    "Jinx"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Sona"
+   },
+   "synergy": {
+    "with": [
+     "Jinx"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Diamond 3",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Affronter une bot lane passive et défensive impossible à dive",
+    "Jouer un support de roam"
+   ],
+   "limits": [
+    "Risqué si l'ADC adverse possède un fort potentiel de dive (ex: Nautilus, Leona, Alistar)"
+   ],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-sY2TNSo3FqQ",
+     "locator": "13:19",
+     "lang": "en",
+     "passage": "Understand that in bot lane, they cannot dive Jinx because it's a Sona. So when they pick these champions like Sona and Ezreal, and they play really defensive because they are really used to not getting punished, you cannot really dive them, it's getting really annoying and frustrating, please just roam on good timers.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "779-839s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-sY2TNSo3FqQ",
+     "locator": "13:37",
+     "lang": "en",
+     "passage": "Maybe let your AD carry catch some waves as well alone. Look, you can see that he's level 8 and 7, and I'm level 7 and 9, right?"
+    }
+   ],
+   "mentions": [
+    "Nautilus (exemple)",
+    "Leona (exemple)",
+    "Alistair (exemple)"
+   ],
+   "action": "Quitte la bot lane pour roam sur la carte quand l'adversaire joue purement défensif et laisse ton carry prendre de l'expérience en solo.",
+   "observe": "La composition adverse pour confirmer l'absence de menace de dive sur ton carry.",
+   "use": {
+    "when": "Lorsque la bot lane adverse joue de manière très défensive (ex: Sona/Ezreal) et qu'aucun dive n'est possible.",
+    "why": "Car ils ne peuvent pas dive ton carry et que tu maximises ainsi l'impact global de la carte.",
+    "who": "Support de roam (ex: Pyke)",
+    "how": [
+     "Identifie l'impossibilité d'un dive par l'adversaire en raison de leur composition passive",
+     "Quitte la bot lane sur un bon timing pour roam sur la carte",
+     "Laisse ton carry enclencher la récupération d'expérience en solo"
+    ],
+    "notWhen": "Si tu joues contre une bot lane agressive capable de dive ton carry (Nautilus, Leona, Alistar)."
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est bien appuyé par la transcription, la situation est reconnaissable face à une bot lane défensive, et le contexte d'usage est complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-C9mbXu7HgEA-1",
+   "claim": "Selon Coach Violet : erreur fréquente en milieu de partie : rejoindre un combat lointain en bas de la carte sans vérifier si tes alliés ont leurs ultimes et si leurs barres de vie sont pleines. L'auteur conseille de prioriser la vague de sbires mid pour sécuriser des golds garantis si la situation est défavorable.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "macro",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR/NA/OCE"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tu as dû rappeler à la base et dépenser ton or",
+    "Tes alliés n'ont plus leurs ultimes et ont de faibles points de vie"
+   ],
+   "limits": [
+    "Exemple basé sur l'expérience personnelle de l'auteur en ranked Challenger"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-C9mbXu7HgEA",
+     "locator": "00:51",
+     "lang": "en",
+     "passage": "So right here, you know, I decided to hover top on this timer, but I realized this play is super, super far away. It's going to take me a long time to get over here. So I decided to prioritize the mid wave first because, one, I don't think there's a play to fight at the moment, right?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "31-91s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-C9mbXu7HgEA",
+     "locator": "01:29",
+     "lang": "en",
+     "passage": "So here, I actually make the mistake, right? I think right now the fight is super hard to win because, one, none of my teammates have ults, right? My Lee Sin doesn't have ult, my Riven doesn't have ult, my Singed has no ult, my Leona has no ult, and my Leona is 1 HP.",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Caitlyn (exemple)",
+    "Lee Sin (exemple)",
+    "Riven (exemple)",
+    "Singed (exemple)",
+    "Leona (exemple)"
+   ],
+   "action": "Vérifie les ultimes de tes coéquipiers et leurs PV sur le tableau des scores avant de te déplacer vers une escarmouche lointaine.",
+   "observe": "Regarde si tes alliés ont des indicateurs d'ultime disponibles et des barres de vie pleines sur l'interface avant de quitter ta ligne.",
+   "use": {
+    "when": "Ton équipe engage un combat ou trouve un pick loin de ta position alors que tu reviens de la base.",
+    "why": "S'engager sans tes ultimes et avec des alliés trop bas en PV mène à un échec, alors que pousser la vague mid offre des ressources garanties.",
+    "who": "Joueur ADC en milieu de partie",
+    "how": [
+     "Regarde les barres de vie et les temps de recharge des ultimes de tes alliés sur l'interface.",
+     "Si ton équipe n'a pas ses ressources, abandonne l'idée de bouger et reste sur la ligne du milieu.",
+     "Pousse la vague de sbires mid pour infliger des dégâts à la tourelle ou farmer de manière sécurisée."
+    ],
+    "notWhen": "Ne reste pas sur ta ligne si ton équipe possède un avantage numérique net, tous ses sorts et que le combat est proche de toi."
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "mention",
+     "sur-generalisation"
+    ],
+    "why": "L'unité liste le champion Ashe alors que le conseil est une macro générale pour les ADC et que la source ne parle pas spécifiquement d'Ashe."
+   },
+   "published": "2026-07-14",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-C9mbXu7HgEA-2",
+   "claim": "Selon Coach Violet : en milieu de partie, si tu observes un avantage numérique grâce à la position visible des ennemis sur la carte et que tu disposes d'un chronomètre rapide, décides de rejoindre l'escarmouche pour sécuriser des éliminations rapides.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "macro",
+    "lane"
+   ],
+   "synergy": {
+    "with": [
+     "Braum",
+     "Twisted Fate"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR/NA/OCE"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Un adversaire clé est mort",
+    "Tu as des informations claires sur la position des autres ennemis sur la carte",
+    "Tu es bien dans ta partie avec des objets d'avance"
+   ],
+   "limits": [
+    "Basé sur le guide de l'auteur pour ADC"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-C9mbXu7HgEA",
+     "locator": "04:08",
+     "lang": "en",
+     "passage": "So how do we take that into account? It's very important, you know, we look at the numbers and information on the map, playing off the information. Jayce is dead. Ashe shows mid right at this instant, so in my head I'm like, oh, we can maybe fight bot.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "228-288s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Jayce (exemple)",
+    "Ornn (exemple)",
+    "Quinn (exemple)",
+    "Bard (exemple)",
+    "Twisted Fate (exemple)",
+    "Braum (exemple)",
+    "Ryze (exemple)",
+    "Master Yi (exemple)",
+    "Ashe (exemple)"
+   ],
+   "action": "Regarde la mini-carte pour localiser les menaces ennemies et décale en activant ton ultime si un surnombre favorable est identifié.",
+   "observe": "Repère un ennemi isolé ou en infériorité numérique et vérifie que le carry adverse est loin de la zone de combat.",
+   "use": {
+    "when": "Tu es sur une ligne, un ennemi important est mort, et tu vois un adversaire clé réapparaître loin de l'action tandis que tes coéquipiers s'approchent d'une cible.",
+    "why": "Disposer d'un avantage numérique et d'un timing court permet de surprendre l'ennemi avant que ses renforts n'arrivent.",
+    "who": "Joueur ADC en milieu de partie",
+    "how": [
+     "Surveille les positions des ennemis sur la mini-carte pour identifier une situation de supériorité numérique (par exemple un 3v3 ou un 4v3).",
+     "Utilise ton ultime de déplacement ou de vitesse pour rejoindre l'action de manière fulgurante.",
+     "Suis l'engagement de ton support pour enchaîner sur les cibles contrôlées."
+    ],
+    "notWhen": "Ne rejoins pas le combat si l'ennemi manquant peut arriver rapidement ou si le nombre d'adversaires sur place est supérieur ou égal au tien."
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "mention"
+    ],
+    "why": "Le champion Sivir est mentionné dans les champions de l'unité alors qu'il s'agit d'un conseil macro général pour les ADC."
+   },
+   "published": "2026-07-14",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-C9mbXu7HgEA-3",
+   "claim": "Selon Coach Violet : erreur fréquente en milieu de partie : vouloir compenser les mauvais choix de ses coéquipiers en rejoignant une mauvaise escarmouche excentrée. L'auteur conseille de rester sur sa ligne pour pousser les vagues et infliger des tourelles plutôt que de gaspiller du temps.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "macro",
+    "lane",
+    "vagues"
+   ],
+   "synergy": {
+    "with": [
+     "Nocturne",
+     "Blitzcrank"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR/NA/OCE"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tes coéquipiers initient un combat risqué ou forcé sans leurs ultimes",
+    "L'équipe ennemie est au complet ou potentiellement proche"
+   ],
+   "limits": [
+    "Basé sur l'analyse d'une erreur commise par l'auteur"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-C9mbXu7HgEA",
+     "locator": "04:55",
+     "lang": "en",
+     "passage": "Once again, my Nocturne has no ult. I think this is a bit of an overforce, right? I know the enemy team is potentially here, they're all running up first. We haven't seen them for a while. So I decide to ping my teammates back, right? I don't think this is a good play in this situation.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "275-335s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Alistar (exemple)",
+    "Cassiopeia (exemple)",
+    "Nocturne (exemple)",
+    "Twisted Fate (exemple)",
+    "Blitzcrank (exemple)"
+   ],
+   "action": "Ping de recul (danger) à tes coéquipiers et continue de pousser la vague de sbires au milieu si leur action est un 'overforce' sans ultimes.",
+   "observe": "Vois tes coéquipiers s'avancer pour forcer un combat alors que les ultimes clés de ton équipe sont en récupération.",
+   "use": {
+    "when": "Tes alliés s'engagent dans une zone sans vision ni ultimes sur un adversaire fort (comme une Cassiopeia fed).",
+    "why": "Tenter de sauver une mauvaise action entraîne une perte de temps et de ressources, alors que pousser la ligne offre de l'or garanti et des dégâts aux tourelles.",
+    "who": "Joueur ADC en milieu de partie",
+    "how": [
+     "Envoie des pings de danger pour avertir tes coéquipiers de stopper leur action.",
+     "Maintiens le cap sur ta ligne pour nettoyer la vague de sbires.",
+     "Attaque la tourelle du milieu pour capitaliser sur l'or des plaques ou détruire le bâtiment."
+    ],
+    "notWhen": "Ne reste pas seul à farmer si le combat se déroule directement sur un objectif majeur contestable par toute l'équipe."
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "mention"
+    ],
+    "why": "Le champion Jhin est listé sans lien direct avec le conseil de macro global pour les ADC."
+   },
+   "published": "2026-07-14",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-C9mbXu7HgEA-4",
+   "claim": "Selon Coach Violet : lorsque tu es bien dans ta partie et que tu observes un combat en infériorité numérique pour les adversaires, privilégie le déplacement immédiat vers l'escarmouche pour impacter le combat plutôt que de t'attarder sur la vague mid.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "macro",
+    "lane"
+   ],
+   "synergy": {
+    "with": [
+     "Katarina",
+     "Nautilus"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR/NA/OCE"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tu es dans un bon état de jeu et plutôt riche",
+    "Tu repères les menaces ennemies principales (ex: Akali, Aatrox) loin de la zone du combat"
+   ],
+   "limits": [
+    "Basé sur les conseils de l'auteur dans une partie de niveau Challenger"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-C9mbXu7HgEA",
+     "locator": "06:53",
+     "lang": "en",
+     "passage": "So I decided to just not go mid in this situation, right? I'm not going to push mid first. I'm going to prioritize going to this fight. One, it's a very close fight, right? I can just move here and immediately have an impact. And two, it's just a 4v3, or a 5v3, you know.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "393-453s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Akali (exemple)",
+    "Aatrox (exemple)",
+    "Katarina (exemple)",
+    "Nautilus (exemple)"
+   ],
+   "action": "Décale immédiatement vers un combat proche dès que tu constates un surnombre (4v3 ou 5v3) et que les gros dangers ennemis sont localisés loin.",
+   "observe": "Vérifie sur la mini-carte que les champions adverses forts sont bloqués ou visibles sur les autres lignes pendant qu'un combat s'engage près de toi.",
+   "use": {
+    "when": "Un combat éclate près de ta position, les ennemis principaux sont aperçus à l'opposé de la carte, et ton équipe possède un avantage numérique.",
+    "why": "Rejoindre un combat proche avec un avantage numérique permet de remporter l'affrontement et de convertir l'avantage en éliminations.",
+    "who": "Joueur ADC en milieu de partie",
+    "how": [
+     "Identifie la position des menaces principales sur la mini-carte (top et bot).",
+     "Confirme que tes coéquipiers sont en position favorable ou en train de gagner du temps.",
+     "Utilise ton kit de mobilité ou ton ultime (ex: Instinct meurtrier de Kai'Sa) pour fondre sur le combat et infliger des dégâts."
+    ],
+    "notWhen": "Ne quitte pas ta ligne si le combat est trop loin pour que tu puisses y arriver à temps ou si l'ennemi dispose d'un nombre supérieur de combattants."
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "mention"
+    ],
+    "why": "Le champion Kai'Sa est indiqué dans l'unité alors que le contenu traite d'une décision macro valable pour le rôle de tireur en général."
+   },
+   "published": "2026-07-14",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-C9mbXu7HgEA-5",
+   "claim": "Selon Coach Violet : en fin de phase de lane ou en milieu/fin de partie, utilise les temps morts entre deux vagues de sbires pour survoler la zone, aider ton support à nettoyer la vision ou escorter un allié en difficulté, tout en surveillant le positionnement des ennemis sur la carte.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vision",
+    "lane",
+    "macro"
+   ],
+   "synergy": {
+    "with": [
+     "Nautilus",
+     "Talon",
+     "Jayce"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR/NA/OCE"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "La vague de sbires mid a été nettoyée et la suivante n'est pas encore arrivée"
+   ],
+   "limits": [
+    "Basé sur le comportement de l'auteur en fin de partie"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-C9mbXu7HgEA",
+     "locator": "08:19",
+     "lang": "en",
+     "passage": "Once again, I just use my downtime before the next mid wave comes to just hover my support a little bit, right? Clear some vision, hover my support, and I go straight back to the mid wave in this situation, right?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "479-539s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Viktor (exemple)",
+    "Garen (exemple)",
+    "Bard (exemple)",
+    "Ambessa (exemple)",
+    "Talon (exemple)",
+    "Nautilus (exemple)",
+    "Jayce (exemple)",
+    "Zhin (exemple)"
+   ],
+   "action": "Accompagne ton support pour nettoyer une balise de vision dans la rivière pendant le battement entre deux vagues de sbires.",
+   "observe": "Regarde si ta vague au milieu est nettoyée et si tu disposes de quelques secondes avant l'arrivée de la prochaine vague.",
+   "use": {
+    "when": "Tu viens de repousser la vague au milieu et tu attends que la suivante arrive tout en voyant ton support bouger dans la rivière.",
+    "why": "Occuper ces moments creux par du contrôle de vision et de l'aide au support sécurise la zone sans perdre l'or de la vague principale.",
+    "who": "Joueur ADC en milieu ou fin de partie",
+    "how": [
+     "Tue rapidement la vague de sbires sur la ligne centrale.",
+     "Rejoins brièvement ton support dans les environs pour éliminer une vision ennemie (balise).",
+     "Reviens immédiatement sur la ligne du milieu dès l'arrivée de la prochaine vague de sbires pour ne pas rater le farm."
+    ],
+    "notWhen": "Ne t'attarde pas trop longtemps hors de la ligne si tu n'as pas de visibilité sur les carrys adverses."
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "mention"
+    ],
+    "why": "Le champion Zeri ne doit pas figurer dans l'unité puisqu'il s'agit d'un conseil général de gestion des temps morts pour les ADC."
+   },
+   "published": "2026-07-14",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
   }
  ],
- "updatedAt": "2026-11-01T19:42:10.168Z"
+ "updatedAt": "2026-11-02T01:23:51.273Z"
 }

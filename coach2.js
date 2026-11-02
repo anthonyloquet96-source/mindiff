@@ -563,6 +563,7 @@ async function c2V1Load(force = false) {
     const [active, progress, diag] = await Promise.all([c2V1(`/players/${V.pid}/goals/active`), c2V1(`/players/${V.pid}/progress`), c2V1(`/players/${V.pid}/diagnostic`)]);
     Object.assign(V, { goal: active.goal, evaluations: active.evaluations, history: progress.goals, series: progress.series, diagnostic: diag });
     c2ui.matches = null; // nouvelles parties : l'apprentissage de champion relit la liste
+    c2LoadProfile(true); // et « Dernières parties » aussi, sans attendre les 2 minutes du cache
     // Résumé gardé sur l'appareil pour la carte de l'Accueil (sans relancer de synchronisation à chaque ouverture)
     const g = active.goal, evs = (active.evaluations || []).filter(e => e.counted);
     if (c2ui.v1 !== V) return; // compte changé pendant la synchronisation
@@ -1666,7 +1667,7 @@ function c2Champions() {
   const played = new Map();
   for (const g of C2.profile?.games || []) { const id = c2Id(g.champion) || g.champion, s = played.get(id) || { n: 0, w: 0 }; s.n++; s.w += g.win ? 1 : 0; played.set(id, s); }
   const mine = list.filter(c => played.has(c.id)).sort((a, b) => played.get(b.id).n - played.get(a.id).n || played.get(b.id).w - played.get(a.id).w);
-  const cell = c => { const s = played.get(c.id); return `<a class="c2-champ" href="${c2Href("champions", c.id)}">${c2Img(c.id)}<span>${esc(c.name)}</span>${s ? `<span class="c2-champ-n">${s.n} partie${s.n > 1 ? "s" : ""} · ${Math.round(100 * s.w / s.n)} %</span>` : ""}</a>`; };
+  const cell = c => { const s = played.get(c.id); return `<a class="c2-champ" href="${c2Href("champions", c.id)}">${c2Img(c.id)}<span>${esc(c.name)}</span>${s ? `<span class="c2-champ-n">${s.n}&nbsp;partie${s.n > 1 ? "s" : ""}<br>${Math.round(100 * s.w / s.n)}&nbsp;%</span>` : ""}</a>`; };
   const rest = list.filter(c => !played.has(c.id));
   return `<label class="field"><span class="sr">Rechercher un champion</span><input id="c2-search" class="search" type="search" placeholder="Rechercher un champion" value="${esc(c2ui.q)}" autocomplete="off"></label>
     ${mine.length ? `<p class="label">Tes champions</p><p class="fine">Du plus joué au moins joué sur tes ${C2.profile.games.length} dernières ranked, avec ton taux de victoires.</p><div class="c2-grid">${mine.map(cell).join("")}</div>${rest.length ? `<p class="label">Tous les champions</p>` : ""}` : ""}

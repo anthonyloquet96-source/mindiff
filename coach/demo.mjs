@@ -3,7 +3,7 @@
 // Les parties suivent le format Match-V5 (match + timeline) pour passer par le même code que les vraies.
 // demoPlay() ajoute une nouvelle partie « jouée maintenant », pour montrer l'évaluation de l'objectif.
 
-const PUUID = "demo-joueur-mindiff";
+const PUUID = "demo-joueur-mindiff-".padEnd(78, "0"); // longueur d'un PUUID Riot (la route du bilan la vérifie)
 const NAME = "Démo", TAG = "EUW";
 const POS = ["TOP", "JUNGLE", "MIDDLE", "BOTTOM", "UTILITY"];
 const CHAMPS = {
@@ -48,7 +48,7 @@ function makeGame(n, startMs, { cs10, win, deaths, seed }) {
       challenges: { laneMinionsFirst10Minutes: laneCs10, jungleCsBefore10Minutes: jgCs10, killParticipation: 0.4 + r() * 0.3, visionScorePerMinute: (pos === "UTILITY" ? 2.1 : 0.7), teamDamagePercentage: 0.15 + r() * 0.15, controlWardsPlaced: 1 + Math.floor(r() * 3), turretPlatesTaken: Math.floor(r() * 3) },
     });
   }
-  const matchId = `EUW1_DEMO${String(n).padStart(3, "0")}`;
+  const matchId = `EUW1_${7000000000 + n}`; // format des identifiants Riot (la route du bilan les vérifie)
   const kills = t => parts.filter(p => p.teamId === t).reduce((s, p) => s + p.kills, 0);
   const match = {
     metadata: { dataVersion: "2", matchId, participants: parts.map(p => p.puuid) },

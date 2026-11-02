@@ -2,6 +2,17 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-02 — tour de l'appli
+- **En ligne** (Accueil, Compétitions, Méta, Actus) : tout s'affiche, aucune erreur dans la console. Le coach demande une connexion : je ne me connecte pas à la place d'Anthony, donc il a été parcouru en démo.
+- **Corrigé** :
+  - « Dernières parties » ne se mettait pas à jour après « Mettre à jour mes parties » (il fallait attendre le cache de 2 min) : la liste est relue après chaque synchronisation.
+  - Le « % » des champions joués passait seul à la ligne : parties et taux de victoire sont maintenant sur deux lignes.
+  - Le tournoi à la une sans image affichait « W2 » : il affiche maintenant « Worlds ».
+  - Démo : le bilan de partie refusait les parties fictives, dont le numéro et l'identifiant du joueur n'avaient pas le format Riot. Corrigé dans `coach/demo.mjs`.
+- **Signalé, pas touché** :
+  - aucune actu esport depuis le 20/10 alors que les Worlds avancent (la collecte tourne sans erreur, mais ne trouve rien de nouveau ; c'est la boucle des actus, à laquelle on ne touche pas) ;
+  - Méta affiche « Patch 26.21 » en titre, et « Version client 16.20 » pour les données pro.
+
 ## 2026-11-01 — résumé du lundi (« Ta semaine »)
 - **Demande d'Anthony** : passer au résumé du lundi, reporté au tour 4 car il risquait de doubler « Ta progression ». Pour l'éviter : aucune carte en plus, rien de nouveau mesuré. Une ligne « Ta semaine » en tête de « Ta progression », calculée à partir des mêmes données (`c2V1Skills`, extrait de `c2V1Progress`).
 - **Contenu** (`c2Week`, 7 derniers jours) : le nombre de parties ; le geste qui progresse le plus (≥ 0,25 écart-type perso) ; ce qui coince encore (un geste en baisse ≤ −0,25, sinon l'objectif en cours s'il ne progresse pas déjà) ; la meilleure partie de la semaine sur le geste en cours, à partir de 2 parties à ce poste.

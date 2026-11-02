@@ -74328,7 +74328,274 @@
    },
    "version": 1,
    "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-atqdaqIRMBI-1",
+   "claim": "Selon BIZYZE Coaching | League of Legends : erreur fréquente en bas niveau : tenter de pousser et de crash une vague en 2v2 sans sa vie ou lorsque son support vient de rappeler, ce qui conduit à une mort certaine. Il est conseillé d'abandonner le crash si l'on est très bas HP ou si le support est absent.",
+   "champions": [
+    "Pantheon"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "survie"
+   ],
+   "matchup": {
+    "vs": "Jhin"
+   },
+   "synergy": {
+    "with": [
+     "Pantheon"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Emerald, Platinum, Gold",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Être très bas en points de vie",
+    "Le support a rappelé"
+   ],
+   "limits": [
+    "Contexte de partie bas elo (Émeraude/Platine/Or)"
+   ],
+   "nature": "opinion",
+   "levelContext": "emeraude",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-atqdaqIRMBI",
+     "locator": "00:00",
+     "lang": "fr",
+     "passage": "Because the moment the moment he recalls, the ping, ping, ping, ping. He can't recall, because now if if you are very low HP, this is not worth taking. The risk of you pushing and trying to crash is not worth taking.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-02",
+      "window": "0-40s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-atqdaqIRMBI",
+     "locator": "00:17",
+     "lang": "fr",
+     "passage": "If Pantheon is recalled, this is not worth taking. You'll just die. So the risk if if he recalls, the risk of you dying here is very very high."
+    }
+   ],
+   "mentions": [
+    "Nautilus (exemple)",
+    "Jhin (exemple)"
+   ],
+   "action": "Ne tente pas de pousser la vague sous la tour ennemie si ton support a rappelé ou si tu es trop bas en PV.",
+   "observe": "La position de ton support et ta barre de vie avant de t'engager dans un push de vague.",
+   "use": {
+    "when": "tu te retrouves seul face au duo adverse après le rappel de ton support ou avec des points de vie très bas",
+    "why": "Le risque de mourir en essayant de pousser et de crash est beaucoup trop élevé lorsque tu es seul ou vulnérable.",
+    "who": "bot laners (ADC)",
+    "how": [
+     "Vérifie la présence et les PV de ton support avant de décider de pousser",
+     "Abstiens-toi de pousser la vague si tu es seul ou en danger de mort"
+    ],
+    "notWhen": "Si ton support est présent à tes côtés et que vous avez les PV pour tanker le risque."
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "Le conseil est un principe général de gestion de vague ; Vayne et Pantheon ne sont que des exemples et doivent être retirés du champ champions. Le mana n'est pas mentionné dans l'extrait fourni."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-dhkAnHQgrn0-4",
+   "claim": "Selon Coach K : en tant que support, effectue tes rappels (recall) dans le brouillard de guerre (fog) pour ne pas donner l'information de ton départ à l'adversaire.",
+   "champions": [],
+   "roles": [
+    "support",
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "vision"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master 300 LP",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-dhkAnHQgrn0",
+     "locator": "04:12",
+     "lang": "en",
+     "passage": "I should recall in fog, like not in front of the tower because I give the information that I'm recalling already. So that's not great. That's a mistake.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-02",
+      "window": "232-292s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Recule toujours hors de vue avant de lancer ton rappel.",
+   "observe": "",
+   "use": {
+    "when": "Tu décides de rentrer à la base après une action ou une vague poussée.",
+    "why": "Si l'ennemi te voit recall, il sait exactement combien de temps il a pour jouer agressivement ou push sans craindre ton intervention.",
+    "who": "Tous les joueurs, particulièrement les supports",
+    "how": [
+     "Éloigne-toi de la zone de vision des sbires ou des champions ennemis",
+     "Trouve un buisson non balisé ou recule derrière un mur",
+     "Lance ton rappel"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe fondamental de gestion de l'information (brouillard de guerre) universel et parfaitement décrit par l'auteur."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-dhkAnHQgrn0-5",
+   "claim": "Selon Coach K : privilégie les ganks sur les adversaires qui n'ont plus leur Flash ou leur sort Ultime pour garantir des éliminations.",
+   "champions": [],
+   "roles": [
+    "support",
+    "jungle",
+    "mid"
+   ],
+   "themes": [
+    "macro",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master 300 LP",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir noté les timings des sorts d'invocateur adverses"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-dhkAnHQgrn0",
+     "locator": "06:49",
+     "lang": "en",
+     "passage": "even if we don't end up killing the Echo, he loses Flash for 5 minutes, he loses his ultimate for 2 minutes ... ganking the player that doesn't have flash is very, very important"
+    }
+   ],
+   "mentions": [
+    "Ekko (exemple)"
+   ],
+   "action": "Note les flashs utilisés et reviens ganker la même cible avant qu'il ne soit revenu.",
+   "observe": "",
+   "use": {
+    "when": "Une cible prioritaire vient d'utiliser son Flash lors d'une escarmouche précédente.",
+    "why": "Sans Flash, la plupart des champions sont beaucoup plus vulnérables aux contrôles de foule et ne peuvent pas s'échapper d'un gank bien coordonné.",
+    "who": "Rôles mobiles cherchant à créer des décalages",
+    "how": [
+     "Identifie la cible sans Flash",
+     "Coordonne-toi avec ton laner ou ton jungler",
+     "Engage le combat avant la fin du délai de récupération du sort"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil tactique fondamental sur la punition des délais de récupération des sorts d'invocateur, bien illustré par l'exemple."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
   }
  ],
- "updatedAt": "2026-11-02T07:52:14.081Z"
+ "updatedAt": "2026-11-02T14:20:27.242Z"
 }

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T07:52:15.232Z",
+ "generatedAt": "2026-11-02T14:20:28.377Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -554,7 +554,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-11-02T07:32:00.163Z",
+ "lastDiscovery": "2026-11-02T13:14:02.997Z",
  "failures": [],
  "quarantine": [
   {
@@ -566,65 +566,6 @@
   }
  ],
  "rejected": [
-  {
-   "id": "u-ai-yt-ZzKpPJ_BNHM-2",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-ZzKpPJ_BNHM : « For example, Master plus top laners that play Tryndamere ave… »"
-    },
-    {
-     "code": "citation-insuffisante",
-     "why": "Statistique sans chiffre dans les passages cités."
-    }
-   ],
-   "at": "2026-10-26",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-7a5EBaZ-ems-2",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-7a5EBaZ-ems : « 850 gold is the sweet spot. If you don't get it, you might a… »"
-    }
-   ],
-   "at": "2026-10-26",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-RIro7KcXJP8-1",
-   "reasons": [
-    {
-     "code": "citation-insuffisante",
-     "why": "Aucun passage ne porte sur Hecarim."
-    }
-   ],
-   "at": "2026-10-26",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-V-0395F1evY-2",
-   "reasons": [
-    {
-     "code": "citation-insuffisante",
-     "why": "Aucun passage ne porte sur Dr. Mundo."
-    }
-   ],
-   "at": "2026-10-26",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-V-0395F1evY-3",
-   "reasons": [
-    {
-     "code": "citation-insuffisante",
-     "why": "Aucun passage ne porte sur Dr. Mundo."
-    }
-   ],
-   "at": "2026-10-26",
-   "origin": "analyse-automatique"
-  },
   {
    "id": "u-ai-yt-V-0395F1evY-2",
    "reasons": [
@@ -2977,6 +2918,61 @@
    ],
    "at": "2026-11-02",
    "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-atqdaqIRMBI-2",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Vayne."
+    }
+   ],
+   "at": "2026-11-02",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-atqdaqIRMBI-3",
+   "reasons": [
+    {
+     "code": "citation-trop-longue",
+     "why": "Passage de plus de 320 caractères : résumer plutôt que republier."
+    }
+   ],
+   "at": "2026-11-02",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-dhkAnHQgrn0-1",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Yuumi."
+    }
+   ],
+   "at": "2026-11-02",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-dhkAnHQgrn0-2",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Yuumi."
+    }
+   ],
+   "at": "2026-11-02",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-dhkAnHQgrn0-3",
+   "reasons": [
+    {
+     "code": "mention",
+     "why": "Ezreal n'est cité qu'en exemple : ce n'est pas un conseil sur Ezreal."
+    }
+   ],
+   "at": "2026-11-02",
+   "origin": "analyse-automatique"
   }
  ],
  "pending": [
@@ -4150,7 +4146,10 @@
   "u-ai-yt--V4SmNK_tjU-1",
   "u-ai-yt--V4SmNK_tjU-2",
   "u-ai-yt-3tNboBEv4qI-1",
-  "u-ai-yt-3tNboBEv4qI-2"
+  "u-ai-yt-3tNboBEv4qI-2",
+  "u-ai-yt-atqdaqIRMBI-1",
+  "u-ai-yt-dhkAnHQgrn0-4",
+  "u-ai-yt-dhkAnHQgrn0-5"
  ],
  "contested": [],
  "retired": [
@@ -5551,101 +5550,6 @@
   "month": 0,
   "calls": [
    {
-    "at": "2026-11-02T01:20:12.883Z",
-    "content": "c-yt-La2O9Zjk414",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5857,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-02T01:20:21.898Z",
-    "content": "c-yt-La2O9Zjk414",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5887,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-02T01:20:31.008Z",
-    "content": "c-yt-La2O9Zjk414",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5895,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-02T01:20:42.900Z",
-    "content": "c-yt-7INR8Gl5Fvw",
-    "model": "gemini-3.5-flash-lite",
-    "input": 10506,
-    "output": 1859,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-02T01:20:50.432Z",
-    "content": "c-yt-7INR8Gl5Fvw",
-    "model": "gemini-3.5-flash-lite",
-    "input": 6793,
-    "output": 242,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-02T01:20:59.432Z",
-    "content": "c-yt-7INR8Gl5Fvw",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5881,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-02T01:21:07.821Z",
-    "content": "c-yt-7INR8Gl5Fvw",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5855,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-02T01:21:16.737Z",
-    "content": "c-yt-7INR8Gl5Fvw",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5854,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-02T01:21:27.912Z",
-    "content": "c-yt-sY2TNSo3FqQ",
-    "model": "gemini-3.5-flash-lite",
-    "input": 8968,
-    "output": 1518,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-02T01:21:35.083Z",
-    "content": "c-yt-sY2TNSo3FqQ",
-    "model": "gemini-3.5-flash-lite",
-    "input": 6361,
-    "output": 179,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-02T01:21:43.832Z",
-    "content": "c-yt-sY2TNSo3FqQ",
-    "model": "gemini-3.5-flash-lite",
-    "input": 4997,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
     "at": "2026-11-02T01:21:52.126Z",
     "content": "c-yt-sY2TNSo3FqQ",
     "model": "gemini-3.5-flash-lite",
@@ -5977,6 +5881,101 @@
     "model": "gemini-3.5-flash-lite",
     "input": 5903,
     "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T14:08:30.411Z",
+    "content": "c-yt-atqdaqIRMBI",
+    "model": "gemini-3.5-flash-lite",
+    "input": 8917,
+    "output": 2073,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T14:14:27.319Z",
+    "content": "c-yt-atqdaqIRMBI",
+    "model": "gemini-3-flash-preview",
+    "input": 6923,
+    "output": 5878,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T14:14:38.426Z",
+    "content": "c-yt-atqdaqIRMBI",
+    "model": "gemini-3.6-flash",
+    "input": 4095,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T14:15:14.837Z",
+    "content": "c-yt-atqdaqIRMBI",
+    "model": "gemini-3-flash-preview",
+    "input": 5890,
+    "output": 30,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T14:15:34.820Z",
+    "content": "c-yt-atqdaqIRMBI",
+    "model": "gemini-3-flash-preview",
+    "input": 5923,
+    "output": 30,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T14:16:04.851Z",
+    "content": "c-yt-dhkAnHQgrn0",
+    "model": "gemini-3-flash-preview",
+    "input": 13842,
+    "output": 4841,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T14:18:05.933Z",
+    "content": "c-yt-dhkAnHQgrn0",
+    "model": "gemini-3-flash-preview",
+    "input": 8150,
+    "output": 31375,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-02T14:18:29.793Z",
+    "content": "c-yt-dhkAnHQgrn0",
+    "model": "gemini-3-flash-preview",
+    "input": 5866,
+    "output": 52,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T14:18:46.027Z",
+    "content": "c-yt-dhkAnHQgrn0",
+    "model": "gemini-3-flash-preview",
+    "input": 5846,
+    "output": 30,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T14:19:10.917Z",
+    "content": "c-yt-dhkAnHQgrn0",
+    "model": "gemini-3-flash-preview",
+    "input": 5895,
+    "output": 81,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-02T14:19:48.485Z",
+    "content": "c-yt-dhkAnHQgrn0",
+    "model": "gemini-3-flash-preview",
+    "input": 5854,
+    "output": 30,
     "usd": 0,
     "kind": "verification-extrait"
    }

@@ -69386,13 +69386,13 @@
    "lang": "fr",
    "published": null,
    "retrievedAt": "2026-11-01",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "non-mentionné",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 54,
-   "note": "File de lecture (rang 54) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 39 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -69403,6 +69403,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-11-02",
+    "sha256": "6defd7cc7300f22883f77a7edb52979f46d9093111306474458c91399be1345f",
+    "segments": 39,
+    "observations": 39,
+    "duration": "38:20",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 215807
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Apprends à synchroniser tes rappels sur les vagues de canon lorsque tu es en difficulté, à coordonner tes pings de push avec ton support, et à évaluer correctement les risques d'un all-in en fonction de tes PV.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'analyse détaille précisément les situations de jeu, les mécaniques de vagues de sbires, le comportement des supports et les choix de rappel avec des explications stratégiques claires."
    }
   },
   {
@@ -69415,13 +69438,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-11-01",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "null",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 55,
-   "note": "File de lecture (rang 55) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 25 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -69432,6 +69455,34 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-11-02",
+    "sha256": "bcd2af18f76d8b62f7e6b34d47fdf993b13d113451758e3af4c8fcb8504b9b17",
+    "segments": 91,
+    "observations": 25,
+    "duration": "32:11",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 187136
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 3,
+   "alertes": [
+    {
+     "code": "traduction",
+     "detail": "Le terme 'Yumi Q' a été traduit par 'A de Yuumi' pour correspondre à la version française du jeu."
+    }
+   ],
+   "learn": "Ce contenu enseigne comment exploiter la passivité de Yuumi en début de partie pour créer un avantage numérique sur le reste de la carte grâce à des décalages agressifs et une coordination avec les solo-laners.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur fournit une analyse macro-économique très précise, expliquant non seulement les gestes techniques mais surtout les fenêtres de timing (vagues, sorts d'invocateurs) pour roam efficacement."
    }
   },
   {
@@ -69973,6 +70024,60 @@
      "adc",
      "guide",
      "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-u0y5ZdO4b3w",
+   "sourceId": "yt-o8todsm2gv",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=u0y5ZdO4b3w",
+   "title": "If you're a mid laner, this champion is a must-learn! The pinnacle of roaming: \"Taliyah Advanced ...",
+   "author": "쭌베 ",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-11-02",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 65,
+   "note": "File de lecture (rang 65) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "mid"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-tlLBXLnoxV4",
+   "sourceId": "yt-mysteriaslol",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=tlLBXLnoxV4",
+   "title": "Dominate Lane With Wave Management of Death",
+   "author": "Mysteriaslol",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-02",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 67,
+   "note": "File de lecture (rang 67) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "wave"
     ],
     "entertainment": [],
     "patchMentioned": null,

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T07:52:15.232Z",
+ "generatedAt": "2026-11-02T14:20:28.377Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -152,7 +152,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 94
+    "units": 95
    },
    "support": {
     "champions": [
@@ -160,7 +160,7 @@
      "Milio",
      "Nami"
     ],
-    "units": 38
+    "units": 40
    }
   },
   "champions": {
@@ -858,16 +858,18 @@
    },
    "Jhin": {
     "role": null,
-    "units": 7,
+    "units": 8,
     "themes": [
      "champion",
      "matchup",
      "lane",
-     "teamfight"
+     "teamfight",
+     "vagues",
+     "survie"
     ],
-    "actions": 1,
+    "actions": 2,
     "official": 6,
-    "coaching": 1
+    "coaching": 2
    },
    "Kai'Sa": {
     "role": null,
@@ -1311,17 +1313,18 @@
    },
    "Pantheon": {
     "role": null,
-    "units": 7,
+    "units": 8,
     "themes": [
      "champion",
      "matchup",
      "lane",
      "vagues",
-     "macro"
+     "macro",
+     "survie"
     ],
-    "actions": 1,
+    "actions": 2,
     "official": 6,
-    "coaching": 1
+    "coaching": 2
    },
    "Poppy": {
     "role": null,
@@ -2097,15 +2100,15 @@
    }
   },
   "themes": {
-   "lane": 97,
-   "survie": 16,
+   "lane": 98,
+   "survie": 17,
    "teamfight": 13,
    "synergie": 3,
    "matchup": 13,
-   "methode": 20,
-   "vagues": 53,
-   "vision": 18,
-   "macro": 86,
+   "methode": 22,
+   "vagues": 54,
+   "vision": 19,
+   "macro": 87,
    "jungle": 65
   },
   "partial": [
@@ -2953,7 +2956,8 @@
    "u-ai-yt-dYxdKho6dHg-5",
    "u-ai-yt-mS9pvlvJvco-1",
    "u-ai-yt-mS9pvlvJvco-2",
-   "u-ai-yt-3tNboBEv4qI-2"
+   "u-ai-yt-3tNboBEv4qI-2",
+   "u-ai-yt-dhkAnHQgrn0-4"
   ]
  },
  "sources": [
@@ -27591,13 +27595,13 @@
    "lang": "fr",
    "published": null,
    "retrievedAt": "2026-11-01",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "non-mentionné",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 54,
-   "note": "File de lecture (rang 54) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 39 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -27608,6 +27612,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-11-02",
+    "sha256": "6defd7cc7300f22883f77a7edb52979f46d9093111306474458c91399be1345f",
+    "segments": 39,
+    "observations": 39,
+    "duration": "38:20",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 215807
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Apprends à synchroniser tes rappels sur les vagues de canon lorsque tu es en difficulté, à coordonner tes pings de push avec ton support, et à évaluer correctement les risques d'un all-in en fonction de tes PV.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'analyse détaille précisément les situations de jeu, les mécaniques de vagues de sbires, le comportement des supports et les choix de rappel avec des explications stratégiques claires."
    }
   },
   {
@@ -27620,13 +27647,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-11-01",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "null",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 55,
-   "note": "File de lecture (rang 55) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 25 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -27637,6 +27664,34 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-11-02",
+    "sha256": "bcd2af18f76d8b62f7e6b34d47fdf993b13d113451758e3af4c8fcb8504b9b17",
+    "segments": 91,
+    "observations": 25,
+    "duration": "32:11",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 187136
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 3,
+   "alertes": [
+    {
+     "code": "traduction",
+     "detail": "Le terme 'Yumi Q' a été traduit par 'A de Yuumi' pour correspondre à la version française du jeu."
+    }
+   ],
+   "learn": "Ce contenu enseigne comment exploiter la passivité de Yuumi en début de partie pour créer un avantage numérique sur le reste de la carte grâce à des décalages agressifs et une coordination avec les solo-laners.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur fournit une analyse macro-économique très précise, expliquant non seulement les gestes techniques mais surtout les fenêtres de timing (vagues, sorts d'invocateurs) pour roam efficacement."
    }
   },
   {
@@ -27797,6 +27852,60 @@
      "adc",
      "guide",
      "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-u0y5ZdO4b3w",
+   "sourceId": "yt-o8todsm2gv",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=u0y5ZdO4b3w",
+   "title": "If you're a mid laner, this champion is a must-learn! The pinnacle of roaming: \"Taliyah Advanced ...",
+   "author": "쭌베 ",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-11-02",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 65,
+   "note": "File de lecture (rang 65) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "mid"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-tlLBXLnoxV4",
+   "sourceId": "yt-mysteriaslol",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=tlLBXLnoxV4",
+   "title": "Dominate Lane With Wave Management of Death",
+   "author": "Mysteriaslol",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-02",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 67,
+   "note": "File de lecture (rang 67) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "wave"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -85088,6 +85197,246 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-atqdaqIRMBI-1",
+   "claim": "Selon BIZYZE Coaching | League of Legends : erreur fréquente en bas niveau : tenter de pousser et de crash une wave en 2v2 sans sa vie ou lorsque son support vient de rappeler, ce qui conduit à une mort certaine. Il est conseillé d'abandonner le crash si l'on est très bas HP ou si le support est absent.",
+   "champions": [
+    "Pantheon"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "survie"
+   ],
+   "matchup": {
+    "vs": "Jhin"
+   },
+   "synergy": {
+    "with": [
+     "Pantheon"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Emerald, Platinum, Gold",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Être très bas en points de vie",
+    "Le support a rappelé"
+   ],
+   "limits": [
+    "Contexte de partie bas elo (Émeraude/Platine/Or)"
+   ],
+   "nature": "opinion",
+   "levelContext": "emeraude",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-atqdaqIRMBI",
+     "locator": "00:00",
+     "lang": "fr",
+     "passage": "Because the moment the moment he recalls, the ping, ping, ping, ping. He can't recall, because now if if you are very low HP, this is not worth taking. The risk of you pushing and trying to crash is not worth taking.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-02",
+      "window": "0-40s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-atqdaqIRMBI",
+     "locator": "00:17",
+     "lang": "fr",
+     "passage": "If Pantheon is recalled, this is not worth taking. You'll just die. So the risk if if he recalls, the risk of you dying here is very very high."
+    }
+   ],
+   "mentions": [
+    "Nautilus (exemple)",
+    "Jhin (exemple)"
+   ],
+   "action": "Ne tente pas de pousser la vague sous la tour ennemie si ton support a rappelé ou si tu es trop bas en PV.",
+   "observe": "La position de ton support et ta barre de vie avant de t'engager dans un push de vague.",
+   "use": {
+    "when": "tu te retrouves seul face au duo adverse après un back de ton support ou avec des points de vie très bas",
+    "why": "Le risque de mourir en essayant de pousser et de crash est beaucoup trop élevé lorsque tu es seul ou vulnérable.",
+    "who": "bot laners (ADC)",
+    "how": [
+     "Vérifie la présence et les PV de ton support avant de décider de pousser",
+     "Abstiens-toi de pousser la wave si tu es seul ou en danger de mort"
+    ],
+    "notWhen": "Si ton support est présent à tes côtés et que vous avez les PV pour tanker le risque."
+   },
+   "published": null,
+   "analyzedAt": "2026-11-02",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Contrôle critique : Le conseil est un principe général de gestion de vague ; Vayne et Pantheon ne sont que des exemples et doivent être retirés du champ champions. Le mana n'est pas mentionné dans l'extrait fourni."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-dhkAnHQgrn0-4",
+   "claim": "Selon Coach K : en tant que support, effectue tes backs (recall) dans le brouillard de guerre (fog) pour ne pas donner l'information de ton départ à l'adversaire.",
+   "champions": [],
+   "roles": [
+    "support",
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "vision"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master 300 LP",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-dhkAnHQgrn0",
+     "locator": "04:12",
+     "lang": "en",
+     "passage": "I should recall in fog, like not in front of the tower because I give the information that I'm recalling already. So that's not great. That's a mistake.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-02",
+      "window": "232-292s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Recule toujours hors de vue avant de lancer ton rappel.",
+   "observe": "",
+   "use": {
+    "when": "Tu décides de back après une action ou une wave poussée.",
+    "why": "Si l'ennemi te voit recall, il sait exactement combien de temps il a pour jouer agressivement ou push sans craindre ton intervention.",
+    "who": "Tous les joueurs, particulièrement les supports",
+    "how": [
+     "Éloigne-toi de la zone de vision des sbires ou des champions ennemis",
+     "Trouve un buisson non balisé ou recule derrière un mur",
+     "Lance ton back"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-02",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-dhkAnHQgrn0-5",
+   "claim": "Selon Coach K : privilégie les ganks sur les adversaires qui n'ont plus leur Flash ou leur sort Ultime pour garantir des éliminations.",
+   "champions": [],
+   "roles": [
+    "support",
+    "jungle",
+    "mid"
+   ],
+   "themes": [
+    "macro",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master 300 LP",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir noté les timings des sorts d'invocateur adverses"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-dhkAnHQgrn0",
+     "locator": "06:49",
+     "lang": "en",
+     "passage": "even if we don't end up killing the Echo, he loses Flash for 5 minutes, he loses his ultimate for 2 minutes ... ganking the player that doesn't have flash is very, very important"
+    }
+   ],
+   "mentions": [
+    "Ekko (exemple)"
+   ],
+   "action": "Note les flashs utilisés et reviens ganker la même cible avant qu'il ne soit revenu.",
+   "observe": "",
+   "use": {
+    "when": "Une cible prioritaire vient d'utiliser son Flash lors d'un skirmish précédente.",
+    "why": "Sans Flash, la plupart des champions sont beaucoup plus vulnérables aux contrôles de foule et ne peuvent pas s'échapper d'un gank bien coordonné.",
+    "who": "Rôles mobiles cherchant à créer des décalages",
+    "how": [
+     "Identifie la cible sans Flash",
+     "Coordonne-toi avec ton laner ou ton jungler",
+     "Engage le combat avant la fin du délai de récupération du sort"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-02",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-dhkAnHQgrn0 : lu par gemini-3.5-flash-lite (1 image/s) ; passage à vérifier sur la vidéo (06:49)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
     }
    ]
   }

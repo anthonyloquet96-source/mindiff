@@ -73649,7 +73649,686 @@
    },
    "version": 1,
    "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-RklElvskomY-1",
+   "claim": "Selon perryjg : en tant que jungler, la priorité absolue est d'être efficace sur son farm et de retourner à ses camps dès leur réapparition (on spawn) pour maintenir son économie et son expérience.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:camps-de-jungle"
+   ],
+   "conditions": [
+    "Avoir activé les minuteurs sur la minicarte"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-RklElvskomY",
+     "locator": "01:20",
+     "lang": "en",
+     "passage": "Following this one rule, and I talk about it a lot in my coaching, my gameplays, it's returning to our camps on spawn.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "60-120s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Volibear (exemple)"
+   ],
+   "action": "Activer l'affichage de tous les minuteurs sur la minicarte dans les options d'interface, puis planifier ses rappels pour arriver à ses camps dès leur réapparition.",
+   "observe": "Le respect des minuteurs de camps de jungle et les retours en base anticipés.",
+   "use": {
+    "when": "Un de tes camps de jungle est sur le point de réapparaître dans environ une minute et trente secondes et tu te trouves sur la carte.",
+    "why": "L'expérience des sbires et des éliminations a été fortement réduite pour les junglers, rendant l'optimisation des camps indispensable pour accumuler de l'or et de l'expérience.",
+    "who": "Pour tous les joueurs jouant le rôle de jungler.",
+    "how": [
+     "Vérifier le minuteur du camp qui va réapparaître environ 1 minute et 30 secondes avant sa réapparition.",
+     "Effectuer ton rappel (B) environ 30 secondes avant l'apparition pour avoir le temps de marcher depuis la base jusqu'au camp.",
+     "Tuer le camp dès sa réapparition et répéter le processus pour atteindre tes pics d'objets."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle au passage cité, intemporelle (macro de jungle) et son contexte d'usage est complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-RklElvskomY-2",
+   "claim": "Selon perryjg : active l'option 'Activer tous les minuteurs de la minicarte' (Enable all Minimap Timers) dans les paramètres d'interface pour voir les temps de réapparition des camps sans avoir à maintenir la touche Tab.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-RklElvskomY",
+     "locator": "01:29",
+     "lang": "en",
+     "passage": "I don't have to hold tab to see this timestamp because in my interface settings here, I go to minimap and I click enable all minimap timers and that allows me to see all of the timers no matter what's going on in the game.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "69-129s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Aller dans les options du jeu, section Interface, puis Minicarte, et cocher l'option permettant d'afficher tous les minuteurs.",
+   "observe": "La présence des chronomètres directement sur la minicarte pour chaque camp de jungle.",
+   "use": {
+    "when": "Tu es en jeu et tu veux suivre l'apparition des camps adverses ou neutres sans perturber ta vision avec le tableau des scores.",
+    "why": "Cela permet de suivre les minuteurs en permanence sans avoir à maintenir la touche Tab enfoncée.",
+    "who": "Pour tous les joueurs, en particulier les junglers.",
+    "how": [
+     "Ouvrir les paramètres du jeu.",
+     "Se rendre dans l'onglet Interface.",
+     "Cocher l'option d'activation de tous les minuteurs sur la minicarte."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil paramétrique est directement appuyé par la transcription et s'applique sans dépendre d'une méta ou d'un patch."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-BZFfUsIphDw-1",
+   "claim": "Selon Coach Leo : en tant que Karthus, ton objectif principal est d'avoir tes camps qui réapparaissent en séquence (les uns après les autres) pour optimiser ton temps de clear.",
+   "champions": [
+    "Karthus"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jouer un champion qui nettoie très rapidement ses camps comme Karthus"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-BZFfUsIphDw",
+     "locator": "00:58",
+     "lang": "en",
+     "passage": "So as Karthus, you need to realize that kind of your number one priority is for your camps to spawn in like a sequence.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "38-98s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Nettoie tes camps de manière à ce qu'ils réapparaissent en séquence ordonnée plutôt que de manière désordonnée.",
+   "observe": "L'enchaînement et la synchronisation des réapparitions de camps sur la mini-carte.",
+   "use": {
+    "when": "Quand tu planifies ton parcours de jungle en début de partie.",
+    "why": "Pour maintenir une efficacité maximale de clear et éviter d'avoir des camps qui réapparaissent de façon dispersée.",
+    "who": "Jungle, particulièrement les champions à fort clear comme Karthus.",
+    "how": [
+     "Identifie le premier camp tué et calcule son temps de réapparition.",
+     "Adapte ton cycle de clear pour revenir sur les camps dès leur repousse ordonnée."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle à la transcription, son contexte d'usage est complet et repose sur un principe macro intemporel du clear de jungle."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-BZFfUsIphDw-2",
+   "claim": "Selon Coach Leo : en sortant de la base après ton premier clear et ton premier rappel, dirige-toi en priorité vers le camp situé à l'extrémité (comme les Krugs si tu joues autour du bas) pour structurer ta rotation.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Après le premier rappel de la partie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-BZFfUsIphDw",
+     "locator": "02:23",
+     "lang": "en",
+     "passage": "So you also want to go to the camp that's on the edge first out of base.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "123-183s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pars directement vers le camp de l'extrémité (ex: Krugs) en sortant de ta base pour lancer ton clear vers l'autre côté.",
+   "observe": "Le chemin pris par le jungler en sortant de la base.",
+   "use": {
+    "when": "Quand tu quittes la base après ton premier rappel aux alentours de 4 minutes.",
+    "why": "Pour respecter l'ordre de réapparition des camps et garder une structure de route efficace.",
+    "who": "Poste de jungle.",
+    "how": [
+     "Repère le camp d'extrémité qui vient de réapparaître vers 4:15-4:20.",
+     "Cours directement vers ce camp en sortant du magasin."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil donne une situation claire, une action précise et respecte la source sans sur-généralisation."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt--V4SmNK_tjU-1",
+   "claim": "Selon Chreak : dans un matchup volatil au niveau 1, pousse la vague en mettant des attaques automatiques tout en restant attentif au sort principal adverse pour éviter de le prendre.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "matchup": {
+    "vs": "Lucian"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": true,
+    "value": "saison 16"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Matchup volatil en début de partie"
+   ],
+   "limits": [
+    "Concerne principalement les duels en ligne"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--V4SmNK_tjU",
+     "locator": "01:00",
+     "lang": "fr",
+     "passage": "Donc dès le niveau 1, je vais vouloir mettre des autos dans la wave pour avoir le push, parce que le plus important quand tu joues des matchups volatils généralement, c'est d'avoir ce push.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "40-100s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Lucian (exemple)"
+   ],
+   "action": "Mets des attaques automatiques dans les sbires dès le niveau 1 pour obtenir la priorité de poussée tout en esquivant le sort de dégâts principal du vis-à-vis.",
+   "observe": "Le contrôle de la vague et la position de l'adversaire au niveau 1.",
+   "use": {
+    "when": "tu es au niveau 1 face à un adversaire dans un matchup volatil sur ta lane",
+    "why": "avoir le push est le plus important dans les matchups volatils",
+    "who": "joueurs de champions jouant les matchups volatils en solo lane",
+    "how": [
+     "Mets des attaques automatiques dans les sbires dès le niveau 1",
+     "Surveille la position et les sorts de l'adversaire pour ne pas prendre de dégâts gratuits"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "mention",
+     "sur-generalisation"
+    ],
+    "why": "Lucian est seulement mentionné en exemple dans la source, et le conseil général sur les matchups volatils ne doit pas inclure un champion spécifique."
+   },
+   "published": "2026-02-01",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt--V4SmNK_tjU-2",
+   "claim": "Selon Chreak : le fait d'avoir le contrôle de la poussée (le push) de la vague permet de contrôler le rythme de la partie et d'obtenir des opportunités de rotation ou de retour en base en toute sécurité.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": true,
+    "value": "saison 16"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir l'avantage sur la gestion des vagues"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--V4SmNK_tjU",
+     "locator": "05:34",
+     "lang": "fr",
+     "passage": "Si je décide de rotate, c'est une erreur évidemment, mais il faut vraiment comprendre que avoir le push dans tous les matchups n'importe la gueule du matchup, c'est c'est contrôler la game.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "314-374s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse ta vague avant de chercher à effectuer des actions sur la carte ou à retourner à la boutique.",
+   "observe": "L'état de la vague de sbires et la position des adversaires.",
+   "use": {
+    "when": "tu disposes de la priorité de vague sur ta lane",
+    "why": "cela donne le contrôle de la partie, permettant de choisir ses actions",
+    "who": "tous les joueurs de lignes",
+    "how": [
+     "Pousse la vague sous la tourelle ennemie",
+     "Utilise le temps libéré pour effectuer un retour en base ou aider ta jungle"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est intemporel, fidèle au passage cité et dispose d'un contexte d'usage complet."
+   },
+   "published": "2026-02-01",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-3tNboBEv4qI-1",
+   "claim": "Selon Chreak : face à Heimerdinger top avec un champion à distance, utilise tes sorts de zone pour détruire ses tourelles dès qu'elles sont posées, puis mets une attaque de base pour lui enlever sa pression de poussée.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Heimerdinger"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jouer un champion à distance contre Heimerdinger top"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-3tNboBEv4qI",
+     "locator": "00:29",
+     "lang": "fr",
+     "passage": "Il fait euh, tu start euh, il envoie des des shurikens dans la wave pour matel push quand même et dans les tourelles, tu vois ? Dès qu'il pose une tourelle, tu mets un shuriken dedans, c'est ça le match-up.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "9-69s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Kenen (exemple)"
+   ],
+   "action": "Envoie un sort de zone sur la tourelle d'Heimerdinger dès qu'il la pose, puis enchaîne avec une attaque de base.",
+   "observe": "La destruction des tourelles d'Heimerdinger et la perte de sa capacité à repousser la vague.",
+   "use": {
+    "when": "Heimerdinger pose une tourelle sur sa voie alors que tu joues face à lui.",
+    "why": "Pour détruire ses tourelles et lui retirer sa capacité à pousser la vague.",
+    "who": "Top laners jouant un champion à distance face à Heimerdinger.",
+    "how": [
+     "Repère la pose d'une tourelle par Heimerdinger.",
+     "Lance un sort de dégâts de zone dessus.",
+     "Mets une attaque de base pour achever la destruction de la tourelle."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est fidèle au passage cité et décrit une situation claire, mais nécessite une confirmation humaine de l'extrait en raison de la lecture par IA."
+   },
+   "published": "2025-12-23",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-3tNboBEv4qI-2",
+   "claim": "Selon Chreak : en fin de partie, si tu disposes d'un avantage d'or important et que tes adversaires sont principalement des champions fragiles (squishies), privilégie des objets de burst magique comme Flamme-ombre.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Flamme-ombre"
+   ],
+   "conditions": [
+    "Affronter des adversaires fragiles",
+    "Jouer un champion mage ou AP"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-3tNboBEv4qI",
+     "locator": "06:18",
+     "lang": "fr",
+     "passage": "Regarde ses adversaires. Ils sont squishy, sont en qui, ils font quoi ? [...] Les deux sont très bien, ça dépend est-ce qu'il y aura la MR ? [...] flamme-ombre c'est quand même pas mal hein.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "358-418s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète Flamme-ombre face à une équipe composée principalement de cibles fragiles.",
+   "observe": "L'augmentation des dégâts infligés aux cibles ayant peu de PV.",
+   "use": {
+    "when": "Tu disposes de pièces d'or dans la boutique et l'équipe ennemie est composée majoritairement de champions fragiles sans résistance magique massive.",
+    "why": "Le burst est efficace contre les cibles fragiles.",
+    "who": "Joueurs de champions magiques ou AP.",
+    "how": [
+     "Vérifie la composition ennemie et l'absence de résistances magiques élevées.",
+     "Sélectionne l'objet Flamme-ombre dans la boutique.",
+     "Valide l'achat avec l'or disponible."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'achat de Flamme-ombre face aux cibles fragiles est directement tiré de la transcription, restant provisoire en attendant une double lecture humaine de la vidéo."
+   },
+   "published": "2025-12-23",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
   }
  ],
- "updatedAt": "2026-11-02T01:23:51.273Z"
+ "updatedAt": "2026-11-02T07:52:14.081Z"
 }

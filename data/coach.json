@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T01:23:52.383Z",
+ "generatedAt": "2026-11-02T07:52:15.232Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -166,18 +166,19 @@
   "champions": {
    "Lucian": {
     "role": "bottom",
-    "units": 10,
+    "units": 11,
     "themes": [
      "patch",
      "synergie",
      "lane",
      "build",
      "champion",
-     "matchup"
+     "matchup",
+     "vagues"
     ],
-    "actions": 2,
+    "actions": 3,
     "official": 9,
-    "coaching": 1
+    "coaching": 2
    },
    "Jinx": {
     "role": "bottom",
@@ -747,15 +748,15 @@
    },
    "Heimerdinger": {
     "role": null,
-    "units": 4,
+    "units": 5,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "lane"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 4,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Hwei": {
     "role": null,
@@ -907,15 +908,17 @@
    },
    "Karthus": {
     "role": null,
-    "units": 4,
+    "units": 5,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "jungle",
+     "vagues",
+     "macro"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 4,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Kassadin": {
     "role": null,
@@ -2094,16 +2097,16 @@
    }
   },
   "themes": {
-   "lane": 94,
+   "lane": 97,
    "survie": 16,
    "teamfight": 13,
    "synergie": 3,
-   "matchup": 12,
-   "methode": 18,
-   "vagues": 50,
+   "matchup": 13,
+   "methode": 20,
+   "vagues": 53,
    "vision": 18,
-   "macro": 83,
-   "jungle": 61
+   "macro": 86,
+   "jungle": 65
   },
   "partial": [
    "Ashe"
@@ -2949,7 +2952,8 @@
    "u-ai-yt--J8fOgYCRbI-6",
    "u-ai-yt-dYxdKho6dHg-5",
    "u-ai-yt-mS9pvlvJvco-1",
-   "u-ai-yt-mS9pvlvJvco-2"
+   "u-ai-yt-mS9pvlvJvco-2",
+   "u-ai-yt-3tNboBEv4qI-2"
   ]
  },
  "sources": [
@@ -14604,7 +14608,7 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : [e-mail] !\n\n-\n\n🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pour tout apprendre sur",
    "backfill": true,
    "note": "Lue par gemini-3.8-flash le 2026-11-01 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -14628,6 +14632,16 @@
     "at": "2026-11-01",
     "duration": "34:24",
     "reused": true
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "La vidéo propose une analyse détaillée de haut niveau par un joueur Challenger, expliquant non seulement les mécaniques de champion (Zoe) mais aussi la macro-gestion, le positionnement et les erreurs des rôles adverses avec des explications géométriques claires."
    }
   },
   {
@@ -15012,12 +15026,12 @@
    "lang": "fr",
    "published": "2025-12-23",
    "retrievedAt": "2026-10-21",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "non spécifié",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : [e-mail] !\n\n-\n\n🌟 Rejoignez la communauté et progressez dans League of Legends ! :\n➡️ Retrouvez plus de 5 heures de contenus vidéos exclusives pour tout apprendre sur",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -15030,7 +15044,30 @@
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
    "videoAttempts": 1,
-   "videoError": "gemini-3.5-flash : réponse tronquée (2026-11-02)"
+   "videoError": "gemini-3.5-flash : réponse tronquée (2026-11-02)",
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-11-02",
+    "sha256": "90b60de5c1307020cf3bd4da85a7426958dca12bcdb203f446a0a44be9f2ba47",
+    "segments": 408,
+    "observations": 40,
+    "duration": "24:36",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 156163
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "L'auteur détaille la gestion d'un matchup top lane contre Heimerdinger en détruisant ses tourelles à distance, ainsi que l'importance d'adapter ses choix d'objets magiques (comme Flamme-ombre) face à des compositions ennemies fragiles.",
+   "quality": {
+    "level": "moyenne",
+    "why": "La vidéo est une séance de coaching au ton humoristique et chaotique, mais elle contient des conseils précis sur la gestion des matchups de top lane et les choix d'objets."
+   }
   },
   {
    "id": "c-yt-ACqPD0ovcik",
@@ -15401,7 +15438,7 @@
    "retrievedAt": "2026-10-21",
    "patch": "saison 16",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "Hop hop hop si vous aimez, likez, mettez un commentaire et rejoignez le patreon ! https://bit.ly/Chreak-Patreon\n\n📢 Participez aux prochains Chreact !\n►  Vous voulez voir vos clips dans la prochaine vidéo Chreact ? Envoyez-les ici : [e-mail] !\n\n-\n\n🌟 Rejoignez la communauté et progress",
    "backfill": true,
    "note": "Lue par gemini-3.5-flash-lite : transcription et 14 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -15428,6 +15465,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 242699
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "Apprends à gérer le push de ta vague pour contrôler le rythme de la lane et à optimiser l'utilisation de tes sorts d'invocateur en fonction de la valeur en or des kills en début de partie.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur explique de manière détaillée ses choix de positionnement, de gestion des vagues et de prise de décision macroéconomique en jouant à son plus haut niveau."
    }
   },
   {
@@ -15511,7 +15558,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 64
   },
   {
    "id": "c-yt-X1X_YMPDtZ8",
@@ -17594,7 +17642,7 @@
    "published": "2026-09-10",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 39000,
+   "views": 40000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17623,7 +17671,7 @@
    "published": "2026-09-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 87000,
+   "views": 88000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18365,7 +18413,7 @@
    "published": "2026-07-11",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 6400,
+   "views": 6500,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18454,7 +18502,7 @@
    "published": "2026-07-03",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 6500,
+   "views": 6600,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18619,7 +18667,7 @@
    "published": "2026-10-14",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 5900,
+   "views": 6000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18678,7 +18726,7 @@
    "published": "2026-10-12",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 14000,
+   "views": 15000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18961,7 +19009,7 @@
    "published": "2026-10-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 5700,
+   "views": 5800,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19133,7 +19181,7 @@
    "published": "2026-10-14",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 9600,
+   "views": 9700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19218,7 +19266,7 @@
    "published": "2024-09-12",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 859,
+   "views": 860,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19583,7 +19631,7 @@
    "published": "2026-03-28",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 726,
+   "views": 727,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19641,7 +19689,7 @@
    "published": "2026-03-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 632,
+   "views": 645,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20079,7 +20127,7 @@
    "published": "2026-10-13",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 7500,
+   "views": 7600,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3-flash-preview le 2026-10-31 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -21298,7 +21346,7 @@
    "published": "2026-10-23",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 8900,
+   "views": 9000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -21357,7 +21405,7 @@
    "published": "2026-10-22",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 8200,
+   "views": 8300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -22463,7 +22511,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-26",
    "patch": "26.21",
-   "views": 176000,
+   "views": 183000,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -22520,7 +22568,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 9600,
+   "views": 9700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -22549,7 +22597,7 @@
    "published": "2026-10-24",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 7600,
+   "views": 7700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -22576,7 +22624,7 @@
    "published": "2026-10-25",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 8800,
+   "views": 8900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -22767,7 +22815,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-27",
    "patch": null,
-   "views": 9900,
+   "views": 10000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24069,7 +24117,7 @@
    "published": "2026-10-28",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 7600,
+   "views": 7700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24243,7 +24291,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 25000,
+   "views": 26000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24306,7 +24354,7 @@
    "published": "2026-10-28",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 9100,
+   "views": 9600,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24334,7 +24382,7 @@
    "published": "2026-10-27",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 8600,
+   "views": 8800,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24362,7 +24410,7 @@
    "published": "2026-10-28",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 7300,
+   "views": 7500,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24391,7 +24439,7 @@
    "published": "2026-10-27",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 421,
+   "views": 445,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24994,7 +25042,7 @@
    "published": "2026-10-29",
    "retrievedAt": "2026-10-30",
    "patch": null,
-   "views": 8900,
+   "views": 9800,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25030,7 +25078,7 @@
    "published": "2026-10-29",
    "retrievedAt": "2026-10-30",
    "patch": null,
-   "views": 7700,
+   "views": 8000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25486,7 +25534,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 8300,
+   "views": 12000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25685,7 +25733,7 @@
    "ageMonths": 1,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 23000,
+   "views": 24000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25778,7 +25826,7 @@
    "ageMonths": 0.3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 10,
+   "views": 11,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25831,7 +25879,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 7800,
+   "views": 9900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25859,7 +25907,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 4500,
+   "views": 6100,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25886,7 +25934,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 7200,
+   "views": 7800,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25941,7 +25989,7 @@
    "ageMonths": 1,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 14000,
+   "views": 15000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25994,7 +26042,7 @@
    "ageMonths": 1,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 17000,
+   "views": 18000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26133,7 +26181,7 @@
    "ageMonths": 1,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 25000,
+   "views": 26000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26513,7 +26561,7 @@
    "ageMonths": 2,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 264,
+   "views": 265,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26540,7 +26588,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 3900,
+   "views": 4000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26569,7 +26617,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 994,
+   "views": 1000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26598,7 +26646,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 1400,
+   "views": 1500,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26653,7 +26701,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 297,
+   "views": 299,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26735,7 +26783,7 @@
    "ageMonths": 0.5,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 20000,
+   "views": 21000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26763,7 +26811,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 15000,
+   "views": 16000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26935,7 +26983,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 2900,
+   "views": 3700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27281,7 +27329,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 160,
+   "views": 2200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27308,7 +27356,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 6600,
+   "views": 10000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27385,13 +27433,13 @@
    "lang": "es",
    "published": null,
    "retrievedAt": "2026-11-01",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "aucun",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 51,
-   "note": "File de lecture (rang 51) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 25 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 18,
     "matched": [
@@ -27403,6 +27451,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-11-02",
+    "sha256": "01f566e733bbdde50cd3a2ba3fbd6054da540a70fb97b7a2da75b1204048a4e6",
+    "segments": 120,
+    "observations": 25,
+    "duration": "32:23",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 189302
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 3,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "Explications concrètes de micro-gestion et de wave management appuyées par l'analyse pas-à-pas d'une partie de coaching."
    }
   },
   {
@@ -27416,12 +27487,12 @@
    "published": null,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 52,
-   "note": "File de lecture (rang 52) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 18 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 17,
     "matched": [
@@ -27430,6 +27501,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-11-02",
+    "sha256": "3bb4c64b6f41fdc6de02ea1404ed4674c980b74b88e9a14faa24718bb355e64a",
+    "segments": 26,
+    "observations": 18,
+    "duration": "05:07",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 143131
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Apprends à optimiser ton farm en jungle en planifiant tes retours en base pour arriver sur tes camps dès leur réapparition.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur explique un concept fondamental clair, étayé par une démonstration en jeu et des conseils pratiques sur les paramètres de l'interface."
    }
   },
   {
@@ -27442,13 +27536,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-11-01",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "null",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 53,
-   "note": "File de lecture (rang 53) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 30 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 19,
     "matched": [
@@ -27462,6 +27556,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-11-02",
+    "sha256": "395b32613670c30a8728638da01c8a596b9261d9ab6ccffc5a61c9cf8447a3b1",
+    "segments": 119,
+    "observations": 30,
+    "duration": "10:27",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 64327
+   },
+   "analyzedAt": "2026-11-02",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "Apprends à structurer ton cheminement en jungle avec Karthus en synchronisant les réapparitions de tes camps en séquence, en gérant ton tempo et en évitant les invades risquées en raison du manque de mobilité.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur explique clairement les fondements logiques du pathing en jungle, l'importance des timers (comme le spawn des krugs à 4h20) et la gestion du tempo."
    }
   },
   {
@@ -27597,6 +27714,90 @@
    "triage": {
     "score": 15,
     "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-yIBnflJHUcE",
+   "sourceId": "yt-shok",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=yIBnflJHUcE",
+   "title": "THE AHRI FUNDAMENTALS YOU NEED FOR SOLOQ - FULLY EDUCATIONAL GAME",
+   "author": "Shok",
+   "lang": "en",
+   "published": null,
+   "ageMonths": 0,
+   "retrievedAt": "2026-11-02",
+   "patch": null,
+   "views": 3500,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "triage": {
+    "score": 4,
+    "matched": [
+     "Ahri",
+     "fundamentals"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-X33JxUfXd2k",
+   "sourceId": "yt-coach-kirei",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=X33JxUfXd2k",
+   "title": "Fullclearing but losing? | APPLY These FUNDAMENTALS to WIN",
+   "author": "Coach Kirei",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-02",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 61,
+   "note": "File de lecture (rang 61) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 17,
+    "matched": [
+     "fundamentals",
+     "clear"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-6Pv0UhN_q9o",
+   "sourceId": "yt-bizyze-coaching-league-of-le",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=6Pv0UhN_q9o",
+   "title": "ADC Macro Guide When to Fight, Farm, or Group",
+   "author": "BIZYZE Coaching | League of Legends",
+   "lang": "fr",
+   "published": null,
+   "retrievedAt": "2026-11-02",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 62,
+   "note": "File de lecture (rang 62) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "adc",
+     "guide",
+     "macro"
+    ],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -84276,6 +84477,617 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-RklElvskomY-1",
+   "claim": "Selon perryjg : en tant que jungler, la priorité absolue est d'être efficace sur son farm et de retourner à ses camps dès leur réapparition (on spawn) pour maintenir son économie et son expérience.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir activé les minuteurs sur la minicarte"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-RklElvskomY",
+     "locator": "01:20",
+     "lang": "en",
+     "passage": "Following this one rule, and I talk about it a lot in my coaching, my gameplays, it's returning to our camps on spawn.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "60-120s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Volibear (exemple)"
+   ],
+   "action": "Activer l'affichage de tous les minuteurs sur la minicarte dans les options d'interface, puis planifier ses rappels pour arriver à ses camps dès leur réapparition.",
+   "observe": "Le respect des minuteurs de camps de jungle et les retours en base anticipés.",
+   "use": {
+    "when": "Un de tes camps de jungle est sur le point de réapparaître dans environ une minute et trente secondes et tu te trouves sur la carte.",
+    "why": "L'expérience des sbires et des éliminations a été fortement réduite pour les junglers, rendant l'optimisation des camps indispensable pour accumuler de l'or et de l'expérience.",
+    "who": "Pour tous les joueurs jouant le rôle de jungler.",
+    "how": [
+     "Vérifier le minuteur du camp qui va réapparaître environ 1 minute et 30 secondes avant sa réapparition.",
+     "Effectuer ton back (B) environ 30 secondes avant l'apparition pour avoir le temps de marcher depuis la base jusqu'au camp.",
+     "Tuer le camp dès sa réapparition et répéter le processus pour atteindre tes pics d'items."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-02",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-RklElvskomY : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-RklElvskomY-2",
+   "claim": "Selon perryjg : active l'option 'Activer tous les minuteurs de la minicarte' (Enable all Minimap Timers) dans les paramètres d'interface pour voir les temps de réapparition des camps sans avoir à maintenir la touche Tab.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-RklElvskomY",
+     "locator": "01:29",
+     "lang": "en",
+     "passage": "I don't have to hold tab to see this timestamp because in my interface settings here, I go to minimap and I click enable all minimap timers and that allows me to see all of the timers no matter what's going on in the game.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "69-129s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Aller dans les options du jeu, section Interface, puis Minicarte, et cocher l'option permettant d'afficher tous les minuteurs.",
+   "observe": "La présence des chronomètres directement sur la minicarte pour chaque camp de jungle.",
+   "use": {
+    "when": "Tu es en jeu et tu veux suivre l'apparition des camps adverses ou neutres sans perturber ta vision avec le tableau des scores.",
+    "why": "Cela permet de suivre les minuteurs en permanence sans avoir à maintenir la touche Tab enfoncée.",
+    "who": "Pour tous les joueurs, en particulier les junglers.",
+    "how": [
+     "Ouvrir les paramètres du jeu.",
+     "Se rendre dans l'onglet Interface.",
+     "Cocher l'option d'activation de tous les minuteurs sur la minicarte."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-02",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-RklElvskomY : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-BZFfUsIphDw-1",
+   "claim": "Selon Coach Leo : en tant que Karthus, ton objectif principal est d'avoir tes camps qui réapparaissent en séquence (les uns après les autres) pour optimiser ton temps de clear.",
+   "champions": [
+    "Karthus"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer un champion qui nettoie très rapidement ses camps comme Karthus"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-BZFfUsIphDw",
+     "locator": "00:58",
+     "lang": "en",
+     "passage": "So as Karthus, you need to realize that kind of your number one priority is for your camps to spawn in like a sequence.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "38-98s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Nettoie tes camps de manière à ce qu'ils réapparaissent en séquence ordonnée plutôt que de manière désordonnée.",
+   "observe": "L'enchaînement et la synchronisation des réapparitions de camps sur la mini-carte.",
+   "use": {
+    "when": "Quand tu planifies ton parcours de jungle en début de partie.",
+    "why": "Pour maintenir une efficacité maximale de clear et éviter d'avoir des camps qui réapparaissent de façon dispersée.",
+    "who": "Jungle, particulièrement les champions à fort clear comme Karthus.",
+    "how": [
+     "Identifie le premier camp tué et calcule son temps de réapparition.",
+     "Adapte ton cycle de clear pour revenir sur les camps dès leur repousse ordonnée."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-02",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-BZFfUsIphDw : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-BZFfUsIphDw-2",
+   "claim": "Selon Coach Leo : en sortant de la base après ton premier clear et ton premier back, dirige-toi en priorité vers le camp situé à l'extrémité (comme les Krugs si tu joues autour du bas) pour structurer ta rotation.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Après le premier rappel de la partie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-BZFfUsIphDw",
+     "locator": "02:23",
+     "lang": "en",
+     "passage": "So you also want to go to the camp that's on the edge first out of base.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "123-183s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pars directement vers le camp de l'extrémité (ex: Krugs) en sortant de ta base pour lancer ton clear vers l'autre côté.",
+   "observe": "Le chemin pris par le jungler en sortant de la base.",
+   "use": {
+    "when": "Quand tu quittes la base après ton premier back aux alentours de 4 minutes.",
+    "why": "Pour respecter l'ordre de réapparition des camps et garder une structure de route efficace.",
+    "who": "Poste de jungle.",
+    "how": [
+     "Repère le camp d'extrémité qui vient de réapparaître vers 4:15-4:20.",
+     "Cours directement vers ce camp en sortant du magasin."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-02",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-BZFfUsIphDw : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt--V4SmNK_tjU-1",
+   "claim": "Selon Chreak : dans un matchup volatil au niveau 1, pousse la wave en mettant des attaques automatiques tout en restant attentif au sort principal adverse pour éviter de le prendre.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "matchup": {
+    "vs": "Lucian"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": true,
+    "value": "saison 16"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Matchup volatil en début de partie"
+   ],
+   "limits": [
+    "Concerne principalement les duels en ligne"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--V4SmNK_tjU",
+     "locator": "01:00",
+     "lang": "fr",
+     "passage": "Donc dès le niveau 1, je vais vouloir mettre des autos dans la wave pour avoir le push, parce que le plus important quand tu joues des matchups volatils généralement, c'est d'avoir ce push.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "40-100s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Lucian (exemple)"
+   ],
+   "action": "Mets des attaques automatiques dans les sbires dès le niveau 1 pour obtenir la priorité de poussée tout en esquivant le sort de dégâts principal du vis-à-vis.",
+   "observe": "Le contrôle de la vague et la position de l'adversaire au niveau 1.",
+   "use": {
+    "when": "tu es au niveau 1 face à un adversaire dans un matchup volatil sur ta lane",
+    "why": "avoir le push est le plus important dans les matchups volatils",
+    "who": "joueurs de champions jouant les matchups volatils en solo lane",
+    "how": [
+     "Mets des attaques automatiques dans les sbires dès le niveau 1",
+     "Surveille la position et les sorts de l'adversaire pour ne pas prendre de dégâts gratuits"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-02-01",
+   "analyzedAt": "2026-11-02",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt--V4SmNK_tjU : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Contrôle critique : Lucian est seulement mentionné en exemple dans la source, et le conseil général sur les matchups volatils ne doit pas inclure un champion spécifique."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt--V4SmNK_tjU-2",
+   "claim": "Selon Chreak : le fait d'avoir le contrôle de la poussée (le push) de la wave permet de contrôler le rythme de la partie et d'obtenir des opportunités de rotation ou de back en toute sécurité.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": true,
+    "value": "saison 16"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir l'avantage sur la gestion des vagues"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--V4SmNK_tjU",
+     "locator": "05:34",
+     "lang": "fr",
+     "passage": "Si je décide de rotate, c'est une erreur évidemment, mais il faut vraiment comprendre que avoir le push dans tous les matchups n'importe la gueule du matchup, c'est c'est contrôler la game.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "314-374s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse ta vague avant de chercher à effectuer des actions sur la carte ou à retourner à la boutique.",
+   "observe": "L'état de la vague de sbires et la position des adversaires.",
+   "use": {
+    "when": "tu disposes de la priorité de wave sur ta lane",
+    "why": "cela donne le contrôle de la partie, permettant de choisir ses actions",
+    "who": "tous les joueurs de lignes",
+    "how": [
+     "Pousse la wave sous la tourelle ennemie",
+     "Utilise le temps libéré pour effectuer un back ou aider ta jungle"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-02-01",
+   "analyzedAt": "2026-11-02",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt--V4SmNK_tjU : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-3tNboBEv4qI-1",
+   "claim": "Selon Chreak : face à Heimerdinger top avec un champion à distance, utilise tes sorts de zone pour détruire ses tourelles dès qu'elles sont posées, puis mets une attaque de base pour lui enlever sa pression de poussée.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Heimerdinger"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer un champion à distance contre Heimerdinger top"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-3tNboBEv4qI",
+     "locator": "00:29",
+     "lang": "fr",
+     "passage": "Il fait euh, tu start euh, il envoie des des shurikens dans la wave pour matel push quand même et dans les tourelles, tu vois ? Dès qu'il pose une tourelle, tu mets un shuriken dedans, c'est ça le match-up.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "9-69s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Kenen (exemple)"
+   ],
+   "action": "Envoie un sort de zone sur la tourelle d'Heimerdinger dès qu'il la pose, puis enchaîne avec une attaque de base.",
+   "observe": "La destruction des tourelles d'Heimerdinger et la perte de sa capacité à repousser la vague.",
+   "use": {
+    "when": "Heimerdinger pose une tourelle sur sa lane alors que tu joues face à lui.",
+    "why": "Pour détruire ses tourelles et lui retirer sa capacité à pousser la wave.",
+    "who": "Top laners jouant un champion à distance face à Heimerdinger.",
+    "how": [
+     "Repère la pose d'une tourelle par Heimerdinger.",
+     "Lance un sort de dégâts de zone dessus.",
+     "Mets une attaque de base pour achever la destruction de la tourelle."
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-12-23",
+   "analyzedAt": "2026-11-02",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-3tNboBEv4qI : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-3tNboBEv4qI-2",
+   "claim": "Selon Chreak : en fin de partie, si tu disposes d'un avantage d'or important et que tes adversaires sont principalement des champions fragiles (squishies), privilégie des items de burst magique comme Flamme-ombre.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Affronter des adversaires fragiles",
+    "Jouer un champion mage ou AP"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-3tNboBEv4qI",
+     "locator": "06:18",
+     "lang": "fr",
+     "passage": "Regarde ses adversaires. Ils sont squishy, sont en qui, ils font quoi ? [...] Les deux sont très bien, ça dépend est-ce qu'il y aura la MR ? [...] flamme-ombre c'est quand même pas mal hein.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "358-418s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète Flamme-ombre face à une équipe composée principalement de cibles fragiles.",
+   "observe": "L'augmentation des dégâts infligés aux cibles ayant peu de PV.",
+   "use": {
+    "when": "Tu disposes de pièces d'or dans la boutique et l'équipe ennemie est composée majoritairement de champions fragiles sans résistance magique massive.",
+    "why": "Le burst est efficace contre les cibles fragiles.",
+    "who": "Joueurs de champions magiques ou AP.",
+    "how": [
+     "Vérifie la composition ennemie et l'absence de résistances magiques élevées.",
+     "Sélectionne l'item Flamme-ombre dans la boutique.",
+     "Valide l'achat avec l'or disponible."
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-12-23",
+   "analyzedAt": "2026-11-02",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-3tNboBEv4qI : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
     }
    ]
   }

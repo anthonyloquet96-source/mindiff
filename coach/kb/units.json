@@ -1676,300 +1676,6 @@
    "firstSeen": "2026-10-20"
   },
   {
-   "id": "u-ai-yt-5un5rVpQpf8-1",
-   "claim": "Selon Skill Capped : sur Fiora en voie du haut, la rune Déluge de lames est employée en solo queue à haut niveau avec un profil d'objets orienté sur les dégâts instantanés (Hydre vorace et Éclipse).",
-   "champions": [
-    "Fiora"
-   ],
-   "roles": [
-    "top"
-   ],
-   "themes": [
-    "build",
-    "lane"
-   ],
-   "context": {
-    "queue": "solo",
-    "rank": "Challenger",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": true,
-    "value": "26.20"
-   },
-   "metaDependent": true,
-   "dependsOn": [
-    "rune:Déluge de lames",
-    "item:Hydre vorace",
-    "item:Éclipse"
-   ],
-   "conditions": [
-    "Recherche d'échanges courts et de burst en phase de voie"
-   ],
-   "limits": [
-    "Le troisième objet cité ('Endless Hunger') est une amélioration d'Ornn et constitue une incohérence du script"
-   ],
-   "nature": "opinion",
-   "evidence": [
-    {
-     "content": "c-yt-5un5rVpQpf8",
-     "locator": "[00:19] (parole)",
-     "lang": "en",
-     "passage": "For Fiora's Keystone, Hail of Blades is extremely underrated and is something that Challenger Fiora players are taking in solo queue."
-    },
-    {
-     "content": "c-yt-5un5rVpQpf8",
-     "locator": "[00:44] (parole)",
-     "lang": "en",
-     "passage": "The build is very burst-oriented as well, with Ravenous Hydra, Eclipse, and Endless Hunger as the three-item core."
-    }
-   ],
-   "mentions": [],
-   "action": "Tester la rune Déluge de lames sur Fiora avec un premier achat d'Hydre vorace et d'Éclipse pour accentuer le burst lors des escarmouches.",
-   "observe": "Noter la rapidité du déclenchement des points vitaux lors des trois premières attaques sous Déluge de lames.",
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [],
-    "why": "Unité issue de la lecture automatique d'une vidéo YouTube par IA, exigeant une validation humaine selon les règles du coach."
-   },
-   "published": "2026-10-06",
-   "proposedStatus": "provisoire",
-   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.8-flash",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v1",
-    "critique": "v1"
-   },
-   "analyzedAt": "2026-10-20",
-   "validity": {
-    "checkedAt": "2026-10-20",
-    "checkedPatch": "26.20"
-   },
-   "verified": {
-    "at": "2026-10-20",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-20"
-  },
-  {
-   "id": "u-ai-yt-5un5rVpQpf8-2",
-   "claim": "Selon Skill Capped : sur Malphite, il est conseillé d'adapter la compétence maximisée en second entre le Z et le E selon la composition adverse, et d'enchaîner Cœur gelé puis Égide solaire face aux compositions physiques.",
-   "champions": [
-    "Malphite"
-   ],
-   "roles": [
-    "top"
-   ],
-   "themes": [
-    "build",
-    "matchup"
-   ],
-   "context": {
-    "queue": "non précisé",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": true,
-    "value": "26.20"
-   },
-   "metaDependent": true,
-   "dependsOn": [
-    "Malphite/W",
-    "Malphite/E",
-    "item:Cœur gelé",
-    "item:Égide solaire"
-   ],
-   "conditions": [
-    "Équipe adverse à forte dominante de dégâts physiques"
-   ],
-   "limits": [
-    "Ne précise pas les conditions exactes privilégiant le Z par rapport au E"
-   ],
-   "nature": "opinion",
-   "evidence": [
-    {
-     "content": "c-yt-5un5rVpQpf8",
-     "locator": "[01:41] (parole)",
-     "lang": "en",
-     "passage": "A bit of optimization you can do with your skill order on Malphite is swapping between W and E max second depending on the enemy team."
-    },
-    {
-     "content": "c-yt-5un5rVpQpf8",
-     "locator": "[02:49] (parole)",
-     "lang": "en",
-     "passage": "Frozen Heart into Sunfire is the two-item core we would recommend when into heavier AD comps."
-    }
-   ],
-   "mentions": [],
-   "action": "Construire Cœur gelé puis Égide solaire contre les compositions lourdes en AD et ajuster l'ordre des sorts au niveau 2 selon les profils adverses.",
-   "observe": "Contrôler l'impact du ralentissement d'attaque et de l'armure cumulée lors des premiers regroupements.",
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [],
-    "why": "Conseil basé sur une analyse vidéo lue par IA, conservé en statut provisoire avant vérification humaine."
-   },
-   "published": "2026-10-06",
-   "proposedStatus": "provisoire",
-   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.8-flash",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v1",
-    "critique": "v1"
-   },
-   "analyzedAt": "2026-10-20",
-   "validity": {
-    "checkedAt": "2026-10-20",
-    "checkedPatch": "26.20"
-   },
-   "verified": {
-    "at": "2026-10-20",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-20"
-  },
-  {
-   "id": "u-ai-yt-5un5rVpQpf8-3",
-   "claim": "Selon Skill Capped : sur Garen en voie du haut, acheter la Lame spectre de Youmuu en deuxième objet surpasse les autres options bien que seulement 20% des joueurs utilisent ce choix.",
-   "champions": [
-    "Garen"
-   ],
-   "roles": [
-    "top"
-   ],
-   "themes": [
-    "build"
-   ],
-   "context": {
-    "queue": "non précisé",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": true,
-    "value": "26.20"
-   },
-   "metaDependent": true,
-   "dependsOn": [
-    "item:Lame spectre de Youmuu"
-   ],
-   "conditions": [
-    "Achat en deuxième objet après l'objet mythique/core"
-   ],
-   "limits": [
-    "Échantillon, rang et source exacte des 20% non précisés"
-   ],
-   "nature": "opinion",
-   "evidence": [
-    {
-     "content": "c-yt-5un5rVpQpf8",
-     "locator": "[03:42] (parole)",
-     "lang": "en",
-     "passage": "Ghostblade second item has been the best build for Garen for multiple patches now, but only 20% of Garen players run the item."
-    }
-   ],
-   "mentions": [],
-   "action": "Acheter la Lame spectre de Youmuu comme deuxième objet sur Garen pour maximiser la vitesse d'approche et les dégâts de transition.",
-   "observe": "Observer la facilité à combler la distance sur les cibles reculées grâce à l'actif de vitesse.",
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [
-     "petit-echantillon"
-    ],
-    "why": "Affirmation statistique ('20% des joueurs') énoncée en vidéo sans précision du volume global ni de la source de données."
-   },
-   "published": "2026-10-06",
-   "proposedStatus": "provisoire",
-   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.8-flash",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v1",
-    "critique": "v1"
-   },
-   "analyzedAt": "2026-10-20",
-   "validity": {
-    "checkedAt": "2026-10-20",
-    "checkedPatch": "26.20"
-   },
-   "verified": {
-    "at": "2026-10-20",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-20"
-  },
-  {
-   "id": "u-ai-yt-5un5rVpQpf8-5",
-   "claim": "Selon Skill Capped : sur Tristana au poste de tireur, l'association de la Lame sauvage de Yun Tal et de la Lame d'infini forme un pic de deux objets offrant un potentiel d'élimination instantanée élevé.",
-   "champions": [
-    "Tristana"
-   ],
-   "roles": [
-    "bottom"
-   ],
-   "themes": [
-    "build"
-   ],
-   "context": {
-    "queue": "non précisé",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": true,
-    "value": "26.20"
-   },
-   "metaDependent": true,
-   "dependsOn": [
-    "item:Lame sauvage de Yun Tal",
-    "item:Lame d'infini"
-   ],
-   "conditions": [
-    "Atteinte du palier des deux objets complétés"
-   ],
-   "limits": [
-    "Affirmation dépendante de la méta et de l'affaiblissement de l'Ouragan de Runaan au patch précédent"
-   ],
-   "nature": "opinion",
-   "evidence": [
-    {
-     "content": "c-yt-5un5rVpQpf8",
-     "locator": "[15:00] (parole)",
-     "lang": "en",
-     "passage": "Two-item spike for Tristana of Yun Tal into Infinity Edge gives her so much burst potential for an ADC."
-    }
-   ],
-   "mentions": [],
-   "action": "Enchaîner la Lame sauvage de Yun Tal et la Lame d'infini sur Tristana pour chercher des éliminations rapides en milieu de partie.",
-   "observe": "Mesurer les dégâts infligés sur une rotation complète de bombe avec les coups critiques de Yun Tal et de la Lame d'infini.",
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [],
-    "why": "Opinion sur la synergie d'objets issue d'une transcription lue par IA, à maintenir en provisoire."
-   },
-   "published": "2026-10-06",
-   "proposedStatus": "provisoire",
-   "analyst": "gemini-3.8-flash (extraction v1 + critique v1) · vidéo lue par gemini-3.8-flash",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v1",
-    "critique": "v1"
-   },
-   "analyzedAt": "2026-10-20",
-   "validity": {
-    "checkedAt": "2026-10-20",
-    "checkedPatch": "26.20"
-   },
-   "verified": {
-    "at": "2026-10-20",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-20"
-  },
-  {
    "id": "u-dd-aatrox-a1",
    "claim": "Utilisez Ruée obscure tout en lançant Épée des Darkin pour augmenter vos chances de toucher l'ennemi.",
    "champions": [
@@ -74595,7 +74301,1616 @@
    },
    "version": 1,
    "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-DoXG3IySf4k-2",
+   "claim": "Selon Raiko - League of Legends : lorsque l'on est à quelques centaines d'or d'un objet majeur, il faut privilégier le farm au mid pour valider l'objet et effectuer un bon rappel plutôt que de céder à la tentation d'un décalage sur une autre voie.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "macro",
+    "build",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "grand-maitre",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Être proche du montant d'or requis pour un objet majeur"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-DoXG3IySf4k",
+     "locator": "[03:29]",
+     "lang": "es",
+     "passage": "Là j'ai 1400 gold. La BotRK ça en coûte 1700. Alors moi ce que je me dis du coup là, c'est pas d'aller roam bot.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "189-249s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-DoXG3IySf4k",
+     "locator": "[03:35]",
+     "lang": "es",
+     "passage": "C'est juste de rester mid"
+    },
+    {
+     "content": "c-yt-DoXG3IySf4k",
+     "locator": "[03:37]",
+     "lang": "es",
+     "passage": "et de farm mon item. Et dès que j'ai mon item, je base et je revois sur la lane."
+    }
+   ],
+   "mentions": [
+    "Katarina (exemple)",
+    "Dr. Mundo (exemple)",
+    "Karma (exemple)"
+   ],
+   "action": "Refuser un décalage au bot pour rester farmer sur la voie du milieu et atteindre la somme requise pour son objet avant de rappeler.",
+   "observe": "",
+   "use": {
+    "when": "Sur la voie du milieu, avec une opportunité de décalage mais un montant d'or proche du palier d'un objet clé (ex: 1400 d'or sur 1700 nécessaires).",
+    "why": "Un décalage permet à l'adversaire de pousser la vague et de prendre des plaques ou un rappel propre. Rester mid sécurise son pic de puissance et garde un bon tempo.",
+    "who": "Midlaners cherchant à maximiser leur tempo et valider leur premier objet majeur.",
+    "how": [
+     "Vérifier son montant d'or et le coût de l'objet à acheter.",
+     "Renoncer au décalage latéral et poursuivre le farm de la vague au mid.",
+     "Rappeler à la fontaine dès que l'or requis est obtenu pour acheter l'objet."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Principe de macro-économie classique sur la priorisation des pics d'objets par rapport aux décalages incertains."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-DoXG3IySf4k-3",
+   "claim": "Selon Raiko - League of Legends : lorsque l'adversaire direct au mid n'a pas de Téléportation ou est absent, il faut prioriser l'attaque de la tourelle mid et la récolte de plaques plutôt que d'aller secourir ou décaler sur les voies latérales.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "macro",
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "grand-maitre",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "L'adversaire mid n'a pas de Téléportation ou est mort/absent",
+    "Tourelle mid accessible"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-DoXG3IySf4k",
+     "locator": "[05:58]",
+     "lang": "es",
+     "passage": "Là le move ce n'est pas d'aller bot, c'est de prendre des plates.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "338-398s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-DoXG3IySf4k",
+     "locator": "[07:10]",
+     "lang": "es",
+     "passage": "Nous à côté, on prend full plates !"
+    }
+   ],
+   "mentions": [
+    "Sivir (exemple)",
+    "Dr. Mundo (exemple)",
+    "Karthus (exemple)"
+   ],
+   "action": "Taper la tourelle mid pour détruire ses plaques au lieu de se déplacer vers la botlane durant un combat ou une prise de tour ennemie.",
+   "observe": "",
+   "use": {
+    "when": "Quand la voie du milieu est libre, que l'adversaire n'a pas de Téléportation et que de l'action se déroule sur une voie latérale.",
+    "why": "Prendre les plaques et faire tomber la tourelle centrale génère une compensation en or garantie et une pression de carte plus importante qu'un décalage incertain.",
+    "who": "Midlaners (particulièrement avec des builds capables d'infliger d'importants dégâts aux structures).",
+    "how": [
+     "Pousser rapidement la vague de sbires sous la tourelle ennemie.",
+     "Frapper la tourelle pour accumuler les pièces d'or des plaques.",
+     "Maintenir la pression sur la structure centrale tant qu'aucun risque direct de menace adverse n'est présent sur la zone."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Conseil pertinent sur la prise de plaques comme compensation garantie d'un décalage adverse sans Téléportation."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-DoXG3IySf4k-4",
+   "claim": "Selon Raiko - League of Legends : s'il ne manque qu'une seule vague de sbires pour compléter un objet majeur, se cacher dans un buisson du mid après avoir poussé la vague permet d'attendre l'arrivée de la suivante tout en piégeant un adversaire distrait.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "macro",
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "grand-maitre",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Manque environ 200 pièces d'or pour un objet majeur",
+    "Vague actuelle déjà poussée sous la tourelle"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-DoXG3IySf4k",
+     "locator": "[07:36]",
+     "lang": "es",
+     "passage": "Là on a 1300 golds et pour le Kraken il nous faut 1525. Qu'est-ce qu'on va faire là ? Nous on ne va pas aller bot, nous on ne va pas back, on va juste rester dans un bush et attendre la prochaine wave.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "436-496s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Dr. Mundo (exemple)"
+   ],
+   "action": "Disparaître dans un buisson non visionné au mid pour temporiser l'arrivée de la prochaine vague de sbires.",
+   "observe": "",
+   "use": {
+    "when": "Au mid, lorsqu'on manque d'une somme minime d'or pour achever un composant/objet et que la vague en cours est déjà nettoyée.",
+    "why": "L'adversaire pense à un retour en base et s'avance sans précaution, ce qui permet soit de le surprendre pour un kill, soit de farm la vague suivante en sécurité avant de rappeler.",
+    "who": "Midlaners cherchant à maximiser leur gestion d'or et leurs opportunités d'embuscade.",
+    "how": [
+     "Pousser la vague de sbires.",
+     "Rentrer dans un buisson adjacent de la rivière sans donner la vision à l'ennemi.",
+     "Attendre l'avancée de la vague suivante ou l'erreur du laner adverse."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Tactique de temporisation et de gestion de la vision pour sécuriser les derniers PO d'un objet majeur."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-8of0IkJVRyw-1",
+   "claim": "Selon Chreak : erreur fréquente en jungle : perdre du temps à courir partout pour tenter des ganks à faible probabilité de succès (comme sur un Zed) au lieu d'être égoïste et de jouer pour son propre farm et ses objets. Le coach conseille de rentabiliser sa tempo en faisant ses camps ou en envahissant l'adversaire.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": true,
+    "value": "25.23"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir un avantage en or ou en objets",
+    "Ne pas avoir d'information fiable sur les sorts d'invocateur adverses"
+   ],
+   "limits": [
+    "Valable en partie classée de niveau Master"
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-8of0IkJVRyw",
+     "locator": "12:04",
+     "lang": "fr",
+     "passage": "Fréro, comme on a dit avant, genre tu joues pour toi, le mec tu es sur ton camp, le mec est entre guillemets mort. Genre si tu sais que tu peux le sauver à 100% ou genre on va dire à 80 1% et que ça et que ça peut être bien vas-y mais si tu sais qu'il est mort",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "704-764s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-8of0IkJVRyw",
+     "locator": "28:00",
+     "lang": "fr",
+     "passage": "et fissure pas pour des play 20 % de chance comme sur le Zed là que tu as fait tu vois et ce qui va se passer en l'occurrence.",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Bel'Veth (exemple)",
+    "Zed (exemple)"
+   ],
+   "action": "Ne participe pas aux escarmouches ou ganks dont les chances de réussite sont faibles (<80%) et privilégie le clear de tes camps ou l'invade.",
+   "observe": "Regarde si tu perds du temps à errer sur la carte après un combat au lieu de retourner farmer.",
+   "use": {
+    "when": "Ton coéquipier est en mauvaise posture sur une lane ou un combat engagé a de faibles chances de succès.",
+    "why": "Pour éviter de perdre 30 secondes précieuses et prendre du retard sur ton propre développement en XP et en golds.",
+    "who": "Joueur de jungle",
+    "how": [
+     "Évalue rapidement si le sauvetage ou le kill est garanti à plus de 80%.",
+     "Si ce n'est pas le cas, abandonne le coéquipier à son sort.",
+     "Reprends immédiatement le cours de ton farm ou dirige-toi vers tes camps disponibles."
+    ],
+    "notWhen": "Quand tu es sûr à plus de 80% de sauver ton allié et de sécuriser l'action."
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle aux passages cités, le contexte d'usage est complet et met en garde contre les ganks à faible probabilité."
+   },
+   "published": "2025-12-08",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-8of0IkJVRyw-3",
+   "claim": "Selon Chreak : erreur fréquente en début de partie : perdre du temps à hésiter ou à faire un détour de 5 secondes pour prendre une vague ou un camp sous prétexte de perfectionnisme. Le coach conseille d'optimiser chaque seconde de son clear et d'aller au camp le plus proche de manière automatique.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": true,
+    "value": "25.23"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Être en phase de clear dans la jungle"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-8of0IkJVRyw",
+     "locator": "08:00",
+     "lang": "fr",
+     "passage": "Tu vois genre tu ici là tu perds 5 secondes la wave, nixe sa mère genre toujours nixe sa mère, tu vois. Mais si c'est 5 secondes, et je te jure que si tu prends pas les 5 secondes à genre bégayer un peu et faire le tour",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "460-520s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-8of0IkJVRyw",
+     "locator": "06:09",
+     "lang": "fr",
+     "passage": "après le level 1, le plus proche ton camp est juste fais-le. genre même genre moi je joue beaucoup Diana Lidali [...] ça me fait gagner 7 secondes, tu vois ce qui est précieux en en jungle",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Diana (exemple)",
+    "Nidalee (exemple)"
+   ],
+   "action": "Enchaîne tes camps de jungle sans hésiter en visant toujours le camp le plus proche pour maximiser ta vitesse de clear.",
+   "observe": "Surveille si tu perds du temps à bégayer ou hésiter sur les trajectoires entre tes camps.",
+   "use": {
+    "when": "Tu viens de terminer un camp et tu dois choisir ta prochaine destination pour continuer ton clear.",
+    "why": "Pour ne pas perdre de précieuses secondes (5 à 7 secondes) qui s'accumulent et détruisent ta tempo globale.",
+    "who": "Joueur de jungle",
+    "how": [
+     "Identifie immédiatement le camp le plus proche de ta position actuelle après avoir achevé ton monstre.",
+     "Dirige-toi-y de manière fluide sans t'arrêter pour observer inutilement ou hésiter sur une lane.",
+     "Kite le monstre vers le camp suivant si possible pour gagner encore plus de temps."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'optimisation du clear et de la trajectoire du camp le plus proche est directement tirée des dires de l'auteur dans l'extrait."
+   },
+   "published": "2025-12-08",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-1",
+   "claim": "Selon Skill Capped : fiora utilise la rune Déluge de lames en solo queue, jouée par des joueurs Challenger pour un style très axé sur le burst avec un cœur de trois objets composé de Hydre vorace, Éclipse et Faim infinie.",
+   "champions": [
+    "Fiora"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "rune:Deluge-de-lames",
+    "item:Hydre-vorace",
+    "item:Eclipse"
+   ],
+   "conditions": [
+    "joué en solo queue par des joueurs Challenger"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[00:19]",
+     "lang": "en",
+     "passage": "For Fiora's Keystone, Hail of Blades is extremely underrated and is something that Challenger Fiora players are taking in solo queue.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "0-59s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[00:44]",
+     "lang": "en",
+     "passage": "The build is very burst-oriented as well, with Ravenous Hydra, Eclipse, and Endless Hunger as the three-item core."
+    }
+   ],
+   "mentions": [],
+   "action": "Joue Fiora avec la rune Déluge de lames et construis Hydre vorace, Éclipse et Faim infinie en objets principaux.",
+   "observe": "Le burst de Fiora lors des duels avec Déluge de lames.",
+   "use": {
+    "when": "En phase de lane ou en duel sur la voie du haut avec Fiora.",
+    "why": "C'est une option très sous-estimée en Challenger pour obtenir un build orienté burst.",
+    "who": "Fiora",
+    "how": [
+     "Sélectionne la rune Déluge de lames.",
+     "Achète Hydre vorace puis Éclipse et Faim infinie."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "meme-origine"
+    ],
+    "why": "Unité déjà présente dans la base sous l'identifiant u-ai-yt-5un5rVpQpf8-1 avec le même contenu issu de la même source."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-2",
+   "claim": "Selon Skill Capped : sur Malphite, tu peux optimiser ton ordre de compétences en alternant entre le maximum de ton Z et de ton E en deuxième selon l'équipe ennemie.",
+   "champions": [
+    "Malphite"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Malphite/W",
+    "Malphite/E"
+   ],
+   "conditions": [
+    "en fonction de la composition de l'équipe adverse"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[01:41]",
+     "lang": "en",
+     "passage": "A bit of optimization you can do with your skill order on Malphite is swapping between W and E max second depending on the enemy team.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "81-141s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Adapte l'ordre de maximisation de ton Z et de ton E sur Malphite en fonction de la composition ennemie.",
+   "observe": "L'efficacité de tes dégâts et de ton armure selon le choix de ton sort maxé en second.",
+   "use": {
+    "when": "En partie avec Malphite lors de la répartition des points de compétence après le niveau 3.",
+    "why": "Cela permet d'optimiser les dégâts et la résistance selon la composition ennemie.",
+    "who": "Malphite",
+    "how": [
+     "Analyse la composition de l'équipe adverse.",
+     "Choisis de monter le Z ou le E en second."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "meme-origine"
+    ],
+    "why": "Unité déjà présente sous l'identifiant u-ai-yt-5un5rVpQpf8-2 pour la partie Malphite."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-4",
+   "claim": "Selon Skill Capped : sur Garen, la Lame spectre de Youmuu en second objet est la meilleure option de build depuis plusieurs patchs, bien que seulement 20% des joueurs de Garen l'utilisent.",
+   "champions": [
+    "Garen"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Lame-spectre-de-Youmuu"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[03:42]",
+     "lang": "en",
+     "passage": "Ghostblade second item has been the best build for Garen for multiple patches now, but only 20% of Garen players run the item.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "202-262s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Construis la Lame spectre de Youmuu en second objet sur Garen.",
+   "observe": "Ta vitesse de déplacement et ton potentiel de létalité accrus en combats.",
+   "use": {
+    "when": "Après l'obtention de ton premier objet majeur sur Garen.",
+    "why": "C'est le meilleur choix de build d'après les données de plusieurs patchs.",
+    "who": "Garen",
+    "how": [
+     "Termine ton premier objet principal.",
+     "Achète la Lame spectre de Youmuu comme second objet."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "meme-origine"
+    ],
+    "why": "Unité déjà présente sous l'identifiant u-ai-yt-5un5rVpQpf8-3 pour Garen."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-7",
+   "claim": "Selon Skill Capped : le build central standard pour Lillia consiste à se ruer sur le Tourment de Liandry puis le Créateur de failles en second, suivi du Sceptre de Rylai ou du Sablier de Zhonya en troisième.",
+   "champions": [
+    "Lillia"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "build",
+    "jungle",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Tourment-de-Liandry",
+    "item:Createur-de-failles"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[07:02]",
+     "lang": "en",
+     "passage": "The standard core build for Lillia consists of a Liandry's rush into Riftmaker second, and Rylai's or Zhonya's third.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "402-462s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète Tourment de Liandry en premier puis Créateur de failles en second sur Lillia.",
+   "observe": "Tes dégâts continus accrus sur les cibles grâce aux brûlures et à l'omnivampirisme.",
+   "use": {
+    "when": "Pendant la phase d'achats d'objets avec Lillia dans la jungle.",
+    "why": "C'est le cœur d'objets standard le plus efficace pour maximiser ses dégâts et sa tenue en combat.",
+    "who": "Lillia",
+    "how": [
+     "Rush Tourment de Liandry.",
+     "Achète Créateur de failles en deuxième objet.",
+     "Complète par Sceptre de Rylai ou Sablier de Zhonya en troisième."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Build standard pour Lillia correctement transcrit mais issu d'une source unique non officielle."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-8",
+   "claim": "Selon Skill Capped : le cœur de build pour Wukong jungle consiste en un rush de Force de la trinité suivi du Couperet noir en second, puis de Danse de la mort ou Gueule de Malmortius en troisième.",
+   "champions": [
+    "Wukong"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "build",
+    "jungle",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Force-de-la-trinite",
+    "item:Couperet-noir"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[08:11]",
+     "lang": "en",
+     "passage": "So it's Trinity Force rush into Black Cleaver second for the core on Wukong, and then third item is usually Death's Dance or Maw.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "471-531s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Construis Force de la trinité puis Couperet noir sur Wukong.",
+   "observe": "Ton potentiel de duels et de percée d'armure renforcé.",
+   "use": {
+    "when": "Lors de la progression de tes objets avec Wukong en partie.",
+    "why": "Ce combo d'objets maximise la puissance de combat et l'utilité de Wukong en tant que combattant.",
+    "who": "Wukong",
+    "how": [
+     "Rush Force de la trinité.",
+     "Achète Couperet noir en second.",
+     "Opte pour Danse de la mort ou Gueule de Malmortius en troisième."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Build de Wukong correctement appuyé par le passage."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-10",
+   "claim": "Selon Skill Capped : le cœur de build pour Vex s'articule autour d'un rush de Compagnon de Luden suivi d'Onde orageuse en second, puis de Flamme-ombre, Coiffe de Rabadon ou Sablier de Zhonya en troisième.",
+   "champions": [
+    "Vex"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build",
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Compagnon-de-Luden",
+    "item:Onde-orageuse"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[10:45]",
+     "lang": "en",
+     "passage": "The core build for Vex is going to revolve around a Luden's rush into Stormsurge second, and then either Shadowflame, Rabadon's, or Zhonya's third.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "625-685s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète Compagnon de Luden en premier puis Onde orageuse en second avec Vex.",
+   "observe": "Des dégâts magiques instantanés plus élevés pour éliminer les vagues de sbires et les champions.",
+   "use": {
+    "when": "Pendant la phase de choix d'objets sur la voie du milieu avec Vex.",
+    "why": "C'est la configuration d'objets centrale idéale pour maximiser le burst magique.",
+    "who": "Vex",
+    "how": [
+     "Rush Compagnon de Luden.",
+     "Achète Onde orageuse en deuxième objet.",
+     "Choisis entre Flamme-ombre, Coiffe de Rabadon ou Sablier de Zhonya pour le troisième."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Build de Vex correctement extrait de la transcription."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-11",
+   "claim": "Selon Skill Capped : le joueur classé rang 1 sur EU West nommé 610 joue un nouveau build sur Ekko qui consiste à se ruer sur l'Onde orageuse.",
+   "champions": [
+    "Ekko"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Onde-orageuse"
+   ],
+   "conditions": [
+    "joué par le rang 1 EU West"
+   ],
+   "limits": [
+    "provenant d'un seul joueur haut gradé"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[11:26]",
+     "lang": "en",
+     "passage": "There's also a new build that the rank one Ekko on EU West, who goes by 610, has been playing, and it consists of a Stormsurge rush.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "666-726s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Teste le rush d'Onde orageuse sur Ekko en suivant la tendance du joueur classé numéro un sur EUW.",
+   "observe": "L'impact et les dégâts de burst d'Ekko en début de partie.",
+   "use": {
+    "when": "Au moment d'acheter ton premier objet majeur avec Ekko sur la voie du milieu.",
+    "why": "C'est une option novatrice plébiscitée par le meilleur joueur d'Ekko sur le serveur EUW.",
+    "who": "Ekko",
+    "how": [
+     "Achète les composants nécessaires pour l'Onde orageuse.",
+     "Complète l'Onde orageuse en premier objet principal."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Conseil basé sur les choix d'un unique joueur haut gradé (rang 1 EUW), à conserver en provisoire."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-12",
+   "claim": "Selon Skill Capped : tristana intègre le top trois des ADC au patch 26.20 suite aux nerfs de l'Ouragan de Runaan sur le patch précédent qui ont pénalisé d'autres ADC de premier plan.",
+   "champions": [
+    "Tristana"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "patch",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Ouragan-de-Runaan"
+   ],
+   "conditions": [
+    "après les nerfs de l'Ouragan de Runaan au patch 26.19"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[14:25]",
+     "lang": "en",
+     "passage": "So with a bunch of the top tier ADCs negatively affected by the Hurricane nerfs in 26.19, we've got Tristana moving into the top three for ADC.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "845-905s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Ouragan de Runaan (exemple)"
+   ],
+   "action": "Joue Tristana en tant qu'ADC de premier plan au patch 26.20 pour profiter de sa position.",
+   "observe": "Son efficacité globale et sa présence accrue dans la méta actuelle par rapport aux autres tireurs.",
+   "use": {
+    "when": "En phase de sélection des champions au poste d'ADC.",
+    "why": "Les nerfs subis par l'Ouragan de Runaan au patch 26.19 ont affaibli les autres choix forts, favorisant Tristana.",
+    "who": "Tristana",
+    "how": [
+     "Sélectionne Tristana lorsque tu joues sur la voie du bas."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Analyse de méta sur Tristana cohérente avec la source."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-13",
+   "claim": "Selon Skill Capped : le pic à deux objets de Tristana composé de la Lame sauvage de Yun Tal et de la Lame d'infini lui procure un énorme potentiel de burst pour un ADC.",
+   "champions": [
+    "Tristana"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Lame-sauvage-de-Yun-Tal",
+    "item:Lame-d-infini"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[15:00]",
+     "lang": "en",
+     "passage": "Two-item spike for Tristana of Yun Tal into Infinity Edge gives her so much burst potential for an ADC.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "880-940s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète la Lame sauvage de Yun Tal puis la Lame d'infini sur Tristana pour maximiser ton burst.",
+   "observe": "Tes dégâts d'attaque instantanés lors de tes duels avec les ennemis.",
+   "use": {
+    "when": "Pendant l'acquisition de tes deux premiers objets majeurs avec Tristana.",
+    "why": "Ce combo d'objets offre un pic de puissance avec un très fort potentiel de dégâts soudains.",
+    "who": "Tristana",
+    "how": [
+     "Achète la Lame sauvage de Yun Tal en premier.",
+     "Achète la Lame d'infini en second."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "meme-origine"
+    ],
+    "why": "Déjà présent sous l'identifiant u-ai-yt-5un5rVpQpf8-5 concernant le pic à deux objets de Tristana."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-14",
+   "claim": "Selon Skill Capped : jinx reste la meilleure ADC au patch 26.20 car les nerfs de l'Ouragan de Runaan sur ce patch sont très légers et ne la font pas chuter.",
+   "champions": [
+    "Jinx"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "patch",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Ouragan-de-Runaan"
+   ],
+   "conditions": [
+    "malgré les légers nerfs de l'Ouragan de Runaan"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[16:01]",
+     "lang": "en",
+     "passage": "So seeing how light the Hurricane nerfs are for this patch, there's no way Jinx falls off from being the best ADC.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "941-1001s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Ouragan de Runaan (exemple)"
+   ],
+   "action": "Continue de jouer Jinx comme choix principal d'ADC au patch 26.20.",
+   "observe": "Sa capacité à rester dominante en combats d'équipe malgré les ajustements mineurs de l'objet.",
+   "use": {
+    "when": "Lors du choix de ton champion en file bot lane au patch 26.20.",
+    "why": "Les nerfs de l'Ouragan de Runaan sont trop légers pour l'affecter significativement.",
+    "who": "Jinx",
+    "how": [
+     "Sélectionne Jinx pour profiter de sa puissance constante en fin de partie."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Analyse de Jinx fidèle au passage de la vidéo."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-15",
+   "claim": "Selon Skill Capped : de nombreux joueurs de Xayah de haut niveau apprécient d'acheter des Bottes de gloutonnerie à la place des Bottes de berserker sur Xayah.",
+   "champions": [
+    "Xayah"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "high elo",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "selon les préférences de joueurs de haut niveau"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[17:19]",
+     "lang": "en",
+     "passage": "Something quite underrated on Xayah right now that many high elo Xayah players have been liking is taking Gluttonous Greaves instead of Berserker's Greaves for boots.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "1019-1079s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Opte pour les Bottes de gloutonnerie au lieu des Bottes de berserker lorsque tu joues Xayah.",
+   "observe": "La tenue en combat et les avantages apportés par ce choix de bottes alternatives.",
+   "use": {
+    "when": "Au moment de l'achat de tes bottes de vitesse avec Xayah.",
+    "why": "C'est une option sous-estimée mais appréciée par les joueurs de haut niveau.",
+    "who": "Xayah",
+    "how": [
+     "Achète les Bottes de gloutonnerie à la place des traditionnelles Bottes de berserker."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil d'itemisation alternatif pour Xayah provenant de joueurs de haut niveau."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-16",
+   "claim": "Selon Skill Capped : le cœur de build standard pour Thresh s'articule autour de l'amélioration d'objet Traîneau du solstice, suivie du Médaillon de l'Iron Solari et du Vœu du chevalier.",
+   "champions": [
+    "Thresh"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Traineau-du-solstice",
+    "item:Medaillon-de-l-Iron-Solari",
+    "item:Voeu-du-chevalier"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[19:16]",
+     "lang": "en",
+     "passage": "The standard core build for Thresh revolves around Solstice Sleigh for the item upgrade, while Locket and Knight's Vow are to follow.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "1136-1196s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète Traîneau du solstice comme amélioration d'objet de support, puis construis Médaillon de l'Iron Solari et Vœu du chevalier sur Thresh.",
+   "observe": "La protection et les PV supplémentaires offerts à ton équipe lors des combats d'équipe.",
+   "use": {
+    "when": "Pendant la progression de tes objets de soutien avec Thresh.",
+    "why": "C'est le build central standard pour optimiser la survie et l'utilité de Thresh.",
+    "who": "Thresh en support",
+    "how": [
+     "Améliore ton objet de support en Traîneau du solstice.",
+     "Construis le Médaillon de l'Iron Solari.",
+     "Poursuis avec le Vœu du chevalier."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Build de Thresh correctement transcrit depuis la source."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
+  },
+  {
+   "id": "u-ai-yt-5un5rVpQpf8-17",
+   "claim": "Selon Skill Capped : braum est un bon choix au poste de support si tu recherches un champion doté d'une barrière à l'entrée relativement faible.",
+   "champions": [
+    "Braum"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.20"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "si tu cherches un champion avec une faible barrière à l'entrée"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5un5rVpQpf8",
+     "locator": "[20:42]",
+     "lang": "en",
+     "passage": "If you're looking for something to play for support right now who has a pretty low barrier to entry, then look into Braum.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-02",
+      "window": "1222-1282s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Joue Braum si tu désires un champion de soutien simple à prendre en main.",
+   "observe": "La facilité à placer ton passif et à protéger tes alliés avec ton bouclier.",
+   "use": {
+    "when": "Lors de la sélection de ton champion de support en partie.",
+    "why": "Il possède une faible barrière à l'entrée tout en étant très efficace.",
+    "who": "Joueurs cherchant un support simple",
+    "how": [
+     "Sélectionne Braum lors de la phase de choix des champions pour le poste de support."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Mention d'accessibilité pour Braum conforme au passage de la vidéo."
+   },
+   "published": "2026-10-06",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-02",
+   "validity": {
+    "checkedAt": "2026-11-02",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-02",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-02"
   }
  ],
- "updatedAt": "2026-11-02T14:20:27.242Z"
+ "updatedAt": "2026-11-02T19:30:44.423Z"
 }

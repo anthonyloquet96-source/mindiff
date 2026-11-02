@@ -792,7 +792,7 @@ function viewHome() {
     const st = lead.stages[currentStage(lead)];
     const nxt = nextMatchOf(lead);
     leadHtml = `<section class="hero" aria-label="Tournoi à la une">
-      <div class="hero-media">${img ? `<img src="${esc(img)}" alt="" decoding="async" data-rm>` : `<span class="hero-mono">${esc(initials(lead.name))}</span>`}</div>
+      <div class="hero-media">${img ? `<img src="${esc(img)}" alt="" decoding="async" data-rm>` : `<span class="hero-mono">${esc(lead.name.replace(/\s+\d{4}\b.*$/, "") || initials(lead.name))}</span>`}</div>
       <div class="hero-body">
         <div class="hero-top">${statusChip(lead.status)}${st && lead.status !== "finished" ? `<span class="hero-phase">${esc(st.name)}</span>` : ""}</div>
         <h1 class="hero-title" tabindex="-1">${esc(lead.name)}</h1>

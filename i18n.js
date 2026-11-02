@@ -278,6 +278,7 @@ if (typeof document !== "undefined") { try{var t=JSON.parse(localStorage.getItem
   };
   // Motifs : durées, compteurs et dates composées
   const R = [
+    [/^(\d+)\s+parties?$/, (m, n) => `${n} game${n === "1" ? "" : "s"}`],
     [/^(\d+) parties? en 7 jours$/, (m, n) => `${n} game${n === "1" ? "" : "s"} in 7 days`],
     [/^Meilleure partie, (.+)$/, (m, x) => `Best game, ${window.i18nTr ? window.i18nTr(x) : x}`],
     [/^(\d+) parties? : pas assez$/, (m, n) => `${n} game${n === "1" ? "" : "s"}: not enough`],

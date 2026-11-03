@@ -2,6 +2,28 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-03 — batterie avant lancement réel
+- **Tests automatiques** : 59/60 (1 ignoré faute de cache).
+- **Service en ligne** : santé OK (Riot et Supabase configurés). Sans jeton, toutes les routes répondent 401. CORS limité au site.
+- **Rejeu sur cache** (70 joueurs, sans nouvel appel à Riot) :
+  - 41 objectifs, et 29 joueurs sans objectif (entre 8 et 19 parties au poste principal, alors qu'il en faut 20) ;
+  - farm 56 % ;
+  - maîtrise observée 33 % pour 31 % par hasard (ces joueurs ne suivaient pas le coach).
+- **Test privé (Supabase)** : 3 testeurs, 0 cycle terminé.
+  - 2 objectifs sont restés « proposés » sans être démarrés.
+  - 1 objectif est en évaluation depuis le 28/10 avec 1 partie évaluée.
+  - Aucune synchronisation depuis le 28/10 et le 31/10.
+  - Cible d'un objectif cs@10 : 59 → 60, soit +1 sbire, peu crédible pour un joueur.
+- **Manques identifiés** :
+  - clé Riot personnelle ou de production ;
+  - pas de synchronisation sans visite ;
+  - 40 % des joueurs sans objectif avec 30 parties synchronisées ;
+  - progrès minimal trop faible sur les métriques à petits nombres ;
+  - aucun cycle réel terminé, donc aucune preuve d'effet ;
+  - ancien `coach.js` encore chargé ;
+  - documents RGPD (registre, durée de conservation) ;
+  - décision sur le tuteur.
+
 ## 2026-11-03 — actus LoL tirées des résultats officiels
 - **Demande d'Anthony** : option 1 pour les actus LoL figées depuis le 20/10. Les flux LoL des médias (Dexerto) ne publient presque plus, et le flux officiel Riot parle surtout de K/DA.
 - **Ajout** : `resultNews` (`collector/lolesports.mjs`), branché dans `collect.mjs`. Chaque série terminée des 7 derniers jours devient une actu « esport » officielle, écrite uniquement à partir des données de l'API LoL Esports :

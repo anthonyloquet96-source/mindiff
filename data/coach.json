@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T01:36:17.954Z",
+ "generatedAt": "2026-11-03T07:37:33.394Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -152,7 +152,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 98
+    "units": 105
    },
    "support": {
     "champions": [
@@ -2119,19 +2119,45 @@
     "official": 5,
     "coaching": 0,
     "officialOnly": true
+   },
+   "Zaahen": {
+    "role": null,
+    "units": 6,
+    "themes": [
+     "champion"
+    ],
+    "actions": 0,
+    "official": 6,
+    "coaching": 0,
+    "officialOnly": true
+   },
+   "Yunara": {
+    "role": null,
+    "units": 7,
+    "themes": [
+     "champion",
+     "build",
+     "lane",
+     "survie",
+     "teamfight"
+    ],
+    "actions": 7,
+    "official": 7,
+    "coaching": 0,
+    "officialOnly": true
    }
   },
   "themes": {
-   "lane": 102,
-   "survie": 18,
-   "teamfight": 13,
+   "lane": 107,
+   "survie": 19,
+   "teamfight": 14,
    "synergie": 3,
    "matchup": 11,
    "methode": 31,
    "vagues": 56,
-   "vision": 20,
-   "macro": 94,
-   "jungle": 72
+   "vision": 21,
+   "macro": 95,
+   "jungle": 73
   },
   "partial": [
    "Ashe"
@@ -13257,7 +13283,7 @@
     "basis": "page officielle de Riot sur Yunara, champion sans conseils officiels dans Data Dragon"
    },
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 20 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "reader": {
     "kind": "ia",
@@ -13272,20 +13298,15 @@
     "gameplayShown": true,
     "tokens": 21883
    },
-   "analyzedAt": "2026-10-24",
+   "analyzedAt": "2026-11-03",
    "analyst": "gemini-3.8-flash",
-   "unitsAccepted": 0,
-   "unitsRejected": 2,
-   "alertes": [
-    {
-     "code": "traduction",
-     "detail": "Les noms des compétences de Yunara (Vow to the First Lands, Cultivation of Spirit, Arc of Judgement, Kanmei's Steps, Transcend One's Self, Arc of Ruin, Untouchable Shadow) sont indiqués en anglais dans la vidéo originale et n'ont pas d'équivalent officiel fr_FR fourni."
-    }
-   ],
-   "learn": null,
+   "unitsAccepted": 7,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Le kit complet de Yunara, axé sur les dégâts magiques par critique, l'accumulation de charges de son A, l'utilisation de son Z et de son E, ainsi que la transformation de ses sorts sous l'effet de son ultime.",
    "quality": {
     "level": "élevée",
-    "why": "Présentation officielle de Riot Games (Champion Spotlight) décrivant de manière claire et directe le fonctionnement des compétences et le kit mécanique du champion."
+    "why": "Présentation officielle détaillée (Champion Spotlight) décrivant de manière précise et explicite chaque compétence du champion et ses interactions sous ultime."
    },
    "reanalyse": "v2"
   },
@@ -13414,7 +13435,7 @@
     "basis": "page officielle de Riot sur Zaahen, champion sans conseils officiels dans Data Dragon"
    },
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 19 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "videoAttempts": 0,
    "reader": {
@@ -13430,24 +13451,15 @@
     "gameplayShown": true,
     "tokens": 21521
    },
-   "analyzedAt": "2026-10-24",
+   "analyzedAt": "2026-11-03",
    "analyst": "gemini-3.8-flash",
-   "unitsAccepted": 0,
-   "unitsRejected": 3,
-   "alertes": [
-    {
-     "code": "traduction",
-     "detail": "Les noms de compétences sont en version anglaise originale (Cultivation of War, The Darkin Glaive, Dreaded Return, Aureate Rush, Grim Deliverance) car les traductions officielles fr_FR ne sont pas fournies dans le texte."
-    },
-    {
-     "code": "acces-partiel",
-     "detail": "Contenu analysé via une transcription et un échantillonnage visuel IA à 1 image par seconde ; les détails fins d'animation et de timings précis restent provisoires."
-    }
-   ],
-   "learn": null,
+   "unitsAccepted": 6,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Zaahen est un brawler axé sur les attaques de base et les combats prolongés, qui gagne en puissance et en régénération grâce à son passif cumulable et dispose d'une mécanique de résurrection à pleine charge.",
    "quality": {
-    "level": "moyenne",
-    "why": "Présentation officielle de kit par Riot Games décrivant clairement chaque compétence et ses mécaniques de jeu, mais sans valeurs numériques précises (ratios, délais) ni mention du numéro de patch."
+    "level": "élevée",
+    "why": "Présentation officielle claire et détaillée des compétences et du kit du nouveau champion Zaahen par Riot Games."
    },
    "reanalyse": "v2"
   },
@@ -15345,11 +15357,11 @@
    "lang": "en",
    "published": "2026-10-01",
    "retrievedAt": "2026-10-21",
-   "patch": null,
+   "patch": "unknown",
    "views": 11000,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 15 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "Full Game can be found here: https://www.youtube.com/watch?v=NmtwmB2JqwU\n\nIn this Video:\n\nDown 3K gold after a rough early game, I break down how I turned it around without AFK farming, by finding holes in the enemy's vision and fighting wherever we had the numbers advantage.\n\n📈",
    "triage": {
     "score": 4,
@@ -15361,7 +15373,30 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 64
+   "queueRank": 64,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-11-03",
+    "sha256": "62c783d3cf97b2ebc77343d361ee0df522d797540ef56ed67f13355445e7cdce",
+    "segments": 103,
+    "observations": 15,
+    "duration": "10:50",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 65783
+   },
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Pour remonter une partie mal engagée en jungle, il faut cesser de farmer passivement et chercher activement à punir les fautes de positionnement et les angles morts dans la vision ennemie.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur explique clairement et de manière structurée les concepts macroéconomiques utilisés pour renverser une situation difficile à partir d'une vraie VOD."
+   }
   },
   {
    "id": "c-yt-X1X_YMPDtZ8",
@@ -16661,7 +16696,7 @@
    "published": "2026-10-15",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 12000,
+   "views": 13000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17473,7 +17508,7 @@
    "published": "2026-09-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 89000,
+   "views": 90000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18160,7 +18195,7 @@
    "published": "2026-07-14",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 7600,
+   "views": 7700,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 28 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -18304,7 +18339,7 @@
    "published": "2026-07-03",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 6700,
+   "views": 6800,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18924,7 +18959,7 @@
    "published": "2026-10-08",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 11000,
+   "views": 12000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -18983,7 +19018,7 @@
    "published": "2026-10-14",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 9800,
+   "views": 9900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19392,6 +19427,35 @@
    }
   },
   {
+   "id": "c-yt-BTYVJVBqlmU",
+   "sourceId": "yt-misanthiel-coach-toplane",
+   "type": "video",
+   "url": "https://www.youtube.com/shorts/BTYVJVBqlmU",
+   "title": "NE PERDS PLUS JAMAIS LE MATCHUP JAX CONTRE GAREN !",
+   "author": "Misanthiel - Coach Toplane",
+   "lang": "en",
+   "published": "2026-08-14",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 23566,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "Tu veux monter en elo ? https://misanthiel.com/",
+   "triage": {
+    "score": 6,
+    "matched": [
+     "Garen",
+     "Jax",
+     "matchup"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "queueRank": 74
+  },
+  {
    "id": "c-yt-KtUuTclOBe4",
    "sourceId": "yt-kyan",
    "type": "video",
@@ -19510,6 +19574,59 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
+  },
+  {
+   "id": "c-yt-I_mkF9_Nrao",
+   "sourceId": "yt-kyan",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=I_mkF9_Nrao",
+   "title": "CARRY YOUR VLADIMIR GAMES WITH MACRO | Vladimir Climb S15 | Episode 5",
+   "author": "Kyan",
+   "lang": "en",
+   "published": "2025-09-23",
+   "retrievedAt": "2026-10-21",
+   "patch": "S15",
+   "views": 904,
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "note": "Écarté : contenu jugé de faible qualité (Le contenu est un commentaire en direct d'une partie par un joueur (gameplay commenté) sans analyse structurée, conseils généraux ou explications techniques précises sur le champion Vladimir.).",
+   "descriptionExcerpt": "Subscribe to the channel, like the video and leave a comment ;)\n\nIf you're interested in my personal coaching:\nhttps://www.fiverr.com/kyanleague/coach-you-in-league-of-legends\n\nIf you're interested in seeing me live: \nhttps://www.twitch.tv/mynameiskyan",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "Vi",
+     "Vladimir",
+     "coaching",
+     "macro",
+     "climb",
+     "comment"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-11-03",
+    "sha256": "1e5c25a698a1915e158e4f9cbde17788005fa63e464c6770a1553329679659a8",
+    "segments": 205,
+    "observations": 35,
+    "duration": "27:23",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 149378
+   },
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "quality": {
+    "level": "faible",
+    "why": "Le contenu est un commentaire en direct d'une partie par un joueur (gameplay commenté) sans analyse structurée, conseils généraux ou explications techniques précises sur le champion Vladimir."
+   },
+   "learn": null,
+   "rejectedForQuality": true
   },
   {
    "id": "c-yt-AvFYRJDv_6U",
@@ -21216,7 +21333,7 @@
    "published": "2026-10-22",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 8300,
+   "views": 8400,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -22332,7 +22449,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-26",
    "patch": "26.21",
-   "views": 186000,
+   "views": 187000,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -22445,7 +22562,7 @@
    "published": "2026-10-25",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 8900,
+   "views": 9000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24260,7 +24377,7 @@
    "published": "2026-10-27",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 458,
+   "views": 461,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25700,7 +25817,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 11000,
+   "views": 12000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26250,7 +26367,7 @@
    "ageMonths": 5,
    "retrievedAt": "2026-11-01",
    "patch": "null",
-   "views": 7900,
+   "views": 8000,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.5-flash-lite : transcription et 17 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -26382,7 +26499,7 @@
    "ageMonths": 2,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 269,
+   "views": 270,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26776,7 +26893,7 @@
    "ageMonths": 5,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 7900,
+   "views": 8000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26804,7 +26921,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 4000,
+   "views": 4100,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27150,7 +27267,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 2700,
+   "views": 2800,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27672,7 +27789,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 8200,
+   "views": 8900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27748,13 +27865,13 @@
    "lang": "fr",
    "published": null,
    "retrievedAt": "2026-11-02",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.3",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 62,
-   "note": "File de lecture (rang 62) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 37 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -27765,6 +27882,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-11-03",
+    "sha256": "f8b49892ebb5a682ad33c0a79ce013e3a29c0834aeca904f04193c660f2adfa5",
+    "segments": 26,
+    "observations": 37,
+    "duration": "49:35",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 175926
+   },
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "L'analyse fournit des critères logiques pour les rotations (distance et urgence), mais la source utilise une rediffusion de niveau inférieur pour illustrer des erreurs."
    }
   },
   {
@@ -27777,13 +27917,13 @@
    "lang": "ko",
    "published": null,
    "retrievedAt": "2026-11-02",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "null",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 65,
-   "note": "File de lecture (rang 65) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 19 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 15,
     "matched": [
@@ -27792,6 +27932,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-11-03",
+    "sha256": "2c68680db31dabba23f287fac17bc55fa3d7507e73014a9de504e109db7ab9aa",
+    "segments": 261,
+    "observations": 19,
+    "duration": "18:59",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 114210
+   },
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "La vidéo détaille les runes, les objets et les combos de Taliyah avec des exemples en partie, mais l'analyse textuelle provient d'une transcription automatique traduite du coréen."
    }
   },
   {
@@ -27833,7 +27996,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 9900,
+   "views": 13000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27859,7 +28022,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 6800,
+   "views": 8900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27912,7 +28075,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 11,
+   "views": 17,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27941,7 +28104,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-03",
    "patch": null,
-   "views": 4900,
+   "views": 12000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -87577,6 +87740,1170 @@
     {
      "code": "verification-legere",
      "why": "c-yt-ynG4T9yLKFs : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-lvI6VhTQlo0-1",
+   "claim": "Selon perryjg : quand tu es en retard dans la partie, évite de farmer en boucle (AFK farm) : cherche plutôt à exploiter les failles de vision de l'adversaire et à capitaliser sur les supériorités numériques.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro",
+    "vision"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "La partie est mal engagée ou en retard aux golds"
+   ],
+   "limits": [
+    "Dépend des opportunités créées par les erreurs de positionnement ou de vision adverses"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-lvI6VhTQlo0",
+     "locator": "[00:21]",
+     "lang": "en",
+     "passage": "And so, you're not AFK farming, you're not just doing nothing all game, you're finding windows to make opportunity and make things happen.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "1-61s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-lvI6VhTQlo0",
+     "locator": "[08:16]",
+     "lang": "en",
+     "passage": "So, we've applied two things over and over and over again in this game. Numbers advantage and we've applied fog of war rules, right?"
+    }
+   ],
+   "mentions": [
+    "Nidalee (exemple)",
+    "Pantheon (exemple)",
+    "Jinx (exemple)",
+    "Leblanc (exemple)",
+    "Fizz (exemple)",
+    "Nautilus (exemple)",
+    "Zed (exemple)"
+   ],
+   "action": "Arrête de faire tes camps en boucle quand tu es derrière et cherche un angle d'attaque dans les zones non éclairées par l'adversaire.",
+   "observe": "Le joueur quitte ses camps pour punir un ennemi isolé ou sans vision.",
+   "use": {
+    "when": "Tu es en retard dans la partie et tu observes que l'adversaire laisse des zones de la carte sans vision ou se positionne trop loin.",
+    "why": "Il n'y a pas de moyen facile de gagner une partie difficile sans résoudre les problèmes et trouver de petites fenêtres où l'adversaire commet des erreurs.",
+    "who": "Joueurs de jungle ou de rôle général en solo queue",
+    "how": [
+     "Surveille la mini-carte pour repérer où se trouvent les ennemis clés (comme le jungler adverse).",
+     "Identifie les zones sans vision (trous dans le brouillard de guerre) en utilisant un balayeur ou en observant les placements.",
+     "Surprends l'adversaire lorsqu'il s'avance trop ou qu'il est mal positionné."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-01",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-lvI6VhTQlo0 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-lvI6VhTQlo0 : lu par gemini-3.5-flash-lite (1 image/s) ; passage à vérifier sur la vidéo ([08:16])."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-S3F9CpeiSNE-1",
+   "claim": "Le passif de Zaahen, Cultivation of War, se remplit à chaque attaque et compétence touchant un champion ennemi, accordant des dégâts d'attaque bonus par niveau de détermination jusqu'à l'atteinte de la puissance maximale.",
+   "champions": [
+    "Zaahen"
+   ],
+   "roles": [
+    "top",
+    "jungle"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "toucher un champion ennemi avec une attaque ou une compétence"
+   ],
+   "limits": [
+    "Source officielle Riot Games (Champion Spotlight)"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-S3F9CpeiSNE",
+     "locator": "00:34",
+     "lang": "en",
+     "passage": "Zaahen's passive is Cultivation of War.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "14-74s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-S3F9CpeiSNE",
+     "locator": "00:37",
+     "lang": "en",
+     "passage": "Every attack and ability that hits an enemy champion fills Zaahen with determination."
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "tu engages un combat ou un échange contre un champion ennemi avec Zaahen",
+    "why": "remplir la jauge de détermination pour augmenter tes dégâts d'attaque bonus et déclencher le plein pouvoir",
+    "who": "Zaahen",
+    "how": [
+     "Frappe les champions ennemis avec des attaques de base",
+     "Utilise tes compétences pour toucher les champions ennemis"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-11-10",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-S3F9CpeiSNE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-S3F9CpeiSNE : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo (00:37)."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-S3F9CpeiSNE-2",
+   "claim": "La compétence A (Q) de Zaahen, The Darkin Glaive, fait en sorte que son attaque suivante tranche deux fois, infligeant des dégâts bonus, appliquant les effets à l'impact et soignant d'un pourcentage de ses PV max, avec une réactivation dans les 4 secondes pour un bonus et une projection en l'air.",
+   "champions": [
+    "Zaahen"
+   ],
+   "roles": [
+    "top",
+    "jungle"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "lancer le A (Q) et réactiver dans les 4 secondes"
+   ],
+   "limits": [
+    "Source officielle Riot Games (Champion Spotlight)"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-S3F9CpeiSNE",
+     "locator": "00:48",
+     "lang": "en",
+     "passage": "Zaahen's Q is The Darkin Glaive.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "28-88s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-S3F9CpeiSNE",
+     "locator": "00:51",
+     "lang": "en",
+     "passage": "After casting, his next attack slashes twice, dealing bonus damage, applying on-hit effects, and healing for a percentage of his maximum health."
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "tu lances ton A (Q) pour engager ou poursuivre un combat rapproché",
+    "why": "infliger des dégâts supplémentaires, appliquer des effets à l'impact, récupérer des points de vie et projeter l'adversaire en l'air",
+    "who": "Zaahen",
+    "how": [
+     "Active le A (Q) pour renforcer ton attaque suivante",
+     "Réactive l'effet dans les 4 secondes pour obtenir le bonus de dégâts et la projection en l'air"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-11-10",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-S3F9CpeiSNE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-S3F9CpeiSNE : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo (00:51)."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-S3F9CpeiSNE-3",
+   "claim": "La compétence Z (W) de Zaahen, Dreaded Return, lui permet de poignarder vers l'avant pour infliger des dégâts, ramener les ennemis vers lui et accumuler plusieurs charges de son passif grâce au coup initial et au déplacement.",
+   "champions": [
+    "Zaahen"
+   ],
+   "roles": [
+    "top",
+    "jungle"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "toucher des ennemis avec le Z (W)"
+   ],
+   "limits": [
+    "Source officielle Riot Games (Champion Spotlight)"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-S3F9CpeiSNE",
+     "locator": "01:09",
+     "lang": "en",
+     "passage": "With his W, Dreaded Return, Zaahen stabs his glaive forward, damaging any enemies it hits and dragging them toward himself.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "49-109s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-S3F9CpeiSNE",
+     "locator": "01:22",
+     "lang": "en",
+     "passage": "as it hits on the initial stab, and again on the drag for double procs."
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "un ennemi tente de s'enfuir ou tu souhaites empiler rapidement ton passif en combat",
+    "why": "maintenir l'ennemi à portée et générer un double déclenchement de passif",
+    "who": "Zaahen",
+    "how": [
+     "Poignarde en ligne droite avec ton Z (W) pour toucher les ennemis",
+     "Laisse l'effet de traction ramener les cibles vers toi"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-11-10",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-S3F9CpeiSNE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-S3F9CpeiSNE : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo (01:22)."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-S3F9CpeiSNE-4",
+   "claim": "La compétence E de Zaahen, Aureate Rush, lui permet de faire une courte ruée puis de faire tournoyer sa lame pour infliger des dégâts de zone, avec des dégâts accrus pour les ennemis situés sur le bord externe.",
+   "champions": [
+    "Zaahen"
+   ],
+   "roles": [
+    "top",
+    "jungle"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "utiliser le E pour se déplacer et toucher avec le bord de la zone d'effet"
+   ],
+   "limits": [
+    "Source officielle Riot Games (Champion Spotlight)"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-S3F9CpeiSNE",
+     "locator": "01:30",
+     "lang": "en",
+     "passage": "His E is Aureate Rush. Zaahen dashes a short distance and then flourishes his glaive, dealing damage to all enemies around him.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "70-130s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-S3F9CpeiSNE",
+     "locator": "01:37",
+     "lang": "en",
+     "passage": "Enemies at the edge of his sweeping strike catch even more damage."
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "tu as besoin de te repositionner rapidement ou de pourchasser un adversaire",
+    "why": "infliger des dégâts optimaux en plaçant l'ennemi au bord de la frappe circulaire",
+    "who": "Zaahen",
+    "how": [
+     "Effectue la ruée avec ton E",
+     "Positionne le tournoiement de la lame de sorte que l'ennemi se trouve sur le bord extérieur"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-11-10",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-S3F9CpeiSNE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-S3F9CpeiSNE : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo (01:37)."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-S3F9CpeiSNE-5",
+   "claim": "L'ultime de Zaahen, Grim Deliverance, le fait prendre son envol pour retomber lourdement au sol en zone, augmentant sa détermination pour chaque champion ennemi touché dans la zone.",
+   "champions": [
+    "Zaahen"
+   ],
+   "roles": [
+    "top",
+    "jungle"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "cibler une zone avec l'ultime et toucher plusieurs champions ennemis"
+   ],
+   "limits": [
+    "Source officielle Riot Games (Champion Spotlight)"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-S3F9CpeiSNE",
+     "locator": "01:53",
+     "lang": "en",
+     "passage": "The AoE impact will increase his determination for every enemy champion in the area.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "93-153s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "un combat d'équipe ou un affrontement groupé s'engage",
+    "why": "faire basculer le combat en accumulant massivement de la détermination selon le nombre de champions touchés",
+    "who": "Zaahen",
+    "how": [
+     "Prends ton envol avec l'ultime",
+     "Vise la zone regroupant le plus de champions ennemis pour l'impact au sol"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-11-10",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-S3F9CpeiSNE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-S3F9CpeiSNE-6",
+   "claim": "Au niveau de détermination maximal, Zaahen double le bonus de dégâts d'attaque de son passif et obtient une réanimation après quelques secondes avec une portion de ses PV max lors de sa prochaine mort.",
+   "champions": [
+    "Zaahen"
+   ],
+   "roles": [
+    "top",
+    "jungle"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "atteindre le niveau maximal de détermination"
+   ],
+   "limits": [
+    "Source officielle Riot Games (Champion Spotlight)"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-S3F9CpeiSNE",
+     "locator": "02:08",
+     "lang": "en",
+     "passage": "With full stacks, Zaahen doubles the bonus AD from his Cultivation of War,",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "108-168s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-S3F9CpeiSNE",
+     "locator": "02:12",
+     "lang": "en",
+     "passage": "and the next time he would die, he instead revives after a few seconds with a portion of his max health."
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "ta jauge de détermination est au maximum en plein combat prolongé",
+    "why": "bénéficier d'un bonus de dégâts doublé et d'une seconde chance de survie après une élimination fatale",
+    "who": "Zaahen",
+    "how": [
+     "Maintiens l'agression pour saturer ta jauge de détermination",
+     "Utilise le pic de puissance pour enchaîner le combat en comptant sur la résurrection en cas de coup fatal"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-11-10",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-S3F9CpeiSNE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-S3F9CpeiSNE : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo (02:12)."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-gG09J6Vxbgo-1",
+   "claim": "Le passif de Yunara (Vœu envers les Terres premières) fait infliger des dégâts magiques supplémentaires à ses coups critiques.",
+   "champions": [
+    "Yunara"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Effectuer un coup critique"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-gG09J6Vxbgo",
+     "locator": "[00:32]",
+     "lang": "en",
+     "passage": "Her critical strikes deal extra magic damage. And... well, that's it! That's the entire passive.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "12-72s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter des objets de coup critique pour rentabiliser le passif de dégâts magiques de Yunara.",
+   "observe": "Les dégâts magiques supplémentaires infligés lors des coups critiques.",
+   "use": {
+    "when": "tu infliges un coup critique avec Yunara",
+    "why": "son passif ajoute des dégâts magiques à chaque coup critique",
+    "who": "Yunara",
+    "how": [
+     "Faire des coups critiques en combat"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-06-24",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-gG09J6Vxbgo : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-gG09J6Vxbgo publié le 2025-06-24 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-gG09J6Vxbgo-2",
+   "claim": "Le sort A (Cultivation de l'esprit) de Yunara accumule des charges en attaquant des ennemis et permet d'activer une phase de surpuissance augmentant la vitesse d'attaque, les dégâts à l'impact et la zone d'effet.",
+   "champions": [
+    "Yunara"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Attaquer des ennemis pour gagner des charges",
+    "Atteindre le maximum de charges pour activer le sort"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-gG09J6Vxbgo",
+     "locator": "[00:49]",
+     "lang": "en",
+     "passage": "She gains attack speed, bonus damage on hit, and deals splash damage in a small area with each attack.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "29-89s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Attaquer des cibles pour charger le sort A de Yunara avant d'engager un combat.",
+   "observe": "L'activation du sort A lorsque les charges maximales sont atteintes.",
+   "use": {
+    "when": "tu disposes de charges maximales de déchaînement sur le A de Yunara",
+    "why": "cela octroie de la vitesse d'attaque, des dégâts bonus et des dégâts de zone",
+    "who": "Yunara",
+    "how": [
+     "Attaquer des ennemis pour monter les charges",
+     "Activer la touche A lorsque le maximum est atteint"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-06-24",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-gG09J6Vxbgo : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-gG09J6Vxbgo publié le 2025-06-24 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-gG09J6Vxbgo-3",
+   "claim": "Les charges de déchaînement du sort A de Yunara diminuent rapidement hors combat, ce qui incite à rester actif dans les affrontements.",
+   "champions": [
+    "Yunara"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Être hors combat"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-gG09J6Vxbgo",
+     "locator": "[00:55]",
+     "lang": "en",
+     "passage": "Unleash stacks decay quickly out of combat, so Yunara wants to stay in the fray to stay at her strongest.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "35-95s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "maintenir une présence offensive pour conserver les charges du A.",
+   "observe": "La perte rapide des charges de déchaînement en l'absence d'attaques.",
+   "use": {
+    "when": "tu es hors combat avec des charges de déchaînement accumulées",
+    "why": "les charges diminuent rapidement hors combat",
+    "who": "Yunara",
+    "how": [
+     "Continuer à attaquer des sbires ou des champions pour maintenir les charges"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-06-24",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-gG09J6Vxbgo : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-gG09J6Vxbgo publié le 2025-06-24 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-gG09J6Vxbgo-4",
+   "claim": "Le sort Z (Arc du jugement) de Yunara envoie un projectile de perles de prière qui inflige des dégâts, ralentit les ennemis touchés, puis s'élargit et persiste à son point d'arrivée.",
+   "champions": [
+    "Yunara"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Lancer le sort Z en direction des ennemis"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-gG09J6Vxbgo",
+     "locator": "[01:03]",
+     "lang": "en",
+     "passage": "Yunara sends a swirling prayer bead out, which damages and slows enemies as it travels.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "43-103s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-gG09J6Vxbgo",
+     "locator": "[01:08]",
+     "lang": "en",
+     "passage": "It slows down anytime it hits a target, then lingers and expands at its terminus, continuing to damage enemies who don't get out of the way."
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer le Z pour ralentir les ennemis et contrôler une zone avec sa persistance.",
+   "observe": "Le ralentissement et les dégâts de zone persistants au terminus du projectile.",
+   "use": {
+    "when": "des ennemis se trouvent dans la trajectoire ou à la fin de la course du Z de Yunara",
+    "why": "le projectile inflige des dégâts, ralentit en chemin et s'étend à son terminus",
+    "who": "Yunara",
+    "how": [
+     "Activer le Z pour cibler une zone ou un adversaire fuyant"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-06-24",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-gG09J6Vxbgo : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-gG09J6Vxbgo publié le 2025-06-24 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-gG09J6Vxbgo : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([01:08])."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-gG09J6Vxbgo publié le 2025-06-24 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-gG09J6Vxbgo-5",
+   "claim": "Le sort E (Pas de Kanmei) de Yunara confère une impulsion de vitesse de déplacement pour pourchasser, se replacer ou esquiver des compétences.",
+   "champions": [
+    "Yunara"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion",
+    "survie",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Activer le sort E"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-gG09J6Vxbgo",
+     "locator": "[01:15]",
+     "lang": "en",
+     "passage": "For E, Yunara activates Kanmei's Steps, which grants her a quick burst of move speed to chase down enemies, reposition, or dodge skill shots.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "55-115s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser le E pour esquiver une compétence en direction de l'adversaire ou fuir un danger.",
+   "observe": "L'augmentation temporaire de la vitesse de déplacement.",
+   "use": {
+    "when": "tu dois esquiver une compétence en provenance d'un adversaire ou te replacer en combat",
+    "why": "le sort octroie une impulsion de vitesse de déplacement",
+    "who": "Yunara",
+    "how": [
+     "Appuyer sur E au moment opportun pour bénéficier de la vitesse de déplacement"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-06-24",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-gG09J6Vxbgo : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-gG09J6Vxbgo publié le 2025-06-24 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-gG09J6Vxbgo-6",
+   "claim": "L'ultime de Yunara (Transcendance du soi) la fait entrer en état transcendant, activant instantanément son A, transformant son Z en faisceau de dégâts et modifiant son E en ruée (Ombre intouchable) avec réinitialisation du délai de récupération.",
+   "champions": [
+    "Yunara"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Activer la compétence ultime R"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-gG09J6Vxbgo",
+     "locator": "[01:22]",
+     "lang": "en",
+     "passage": "With R, Yunara taps into her full power, entering a transcended state for several seconds that enhances all of her basic abilities for the duration.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "62-122s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-gG09J6Vxbgo",
+     "locator": "[01:33]",
+     "lang": "en",
+     "passage": "Her Q, Cultivation of Spirit, instantly activates and empowers her attacks for as long as she's transcended"
+    },
+    {
+     "content": "c-yt-gG09J6Vxbgo",
+     "locator": "[01:39]",
+     "lang": "en",
+     "passage": "Instead of a swirling prayer bead, she fires a beam of spirit magic that slows and deals high damage in a line."
+    },
+    {
+     "content": "c-yt-gG09J6Vxbgo",
+     "locator": "[01:47]",
+     "lang": "en",
+     "passage": "She gains a short dash instead of movement speed, and the ult cast resets the cooldown."
+    }
+   ],
+   "mentions": [],
+   "action": "Déclencher l'ultime pour maximiser la puissance de combat de Yunara, passer son E en ruée et lancer un faisceau de dégâts avec son Z.",
+   "observe": "La transformation de l'apparence des compétences et l'accès à la ruée sur le E.",
+   "use": {
+    "when": "tu engages un combat d'équipe important avec Yunara",
+    "why": "l'ultime améliore toutes les compétences de base pour amplifier ton potentiel offensif et de mobilité",
+    "who": "Yunara",
+    "how": [
+     "Appuyer sur R pour entrer en état transcendant",
+     "Utiliser le E transformé en ruée pour te positionner"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-06-24",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-gG09J6Vxbgo : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-gG09J6Vxbgo publié le 2025-06-24 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-gG09J6Vxbgo : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([01:33])."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-gG09J6Vxbgo publié le 2025-06-24 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-gG09J6Vxbgo : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([01:39])."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-gG09J6Vxbgo publié le 2025-06-24 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-gG09J6Vxbgo : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([01:47])."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-gG09J6Vxbgo publié le 2025-06-24 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-gG09J6Vxbgo-7",
+   "claim": "Yunara recherche un style de jeu prudent en début de partie jusqu'à ce qu'elle puisse s'investir dans les combats avec son A chargé et son ultime.",
+   "champions": [
+    "Yunara"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Avoir son A chargé ou son ultime disponible"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-gG09J6Vxbgo",
+     "locator": "[02:04]",
+     "lang": "en",
+     "passage": "Like many other AD carries, Yunara wants to play safe until she finds the right moment to get aggressive.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "104-164s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-gG09J6Vxbgo",
+     "locator": "[02:09]",
+     "lang": "en",
+     "passage": "If Cultivation of Spirit is ready to activate, it might be a good time to fight. And even better time to fight: when her ult is up."
+    }
+   ],
+   "mentions": [],
+   "action": "Jouer prudemment en phase de lane avant d'obtenir les ressources pour combattre agressivement.",
+   "observe": "Le positionnement défensif de Yunara en début de partie.",
+   "use": {
+    "when": "la phase de lane est en cours et tu n'as pas encore tes charges de A ou ton ultime",
+    "why": "Yunara a besoin de sa puissance cumulée et de son ultime pour exprimer son potentiel offensif",
+    "who": "Yunara",
+    "how": [
+     "Rester en retrait en début de partie",
+     "Attendre d'avoir le A chargé et l'ultime pour engager un combat"
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-06-24",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-gG09J6Vxbgo : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-gG09J6Vxbgo publié le 2025-06-24 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-gG09J6Vxbgo : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([02:09])."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-gG09J6Vxbgo publié le 2025-06-24 : à confirmer sur le kit et la méta actuels."
     }
    ]
   }

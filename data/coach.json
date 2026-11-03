@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T07:37:33.394Z",
+ "generatedAt": "2026-11-03T13:54:00.141Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -2148,15 +2148,15 @@
    }
   },
   "themes": {
-   "lane": 107,
+   "lane": 109,
    "survie": 19,
    "teamfight": 14,
    "synergie": 3,
    "matchup": 11,
-   "methode": 31,
-   "vagues": 56,
+   "methode": 32,
+   "vagues": 59,
    "vision": 21,
-   "macro": 95,
+   "macro": 97,
    "jungle": 73
   },
   "partial": [
@@ -3013,7 +3013,8 @@
    "u-ai-wtl-3921-1",
    "u-ai-wtl-3921-2",
    "u-ai-wtl-3921-3",
-   "u-ai-wtl-3921-4"
+   "u-ai-wtl-3921-4",
+   "u-ai-yt-tlLBXLnoxV4-3"
   ]
  },
  "sources": [
@@ -19640,9 +19641,9 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "views": 637,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 16 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "Subscribe to the channel, like the video and leave a comment ;)\n\nIf you're interested in my personal coaching:\nhttps://www.fiverr.com/kyanleague/coach-you-in-league-of-legends\n\nIf you're interested in seeing me live: \nhttps://www.twitch.tv/mynameiskyan",
    "triage": {
     "score": 12,
@@ -19657,6 +19658,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-11-03",
+    "sha256": "fa18368011986e2c3948ab0260651647c35343ae62182afa26f3d2d02d9aa531",
+    "segments": 234,
+    "observations": 16,
+    "duration": "27:30",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 150162
    }
   },
   {
@@ -22644,18 +22658,26 @@
    "published": null,
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 68,
-   "note": "File de lecture (rang 29) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite le 2026-10-27 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 15,
     "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-27",
+    "duration": "20:36",
+    "reused": true
    }
   },
   {
@@ -27967,13 +27989,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-11-02",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "aucun",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 67,
-   "note": "File de lecture (rang 67) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 9 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 15,
     "matched": [
@@ -27982,6 +28004,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-03",
+    "sha256": "06db7ea97afa964cdb966e7d38eb7a59ccb59300a07b50ddacf23be2c2cb16b0",
+    "segments": 19,
+    "observations": 9,
+    "duration": "04:50",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 31430
+   },
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Tu peux apprendre à dominer ta lane en manipulant la vague pour qu'elle s'arrête pile à l'entrée de la tour adverse, créant une zone de pression maximale appelée « Wave State of Death ».",
+   "quality": {
+    "level": "élevée",
+    "why": "Le guide explique un concept précis de micro-management des vagues avec des exemples visuels clairs (tracés roses) et des explications sur le 'pourquoi' (vulnérabilité aux skillshots, répartition de l'aggro des sbires)."
    }
   },
   {
@@ -28116,6 +28161,87 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-cgg5XDj4H5k",
+   "sourceId": "yt-ramyaura",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=cgg5XDj4H5k",
+   "title": "NEW BUFFS MADE THIS MATCHUP SO HARD!!",
+   "author": "RamyAura",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-03",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 75,
+   "note": "File de lecture (rang 75) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "matchup"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-NVYx352UGkU",
+   "sourceId": "yt-makkro",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=NVYx352UGkU",
+   "title": "HOW TO PLAY VS SPLITPUSHERS: PROTECT TOWER",
+   "author": "Makkro",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-03",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 76,
+   "note": "File de lecture (rang 76) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-juO4-AQU8-M",
+   "sourceId": "yt-mjdqfb68q1",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=juO4-AQU8-M",
+   "title": "Even pros fall for the traps of statistics sites! We'll teach you how to use them properly [LOL/L...",
+   "author": "【LOL・ボチカ】青森最高レートが語るアルティメットチャンピオン解説",
+   "lang": "ja",
+   "published": null,
+   "retrievedAt": "2026-11-03",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 77,
+   "note": "File de lecture (rang 77) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
   }
  ],
@@ -88904,6 +89030,248 @@
     {
      "code": "contenu-ancien",
      "why": "c-yt-gG09J6Vxbgo publié le 2025-06-24 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-tlLBXLnoxV4-1",
+   "claim": "Selon Mysteriaslol : le « Wave State of Death » consiste à maintenir la wave juste à la limite de la portée de la tour ennemie pour forcer l'adversaire à s'avancer et le rendre vulnérable au poke.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir un avantage de pression en lane",
+    "Posséder des sorts à distance (skillshots) pour harceler"
+   ],
+   "limits": [
+    "Difficile à appliquer si tu joues un champion mêlée contre un champion distance"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tlLBXLnoxV4",
+     "locator": "00:37",
+     "lang": "en",
+     "passage": "The wave state of death is what I like to call inside tower range, but also inside minion range.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-03",
+      "window": "17-77s",
+      "said": true,
+      "supported": true,
+      "gap": "La contre-indication (à éviter) n'est pas mentionnée dans la vidéo."
+     }
+    },
+    {
+     "content": "c-yt-tlLBXLnoxV4",
+     "locator": "01:09",
+     "lang": "en",
+     "passage": "he actually has to walk closer to me and therefore he's vulnerable of getting hit by skillshots."
+    }
+   ],
+   "mentions": [
+    "Aurora (exemple)",
+    "Yone (exemple)"
+   ],
+   "action": "Maintenir la vague à l'entrée de la zone de tir de la tour adverse.",
+   "observe": "L'adversaire doit s'avancer hors de sa zone de confort pour last-hit.",
+   "use": {
+    "when": "Tu as la priorité en lane et tu veux punir l'adversaire qui tente de farm sous sa tour.",
+    "why": "Les sbires répartissent leurs dégâts sur plusieurs cibles au lieu de se focaliser, ce qui rend le last-hit sous tour plus imprévisible pour l'ennemi, tout en le forçant à s'exposer à tes sorts.",
+    "who": "Joueurs de midlane (ou solo lane) disposant de sorts de poke à distance.",
+    "how": [
+     "Pousse la wave pour qu'elle entre à peine dans la portée de la tour.",
+     "Positionne-toi pour envoyer tes sorts dès que l'adversaire s'approche d'un sbire.",
+     "Garde la wave dans cette « poche » entre la tour et le milieu de la lane."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt-tlLBXLnoxV4 : le vérificateur note un écart sur l'extrait 17-77s (La contre-indication (à éviter) n'est pas mentionnée dans la vidéo.)."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-tlLBXLnoxV4 : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (01:09)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-tlLBXLnoxV4-2",
+   "claim": "Selon Mysteriaslol : pour instaurer une pression maximale dès le début de partie, il faut gérer le rythme de push des trois premières waves pour créer un crash spécifique au moment de la troisième wave.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tlLBXLnoxV4",
+     "locator": "01:50",
+     "lang": "en",
+     "passage": "wave 1, I push wave 1 fast, but not too fast. If I push it too fast, the wave gets too close to the turret, and it's quite easy for him to CS.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-03",
+      "window": "90-150s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur ne mentionne pas explicitement la troisième vague ni une séquence sur trois vagues dans cet extrait précis, se concentrant sur la première et la suivante."
+     }
+    },
+    {
+     "content": "c-yt-tlLBXLnoxV4",
+     "locator": "02:35",
+     "lang": "en",
+     "passage": "And you see on wave 3 what I do is I slow push this one right now because if I hard push this one, then it's going to be a little bit tricky."
+    }
+   ],
+   "mentions": [],
+   "action": "Effectuer un slow push sur la troisième vague après un push modéré de la première.",
+   "observe": "La troisième vague doit s'écraser à l'entrée de la tour adverse.",
+   "use": {
+    "when": "Début de la phase de lane (waves 1 à 3).",
+    "why": "",
+    "who": "Tout joueur de solo lane cherchant à dominer l'early game.",
+    "how": [
+     "Pousse la première wave modérément (pas de hard push immédiat).",
+     "Prépare un slow push sur la troisième wave.",
+     "Synchronise le crash pour qu'il se produise à l'entrée de la portée de la tour."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "sur-generalisation",
+     "why": "c-yt-tlLBXLnoxV4 : l'extrait 90-150s ne dit pas exactement cela (L'auteur ne mentionne pas explicitement la troisième vague ni une séquence sur trois vagues dans cet extrait précis, se concentrant sur la première et la suivante.)."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-tlLBXLnoxV4 : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (02:35)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-tlLBXLnoxV4-3",
+   "claim": "Selon Mysteriaslol : il est crucial de surveiller l'arrivée de la prochaine wave sur la minimap pour ajuster sa vitesse de push et éviter que la wave ne se bloque juste devant la tour.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "macro",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tlLBXLnoxV4",
+     "locator": "03:56",
+     "lang": "en",
+     "passage": "while you are slow pushing the previous wave, your eyes should be on the incoming next wave to identify when they are actually spawning... when they are actually joining in here.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-03",
+      "window": "216-276s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Regarder la position de la prochaine vague alliée/ennemie avant de finir de push.",
+   "observe": "La vague doit entrer dans la zone de la tour et non s'arrêter juste devant.",
+   "use": {
+    "when": "Pendant que tu effectues un slow push vers la tour adverse.",
+    "why": "Si la wave s'arrête juste devant la tour sans y entrer, tu te retrouves exposé aux ganks (car très avancé) sans que l'adversaire ne soit sous la pression de sa propre tour pour farm.",
+    "who": "Tous les joueurs.",
+    "how": [
+     "Regarde la minimap ou le chemin de la lane pour voir où en est la wave suivante.",
+     "Accélère ton push si la wave suivante arrive trop vite pour forcer l'entrée sous tour.",
+     "Ralentis si tu as besoin de plus de sbires alliés pour le crash."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-03",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
     }
    ]
   }

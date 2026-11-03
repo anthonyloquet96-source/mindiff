@@ -78225,7 +78225,271 @@
    },
    "version": 1,
    "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-yt-tlLBXLnoxV4-1",
+   "claim": "Selon Mysteriaslol : le « Wave State of Death » consiste à maintenir la vague de sbires juste à la limite de la portée de la tour ennemie pour forcer l'adversaire à s'avancer et le rendre vulnérable au poke.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir un avantage de pression en lane",
+    "Posséder des sorts à distance (skillshots) pour harceler"
+   ],
+   "limits": [
+    "Difficile à appliquer si tu joues un champion mêlée contre un champion distance"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tlLBXLnoxV4",
+     "locator": "00:37",
+     "lang": "en",
+     "passage": "The wave state of death is what I like to call inside tower range, but also inside minion range.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-03",
+      "window": "17-77s",
+      "said": true,
+      "supported": true,
+      "gap": "La contre-indication (à éviter) n'est pas mentionnée dans la vidéo."
+     }
+    },
+    {
+     "content": "c-yt-tlLBXLnoxV4",
+     "locator": "01:09",
+     "lang": "en",
+     "passage": "he actually has to walk closer to me and therefore he's vulnerable of getting hit by skillshots."
+    }
+   ],
+   "mentions": [
+    "Aurora (exemple)",
+    "Yone (exemple)"
+   ],
+   "action": "Maintenir la vague à l'entrée de la zone de tir de la tour adverse.",
+   "observe": "L'adversaire doit s'avancer hors de sa zone de confort pour last-hit.",
+   "use": {
+    "when": "Tu as la priorité en lane et tu veux punir l'adversaire qui tente de farm sous sa tour.",
+    "why": "Les sbires répartissent leurs dégâts sur plusieurs cibles au lieu de se focaliser, ce qui rend le last-hit sous tour plus imprévisible pour l'ennemi, tout en le forçant à s'exposer à tes sorts.",
+    "who": "Joueurs de midlane (ou solo lane) disposant de sorts de harcèlement à distance.",
+    "how": [
+     "Pousse la vague pour qu'elle entre à peine dans la portée de la tour.",
+     "Positionne-toi pour envoyer tes sorts dès que l'adversaire s'approche d'un sbire.",
+     "Garde la vague dans cette « poche » entre la tour et le milieu de la lane."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité définit précisément la technique du 'Wave State of Death' et ses bénéfices pour le harcèlement, conformément aux explications de l'auteur."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-yt-tlLBXLnoxV4-2",
+   "claim": "Selon Mysteriaslol : pour instaurer une pression maximale dès le début de partie, il faut gérer le rythme de push des trois premières vagues pour créer un crash spécifique au moment de la troisième vague.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tlLBXLnoxV4",
+     "locator": "01:50",
+     "lang": "en",
+     "passage": "wave 1, I push wave 1 fast, but not too fast. If I push it too fast, the wave gets too close to the turret, and it's quite easy for him to CS.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-03",
+      "window": "90-150s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur ne mentionne pas explicitement la troisième vague ni une séquence sur trois vagues dans cet extrait précis, se concentrant sur la première et la suivante."
+     }
+    },
+    {
+     "content": "c-yt-tlLBXLnoxV4",
+     "locator": "02:35",
+     "lang": "en",
+     "passage": "And you see on wave 3 what I do is I slow push this one right now because if I hard push this one, then it's going to be a little bit tricky."
+    }
+   ],
+   "mentions": [],
+   "action": "Effectuer un slow push sur la troisième vague après un push modéré de la première.",
+   "observe": "La troisième vague doit s'écraser à l'entrée de la tour adverse.",
+   "use": {
+    "when": "Début de la phase de lane (vagues 1 à 3).",
+    "why": "",
+    "who": "Tout joueur de solo lane cherchant à dominer l'early game.",
+    "how": [
+     "Pousse la première vague modérément (pas de hard push immédiat).",
+     "Prépare un slow push sur la troisième vague.",
+     "Synchronise le crash pour qu'il se produise à l'entrée de la portée de la tour."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La stratégie de gestion des trois premières vagues pour préparer le crash est fidèlement extraite du contenu et constitue un principe de macro intemporel."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-yt-tlLBXLnoxV4-3",
+   "claim": "Selon Mysteriaslol : il est crucial de surveiller l'arrivée de la prochaine vague de sbires sur la minimap pour ajuster sa vitesse de push et éviter que la vague ne se bloque juste devant la tour.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "macro",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tlLBXLnoxV4",
+     "locator": "03:56",
+     "lang": "en",
+     "passage": "while you are slow pushing the previous wave, your eyes should be on the incoming next wave to identify when they are actually spawning... when they are actually joining in here.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-03",
+      "window": "216-276s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Regarder la position de la prochaine vague alliée/ennemie avant de finir de push.",
+   "observe": "La vague doit entrer dans la zone de la tour et non s'arrêter juste devant.",
+   "use": {
+    "when": "Pendant que tu effectues un slow push vers la tour adverse.",
+    "why": "Si la vague s'arrête juste devant la tour sans y entrer, tu te retrouves exposé aux ganks (car très avancé) sans que l'adversaire ne soit sous la pression de sa propre tour pour farm.",
+    "who": "Tous les joueurs.",
+    "how": [
+     "Regarde la minimap ou le chemin de la lane pour voir où en est la vague suivante.",
+     "Accélère ton push si la vague suivante arrive trop vite pour forcer l'entrée sous tour.",
+     "Ralentis si tu as besoin de plus de sbires alliés pour le crash."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil sur la surveillance de la minimap pour synchroniser le crash est une règle de macro fondamentale bien identifiée dans la vidéo."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
   }
  ],
- "updatedAt": "2026-11-03T07:37:32.268Z"
+ "updatedAt": "2026-11-03T13:53:59.044Z"
 }

@@ -23129,9 +23129,9 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "views": 637,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 16 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "Subscribe to the channel, like the video and leave a comment ;)\n\nIf you're interested in my personal coaching:\nhttps://www.fiverr.com/kyanleague/coach-you-in-league-of-legends\n\nIf you're interested in seeing me live: \nhttps://www.twitch.tv/mynameiskyan",
    "triage": {
     "score": 12,
@@ -23146,6 +23146,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-11-03",
+    "sha256": "fa18368011986e2c3948ab0260651647c35343ae62182afa26f3d2d02d9aa531",
+    "segments": 234,
+    "observations": 16,
+    "duration": "27:30",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 150162
    }
   },
   {
@@ -50344,18 +50357,27 @@
    "published": null,
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 68,
-   "note": "File de lecture (rang 29) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite le 2026-10-27 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 15,
     "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "attempts": 0,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-27",
+    "duration": "20:36",
+    "reused": true
    }
   },
   {
@@ -70215,13 +70237,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-11-02",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "aucun",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 67,
-   "note": "File de lecture (rang 67) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 9 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 15,
     "matched": [
@@ -70230,6 +70252,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-03",
+    "sha256": "06db7ea97afa964cdb966e7d38eb7a59ccb59300a07b50ddacf23be2c2cb16b0",
+    "segments": 19,
+    "observations": 9,
+    "duration": "04:50",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 31430
+   },
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Tu peux apprendre à dominer ta lane en manipulant la vague pour qu'elle s'arrête pile à l'entrée de la tour adverse, créant une zone de pression maximale appelée « Wave State of Death ».",
+   "quality": {
+    "level": "élevée",
+    "why": "Le guide explique un concept précis de micro-management des vagues avec des exemples visuels clairs (tracés roses) et des explications sur le 'pourquoi' (vulnérabilité aux skillshots, répartition de l'aggro des sbires)."
    }
   },
   {
@@ -70951,6 +70996,87 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-cgg5XDj4H5k",
+   "sourceId": "yt-ramyaura",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=cgg5XDj4H5k",
+   "title": "NEW BUFFS MADE THIS MATCHUP SO HARD!!",
+   "author": "RamyAura",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-03",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 75,
+   "note": "File de lecture (rang 75) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "matchup"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-NVYx352UGkU",
+   "sourceId": "yt-makkro",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=NVYx352UGkU",
+   "title": "HOW TO PLAY VS SPLITPUSHERS: PROTECT TOWER",
+   "author": "Makkro",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-03",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 76,
+   "note": "File de lecture (rang 76) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-juO4-AQU8-M",
+   "sourceId": "yt-mjdqfb68q1",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=juO4-AQU8-M",
+   "title": "Even pros fall for the traps of statistics sites! We'll teach you how to use them properly [LOL/L...",
+   "author": "【LOL・ボチカ】青森最高レートが語るアルティメットチャンピオン解説",
+   "lang": "ja",
+   "published": null,
+   "retrievedAt": "2026-11-03",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 77,
+   "note": "File de lecture (rang 77) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
   }
  ]

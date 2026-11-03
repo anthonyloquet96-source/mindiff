@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T07:37:33.394Z",
+ "generatedAt": "2026-11-03T13:54:00.141Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -554,7 +554,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-11-03T07:16:24.442Z",
+ "lastDiscovery": "2026-11-03T13:08:50.893Z",
  "failures": [],
  "quarantine": [
   {
@@ -2996,7 +2996,9 @@
   "c-riot-champion-insights-yone",
   "c-riot-dev-launching-yuumi-s-rework",
   "c-riot-dev-yuumi-s-rework",
-  "c-riot-champion-insights-zeri"
+  "c-riot-champion-insights-zeri",
+  "c-yt-AvFYRJDv_6U",
+  "c-yt-ZBrmGzQkf6U"
  ],
  "review": [
   "u-lucian-2620-ad",
@@ -4174,7 +4176,10 @@
   "u-ai-yt-gG09J6Vxbgo-4",
   "u-ai-yt-gG09J6Vxbgo-5",
   "u-ai-yt-gG09J6Vxbgo-6",
-  "u-ai-yt-gG09J6Vxbgo-7"
+  "u-ai-yt-gG09J6Vxbgo-7",
+  "u-ai-yt-tlLBXLnoxV4-1",
+  "u-ai-yt-tlLBXLnoxV4-2",
+  "u-ai-yt-tlLBXLnoxV4-3"
  ],
  "contested": [],
  "retired": [
@@ -5575,47 +5580,6 @@
   "month": 0,
   "calls": [
    {
-    "at": "2026-11-02T19:30:38.150Z",
-    "content": "c-yt-5un5rVpQpf8",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5810,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-02T19:30:46.000Z",
-    "content": "c-yt-QXIlupvG0z8",
-    "model": "gemini-3.5-flash-lite",
-    "input": 13691,
-    "output": 176,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-02T19:30:53.364Z",
-    "content": "c-yt-n2Rw0lR96eg",
-    "model": "gemini-3.5-flash-lite",
-    "input": 8215,
-    "output": 153,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-03T01:31:07.590Z",
-    "content": "c-yt-DZDYY56-maw",
-    "model": "gemini-3.6-flash",
-    "input": 6990,
-    "output": 3803,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-03T01:31:23.971Z",
-    "content": "c-yt-DZDYY56-maw",
-    "model": "gemini-3.5-flash",
-    "input": 6686,
-    "output": 2118,
-    "usd": 0
-   },
-   {
     "at": "2026-11-03T01:32:05.175Z",
     "content": "c-yt-DZDYY56-maw",
     "model": "gemini-3.5-flash-lite",
@@ -5996,6 +5960,49 @@
     "content": "c-yt-gG09J6Vxbgo",
     "model": "gemini-3.5-flash-lite",
     "input": 5799,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-03T13:44:08.992Z",
+    "content": "c-yt-tlLBXLnoxV4",
+    "model": "gemini-3-flash-preview",
+    "input": 6274,
+    "output": 3365,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-03T13:52:46.952Z",
+    "content": "c-yt-tlLBXLnoxV4",
+    "model": "gemini-3-flash-preview",
+    "input": 5212,
+    "output": 4885,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-03T13:53:12.469Z",
+    "content": "c-yt-tlLBXLnoxV4",
+    "model": "gemini-3-flash-preview",
+    "input": 5934,
+    "output": 64,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-03T13:53:31.959Z",
+    "content": "c-yt-tlLBXLnoxV4",
+    "model": "gemini-3-flash-preview",
+    "input": 5899,
+    "output": 63,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-03T13:53:52.810Z",
+    "content": "c-yt-tlLBXLnoxV4",
+    "model": "gemini-3-flash-preview",
+    "input": 5881,
     "output": 46,
     "usd": 0,
     "kind": "verification-extrait"

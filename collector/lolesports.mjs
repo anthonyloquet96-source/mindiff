@@ -269,3 +269,27 @@ export async function collectLolEsports(state) {
   const officialMatches = recent.filter(e => e.state === "completed").map(e => ({ teams: e.match.teams.map(team) }));
   return { tournaments, upcoming, officialMatches };
 }
+
+// ---------- Actus de résultats : une actu par série terminée, écrite uniquement à partir des données officielles ----------
+// (aucun texte inventé : vainqueur, score, phase, et le détail des parties seulement si les vainqueurs sont vérifiés)
+const fmtMin = s => `${Math.round(s / 60)} min`;
+export function resultNews(tournaments, days = 7) {
+  const out = [];
+  for (const t of tournaments) {
+    for (const st of t.stages || []) for (const sec of st.sections || []) for (const m of sec.matches || []) {
+      if (m.state !== "completed" || !m.start || daysAgo(m.start) > days || daysAgo(m.start) < 0) continue;
+      const win = m.teams.find(x => x.outcome === "win"), loss = m.teams.find(x => x.outcome === "loss");
+      if (!win || !loss || isTbd(win) || isTbd(loss) || win.score == null || loss.score == null) continue;
+      const code = id => m.teams.find(x => x.id === id)?.code || "?";
+      const games = m.verified ? (m.games || []).filter(g => g.winnerTeamId).sort((a, b) => a.n - b.n) : [];
+      const detail = games.map(g => `partie ${g.n} pour ${code(g.winnerTeamId)}${g.final?.duration ? ` (${fmtMin(g.final.duration)})` : ""}`).join(", ");
+      out.push({
+        url: `https://lolesports.com/fr-FR/vod/${m.id}`,
+        title: `${win.name} bat ${loss.name} ${win.score}–${loss.score}`,
+        summary: `${t.name} · ${m.block || st.name}${m.bo ? ` · BO${m.bo}` : ""}. Résultat officiel LoL Esports${detail ? ` : ${detail}` : ""}.`,
+        date: m.start, image: null, type: "esport", game: "lol", lang: "fr",
+      });
+    }
+  }
+  return out;
+}

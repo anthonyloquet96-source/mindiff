@@ -2,6 +2,14 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-03 — actus LoL tirées des résultats officiels
+- **Demande d'Anthony** : option 1 pour les actus LoL figées depuis le 20/10. Les flux LoL des médias (Dexerto) ne publient presque plus, et le flux officiel Riot parle surtout de K/DA.
+- **Ajout** : `resultNews` (`collector/lolesports.mjs`), branché dans `collect.mjs`. Chaque série terminée des 7 derniers jours devient une actu « esport » officielle, écrite uniquement à partir des données de l'API LoL Esports :
+  - titre : « Vainqueur bat Perdant 3–1 » ;
+  - résumé : tournoi, phase, BO, et vainqueur de chaque partie avec sa durée (seulement si les vainqueurs sont vérifiés contre le score officiel).
+  - La source est la page officielle du match (`lolesports.com/fr-FR/vod/<id>`), sans image. L'actu est masquée en mode sans spoilers comme les autres actus esport. Un article de média sur le même match s'y rattache, et son score est contrôlé.
+- **Testé** sur les données locales : 57 séries en 30 jours, toutes « confirmées », sans fusion entre deux séries.
+
 ## 2026-11-02 — tour de l'appli
 - **En ligne** (Accueil, Compétitions, Méta, Actus) : tout s'affiche, aucune erreur dans la console. Le coach demande une connexion : je ne me connecte pas à la place d'Anthony, donc il a été parcouru en démo.
 - **Corrigé** :

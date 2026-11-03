@@ -9,7 +9,7 @@ import { SOURCES } from "./sources.mjs";
 import { fetchText, fetchJson, nextData, findArrays, parseRss, stripHtml, truncate, steamBullets, hash } from "./lib.mjs";
 import { detectGame, detectType, isNoise } from "./classify.mjs";
 import { verify } from "./verify.mjs";
-import { collectLolEsports } from "./lolesports.mjs";
+import { collectLolEsports, resultNews } from "./lolesports.mjs";
 import { collectTeamInfo } from "./teams.mjs";
 import { analyzeAll } from "./analyze.mjs";
 
@@ -150,6 +150,16 @@ export async function runCollection({ log = console.log } = {}) {
     for (const t of esport.tournaments) t.asOf = now.toISOString();
     state.lastEsport = { at: now.toISOString(), tournaments: esport.tournaments, upcoming: esport.upcoming };
     health.push({ id: "lolesports", name: "LoL Esports (officiel)", kind: "officiel", ok: true, count: esport.tournaments.length, ms: Date.now() - t0 });
+    // Actus de résultats tirées des séries officielles terminées (les flux LoL des médias sont trop irréguliers)
+    let added = 0;
+    const results = resultNews(esport.tournaments);
+    for (const it of results) {
+      const id = hash(it.url);
+      state.firstSeen[id] ||= now.toISOString();
+      if (!state.items[id]) added++;
+      state.items[id] = { ...it, id, source: "lolesports-resultats", sourceName: "LoL Esports (officiel)", kind: "officiel", firstSeen: state.firstSeen[id] };
+    }
+    health.push({ id: "lolesports-resultats", name: "LoL Esports — résultats (officiel)", kind: "officiel", ok: true, count: results.length, added, ms: 0 });
   } catch (e) {
     // Échec : on garde la dernière version valide, avec sa date, plutôt que de vider les tournois
     if (state.lastEsport) {

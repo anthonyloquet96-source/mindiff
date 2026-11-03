@@ -735,7 +735,7 @@ await t("COACH-006 Catalogue de métriques : formules, null, adversaire, validit
 
 await t("COACH-007 Choix de l'objectif (goals-2) : reproductible, sans LLM, score S inchangé, cible au 55e centile, morts non proposées", "fixture", async () => {
   const { computeMetrics } = await import("../metrics.mjs");
-  const { prioritize, proposeGoal, RULES } = await import("../goals.mjs");
+  const { prioritize, proposeGoal, RULES, VISIBLE_STEP } = await import("../goals.mjs");
   // 20 parties mid : farm faible (58 à 64 à 10 min), 3 morts avant 14 min, bonne participation
   const games = Array.from({ length: 20 }, (_, i) => { const g = v1Game({ id: `EUW1_${i}`, start: 1e6 - i, cs10: 58 + (i % 7), deaths: 3, kills: 6, assists: 4, teamKills: 16 }); return computeMetrics(g.match, g.timeline, "p1"); });
   const a = proposeGoal(games, "MIDDLE", { now: 5 }), b = proposeGoal(games, "MIDDLE", { now: 5 });
@@ -743,7 +743,7 @@ await t("COACH-007 Choix de l'objectif (goals-2) : reproductible, sans LLM, scor
   assert(a.goal.metric === "cs_at_10" && a.goal.status === "proposed" && a.goal.version === "goals-3" && a.goal.cycle === 1, `objectif inattendu : ${a.goal?.metric}`);
   // Cible : 55e centile personnel, au moins une unité de mieux que la médiane, jamais au-delà de la référence
   const vals = games.map(g => g.metrics.cs_at_10.value).sort((x, y) => x - y), p55 = vals[Math.floor(0.55 * 19)];
-  assert(a.goal.target === Math.max(p55, a.goal.baseline + 1) && a.goal.target_quantile === 0.55 && a.goal.target <= 70, `cible ${a.goal.target}, attendu ${Math.max(p55, a.goal.baseline + 1)}`);
+  assert(a.goal.target === Math.max(p55, a.goal.baseline + VISIBLE_STEP.cs_at_10) && a.goal.target_quantile === 0.55 && a.goal.target <= 70, `cible ${a.goal.target}, attendu ${Math.max(p55, a.goal.baseline + VISIBLE_STEP.cs_at_10)}`);
   // Fenêtre de départ datée et garde-fous du poste (sans la métrique visée)
   assert(a.goal.baseline_window.games === 20 && a.goal.baseline_window.to_ms === 1e6 && Object.keys(a.goal.guardrails).join() === "xp_at_10,vision_per_ward", `fenêtre ou garde-fous : ${Object.keys(a.goal.guardrails)}`);
   const row = a.diagnostic.find(r => r.metric === "cs_at_10"), f = row.factors;
@@ -763,7 +763,10 @@ await t("COACH-007 Choix de l'objectif (goals-2) : reproductible, sans LLM, scor
   assert(proposeGoal(games, "MIDDLE", { references: { MIDDLE: { cs_at_10: { n: 50, p50: 78 } } } }).goal.reference.source === "seuil-pedagogique", "petit échantillon utilisé comme référence");
   // Cible plafonnée à la référence ; après une maîtrise de la même métrique, 60e centile
   const capped = prioritize(games, "MIDDLE", { references: { MIDDLE: { cs_at_10: { n: 8000, p25: 50, p50: 61.2, p75: 70, level: "Diamant et plus" } } } }).find(r => r.metric === "cs_at_10");
-  assert(capped.target <= 61.2, `cible au-delà de la référence : ${capped.target}`);
+  // Référence plus proche que la marche visible (3 sbires) : on vise le quart supérieur ; sans quart supérieur, pas d'objectif (03/11 : « 59 → 60 »)
+  assert(capped.reference.quantile === "p75" && capped.target <= 70 && capped.target - capped.baseline >= VISIBLE_STEP.cs_at_10, `marche visible : ${capped.baseline} → ${capped.target} (${capped.reference.quantile})`);
+  const close = prioritize(games, "MIDDLE", { references: { MIDDLE: { cs_at_10: { n: 8000, p50: 61.2, level: "Diamant et plus" } } } }).find(r => r.metric === "cs_at_10");
+  assert(close.target <= 61.2 && !close.eligible && /marche visible/.test(close.reason), `cible trop proche proposée : ${close.baseline} → ${close.target}`);
   const after = proposeGoal(games, "MIDDLE", { pastGoals: [{ metric: "cs_at_10", role: "MIDDLE", status: "archived", outcome: "achieved", created_at: 1 }] }).goal;
   assert(after.metric === "cs_at_10" && after.target_quantile === 0.6 && after.target >= a.goal.target, "60e centile après une maîtrise");
   // Après une maîtrise, la cible suivante dépasse l'ancienne d'au moins 0,25·s, même si la médiane n'a presque pas bougé
@@ -1411,6 +1414,42 @@ await t("Notifications : chiffrement Web Push (vecteur RFC 8291), signature VAPI
   assert(N.weekMessage(w, 1000 + 864e5) === "6 parties en 7 jours. En progrès : Farm. Meilleure partie (Farm) : 8,1 / min. Ce qui coince encore : Vision.", N.weekMessage(w, 1000 + 864e5));
   assert(!N.weekMessage(w, 1000 + 4 * 864e5) && !N.weekMessage({ ...w, games: 0 }, 1000) && !N.weekMessage(null) && N.weekMessage({ at: 0, games: 1 }, 0, "en") === "1 game in 7 days.", "résumé de la semaine");
   return "chiffrement identique à la RFC 8291 ; VAPID vérifié ; début, games, match, first blood, tour, dragon, Baron, ace sans doublon ; niveau détaillé (tours, combats) ; rappels du coach ; résumé du lundi.";
+});
+
+await t("Synchronisation automatique : un testeur actif à la fois, seulement avec un objectif en cours", "fixture", async () => {
+  const { autoSync } = await import("../../worker/v1.mjs");
+  const P = n => `00000000-0000-0000-0000-00000000000${n}`;
+  const db = {
+    coaching_goals: [{ player_id: P(1), status: "active" }, { player_id: P(2), status: "evaluating" }, { player_id: P(3), status: "active" }, { player_id: P(4), status: "proposed" }],
+    players: [1, 2, 3, 4].map(n => ({ id: P(n), user_id: `u${n}`, puuid: `puuid-${n}`, platform: "euw1" })),
+    pilot_testers: [{ user_id: "u1", revoked_at: null }, { user_id: "u2", revoked_at: null }, { user_id: "u3", revoked_at: "2026-11-01" }, { user_id: "u4", revoked_at: null }],
+  };
+  const asked = [];
+  const rest = { rest: async (method, path) => {
+    const [table, qs = ""] = path.split("?"); const params = [...new URLSearchParams(qs)];
+    if (method !== "GET") return [];
+    // Le cycle de l'objectif lui-même est couvert par les autres tests : ici, seule la sélection du joueur compte
+    if (table === "coaching_goals" && params.some(([k]) => k === "player_id")) return [];
+    let rows = db[table] || [];
+    for (const [k, v] of params) {
+      if (v.startsWith("eq.")) rows = rows.filter(r => String(r[k]) === v.slice(3));
+      else if (v.startsWith("in.(")) rows = rows.filter(r => v.slice(4, -1).split(",").includes(String(r[k])));
+      else if (v === "is.null") rows = rows.filter(r => r[k] == null);
+    }
+    if (table === "players" && params.some(([k, v]) => k === "id" && v.startsWith("eq."))) asked.push(rows[0]?.id);
+    return rows;
+  } };
+  let riotCalls = 0;
+  const fetchImpl = async () => { riotCalls++; return { ok: true, status: 200, json: async () => [], text: async () => "[]", headers: { get: () => null } }; };
+  const env = { RIOT_API_KEY: "k", SUPABASE_URL: "https://x.supabase.co", SUPABASE_SERVICE_KEY: "s" };
+  const seen = new Set();
+  for (let h = 0; h < 4; h++) { asked.length = 0; const r = await autoSync(env, { sb: rest, fetchImpl, now: h * 36e5, log: () => {} }); assert(r && !r.more, "synchronisation automatique non faite"); seen.add(asked[0]); }
+  assert(seen.size === 2 && seen.has(P(1)) && seen.has(P(2)), `joueurs synchronisés : ${[...seen].join(", ")}`);
+  assert(riotCalls > 0, "aucun appel Riot");
+  db.coaching_goals = [{ player_id: P(4), status: "proposed" }];
+  assert((await autoSync(env, { sb: rest, fetchImpl, log: () => {} })) === null, "synchronisation sans objectif démarré");
+  assert((await autoSync({ ...env, RIOT_API_KEY: "" }, { sb: rest, fetchImpl, log: () => {} })) === null, "synchronisation sans clé Riot");
+  return "seuls les testeurs non révoqués avec un objectif démarré ou en évaluation ; un joueur par passage, à tour de rôle ; rien sans objectif ni sans clé.";
 });
 
 await t("Worker : données privées lues dans Supabase Storage (cache, rafraîchissement, panne)", "fixture", async () => {

@@ -2,6 +2,16 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-03 — corrections après la batterie
+- **Marche minimale visible** (`VISIBLE_STEP`, `coach/goals.mjs`) : une cible dépasse le départ d'au moins 3 sbires à 10 min, 5 à 15 min, 0,3 sbire/min, 150 XP, 0,1 vision/min ou 1 control ward.
+  - Si la référence Diamant+ est plus proche que cette marche, on vise le quart supérieur.
+  - S'il n'y en a pas, la métrique n'est pas proposée (« référence trop proche pour une marche visible »).
+  - Rejeu (70 joueurs) : 38 objectifs au lieu de 41 ; maîtrise par hasard 27 % au lieu de 31 %.
+- **50 parties synchronisées au lieu de 30** (`syncPlayer`, `RULES.historyMax`) : plus de joueurs atteignent 15 parties à un poste. La synchronisation reste découpée par paquets de 3 parties.
+- **Synchronisation automatique** (`autoSync`, `worker/v1.mjs`, déclencheur `23 * * * *`) : chaque heure, un volontaire non révoqué dont l'objectif est démarré ou en évaluation, à tour de rôle, 3 parties au plus. Test ajouté.
+- **`coach.js` gardé** : ce n'est pas l'ancien coach mais la coquille de l'onglet Coach (routes, carte d'accueil, stratégies Valorant, chargement des conseils). Le nouveau coach passe par lui.
+- **Tests** : 60/61 (1 ignoré faute de cache).
+
 ## 2026-11-03 — batterie avant lancement réel
 - **Tests automatiques** : 59/60 (1 ignoré faute de cache).
 - **Service en ligne** : santé OK (Riot et Supabase configurés). Sans jeton, toutes les routes répondent 401. CORS limité au site.

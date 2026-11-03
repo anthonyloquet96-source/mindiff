@@ -38,6 +38,10 @@ export const RULES = {
 };
 const FLOOR = { cs_at_10: 4, cs_at_15: 6, cs_per_min: 0.4, early_deaths: 0.75, kill_participation: 0.05, vision_per_min: 0.1, xp_at_10: 150, objective_participation: 0.1,
   ward_kills_20: 0.75, control_wards_20: 0.5, first_item_min: 0.5, gold_idle_share: 0.03, dead_share: 0.02, vision_per_ward: 0.3 };
+// Marche minimale visible pour le joueur (tour de test du 03/11 : « sbires à 10 min 59 → 60 », une cible qu'aucun joueur ne prend
+// au sérieux). Si la référence est plus proche que cette marche, on vise le palier suivant (quart supérieur) ; sinon pas d'objectif.
+export const VISIBLE_STEP = { cs_at_10: 3, cs_at_15: 5, cs_per_min: 0.3, farm_15_25: 0.3, xp_at_10: 150, vision_per_min: 0.1, control_wards_20: 1,
+  early_deaths: 1, ward_kills_20: 1, first_item_min: 0.5 };
 const categoryOf = k => CATALOG[k]?.category || "poste";
 // Résultats d'un cycle d'évaluation
 export const OUTCOMES = ["achieved", "improving", "stable", "needs_review", "failed", "inconclusive"];
@@ -55,12 +59,12 @@ function quantileOf(sorted, q, direction) { return direction === "higher" ? sort
 // Référence d'une métrique pour un rôle : mesurée si l'échantillon suffit, sinon seuil pédagogique
 // Joueur déjà au niveau de la médiane : marche suivante = le quart supérieur de la même référence (p75, ou p25 quand
 // « plus bas = mieux »), pour qu'un joueur Diamant+ ait aussi un objectif mesuré
-export function referenceFor(key, role, references = null, baseline = null) {
+export function referenceFor(key, role, references = null, baseline = null, minGap = 0) {
   const r = references?.[role]?.[key];
   if (r && r.n >= RULES.minRefSample && r.p50 != null) {
     const dir = CATALOG[key]?.direction === "lower" ? -1 : 1;
     const upper = dir > 0 ? r.p75 : r.p25;
-    if (baseline != null && dir * (r.p50 - baseline) <= 0 && upper != null && dir * (upper - baseline) > 0) return { value: upper, source: "metric_references", quantile: dir > 0 ? "p75" : "p25", n: r.n, level: r.level || null };
+    if (baseline != null && dir * (r.p50 - baseline) < Math.max(minGap, 1e-12) && upper != null && dir * (upper - baseline) > 0) return { value: upper, source: "metric_references", quantile: dir > 0 ? "p75" : "p25", n: r.n, level: r.level || null };
     return { value: r.p50, source: "metric_references", quantile: "p50", n: r.n, level: r.level || null };
   }
   const p = CATALOG[key]?.pedagogical?.[role];
@@ -120,7 +124,7 @@ export function prioritize(games, role, { references = null, exclude = [], quant
       const fresh = comparable.filter(g => g.start_ms > since).map(g => g.metrics[key]?.value).filter(v => v != null);
       if (fresh.length >= RULES.evaluationGames && dir * (median(fresh) - baseline) > 0) baseline += RULES.freshWeight * (median(fresh) - baseline);
     }
-    const ref = referenceFor(key, role, references, baseline);
+    const ref = referenceFor(key, role, references, baseline, VISIBLE_STEP[key] ?? 0);
     if (!ref) { out.push({ ...row, reason: "aucune référence pour ce rôle" }); continue; }
     const s = personalSd(key, recent);
     const gap = dir * (ref.value - baseline);
@@ -134,7 +138,7 @@ export function prioritize(games, role, { references = null, exclude = [], quant
     const personal = quantileOf([...recent].sort((x, y) => x - y), q, c.direction);
     // Marche minimale : 0,25·s, le seuil où le moteur parle de progrès (banc d'essai du 31/10 : avec une seule unité, 80 objectifs
     // sur 82 demandaient moins, « 62 → 63 sbires », et la cible était déjà atteinte dans 45 % des parties de départ)
-    const minStep = Math.max(unit, RULES.progressSd * s);
+    const minStep = Math.max(unit, RULES.progressSd * s, VISIBLE_STEP[key] ?? 0);
     let target = dir > 0 ? Math.min(ref.value, Math.max(personal, baseline + minStep)) : Math.max(ref.value, Math.min(personal, baseline - minStep));
     // Métrique « moins c'est mieux » en entiers (morts) : arrondi vers le bas ; avec décimales ou en pourcentage, arrondi normal
     target = c.direction === "lower" && dec === 0 && !c.percent ? Math.floor(target + 1e-9) : round(target, dec);
@@ -157,8 +161,9 @@ export function prioritize(games, role, { references = null, exclude = [], quant
     const visible = !c.percent || dir * (ref.value - target) >= -1e-9;
     // Proposition automatique suspendue (catalogue : autoPropose false) : la métrique reste au diagnostic
     const auto = c.autoPropose !== false;
-    const eligible = gap > 0 && auto && visible;
-    out.push({ ...row, eligible, reason: gap <= 0 ? "déjà au niveau de la référence" : !visible ? "à moins d'un point de la référence" : auto ? null : c.autoReason || "objectif automatique suspendu (risque de jeu passif)", baseline: round(baseline, 3), ...(baseline !== windowBaseline ? { window_baseline: round(windowBaseline, 3) } : {}), spread: round(s, 3), reference: ref, target, target_quantile: q,
+    const step = dir * (target - baseline), wide = c.percent || step >= (VISIBLE_STEP[key] ?? 0) - 1e-9;
+    const eligible = gap > 0 && auto && visible && wide;
+    out.push({ ...row, eligible, reason: gap <= 0 ? "déjà au niveau de la référence" : !visible ? "à moins d'un point de la référence" : !wide ? "référence trop proche pour une marche visible" : auto ? null : c.autoReason || "objectif automatique suspendu (risque de jeu passif)", baseline: round(baseline, 3), ...(baseline !== windowBaseline ? { window_baseline: round(windowBaseline, 3) } : {}), spread: round(s, 3), reference: ref, target, target_quantile: q,
       factors: { G: round(G, 3), I: c.impact, F: round(F, 3), A: c.actionability, C: round(C, 3) }, score: round(score, 2) });
   }
   return out.sort((a, b) => (b.eligible - a.eligible) || ((b.score ?? -1) - (a.score ?? -1)) || a.metric.localeCompare(b.metric));

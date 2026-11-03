@@ -14,6 +14,7 @@
 // cette liaison doit passer par Riot Sign-On (RSO) : sans lui, rien ne prouve que la personne possède ce compte Riot.
 
 import { handleV1, syncWorker } from "../coach/v1/api.mjs";
+import { syncPlayer } from "../coach/v1/sync.mjs";
 import { createRiotV1 } from "../coach/v1/riot.mjs";
 import { METRIC_VERSION, REFERENCE_VERSIONS } from "../coach/metrics.mjs";
 import { createSupabaseRest, createSupabaseStore } from "../coach/v1/store-supabase.mjs";
@@ -40,6 +41,30 @@ export async function isTester(request, env, { fetchImpl = fetch, sb = null } = 
   if (!uid) return false;
   const t = await tester(sb || createSupabaseRest({ url: env.SUPABASE_URL, serviceKey: env.SUPABASE_SERVICE_KEY, fetchImpl }), uid);
   return !!t && !t.revoked_at;
+}
+
+// Repères par rang lus dans metric_references, toutes versions compatibles (les plus récentes l'emportent) ; null en panne
+export const loadReferences = rest => rest.rest("GET", `metric_references?metric_version=in.(${REFERENCE_VERSIONS.join(",")})&select=*`).then(rows => rows.sort((a, b) => REFERENCE_VERSIONS.indexOf(b.metric_version) - REFERENCE_VERSIONS.indexOf(a.metric_version))).then(rows => rows.filter(r => TIER_LABEL[r.level]).reduce((m, r) => ((((m[r.level] ||= {})[r.role] ||= {})[r.metric] = { n: r.n, p25: Number(r.p25), p50: Number(r.p50), p75: Number(r.p75), level: TIER_LABEL[r.level] }), m), {})).catch(() => null);
+
+// Synchronisation automatique (déclencheur horaire, tour de test du 03/11 : sans visite, un objectif restait bloqué des jours).
+// À chaque passage, un seul joueur, à tour de rôle : un volontaire non révoqué (ou tout joueur en accès public) dont l'objectif est
+// démarré ou en évaluation. 3 parties au plus, comme une requête du site : sous la limite de 50 appels sortants du Worker gratuit.
+export async function autoSync(env, { fetchImpl = fetch, now = Date.now(), sb = null, log = console.log } = {}) {
+  if (!env.RIOT_API_KEY || !env.SUPABASE_URL) return null;
+  const rest = sb || createSupabaseRest({ url: env.SUPABASE_URL, serviceKey: env.SUPABASE_SERVICE_KEY, fetchImpl });
+  const open = await rest.rest("GET", "coaching_goals?status=in.(active,evaluating)&select=player_id");
+  let ids = [...new Set((open || []).map(g => g.player_id))].sort();
+  if (ids.length && env.COACH_ACCESS !== "public") {
+    const players = await rest.rest("GET", `players?id=in.(${ids.join(",")})&select=id,user_id`);
+    const testers = await rest.rest("GET", "pilot_testers?revoked_at=is.null&select=user_id");
+    const ok = new Set((testers || []).map(t => t.user_id));
+    ids = ids.filter(id => (players || []).some(p => p.id === id && ok.has(p.user_id)));
+  }
+  if (!ids.length) return null;
+  const playerId = ids[Math.floor(now / 36e5) % ids.length];
+  const r = await syncPlayer({ store: createSupabaseStore(rest), riot: createRiotV1(env.RIOT_API_KEY, { fetchImpl }), playerId, references: await loadReferences(rest), now, budget: 3 });
+  log(JSON.stringify({ autosync: { players: ids.length, fetched: r.fetched, more: r.more, goal: r.goal?.status || null } })); // sans identifiant
+  return r;
 }
 
 // champRefs : repères Diamant+ par champion (coach/champ-references.mjs, clé de développement) ; valeur, ou fonction (env) → promesse
@@ -104,7 +129,7 @@ export function createV1Worker({ fetchImpl = fetch, now = () => Date.now(), sb =
     } } : store;
     // Repères par rang (test privé, décision d'Anthony du 27/10) : { MASTER: { BOTTOM: { cs_at_10: {…} } } } ; le joueur vise le rang au-dessus du sien
     // Toutes les versions de métriques compatibles ; les plus anciennes d'abord, pour qu'une ligne plus récente l'emporte
-    if (!refsCache) refsCache = await rest.rest("GET", `metric_references?metric_version=in.(${REFERENCE_VERSIONS.join(",")})&select=*`).then(rows => rows.sort((a, b) => REFERENCE_VERSIONS.indexOf(b.metric_version) - REFERENCE_VERSIONS.indexOf(a.metric_version))).then(rows => rows.filter(r => TIER_LABEL[r.level]).reduce((m, r) => ((((m[r.level] ||= {})[r.role] ||= {})[r.metric] = { n: r.n, p25: Number(r.p25), p50: Number(r.p50), p75: Number(r.p75), level: TIER_LABEL[r.level] }), m), {})).catch(() => null);
+    if (!refsCache) refsCache = await loadReferences(rest);
     const riot = env.RIOT_API_KEY ? createRiotV1(env.RIOT_API_KEY, { fetchImpl }) : null;
     // 3 parties par requête : environ 25 appels sortants, sous la limite de 50 du Worker gratuit
     const refsChamp = typeof champRefs === "function" ? await champRefs(env).catch(() => null) : champRefs;

@@ -2,6 +2,15 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-03 — registre de l'état du projet
+
+- **Erreur corrigée** : j'ai dit à Anthony que la clé Riot personnelle n'était pas demandée, alors qu'elle est approuvée depuis le 26/10. Cause : une note de mémoire fausse, reprise par le résumé de la conversation, et je n'ai pas vérifié. La même batterie comptait aussi « 3 testeurs » au lieu de 3 comptes joueurs, dont 1 seul inscrit au test.
+- **Système mis en place** :
+  - `coach/ETAT.md` devient la source de vérité. Il contient le registre des accès, de ce qui attend Anthony et de ce qui attend Claude, chaque ligne avec sa date et sa source.
+  - `coach/etat.mjs` vérifie en direct : secrets présents (noms seulement), clé Riot acceptée, service en ligne, testeurs, cycles, dernière partie récupérée par le service, code publié.
+  - Règle : lancer le script avant d'affirmer qu'une chose est faite ou à faire.
+- Le script a confirmé que la synchronisation automatique fonctionne : des parties ont été récupérées à 21 h 23. La clé du service est donc acceptée par Riot. `/health` dit seulement qu'une clé est posée, pas qu'elle marche.
+
 ## 2026-11-03 — corrections après la batterie
 - **Marche minimale visible** (`VISIBLE_STEP`, `coach/goals.mjs`) : une cible dépasse le départ d'au moins 3 sbires à 10 min, 5 à 15 min, 0,3 sbire/min, 150 XP, 0,1 vision/min ou 1 control ward.
   - Si la référence Diamant+ est plus proche que cette marche, on vise le quart supérieur.
@@ -19,13 +28,13 @@ Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et c
   - 41 objectifs, et 29 joueurs sans objectif (entre 8 et 19 parties au poste principal, alors qu'il en faut 20) ;
   - farm 56 % ;
   - maîtrise observée 33 % pour 31 % par hasard (ces joueurs ne suivaient pas le coach).
-- **Test privé (Supabase)** : 3 testeurs, 0 cycle terminé.
+- **Test privé (Supabase)** : 3 comptes joueurs reliés, mais 1 seul inscrit au test (corrigé le 03/11 au soir), 0 cycle terminé.
   - 2 objectifs sont restés « proposés » sans être démarrés.
   - 1 objectif est en évaluation depuis le 28/10 avec 1 partie évaluée.
   - Aucune synchronisation depuis le 28/10 et le 31/10.
   - Cible d'un objectif cs@10 : 59 → 60, soit +1 sbire, peu crédible pour un joueur.
 - **Manques identifiés** :
-  - clé Riot personnelle ou de production ;
+  - ~~clé Riot personnelle~~ : erreur, elle est approuvée depuis le 26/10 (corrigé le 03/11 au soir) ;
   - pas de synchronisation sans visite ;
   - 40 % des joueurs sans objectif avec 30 parties synchronisées ;
   - progrès minimal trop faible sur les métriques à petits nombres ;

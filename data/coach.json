@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T19:31:00.623Z",
+ "generatedAt": "2026-11-03T01:36:17.954Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -1909,15 +1909,15 @@
    },
    "Yasuo": {
     "role": null,
-    "units": 9,
+    "units": 8,
     "themes": [
      "champion",
      "matchup",
      "lane",
      "vagues"
     ],
-    "actions": 2,
-    "official": 8,
+    "actions": 1,
+    "official": 7,
     "coaching": 1
    },
    "Yorick": {
@@ -2001,20 +2001,6 @@
     ],
     "actions": 0,
     "official": 8,
-    "coaching": 0,
-    "officialOnly": true
-   },
-   "Locke": {
-    "role": null,
-    "units": 3,
-    "themes": [
-     "champion",
-     "lane",
-     "survie",
-     "matchup"
-    ],
-    "actions": 2,
-    "official": 3,
     "coaching": 0,
     "officialOnly": true
    },
@@ -2122,6 +2108,17 @@
     "actions": 1,
     "official": 0,
     "coaching": 1
+   },
+   "Locke": {
+    "role": null,
+    "units": 5,
+    "themes": [
+     "champion"
+    ],
+    "actions": 4,
+    "official": 5,
+    "coaching": 0,
+    "officialOnly": true
    }
   },
   "themes": {
@@ -2129,12 +2126,12 @@
    "survie": 18,
    "teamfight": 13,
    "synergie": 3,
-   "matchup": 12,
-   "methode": 22,
+   "matchup": 11,
+   "methode": 31,
    "vagues": 56,
-   "vision": 19,
-   "macro": 91,
-   "jungle": 69
+   "vision": 20,
+   "macro": 94,
+   "jungle": 72
   },
   "partial": [
    "Ashe"
@@ -2982,7 +2979,15 @@
    "u-ai-yt-mS9pvlvJvco-1",
    "u-ai-yt-mS9pvlvJvco-2",
    "u-ai-yt-3tNboBEv4qI-2",
-   "u-ai-yt-dhkAnHQgrn0-4"
+   "u-ai-yt-dhkAnHQgrn0-4",
+   "u-ai-wtl-4072-1",
+   "u-ai-wtl-4072-2",
+   "u-ai-wtl-4072-3",
+   "u-ai-wtl-4072-4",
+   "u-ai-wtl-3921-1",
+   "u-ai-wtl-3921-2",
+   "u-ai-wtl-3921-3",
+   "u-ai-wtl-3921-4"
   ]
  },
  "sources": [
@@ -6793,16 +6798,19 @@
    "retrievedAt": "2026-10-20",
    "patch": null,
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "analyzedAt": "2026-10-20",
-   "analyst": "Analyste LoL (Claude Code, session du 2026-10-20)",
+   "analysis": "analysee",
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
    "scope": "Article entier lu (API WordPress publique).",
    "quality": {
-    "level": "moyenne",
-    "why": "Méthode concrète et nuancée (one-trick et petit pool), mais témoignage d'une joueuse Émeraude en mid, sans données, et fin promotionnelle pour les académies du site."
+    "level": "élevée",
+    "why": "L'article propose une méthode structurée, logique et axée sur la psychologie de l'apprentissage et la gestion du temps, avec des exemples clairs."
    },
-   "learn": "Une routine courte : un seul objectif à la fois, revu cinq minutes après chaque partie, en partant de vos morts.",
-   "reanalyse": true
+   "learn": "L'auteur explique comment structurer sa progression en réduisant les variables (rôle et champions restreints), en fixant des objectifs d'apprentissage précis via des revues courtes et en gérant le tilt par des pauses adaptées.",
+   "reanalyse": true,
+   "unitsAccepted": 4,
+   "unitsRejected": 0,
+   "alertes": []
   },
   {
    "id": "c-wtl-3601",
@@ -6939,44 +6947,6 @@
     "why": "Officiel, mais 22 parties seulement."
    },
    "learn": "Ce que choisissent les pros, sans en déduire la force en ranked."
-  },
-  {
-   "id": "c-yt-QwXHsqp6x9Y",
-   "sourceId": "yt-skill-capped",
-   "type": "video",
-   "url": "https://www.youtube.com/watch?v=QwXHsqp6x9Y",
-   "title": "The BRAINDEAD Level 1 Strategy That Works EVERY Game - League of Legends",
-   "author": "Skill Capped Challenger LoL Guides",
-   "lang": "en",
-   "published": "2026-10-18",
-   "retrievedAt": "2026-10-20",
-   "patch": null,
-   "views": 68000,
-   "access": "transcription+visuel",
-   "analysis": "en-attente",
-   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
-   "descriptionExcerpt": "►𝐖𝐄𝐁𝐒𝐈𝐓𝐄: https://www.skill-capped.com/lol#labrov26\n►𝐒𝐔𝐁𝐒𝐂𝐑𝐈𝐁𝐄: http://goo.gl/kGvFCu\n►𝐃𝐈𝐒𝐂𝐎𝐑𝐃: https://discord.gg/CBsV72B\n\nWhat is Skill Capped?\nSkill Capped has one goal in mind: help YOU become a BETTER player FAST! We create guides that ACTUALLY WORK by ",
-   "triage": {
-    "score": 2,
-    "matched": [
-     "support"
-    ],
-    "patchMentioned": null,
-    "basis": "métadonnées seules (titre et description) : ne prouve pas le contenu"
-   },
-   "reader": {
-    "kind": "ia",
-    "tool": "gemini-3.8-flash",
-    "fps": 1,
-    "at": "2026-10-21",
-    "sha256": "3aa7af39b77cdbb164b2bf5fd8a55aa830717d37c2a8c9a3774cb2f245a81189",
-    "segments": 166,
-    "observations": 40,
-    "duration": "16:08",
-    "videoKind": "guide",
-    "gameplayShown": true,
-    "tokens": 95957
-   }
   },
   {
    "id": "c-yt-5un5rVpQpf8",
@@ -12718,7 +12688,7 @@
     "basis": "page officielle de Riot sur Locke, champion sans conseils officiels dans Data Dragon"
    },
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.6-flash le 2026-10-22 : transcription réutilisée depuis le cache de cet ordinateur.",
    "videoAttempts": 1,
    "videoError": "gemini-3.5-flash HTTP 503 : This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later. (2026-10-21)",
@@ -12730,20 +12700,15 @@
     "duration": "04:56",
     "reused": true
    },
-   "analyzedAt": "2026-10-23",
+   "analyzedAt": "2026-11-03",
    "analyst": "gemini-3.8-flash",
-   "unitsAccepted": 3,
+   "unitsAccepted": 5,
    "unitsRejected": 0,
-   "alertes": [
-    {
-     "code": "acces-partiel",
-     "detail": "Le contenu provient d'une lecture automatique par Gemini (1 image/sec). Les informations extraites sont de seconde main et nécessitent une relecture humaine."
-    }
-   ],
-   "learn": "Les mécaniques clés du kit de Locke (AP assassin mid) et son interaction spécifique d'ultime contre le Mur de vent de Yasuo.",
+   "alertes": [],
+   "learn": "Découvrir le kit de compétences et les mécaniques de jeu du champion Locke, un assassin AP orienté vers le snowball.",
    "quality": {
-    "level": "moyenne",
-    "why": "Présentation officielle du champion par Riot Games, mais l'analyse provient d'une extraction automatique par IA (Gemini) à 1 image par seconde sans patch précis spécifié."
+    "level": "élevée",
+    "why": "Présentation officielle claire et détaillée de chaque compétence et du style de jeu du champion."
    },
    "reanalyse": "v2"
   },
@@ -15496,7 +15461,7 @@
    "published": "2026-10-13",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 19000,
+   "views": 20000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17396,7 +17361,7 @@
    "published": "2026-10-01",
    "retrievedAt": "2026-10-21",
    "patch": "aucun",
-   "views": 24000,
+   "views": 25000,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.6-flash : transcription et 24 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -18040,7 +18005,7 @@
    "published": "2026-07-27",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 18000,
+   "views": 19000,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -18429,7 +18394,7 @@
    "published": "2026-10-19",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 8600,
+   "views": 8700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19497,7 +19462,7 @@
    "published": "2026-03-20",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 286,
+   "views": 287,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19526,7 +19491,7 @@
    "published": "2026-03-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 649,
+   "views": 650,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20896,12 +20861,12 @@
    "retrievedAt": "2026-10-25",
    "patch": null,
    "access": "texte-integral",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "context": {
     "queue": "competition",
     "rank": "pro"
    },
-   "note": "Proposé par le chercheur de sources (thèmes : objectifs, ganks, voies de côté, vision) ; à lire et analyser, puis contrôle critique.",
+   "note": "Écarté : contenu jugé de faible qualité (Le contenu fourni contient majoritairement du code HTML, des bannières publicitaires et des éléments de navigation du site Inven, sans texte exploitable ou analysable de manière fiable sur le guide de gestion du Baron.).",
    "triage": {
     "score": 12,
     "matched": [
@@ -20912,7 +20877,16 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ajout ciblé (chercheur de sources) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "quality": {
+    "level": "faible",
+    "why": "Le contenu fourni contient majoritairement du code HTML, des bannières publicitaires et des éléments de navigation du site Inven, sans texte exploitable ou analysable de manière fiable sur le guide de gestion du Baron."
+   },
+   "learn": null,
+   "rejectedForQuality": true
   },
   {
    "id": "c-riot-notes-26-21",
@@ -21850,7 +21824,7 @@
    "retrievedAt": "2026-10-25",
    "patch": null,
    "access": "texte-integral",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "triage": {
     "score": 3,
     "matched": [
@@ -21860,7 +21834,17 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "reanalyse": true
+   "reanalyse": true,
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "L'article explique comment structurer et optimiser son temps de jeu restreint à League of Legends en se concentrant sur un objectif unique par session, en effectuant des revues courtes de VOD et en privilégiant la file classée.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu propose une méthode claire, structurée et réaliste pour les joueurs ayant un emploi du temps chargé, avec des exemples concrets et des conseils d'organisation solides."
+   }
   },
   {
    "id": "c-yt-2DGVHHI6FLc",
@@ -22348,7 +22332,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-26",
    "patch": "26.21",
-   "views": 185000,
+   "views": 186000,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -23954,7 +23938,7 @@
    "published": "2026-10-28",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 7800,
+   "views": 7900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24128,7 +24112,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 26000,
+   "views": 27000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24191,7 +24175,7 @@
    "published": "2026-10-28",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 9900,
+   "views": 10000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24219,7 +24203,7 @@
    "published": "2026-10-27",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 8900,
+   "views": 9000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24247,7 +24231,7 @@
    "published": "2026-10-28",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 7600,
+   "views": 7800,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24276,7 +24260,7 @@
    "published": "2026-10-27",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 452,
+   "views": 458,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24915,7 +24899,7 @@
    "published": "2026-10-29",
    "retrievedAt": "2026-10-30",
    "patch": null,
-   "views": 8200,
+   "views": 8300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25371,7 +25355,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 14000,
+   "views": 15000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25424,7 +25408,7 @@
    "ageMonths": 0.5,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 21000,
+   "views": 22000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25663,7 +25647,7 @@
    "ageMonths": 0.3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 11,
+   "views": 12,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25744,7 +25728,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 7200,
+   "views": 7600,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25771,7 +25755,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 8100,
+   "views": 8300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26398,7 +26382,7 @@
    "ageMonths": 2,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 268,
+   "views": 269,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26425,7 +26409,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 4000,
+   "views": 4100,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26538,7 +26522,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 300,
+   "views": 301,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26565,7 +26549,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 206,
+   "views": 208,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26820,7 +26804,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 3900,
+   "views": 4000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27166,7 +27150,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 2500,
+   "views": 2700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27638,19 +27622,42 @@
    "lang": "ko",
    "published": null,
    "retrievedAt": "2026-11-02",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "v13.18",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 60,
-   "note": "File de lecture (rang 60) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 33 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 15,
     "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-11-03",
+    "sha256": "99c44ff0f237c4437ca70b293c36eb5c193515d7538066051a6c7a98cc551748",
+    "segments": 54,
+    "observations": 33,
+    "duration": "05:22",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 35819
+   },
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "En jouant Graves jungle, tu peux maintenir un contrôle total du bas de carte en envahissant au niveau 1, en volant systématiquement les camps adverses (Corbins/Krugs) et en sécurisant la vision profonde avant chaque dive botlane.",
+   "quality": {
+    "level": "élevée",
+    "why": "Démonstration claire et expliquée par un jungler Challenger coréen sur la gestion du vertical jungling et de la pression botlane."
    }
   },
   {
@@ -27665,7 +27672,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 7100,
+   "views": 8200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27690,13 +27697,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-11-02",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "null",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 61,
-   "note": "File de lecture (rang 61) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 32 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 17,
     "matched": [
@@ -27706,6 +27713,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-11-03",
+    "sha256": "e1d5883baacb5f5870404f9e75a28f043c6ecda96a15947136c3aca59be071fa",
+    "segments": 1052,
+    "observations": 32,
+    "duration": "40:24",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 255158
+   },
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Apprends à maintenir un nettoyage complet de camps cohérent, à activer les minuteurs de jungle et à prévenir tes coéquipiers du danger à l'avance pour mieux porter tes parties en tant que jungler.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Le contenu propose des conseils de jungle et de mentalité fondés sur la régularité et les fondamentaux, illustrés par une partie commentée par l'auteur."
    }
   },
   {
@@ -27803,7 +27833,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 2500,
+   "views": 9900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27829,7 +27859,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 2000,
+   "views": 6800,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27855,7 +27885,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 643,
+   "views": 4000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27882,7 +27912,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 5,
+   "views": 11,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27893,6 +27923,32 @@
      "jungle",
      "guide",
      "jungle path"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-LkhOLZ0UC1Q",
+   "sourceId": "yt-scrubnoob",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=LkhOLZ0UC1Q",
+   "title": "THE RENGAR MASTERCLASS",
+   "author": "ScrubNoob",
+   "lang": "en",
+   "published": null,
+   "ageMonths": 0,
+   "retrievedAt": "2026-11-03",
+   "patch": null,
+   "views": 4900,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "triage": {
+    "score": 2,
+    "matched": [
+     "Rengar"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -61086,179 +61142,6 @@
    }
   },
   {
-   "id": "u-ai-yt-ynG4T9yLKFs-1",
-   "claim": "Locke est un assassin AP joué au mid dont le style repose sur le snowball et l'élimination rapide des cibles fragiles.",
-   "champions": [
-    "Locke"
-   ],
-   "roles": [
-    "mid"
-   ],
-   "themes": [
-    "champion",
-    "lane"
-   ],
-   "context": {
-    "queue": "non précisé",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": false
-   },
-   "metaDependent": true,
-   "limits": [
-    "Analyse basée sur une lecture par IA à 1 image par seconde."
-   ],
-   "nature": "officiel",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-yt-ynG4T9yLKFs",
-     "locator": "[00:15]",
-     "lang": "en",
-     "passage": "In-game, Locke is an AP assassin who turns early skirmishes into major advantages, snowballing into a devastating weapon against squishy enemy targets."
-    }
-   ],
-   "mentions": [
-    "Ekko (exemple)",
-    "Zed (exemple)",
-    "Shaco (exemple)",
-    "Tahm Kench (exemple)",
-    "Fiddlesticks (exemple)"
-   ],
-   "published": "2026-06-09",
-   "analyzedAt": "2026-10-23",
-   "status": "provisoire",
-   "lifespan": "meta",
-   "review": {
-    "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "lecture-ia",
-     "why": "c-yt-ynG4T9yLKFs : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([00:15])."
-    }
-   ]
-  },
-  {
-   "id": "u-ai-yt-ynG4T9yLKFs-2",
-   "claim": "La compétence Z de Locke (Soul Ignition) peut être réactivée pendant qu'il subit un contrôle de foule pour déclencher son soin d'urgence.",
-   "champions": [
-    "Locke"
-   ],
-   "roles": [
-    "mid"
-   ],
-   "themes": [
-    "survie",
-    "champion"
-   ],
-   "context": {
-    "queue": "non précisé",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": false
-   },
-   "metaDependent": false,
-   "conditions": [
-    "Être sous contrôle de foule pendant l'activation de la compétence"
-   ],
-   "limits": [
-    "Analyse basée sur une lecture par IA à 1 image par seconde."
-   ],
-   "nature": "officiel",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-yt-ynG4T9yLKFs",
-     "locator": "[01:19]",
-     "lang": "en",
-     "passage": "Soul Ignition can be recast while crowd controlled, so even if you're out of other options, make sure to heal back up before your opponent sends you to an early grave."
-    }
-   ],
-   "mentions": [],
-   "action": "Réactiver le Z de Locke lorsqu'on est sous contrôle de foule pour récupérer des PV avant de mourir.",
-   "observe": "Vérifier le déclenchement du soin malgré l'état de contrôle de foule. ",
-   "published": "2026-06-09",
-   "analyzedAt": "2026-10-23",
-   "status": "provisoire",
-   "lifespan": "meta",
-   "review": {
-    "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "lecture-ia",
-     "why": "c-yt-ynG4T9yLKFs : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([01:19])."
-    }
-   ]
-  },
-  {
-   "id": "u-ai-yt-ynG4T9yLKFs-3",
-   "claim": "Le lancer initial du totem de l'ultime de Locke (Purgatory) traverse le Mur de vent de Yasuo, mais les projectiles émis une fois le totem posé sont bloqués.",
-   "champions": [
-    "Locke",
-    "Yasuo"
-   ],
-   "roles": [
-    "mid"
-   ],
-   "themes": [
-    "matchup",
-    "champion"
-   ],
-   "matchup": {
-    "vs": "Yasuo"
-   },
-   "context": {
-    "queue": "non précisé",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": false
-   },
-   "metaDependent": false,
-   "conditions": [
-    "Affrontement contre Yasuo et son Mur de vent"
-   ],
-   "limits": [
-    "Analyse basée sur une lecture par IA à 1 image par seconde."
-   ],
-   "nature": "officiel",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-yt-ynG4T9yLKFs",
-     "locator": "[02:56]",
-     "lang": "en",
-     "passage": "Abilities like Yasuo's Wind Wall can't block the incoming totem toss, but they can interact with the missiles it throws upon landing."
-    }
-   ],
-   "mentions": [],
-   "action": "Lancer l'ultime de Locke à travers le Mur de vent de Yasuo pour poser le totem derrière lui.",
-   "observe": "Vérifier que le totem se pose correctement au sol malgré le mur.",
-   "published": "2026-06-09",
-   "analyzedAt": "2026-10-23",
-   "status": "provisoire",
-   "lifespan": "meta",
-   "review": {
-    "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "lecture-ia",
-     "why": "c-yt-ynG4T9yLKFs : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([02:56])."
-    }
-   ]
-  },
-  {
    "id": "u-ai-riot-champion-insights-briar-1",
    "claim": "Briar ne possède pas de régénération passive de points de vie : elle se soigne uniquement en infligeant des dégâts ou en consommant du sang sur des sbires ou champions, et son auto-guérison augmente à mesure que ses points de vie diminuent.",
    "champions": [
@@ -86606,6 +86489,1094 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-DZDYY56-maw-2",
+   "claim": "Selon 경희대 챌린저 정글러 [비굿펄] : lorsque tu joues en carte séparée (vertical jungling) pour enchaîner les dives sur la botlane, vole les Corbins et Krugs adverses pour maintenir ce contrôle permanent du bas de carte.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "13.18"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jeu en vertical jungling axé sur la botlane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-DZDYY56-maw",
+     "locator": "02:31",
+     "lang": "ko",
+     "passage": "[02:31] (parole) 그러니까 지금 반가르기를 하면 바텀 쪽 무한 다이브를 걸 수 있으니까 상대방 쪽 칼날부리를 계속 카정해 주는 게 좋겠죠?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "131-191s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-DZDYY56-maw",
+     "locator": "02:38",
+     "lang": "ko",
+     "passage": "[02:38] (parole) 상대방 쪽 칼날부리하고 골렘을 카정해야지 반가르기를 계속 유지할 수 있으니까"
+    }
+   ],
+   "mentions": [],
+   "action": "Chronométrer la réapparition des Corbins et Krugs ennemies et les vider dès qu'ils apparaissent.",
+   "observe": "Maintien de la domination du côté bas de la carte et impossibilité pour le jungler ennemi d'y récupérer des ressources.",
+   "use": {
+    "when": "En tant que jungler jouant le bas de carte et enchaînant les dives botlane.",
+    "why": "Voler les camps du côté adverse permet d'entretenir et de maintenir la séparation verticale de la carte sur la durée.",
+    "who": "Junglers jouant en vertical jungling axé sur le bas de la carte",
+    "how": [
+     "Anticiper le timing de réapparition des Corbins et Krugs adverses.",
+     "Se placer dans la jungle ennemie avant leur apparition pour les voler immédiatement."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-DZDYY56-maw : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-DZDYY56-maw : lu par gemini-3-flash-preview (1 image/s) ; passage à vérifier sur la vidéo (02:38)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Contrôle critique : L'adverbe 'systématiquement' exagère la recommandation de l'auteur qui suggère de voler ces camps pour maintenir le contrôle de carte."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-DZDYY56-maw-3",
+   "claim": "Selon 경희대 챌린저 정글러 [비굿펄] : avant de tenter un dive sous tour sur une lane ennemie qui a repris de la vie ou des niveaux, pose de la vision profonde dans la jungle adverse pour éviter de te faire contrer par le jungler ennemi.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "vision",
+    "macro",
+    "jungle"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "13.18"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Préparation d'un dive alors que le jungler ennemi peut être dans la zone"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-DZDYY56-maw",
+     "locator": "03:26",
+     "lang": "ko",
+     "passage": "[03:26] (parole) 근데 이제부터는 상대방 바텀도 레벨 조금 있고 그리고 비에고도 다이브 타이밍 때 바로 역갱을 볼 수가 있어가지고 상대방 정글 쪽 깊게 계속 시야를 먹어줘야 돼요.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "186-246s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Viego (exemple)"
+   ],
+   "action": "Poser des balises de vision profondes dans la jungle adverse adjacente à la lane avant de lancer un dive.",
+   "observe": "Détection à temps de la présence du jungler ennemi venu contrer le dive.",
+   "use": {
+    "when": "Avant d'effectuer un dive sous tour alors que les laners adverses ne sont plus extrêmement affaiblis.",
+    "why": "Sans cette vision, un contre-gank du jungler ennemi pendant un dive sous tour complète peut être fatal.",
+    "who": "Junglers planifiant une agression sous tour",
+    "how": [
+     "Pénétrer profondément dans la jungle ennemie bordant la lane ciblée.",
+     "Poser de la vision pour détecter la venue du jungler ennemi.",
+     "Engager le dive uniquement après avoir vérifié l'absence de contre-gank."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-DZDYY56-maw : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-X33JxUfXd2k-1",
+   "claim": "Vérifie les options de ton interface et active l'affichage de tous les minuteurs de camps pour mieux suivre l'apparition de tes monstres dans la jungle.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-X33JxUfXd2k",
+     "locator": "04:03",
+     "lang": "en",
+     "passage": "Enable all camp timers.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "223-283s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Va dans les paramètres du jeu pour activer l'option des minuteurs de camps.",
+   "observe": "L'apparition des chronomètres sur les icônes des camps de jungle.",
+   "use": {
+    "when": "Tu es dans les menus ou en début de partie avant l'apparition des monstres.",
+    "why": "Cela te permet de savoir précisément quand tes camps réapparaissent.",
+    "who": "Joueurs jouant le rôle de jungler.",
+    "how": [
+     "Ouvre les options du jeu.",
+     "Cherche et active le paramètre d'affichage des minuteurs de camps."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-X33JxUfXd2k : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-wtl-4072-1",
+   "claim": "Selon We Teach League : pour progresser efficacement avec un temps de jeu limité, planifie des sessions de 2 à 5 parties par jour et isole une seule compétence à travailler à la fois.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Temps de jeu restreint au quotidien"
+   ],
+   "limits": [
+    "Conseil méthodologique général sans données chiffrées"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-wtl-4072",
+     "locator": "A practical schedule for playing League of Legends with limited time",
+     "lang": "en",
+     "passage": "Play around two to five games during that time (depending on how much time you have). \nPlay with a specific skill in mind that you want to improve. \nReview that skill after your gaming session or before your next one."
+    }
+   ],
+   "mentions": [],
+   "action": "Définis un créneau régulier, limite-toi à 2 ou 3 parties et choisis un seul objectif d'apprentissage par session.",
+   "observe": "Ton focus et ta capacité à analyser la même erreur répétée au fil des parties.",
+   "use": {
+    "when": "Tu lances ton jeu avec un emploi du temps chargé et tu souhaites rentabiliser ton temps de session.",
+    "why": "Pour éviter de te disperser et de te laisser submerger par la complexité du jeu, ce qui permet de repérer et corriger les erreurs plus facilement.",
+    "who": "Joueurs disposant de peu de temps libre pour jouer.",
+    "how": [
+     "Choisis un nombre fixe de parties par jour ou par semaine.",
+     "Sélectionne un unique point technique à perfectionner (comme l'utilisation d'une compétence ou la gestion des backs).",
+     "Passe 5 à 10 minutes après tes parties à analyser uniquement cet objectif."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-25",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-wtl-4072-2",
+   "claim": "Selon We Teach League : consacre 5 à 10 minutes par partie à revoir tes erreurs en lien avec ton objectif d'apprentissage actuel plutôt que de visionner des heures de vidéos.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir un objectif d'apprentissage précis"
+   ],
+   "limits": [
+    "Demandeur de rigueur personnelle"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-wtl-4072",
+     "locator": "The review is the medicine, not winning",
+     "lang": "en",
+     "passage": "To make sure you learn something from every game, it makes sense to set aside around five to ten minutes per game to review key moments related to your current learning objective."
+    }
+   ],
+   "mentions": [],
+   "action": "Lance le replay ou ton enregistrement immédiatement après ta partie et focalise ton analyse sur ton point de travail.",
+   "observe": "Les moments précis où tu reproduis l'erreur que tu tentes d'éliminer.",
+   "use": {
+    "when": "Tu viens de terminer une partie classée et tu t'apprêtes à couper ou à en lancer une autre.",
+    "why": "Pour aider ton cerveau à reconnaître plus rapidement les schémas d'erreurs et les patterns associés à ta compétence du moment.",
+    "who": "Tout joueur cherchant à structurer ses retours de parties de manière efficace.",
+    "how": [
+     "Ouvre le replay ou ton outil d'enregistrement après la session.",
+     "isole 2 ou 3 actions clés en rapport direct avec ta compétence du jour.",
+     "Note mentalement ou par écrit la correction à appliquer."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-25",
+   "analyzedAt": "2026-11-03",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-wtl-4072-3",
+   "claim": "Selon We Teach League : pour progresser rapidement sur un champion, restreins ton pool à un ou trois champions au maximum afin de réduire les variables à gérer.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "champion",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Volonté de progresser rapidement"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-wtl-4072",
+     "locator": "What to cut, and what to do with some extra time",
+     "lang": "en",
+     "passage": "To make your climb even more efficient, you can stick to one champion (or a small pool of two or three) within your chosen role as well. In general, the fewer variables you have to juggle, the easier and faster your climb will be."
+    }
+   ],
+   "mentions": [],
+   "action": "Sélectionne un champion principal et un ou deux picks de secours pour ton rôle et évite de changer à chaque partie.",
+   "observe": "Ta maîtrise globale du champion et ta capacité à te concentrer sur la macro plutôt que sur les mécaniques de base.",
+   "use": {
+    "when": "Tu choisis les champions que tu vas spammer pour lancer tes sessions de match.",
+    "why": "Moins tu as de variables à jongler avec les mécaniques de différents champions, plus ton ascension est facilitée.",
+    "who": "Joueurs cherchant à optimiser leur temps de jeu restreint.",
+    "how": [
+     "Choisis un champion principal que tu apprécies.",
+     "Ajoute un ou deux champions de secours pour les cas de ban ou de matchup intenable.",
+     "Joue exclusivement ces champions en file classée."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-25",
+   "analyzedAt": "2026-11-03",
+   "status": "exploitable",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-wtl-4072-4",
+   "claim": "Selon We Teach League : privilégie les files classées (ranked) aux parties normales (norms) pour t'entraîner sérieusement, car la qualité de jeu y est supérieure.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Disposer de bases minimales sur le champion joué"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-wtl-4072",
+     "locator": "Frequently asked questions",
+     "lang": "en",
+     "passage": "Always prioritize ranked if you’re able to. Sometimes, for example when learning a new champ, it makes sense to get the hang of it in a few normal games first. But usually, it’s best to switch to ranked as soon as possible because the game quality is higher."
+    }
+   ],
+   "mentions": [],
+   "action": "Lance directement en partie classée dès que tu maîtrises les bases d'un champion pour bénéficier d'adversaires de ton niveau.",
+   "observe": "L'investissement des joueurs adverses et l'équilibrage des compositions.",
+   "use": {
+    "when": "Tu hésites entre lancer une partie normale ou une partie classée pour ta session quotidienne.",
+    "why": "Les joueurs y cherchent la victoire et tentent de donner le meilleur d'eux-mêmes, face à des adversaires de niveau proche.",
+    "who": "Joueurs souhaitant progresser de manière compétitive.",
+    "how": [
+     "Réserve les parties normales aux tests initiaux d'un nouveau champion.",
+     "Bascule immédiatement en classée pour appliquer ton plan de progression.",
+     "Considère la file classée comme ton dojo d'entraînement."
+    ],
+    "notWhen": "S'il s'agit de découvrir un champion pour la toute première fois."
+   },
+   "published": "2026-10-25",
+   "analyzedAt": "2026-11-03",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-wtl-3921-1",
+   "claim": "Selon We Teach League : pour progresser efficacement dans League of Legends, il ne faut pas se focaliser uniquement sur l'objectif de rang final, mais viser à acquérir les compétences réelles d'un joueur de ce rang en fixant des objectifs d'apprentissage précis.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir un objectif de rang"
+   ],
+   "limits": [
+    "Conseil général applicable à tous les rangs"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-wtl-3921",
+     "locator": "Don’t chase the rank, play at that rank’s level",
+     "lang": "en",
+     "passage": "Aim to be a player of the rank, not the rank."
+    }
+   ],
+   "mentions": [],
+   "action": "Définir une compétence spécifique d'un rang supérieur à travailler au lieu de regarder uniquement les LP.",
+   "observe": "Suivre l'amélioration de la compétence ciblée plutôt que le gain de LP.",
+   "use": {
+    "when": "Quand tu planifies ta session de progression et que tu fixes tes objectifs de la semaine.",
+    "why": "Transformer un objectif abstrait en compétences mesurables et décomposables.",
+    "who": "Tous les joueurs cherchant à progresser en ranked",
+    "how": [
+     "Identifier une lacune par rapport aux joueurs du rang visé.",
+     "Traduire cette lacune en un objectif d'apprentissage précis.",
+     "Travailler cet objectif unique pendant plusieurs parties consécutives."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-15",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-wtl-3921-2",
+   "claim": "Selon We Teach League : pour progresser durablement, il est recommandé de réduire les variables en se concentrant sur un rôle principal et un petit pool de champions fixe afin d'assimiler les matchups et les mécaniques.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Vouloir s'investir dans l'amélioration à long terme"
+   ],
+   "limits": [
+    "Peut rendre l'approche de la draft rigide si l'on ne joue qu'un seul champion (OTP)"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-wtl-3921",
+     "locator": "How chasing short-term LP stops your long-term climb",
+     "lang": "en",
+     "passage": "In order to gain LP in the long term, we need to create an environment for ourselves where we have a constant edge over our opponents, not an immediate but volatile advantage like a counter pick that will work for one or two games. For that, it’s key to reduce the variables involved."
+    }
+   ],
+   "mentions": [],
+   "action": "Sélectionner un rôle unique et restreindre son pool à un ou deux champions.",
+   "observe": "La constance de la maîtrise du champion et la diminution des erreurs liées à la méconnaissance du kit.",
+   "use": {
+    "when": "Quand tu choisis tes champions pour lancer ta session de classement.",
+    "why": "Réduire la quantité de variables à assimiler pour libérer de l'énergie mentale pour le jeu global.",
+    "who": "Joueurs cherchant à stabiliser leur progression",
+    "how": [
+     "Fixer un poste principal.",
+     "Choisir 1 à 3 champions maximum à jouer régulièrement.",
+     "Conserver ce choix sur le long terme pour développer des réflexes."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-15",
+   "analyzedAt": "2026-11-03",
+   "status": "exploitable",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-wtl-3921-3",
+   "claim": "Selon We Teach League : mettre en place une routine d'entraînement structurée comprenant un nombre limité de parties quotidiennes, un visionnage court des rediffusions centré sur un objectif précis et l'étude de joueurs de plus haut rang.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir du temps planifié pour jouer"
+   ],
+   "limits": [
+    "Demande de la rigueur hors de la file d'attente"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-wtl-3921",
+     "locator": "A step-by-step practice plan for ranking up in League of Legends",
+     "lang": "en",
+     "passage": "I play 3-5 games daily. I record my games and review each game for roughly 5 minutes. During those 5 minutes, I look at one learning objective that I identified as a problem beforehand"
+    }
+   ],
+   "mentions": [],
+   "action": "Jouer 3 à 5 parties par jour et passer 5 minutes par partie à analyser un point précis.",
+   "observe": "L'évolution de la résolution d'une erreur ciblée au fil des parties.",
+   "use": {
+    "when": "Après la fin de tes parties de la journée.",
+    "why": "Approcher League of Legends avec intention et éviter de jouer de manière machinale.",
+    "who": "Joueurs voulant optimiser leur temps de jeu limité",
+    "how": [
+     "Jouer entre 3 et 5 parties par jour.",
+     "Enregistrer les parties et en revoir une rapidement pendant environ 5 minutes.",
+     "Se concentrer sur un seul objectif d'apprentissage identifié au préalable."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-15",
+   "analyzedAt": "2026-11-03",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-wtl-3921-4",
+   "claim": "Selon We Teach League : pour limiter le tilt et le sabotage lors d'une série de défaites, il est conseillé de s'arrêter après un certain nombre de défaites consécutives ou de faire une pause pour s'aérer l'esprit.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Être sur une série de défaites ou ressentir de la frustration"
+   ],
+   "limits": [
+    "Demande de l'autodiscipline pour couper le jeu"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-wtl-3921",
+     "locator": "Practical advice to survive loss streaks",
+     "lang": "en",
+     "passage": "The best thing you can do is develop strategies for yourself that will prevent you from self-sabotaging, such as tilt-queuing, since that can easily set you back days or weeks"
+    }
+   ],
+   "mentions": [],
+   "action": "Fermer le jeu ou faire une pause de plusieurs heures après deux défaites si le sentiment de frustration apparaît.",
+   "observe": "L'absence de relance impulsive de partie (tilt-queuing).",
+   "use": {
+    "when": "Après avoir enchaîné deux défaites ou en sentant la frustration monter.",
+    "why": "Éviter le tilt-queue qui aggrave la perte de LP et dégrade la santé mentale.",
+    "who": "Joueurs sujets à la frustration en série de défaites",
+    "how": [
+     "S'arrêter après deux défaites consécutives si l'on se sent émotionnel.",
+     "Sortir prendre l'air ou faire une autre activité pendant une ou deux journées si nécessaire."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-15",
+   "analyzedAt": "2026-11-03",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-ynG4T9yLKFs-1",
+   "claim": "Le passif de Locke, Pieu d'argent, renforce ses attaques de base avec des dégâts magiques supplémentaires à l'impact qui augmentent selon les PV manquants de la cible.",
+   "champions": [
+    "Locke"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ynG4T9yLKFs",
+     "locator": "[00:36]",
+     "lang": "en",
+     "passage": "Let's start with Locke's Passive: Silver Stake, which empowers his auto attacks with bonus damage on-hit. Silver Stake's damage increases based on the enemy's missing health, enabling him to deal more damage to weakened foes.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "16-76s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "tu attaques un champion ennemi dont les points de vie sont entamés",
+    "why": "le passif inflige des dégâts supplémentaires basés sur les PV manquants de l'ennemi",
+    "who": "Locke",
+    "how": [
+     "Cibler les champions ennemis affaiblis avec des attaques de base"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-06-09",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-ynG4T9yLKFs : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-ynG4T9yLKFs-2",
+   "claim": "Le sort A de Locke, Clous rituels, lui permet de lancer un clou qui blesse, marque et ralentit les ennemis. Il peut être relancé deux fois et l'attaque d'une cible marquée consomme les clous pour infliger des dégâts significatifs par effet.",
+   "champions": [
+    "Locke"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ynG4T9yLKFs",
+     "locator": "[00:53]",
+     "lang": "en",
+     "passage": "Locke's Q is Ritual Nails. He throws a nail forward, damaging, marking, and slowing all enemies hit. He can recast this ability twice more before going on cooldown, with the slow improving on enemies with more marks.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "33-93s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer les clous rituels sur plusieurs ennemis pour cumuler les marques puis attaquer pour consommer les charges.",
+   "observe": "L'empilement des clous rituels et leur consommation à l'attaque.",
+   "use": {
+    "when": "tu engages un échange ou un combat contre un ou plusieurs champions adverses",
+    "why": "le sort inflige des dégâts, ralentit et permet de consommer les marques par des attaques pour infliger plus de dégâts",
+    "who": "Locke",
+    "how": [
+     "Lancer le sort pour toucher les ennemis",
+     "Relancer deux fois si nécessaire",
+     "Attaquer la cible marquée pour consommer les charges"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-06-09",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-ynG4T9yLKFs : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-ynG4T9yLKFs-3",
+   "claim": "Le sort Z de Locke, Embrasement de l'âme, augmente sa vitesse de déplacement tout en lui infligeant des dégâts bruts en continu, puis le soigne à la fin ou à la relance en fonction des dégâts subis et de sa vie manquante.",
+   "champions": [
+    "Locke"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ynG4T9yLKFs",
+     "locator": "[01:19]",
+     "lang": "en",
+     "passage": "Next up is Locke's W: Soul Ignition, which increases his movement speed decaying over a few seconds. While active, Locke suffers true damage based on his current health every second.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "59-119s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Activer le Z pour plonger sous tourelle ou engager, puis relancer avant la fin pour récupérer des points de vie.",
+   "observe": "L'augmentation de vitesse de déplacement suivie du soin à la relance.",
+   "use": {
+    "when": "tu t'engages dans un combat à haut risque ou une situation de dive sous tourelle",
+    "why": "le sort confère de la vitesse de déplacement et permet de se soigner en fin d'effet selon les dégâts subis et la vie manquante",
+    "who": "Locke",
+    "how": [
+     "Activer le sort pour obtenir la vitesse de déplacement",
+     "Relancer le sort ou attendre la fin pour déclencher le soin"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-06-09",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-ynG4T9yLKFs : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-ynG4T9yLKFs-4",
+   "claim": "Le sort E de Locke, Poursuite cendreuse, lui permet de clignoter en infligeant des zones de dégâts, sa prochaine attaque déclenchant une ruée vers sa cible, et son délai de récupération se réinitialise à chaque takedown.",
+   "champions": [
+    "Locke"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ynG4T9yLKFs",
+     "locator": "[01:47]",
+     "lang": "en",
+     "passage": "Every assassin needs a way to stick to their target. Locke's E: Ashen Pursuit lets him blink, dealing damage around him upon arrival. After casting, Locke's next attack will trigger a dash towards his target",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "87-147s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser la ruée de la Poursuite cendreuse pour enchaîner les éliminations dans la ligne arrière en profitant de la réinitialisation.",
+   "observe": "Le clignotement suivi de la ruée sur l'attaque.",
+   "use": {
+    "when": "tu dois pourchasser un adversaire ou enchaîner des cibles fragiles lors d'un combat d'équipe",
+    "why": "la compétence offre la mobilité nécessaire pour coller sa cible et se réinitialise lors d'un takedown",
+    "who": "Locke",
+    "how": [
+     "Activer le E pour clignoter sur une zone",
+     "Lancer une attaque pour déclencher la ruée vers la cible"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-06-09",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-ynG4T9yLKFs : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-ynG4T9yLKFs-5",
+   "claim": "L'ultime de Locke, Purgatoire, lance un totem qui blesse, ralentit et exécute les champions dont la santé descend sous un certain seuil, permettant à Locke de ramasser le totem pour récupérer du délai de récupération et un bonus permanent si une âme est piégée.",
+   "champions": [
+    "Locke"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ynG4T9yLKFs",
+     "locator": "[02:18]",
+     "lang": "en",
+     "passage": "Finally, Locke's ultimate is Purgatory. He throws a totem which fires out to damage and slow enemies in that area. The totem stays open for several seconds. During that period, afflicted champions are executed if they drop below the health threshold",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "118-178s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer le totem du Purgatoire sur les cibles et le ramasser après une élimination pour obtenir les bonus.",
+   "observe": "Le déploiement du totem et l'exécution des cibles sous le seuil de PV.",
+   "use": {
+    "when": "un ennemi est affaibli dans la zone d'effet du totem du Purgatoire",
+    "why": "le sort exécute les cibles en dessous d'un seuil de santé et accorde des avantages permanents si un adversaire meurt",
+    "who": "Locke",
+    "how": [
+     "Lancer le totem dans la zone en combat",
+     "Ramasser le totem au sol après la mort des champions affectés"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-06-09",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-ynG4T9yLKFs : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
     }
    ]
   }

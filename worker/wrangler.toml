@@ -9,4 +9,4 @@ compatibility_flags = ["nodejs_compat"]
 
 # Notifications : matchs en direct chaque minute, rappels du coach à 17 h UTC (worker/push.mjs)
 [triggers]
-crons = ["* * * * *", "0 17 * * *"]
+crons = ["* * * * *", "0 17 * * *", "23 * * * *"]

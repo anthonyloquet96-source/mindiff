@@ -34,7 +34,7 @@ export function mainRole(metrics) {
 
 // budget : nombre maximal de parties téléchargées ou recalculées par appel. Le Worker gratuit de Cloudflare limite chaque requête
 // à 50 appels sortants (environ 7 par partie) : au-delà, il est coupé net. more = true si des parties restent à traiter.
-export async function syncPlayer({ store, riot, playerId, count = 30, references = null, now = Date.now(), budget = Infinity }) {
+export async function syncPlayer({ store, riot, playerId, count = RULES.historyMax, references = null, now = Date.now(), budget = Infinity }) {
   const player = await store.getPlayer(playerId);
   if (!player) throw Object.assign(new Error("Joueur inconnu."), { code: "joueur-inconnu", status: 404 });
   const ids = await riot.call("matchIds", { platform: player.platform, puuid: player.puuid, count });

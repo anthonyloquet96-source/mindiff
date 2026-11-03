@@ -5,7 +5,7 @@
 
 import { coachApi } from "../coach/coach-api.mjs";
 import { createDataLoader } from "./data.mjs";
-import { createV1Worker, isTester } from "./v1.mjs";
+import { createV1Worker, isTester, autoSync } from "./v1.mjs";
 import { pushApi, pushLive, pushCoach } from "./push.mjs";
 
 // Coach V1 (/api/v1) : jeton Supabase, stockage Supabase, quotas ; voir worker/v1.mjs
@@ -39,8 +39,10 @@ export default {
     const r = await coachApi(url.pathname, url.searchParams, { key: env.RIOT_API_KEY, benchmarks: open ? D.benchmarks : null, champstats: open ? D.champstats : null, builds: open ? D.builds : null, visitor: request.headers.get("CF-Connecting-IP") || "?" });
     return new Response(JSON.stringify(r.body), { status: r.status, headers: { ...cors, "Content-Type": "application/json; charset=utf-8", "Cache-Control": r.status === 200 ? "private, max-age=60" : "no-store" } });
   },
-  // Déclencheurs (wrangler.toml) : chaque minute, les matchs en direct ; à 17 h UTC, les rappels du coach
+  // Déclencheurs (wrangler.toml) : chaque minute, les matchs en direct ; à 17 h UTC, les rappels du coach ; chaque heure (à 23),
+  // la synchronisation automatique d'un joueur qui suit un objectif
   async scheduled(event, env, ctx) {
+    if (event.cron === "23 * * * *") return void ctx.waitUntil(autoSync(env).catch(e => console.log(JSON.stringify({ autosync: e.code || "erreur" }))));
     ctx.waitUntil(event.cron === "0 17 * * *" ? pushCoach(env) : pushLive(env));
   },
 };

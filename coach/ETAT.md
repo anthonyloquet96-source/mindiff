@@ -46,6 +46,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Faire démarrer les testeurs : « Je commence » sur l'objectif proposé, puis 5 ranked (2 objectifs proposés pas commencés, 1 en cours sans partie évaluée depuis le 28/10) | 03/11 | constat automatique |
 | Documents RGPD : registre des traitements et durée de conservation | 03/11 | JOURNAL 03/11 |
 | Décision sur le tuteur | 03/11 | JOURNAL 03/11 |
+| Mettre à jour les 2 descriptions sur le portail Riot (50 parties, mise à jour chaque heure, collecte Master+ du 27/10, limites réelles). Textes prêts : `coach/riot-mise-a-jour-2026-11-03.md` | 03/11 | portail Riot lu par Claude le 03/11 |
 
 ## Ce qui attend Claude
 

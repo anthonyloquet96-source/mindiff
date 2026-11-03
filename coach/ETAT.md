@@ -31,7 +31,7 @@ _Vérifié automatiquement le 03/11/2026 21:50:55 par `coach/etat.mjs`._
 |---|---|---|---|
 | ✅ Fait | Clé Riot **personnelle**, app 897844 « MINDIFF Coach - private test » : sans expiration, 100 requêtes / 2 min, autorisée pour un petit groupe privé | 26/10 | JOURNAL 26/10 |
 | ✅ Fait | Clé Riot rangée dans `.env` et dans les secrets du Worker | 26/10 et 29/10 | JOURNAL 26/10 et 29/10 |
-| ⏳ En attente de Riot | Clé de **production**, app 895430 (« Pending Review ») : seulement pour l'ouverture au public | dépôt avant le 26/10 | JOURNAL 26/10 |
+| ⏳ En attente de Riot | Clé de **production**, app 895430 : toujours « Pending Review », description à jour (version du 26/10), aucun message de Riot. Seulement pour l'ouverture au public | relevé le 03/11 | portail Riot, lu par Claude le 03/11 |
 | ✅ Fait | Projet Supabase (gratuit, Irlande), migrations appliquées, « Confirm email » désactivé | 26/10 au 29/10 | JOURNAL |
 | ✅ Fait | Déploiement automatique du Worker à chaque publication (jeton Cloudflare dans GitHub) | 01/11 | JOURNAL 01/11 et 03/11 |
 | ❌ Bloqué | Facturation Google (génération d'images, de vidéos et de musique par IA) : décision d'Anthony, payant | — | mémoire DA 28/10 |

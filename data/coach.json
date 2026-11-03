@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T13:54:00.141Z",
+ "generatedAt": "2026-11-03T19:31:02.424Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -1081,15 +1081,15 @@
    },
    "Malzahar": {
     "role": null,
-    "units": 6,
+    "units": 7,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "build"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 6,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Maokai": {
     "role": null,
@@ -1597,15 +1597,16 @@
    },
    "Syndra": {
     "role": null,
-    "units": 6,
+    "units": 7,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "synergie",
+     "macro"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 6,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Tahm Kench": {
     "role": null,
@@ -1849,15 +1850,16 @@
    },
    "Vladimir": {
     "role": null,
-    "units": 7,
+    "units": 9,
     "themes": [
      "champion",
      "matchup",
-     "build"
+     "build",
+     "lane"
     ],
-    "actions": 1,
+    "actions": 3,
     "official": 6,
-    "coaching": 1
+    "coaching": 3
    },
    "Warwick": {
     "role": null,
@@ -1885,15 +1887,16 @@
    },
    "Xerath": {
     "role": null,
-    "units": 6,
+    "units": 7,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "lane",
+     "build"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 6,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Xin Zhao": {
     "role": null,
@@ -2001,19 +2004,6 @@
     ],
     "actions": 0,
     "official": 8,
-    "coaching": 0,
-    "officialOnly": true
-   },
-   "Briar": {
-    "role": null,
-    "units": 4,
-    "themes": [
-     "champion",
-     "survie",
-     "methode"
-    ],
-    "actions": 2,
-    "official": 4,
     "coaching": 0,
     "officialOnly": true
    },
@@ -2145,19 +2135,31 @@
     "official": 7,
     "coaching": 0,
     "officialOnly": true
+   },
+   "Briar": {
+    "role": null,
+    "units": 3,
+    "themes": [
+     "champion",
+     "jungle"
+    ],
+    "actions": 3,
+    "official": 3,
+    "coaching": 0,
+    "officialOnly": true
    }
   },
   "themes": {
-   "lane": 109,
-   "survie": 19,
-   "teamfight": 14,
-   "synergie": 3,
-   "matchup": 11,
+   "lane": 111,
+   "survie": 18,
+   "teamfight": 15,
+   "synergie": 4,
+   "matchup": 12,
    "methode": 32,
    "vagues": 59,
-   "vision": 21,
-   "macro": 97,
-   "jungle": 73
+   "vision": 22,
+   "macro": 99,
+   "jungle": 76
   },
   "partial": [
    "Ashe"
@@ -3014,7 +3016,14 @@
    "u-ai-wtl-3921-2",
    "u-ai-wtl-3921-3",
    "u-ai-wtl-3921-4",
-   "u-ai-yt-tlLBXLnoxV4-3"
+   "u-ai-yt-tlLBXLnoxV4-3",
+   "u-ai-yt-AcCpGeCewDM-4",
+   "u-ai-yt-AcCpGeCewDM-7",
+   "u-ai-yt-S2qIBehdJ9E-1",
+   "u-ai-yt-S2qIBehdJ9E-2",
+   "u-ai-yt-S2qIBehdJ9E-3",
+   "u-ai-yt-CYlNAFXv-No-1",
+   "u-ai-yt-CYlNAFXv-No-2"
   ]
  },
  "sources": [
@@ -7084,7 +7093,7 @@
    "published": "2026-06-24",
    "retrievedAt": "2026-10-20",
    "patch": "none",
-   "views": 9400,
+   "views": 9500,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription absente de ce cache : la vidéo sera relue.",
@@ -12567,17 +12576,17 @@
     "basis": "page officielle de Riot sur Briar, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Article officiel du 2023-08-30 : les valeurs et intentions décrites peuvent avoir changé depuis.",
-   "analyzedAt": "2026-10-24",
+   "analyzedAt": "2026-11-03",
    "analyst": "gemini-3.8-flash",
-   "unitsAccepted": 4,
+   "unitsAccepted": 3,
    "unitsRejected": 0,
    "alertes": [],
-   "learn": "Briar n'a aucune régénération passive de PV et se soigne en frappant, tandis que son kit repose sur des états de frénésie (Z et R) qu'il faut savoir gérer prudemment ou annuler (avec le E) pour éviter de mourir en overextend.",
+   "learn": "Briar est un champion de type plongeur et berserker qui ne possède pas de régénération de vie passive, se soigne par les dégâts infligés, gère sa frénésie (W) grâce à sa compétence d'arrêt (E), et engage via une compétence ultime en projectile à longue portée.",
    "quality": {
-    "level": "moyenne",
-    "why": "Article de conception officiel (Champion Insights) fournissant les règles fondamentales du kit de Briar par son designer principal (August), mais sans chiffres précis ni contexte compétitif/ranked particulier."
+    "level": "élevée",
+    "why": "Le contenu provient directement des concepteurs du jeu chez Riot Games, décrivant en détail la conception du champion, les mécaniques de ses compétences et l'intention de design."
    },
    "reanalyse": "v2"
   },
@@ -12763,8 +12772,23 @@
     "basis": "page officielle de Riot sur Naafiri, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2023-06-22 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Article officiel du 2023-06-22 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 0,
+   "alertes": [
+    {
+     "code": "rien-d-exploitable",
+     "detail": "Le contenu est un article de présentation (« Champion Insights ») purement narratif, artistique et conceptuel, sans consigne ni données de jeu."
+    }
+   ],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "L'article explique les intentions de design globales de Naafiri (créer un assassin simple et axé sur une meute) mais ne donne aucun conseil, statistique, matchup ou détail technique exploitable pour jouer."
+   }
   },
   {
    "id": "c-riot-champion-insights-nilah",
@@ -13611,12 +13635,12 @@
    "lang": "fr",
    "published": "2025-06-25",
    "retrievedAt": "2026-10-21",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.11",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "Vous voulez une séance de coaching avec Chreak en tête à tête ? C'est possible ! Deux options s'offrent à vous (70€/session de 1h15) : \nPasser par l'abonnement mensuel sur Patreon pour avoir 1 heure de coaching par mois sur ce lien : https://www.patreon.com/c/ChreakLoL\nContacter directement Chreak p",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -13628,6 +13652,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-11-03",
+    "sha256": "279019c72b4127aa14fa6db291c61053b1bae41d5b2852b776d68ccc360148f6",
+    "segments": 1,
+    "observations": 40,
+    "duration": "10:30",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 233978
+   },
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Le guide détaille comment déduire la position et le cheminement du jungler adverse (jungle tracking) en se basant sur le chronomètre des camps, l'observation des sbires tués (cs) et les événements de la carte.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu est extrêmement détaillé, structuré avec des exemples concrets tirés de parties professionnelles et de haut niveau, et pose des bases théoriques claires."
    }
   },
   {
@@ -14392,12 +14439,12 @@
    "lang": "fr",
    "published": "2026-02-08",
    "retrievedAt": "2026-10-21",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.18",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "Vous voulez une séance de coaching avec Chreak en tête à tête ? C'est possible ! Deux options s'offrent à vous (70€/session de 1h15) : \nPasser par l'abonnement mensuel sur Patreon pour avoir 1 heure de coaching par mois sur ce lien : https://www.patreon.com/c/ChreakLoL\nContacter directement Chreak p",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -14409,7 +14456,30 @@
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 71
+   "queueRank": 71,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-11-03",
+    "sha256": "71e63149d58f31b8bf6c8a2ff5f6b854a63bffce9f6c21290fc48b674cfdd5b7",
+    "segments": 86,
+    "observations": 40,
+    "duration": "15:19",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 100850
+   },
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "La tempo est un avantage de timing qui permet de contrôler le jeu en agissant plus tôt que son adversaire, notamment en gérant les vagues de sbires, les rappels et les timings d'objectifs.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu structure de manière très pédagogique un concept macroscopique complexe (la tempo), en l'illustrant par des exemples précis, des métaphores claires et une analyse de fin de partie professionnelle."
+   }
   },
   {
    "id": "c-yt-hXYwDd0rMFY",
@@ -15468,7 +15538,7 @@
    "published": "2026-10-19",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 9700,
+   "views": 9800,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -15759,7 +15829,7 @@
    "published": "2026-10-16",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 31000,
+   "views": 32000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17539,7 +17609,7 @@
    "published": "2026-09-03",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 9300,
+   "views": 9400,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17798,7 +17868,7 @@
    "published": "2026-09-04",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 39000,
+   "views": 40000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -17832,7 +17902,7 @@
    "published": "2026-08-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 36000,
+   "views": 37000,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Écarté : contenu jugé de faible qualité (Le contenu traite d'un champion personnalisé ou non officiel (Yunara) qui ne fait pas partie du jeu officiel League of Legends, rendant les informations inexploitables pour le coach MINDIFF.).",
@@ -19556,7 +19626,7 @@
    "published": "2026-03-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 650,
+   "views": 655,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19642,7 +19712,7 @@
    "patch": null,
    "views": 637,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "note": "Lue par gemini-3.5-flash-lite : transcription et 16 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "Subscribe to the channel, like the video and leave a comment ;)\n\nIf you're interested in my personal coaching:\nhttps://www.fiverr.com/kyanleague/coach-you-in-league-of-legends\n\nIf you're interested in seeing me live: \nhttps://www.twitch.tv/mynameiskyan",
    "triage": {
@@ -19671,6 +19741,16 @@
     "videoKind": "analyse-de-partie",
     "gameplayShown": true,
     "tokens": 150162
+   },
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Comment adapter son équipement (Bouclier de Doran, runes défensives) et ses choix de bottes (Célérité) pour survivre au poke et farmer avec Vladimir.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Vidéo de gameplay commentée avec des choix d'objets et de runes explicités, mais sur une seule partie en bas/moyen élo."
    }
   },
   {
@@ -19742,9 +19822,9 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "views": 55000,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.5-flash-lite le 2026-10-27 : transcription réutilisée depuis le cache de cet ordinateur.",
    "descriptionExcerpt": "🚨  Check out Instant Gaming : https://www.instant-gaming.com/en/?igr=POTENT\n\nclipbox-UZRZCUKT\n\nThank you for watching, BAAAAA ur the goat🐐\n\n►Stream: https://www.twitch.tv/potent213 \n►Discord: https://discord.gg/s3DxmwZrH6\n►Fiora Guide: https://www.mobafire.com/league-of-legends",
    "triage": {
     "score": 5,
@@ -19760,7 +19840,15 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 69
+   "queueRank": 69,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-10-27",
+    "duration": "19:54",
+    "reused": true
+   }
   },
   {
    "id": "c-yt-KlxfrJiUtQw",
@@ -20060,7 +20148,7 @@
    "published": "2026-10-13",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 7600,
+   "views": 7700,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3-flash-preview le 2026-10-31 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -21288,7 +21376,7 @@
    "published": "2026-10-23",
    "retrievedAt": "2026-10-23",
    "patch": null,
-   "views": 9000,
+   "views": 9100,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -22520,7 +22608,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 9700,
+   "views": 9800,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -22691,12 +22779,12 @@
    "published": null,
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 70,
-   "note": "File de lecture (rang 31) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview le 2026-10-27 : transcription réutilisée depuis le cache de cet ordinateur.",
    "triage": {
     "score": 16,
     "matched": [
@@ -22705,6 +22793,33 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-10-27",
+    "duration": "15:35",
+    "reused": true
+   },
+   "analyzedAt": "2026-11-03",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 5,
+   "alertes": [
+    {
+     "code": "traduction",
+     "detail": "Les noms de runes et d'objets ont été traduits vers leurs équivalents officiels français (Jack of All Trades -> Touche-à-tout, Sundered Sky -> Ciel éventré, etc.)."
+    },
+    {
+     "code": "autre",
+     "detail": "Le contenu date du patch 14.12, ce qui est significativement plus ancien que le patch courant 26.21. Les conseils sur l'équilibrage des runes (Jack of All Trades) sont fortement méta-dépendants."
+    }
+   ],
+   "learn": "Ce contenu enseigne comment utiliser les fondamentaux de la top lane (proxy, tempo, gestion des vagues) pour porter une partie avec Riven, tout en optimisant l'itemisation avec la rune Touche-à-tout et en gérant des matchups spécifiques comme Anivia ou Aatrox.",
+   "quality": {
+    "level": "élevée",
+    "why": "AloisNL fournit des explications détaillées sur ses décisions en temps réel, incluant des données chiffrées sur l'or des vagues, les timings de plantes et des mécaniques de matchup précises."
    }
   },
   {
@@ -24077,7 +24192,7 @@
    "published": "2026-10-28",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 7900,
+   "views": 8000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24342,7 +24457,7 @@
    "published": "2026-10-27",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 9000,
+   "views": 9200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24370,7 +24485,7 @@
    "published": "2026-10-28",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 7800,
+   "views": 8000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -24399,7 +24514,7 @@
    "published": "2026-10-27",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 461,
+   "views": 474,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25002,7 +25117,7 @@
    "published": "2026-10-29",
    "retrievedAt": "2026-10-30",
    "patch": null,
-   "views": 10000,
+   "views": 11000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25038,7 +25153,7 @@
    "published": "2026-10-29",
    "retrievedAt": "2026-10-30",
    "patch": null,
-   "views": 8300,
+   "views": 8400,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25494,7 +25609,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 15000,
+   "views": 17000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25867,7 +25982,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 7600,
+   "views": 8700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25894,7 +26009,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 8300,
+   "views": 8600,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26113,7 +26228,7 @@
    "ageMonths": 1,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 29000,
+   "views": 30000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26362,7 +26477,7 @@
    "ageMonths": 4,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 5800,
+   "views": 5900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26521,7 +26636,7 @@
    "ageMonths": 2,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 270,
+   "views": 272,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26548,7 +26663,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 4100,
+   "views": 4200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26661,7 +26776,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 301,
+   "views": 306,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26715,7 +26830,7 @@
    "ageMonths": 0.3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 11,
+   "views": 12,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26771,7 +26886,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 17000,
+   "views": 18000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26887,7 +27002,7 @@
    "ageMonths": 5,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 4100,
+   "views": 4200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26943,7 +27058,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 4100,
+   "views": 4300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27289,7 +27404,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 2800,
+   "views": 2900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27811,7 +27926,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 8900,
+   "views": 9700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28041,7 +28156,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 13000,
+   "views": 16000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28067,7 +28182,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 8900,
+   "views": 11000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28093,7 +28208,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 4000,
+   "views": 5900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28120,7 +28235,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 17,
+   "views": 1900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28149,7 +28264,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-03",
    "patch": null,
-   "views": 12000,
+   "views": 17000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28239,6 +28354,115 @@
     "matched": [
      "how to"
     ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-u4gJBwX8Iyc",
+   "sourceId": "yt-hybradge",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=u4gJBwX8Iyc",
+   "title": "The 3 Losing Lane Jungle Guide – Analysis On How to Play From Behind As a Jungler",
+   "author": "hybradge",
+   "lang": "en",
+   "published": null,
+   "ageMonths": 0,
+   "retrievedAt": "2026-11-03",
+   "patch": null,
+   "views": 144,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "triage": {
+    "score": 6,
+    "matched": [
+     "jungle",
+     "jungler",
+     "guide",
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-WH-g3x8FPq4",
+   "sourceId": "yt-mysteriaslol",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=WH-g3x8FPq4",
+   "title": "The KEY to Climbing on Mid Lane Explained",
+   "author": "Mysteriaslol",
+   "lang": "en",
+   "published": null,
+   "ageMonths": 0,
+   "retrievedAt": "2026-11-03",
+   "patch": null,
+   "views": 714,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "triage": {
+    "score": 5,
+    "matched": [
+     "mid",
+     "explained",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-czqFQrKahx0",
+   "sourceId": "yt-bizyze-coaching-league-of-le",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=czqFQrKahx0",
+   "title": "Your Wave Management Is Costing You LP: Why Your Recalls Are Always Wrong",
+   "author": "BIZYZE Coaching | League of Legends",
+   "lang": "fr",
+   "published": null,
+   "retrievedAt": "2026-11-03",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 78,
+   "note": "File de lecture (rang 78) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "wave"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-k36kZ-RTtac",
+   "sourceId": "yt-cq2-jrbuz4",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=k36kZ-RTtac",
+   "title": "나피리 강의영상찍던중 15분서렌판 레전드한타로 역전한판",
+   "author": "챌린저 정글블루리쉬",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-11-03",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 79,
+   "note": "File de lecture (rang 79) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -61431,233 +61655,6 @@
    }
   },
   {
-   "id": "u-ai-riot-champion-insights-briar-1",
-   "claim": "Briar ne possède pas de régénération passive de points de vie : elle se soigne uniquement en infligeant des dégâts ou en consommant du sang sur des sbires ou champions, et son auto-guérison augmente à mesure que ses points de vie diminuent.",
-   "champions": [
-    "Briar"
-   ],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "champion",
-    "survie"
-   ],
-   "context": {
-    "queue": "tous",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": false
-   },
-   "metaDependent": false,
-   "conditions": [
-    "Infliger des dégâts ou consommer du sang sur des sbires ou champions"
-   ],
-   "limits": [
-    "Briar ne bénéficie d'aucune régénération de PV passive naturelle en dehors des soins par dégâts."
-   ],
-   "nature": "officiel",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-riot-champion-insights-briar",
-     "locator": "Unholy Diver",
-     "lang": "en",
-     "passage": "Briar also needs to feed, as she has no passive health regen. She only heals when she does damage (or consumes blood) to minions or champions. The lower Briar’s HP, the hangrier she gets. So watch out, because that also means her self-healing is increased."
-    }
-   ],
-   "mentions": [],
-   "published": "2023-08-30",
-   "analyzedAt": "2026-10-24",
-   "status": "provisoire",
-   "lifespan": "meta",
-   "review": {
-    "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
-  },
-  {
-   "id": "u-ai-riot-champion-insights-briar-2",
-   "claim": "La compétence E de Briar sert à interrompre son état de frénésie (Z - Coup de folie) afin de reprendre le contrôle de son champion et d'éviter les overextensions mortelles.",
-   "champions": [
-    "Briar"
-   ],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "champion",
-    "survie"
-   ],
-   "context": {
-    "queue": "tous",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": false
-   },
-   "metaDependent": false,
-   "conditions": [
-    "Activer le E pendant l'état de frénésie du Z"
-   ],
-   "limits": [],
-   "nature": "officiel",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-riot-champion-insights-briar",
-     "locator": "Unholy Diver",
-     "lang": "en",
-     "passage": "With Briar’s E, the team quickly realized she needed some kind of off-button for her W (Blood Frenzy) so that she had some more control over her fights. That way, every time a player popped her W she wasn’t obligated to commit to the full rampage and overextend."
-    }
-   ],
-   "mentions": [],
-   "action": "Utiliser la compétence E pour annuler la frénésie du Z lorsqu'un engagement devient trop risqué ou entraîne un overextend.",
-   "observe": "L'interruption immédiate de la perte de contrôle et de la course effrénée du Z lors de l'activation du E.",
-   "published": "2023-08-30",
-   "analyzedAt": "2026-10-24",
-   "status": "provisoire",
-   "lifespan": "meta",
-   "review": {
-    "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
-  },
-  {
-   "id": "u-ai-riot-champion-insights-briar-3",
-   "claim": "L'ultime de Briar projette un skillshot à portée quasi globale qui la propulse obligatoirement sur le premier champion ennemi touché.",
-   "champions": [
-    "Briar"
-   ],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "champion"
-   ],
-   "context": {
-    "queue": "tous",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": false
-   },
-   "metaDependent": false,
-   "conditions": [
-    "Toucher un champion adverse avec le projectile de l'ultime"
-   ],
-   "limits": [
-    "Peut être esquivé car il s'agit d'un skillshot en ligne droite ; le dash vers la cible est garanti et automatique à l'impact."
-   ],
-   "nature": "officiel",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-riot-champion-insights-briar",
-     "locator": "Unholy Diver",
-     "lang": "en",
-     "passage": "August and the team eventually landed on the current form of the ult—a projectile skillshot that causes Briar to immediately rush to the first champion it hits."
-    },
-    {
-     "content": "c-riot-champion-insights-briar",
-     "locator": "Unholy Diver",
-     "lang": "en",
-     "passage": "initially, this projectile only had 1000 range. But the team thought that since it was a skillshot, could be dodged like a projectile, and was a guaranteed dive when it landed, there would be enough counterplay to give the projectile nearly global range."
-    }
-   ],
-   "mentions": [],
-   "published": "2023-08-30",
-   "analyzedAt": "2026-10-24",
-   "status": "provisoire",
-   "lifespan": "meta",
-   "review": {
-    "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
-    },
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
-  },
-  {
-   "id": "u-ai-riot-champion-insights-briar-4",
-   "claim": "La maîtrise de Briar repose sur une gestion rigoureuse de ses états de frénésie (Z et ultime), une mauvaise décision risquant d'entraîner une perte de contrôle et une mort évitable.",
-   "champions": [
-    "Briar"
-   ],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "champion",
-    "methode"
-   ],
-   "context": {
-    "queue": "tous",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": false
-   },
-   "metaDependent": false,
-   "limits": [],
-   "nature": "officiel",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-riot-champion-insights-briar",
-     "locator": "Unholy Diver",
-     "lang": "en",
-     "passage": "The best Briar players will be the ones who learn how to manage her frenzy state because she can easily get herself killed with her W and her ultimate if she isn’t careful."
-    }
-   ],
-   "mentions": [
-    "Naafiri (exemple)",
-    "Aatrox (exemple)",
-    "Swain (exemple)",
-    "Sion (exemple)"
-   ],
-   "action": "Évaluer la position des ennemis et les sorties de secours avant de déclencher le Z ou l'ultime pour ne pas s'enfermer dans un plongeon fatal.",
-   "observe": "",
-   "published": "2023-08-30",
-   "analyzedAt": "2026-10-24",
-   "status": "provisoire",
-   "lifespan": "meta",
-   "review": {
-    "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
-  },
-  {
    "id": "u-cl-dignitas-track-jungler-1",
    "context": {
     "queue": "solo",
@@ -89272,6 +89269,885 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-AcCpGeCewDM-4",
+   "claim": "Selon AloisNL : dans une composition d'équipe avec un seul champion AP (Solo AP), il est préférable de lui laisser les éliminations pour qu'il reste une menace majeure contre les adversaires qui achètent de l'armure.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "synergie",
+    "macro"
+   ],
+   "synergy": {
+    "with": [
+     "Syndra"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "L'équipe adverse achète massivement de l'armure (ex: Tabis/Coques en acier)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-AcCpGeCewDM",
+     "locator": "07:29",
+     "lang": "en",
+     "passage": "Syndra is our solo AP in this draft, so Syndra getting the triple kill there is genuinely the best outcome we could have. Whenever you have a solo AP in your draft just give them all the kills.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-03",
+      "window": "429-489s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Syndra (exemple)"
+   ],
+   "action": "Laisser le dernier coup sur les champions ennemis au membre Solo AP de l'équipe si possible.",
+   "observe": "Vérifier si le champion AP parvient à punir l'absence de résistance magique adverse.",
+   "use": {
+    "when": "Ton équipe est composée de 4 champions AD et 1 champion AP.",
+    "why": "Si le seul champion AP est très en avance, l'équipe adverse ne peut pas se contenter d'acheter uniquement de l'armure, ce qui protège l'efficacité de tes propres dégâts AD.",
+    "who": "Toute l'équipe dans une draft asymétrique (Full AD + 1 AP).",
+    "how": [
+     "Identifier le seul champion AP de l'équipe",
+     "Lui laisser les kills lors des skirmishs",
+     "Le protéger pour qu'il puisse appliquer ses dégâts"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-03",
+   "status": "exploitable",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-AcCpGeCewDM-7",
+   "claim": "Selon AloisNL : contre Malzahar, l'achat d'un Cimeterre mercuriel (QSS) est indispensable pour annuler son ult, surtout si tu es la cible principale des contrôles adverses.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "build",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Malzahar"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.12"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Malzahar utilise son ultime sur toi"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-AcCpGeCewDM",
+     "locator": "11:32",
+     "lang": "en",
+     "passage": "I have QSS... I died during the cast of Malzahar ultimate with Lee Sin there, he just one-shot me.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "672-732s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter une Ceinture de mercure (QSS) dès que les combats d'équipe commencent contre Malzahar.",
+   "observe": "Vérifier si tu peux sortir instantanément de la suppression de Malzahar.",
+   "use": {
+    "when": "Malzahar te cible avec son ult (Poigne du néant).",
+    "why": "Sans QSS, l'ult de Malzahar te neutralise totalement pendant plusieurs secondes, permettant à son équipe de t'éliminer sans réaction possible.",
+    "who": "Carry ou initiateur ciblé par Malzahar.",
+    "how": [
+     "Acheter la Ceinture de mercure",
+     "Attendre que Malzahar lance son R",
+     "Activer l'item immédiatement pour briser la suppression"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de date inconnue (patch 14.12) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-AcCpGeCewDM : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-S2qIBehdJ9E-1",
+   "claim": "Selon Chreak : la tempo est un avantage de timing qui consiste à être à un endroit plus tôt ou à faire une action plus vite que son adversaire, ce qui offre plus d'options sur la carte et un meilleur contrôle.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.18"
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-S2qIBehdJ9E",
+     "locator": "00:51",
+     "lang": "fr",
+     "passage": "La tempo c'est un avantage de timing. En gros, c'est être à un endroit plus tôt ou faire une action plus vite que ton adversaire et en ce faisant, cela t'offre plus d'options sur la carte et un meilleur contrôle pendant un moment défini.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "31-91s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "",
+    "why": "Être en avance sur le rythme de la partie permet de contrôler le jeu, tandis qu'être en retard amène à subir.",
+    "who": "tous les postes",
+    "how": [],
+    "notWhen": ""
+   },
+   "published": "2026-02-08",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-S2qIBehdJ9E : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    },
+    {
+     "code": "contexte-manquant",
+     "why": "Aucune situation de partie reconnaissable : ce n'est pas une consigne applicable."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-S2qIBehdJ9E-2",
+   "claim": "Selon Chreak : pour un objectif neutre comme le dragon ou le nashor, il faut arriver environ 45 secondes avant son apparition pour commencer la phase de vision, de positionnement, de poke et de catch.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vision",
+    "macro",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.18"
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-S2qIBehdJ9E",
+     "locator": "06:04",
+     "lang": "fr",
+     "passage": "il faut arriver 45 secondes environ avant son spawn pour commencer la guerre de vision, de position, de poke et de catch autour de l'objectif.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "344-404s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Arriver 45 secondes avant l'apparition d'un objectif neutre pour poser de la vision et positionner son équipe.",
+   "observe": "",
+   "use": {
+    "when": "un objectif neutre (dragon, nashor) va bientôt apparaître sur la carte",
+    "why": "Pour mener la guerre de vision, de position, de poke et de catch autour de l'objectif.",
+    "who": "tous les postes",
+    "how": [
+     "Se déplacer vers l'objectif 45 secondes avant son apparition",
+     "Poser de la vision et éliminer la vision ennemie",
+     "Prendre position pour le poke ou le catch"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-02-08",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-S2qIBehdJ9E : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-S2qIBehdJ9E-3",
+   "claim": "Selon Chreak : erreur fréquente : rester pour tuer une wave ou gourmander des plaques de tourelle dans un mauvais timing, ce qui ruine la tempo et permet à l'adversaire de récupérer l'avantage pendant l'absence. L'auteur conseille de faire un back au bon moment.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.18"
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-S2qIBehdJ9E",
+     "locator": "09:16",
+     "lang": "fr",
+     "passage": "Tuer ton adversaire c'est génial mais greed une plate ou deux dans les mauvais timings c'est ignoble parce que soit tu vas avoir un horrible back après ou soit tu vas carrément mourir mais dans les deux cas, tout ce que tu as gagné en plate, ton adversaire va récupérer en double pendant ton absence.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "536-596s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Effectuer son rappel (recall) immédiatement après un kill ou une rotation au lieu de rester pour prendre une vague ou des plaques supplémentaires.",
+   "observe": "",
+   "use": {
+    "when": "tu viens de tuer ton vis-à-vis ou de finir une rotation en lane",
+    "why": "Pour éviter d'avoir un mauvais timing de back et de perdre tout l'avantage gagné pendant ton absence.",
+    "who": "tous les laners",
+    "how": [
+     "Identifier la fin de l'action ou du kill",
+     "Ne pas greed de plaques ou de sbires supplémentaires",
+     "Appuyer sur la touche de back pour revenir en boutique et sur sa lane en même temps ou avant son adversaire"
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-02-08",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-S2qIBehdJ9E : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-AvFYRJDv_6U-1",
+   "claim": "Selon Kyan : contre un champion à distance comme Xerath, Vladimir peut choisir d'opter pour le Bouclier de Doran, Second Souffle et Revitalisation pour encaisser le poke et se contenter de farmer pour scale.",
+   "champions": [
+    "Vladimir"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "build",
+    "champion"
+   ],
+   "matchup": {
+    "vs": "Xerath"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "face à un matchup de poke ennuyeux comme Xerath"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-AvFYRJDv_6U",
+     "locator": "[01:27]",
+     "lang": "en",
+     "passage": "But we have good set up. We have revitalize, we have second wind, we have D shield.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "67-127s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-AvFYRJDv_6U",
+     "locator": "[01:45]",
+     "lang": "en",
+     "passage": "If I can, I will legit just try to scale my way through this match up. And kind of avoid fighting him altogether."
+    }
+   ],
+   "mentions": [
+    "Xerath (exemple)"
+   ],
+   "action": "Prendre Bouclier de Doran, Second Souffle et Revitalisation face à un mage de poke pour farmer tranquillement.",
+   "observe": "La tenue de ligne et la régénération passive face au poke adverse.",
+   "use": {
+    "when": "tu es en phase de laning face à un adversaire qui peut te poke de loin à distance.",
+    "why": "pour compenser les dégâts de poke, survivre facilement et outscale l'adversaire plus tard sans prendre de risques.",
+    "who": "Vladimir",
+    "how": [
+     "Sélectionner le Bouclier de Doran à l'achat.",
+     "Prendre les runes Second Souffle et Revitalisation dans ton arborescence.",
+     "Éviter les combats directs et prioriser le farm pour power spike en fin de partie."
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-09-11",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2025 : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-AvFYRJDv_6U : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-AvFYRJDv_6U publié le 2025-09-11 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-AvFYRJDv_6U : lu par gemini-3.5-flash-lite (1 image/s) ; passage à vérifier sur la vidéo ([01:45])."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-AvFYRJDv_6U publié le 2025-09-11 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "traduction",
+     "why": "Terme à risque (shield) dans un passage en en sans note de traduction."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-AvFYRJDv_6U-2",
+   "claim": "Selon Kyan : l'auteur apprécie l'achat des Bottes de célérité sur Vladimir dans certaines parties pour se déplacer très rapidement sur la carte.",
+   "champions": [
+    "Vladimir"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "selon les parties"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-AvFYRJDv_6U",
+     "locator": "[07:38]",
+     "lang": "en",
+     "passage": "I want like I've been going Swifties lately in a couple of games with Vladimir and I've really been enjoying it.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "438-498s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter les Bottes de célérité pour augmenter sa mobilité globale sur la carte.",
+   "observe": "La vitesse de déplacement accrue pour rejoindre les objectifs et réagir aux vagues.",
+   "use": {
+    "when": "tu équipes tes bottes de tier 2 sur Vladimir et tu souhaites maximiser ta mobilité.",
+    "why": "pour profiter d'une excellente vitesse de déplacement permettant de se déplacer rapidement sur la carte.",
+    "who": "Vladimir",
+    "how": [
+     "Acheter les Bottes de célérité pendant la phase de construction des items."
+    ],
+    "notWhen": ""
+   },
+   "published": "2025-09-11",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2025 : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-AvFYRJDv_6U : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-AvFYRJDv_6U publié le 2025-09-11 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-CYlNAFXv-No-1",
+   "claim": "Le temps de réapparition d'un camp de jungle est de 2 minutes et 15 secondes. Le premier camp apparaît à 1 minute 30, sauf pour le Gromp et les Golems qui apparaissent à 1 minute 42.",
+   "champions": [],
+   "roles": [
+    "jungle",
+    "all"
+   ],
+   "themes": [
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.11"
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-CYlNAFXv-No",
+     "locator": "02:59",
+     "lang": "fr",
+     "passage": "Le temps de respawn d'un camp est de 2 minutes 15. Et le premier camp spawn à 1 minute 30. Sauf pour le Gromp et les Golems qui spawn à 1 minute 42.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "159-219s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "",
+    "why": "",
+    "who": "les junglers",
+    "how": [],
+    "notWhen": ""
+   },
+   "published": "2025-06-25",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "systeme",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-CYlNAFXv-No : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-CYlNAFXv-No publié le 2025-06-25 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "contexte-manquant",
+     "why": "Aucune situation de partie reconnaissable : ce n'est pas une consigne applicable."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-CYlNAFXv-No-2",
+   "claim": "Chaque camp de la jungle rapporte exactement 4 pièces d'or et d'expérience (comptabilisées en 4 cs) lorsqu'il est entièrement nettoyé.",
+   "champions": [],
+   "roles": [
+    "jungle",
+    "all"
+   ],
+   "themes": [
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-CYlNAFXv-No",
+     "locator": "04:48",
+     "lang": "fr",
+     "passage": "chaque camp de la jungle vaut 4 cs quand il est pleinement complété.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "268-328s",
+      "said": true,
+      "supported": false,
+      "gap": "Le conseil confond les cs (compte de sbires/monstres) avec de l'or et de l'expérience, alors que l'extrait indique uniquement que chaque camp vaut 4 cs."
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "",
+    "why": "",
+    "who": "les joueurs souhaitant tracker le jungler adverse",
+    "how": [],
+    "notWhen": ""
+   },
+   "published": "2025-06-25",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "systeme",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "sur-generalisation",
+     "why": "c-yt-CYlNAFXv-No : l'extrait 268-328s ne dit pas exactement cela (Le conseil confond les cs (compte de sbires/monstres) avec de l'or et de l'expérience, alors que l'extrait indique uniquement que chaque camp vaut 4 cs.)."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-CYlNAFXv-No publié le 2025-06-25 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "contexte-manquant",
+     "why": "Aucune situation de partie reconnaissable : ce n'est pas une consigne applicable."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-1",
+   "claim": "Briar n'a pas de régénération de points de vie passive et ne récupère de la vie qu'en infligeant des dégâts ou en consommant du sang sur les sbires ou les champions.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "Briar also needs to feed, as she has no passive health regen. She only heals when she does damage (or consumes blood) to minions or champions."
+    }
+   ],
+   "mentions": [],
+   "action": "Gérer les PV de Briar en attaque et s'assurer de frapper des sbires ou champions pour se soigner en l'absence de régénération passive.",
+   "observe": "Le compteur de PV et le soin au contact lors des attaques sous passif.",
+   "use": {
+    "when": "tu joues Briar et tu cherches à récupérer de la vie pendant tes combats ou ton nettoyage de jungle",
+    "why": "elle n'a pas de régénération de vie passive et dépend de ses dégâts infligés",
+    "who": "Briar",
+    "how": [
+     "Infliger des dégâts ou consommer du sang sur des sbires ou des champions",
+     "Surveiller le niveau de santé qui augmente la faim et le soin personnel"
+    ],
+    "notWhen": ""
+   },
+   "published": "2023-08-30",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-2",
+   "claim": "La compétence E de Briar sert de bouton d'arrêt d'urgence pour interrompre son état de frénésie de la compétence W et éviter d'aller trop loin.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "With Briar’s E, the team quickly realized she needed some kind of off-button for her W (Blood Frenzy) so that she had some more control over her fights."
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser le E de Briar pour stopper le W si le combat tourne mal.",
+   "observe": "L'interruption de la ruée frénétique lors de l'activation du E.",
+   "use": {
+    "when": "tu es en état de frénésie avec le W de Briar et tu risques de t'engager trop loin ou de mourir",
+    "why": "le E offre un moyen de contrôle pour ne pas s'engager aveuglément",
+    "who": "Briar",
+    "how": [
+     "Activer la compétence E pour couper l'effet de frénésie du W"
+    ],
+    "notWhen": ""
+   },
+   "published": "2023-08-30",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-3",
+   "claim": "L'ultime de Briar est un projectile tiré en compétence visée qui provoque une ruée immédiate vers le premier champion touché.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "August and the team eventually landed on the current form of the ult—a projectile skillshot that causes Briar to immediately rush to the first champion it hits."
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer l'ultime de Briar sur un adversaire pour foncer directement sur lui.",
+   "observe": "Le départ du projectile et la ruée vers la cible touchée.",
+   "use": {
+    "when": "tu souhaites engager un combat à distance avec Briar",
+    "why": "l'ultime permet une approche directe et rapide sur le premier champion touché",
+    "who": "Briar",
+    "how": [
+     "Viser un champion adverse avec l'ultime",
+     "Se préparer à engager la cible atteinte"
+    ],
+    "notWhen": ""
+   },
+   "published": "2023-08-30",
+   "analyzedAt": "2026-11-03",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
     }
    ]
   }

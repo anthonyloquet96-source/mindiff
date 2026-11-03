@@ -47979,288 +47979,6 @@
    "firstSeen": "2026-10-23"
   },
   {
-   "id": "u-ai-riot-champion-insights-briar-1",
-   "claim": "Briar ne possède pas de régénération passive de points de vie : elle se soigne uniquement en infligeant des dégâts ou en consommant du sang sur des sbires ou champions, et son auto-guérison augmente à mesure que ses points de vie diminuent.",
-   "champions": [
-    "Briar"
-   ],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "champion",
-    "survie"
-   ],
-   "context": {
-    "queue": "tous",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": false
-   },
-   "metaDependent": false,
-   "dependsOn": [
-    "Briar/passive"
-   ],
-   "conditions": [
-    "Infliger des dégâts ou consommer du sang sur des sbires ou champions"
-   ],
-   "limits": [
-    "Briar ne bénéficie d'aucune régénération de PV passive naturelle en dehors des soins par dégâts."
-   ],
-   "nature": "officiel",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-riot-champion-insights-briar",
-     "locator": "Unholy Diver",
-     "lang": "en",
-     "passage": "Briar also needs to feed, as she has no passive health regen. She only heals when she does damage (or consumes blood) to minions or champions. The lower Briar’s HP, the hangrier she gets. So watch out, because that also means her self-healing is increased."
-    }
-   ],
-   "mentions": [],
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [],
-    "why": "Le passage cité confirme explicitement l'absence de régénération passive de PV et le mécanisme d'auto-guérison croissante selon les PV manquants."
-   },
-   "published": "2023-08-30",
-   "proposedStatus": "exploitable",
-   "analyst": "gemini-3.8-flash (extraction v1 + critique v1)",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v1",
-    "critique": "v1"
-   },
-   "analyzedAt": "2026-10-24",
-   "validity": {
-    "checkedAt": "2026-10-24",
-    "checkedPatch": "26.21"
-   },
-   "verified": {
-    "at": "2026-10-24",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-24"
-  },
-  {
-   "id": "u-ai-riot-champion-insights-briar-2",
-   "claim": "La compétence E de Briar sert à interrompre son état de frénésie (Z - Coup de folie) afin de reprendre le contrôle de son champion et d'éviter les overextensions mortelles.",
-   "champions": [
-    "Briar"
-   ],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "champion",
-    "survie"
-   ],
-   "context": {
-    "queue": "tous",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": false
-   },
-   "metaDependent": false,
-   "dependsOn": [
-    "Briar/W",
-    "Briar/E"
-   ],
-   "conditions": [
-    "Activer le E pendant l'état de frénésie du Z"
-   ],
-   "limits": [],
-   "nature": "officiel",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-riot-champion-insights-briar",
-     "locator": "Unholy Diver",
-     "lang": "en",
-     "passage": "With Briar’s E, the team quickly realized she needed some kind of off-button for her W (Blood Frenzy) so that she had some more control over her fights. That way, every time a player popped her W she wasn’t obligated to commit to the full rampage and overextend."
-    }
-   ],
-   "mentions": [],
-   "action": "Utiliser la compétence E pour annuler la frénésie du Z lorsqu'un engagement devient trop risqué ou entraîne un overextend.",
-   "observe": "L'interruption immédiate de la perte de contrôle et de la course effrénée du Z lors de l'activation du E.",
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [],
-    "why": "Le passage du concepteur confirme fidèlement que la compétence E a été conçue comme un bouton d'arrêt pour le Z afin de maîtriser l'overextension."
-   },
-   "published": "2023-08-30",
-   "proposedStatus": "exploitable",
-   "analyst": "gemini-3.8-flash (extraction v1 + critique v1)",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v1",
-    "critique": "v1"
-   },
-   "analyzedAt": "2026-10-24",
-   "validity": {
-    "checkedAt": "2026-10-24",
-    "checkedPatch": "26.21"
-   },
-   "verified": {
-    "at": "2026-10-24",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-24"
-  },
-  {
-   "id": "u-ai-riot-champion-insights-briar-3",
-   "claim": "L'ultime de Briar projette un skillshot à portée quasi globale qui la propulse obligatoirement sur le premier champion ennemi touché.",
-   "champions": [
-    "Briar"
-   ],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "champion"
-   ],
-   "context": {
-    "queue": "tous",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": false
-   },
-   "metaDependent": false,
-   "dependsOn": [
-    "Briar/R"
-   ],
-   "conditions": [
-    "Toucher un champion adverse avec le projectile de l'ultime"
-   ],
-   "limits": [
-    "Peut être esquivé car il s'agit d'un skillshot en ligne droite ; le dash vers la cible est garanti et automatique à l'impact."
-   ],
-   "nature": "officiel",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-riot-champion-insights-briar",
-     "locator": "Unholy Diver",
-     "lang": "en",
-     "passage": "August and the team eventually landed on the current form of the ult—a projectile skillshot that causes Briar to immediately rush to the first champion it hits."
-    },
-    {
-     "content": "c-riot-champion-insights-briar",
-     "locator": "Unholy Diver",
-     "lang": "en",
-     "passage": "initially, this projectile only had 1000 range. But the team thought that since it was a skillshot, could be dodged like a projectile, and was a guaranteed dive when it landed, there would be enough counterplay to give the projectile nearly global range."
-    }
-   ],
-   "mentions": [],
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [],
-    "why": "Le texte officiel d'introduction décrit directement la portée quasi globale du skillshot et la ruée automatique sur le premier champion touché."
-   },
-   "published": "2023-08-30",
-   "proposedStatus": "exploitable",
-   "analyst": "gemini-3.8-flash (extraction v1 + critique v1)",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v1",
-    "critique": "v1"
-   },
-   "analyzedAt": "2026-10-24",
-   "validity": {
-    "checkedAt": "2026-10-24",
-    "checkedPatch": "26.21"
-   },
-   "verified": {
-    "at": "2026-10-24",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-24"
-  },
-  {
-   "id": "u-ai-riot-champion-insights-briar-4",
-   "claim": "La maîtrise de Briar repose sur une gestion rigoureuse de ses états de frénésie (Z et ultime), une mauvaise décision risquant d'entraîner une perte de contrôle et une mort évitable.",
-   "champions": [
-    "Briar"
-   ],
-   "roles": [
-    "jungle"
-   ],
-   "themes": [
-    "champion",
-    "methode"
-   ],
-   "context": {
-    "queue": "tous",
-    "rank": "non précisé",
-    "region": "non précisé"
-   },
-   "patch": {
-    "known": false
-   },
-   "metaDependent": false,
-   "dependsOn": [
-    "Briar/W",
-    "Briar/R"
-   ],
-   "conditions": [],
-   "limits": [],
-   "nature": "officiel",
-   "levelContext": "non-precise",
-   "usage": "reference",
-   "evidence": [
-    {
-     "content": "c-riot-champion-insights-briar",
-     "locator": "Unholy Diver",
-     "lang": "en",
-     "passage": "The best Briar players will be the ones who learn how to manage her frenzy state because she can easily get herself killed with her W and her ultimate if she isn’t careful."
-    }
-   ],
-   "mentions": [
-    "Naafiri (exemple)",
-    "Aatrox (exemple)",
-    "Swain (exemple)",
-    "Sion (exemple)"
-   ],
-   "action": "Évaluer la position des ennemis et les sorties de secours avant de déclencher le Z ou l'ultime pour ne pas s'enfermer dans un plongeon fatal.",
-   "observe": "",
-   "aiReview": {
-    "verdict": "garder",
-    "flags": [],
-    "why": "Le passage cite textuellement la nécessité de gérer l'état de frénésie (Z et R) pour éviter de mourir bêtement en combat."
-   },
-   "published": "2023-08-30",
-   "proposedStatus": "exploitable",
-   "analyst": "gemini-3.8-flash (extraction v1 + critique v1)",
-   "origin": "analyse-automatique",
-   "promptVersions": {
-    "extraction": "v1",
-    "critique": "v1"
-   },
-   "analyzedAt": "2026-10-24",
-   "validity": {
-    "checkedAt": "2026-10-24",
-    "checkedPatch": "26.21"
-   },
-   "verified": {
-    "at": "2026-10-24",
-    "passages": true
-   },
-   "version": 1,
-   "firstSeen": "2026-10-24"
-  },
-  {
    "id": "u-cl-dignitas-track-jungler-1",
    "context": {
     "queue": "solo",
@@ -78489,7 +78207,991 @@
    },
    "version": 1,
    "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-yt-AcCpGeCewDM-4",
+   "claim": "Selon AloisNL : dans une composition d'équipe avec un seul champion AP (Solo AP), il est préférable de lui laisser les éliminations pour qu'il reste une menace majeure contre les adversaires qui achètent de l'armure.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "synergie",
+    "macro"
+   ],
+   "synergy": {
+    "with": [
+     "Syndra"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "L'équipe adverse achète massivement de l'armure (ex: Tabis/Coques en acier)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-AcCpGeCewDM",
+     "locator": "07:29",
+     "lang": "en",
+     "passage": "Syndra is our solo AP in this draft, so Syndra getting the triple kill there is genuinely the best outcome we could have. Whenever you have a solo AP in your draft just give them all the kills.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-03",
+      "window": "429-489s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Syndra (exemple)"
+   ],
+   "action": "Laisser le dernier coup sur les champions ennemis au membre Solo AP de l'équipe si possible.",
+   "observe": "Vérifier si le champion AP parvient à punir l'absence de résistance magique adverse.",
+   "use": {
+    "when": "Ton équipe est composée de 4 champions AD et 1 champion AP.",
+    "why": "Si le seul champion AP est très en avance, l'équipe adverse ne peut pas se contenter d'acheter uniquement de l'armure, ce qui protège l'efficacité de tes propres dégâts AD.",
+    "who": "Toute l'équipe dans une draft asymétrique (Full AD + 1 AP).",
+    "how": [
+     "Identifier le seul champion AP de l'équipe",
+     "Lui laisser les kills lors des escarmouches",
+     "Le protéger pour qu'il puisse appliquer ses dégâts"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil sur la gestion des éliminations en draft asymétrique est correct et fidèle à la source."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-yt-AcCpGeCewDM-7",
+   "claim": "Selon AloisNL : contre Malzahar, l'achat d'un Cimeterre mercuriel (QSS) est indispensable pour annuler son ultime, surtout si tu es la cible principale des contrôles adverses.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "build",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Malzahar"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.12"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:Cimeterre mercuriel",
+    "Malzahar/R"
+   ],
+   "conditions": [
+    "Malzahar utilise son ultime sur toi"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-AcCpGeCewDM",
+     "locator": "11:32",
+     "lang": "en",
+     "passage": "I have QSS... I died during the cast of Malzahar ultimate with Lee Sin there, he just one-shot me.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "672-732s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter une Ceinture de mercure (QSS) dès que les combats d'équipe commencent contre Malzahar.",
+   "observe": "Vérifier si tu peux sortir instantanément de la suppression de Malzahar.",
+   "use": {
+    "when": "Malzahar te cible avec son ultime (Poigne du néant).",
+    "why": "Sans QSS, l'ultime de Malzahar te neutralise totalement pendant plusieurs secondes, permettant à son équipe de t'éliminer sans réaction possible.",
+    "who": "Carry ou initiateur ciblé par Malzahar.",
+    "how": [
+     "Acheter la Ceinture de mercure",
+     "Attendre que Malzahar lance son R",
+     "Activer l'objet immédiatement pour briser la suppression"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'achat du Cimeterre mercuriel face à l'ultime de Malzahar est un conseil classique et appuyé par l'extrait."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-yt-S2qIBehdJ9E-1",
+   "claim": "Selon Chreak : la tempo est un avantage de timing qui consiste à être à un endroit plus tôt ou à faire une action plus vite que son adversaire, ce qui offre plus d'options sur la carte et un meilleur contrôle.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.18"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-S2qIBehdJ9E",
+     "locator": "00:51",
+     "lang": "fr",
+     "passage": "La tempo c'est un avantage de timing. En gros, c'est être à un endroit plus tôt ou faire une action plus vite que ton adversaire et en ce faisant, cela t'offre plus d'options sur la carte et un meilleur contrôle pendant un moment défini.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "31-91s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "",
+    "why": "Être en avance sur le rythme de la partie permet de contrôler le jeu, tandis qu'être en retard amène à subir.",
+    "who": "tous les postes",
+    "how": [],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est intemporelle, bien sourcée par la transcription et sans dépendance au patch ou aux champions."
+   },
+   "published": "2026-02-08",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-yt-S2qIBehdJ9E-2",
+   "claim": "Selon Chreak : pour un objectif neutre comme le dragon ou le nashor, il faut arriver environ 45 secondes avant son apparition pour commencer la phase de vision, de positionnement, de poke et de catch.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vision",
+    "macro",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.18"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-S2qIBehdJ9E",
+     "locator": "06:04",
+     "lang": "fr",
+     "passage": "il faut arriver 45 secondes environ avant son spawn pour commencer la guerre de vision, de position, de poke et de catch autour de l'objectif.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "344-404s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Arriver 45 secondes avant l'apparition d'un objectif neutre pour poser de la vision et positionner son équipe.",
+   "observe": "",
+   "use": {
+    "when": "un objectif neutre (dragon, nashor) va bientôt apparaître sur la carte",
+    "why": "Pour mener la guerre de vision, de position, de poke et de catch autour de l'objectif.",
+    "who": "tous les postes",
+    "how": [
+     "Se déplacer vers l'objectif 45 secondes avant son apparition",
+     "Poser de la vision et éliminer la vision ennemie",
+     "Prendre position pour le poke ou le catch"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La situation, le timing et la raison donnée correspondent fidèlement au passage cité de la vidéo."
+   },
+   "published": "2026-02-08",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-yt-S2qIBehdJ9E-3",
+   "claim": "Selon Chreak : erreur fréquente : rester pour tuer une vague ou gourmander des plaques de tourelle dans un mauvais timing, ce qui ruine la tempo et permet à l'adversaire de récupérer l'avantage pendant l'absence. L'auteur conseille de faire un rappel au bon moment.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.18"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-S2qIBehdJ9E",
+     "locator": "09:16",
+     "lang": "fr",
+     "passage": "Tuer ton adversaire c'est génial mais greed une plate ou deux dans les mauvais timings c'est ignoble parce que soit tu vas avoir un horrible back après ou soit tu vas carrément mourir mais dans les deux cas, tout ce que tu as gagné en plate, ton adversaire va récupérer en double pendant ton absence.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "536-596s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Effectuer son rappel (recall) immédiatement après un kill ou une rotation au lieu de rester pour prendre une vague ou des plaques supplémentaires.",
+   "observe": "",
+   "use": {
+    "when": "tu viens de tuer ton vis-à-vis ou de finir une rotation en lane",
+    "why": "Pour éviter d'avoir un mauvais timing de rappel et de perdre tout l'avantage gagné pendant ton absence.",
+    "who": "tous les laners",
+    "how": [
+     "Identifier la fin de l'action ou du kill",
+     "Ne pas greed de plaques ou de sbires supplémentaires",
+     "Appuyer sur la touche de rappel pour revenir en boutique et sur sa lane en même temps ou avant son adversaire"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité formule clairement une erreur à éviter avec un contexte d'usage complet et vérifié par l'extrait."
+   },
+   "published": "2026-02-08",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-yt-AvFYRJDv_6U-1",
+   "claim": "Selon Kyan : contre un champion à distance comme Xerath, Vladimir peut choisir d'opter pour le Bouclier de Doran, Second Souffle et Revitalisation pour encaisser le poke et se contenter de farmer pour scale.",
+   "champions": [
+    "Vladimir"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "build",
+    "champion"
+   ],
+   "matchup": {
+    "vs": "Xerath"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:Bouclier de Doran",
+    "rune:Second Souffle",
+    "rune:Revitalisation"
+   ],
+   "conditions": [
+    "face à un matchup de poke ennuyeux comme Xerath"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-AvFYRJDv_6U",
+     "locator": "[01:27]",
+     "lang": "en",
+     "passage": "But we have good set up. We have revitalize, we have second wind, we have D shield.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "67-127s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-AvFYRJDv_6U",
+     "locator": "[01:45]",
+     "lang": "en",
+     "passage": "If I can, I will legit just try to scale my way through this match up. And kind of avoid fighting him altogether."
+    }
+   ],
+   "mentions": [
+    "Xerath (exemple)"
+   ],
+   "action": "Prendre Bouclier de Doran, Second Souffle et Revitalisation face à un mage de poke pour farmer tranquillement.",
+   "observe": "La tenue de ligne et la régénération passive face au poke adverse.",
+   "use": {
+    "when": "tu es en phase de laning face à un adversaire qui peut te harceler de loin à distance.",
+    "why": "pour compenser les dégâts de poke, survivre facilement et outscale l'adversaire plus tard sans prendre de risques.",
+    "who": "Vladimir",
+    "how": [
+     "Sélectionner le Bouclier de Doran à l'achat.",
+     "Prendre les runes Second Souffle et Revitalisation dans ton arborescence.",
+     "Éviter les combats directs et prioriser le farm pour power spike en fin de partie."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité retranscrit fidèlement le conseil de l'auteur appuyé par les passages et présente un contexte d'usage complet."
+   },
+   "published": "2025-09-11",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-yt-AvFYRJDv_6U-2",
+   "claim": "Selon Kyan : l'auteur apprécie l'achat des Bottes de célérité sur Vladimir dans certaines parties pour se déplacer très rapidement sur la carte.",
+   "champions": [
+    "Vladimir"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:Bottes de célérité"
+   ],
+   "conditions": [
+    "selon les parties"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-AvFYRJDv_6U",
+     "locator": "[07:38]",
+     "lang": "en",
+     "passage": "I want like I've been going Swifties lately in a couple of games with Vladimir and I've really been enjoying it.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "438-498s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter les Bottes de célérité pour augmenter sa mobilité globale sur la carte.",
+   "observe": "La vitesse de déplacement accrue pour rejoindre les objectifs et réagir aux vagues.",
+   "use": {
+    "when": "tu équipes tes bottes de tier 2 sur Vladimir et tu souhaites maximiser ta mobilité.",
+    "why": "pour profiter d'une excellente vitesse de déplacement permettant de se déplacer rapidement sur la carte.",
+    "who": "Vladimir",
+    "how": [
+     "Acheter les Bottes de célérité pendant la phase de construction des objets."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Il s'agit d'une préférence personnelle de build exprimée par l'auteur dans certaines parties, correctement classée comme opinion."
+   },
+   "published": "2025-09-11",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-yt-CYlNAFXv-No-1",
+   "claim": "Le temps de réapparition d'un camp de jungle est de 2 minutes et 15 secondes. Le premier camp apparaît à 1 minute 30, sauf pour le Gromp et les Golems qui apparaissent à 1 minute 42.",
+   "champions": [],
+   "roles": [
+    "jungle",
+    "all"
+   ],
+   "themes": [
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.11"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:camps-de-jungle"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-CYlNAFXv-No",
+     "locator": "02:59",
+     "lang": "fr",
+     "passage": "Le temps de respawn d'un camp est de 2 minutes 15. Et le premier camp spawn à 1 minute 30. Sauf pour le Gromp et les Golems qui spawn à 1 minute 42.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "159-219s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "",
+    "why": "",
+    "who": "les junglers",
+    "how": [],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité décrit fidèlement les règles fondamentales du respawn et du spawn des camps de jungle mentionnées dans la source."
+   },
+   "published": "2025-06-25",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-yt-CYlNAFXv-No-2",
+   "claim": "Chaque camp de la jungle rapporte exactement 4 pièces d'or et d'expérience (comptabilisées en 4 cs) lorsqu'il est entièrement nettoyé.",
+   "champions": [],
+   "roles": [
+    "jungle",
+    "all"
+   ],
+   "themes": [
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:camps-de-jungle"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-CYlNAFXv-No",
+     "locator": "04:48",
+     "lang": "fr",
+     "passage": "chaque camp de la jungle vaut 4 cs quand il est pleinement complété.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-03",
+      "window": "268-328s",
+      "said": true,
+      "supported": false,
+      "gap": "Le conseil confond les cs (compte de sbires/monstres) avec de l'or et de l'expérience, alors que l'extrait indique uniquement que chaque camp vaut 4 cs."
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "",
+    "why": "",
+    "who": "les joueurs souhaitant tracker le jungler adverse",
+    "how": [],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle à la transcription concernant le comptage des CS par camp de jungle pour le tracking."
+   },
+   "published": "2025-06-25",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-1",
+   "claim": "Briar n'a pas de régénération de points de vie passive et ne récupère de la vie qu'en infligeant des dégâts ou en consommant du sang sur les sbires ou les champions.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Briar/passive"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "Briar also needs to feed, as she has no passive health regen. She only heals when she does damage (or consumes blood) to minions or champions."
+    }
+   ],
+   "mentions": [],
+   "action": "Gérer les PV de Briar en attaque et s'assurer de frapper des sbires ou champions pour se soigner en l'absence de régénération passive.",
+   "observe": "Le compteur de PV et le soin au contact lors des attaques sous passif.",
+   "use": {
+    "when": "tu joues Briar et tu cherches à récupérer de la vie pendant tes combats ou ton nettoyage de jungle",
+    "why": "elle n'a pas de régénération de vie passive et dépend de ses dégâts infligés",
+    "who": "Briar",
+    "how": [
+     "Infliger des dégâts ou consommer du sang sur des sbires ou des champions",
+     "Surveiller le niveau de santé qui augmente la faim et le soin personnel"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement fidèle au passage textuel officiel de l'article Riot Champion Insights de Briar."
+   },
+   "published": "2023-08-30",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-2",
+   "claim": "La compétence E de Briar sert de bouton d'arrêt d'urgence pour interrompre son état de frénésie de la compétence W et éviter d'aller trop loin.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Briar/W",
+    "Briar/E"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "With Briar’s E, the team quickly realized she needed some kind of off-button for her W (Blood Frenzy) so that she had some more control over her fights."
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser le E de Briar pour stopper le W si le combat tourne mal.",
+   "observe": "L'interruption de la ruée frénétique lors de l'activation du E.",
+   "use": {
+    "when": "tu es en état de frénésie avec le W de Briar et tu risques de t'engager trop loin ou de mourir",
+    "why": "le E offre un moyen de contrôle pour ne pas s'engager aveuglément",
+    "who": "Briar",
+    "how": [
+     "Activer la compétence E pour couper l'effet de frénésie du W"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le passage cité correspond bien à l'explication de la conception du E comme bouton d'arrêt d'urgence pour le W."
+   },
+   "published": "2023-08-30",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-briar-3",
+   "claim": "L'ultime de Briar est un projectile tiré en compétence visée qui provoque une ruée immédiate vers le premier champion touché.",
+   "champions": [
+    "Briar"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "jungle"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Briar/R"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-briar",
+     "locator": "Unholy Diver",
+     "lang": "en",
+     "passage": "August and the team eventually landed on the current form of the ult—a projectile skillshot that causes Briar to immediately rush to the first champion it hits."
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer l'ultime de Briar sur un adversaire pour foncer directement sur lui.",
+   "observe": "Le départ du projectile et la ruée vers la cible touchée.",
+   "use": {
+    "when": "tu souhaites engager un combat à distance avec Briar",
+    "why": "l'ultime permet une approche directe et rapide sur le premier champion touché",
+    "who": "Briar",
+    "how": [
+     "Viser un champion adverse avec l'ultime",
+     "Se préparer à engager la cible atteinte"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité reprend correctement la description officielle du fonctionnement de l'ultime de Briar comme projectile menant à une ruée."
+   },
+   "published": "2023-08-30",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-03",
+   "validity": {
+    "checkedAt": "2026-11-03",
+    "checkedPatch": "26.21"
+   },
+   "verified": {
+    "at": "2026-11-03",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-03"
   }
  ],
- "updatedAt": "2026-11-03T13:53:59.044Z"
+ "updatedAt": "2026-11-03T19:31:01.442Z"
 }

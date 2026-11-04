@@ -29,7 +29,7 @@ _Vérifié automatiquement le 04/11/2026 01:13:57 par `coach/etat.mjs`._
 
 | Statut | Point | Depuis | Source |
 |---|---|---|---|
-| ✅ Fait | Clé Riot **personnelle**, app 897844 « MINDIFF Coach - private test » : sans expiration, 100 requêtes / 2 min, autorisée pour un petit groupe privé | 26/10 | JOURNAL 26/10 |
+| ✅ Fait | Clé Riot **personnelle**, app 897844 « MINDIFF Coach - private test » : sans expiration, 100 requêtes / 2 min, autorisée pour un petit groupe privé ; description mise à jour le 04/11 par Claude (2 300 parties de référence, 50 parties par testeur, vérification chaque heure), vérifiée après enregistrement | 26/10 | JOURNAL 26/10 |
 | ✅ Fait | Clé Riot rangée dans `.env` et dans les secrets du Worker | 26/10 et 29/10 | JOURNAL 26/10 et 29/10 |
 | ⏳ En attente de Riot | Clé de **production**, app 895430 : « Pending Review », aucun message de Riot. Description remplacée le 03/11 par Claude, à la demande d’Anthony (texte de `coach/riot-mise-a-jour-2026-11-03.md`), vérifiée après enregistrement. Seulement pour l’ouverture au public | 03/11 | portail Riot |
 | ✅ Fait | Projet Supabase (gratuit, Irlande), migrations appliquées, « Confirm email » désactivé | 26/10 au 29/10 | JOURNAL |
@@ -54,7 +54,6 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Faire démarrer les testeurs : « Je commence » sur l'objectif proposé, puis 5 ranked (2 objectifs proposés pas commencés, 1 en cours sans partie évaluée depuis le 28/10) | 03/11 | constat automatique |
 | Documents RGPD : registre des traitements et durée de conservation | 03/11 | JOURNAL 03/11 |
 | Décision sur le tuteur | 03/11 | JOURNAL 03/11 |
-| Se reconnecter au portail Riot (session expirée) pour que Claude colle la description de l’app 897844. Texte prêt : `coach/riot-mise-a-jour-2026-11-03.md` | 04/11 | portail Riot |
 
 ## Ce qui attend Claude
 

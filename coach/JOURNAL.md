@@ -22,6 +22,7 @@ Décision d'Anthony (03/11) : plus aucune donnée de la clé de développement s
 - **Bug corrigé** (`coach/references.mjs`) : « champ-references.mjs » finit aussi par « references.mjs ». Lancer le premier relançait donc le calcul Diamant+ de l'ancien échantillon et réécrivait `coach/cache/metric-references.json`. Ce fichier n'est utilisé qu'en local.
 - **Tests** : 60/61 (1 ignoré faute de cache).
 - Les anciennes données de la clé de développement restent dans le cache local, non utilisées (décision d'Anthony, 03/11).
+- **Portail Riot** : la description de l'app 897844 a été remplacée par le texte de `coach/riot-mise-a-jour-2026-11-03.md` (1 331 caractères), puis vérifiée sur la page de l'app. Les deux descriptions sont donc à jour.
 
 ## 2026-11-03 — registre de l'état du projet
 

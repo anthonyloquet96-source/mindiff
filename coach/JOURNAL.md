@@ -18,7 +18,7 @@ Décision d'Anthony (03/11) : plus aucune donnée de la clé de développement s
 - Les 4 fichiers ont été envoyés au stockage du service (`worker/put-data.mjs`).
 - **Reste en base** : 490 repères par rang `metrics-1` du 29/10, calculés avec la clé de développement. Le service les lit encore pour les métriques absentes de `metrics-2`.
   - Ils sont sauvegardés dans `coach/cache/cle-dev-avant-03-11/metric_references-supabase.json`.
-  - La suppression attend l'accord d'Anthony.
+  - Supprimés le 04/11 par Anthony (script lancé par lui, la suppression en masse étant bloquée pour Claude). Vérifié ensuite : il ne reste que 730 lignes metrics-2 du 04/11.
 - **Bug corrigé** (`coach/references.mjs`) : « champ-references.mjs » finit aussi par « references.mjs ». Lancer le premier relançait donc le calcul Diamant+ de l'ancien échantillon et réécrivait `coach/cache/metric-references.json`. Ce fichier n'est utilisé qu'en local.
 - **Tests** : 60/61 (1 ignoré faute de cache).
 - Les anciennes données de la clé de développement restent dans le cache local, non utilisées (décision d'Anthony, 03/11).

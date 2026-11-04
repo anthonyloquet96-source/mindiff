@@ -33,7 +33,7 @@ const q = (sorted, p) => { const i = (sorted.length - 1) * p; const lo = Math.fl
 // Ligne compacte par joueur : de quoi calculer références et fiches, sans identifiant
 // t : équipe (matchups, compositions) ; dmg : dégâts aux champions physiques/magiques/bruts ; cc : secondes de contrôle infligées ;
 // tank : dégâts subis + atténués ; heal : soins prodigués (servira la menace « soins » une fois l'échantillon renouvelé) ; k/d/a et éliminations en solo : profil du champion, jamais du joueur
-function row(p, info) {
+export function row(p, info) {
   const style = p.perks?.styles || [];
   return {
     role: POS[p.teamPosition] || null, c: p.championId, n: p.championName, win: p.win ? 1 : 0, t: p.teamId,

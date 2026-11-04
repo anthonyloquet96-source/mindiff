@@ -2,6 +2,27 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-04 — données des testeurs recalculées avec la clé personnelle seule
+
+Décision d'Anthony (03/11) : plus aucune donnée de la clé de développement servie aux testeurs.
+
+- **Collecte** (`coach/timelines.mjs`, clé personnelle, cache privé `coach/cache/timelines-perso`) : 2 300 parties EUW au total.
+  - 1 000 Master+ du 27/10.
+  - 1 300 Fer à Diamant des 03 et 04/11 : Fer 111, Bronze 94, Argent 114, Or 120, Platine 146, Émeraude 134, Diamant 581.
+  - Le choix des joueurs Fer à Diamant passe par `league-exp-v4`, et les Master+ par `leagues/by-queue`.
+- **Repères par rang** (`references-tiers.mjs --upload`) : 10 rangs recalculés et envoyés à Supabase (metrics-2).
+- **Fiches champions, builds, repères Diamant+** (`coach/perso-sample.mjs`, nouveau, aucune requête à Riot) :
+  - 1 581 parties Diamant+ ;
+  - 161 champions avec au moins 30 parties, patch 16.21.
+- **Repères par champion et par poste** (`champ-references.mjs`) : seulement 4 couples atteignent 200 parties (contre bien plus avec l'ancien échantillon). Ailleurs, le coach retombe sur les repères du poste.
+- Les 4 fichiers ont été envoyés au stockage du service (`worker/put-data.mjs`).
+- **Reste en base** : 490 repères par rang `metrics-1` du 29/10, calculés avec la clé de développement. Le service les lit encore pour les métriques absentes de `metrics-2`.
+  - Ils sont sauvegardés dans `coach/cache/cle-dev-avant-03-11/metric_references-supabase.json`.
+  - La suppression attend l'accord d'Anthony.
+- **Bug corrigé** (`coach/references.mjs`) : « champ-references.mjs » finit aussi par « references.mjs ». Lancer le premier relançait donc le calcul Diamant+ de l'ancien échantillon et réécrivait `coach/cache/metric-references.json`. Ce fichier n'est utilisé qu'en local.
+- **Tests** : 60/61 (1 ignoré faute de cache).
+- Les anciennes données de la clé de développement restent dans le cache local, non utilisées (décision d'Anthony, 03/11).
+
 ## 2026-11-03 — registre de l'état du projet
 
 - **Erreur corrigée** : j'ai dit à Anthony que la clé Riot personnelle n'était pas demandée, alors qu'elle est approuvée depuis le 26/10. Cause : une note de mémoire fausse, reprise par le résumé de la conversation, et je n'ai pas vérifié. La même batterie comptait aussi « 3 testeurs » au lieu de 3 comptes joueurs, dont 1 seul inscrit au test.

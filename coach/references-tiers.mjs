@@ -1,6 +1,5 @@
 // Repères par rang (test privé du coach V1) : médiane, quartiles et MAD de chaque métrique du catalogue, par rang et par poste.
-// Sources (cache privé, parties anonymisées) : coach/cache/bench-raw (160 parties par rang, du Fer au Challenger),
-// coach/cache/timelines (Diamant à Challenger, clé de développement) et coach/cache/timelines-perso (Master+, clé personnelle).
+// Source (cache privé, parties anonymisées) : coach/cache/timelines-perso, du Fer au Challenger, lu avec la clé personnelle.
 // Pour un rang, on garde la source au plus grand échantillon ; la clé personnelle passe en premier dès 200 observations.
 // Décision d'Anthony (27/10) : ces repères servent uniquement au test privé, sur invitation (lus par le Worker dans
 // Supabase, jamais publiés sur le site public). Écrit coach/cache/metric-references-tiers.json ; --upload les envoie à Supabase.
@@ -12,7 +11,9 @@ import { computeMetrics, CATALOG, METRIC_VERSION } from "./metrics.mjs";
 import { summarize } from "./references.mjs";
 
 export const TIERS = ["IRON", "BRONZE", "SILVER", "GOLD", "PLATINUM", "EMERALD", "DIAMOND", "MASTER", "GRANDMASTER", "CHALLENGER"];
-const SOURCES = [["timelines-perso", "coach/cache/timelines-perso"], ["timelines", "coach/cache/timelines"], ["bench-raw", "coach/cache/bench-raw"]];
+// Depuis le 03/11 (décision d'Anthony) : seulement les parties lues avec la clé personnelle. Les caches de la clé de développement
+// (coach/cache/timelines, coach/cache/bench-raw) ne servent plus aux testeurs.
+const SOURCES = [["timelines-perso", "coach/cache/timelines-perso"]];
 const MIN = 200;
 // Décision d'Anthony (28/10) : les repères Maître et plus (cible des joueurs Diamant+) mélangent la Corée, l'EUW et l'Amérique du Nord.
 // Pour ces paliers, toutes les sources sont réunies au lieu d'en choisir une.
@@ -48,7 +49,7 @@ export async function run({ upload = false } = {}) {
     }
   }
   for (const [tier, byRole] of Object.entries(apex)) for (const [role, byKey] of Object.entries(byRole)) for (const [k, vals] of Object.entries(byKey)) {
-    const s = summarize(vals); if (s) ((out.references[tier] ||= {})[role] ||= {})[k] = { ...s, source: "kr+euw1+na1" };
+    const s = summarize(vals); if (s) ((out.references[tier] ||= {})[role] ||= {})[k] = { ...s, source: "timelines-perso" };
   }
   await writeFile("coach/cache/metric-references-tiers.json", JSON.stringify(out));
   if (upload) {

@@ -77,7 +77,8 @@ export async function run({ before = null, write = true } = {}) {
   return out;
 }
 
-if (process.argv[1]?.endsWith("references.mjs")) run().then(o => {
+// Nom exact du script : « champ-references.mjs » finit aussi par « references.mjs » et relançait ce calcul à l'import
+if (/(^|[\\/])references\.mjs$/.test(process.argv[1] || "")) run().then(o => {
   console.log(`${o.games} parties Diamant+ minute par minute, ${o.sample_games} fins de partie (${METRIC_VERSION})`);
   for (const [role, ks] of Object.entries(o.references)) console.log(role.padEnd(8), Object.entries(ks).map(([k, s]) => `${k} ${Math.round(s.p50 * 100) / 100} (n ${s.n})`).join(" · "));
 }, e => { console.error(e.stack); process.exit(1); });

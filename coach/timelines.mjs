@@ -14,12 +14,15 @@ const sarg = (k, d) => { const i = process.argv.indexOf(`--${k}`); return i > 0 
 const arg = (k, d) => Number(sarg(k, d));
 // --dir et --tiers : collecte séparée, par exemple Master+ avec la clé personnelle pour le test privé
 // (node --env-file=.env coach/timelines.mjs --dir coach/cache/timelines-perso --tiers MASTER,GRANDMASTER,CHALLENGER --max 1000)
+// Fer à Diamant aussi (03/11, pour ne plus servir aux testeurs de données de la clé de développement) :
+// --tiers IRON,BRONZE,SILVER,GOLD,PLATINUM,EMERALD,DIAMOND
 // --platform : serveur (euw1, kr, na1…). Riot compte les limites par région, donc un lancement par région peut tourner en parallèle
 // (euw1 et eun1 partagent la région « europe » : ne pas les lancer ensemble). --days : seulement les parties des derniers jours.
 const PLATFORM = sarg("platform", "euw1"), REGION = { euw1: "europe", eun1: "europe", tr1: "europe", kr: "asia", jp1: "asia", na1: "americas", br1: "americas" }[PLATFORM];
 const DAYS = arg("days", 0), SINCE = DAYS ? Math.floor(Date.now() / 1000 - DAYS * 86400) : 0;
 const DIR = sarg("dir", "coach/cache/timelines"), SEEN = `${DIR}/seen${PLATFORM === "euw1" ? "" : "-" + PLATFORM}.json`;
 const TIERS = sarg("tiers", "DIAMOND,MASTER,GRANDMASTER,CHALLENGER").split(",");
+const APEX = ["MASTER", "GRANDMASTER", "CHALLENGER"];
 
 // Clé de développement : 100 requêtes par 2 minutes, on reste en dessous. --pace (secondes entre deux requêtes) : la même clé sert
 // le coach privé (Worker) ; sur le serveur de ses joueurs (euw1), aller plus lentement pour lui laisser de la marge (incident du 28/10)
@@ -60,9 +63,10 @@ async function run() {
     // Un tour : quelques joueurs de chaque palier, au hasard (divisions et pages tirées au sort pour le Diamant)
     for (const tier of TIERS) {
       const div = ["I", "II", "III", "IV"][Math.floor(Math.random() * 4)], page = 1 + Math.floor(Math.random() * 5);
-      const players = tier === "DIAMOND"
-        ? await riot(`https://${PLATFORM}.api.riotgames.com/lol/league/v4/entries/RANKED_SOLO_5x5/DIAMOND/${div}?page=${page}`)
-        : (await riot(`https://${PLATFORM}.api.riotgames.com/lol/league/v4/${tier.toLowerCase()}leagues/by-queue/RANKED_SOLO_5x5`)).entries;
+      // Maître et plus : une seule ligue par palier ; Fer à Diamant : une page de division tirée au sort
+      const players = APEX.includes(tier)
+        ? (await riot(`https://${PLATFORM}.api.riotgames.com/lol/league/v4/${tier.toLowerCase()}leagues/by-queue/RANKED_SOLO_5x5`)).entries
+        : await riot(`https://${PLATFORM}.api.riotgames.com/lol/league/v4/entries/RANKED_SOLO_5x5/${tier}/${div}?page=${page}`);
       // Le Diamant compte plus de joueurs : il reçoit plus de place dans chaque tour
       for (const p of players.sort(() => Math.random() - 0.5).slice(0, tier === "DIAMOND" ? 12 : 4)) {
         if (n >= max) break;

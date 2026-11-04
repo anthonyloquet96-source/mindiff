@@ -31,12 +31,20 @@ _Vérifié automatiquement le 03/11/2026 21:50:55 par `coach/etat.mjs`._
 |---|---|---|---|
 | ✅ Fait | Clé Riot **personnelle**, app 897844 « MINDIFF Coach - private test » : sans expiration, 100 requêtes / 2 min, autorisée pour un petit groupe privé | 26/10 | JOURNAL 26/10 |
 | ✅ Fait | Clé Riot rangée dans `.env` et dans les secrets du Worker | 26/10 et 29/10 | JOURNAL 26/10 et 29/10 |
-| ⏳ En attente de Riot | Clé de **production**, app 895430 : toujours « Pending Review », description à jour (version du 26/10), aucun message de Riot. Seulement pour l'ouverture au public | relevé le 03/11 | portail Riot, lu par Claude le 03/11 |
+| ⏳ En attente de Riot | Clé de **production**, app 895430 : « Pending Review », aucun message de Riot. Description remplacée le 03/11 par Claude, à la demande d’Anthony (texte de `coach/riot-mise-a-jour-2026-11-03.md`), vérifiée après enregistrement. Seulement pour l’ouverture au public | 03/11 | portail Riot |
 | ✅ Fait | Projet Supabase (gratuit, Irlande), migrations appliquées, « Confirm email » désactivé | 26/10 au 29/10 | JOURNAL |
 | ✅ Fait | Déploiement automatique du Worker à chaque publication (jeton Cloudflare dans GitHub) | 01/11 | JOURNAL 01/11 et 03/11 |
 | ❌ Bloqué | Facturation Google (génération d'images, de vidéos et de musique par IA) : décision d'Anthony, payant | — | mémoire DA 28/10 |
 
 Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invitation** (`PILOT_CODE` dans `.env`). La clé Riot ne se partage avec personne.
+
+## Décisions
+
+| Décision | Date | Source |
+|---|---|---|
+| Tout ce que voient les testeurs vient de la clé personnelle ; plus aucune donnée de la clé de développement dans le produit. On déclare à Riot ce qui tourne réellement | 03/11 | message d’Anthony |
+| Garder pour l’instant les anciennes parties de la clé de développement dans le cache local (non utilisées) | 03/11 | message d’Anthony |
+| Fait le 04/11 : repères par rang, fiches champions, builds, repères Diamant+ et par champion recalculés avec la clé personnelle (2 300 parties) et mis en ligne | 04/11 | JOURNAL 04/11 |
 
 ## Ce qui attend Anthony
 
@@ -46,7 +54,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Faire démarrer les testeurs : « Je commence » sur l'objectif proposé, puis 5 ranked (2 objectifs proposés pas commencés, 1 en cours sans partie évaluée depuis le 28/10) | 03/11 | constat automatique |
 | Documents RGPD : registre des traitements et durée de conservation | 03/11 | JOURNAL 03/11 |
 | Décision sur le tuteur | 03/11 | JOURNAL 03/11 |
-| Mettre à jour les 2 descriptions sur le portail Riot (50 parties, mise à jour chaque heure, collecte Master+ du 27/10, limites réelles). Textes prêts : `coach/riot-mise-a-jour-2026-11-03.md` | 03/11 | portail Riot lu par Claude le 03/11 |
+| Accord pour supprimer de Supabase les 490 repères par rang `metrics-1` du 29/10 (clé de développement, encore lus par le service). Sauvegarde locale faite. Ensuite, Claude colle la description de l'app 897844 | 04/11 | JOURNAL 04/11 |
 
 ## Ce qui attend Claude
 

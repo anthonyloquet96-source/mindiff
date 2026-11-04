@@ -1,6 +1,6 @@
 // Repères par champion et par poste (onglet Champions du coach, test privé) : médiane et quartiles de chaque métrique du catalogue
 // chez les joueurs Diamant et plus qui jouent ce champion à ce poste. Sources (cache privé, parties anonymisées) :
-// coach/cache/timelines (Diamant à Challenger, clé de développement) et coach/cache/timelines-perso (Master+, clé personnelle).
+// coach/cache/timelines-perso (Diamant à Challenger, clé personnelle ; plus de données de la clé de développement depuis le 03/11).
 // Décision d'Anthony (27/10, redite le 31/10) : comme les repères par rang, ces données servent uniquement au test privé. Le fichier
 // worker/champrefs.json est ignoré par git et embarqué dans le Worker au déploiement, servi aux seuls testeurs connectés.
 // Un couple champion + poste n'est gardé qu'à partir de MIN parties ; chaque métrique, à partir de MIN observations.
@@ -12,7 +12,7 @@ import { computeMetrics, CATALOG, METRIC_VERSION } from "./metrics.mjs";
 import { summarize } from "./references.mjs";
 
 export const MIN = 200;
-const DIRS = ["coach/cache/timelines", "coach/cache/timelines-perso"];
+const DIRS = ["coach/cache/timelines-perso"]; // clé personnelle seulement depuis le 03/11
 const HIGH = ["DIAMOND", "MASTER", "GRANDMASTER", "CHALLENGER"];
 
 export async function run() {

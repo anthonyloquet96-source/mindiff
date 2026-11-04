@@ -11,7 +11,7 @@ Ce fichier dit ce qui est fait et ce qui reste à faire, pour Anthony comme pour
 ## Vérifié automatiquement
 
 <!-- AUTO:début -->
-_Vérifié automatiquement le 03/11/2026 21:50:55 par `coach/etat.mjs`._
+_Vérifié automatiquement le 04/11/2026 01:13:57 par `coach/etat.mjs`._
 
 | | Point | Constat |
 |---|---|---|
@@ -20,8 +20,8 @@ _Vérifié automatiquement le 03/11/2026 21:50:55 par `coach/etat.mjs`._
 | ✅ | Service en ligne (Worker) | répond ; secrets posés : Riot oui, Supabase oui |
 | ✅ | Testeurs inscrits | 1 actif(s), 0 parti(s) |
 | ⚠️ | Cycles d'objectif terminés | 0 terminé(s) ; en cours : 1 ; proposés pas encore commencés : 2 |
-| ✅ | Clé Riot du Worker (preuve par l'usage) | dernière partie récupérée chez Riot : 03/11 21:23 |
-| ✅ | Dernière partie évaluée pour un objectif | 28/10 21:20 |
+| ✅ | Clé Riot du Worker (preuve par l'usage) | dernière partie récupérée chez Riot : 04/11 00:23 |
+| ✅ | Dernière partie évaluée pour un objectif | 04/11 00:23 |
 | ✅ | Code publié | tout est sur main |
 <!-- AUTO:fin -->
 
@@ -44,7 +44,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 |---|---|---|
 | Tout ce que voient les testeurs vient de la clé personnelle ; plus aucune donnée de la clé de développement dans le produit. On déclare à Riot ce qui tourne réellement | 03/11 | message d’Anthony |
 | Garder pour l’instant les anciennes parties de la clé de développement dans le cache local (non utilisées) | 03/11 | message d’Anthony |
-| Fait le 04/11 : repères par rang, fiches champions, builds, repères Diamant+ et par champion recalculés avec la clé personnelle (2 300 parties) et mis en ligne | 04/11 | JOURNAL 04/11 |
+| Fait le 04/11 : repères par rang, fiches champions, builds, repères Diamant+ et par champion recalculés avec la clé personnelle (2 300 parties) et mis en ligne ; anciens repères de la clé de développement retirés de Supabase (sauvegarde locale) | 04/11 | JOURNAL 04/11 |
 
 ## Ce qui attend Anthony
 
@@ -54,7 +54,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Faire démarrer les testeurs : « Je commence » sur l'objectif proposé, puis 5 ranked (2 objectifs proposés pas commencés, 1 en cours sans partie évaluée depuis le 28/10) | 03/11 | constat automatique |
 | Documents RGPD : registre des traitements et durée de conservation | 03/11 | JOURNAL 03/11 |
 | Décision sur le tuteur | 03/11 | JOURNAL 03/11 |
-| Accord pour supprimer de Supabase les 490 repères par rang `metrics-1` du 29/10 (clé de développement, encore lus par le service). Sauvegarde locale faite. Ensuite, Claude colle la description de l'app 897844 | 04/11 | JOURNAL 04/11 |
+| Se reconnecter au portail Riot (session expirée) pour que Claude colle la description de l’app 897844. Texte prêt : `coach/riot-mise-a-jour-2026-11-03.md` | 04/11 | portail Riot |
 
 ## Ce qui attend Claude
 

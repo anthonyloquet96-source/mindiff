@@ -2,6 +2,20 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-05 — collecte Diamant+ avec la clé personnelle
+
+Demandée par Anthony le 04/11 : jusque-là, seulement 4 couples champion + poste avaient leurs propres repères.
+
+- **Collecte** (`coach/timelines.mjs --tiers DIAMOND,MASTER,GRANDMASTER,CHALLENGER --max 8000`), de 23 h 39 à 7 h 53, sans erreur :
+  - 8 000 parties au total dans `coach/cache/timelines-perso` ;
+  - dont 7 281 Diamant+ : Diamant 3 252, Master 2 207, Grandmaster 1 136, Challenger 686.
+- **Recalculé et mis en ligne** :
+  - repères par rang (730 lignes metrics-2) ;
+  - fiches champions : 173 champions avec au moins 30 parties, patch 16.21 ;
+  - repères par champion et par poste : **121 couples** atteignent 200 parties, contre 4 avant.
+- **Tests** : 60/61 (1 ignoré faute de cache).
+- **Texte Riot de l'app 897844** : passé de « environ 2 300 » à « environ 8 000 » parties (1 334 caractères), à coller sur le portail.
+
 ## 2026-11-04 — données des testeurs recalculées avec la clé personnelle seule
 
 Décision d'Anthony (03/11) : plus aucune donnée de la clé de développement servie aux testeurs.

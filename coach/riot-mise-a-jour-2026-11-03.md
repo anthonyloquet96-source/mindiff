@@ -19,8 +19,9 @@ Les données de la clé de développement ne servent plus au produit. On déclar
 - 50 parties par testeur à l'inscription, au lieu d'environ 30.
 - Une mise à jour automatique chaque heure.
 - Les parties de référence lues avec cette clé :
-  - environ 1 000 parties Master+ le 27/10 ;
-  - 1 300 parties Fer à Diamant les 03 et 04/11 (2 300 au total, vérifié dans le cache le 04/11).
+  - 1 000 parties Master+ le 27/10 ;
+  - 1 300 parties Fer à Diamant les 03 et 04/11 ;
+  - environ 5 700 parties Diamant+ du 04 au 05/11 (8 000 au total, vérifié dans le cache le 05/11).
 
   Seuls des agrégats sont montrés.
 
@@ -33,7 +34,7 @@ Who: 5-10 invited adult volunteers (friends of the developer), each linking thei
 
 What: post-game coaching on ranked Solo/Duo. We read each tester's matches (ACCOUNT-V1, LEAGUE-V4, MATCH-V5 with timelines). A deterministic engine picks one measurable goal (e.g. CS at 10 min) from 15-20 past matches and evaluates it on the next 5 ranked matches. Testers rate the goal and report unwanted effects. In game we only show what the loading screen shows (SPECTATOR-V5). No MMR or ranking, no betting.
 
-Reference data: with this key we read about 2,300 public EUW ranked matches (Iron to Challenger, one-off collections on Oct 27 and Nov 3-4) to compute per-rank and per-champion percentiles, builds and champion stats. Testers only see these aggregates; no other player is identified. Anonymized raw matches stay in a private offline cache.
+Reference data: with this key we read about 8,000 public EUW ranked matches (Iron to Challenger, one-off collections between Oct 27 and Nov 5) to compute per-rank and per-champion percentiles, builds and champion stats. Testers only see these aggregates; no other player is identified. Anonymized raw matches stay in a private offline cache.
 
 Data: API key server-side only (Cloudflare Worker). Tester data is stored only for their own coaching (EU database, row-level security), never shared, deleted on account deletion or at the end of the test.
 

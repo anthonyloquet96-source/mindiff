@@ -11,7 +11,7 @@ Ce fichier dit ce qui est fait et ce qui reste à faire, pour Anthony comme pour
 ## Vérifié automatiquement
 
 <!-- AUTO:début -->
-_Vérifié automatiquement le 04/11/2026 23:39:22 par `coach/etat.mjs`._
+_Vérifié automatiquement le 05/11/2026 07:58:34 par `coach/etat.mjs`._
 
 | | Point | Constat |
 |---|---|---|
@@ -55,10 +55,15 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Faire démarrer les testeurs : « Je commence » sur l'objectif proposé, puis 5 ranked (2 objectifs proposés pas commencés, 1 en cours sans partie évaluée depuis le 28/10) | 03/11 | constat automatique |
 | Documents RGPD : registre des traitements et durée de conservation | 03/11 | JOURNAL 03/11 |
 | Décision sur le tuteur | 03/11 | JOURNAL 03/11 |
+| Clé de production : choisir comment Riot pourra essayer le coach (code de démonstration envoyé par message sur le portail, ou vidéo du parcours) | 05/11 | règles Riot lues le 05/11 (developer.riotgames.com/docs/lol) |
 
 ## Ce qui attend Claude
 
 | Point | Depuis | Source |
 |---|---|---|
 | Top et ADC : seulement des objectifs de farm | 03/11 | JOURNAL 03/11 |
-| Filtrer les articles de paris dans les actus (proposé, sans réponse d'Anthony) | 03/11 | conversation |
+| Filtrer les articles de paris dans les actus (proposé, sans réponse d'Anthony). Vérifié le 05/11 : aucun article de paris, seulement l'équipe « Betclic Apogee » | 03/11 | conversation |
+| Clé de production : mention légale Riot visible sur chaque page (aujourd'hui cachée dans le panneau « Sources », alors que Riot la veut « facilement visible ») | 05/11 | developer.riotgames.com/policies/general |
+| Clé de production : faire le tour du site et corriger ce qui est vide, cassé ou marqué « en test » | 05/11 | developer.riotgames.com/docs/portal |
+| Clé de production : après la décision d’Anthony, préparer l’accès de Riot, ajouter le lien du site à la description de l’app 895430 et la recoller | 05/11 | règles Riot lues le 05/11 |
+| Après les premiers cycles terminés : bilan chiffré « le coach aide-t-il à progresser ? » (critère de Riot : aider les joueurs de façon mesurable) | 05/11 | developer.riotgames.com/docs/portal |

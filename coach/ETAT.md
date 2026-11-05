@@ -47,6 +47,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Fait le 04/11 : repères par rang, fiches champions, builds, repères Diamant+ et par champion recalculés avec la clé personnelle (2 300 parties) et mis en ligne ; anciens repères de la clé de développement retirés de Supabase (sauvegarde locale) | 04/11 | JOURNAL 04/11 |
 | Fait le 05/11 : collecte Diamant+ (8 000 parties au total), tout recalculé ; 121 couples champion + poste avec leurs propres repères | 05/11 | JOURNAL 05/11 |
 | Fait le 05/11 : mention légale Riot en bas de chaque page du site, avec le lien vers la confidentialité (vérifiée sur ordinateur et à 390 px de large, pas cachée par la barre du bas) | 05/11 | JOURNAL 05/11 |
+| Fait le 05/11 : tour du site public (13 pages, LoL et Valorant) : aucune erreur, aucune image cassée, aucun texte « undefined » ; mention légale en ligne. Restent 2 points de finition (voir « Ce qui attend Anthony ») | 05/11 | tour du site par Claude |
 
 ## Ce qui attend Anthony
 
@@ -56,6 +57,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Faire démarrer les testeurs : « Je commence » sur l'objectif proposé, puis 5 ranked (2 objectifs proposés pas commencés, 1 en cours sans partie évaluée depuis le 28/10) | 03/11 | constat automatique |
 | Documents RGPD : registre des traitements et durée de conservation | 03/11 | JOURNAL 03/11 |
 | Décision sur le tuteur | 03/11 | JOURNAL 03/11 |
+| Site, avant la relecture de Riot : décider pour la tier list Ranked (patch 26.20, relevée le 20/10 dans `data/meta.js`, saisie à la main, affichée « plus de deux semaines ») : la mettre à jour depuis une source vérifiée, ou la cacher jusqu’à la clé de production. Et pour la tuile Valorant « Bientôt » : la garder ou la cacher | 05/11 | tour du site par Claude le 05/11 |
 | Clé de production : choisir comment Riot pourra essayer le coach (code de démonstration envoyé par message sur le portail, ou vidéo du parcours) | 05/11 | règles Riot lues le 05/11 (developer.riotgames.com/docs/lol) |
 
 ## Ce qui attend Claude
@@ -64,6 +66,5 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 |---|---|---|
 | Top et ADC : seulement des objectifs de farm | 03/11 | JOURNAL 03/11 |
 | Filtrer les articles de paris dans les actus (proposé, sans réponse d'Anthony). Vérifié le 05/11 : aucun article de paris, seulement l'équipe « Betclic Apogee » | 03/11 | conversation |
-| Clé de production : faire le tour du site et corriger ce qui est vide, cassé ou marqué « en test » | 05/11 | developer.riotgames.com/docs/portal |
 | Clé de production : après la décision d’Anthony, préparer l’accès de Riot, ajouter le lien du site à la description de l’app 895430 et la recoller | 05/11 | règles Riot lues le 05/11 |
 | Après les premiers cycles terminés : bilan chiffré « le coach aide-t-il à progresser ? » (critère de Riot : aider les joueurs de façon mesurable) | 05/11 | developer.riotgames.com/docs/portal |

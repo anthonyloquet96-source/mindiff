@@ -29,7 +29,7 @@ _Vérifié automatiquement le 04/11/2026 23:39:22 par `coach/etat.mjs`._
 
 | Statut | Point | Depuis | Source |
 |---|---|---|---|
-| ✅ Fait | Clé Riot **personnelle**, app 897844 « MINDIFF Coach - private test » : sans expiration, 100 requêtes / 2 min, autorisée pour un petit groupe privé ; description mise à jour le 04/11 par Claude (2 300 parties de référence, 50 parties par testeur, vérification chaque heure), vérifiée après enregistrement | 26/10 | JOURNAL 26/10 |
+| ✅ Fait | Clé Riot **personnelle**, app 897844 « MINDIFF Coach - private test » : sans expiration, 100 requêtes / 2 min, autorisée pour un petit groupe privé ; description mise à jour le 04/11 puis le 05/11 par Claude (8 000 parties de référence, 50 parties par testeur, vérification chaque heure), vérifiée après enregistrement | 26/10 | JOURNAL 26/10 |
 | ✅ Fait | Clé Riot rangée dans `.env` et dans les secrets du Worker | 26/10 et 29/10 | JOURNAL 26/10 et 29/10 |
 | ⏳ En attente de Riot | Clé de **production**, app 895430 : « Pending Review », aucun message de Riot. Description remplacée le 03/11 par Claude, à la demande d’Anthony (texte de `coach/riot-mise-a-jour-2026-11-03.md`), vérifiée après enregistrement. Seulement pour l’ouverture au public | 03/11 | portail Riot |
 | ✅ Fait | Projet Supabase (gratuit, Irlande), migrations appliquées, « Confirm email » désactivé | 26/10 au 29/10 | JOURNAL |
@@ -60,6 +60,5 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 
 | Point | Depuis | Source |
 |---|---|---|
-| Coller sur le portail Riot (app 897844) le texte mis à jour : « about 8,000 » parties au lieu de « about 2,300 » | 05/11 | JOURNAL 05/11 |
 | Top et ADC : seulement des objectifs de farm | 03/11 | JOURNAL 03/11 |
 | Filtrer les articles de paris dans les actus (proposé, sans réponse d'Anthony) | 03/11 | conversation |

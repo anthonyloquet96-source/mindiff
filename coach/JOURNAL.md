@@ -14,7 +14,7 @@ Demandée par Anthony le 04/11 : jusque-là, seulement 4 couples champion + post
   - fiches champions : 173 champions avec au moins 30 parties, patch 16.21 ;
   - repères par champion et par poste : **121 couples** atteignent 200 parties, contre 4 avant.
 - **Tests** : 60/61 (1 ignoré faute de cache).
-- **Texte Riot de l'app 897844** : passé de « environ 2 300 » à « environ 8 000 » parties (1 334 caractères), à coller sur le portail.
+- **Texte Riot de l'app 897844** : passé de « environ 2 300 » à « environ 8 000 » parties (1 334 caractères), collé sur le portail le 05/11 et vérifié sur la page de l'app.
 
 ## 2026-11-04 — données des testeurs recalculées avec la clé personnelle seule
 

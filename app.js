@@ -1629,6 +1629,8 @@ function renderHeader() {
   bottom.innerHTML = g ? navItems : "";
   bottom.hidden = !g;
   document.body.classList.toggle("has-nav", !!g);
+  const legal = document.getElementById("legal");
+  if (legal) legal.innerHTML = `<p class="fine" lang="en" translate="no">${RIOT_LEGAL}</p><p class="fine"><a href="confidentialite.html">${window.LANG === "en" ? "Privacy and terms" : "Confidentialité et conditions"}</a></p>`;
 }
 
 function render(fromRoute = true) {

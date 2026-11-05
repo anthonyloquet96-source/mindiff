@@ -2,6 +2,13 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-05 — mention légale Riot visible
+
+- Les règles de Riot (developer.riotgames.com/policies/general) demandent la mention « MINDIFF isn't endorsed by Riot Games… » dans un endroit facilement visible. Elle était seulement dans le panneau « Sources ».
+- Elle est maintenant en bas de chaque page (`index.html`, `#legal`, rempli par `renderHeader` dans `app.js`), avec le lien « Confidentialité et conditions ».
+- Vérifié sur le site local : sur ordinateur, et à 390 px de large où la barre du bas ne la cache pas et où la page ne défile pas sur le côté.
+- Tests : 60/61 (1 ignoré faute de cache).
+
 ## 2026-11-05 — collecte Diamant+ avec la clé personnelle
 
 Demandée par Anthony le 04/11 : jusque-là, seulement 4 couples champion + poste avaient leurs propres repères.

@@ -46,6 +46,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Garder pour l’instant les anciennes parties de la clé de développement dans le cache local (non utilisées) | 03/11 | message d’Anthony |
 | Fait le 04/11 : repères par rang, fiches champions, builds, repères Diamant+ et par champion recalculés avec la clé personnelle (2 300 parties) et mis en ligne ; anciens repères de la clé de développement retirés de Supabase (sauvegarde locale) | 04/11 | JOURNAL 04/11 |
 | Fait le 05/11 : collecte Diamant+ (8 000 parties au total), tout recalculé ; 121 couples champion + poste avec leurs propres repères | 05/11 | JOURNAL 05/11 |
+| Fait le 05/11 : mention légale Riot en bas de chaque page du site, avec le lien vers la confidentialité (vérifiée sur ordinateur et à 390 px de large, pas cachée par la barre du bas) | 05/11 | JOURNAL 05/11 |
 
 ## Ce qui attend Anthony
 
@@ -63,7 +64,6 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 |---|---|---|
 | Top et ADC : seulement des objectifs de farm | 03/11 | JOURNAL 03/11 |
 | Filtrer les articles de paris dans les actus (proposé, sans réponse d'Anthony). Vérifié le 05/11 : aucun article de paris, seulement l'équipe « Betclic Apogee » | 03/11 | conversation |
-| Clé de production : mention légale Riot visible sur chaque page (aujourd'hui cachée dans le panneau « Sources », alors que Riot la veut « facilement visible ») | 05/11 | developer.riotgames.com/policies/general |
 | Clé de production : faire le tour du site et corriger ce qui est vide, cassé ou marqué « en test » | 05/11 | developer.riotgames.com/docs/portal |
 | Clé de production : après la décision d’Anthony, préparer l’accès de Riot, ajouter le lien du site à la description de l’app 895430 et la recoller | 05/11 | règles Riot lues le 05/11 |
 | Après les premiers cycles terminés : bilan chiffré « le coach aide-t-il à progresser ? » (critère de Riot : aider les joueurs de façon mesurable) | 05/11 | developer.riotgames.com/docs/portal |

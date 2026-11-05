@@ -11,7 +11,7 @@ Ce fichier dit ce qui est fait et ce qui reste à faire, pour Anthony comme pour
 ## Vérifié automatiquement
 
 <!-- AUTO:début -->
-_Vérifié automatiquement le 04/11/2026 01:13:57 par `coach/etat.mjs`._
+_Vérifié automatiquement le 04/11/2026 23:39:22 par `coach/etat.mjs`._
 
 | | Point | Constat |
 |---|---|---|
@@ -45,6 +45,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Tout ce que voient les testeurs vient de la clé personnelle ; plus aucune donnée de la clé de développement dans le produit. On déclare à Riot ce qui tourne réellement | 03/11 | message d’Anthony |
 | Garder pour l’instant les anciennes parties de la clé de développement dans le cache local (non utilisées) | 03/11 | message d’Anthony |
 | Fait le 04/11 : repères par rang, fiches champions, builds, repères Diamant+ et par champion recalculés avec la clé personnelle (2 300 parties) et mis en ligne ; anciens repères de la clé de développement retirés de Supabase (sauvegarde locale) | 04/11 | JOURNAL 04/11 |
+| Fait le 05/11 : collecte Diamant+ (8 000 parties au total), tout recalculé ; 121 couples champion + poste avec leurs propres repères | 05/11 | JOURNAL 05/11 |
 
 ## Ce qui attend Anthony
 
@@ -59,5 +60,6 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 
 | Point | Depuis | Source |
 |---|---|---|
+| Coller sur le portail Riot (app 897844) le texte mis à jour : « about 8,000 » parties au lieu de « about 2,300 » | 05/11 | JOURNAL 05/11 |
 | Top et ADC : seulement des objectifs de farm | 03/11 | JOURNAL 03/11 |
 | Filtrer les articles de paris dans les actus (proposé, sans réponse d'Anthony) | 03/11 | conversation |

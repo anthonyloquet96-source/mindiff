@@ -109,6 +109,8 @@ button, input, select { font: inherit; color: inherit; }
 img { max-width: 100%; display: block; }
 .wrap { max-width: 640px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
 .main { padding-top: var(--s4); padding-bottom: var(--s7); display: flex; flex-direction: column; gap: var(--s5); outline: none; min-height: 60vh; }
+.site-legal { display: grid; gap: var(--s2); padding-top: var(--s4); padding-bottom: calc(var(--s5) + 16px); border-top: 1px solid var(--line); }
+.site-legal a { color: inherit; text-decoration: underline; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .ic { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .fine { font-size: var(--fs-sm); color: var(--text-3); margin: 0; line-height: 1.45; }

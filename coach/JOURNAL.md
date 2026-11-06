@@ -2,6 +2,28 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-06 — série Top/ADC avec la clé personnelle : quels objectifs hors farm ?
+
+Demandée par Anthony le 06/11 (« Lance la collecte Top/ADC maintenant »).
+
+- **Collecte** : `coach/battery-raw.mjs --par-palier 8 --postes TOP,BOTTOM --dossier coach/cache/battery-perso --pace 1.3`, de 21 h 13 à 23 h 10, sans erreur.
+  - 80 joueurs : 4 Top et 4 ADC par palier, de Fer à Challenger. 30 ranked chacun, 5 925 requêtes.
+  - Données anonymisées et privées (cache non versionné), jamais publiées.
+- **Fiabilité** (`coach/stability.mjs`) : part de l'indicateur expliquée par le joueur plutôt que par la partie. Top puis ADC :
+  - farm : cs/min 0,50 et 0,62, cs à 15 min 0,42 et 0,49 ;
+  - control wards avant 20 min : 0,43 et 0,59 ; seulement 25 % (Top) et 28 % (ADC) des parties en achètent au moins une ;
+  - wards par minute : 0,39 et 0,44 ; score de vision par minute : 0,38 et 0,41 ;
+  - premier objet : 0,27 et 0,18 ; or qui dort : 0,07 et 0,08 ; wards détruites : 0,00 et 0,24 ; morts avant 14 min : 0,15 et 0,13.
+- **Réussite par hasard** (`coach/stability-chance.mjs`, 3 parties sur 5) : control wards 5 % (Top) et 13 % (ADC). Elle n'arrive presque jamais sans effort, alors que la plupart des autres indicateurs sont entre 25 et 45 %.
+- **Rejeu** (`coach/replay-raw.mjs`) :
+  - catalogue actuel : 48 objectifs, 100 % farm ; maîtrise 40 %, contre 28 % par hasard ;
+  - avec premier objet, or qui dort et wards détruites activés : 76 % de farm ; maîtrise 40 %, contre 27 % par hasard.
+- **Conclusion** :
+  - premier objet, or qui dort et wards détruites restent trop dépendants de la partie : ils ne sont pas activés ;
+  - meilleur candidat hors farm pour les deux postes : **au moins une control ward avant 20 min** (fiable, contrôlable, presque jamais atteinte par hasard) ;
+  - ensuite, wards par minute pour l'ADC.
+  - Changer le catalogue (`control_wards_20` ouvert à TOP et BOTTOM) attend l'accord d'Anthony.
+
 ## 2026-11-06 — veille du coach en panne depuis le 04/11, réparée
 
 - **Constat** (e-mail GitHub transmis par Anthony, puis `gh run list`) : 11 échecs de suite, du 04/11 à 1 h 10 au 06/11 à 13 h 10. Le dernier succès date du 03/11 à 18 h 58.

@@ -79938,7 +79938,367 @@
    },
    "version": 1,
    "firstSeen": "2026-11-06"
+  },
+  {
+   "id": "u-ai-yt-cgg5XDj4H5k-1",
+   "claim": "Selon RamyAura : pour esquiver le W (Balayage tactique) de Camille en tant que Teemo, utilise les buissons de la lane pour masquer ta position réelle et l'inciter à lancer son sort hors de portée.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "matchup",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Camille"
+   },
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Camille/W"
+   ],
+   "conditions": [
+    "Être à proximité des buissons de la top lane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-cgg5XDj4H5k",
+     "locator": "01:21",
+     "lang": "en",
+     "passage": "Nice, finally we dodged one. That's what it takes, going in the bush to make her think... like I'm actually going to be in range.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-06",
+      "window": "61-121s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Entrer et sortir des buissons pour perturber la prise de décision de Camille sur son W.",
+   "observe": "Observe si Camille commence son animation de W dès que tu sembles t'approcher.",
+   "use": {
+    "when": "Camille cherche à te poke avec son W pendant que tu tentes de farmer.",
+    "why": "En perdant la vision sur toi, Camille a plus de mal à ajuster la zone d'effet de son balayage, ce qui facilite l'esquive.",
+    "who": "Tout champion à distance affrontant Camille au Top.",
+    "how": [
+     "Avancer vers Camille comme pour l'attaquer",
+     "Entrer immédiatement dans un buisson non balisé",
+     "Reculer ou changer de direction pendant qu'elle lance son sort"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "L'auteur parle de son action en tant que Teemo ; étendre le 'pour_qui' à tous les champions à distance est une extrapolation non présente dans la source."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-06",
+   "validity": {
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-06",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-06"
+  },
+  {
+   "id": "u-ai-yt-cgg5XDj4H5k-2",
+   "claim": "Selon RamyAura : punis sévèrement une Camille qui tente de bloquer manuellement une grosse vague de sbires (surtout avec un canon) devant sa tour pour maintenir un freeze.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Camille"
+   },
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Une grosse vague alliée arrive sous la tour adverse",
+    "L'adversaire essaie de la tanker pour l'empêcher de s'écraser"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-cgg5XDj4H5k",
+     "locator": "01:41",
+     "lang": "en",
+     "passage": "She wants to hold the wave, she's going to lose all her health. It's a big cannon wave to hold.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-06",
+      "window": "81-141s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur souligne que les sbires (le canon) infligeront les dégâts pendant qu'il rentre à la base, alors que le conseil suggère d'utiliser aussi ses propres sorts et attaques."
+     }
+    }
+   ],
+   "mentions": [
+    "Camille (exemple)"
+   ],
+   "action": "Attaquer l'adversaire pendant qu'il subit les dégâts de tes sbires en essayant de bloquer la vague.",
+   "observe": "Regarde si l'adversaire se place devant ses sbires pour arrêter la progression de ta vague.",
+   "use": {
+    "when": "Tu as poussé une vague massive et tu veux forcer le rappel de l'adversaire ou prendre un avantage de PV.",
+    "why": "",
+    "who": "Tout laner ayant l'avantage de poussée.",
+    "how": [
+     "Pousser une vague de type 'slow push'",
+     "Attendre que l'adversaire se positionne pour bloquer les sbires",
+     "Utiliser tes sorts et auto-attaques pour maximiser les dégâts subis"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe de gestion de vague et de punition de freeze universellement applicable et bien illustré par l'exemple de Camille."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-06",
+   "validity": {
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-06",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-06"
+  },
+  {
+   "id": "u-ai-yt-cgg5XDj4H5k-3",
+   "claim": "Selon RamyAura : place tes champignons (R) spécifiquement dans les coins des murs contre Camille, car elle utilise ces angles pour accrocher son E (Grappin).",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "champion",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Camille"
+   },
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Teemo/R",
+    "Camille/E"
+   ],
+   "conditions": [
+    "Camille utilise son E de manière agressive"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-cgg5XDj4H5k",
+     "locator": "05:43",
+     "lang": "en",
+     "passage": "I guess Camille, it's quite nice to put the shrooms on the corners, 'cause she usually uses those corners to E, right?",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-06",
+      "window": "323-383s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Poser des champignons près des rebords de murs saillants.",
+   "observe": "Identifie les murs que Camille utilise le plus souvent pour s'élancer vers toi.",
+   "use": {
+    "when": "Phase de lane ou escarmouche en forêt où Camille cherche à engager le combat.",
+    "why": "Camille doit se coller au mur pour son Grappin ; placer un piège à cet endroit précis garantit qu'elle l'active lors de son saut.",
+    "who": "Joueurs de Teemo contre Camille.",
+    "how": [
+     "Repérer les angles de murs proches de ta position de farm",
+     "Placer un champignon juste au pied du coin du mur",
+     "Rester à portée pour punir Camille si elle déclenche le piège"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil spécifique au matchup basé sur la mécanique de collision du E de Camille avec les murs."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-06",
+   "validity": {
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-06",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-06"
+  },
+  {
+   "id": "u-ai-yt-cgg5XDj4H5k-4",
+   "claim": "Selon RamyAura : le Blind (A) est ton outil principal pour gagner les duels contre Camille au Top, car il annule ses principales sources de dégâts basées sur les auto-attaques.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "matchup",
+    "champion"
+   ],
+   "matchup": {
+    "vs": "Camille"
+   },
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Teemo/A"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-cgg5XDj4H5k",
+     "locator": "04:04",
+     "lang": "en",
+     "passage": "All I had to do is blind her, and then I can always Flash and then kill her.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-06",
+      "window": "224-284s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur ne mentionne pas les détails techniques sur le passif et le A de Camille, ni la consigne de ne pas gaspiller le A pour le poke."
+     }
+    },
+    {
+     "content": "c-yt-cgg5XDj4H5k",
+     "locator": "11:37",
+     "lang": "en",
+     "passage": "Camille's an auto attacker, but I'm blinding her main auto attacks"
+    }
+   ],
+   "mentions": [],
+   "action": "Garder ton Blind (A) pour le moment où Camille engage au corps à corps.",
+   "observe": "Attends que Camille utilise son E pour foncer sur toi avant de lancer ton A.",
+   "use": {
+    "when": "Camille tente un all-in ou un échange court au corps à corps.",
+    "why": "",
+    "who": "Teemo dans n'importe quel rôle face à Camille.",
+    "how": [
+     "Ne pas gaspiller le A pour le poke à distance si elle a son E disponible",
+     "Lancer le A dès qu'elle arrive au contact",
+     "Utiliser le temps du blind pour kiter ou riposter"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "Le rôle 'all' est excessif pour Teemo dont le kit et ce conseil spécifique s'appliquent principalement au Top ou au Mid dans ce matchup."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-06",
+   "validity": {
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-06",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-06"
   }
  ],
- "updatedAt": "2026-11-06T14:15:14.313Z"
+ "updatedAt": "2026-11-06T19:21:02.019Z"
 }

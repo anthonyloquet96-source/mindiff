@@ -47,6 +47,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Fait le 04/11 : repères par rang, fiches champions, builds, repères Diamant+ et par champion recalculés avec la clé personnelle (2 300 parties) et mis en ligne ; anciens repères de la clé de développement retirés de Supabase (sauvegarde locale) | 04/11 | JOURNAL 04/11 |
 | Fait le 05/11 : collecte Diamant+ (8 000 parties au total), tout recalculé ; 121 couples champion + poste avec leurs propres repères | 05/11 | JOURNAL 05/11 |
 | Fait le 05/11 : mention légale Riot en bas de chaque page du site, avec le lien vers la confidentialité (vérifiée sur ordinateur et à 390 px de large, pas cachée par la barre du bas) | 05/11 | JOURNAL 05/11 |
+| Fait le 06/11 : « Veille du coach » réparée (en panne depuis le 04/11, faute de frappe dans `coach/ddragon.mjs` révélée par le patch 16.22) ; relance du 06/11 réussie | 06/11 | JOURNAL 06/11, run GitHub 42224104221 |
 | Fait le 05/11 : tour du site public (13 pages, LoL et Valorant) : aucune erreur, aucune image cassée, aucun texte « undefined » ; mention légale en ligne. Restent 2 points de finition (voir « Ce qui attend Anthony ») | 05/11 | tour du site par Claude |
 
 ## Ce qui attend Anthony
@@ -64,7 +65,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 
 | Point | Depuis | Source |
 |---|---|---|
-| Top et ADC : seulement des objectifs de farm | 03/11 | JOURNAL 03/11 |
+| Top et ADC : seulement des objectifs de farm. Diagnostic du 06/11 : les autres objectifs (morts avant 14 min, premier objet, or qui dort, wards détruites) sont suspendus ou trop peu stables d'une partie à l'autre ; proposé : mesurer de nouveaux indicateurs propres à ces postes après les premiers retours des testeurs | 03/11 | rejeu du 06/11 (`coach/replay-raw.mjs`) |
 | Filtrer les articles de paris dans les actus (proposé, sans réponse d'Anthony). Vérifié le 05/11 : aucun article de paris, seulement l'équipe « Betclic Apogee » | 03/11 | conversation |
 | Clé de production : après la décision d’Anthony, préparer l’accès de Riot, ajouter le lien du site à la description de l’app 895430 et la recoller | 05/11 | règles Riot lues le 05/11 |
 | Après les premiers cycles terminés : bilan chiffré « le coach aide-t-il à progresser ? » (critère de Riot : aider les joueurs de façon mesurable) | 05/11 | developer.riotgames.com/docs/portal |

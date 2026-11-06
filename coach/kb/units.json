@@ -24430,7 +24430,7 @@
   },
   {
    "id": "u-dd-mel-a1",
-   "claim": "Mel peut renvoyer les projectiles ennemis, même les compétences les plus puissantes. Attendez qu'elle lance Réfutation avant d'envoyer vos puissants projectiles dans sa direction.",
+   "claim": "Mel peut détruire les projectiles ennemis, même les compétences les plus puissantes. Attendez qu'elle lance Réfutation avant d'envoyer vos puissants projectiles dans sa direction.",
    "champions": [
     "Mel"
    ],
@@ -24441,14 +24441,14 @@
     "Mel/W"
    ],
    "limits": [
-    "Conseil officiel non daté, cohérent avec la description de la version 16.21.1."
+    "Conseil officiel non daté, cohérent avec la description de la version 16.22.1."
    ],
    "evidence": [
     {
-     "content": "c-dd-16-21-1-mel",
+     "content": "c-dd-16-22-1-mel",
      "locator": "Mel › conseils pour le jouer (fr_FR)",
      "lang": "fr",
-     "passage": "Mel peut renvoyer les projectiles ennemis, même les compétences les plus puissantes. Attendez qu'elle lance Réfutation avant d'envoyer vos puissants projectiles dans sa direction."
+     "passage": "Mel peut détruire les projectiles ennemis, même les compétences les plus puissantes. Attendez qu'elle lance Réfutation avant d'envoyer vos puissants projectiles dans sa direction."
     }
    ],
    "roles": [
@@ -24461,7 +24461,7 @@
    },
    "patch": {
     "known": false,
-    "checkedAgainst": "16.21.1"
+    "checkedAgainst": "16.22.1"
    },
    "metaDependent": false,
    "conditions": [],
@@ -24473,21 +24473,21 @@
    "analyst": "Lecture automatique de Data Dragon (sans IA)",
    "origin": "data-dragon",
    "promptVersions": null,
-   "analyzedAt": "2026-10-21",
+   "analyzedAt": "2026-11-06",
    "validity": {
-    "checkedAt": "2026-10-21",
-    "checkedPatch": "26.20"
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
    },
    "verified": {
-    "at": "2026-10-21",
+    "at": "2026-11-06",
     "passages": true
    },
-   "version": 1,
+   "version": 2,
    "firstSeen": "2026-10-21"
   },
   {
    "id": "u-dd-mel-a2",
-   "claim": "Plus Mel vous touche, plus elle vous applique d'effets Accablement. Si vos PV tombent trop bas, elle vous exécutera la prochaine fois qu'elle vous touchera. N'hésitez pas à reculer quelques secondes pour laisser expirer les effets Accablement.",
+   "claim": "Plus Mel vous touche, plus elle vous applique d'effets cumulés d'Accablement. Si vos PV tombent trop bas, elle vous exécutera la prochaine fois qu'elle vous touchera. N'hésitez pas à reculer quelques secondes pour laisser expirer les effets cumulés d'Accablement.",
    "champions": [
     "Mel"
    ],
@@ -24498,14 +24498,14 @@
     "Mel/general"
    ],
    "limits": [
-    "Conseil officiel non daté, cohérent avec la description de la version 16.21.1."
+    "Conseil officiel non daté, cohérent avec la description de la version 16.22.1."
    ],
    "evidence": [
     {
-     "content": "c-dd-16-21-1-mel",
+     "content": "c-dd-16-22-1-mel",
      "locator": "Mel › conseils pour le jouer (fr_FR)",
      "lang": "fr",
-     "passage": "Plus Mel vous touche, plus elle vous applique d'effets Accablement. Si vos PV tombent trop bas, elle vous exécutera la prochaine fois qu'elle vous touchera. N'hésitez pas à reculer quelques secondes pour laisser expirer les effets Accablement."
+     "passage": "Plus Mel vous touche, plus elle vous applique d'effets cumulés d'Accablement. Si vos PV tombent trop bas, elle vous exécutera la prochaine fois qu'elle vous touchera. N'hésitez pas à reculer quelques secondes pour laisser expirer les effets cumulés d'Accablement."
     }
    ],
    "roles": [
@@ -24518,7 +24518,7 @@
    },
    "patch": {
     "known": false,
-    "checkedAgainst": "16.21.1"
+    "checkedAgainst": "16.22.1"
    },
    "metaDependent": false,
    "conditions": [],
@@ -24530,21 +24530,21 @@
    "analyst": "Lecture automatique de Data Dragon (sans IA)",
    "origin": "data-dragon",
    "promptVersions": null,
-   "analyzedAt": "2026-10-21",
+   "analyzedAt": "2026-11-06",
    "validity": {
-    "checkedAt": "2026-10-21",
-    "checkedPatch": "26.20"
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
    },
    "verified": {
-    "at": "2026-10-21",
+    "at": "2026-11-06",
     "passages": true
    },
-   "version": 1,
+   "version": 2,
    "firstSeen": "2026-10-21"
   },
   {
    "id": "u-dd-mel-e1",
-   "claim": "Contre Mel : Mel peut renvoyer les projectiles ennemis, même les compétences les plus puissantes. Attendez qu'elle lance Réfutation avant d'envoyer vos puissants projectiles dans sa direction.",
+   "claim": "Contre Mel : Mel peut détruire les projectiles ennemis, même les compétences les plus puissantes. Attendez qu'elle lance Réfutation avant d'envoyer vos puissants projectiles dans sa direction.",
    "champions": [],
    "matchup": {
     "vs": "Mel"
@@ -24560,10 +24560,10 @@
    ],
    "evidence": [
     {
-     "content": "c-dd-16-21-1-mel",
+     "content": "c-dd-16-22-1-mel",
      "locator": "Mel › conseils pour l'affronter (fr_FR)",
      "lang": "fr",
-     "passage": "Mel peut renvoyer les projectiles ennemis, même les compétences les plus puissantes. Attendez qu'elle lance Réfutation avant d'envoyer vos puissants projectiles dans sa direction."
+     "passage": "Mel peut détruire les projectiles ennemis, même les compétences les plus puissantes. Attendez qu'elle lance Réfutation avant d'envoyer vos puissants projectiles dans sa direction."
     }
    ],
    "roles": [
@@ -24576,7 +24576,7 @@
    },
    "patch": {
     "known": false,
-    "checkedAgainst": "16.21.1"
+    "checkedAgainst": "16.22.1"
    },
    "metaDependent": false,
    "conditions": [],
@@ -24588,21 +24588,21 @@
    "analyst": "Lecture automatique de Data Dragon (sans IA)",
    "origin": "data-dragon",
    "promptVersions": null,
-   "analyzedAt": "2026-10-21",
+   "analyzedAt": "2026-11-06",
    "validity": {
-    "checkedAt": "2026-10-21",
-    "checkedPatch": "26.20"
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
    },
    "verified": {
-    "at": "2026-10-21",
+    "at": "2026-11-06",
     "passages": true
    },
-   "version": 1,
+   "version": 2,
    "firstSeen": "2026-10-21"
   },
   {
    "id": "u-dd-mel-e2",
-   "claim": "Contre Mel : Plus Mel vous touche, plus elle vous applique d'effets Accablement. Si vos PV tombent trop bas, elle vous exécutera la prochaine fois qu'elle vous touchera. N'hésitez pas à reculer quelques secondes pour laisser expirer les effets Accablement.",
+   "claim": "Contre Mel : Plus Mel vous touche, plus elle vous applique d'effets cumulés d'Accablement. Si vos PV tombent trop bas, elle vous exécutera la prochaine fois qu'elle vous touchera. N'hésitez pas à reculer quelques secondes pour laisser expirer les effets cumulés d'Accablement.",
    "champions": [],
    "matchup": {
     "vs": "Mel"
@@ -24618,10 +24618,10 @@
    ],
    "evidence": [
     {
-     "content": "c-dd-16-21-1-mel",
+     "content": "c-dd-16-22-1-mel",
      "locator": "Mel › conseils pour l'affronter (fr_FR)",
      "lang": "fr",
-     "passage": "Plus Mel vous touche, plus elle vous applique d'effets Accablement. Si vos PV tombent trop bas, elle vous exécutera la prochaine fois qu'elle vous touchera. N'hésitez pas à reculer quelques secondes pour laisser expirer les effets Accablement."
+     "passage": "Plus Mel vous touche, plus elle vous applique d'effets cumulés d'Accablement. Si vos PV tombent trop bas, elle vous exécutera la prochaine fois qu'elle vous touchera. N'hésitez pas à reculer quelques secondes pour laisser expirer les effets cumulés d'Accablement."
     }
    ],
    "roles": [
@@ -24634,7 +24634,7 @@
    },
    "patch": {
     "known": false,
-    "checkedAgainst": "16.21.1"
+    "checkedAgainst": "16.22.1"
    },
    "metaDependent": false,
    "conditions": [],
@@ -24646,16 +24646,16 @@
    "analyst": "Lecture automatique de Data Dragon (sans IA)",
    "origin": "data-dragon",
    "promptVersions": null,
-   "analyzedAt": "2026-10-21",
+   "analyzedAt": "2026-11-06",
    "validity": {
-    "checkedAt": "2026-10-21",
-    "checkedPatch": "26.20"
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
    },
    "verified": {
-    "at": "2026-10-21",
+    "at": "2026-11-06",
     "passages": true
    },
-   "version": 1,
+   "version": 2,
    "firstSeen": "2026-10-21"
   },
   {
@@ -79191,7 +79191,754 @@
    },
    "version": 1,
    "firstSeen": "2026-11-03"
+  },
+  {
+   "id": "u-auto-smolder-26-22",
+   "claim": "Patch 26.22 : Smolder change (Z - ATCHOUM !). Dégâts de l'explosion : 10 / 35 / 60 / 85 / 110 (+ 50% des dégâts d'attaque bonus) (+ 80% de la puissance) ⇒ 25 / 50 / 75 / 100 / 125 (+ 50% des dégâts d'attaque bonus) (+ 80% de la puissance)",
+   "champions": [
+    "Smolder"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "patch"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.22"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Smolder/W"
+   ],
+   "conditions": [],
+   "limits": [
+    "Fait officiel relevé automatiquement : l'effet en partie n'est pas encore analysé."
+   ],
+   "nature": "officiel",
+   "evidence": [
+    {
+     "content": "c-riot-notes-26-22",
+     "locator": "Champions › Smolder › Z - ATCHOUM !",
+     "lang": "fr",
+     "passage": "Dégâts de l'explosion : 10 / 35 / 60 / 85 / 110 (+ 50% des dégâts d'attaque bonus) (+ 80% de la puissance) ⇒ 25 / 50 / 75 / 100 / 125 (+ 50% des dégâts d'attaque bonus) (+ 80% de la puissance)"
+    },
+    {
+     "content": "c-riot-notes-26-22",
+     "locator": "Champions › Smolder",
+     "lang": "fr",
+     "passage": "Les buffs apportés il y a quelques patchs n'ont pas eu l'effet escompté, mais Smolder a trouvé un bon équilibre entre ses builds critique et compétences, donc nous lui accordons cette fois un buff un peu plus générique. Le nerf de l'Arc de Doran de ce patch devrait également l'aider."
+    }
+   ],
+   "published": null,
+   "proposedStatus": null,
+   "analyst": "Lecture automatique des notes de patch (sans IA)",
+   "origin": "lecture-automatique",
+   "promptVersions": null,
+   "analyzedAt": "2026-11-06",
+   "validity": {
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-06",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-06"
+  },
+  {
+   "id": "u-ai-yt-7gwunpfeHNQ-3",
+   "claim": "Selon 나라카일 : pousser rapidement la vague de sbires mid sous la tour adverse avant une escarmouche met le laner adverse sous pression et garantit la supériorité numérique ou temporelle lors du combat.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-7gwunpfeHNQ",
+     "locator": "[03:31]",
+     "lang": "ko",
+     "passage": "위쪽에서 싸우려고 해요 라인 빨리 밀어 넣고",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-06",
+      "window": "191-251s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-7gwunpfeHNQ",
+     "locator": "[03:37]",
+     "lang": "ko",
+     "passage": "그러면 미드를 박겠죠? 그러면 위쪽에서 당연히 교전 이길 수밖에 없어요"
+    }
+   ],
+   "mentions": [
+    "Akali (exemple)"
+   ],
+   "action": "Nettoyer promptement la vague de sbires au mid avant de décaler pour appuyer son équipe dans la rivière.",
+   "observe": "",
+   "use": {
+    "when": "Lorsqu'une escarmouche s'annonce dans la rivière ou la jungle (côté top ou bot).",
+    "why": "L'adversaire direct est contraint de sacrifier de l'expérience et des pièces d'or s'il suit immédiatement, ou d'arriver en retard au combat.",
+    "who": "Midlaners",
+    "how": [
+     "Utiliser ses compétences pour pousser la vague de sbires sous la tourelle ennemie",
+     "Faire hésiter ou bloquer l'adversaire sous sa tour",
+     "Décaler aussitôt vers la zone de combat"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe intemporel de gestion de vague et de priorité midlane parfaitement formulé sans dépendance champion, conservé en provisoire du fait de l'origine de lecture par IA à valider."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-06",
+   "validity": {
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-06",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-06"
+  },
+  {
+   "id": "u-ai-yt-BTYVJVBqlmU-1",
+   "claim": "Selon Misanthiel - Coach Toplane : en début de partie contre Garen, privilégie la gestion de la vague pour obtenir la priorité et provoquer un retour de vague (bounce) vers toi au lieu de chercher des échanges de PV.",
+   "champions": [
+    "Jax"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Garen"
+   },
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Début de partie (Early game)"
+   ],
+   "limits": [
+    "Sauf si Garen commet une grosse erreur de positionnement"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-BTYVJVBqlmU",
+     "locator": "00:11",
+     "lang": "en",
+     "passage": "Crash ta wave, puis joue pour faire bounce la vague vers toi.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-06",
+      "window": "0-51s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousser la première vague sous la tour adverse puis la laisser revenir vers soi.",
+   "observe": "Le comportement de Garen face à la vague et son positionnement.",
+   "use": {
+    "when": "Dès le début de la phase de lane au niveau 1.",
+    "why": "Garen possède un avantage de sustain naturel qui lui permet de gagner les échanges de PV sur le long terme en début de partie.",
+    "who": "Joueur de Jax en toplane.",
+    "how": [
+     "Prends la priorité sur la vague sans attaquer Garen",
+     "Pousse la vague jusqu'à la tour adverse (crash)",
+     "Recule pour laisser la vague revenir vers ta tour"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil de gestion de vague fondamental pour Jax dans ce matchup et bien sourcé par les propos du coach."
+   },
+   "published": "2026-08-14",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-06",
+   "validity": {
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-06",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-06"
+  },
+  {
+   "id": "u-ai-riot-dev-launching-yuumi-s-rework-1",
+   "claim": "Yuumi renforce son partenaire de voie (Meilleur Ami) en l'aidant à tuer des sbires ou des ennemis. Changer de partenaire en cours de partie est coûteux car le lien doit être reconstruit.",
+   "champions": [
+    "Yuumi"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "champion",
+    "synergie",
+    "lane"
+   ],
+   "synergy": {
+    "with": [
+     "Ranged auto-attackers"
+    ],
+    "kind": "theorique"
+   },
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Yuumi/passive"
+   ],
+   "conditions": [
+    "Être attaché à l'allié pour construire le lien",
+    "Le lien est plus efficace sur les champions à distance basés sur les auto-attaques"
+   ],
+   "limits": [
+    "Changer de partenaire réinitialise la progression du lien"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-dev-launching-yuumi-s-rework",
+     "locator": "Passive - Feline Friendship",
+     "lang": "en",
+     "passage": "Whenever Yuumi helps her attached ally kill enemies or minions, she’ll start building a bond (displayed on Yuumi's health bar and the feet of her Best Friend)."
+    },
+    {
+     "content": "c-riot-dev-launching-yuumi-s-rework",
+     "locator": "Passive - Feline Friendship",
+     "lang": "en",
+     "passage": "However, if you do make the decision to ditch your old partner, Yuumi will have to pay a pretty big cost to build up a new bond."
+    }
+   ],
+   "mentions": [],
+   "action": "Rester attaché à son carry de départ pour maximiser les bonus du lien de Meilleur Ami.",
+   "observe": "Jauge de lien sur la barre de vie de Yuumi et aux pieds de l'allié.",
+   "use": {
+    "when": "Pendant la phase de laning et les transitions vers le milieu de partie.",
+    "why": "Pour encourager Yuumi à rester avec son partenaire de voie plutôt que de l'abandonner pour un autre allié plus fort.",
+    "who": "Yuumi support jouant avec un carry à distance.",
+    "how": [
+     "Aide ton allié à tuer des sbires pour construire le lien.",
+     "Évite de changer de partenaire inutilement pour ne pas perdre les bonus accumulés."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le contenu date de mars 2023 (environ patch 13.5), ce qui est très antérieur au patch courant 26.22 ; la mécanique de Meilleur Ami est centrale mais nécessite une confirmation sur la version actuelle."
+   },
+   "published": "2023-03-10",
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-06",
+   "validity": {
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-06",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-06"
+  },
+  {
+   "id": "u-ai-riot-dev-launching-yuumi-s-rework-2",
+   "claim": "Le sort Zoomies (E) de Yuumi fournit désormais un bouclier, tandis que le soin est déplacé sur le passif et l'ultime. Elle gagne également la capacité de rendre de la mana à ses alliés.",
+   "champions": [
+    "Yuumi"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "champion",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Yuumi/E",
+    "Yuumi/passive"
+   ],
+   "conditions": [
+    "Le soin ne s'active qu'en combat contre des champions"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-dev-launching-yuumi-s-rework",
+     "locator": "Passive - Feline Friendship",
+     "lang": "en",
+     "passage": "We’ve swapped the outputs around, giving shielding to Zoomies (E) and gating healing to only be in combat with champions (and her ultimate which we’ll get to later)."
+    },
+    {
+     "content": "c-riot-dev-launching-yuumi-s-rework",
+     "locator": "W - You and Me!",
+     "lang": "en",
+     "passage": "One additional toy we’re giving the cat is the ability to grant small amounts of mana to allies."
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser le E pour parer des dégâts précis ou aider un allié à push via le gain de mana.",
+   "observe": "Barre de mana de l'allié et bouclier visuel.",
+   "use": {
+    "when": "En combat pour bloquer des dégâts ou hors combat pour aider au push de vague.",
+    "why": "Le bouclier permet une expression de maîtrise via le timing (parade), et le gain de mana donne une utilité hors combat.",
+    "who": "Yuumi support.",
+    "how": [
+     "Lance Zoomies (E) juste avant que ton allié ne subisse des dégâts.",
+     "Utilise Zoomies (E) sur ton allié s'il manque de mana pour finir de pousser sa vague."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le contenu est ancien. De plus, l'unité attribue le rendu de mana au sort Zoomies (E) alors que la citation le place sous le Z (W - You and Me!)."
+   },
+   "published": "2023-03-10",
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-06",
+   "validity": {
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-06",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-06"
+  },
+  {
+   "id": "u-ai-riot-dev-launching-yuumi-s-rework-3",
+   "claim": "L'ultime de Yuumi (Chat-pitre final) ne racine plus les ennemis mais soigne les alliés et ralentit les adversaires, avec une efficacité accrue sur les carrys de backline.",
+   "champions": [
+    "Yuumi"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "champion",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Yuumi/R"
+   ],
+   "conditions": [
+    "L'ultime suit désormais la direction de la souris"
+   ],
+   "limits": [
+    "Moins efficace pour engager le combat avec des combattants de mêlée"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-dev-launching-yuumi-s-rework",
+     "locator": "R - Final Chapter",
+     "lang": "en",
+     "passage": "So we’ve removed the root and instead replaced it with the ability to heal allies."
+    },
+    {
+     "content": "c-riot-dev-launching-yuumi-s-rework",
+     "locator": "R - Final Chapter",
+     "lang": "en",
+     "passage": "Yuumi’s ultimate will now also follow her mouse, letting her heal those pesky teammates that refuse to be helped (or to slow down enemies rudely running away)."
+    }
+   ],
+   "mentions": [],
+   "action": "Diriger les vagues de l'ultime avec la souris pour couvrir à la fois les alliés et les ennemis.",
+   "observe": "Vagues de l'ultime suivant le curseur.",
+   "use": {
+    "when": "Pendant un combat d'équipe, particulièrement pour protéger un carry.",
+    "why": "Pour transformer l'ultime d'un outil d'engagement offensif en un outil de protection défensive pour la ligne arrière.",
+    "who": "Yuumi support.",
+    "how": [
+     "Active l'ultime et utilise ta souris pour orienter les vagues vers tes alliés blessés.",
+     "Priorise la protection de tes carrys fragiles plutôt que l'agression pure."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le contenu date de 2023, ce qui est très antérieur au patch courant 26.22 ; les valeurs de soin et de ralentissement ont probablement évolué."
+   },
+   "published": "2023-03-10",
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-06",
+   "validity": {
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-06",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-06"
+  },
+  {
+   "id": "u-ai-riot-dev-launching-yuumi-s-rework-4",
+   "claim": "Le projectile du A de Yuumi suit brièvement la souris avant de partir en ligne droite, perdant en maniabilité par rapport à l'ancienne version.",
+   "champions": [
+    "Yuumi"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Yuumi/Q"
+   ],
+   "conditions": [],
+   "limits": [
+    "Moins de précision garantie par rapport à l'ancienne version"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-dev-launching-yuumi-s-rework",
+     "locator": "Q - Prowling Projectile",
+     "lang": "en",
+     "passage": "The new spell will still keep a short duration of mouse-control, but will quickly shoot off into the distance—kind of like a mouse chasing a laser pointer."
+    }
+   ],
+   "mentions": [],
+   "action": "Anticiper la trajectoire rectiligne du A après la phase initiale de guidage.",
+   "observe": "Changement de trajectoire du projectile après le guidage initial.",
+   "use": {
+    "when": "Tentative de poke ou de ralentissement à distance.",
+    "why": "Réduire la fiabilité excessive du sort en jeu coordonné tout en permettant des effets plus puissants (soin, buffs).",
+    "who": "Yuumi support.",
+    "how": [
+     "Guide le projectile au tout début de sa course avec ta souris.",
+     "Vise la direction finale souhaitée avant que le projectile ne parte en ligne droite."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "patch-incompatible",
+     "citation-insuffisante"
+    ],
+    "why": "Le contenu est ancien. La citation fournie ne mentionne pas le gain de capacités de protection ou de soin pour le A, elle ne décrit que le changement de trajectoire du projectile."
+   },
+   "published": "2023-03-10",
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-06",
+   "validity": {
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-06",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-06"
+  },
+  {
+   "id": "u-ai-riot-dev-yuumi-s-rework-1",
+   "claim": "Yuumi est conçue comme un champion d'introduction, au même titre que Garen, Annie ou Sona, pour permettre aux nouveaux joueurs de découvrir le jeu aux côtés de leurs amis.",
+   "champions": [
+    "Yuumi"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Contexte d'apprentissage du jeu"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-dev-yuumi-s-rework",
+     "locator": "/Dev: Yuumi’s Rework",
+     "lang": "en",
+     "passage": "Yuumi is a special champion that allows new players to not only experience League of Legends quickly, but also to learn the game side-by-side with their friends."
+    },
+    {
+     "content": "c-riot-dev-yuumi-s-rework",
+     "locator": "Staying True to Yuumi",
+     "lang": "en",
+     "passage": "We believe that Yuumi has a key spot on the League roster when she’s positioned as a champion like Garen, Annie, and Sona who were designed to help introduce players to Summoner’s Rift.",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Garen (exemple)",
+    "Annie (exemple)",
+    "Sona (exemple)"
+   ],
+   "use": {
+    "when": "Un nouveau joueur souhaite apprendre les bases de la Faille de l'Invocateur.",
+    "why": "Ces champions ont une barrière à l'entrée plus faible et permettent de se concentrer sur l'apprentissage global du jeu.",
+    "who": "Nouveaux joueurs",
+    "how": [
+     "Choisir Yuumi pour observer le jeu tout en étant attaché à un ami plus expérimenté."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Information de design officielle et intemporelle sur l'identité du champion."
+   },
+   "published": "2022-12-16",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-06",
+   "validity": {
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-06",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-06"
+  },
+  {
+   "id": "u-ai-riot-dev-yuumi-s-rework-2",
+   "claim": "Les enchanteurs classiques sont équilibrés par leur faible durabilité et leur portée, ce qui les empêche normalement de suivre des alliés de mêlée plongeant dans la ligne arrière adverse.",
+   "champions": [],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "analyse",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-dev-yuumi-s-rework",
+     "locator": "The Cat attached to the Elephant in the Room",
+     "lang": "en",
+     "passage": "Enchanters as a class are often kept in check by their spell ranges and low durability, which limit how effectively they can protect and support melee champions. For example, a Fighter or Assassin diving in the backline needs to do so without the help of a Lulu shield or Soraka heal",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Lulu (exemple)",
+    "Soraka (exemple)"
+   ],
+   "use": {
+    "when": "Lorsqu'un allié de mêlée (Combattant ou Assassin) engage un combat loin de sa propre ligne arrière.",
+    "why": "S'exposer pour soigner ou protéger un allié en profondeur met l'enchanteur en danger de mort immédiate à cause de sa fragilité.",
+    "who": "Joueurs d'enchanteurs (Lulu, Soraka, etc.)",
+    "how": [
+     "Respecter les limites de portée de ses sorts.",
+     "Ne pas suivre un allié dans une zone où l'on devient une cible facile sans protection."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe de design général sur les classes de champions, indépendant des patchs."
+   },
+   "published": "2022-12-16",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-06",
+   "validity": {
+    "checkedAt": "2026-11-06",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-06",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-06"
   }
  ],
- "updatedAt": "2026-11-03T19:31:01.442Z"
+ "updatedAt": "2026-11-06T14:15:14.313Z"
 }

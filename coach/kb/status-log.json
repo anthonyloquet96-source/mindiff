@@ -818,6 +818,76 @@
    "from": "exploitable",
    "to": "remplacée",
    "why": "Contenu réanalysé."
+  },
+  {
+   "at": "2026-11-06T14:15:15.973Z",
+   "unit": "u-lucian-2619-vigilance",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Dépend de la méta, patch 26.19 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-06T14:15:15.973Z",
+   "unit": "u-dd-corki-e1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Corki/R modifié au patch 26.22, après 26.20."
+  },
+  {
+   "at": "2026-11-06T14:15:15.973Z",
+   "unit": "u-dd-kayle-a1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Kayle/R modifié au patch 26.22, après 26.20."
+  },
+  {
+   "at": "2026-11-06T14:15:15.973Z",
+   "unit": "u-dd-kayle-e1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Kayle/R modifié au patch 26.22, après 26.20."
+  },
+  {
+   "at": "2026-11-06T14:15:15.973Z",
+   "unit": "u-dd-thresh-e2",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Thresh/R modifié au patch 26.22, après 26.20."
+  },
+  {
+   "at": "2026-11-06T14:15:15.973Z",
+   "unit": "u-dd-yasuo-a2",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Yasuo/Q modifié au patch 26.22, après 26.20."
+  },
+  {
+   "at": "2026-11-06T14:15:15.973Z",
+   "unit": "u-dd-yasuo-e1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Yasuo/Q modifié au patch 26.22, après 26.20."
+  },
+  {
+   "at": "2026-11-06T14:15:15.974Z",
+   "unit": "u-ai-yt-ynG4T9yLKFs-2",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-ynG4T9yLKFs : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. Locke/Q modifié au patch 26.22, après 26.21."
+  },
+  {
+   "at": "2026-11-06T14:15:15.974Z",
+   "unit": "u-ai-yt-ynG4T9yLKFs-3",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-ynG4T9yLKFs : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. Locke/W modifié au patch 26.22, après 26.21."
+  },
+  {
+   "at": "2026-11-06T14:15:15.974Z",
+   "unit": "u-ai-yt-S3F9CpeiSNE-2",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-S3F9CpeiSNE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. c-yt-S3F9CpeiSNE : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo (00:51). Zaahen/Q modifié au patch 26.22, après 26.21."
   }
  ]
 }

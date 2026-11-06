@@ -57,7 +57,8 @@ export async function run() {
   // Conseils copiés d'un champion à l'autre dans Data Dragon (K'Santé reprend ceux de Lee Sin, Milio ceux de Rakan, nom remplacé) :
   // seul le champion le plus ancien les garde, la copie ne décrit pas le bon kit
   const champ = Object.fromEntries(Object.values(list.data).map(b => [b.id.toLowerCase(), { key: Number(b.key), name: b.name }]));
-  const who = u => u.id.match(/^u-dd-(.+)-([ae])d+$/);
+  // « \d+ » et pas « d+ » : sans la barre, aucun identifiant (u-dd-ahri-a1) ne correspondait et la veille plantait au patch suivant
+  const who = u => u.id.match(/^u-dd-(.+)-([ae])\d+$/);
   const forms = u => { const [, c, kind] = who(u), t = u.claim.replace(/^Contre [^:]+ : /, ""); return [kind + t.toLowerCase().trim(), kind + t.split(champ[c]?.name || "§").join("§").toLowerCase().trim()]; };
   const firstSeen = new Set(), copied = new Set();
   for (const u of [...batch].sort((x, y) => (champ[who(x)[1]]?.key || 0) - (champ[who(y)[1]]?.key || 0))) {

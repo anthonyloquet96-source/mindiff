@@ -23,6 +23,10 @@ Demandée par Anthony le 06/11 (« Lance la collecte Top/ADC maintenant »).
   - meilleur candidat hors farm pour les deux postes : **au moins une control ward avant 20 min** (fiable, contrôlable, presque jamais atteinte par hasard) ;
   - ensuite, wards par minute pour l'ADC.
   - Changer le catalogue (`control_wards_20` ouvert à TOP et BOTTOM) attend l'accord d'Anthony.
+- **Vérification avant d'activer** (remarque d'Anthony : « c'est pas game changer de fou pour un top et adc ») :
+  - même en Challenger, seulement 34 % (ADC) et 39 % (Top) des parties ont une control ward avant 20 min ; en Diamant, 3 % et 16 % ;
+  - victoires, parties de 20 min et plus, sans puis avec au moins une control ward : ADC 48 % (601 parties) et 50 % (163) ; Top 52 % (653) et 56 % (166). L'écart est faible et peut venir d'autre chose (or en trop quand on est en avance).
+- **Décision d'Anthony (06/11)** : option 1, on garde le farm pour Top et ADC. Rien n'a changé dans le catalogue. À rouvrir avec les retours des testeurs.
 
 ## 2026-11-06 — veille du coach en panne depuis le 04/11, réparée
 

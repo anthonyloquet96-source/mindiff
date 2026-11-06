@@ -65,7 +65,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 
 | Point | Depuis | Source |
 |---|---|---|
-| Top et ADC : seulement des objectifs de farm. Diagnostic du 06/11 : les autres objectifs (morts avant 14 min, premier objet, or qui dort, wards détruites) sont suspendus ou trop peu stables d'une partie à l'autre ; série Top/ADC clé personnelle faite le 06/11 (80 joueurs) : meilleur candidat « au moins une control ward avant 20 min ». **Attend l'accord d'Anthony** pour l'ouvrir à Top et ADC | 03/11 | JOURNAL 06/11 |
+| ~~Top et ADC : seulement des objectifs de farm.~~ **Décidé le 06/11 par Anthony : on garde le farm pour Top et ADC** (control ward écartée : peu de lien avec la victoire). Rouvrir seulement avec les retours des testeurs. Diagnostic du 06/11 : les autres objectifs (morts avant 14 min, premier objet, or qui dort, wards détruites) sont suspendus ou trop peu stables d'une partie à l'autre ; série Top/ADC clé personnelle faite le 06/11 (80 joueurs) : meilleur candidat « au moins une control ward avant 20 min ». **Attend l'accord d'Anthony** pour l'ouvrir à Top et ADC | 03/11 | JOURNAL 06/11 |
 | Filtrer les articles de paris dans les actus (proposé, sans réponse d'Anthony). Vérifié le 05/11 : aucun article de paris, seulement l'équipe « Betclic Apogee » | 03/11 | conversation |
 | Clé de production : après la décision d’Anthony, préparer l’accès de Riot, ajouter le lien du site à la description de l’app 895430 et la recoller | 05/11 | règles Riot lues le 05/11 |
 | Après les premiers cycles terminés : bilan chiffré « le coach aide-t-il à progresser ? » (critère de Riot : aider les joueurs de façon mesurable) | 05/11 | developer.riotgames.com/docs/portal |

@@ -13,7 +13,8 @@ import { items } from "./review.mjs";
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? Number(process.argv[i + 1]) : d; };
 const MIN = arg("--min-parties", 10);
-const DIR = "coach/cache/battery-raw";
+// --dossier : autre série de parties brutes (par exemple coach/cache/battery-perso, clé personnelle)
+const DIR = process.argv.includes("--dossier") ? process.argv[process.argv.indexOf("--dossier") + 1] : "coach/cache/battery-raw";
 const ROLES = ["TOP", "JUNGLE", "MIDDLE", "BOTTOM", "UTILITY"];
 const median = a => { const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length ? (s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2) : null; };
 const mean = a => a.reduce((s, v) => s + v, 0) / a.length;

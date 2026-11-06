@@ -10,7 +10,8 @@ import { gunzipSync } from "node:zlib";
 import { computeMetrics, CATALOG } from "./metrics.mjs";
 import { proposeGoal, transition, evaluateGoal, RULES } from "./goals.mjs";
 
-const DIR = "coach/cache/battery-raw", EVAL = 5, MIN_BASE = 15;
+// --dossier : autre série de parties brutes (par exemple coach/cache/battery-perso, clé personnelle)
+const DIR = process.argv.includes("--dossier") ? process.argv[process.argv.indexOf("--dossier") + 1] : "coach/cache/battery-raw", EVAL = 5, MIN_BASE = 15;
 const arg = k => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : null; };
 if (arg("--plancher")) RULES.rotationFloor = Number(arg("--plancher"));
 for (const k of (arg("--activer") || "").split(",").filter(Boolean)) { if (!CATALOG[k]) throw new Error(`métrique inconnue : ${k}`); CATALOG[k].autoPropose = true; }

@@ -2,6 +2,15 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-06 — veille du coach en panne depuis le 04/11, réparée
+
+- **Constat** (e-mail GitHub transmis par Anthony, puis `gh run list`) : 11 échecs de suite, du 04/11 à 1 h 10 au 06/11 à 13 h 10. Le dernier succès date du 03/11 à 18 h 58.
+- **Cause** : l'étape « Socle officiel de tous les champions » (`coach/ddragon.mjs`) plantait sur « Cannot read properties of null (reading '1') ».
+  - Le filtre des conseils copiés d'un champion à l'autre (ajouté le 24/10) cherchait `d+` au lieu de `\d+` : aucun identifiant ne correspondait.
+  - Ce code ne tourne que quand Data Dragon change de version. Il a donc planté dès la sortie de la 16.22, le 04/11.
+- **Correction** : `\d+`.
+- **Vérifié** sur une copie de main, ensuite jetée : « 173 champions lus (Data Dragon 16.22.1) : 4 conseils officiels enregistrés, 0 rejetés ».
+
 ## 2026-11-05 — mention légale Riot visible
 
 - Les règles de Riot (developer.riotgames.com/policies/general) demandent la mention « MINDIFF isn't endorsed by Riot Games… » dans un endroit facilement visible. Elle était seulement dans le panneau « Sources ».

@@ -10,7 +10,8 @@ import { gunzipSync } from "node:zlib";
 import { items } from "./review.mjs";
 import { indicators } from "./stability.mjs";
 
-const DIR = "coach/cache/battery-raw";
+// --dossier : autre série de parties brutes (par exemple coach/cache/battery-perso, clé personnelle)
+const DIR = process.argv.includes("--dossier") ? process.argv[process.argv.indexOf("--dossier") + 1] : "coach/cache/battery-raw";
 const DIRECTION = { deadShare: -1, deathsAfter25: -1, deathsTotal: -1, goldIdleShare: -1, goldUnspentAtDeath: -1, firstItemMin: -1, firstBackMin: 0, "cur.early_deaths": -1 };
 const median = a => { const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length ? (s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2) : null; };
 const quantile = (a, q) => { const s = [...a].sort((x, y) => x - y); const i = (s.length - 1) * q, lo = Math.floor(i), hi = Math.ceil(i); return s[lo] + (s[hi] - s[lo]) * (i - lo); };

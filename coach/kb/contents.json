@@ -7551,7 +7551,9 @@
    },
    "access": "texte-integral",
    "analysis": "en-attente",
-   "note": "Article officiel du 2021-07-07 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "note": "Article officiel du 2021-07-07 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "attempts": 1,
+   "lastError": "gemini-3-flash-preview : réponse tronquée (2026-11-07)"
   },
   {
    "id": "c-yt-Yrzk-24ZnPA",
@@ -8194,8 +8196,18 @@
     "basis": "page officielle de Riot sur Renata Glasc, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2022-02-17 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Article officiel du 2022-02-17 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Ce contenu explique les intentions de conception de Renata Glasc, une enchanteresse capable de retourner la puissance ennemie contre elle-même et de maintenir ses alliés au combat au-delà de la mort.",
+   "quality": {
+    "level": "élevée",
+    "why": "Source officielle de Riot Games détaillant précisément les mécaniques et la philosophie de gameplay du champion."
+   }
   },
   {
    "id": "c-yt-3v7ZGvXmSUA",
@@ -8385,8 +8397,18 @@
     "basis": "page officielle de Riot sur Vex, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2021-09-07 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Article officiel du 2021-09-07 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Tu peux apprendre comment Vex utilise son passif pour punir les champions mobiles et pourquoi son positionnement à moyenne portée est crucial pour contrer les initiations adverses.",
+   "quality": {
+    "level": "élevée",
+    "why": "Source officielle de Riot Games détaillant les intentions de design et le fonctionnement exact des mécaniques du champion lors de sa sortie."
+   }
   },
   {
    "id": "c-yt--53Hat-vM-k",
@@ -8440,8 +8462,18 @@
     "basis": "page officielle de Riot sur Viego, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2021-01-21 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Article officiel du 2021-01-21 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Ce contenu détaille la conception de Viego, soulignant sa synergie native avec l'objet Lame du roi déchu, sa mécanique de possession pour enchaîner les éliminations, et l'utilisation de sa brume pour le camouflage et la mobilité.",
+   "quality": {
+    "level": "élevée",
+    "why": "Source officielle (Riot Games) fournissant des explications précises sur les intentions de design, les mécaniques de kit et les synergies d'objets prévues."
+   }
   },
   {
    "id": "c-yt-98CIAkqX6ZU",
@@ -8781,7 +8813,9 @@
    },
    "access": "texte-integral",
    "analysis": "en-attente",
-   "note": "Article officiel du 2022-01-14 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "note": "Article officiel du 2022-01-14 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "attempts": 1,
+   "lastError": "gemini-3-flash-preview : réponse tronquée (2026-11-07)"
   },
   {
    "id": "c-yt-VcaUG8hV9SU",
@@ -11048,12 +11082,12 @@
    "lang": "fr",
    "published": "2024-10-06",
    "retrievedAt": "2026-10-21",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.19",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "► Twitch :   https://www.twitch.tv/chreak - 14H TOUS LES JOURS sauf lundi\n►  Patreon pour progresser avec du contenu exclusif : https://bit.ly/Chreak-Patreon\n►  Chaîne VOD : https://www.youtube.com/@ChreakVODs\n► SOS Élo Hell (Coaching en live) : https://docs.google.com/forms/d/e/1FAIpQLSeS-h_yhMpw3a",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 15 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -11063,6 +11097,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-11-07",
+    "sha256": "4c3279941cd9adb8d442e9d5d72b084885c59df5f3c33cb016da4d559241449b",
+    "segments": 1,
+    "observations": 15,
+    "duration": "06:09",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 154188
+   },
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "L'auteur détaille comment dominer un match-up mage contre mage (Syndra contre Orianna) en haut niveau grâce à la gestion précise du spacing, du positionnement de l'orbe adverse, du ciblage des sbires distance et du contrôle de vague.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur explique en détail son processus de réflexion, les choix de positionnement, de gestion de vague et de timing avec des exemples concrets tirés d'une partie de haut niveau."
    }
   },
   {
@@ -79369,13 +79426,13 @@
    "lang": "tr",
    "published": null,
    "retrievedAt": "2026-11-07",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "none",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 87,
-   "note": "File de lecture (rang 87) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 28 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [
@@ -79386,6 +79443,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-11-07",
+    "sha256": "e00a9038dbc757206a1f5dbc58df56dd13772e3f93d3b5d3c554b3bad530d6eb",
+    "segments": 139,
+    "observations": 28,
+    "duration": "19:38",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 118056
+   },
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "Un jungler doit impérativement respecter son plan de nettoyage (pathing) et gérer son tempo après son premier full clear pour ne pas perdre l'avantage de ses camps face à l'adversaire.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le guide détaille avec précision la notion de tempo en jungle, illustrée par des situations de jeu de haut niveau et des exemples chiffrés sur la vitesse des camps."
    }
   },
   {
@@ -79398,19 +79478,42 @@
    "lang": "ko",
    "published": null,
    "retrievedAt": "2026-11-07",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "non spécifié",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 89,
-   "note": "File de lecture (rang 89) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 14 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 15,
     "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-11-07",
+    "sha256": "2a4286e4cc5eae130a813cf5e194465f4ad840f1a201832ba35a82a52824fd10",
+    "segments": 13,
+    "observations": 14,
+    "duration": "03:52",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 24252
+   },
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Tu peux t'échauffer 10 minutes par jour en outil d'entraînement avec des attaques de base uniquement pour améliorer ta capacité à prendre les derniers coups (CS).",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu présente une méthode d'entraînement claire, illustrée en direct dans l'outil d'entraînement avec des consignes précises et répétables."
    }
   },
   {
@@ -79440,7 +79543,9 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "videoAttempts": 1,
+   "videoError": "Unexpected end of JSON input (2026-11-07)"
   },
   {
    "id": "c-yt-IfStT-yoro0",
@@ -79764,6 +79869,62 @@
    "triage": {
     "score": 14,
     "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-mjddFXtz3mU",
+   "sourceId": "yt-dmevbthdzh",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=mjddFXtz3mU",
+   "title": "How to master mid-game macro, the most important part - KaMunCheol TV",
+   "author": "나라카일",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-11-07",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 97,
+   "note": "File de lecture (rang 97) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "mid",
+     "how to",
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Tjssqv8-spQ",
+   "sourceId": "yt-aloisnl",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=Tjssqv8-spQ",
+   "title": "SCHIZO + FUNDAMENTALS = FREE ELO",
+   "author": "AloisNL",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-07",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 98,
+   "note": "File de lecture (rang 98) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "fundamentals"
+    ],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"

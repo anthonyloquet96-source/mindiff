@@ -50880,12 +50880,13 @@
      "lang": "en",
      "passage": "I get this all the time, like, why do I keep the turret up, you know? And it's because it's like a fucking It's a stall for my minions so that I can I know exactly where they're going to be. Like once they get contained at this turret, you have full control of the game.",
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-25",
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-07",
       "window": "300-360s",
       "said": true,
       "supported": true
-     }
+     },
+     "reverifiedAt": "2026-11-07"
     }
    ],
    "mentions": [],
@@ -50963,12 +50964,13 @@
      "passage": "So at its core, dead time is a simple concept. When a jungler such as this Taliyah farms her entire jungle, there's a period of time she has to wait until her camps start spawning again. This is what's called dead time",
      "mentionOnly": true,
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-07",
       "window": "220-280s",
       "said": true,
       "supported": true
-     }
+     },
+     "reverifiedAt": "2026-11-07"
     },
     {
      "content": "c-yt-ZzKpPJ_BNHM",
@@ -82126,7 +82128,1278 @@
    },
    "version": 1,
    "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-yXAmKINOXlI-1",
+   "claim": "Selon turkish taliyah : en jungle, la notion de tempo correspond à la période de temps libre disponible après avoir terminé ton premier tour d'horizon de la jungle (full clear) jusqu'à la réapparition de tes premiers camps. Plus tu nettoies ta jungle rapidement, plus tu obtiens de fenêtres de tempo pour effectuer des ganks ou sécuriser des objectifs.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:jungle-clear"
+   ],
+   "conditions": [
+    "avoir terminé son premier nettoyage complet des camps de la jungle"
+   ],
+   "limits": [
+    "concerne principalement le rôle de jungler"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-yXAmKINOXlI",
+     "locator": "[00:23]",
+     "lang": "tr",
+     "passage": "Jungle'da tempo, ormanı döndükten sonra ilk kampın çıkışına kadar geçen süreye, yani free time'a deniyor tempo diye.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "3-63s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Nettoie ta jungle de manière optimisée pour dégager du temps libre avant le respawn de tes camps.",
+   "observe": "Le temps écoulé entre la fin du full clear et le repousse de tes camps de jungle.",
+   "use": {
+    "when": "tu viens de terminer ton premier nettoyage complet des camps de la jungle (full clear) et tes camps ne sont pas encore réapparus",
+    "why": "parce que l'absence de camps actifs te libère du temps pour ganker ou prendre des objectifs sans rien perdre en efficacité",
+    "who": "les joueurs jouant le rôle de jungler",
+    "how": [
+     "termine rapidement ton premier cycle de camps (full clear)",
+     "utilise le temps libre obtenu pour placer un gank, sécuriser un carapateur ou retourner à la base"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle à la transcription, pose un principe macro intemporel du rôle de jungler et son contexte d'usage est complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-yXAmKINOXlI-2",
+   "claim": "Selon turkish taliyah : après avoir réalisé ton full clear vers 2:55 et pris un carapateur, tu disposes de quatre options d'action mutuellement exclusives : un gank top, un gank mid, un gank bot, ou aller chercher le second carapateur. Tu ne peux pas en accomplir plusieurs simultanément.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:jungle-clear"
+   ],
+   "conditions": [
+    "avoir effectué son full clear autour de 2:55",
+    "avoir sécurisé un premier carapateur"
+   ],
+   "limits": [
+    "valable pour les junglers non-tanks disposant d'un clear rapide"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-yXAmKINOXlI",
+     "locator": "[02:36]",
+     "lang": "tr",
+     "passage": "Hatta şöyle yazayım: 2.55 full clear Scuttle aldıktan sonra yapılacak şeyler: bir top'a gank, iki mid'e gank, üç bot'a gank, dört de ikinci Scuttle.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "136-196s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Choisis une unique action après ton premier clear et ton premier carapateur, sans t'éparpiller.",
+   "observe": "La position des lignes et ton temps de déplacement après le premier clear.",
+   "use": {
+    "when": "tu as fini ton full clear à 2:55 et tu as pris le carapateur de la rivière",
+    "why": "parce que le timing de réapparition de tes camps ne te laisse pas assez de temps pour enchaîner plusieurs actions lointaines",
+    "who": "les junglers capables de terminer leur jungle à 2:55",
+    "how": [
+     "analyse l'état des lignes après avoir pris ton carapateur",
+     "sélectionne une seule action parmi le gank top, mid, bot ou le second carapateur",
+     "exécute l'action choisie sans courir inutilement vers une autre ligne"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le passage correspond exactement aux options présentées par l'auteur après le full clear et le carapateur, avec un contexte d'usage bien structuré."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-WnJ8zUdWjp0-1",
+   "claim": "Selon 쭌베  : pour améliorer ton niveau de farm (CS), fais une session d'entraînement de 5 à 10 minutes en outil d'entraînement avant de lancer tes parties classées, en ne jouant qu'avec des attaques de base et sans utiliser de compétences.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Lancer l'outil d'entraînement avant de faire des parties classées",
+    "Ne pas utiliser de compétences pour tuer les sbires"
+   ],
+   "limits": [
+    "Exercice basique d'entraînement mécanique sans adversaire direct"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-WnJ8zUdWjp0",
+     "locator": "[00:41]",
+     "lang": "ko",
+     "passage": "일단 이거는 그 첫 판 게임을 이제 켜고 게임을 바로 돌리지 말고 한번 10분만 시간 비워 가지고 한번 이거 손 풀고 이제 넘어가는 느낌으로 하셔도 돼요 롤 켜고 이거 10분 동안 하고 그다음에 이제 솔랭 하는 느낌으로 해주시면 굉장히 좋습니다",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "21-81s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-WnJ8zUdWjp0",
+     "locator": "[01:10]",
+     "lang": "ko",
+     "passage": "그래서 스킬은 쓸 필요 없고 평타로만 한 5분에서 10분까지 평타 계속 치면서 cs 먹으시면서 이제 이 연습하시면 됩니다"
+    }
+   ],
+   "mentions": [
+    "Viktor (exemple)",
+    "Ahri (exemple)",
+    "Annie (exemple)"
+   ],
+   "action": "Lancer une session de 10 minutes en outil d'entraînement en ne farmant qu'aux attaques de base avant de lancer ses parties classées.",
+   "observe": "La régularité du farm aux attaques de base et la maîtrise du timing des derniers coups.",
+   "use": {
+    "when": "Avant de lancer ta session de parties classées de la journée.",
+    "why": "Pour développer de bonnes bases mécaniques et progresser sur la récupération des CS.",
+    "who": "Pour les joueurs débutants ou intermédiaires cherchant à améliorer leur fondamentaux de farm.",
+    "how": [
+     "Lancer l'outil d'entraînement avec le champion de ton choix.",
+     "Acheter un Anneau de Doran et se rendre sur la voie du milieu.",
+     "Tuer les sbires exclusivement avec des attaques de base, sans utiliser de compétences ni distribuer de points de compétence."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est intemporelle, bien sourcée par la transcription, et son contexte d'usage est complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-3cKAqFLi8Nk-1",
+   "claim": "Selon Chreak : contre Orianna, si son orbe est placée dans la vague et que son sort principal est en récupération, n'ayez pas peur de vous avancer pour échanger une auto-attaque afin de contester la zone de pression.",
+   "champions": [
+    "Orianna"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Orianna"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.19"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Orianna/Q",
+    "Syndra/A"
+   ],
+   "conditions": [
+    "Orianna pose son orbe au milieu de la lane pour mettre son premier sort dans la vague"
+   ],
+   "limits": [
+    "Contexte de match-up mage contre mage à haut niveau"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-3cKAqFLi8Nk",
+     "locator": "[00:00]",
+     "lang": "fr",
+     "passage": "Donc dans ce match-up évidemment, Orianna va vouloir poser son orbe, même si elle essaie de me tuer, elle veut poser son orbe au milieu de la lane pour pouvoir mettre son premier Q très facilement dans la wave.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-07",
+      "window": "0-40s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Avancer pour mettre une auto-attaque et déloger l'orbe d'Orianna lorsqu'elle l'utilise au milieu de la wave.",
+   "observe": "L'adversaire place son orbe pour push et recule ou n'a plus son sort disponible.",
+   "use": {
+    "when": "Orianna place son orbe au milieu de la lane en début de partie.",
+    "why": "Pour l'empêcher de poser son orbe et de mettre son premier sort facilement dans la vague.",
+    "who": "Syndra face à Orianna",
+    "how": [
+     "Attendre que l'orbe soit placée",
+     "S'avancer pour mettre une auto-attaque et déloger l'orbe"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "patch-incompatible",
+     "traduction",
+     "contexte-manquant"
+    ],
+    "why": "L'expression 'déloger l'orbe' est mécaniquement incorrecte (on ne peut pas déplacer l'orbe en l'attaquant) ; il s'agit de contester la zone occupée par l'orbe. Le patch 14.19 est trop ancien par rapport au 26.22 pour un matchup spécifique."
+   },
+   "published": "2024-10-06",
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-3cKAqFLi8Nk-2",
+   "claim": "Selon Chreak : en phase de laning entre champions à distance, frappez la vague en premier pour le contrôle et utilisez le spacing pour lancer vos sorts au moment où l'adversaire fait demi-tour.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.19"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Match-up range contre range"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-3cKAqFLi8Nk",
+     "locator": "[00:00]",
+     "lang": "fr",
+     "passage": "et j'ai commencé à faire la stratégie que tout le monde doit faire à très haut niveau, c'est-à-dire taper la wave en premier.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-07",
+      "window": "0-40s",
+      "said": true,
+      "supported": false,
+      "gap": "Le conseil et les gestes ajoutent des précisions sur le spacing et le timing des sorts, ainsi qu'une raison spécifique, qui ne sont pas formulées par l'auteur dans cet extrait."
+     }
+    },
+    {
+     "content": "c-yt-3cKAqFLi8Nk",
+     "locator": "[00:00]",
+     "lang": "fr",
+     "passage": "C'est des détails qui permettent de gratter des points de vie."
+    }
+   ],
+   "mentions": [],
+   "action": "Taper la wave en premier et lancer des sorts au moment où l'adversaire fait demi-tour dans ses mouvements de spacing.",
+   "observe": "L'adversaire avance et recule pour bait les sorts.",
+   "use": {
+    "when": "En phase de laning range contre range, lorsque l'adversaire fait des allers-retours en dehors de la portée des sorts.",
+    "why": "",
+    "who": "Joueurs de champions distance mid",
+    "how": [
+     "Taper la vague de sbires en premier",
+     "Observer les mouvements de va-et-vient de l'adversaire",
+     "Lancer le sort au moment précis où il fait demi-tour hors de portée"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "Conseil de laning universel ne dépendant pas de Syndra. Retrait du champion pour généralisation conformément aux règles v3. Le terme 'il faut' est une sur-généralisation de l'auteur."
+   },
+   "published": "2024-10-06",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-renata-glasc-1",
+   "claim": "L'ultime de Renata Glasc (R) force les ennemis à s'attaquer entre eux en augmentant leur vitesse d'attaque, transformant leur propre puissance contre leur équipe.",
+   "champions": [
+    "Renata Glasc"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "champion",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "tous"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Renata Glasc/R"
+   ],
+   "conditions": [
+    "Les ennemis doivent être à portée de l'ultime",
+    "L'effet est plus efficace contre des ennemis ayant une vitesse d'attaque ou des dégâts élevés"
+   ],
+   "limits": [
+    "L'effet agit comme une provocation (taunt) envers les alliés de la cible"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-renata-glasc",
+     "locator": "Support for a Price",
+     "lang": "en",
+     "passage": "Her R literally turns her enemies against each other. It’s kind of a remix of taunt, in that it taunts you to attack your allies if you’re Renata’s enemy. And she buffs you with increased attack speed, which makes you more deadly when you’re killing your friends."
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer l'ultime sur un groupe d'ennemis regroupés pour qu'ils s'entretuent.",
+   "observe": "L'augmentation de la vitesse d'attaque des ennemis touchés par l'ultime.",
+   "use": {
+    "when": "Un combat d'équipe s'engage et les adversaires sont regroupés.",
+    "why": "Pour retourner la puissance offensive des carrys adverses contre leurs propres alliés grâce à un effet de provocation et un bonus de vitesse d'attaque forcé.",
+    "who": "Renata Glasc support.",
+    "how": [
+     "Identifier un groupe d'ennemis proches les uns des autres",
+     "Lancer l'ultime (R) de manière à toucher les cibles prioritaires",
+     "Laisser les ennemis s'infliger des dégâts entre eux pendant la durée du sort"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité décrit fidèlement la mécanique fondamentale de l'ultime de Renata Glasc telle qu'expliquée par les concepteurs dans l'article officiel."
+   },
+   "published": "2022-02-17",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-renata-glasc-2",
+   "claim": "Renata Glasc peut accorder à ses alliés une immunité temporaire à la mort, leur permettant de continuer à combattre même après avoir subi des dégâts fatals.",
+   "champions": [
+    "Renata Glasc"
+   ],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "champion",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "tous"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Renata Glasc/W"
+   ],
+   "conditions": [
+    "La compétence doit être lancée sur l'allié avant ou au moment de sa mort"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-renata-glasc",
+     "locator": "Support for a Price",
+     "lang": "en",
+     "passage": "I needed it to be clear that it enrages people, makes them immune to death, damages enemies, shields allies, makes enemies turn on each other... It does a lot"
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser la compétence de protection sur un allié ciblé par un burst mortel.",
+   "observe": "L'allié reste en vie malgré la perte de tous ses PV.",
+   "use": {
+    "when": "Un allié est sur le point de mourir lors d'un affrontement ou d'un plongeon sous tourelle.",
+    "why": "Pour offrir une seconde chance à un allié et lui permettre de finir un kill ou de temporiser.",
+    "who": "Renata Glasc support.",
+    "how": [
+     "Surveiller la barre de vie de ton carry",
+     "Lancer la compétence de protection (W) juste avant qu'il ne reçoive le coup fatal"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité retranscrit correctement l'intention de conception de la compétence Z (W) de Renata Glasc, confirmée par le texte source de Riot Games."
+   },
+   "published": "2022-02-17",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-vex-1",
+   "claim": "Vex punit les champions mobiles en marquant leurs dashs pour infliger des dégâts bonus et réduire le délai de récupération de son prochain contrôle de foule.",
+   "champions": [
+    "Vex"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "matchup"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Vex/passive",
+    "Vex/Q",
+    "Vex/W"
+   ],
+   "conditions": [
+    "L'ennemi doit effectuer un dash à proximité de Vex"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-vex",
+     "locator": "You Know What They Do to Champs Like Vex in League of Legends",
+     "lang": "en",
+     "passage": "whenever an enemy dashes near Vex, they’re marked with Gloom and then her next basic attack, Q, or W deals bonus damage and refunds cooldown on the fear."
+    }
+   ],
+   "mentions": [
+    "Yasuo (exemple)",
+    "Yone (exemple)"
+   ],
+   "action": "Attaque un ennemi marqué par le Désespoir (Gloom) pour réduire le cooldown de ton Effroi.",
+   "observe": "L'apparition de la marque de Désespoir sur les ennemis qui utilisent des dashs.",
+   "use": {
+    "when": "Un ennemi utilise un dash ou un saut à proximité de toi",
+    "why": "Pour infliger des dégâts supplémentaires et récupérer ton prochain Effroi plus rapidement afin de contrôler à nouveau l'adversaire.",
+    "who": "Vex",
+    "how": [
+     "Attends qu'un ennemi utilise une compétence de déplacement",
+     "Utilise une attaque de base, ton A (Q) ou ton Z (W) sur la cible marquée"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Contenu officiel décrivant les mécaniques de sortie (2021) ; bien que structurellement exact, le patch 26.22 impose une revalidation par sécurité."
+   },
+   "published": "2021-09-07",
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-vex-2",
+   "claim": "Vex peut interrompre les dashs ennemis et appliquer un Effroi grâce à son passif chargé.",
+   "champions": [
+    "Vex"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Vex/passive"
+   ],
+   "conditions": [
+    "Le passif de Vex doit être disponible (barre chargée)"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-vex",
+     "locator": "You Know What They Do to Champs Like Vex in League of Legends",
+     "lang": "en",
+     "passage": "Every so often, Vex’s next basic spell fears and interrupts dashes."
+    }
+   ],
+   "mentions": [],
+   "action": "Utilise un sort de base pour stopper un dash adverse quand ton passif est prêt.",
+   "observe": "La barre de passif sous la barre de PV de Vex.",
+   "use": {
+    "when": "Un ennemi tente de foncer sur toi avec un dash alors que ton passif est chargé",
+    "why": "Pour stopper net l'initiation adverse et mettre l'ennemi en état d'Effroi, annulant son action offensive.",
+    "who": "Vex",
+    "how": [
+     "Vérifie que ton passif est prêt",
+     "Lance un sort de base (A, Z ou E) au moment où l'ennemi déclenche son dash"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Mécanique de base du passif identifiée, mais le contenu date de 2021, nécessitant une confirmation sur le patch actuel."
+   },
+   "published": "2021-09-07",
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-vex-3",
+   "claim": "Vex est un mage de contrôle à moyenne portée, optimisé pour punir les ennemis proches plutôt que pour attaquer à très longue distance.",
+   "champions": [
+    "Vex"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [
+    "Moins efficace contre les champions à très longue portée qui ne s'approchent pas"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-vex",
+     "locator": "You Know What They Do to Champs Like Vex in League of Legends",
+     "lang": "en",
+     "passage": "Lutzburg and I needed to pull back on her range and make her feel more powerful when enemies are close. That meant she needed to not be an artillery mage anymore."
+    }
+   ],
+   "mentions": [
+    "Xerath (exemple)"
+   ],
+   "action": "Positionne-toi à moyenne portée pour maximiser l'impact de tes sorts contre les plongeons (dives) adverses.",
+   "observe": "La portée de tes sorts de base par rapport à celle d'un mage d'artillerie.",
+   "use": {
+    "when": "En phase de lane ou en combat, face à des champions qui cherchent à engager le combat",
+    "why": "Vex est conçue pour avoir des faiblesses à longue distance mais pour être extrêmement puissante contre les ennemis qui s'approchent d'elle.",
+    "who": "Vex",
+    "how": [
+     "Reste à une distance permettant de toucher tes sorts de base",
+     "Ne cherche pas à rester aussi loin qu'un Xerath car ton kit perdrait son utilité anti-dash"
+    ],
+    "notWhen": "Si l'adversaire joue un champion à très longue portée (artillerie) qui ne cherche jamais à s'approcher."
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "L'identité de 'mage de contrôle moyenne portée' est structurelle, mais la source de 2021 est hors fenêtre de patch."
+   },
+   "published": "2021-09-07",
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-vex-4",
+   "claim": "L'ultime de Vex est un outil de mobilité agressive qui se réinitialise en cas d'élimination, idéal pour achever les ennemis en fuite.",
+   "champions": [
+    "Vex"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Vex/R"
+   ],
+   "conditions": [
+    "L'ennemi doit être marqué par le premier jet de l'ultime"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-vex",
+     "locator": "You Know What They Do to Champs Like Vex in League of Legends",
+     "lang": "en",
+     "passage": "Vex’s ult is really its own thing in her kit. It’s basically a dash that resets on kill"
+    },
+    {
+     "content": "c-riot-champion-insights-vex",
+     "locator": "You Know What They Do to Champs Like Vex in League of Legends",
+     "lang": "en",
+     "passage": "if they try to escape she can turn the tables and dash to them to continue taking out her annoyance on them until they’re dead."
+    }
+   ],
+   "mentions": [],
+   "action": "Utilise la réactivation de ton ultime pour foncer sur une cible affaiblie et réinitialiser le délai.",
+   "observe": "Le marquage de l'ombre sur l'ennemi touché par l'ultime.",
+   "use": {
+    "when": "Un ennemi tente de s'enfuir après avoir été puni par tes sorts de base",
+    "why": "Pour transformer une phase défensive en une agression mortelle et profiter de la réinitialisation pour enchaîner sur d'autres cibles.",
+    "who": "Vex",
+    "how": [
+     "Touche un ennemi avec ton ultime (R)",
+     "Réactive la compétence pour foncer sur lui s'il est à portée d'élimination"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Fonctionnement de l'ultime fidèle à la conception initiale, mais à confirmer sur le patch 26.22."
+   },
+   "published": "2021-09-07",
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-viego-1",
+   "claim": "Viego possède une synergie native avec l'objet Lame du roi déchu : son passif de compétence Q lui permet d'appliquer les effets à l'impact deux fois, doublant ainsi l'efficacité de l'objet s'il alterne ses sorts et ses attaques de base.",
+   "champions": [
+    "Viego"
+   ],
+   "roles": [
+    "jungle",
+    "mid"
+   ],
+   "themes": [
+    "build",
+    "synergie",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Viego/Q",
+    "item:Lame du roi déchu"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-viego",
+     "locator": "Blade and Master Reunited",
+     "lang": "en",
+     "passage": "Viego’s Q is called Blade of the Ruined King, and grants him the ability to apply on-hit effects twice. When paired with the in-game item, Viego can get double the on-hit effect on each target as long as he weaves abilities with autos."
+    }
+   ],
+   "mentions": [
+    "Sett (exemple)"
+   ],
+   "action": "Acheter la Lame du roi déchu et tester le double déclenchement des effets à l'impact en alternant sorts et attaques de base.",
+   "observe": "Les dégâts supplémentaires appliqués par le passif du Q lors de l'utilisation de l'objet.",
+   "use": {
+    "when": "Tu joues Viego et tu cherches à maximiser tes dégâts à l'impact en combat.",
+    "why": "Son kit est spécifiquement conçu pour doubler les effets à l'impact de cet objet, ce qui en fait son choix d'équipement prioritaire.",
+    "who": "Viego (Jungle/Mid)",
+    "how": [
+     "Acheter l'objet Lame du roi déchu",
+     "Lancer une compétence sur une cible",
+     "Enchaîner immédiatement avec une attaque de base"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Mécanique de base confirmée par Riot et toujours présente dans le kit, bien que la source date de 2021."
+   },
+   "published": "2021-01-21",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-viego-2",
+   "claim": "Le passif de Viego lui permet de posséder les ennemis qu'il élimine, prenant le contrôle de leur corps et de leurs compétences de base. Cette mécanique est conçue pour récompenser les éliminations par un accès aux ressources adverses.",
+   "champions": [
+    "Viego"
+   ],
+   "roles": [
+    "jungle",
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Viego/passive"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-viego",
+     "locator": "A Harrowing on the Rift",
+     "lang": "en",
+     "passage": "He controls his dead subjects. And from there he just became this character where if he can kill someone he can become them. It’s his reward for converting them to his side. And it’s chaining that passive that leads to his most exciting gameplay moments."
+    }
+   ],
+   "mentions": [
+    "Sylas (exemple)",
+    "Annie (exemple)"
+   ],
+   "action": "Pratiquer l'enchaînement rapide entre une élimination et la prise de possession en partie pour maintenir la pression.",
+   "observe": "La disponibilité des compétences de base de l'ennemi possédé pour continuer le combat.",
+   "use": {
+    "when": "Un champion ennemi vient de mourir à proximité ou par tes mains.",
+    "why": "La possession permet de récupérer les capacités de l'adversaire pour retourner ses propres forces contre son équipe.",
+    "who": "Viego (Jungle/Mid)",
+    "how": [
+     "Tuer ou assister à la mort d'un ennemi",
+     "Cliquer sur l'âme générée au sol pour prendre sa forme",
+     "Utiliser les compétences de base de l'ennemi pour attaquer les cibles suivantes"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Description fidèle du passif de possession, élément central et immuable du champion."
+   },
+   "published": "2021-01-21",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-viego-3",
+   "claim": "La Brume Noire de Viego (E) se propage sur les éléments de terrain. Lorsqu'il se trouve à l'intérieur, il bénéficie d'un camouflage et d'un bonus de vitesse de déplacement pour traquer ses victimes.",
+   "champions": [
+    "Viego"
+   ],
+   "roles": [
+    "jungle",
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Viego/E"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-viego",
+     "locator": "A Harrowing on the Rift",
+     "lang": "en",
+     "passage": "Viego summons the Black Mist and haunts a section of terrain. When inside of it, he gains camouflage, dons his armor, and takes off, ready to hunt down his victim."
+    }
+   ],
+   "mentions": [
+    "Evelynn (exemple)"
+   ],
+   "action": "Lancer le E sur les murs de la jungle pour couvrir une large zone et approcher une cible sans être détecté.",
+   "observe": "Le rayon de détection du camouflage et le gain de vitesse de déplacement une fois dans la brume.",
+   "use": {
+    "when": "Tu te déplaces près d'un mur pour engager un gank ou te repositionner en combat.",
+    "why": "La brume offre une mobilité accrue et une invisibilité relative (camouflage) tant que tu restes à l'intérieur et loin des ennemis.",
+    "who": "Viego (Jungle/Mid)",
+    "how": [
+     "Viser un mur ou un élément de décor avec le E",
+     "Entrer dans la brume générée pour activer le camouflage",
+     "Se déplacer vers la cible en profitant du bonus de vitesse"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Explique correctement l'interaction du E avec le terrain pour le camouflage et la mobilité."
+   },
+   "published": "2021-01-21",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-viego-4",
+   "claim": "Pour assurer la clarté visuelle, un champion possédé par Viego porte sa couronne et possède une teinte spectrale spécifique, permettant de l'identifier malgré son changement d'apparence.",
+   "champions": [
+    "Viego"
+   ],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Viego/passive"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-viego",
+     "locator": "A Harrowing on the Rift",
+     "lang": "en",
+     "passage": "The solution we found was applying his crown and giving them a slightly different shade over their model to match."
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "Un champion change soudainement d'apparence ou de comportement après une mort dans la zone.",
+    "why": "Ces indicateurs visuels sont essentiels pour que les joueurs ne soient pas confus lorsqu'un allié semble les attaquer.",
+    "who": "Tous les joueurs (pour la lecture du jeu)",
+    "how": [
+     "Repérer la couronne verte au-dessus du champion",
+     "Noter la teinte spectrale (nuance de couleur différente) sur le modèle du personnage"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Information de clarté visuelle essentielle pour tous les joueurs afin d'identifier une possession en cours."
+   },
+   "published": "2021-01-21",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
   }
  ],
- "updatedAt": "2026-11-07T13:38:07.416Z"
+ "updatedAt": "2026-11-07T19:18:57.330Z"
 }

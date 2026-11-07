@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T13:38:08.564Z",
+ "generatedAt": "2026-11-07T19:19:39.594Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -554,7 +554,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-11-07T12:56:28.707Z",
+ "lastDiscovery": "2026-11-07T18:51:02.752Z",
  "failures": [],
  "quarantine": [
   {
@@ -566,28 +566,6 @@
   }
  ],
  "rejected": [
-  {
-   "id": "u-ai-yt-4dnp-4XYmVY-3",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-4dnp-4XYmVY : « What you need to understand is that tier one turrets in posi… »"
-    }
-   ],
-   "at": "2026-10-27",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-4dnp-4XYmVY-4",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-4dnp-4XYmVY : « The other thing you want to do in the mid-game is force peop… »"
-    }
-   ],
-   "at": "2026-10-27",
-   "origin": "analyse-automatique"
-  },
   {
    "id": "u-ai-yt-4dnp-4XYmVY-5",
    "reasons": [
@@ -2985,6 +2963,36 @@
    ],
    "at": "2026-11-07",
    "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-yXAmKINOXlI-3",
+   "reasons": [
+    {
+     "code": "mention",
+     "why": "Karthus n'est cité qu'en exemple : ce n'est pas un conseil sur Karthus."
+    },
+    {
+     "code": "mention",
+     "why": "Zyra n'est cité qu'en exemple : ce n'est pas un conseil sur Zyra."
+    }
+   ],
+   "at": "2026-11-07",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-3cKAqFLi8Nk-3",
+   "reasons": [
+    {
+     "code": "citation-non-entendue",
+     "why": "c-yt-3cKAqFLi8Nk : passage absent de l'extrait 0-40s relu par gemini-3-flash-preview."
+    },
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Syndra."
+    }
+   ],
+   "at": "2026-11-07",
+   "origin": "analyse-automatique"
   }
  ],
  "pending": [
@@ -2993,13 +3001,10 @@
   "c-riot-fiddlesticks-and-volibear-dev-update-1",
   "c-riot-champion-insights-lillia",
   "c-riot-champion-insights-rell",
-  "c-riot-champion-insights-renata-glasc",
   "c-riot-champion-insights-samira",
   "c-riot-champion-insights-senna",
   "c-riot-champion-insights-seraphine",
   "c-riot-champion-insights-sett",
-  "c-riot-champion-insights-vex",
-  "c-riot-champion-insights-viego",
   "c-riot-champion-insights-yone",
   "c-riot-champion-insights-zeri"
  ],
@@ -4224,7 +4229,22 @@
   "u-ai-yt--BZZ3Z8FAdA-4",
   "u-ai-yt-uVUgBSHTFbU-1",
   "u-ai-yt-uVUgBSHTFbU-3",
-  "u-ai-yt-uVUgBSHTFbU-5"
+  "u-ai-yt-uVUgBSHTFbU-5",
+  "u-ai-yt-yXAmKINOXlI-1",
+  "u-ai-yt-yXAmKINOXlI-2",
+  "u-ai-yt-WnJ8zUdWjp0-1",
+  "u-ai-yt-3cKAqFLi8Nk-1",
+  "u-ai-yt-3cKAqFLi8Nk-2",
+  "u-ai-riot-champion-insights-renata-glasc-1",
+  "u-ai-riot-champion-insights-renata-glasc-2",
+  "u-ai-riot-champion-insights-vex-1",
+  "u-ai-riot-champion-insights-vex-2",
+  "u-ai-riot-champion-insights-vex-3",
+  "u-ai-riot-champion-insights-vex-4",
+  "u-ai-riot-champion-insights-viego-1",
+  "u-ai-riot-champion-insights-viego-2",
+  "u-ai-riot-champion-insights-viego-3",
+  "u-ai-riot-champion-insights-viego-4"
  ],
  "contested": [],
  "retired": [
@@ -4920,13 +4940,6 @@
  ],
  "statusLog": [
   {
-   "at": "2026-10-23T11:05:21.124Z",
-   "unit": "u-dd-xinzhao-e2",
-   "from": "exploitable",
-   "to": "a-revalider",
-   "why": "Xin Zhao/Q modifié au patch 26.21, après 26.20."
-  },
-  {
    "at": "2026-10-24T17:53:05.791Z",
    "unit": "u-dd-ksante-a1",
    "from": "exploitable",
@@ -5618,190 +5631,19 @@
    "from": "provisoire",
    "to": "a-revalider",
    "why": "c-yt-S3F9CpeiSNE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. c-yt-S3F9CpeiSNE : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo (00:51). Zaahen/Q modifié au patch 26.22, après 26.21."
+  },
+  {
+   "at": "2026-11-07T19:19:39.581Z",
+   "unit": "u-ai-yt-fOQBQn0X54M-1",
+   "from": "provisoire",
+   "to": "exploitable",
+   "why": "Avis d'une seule personne : présenté comme tel."
   }
  ],
  "costs": {
   "today": 0,
   "month": 0,
   "calls": [
-   {
-    "at": "2026-11-07T01:24:15.148Z",
-    "content": "c-yt-36rK3ZLSdN4",
-    "model": "gemini-3.5-flash-lite",
-    "input": 11646,
-    "output": 1381,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T01:24:23.811Z",
-    "content": "c-yt-36rK3ZLSdN4",
-    "model": "gemini-3.5-flash-lite",
-    "input": 6198,
-    "output": 177,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T01:24:36.231Z",
-    "content": "c-yt-36rK3ZLSdN4",
-    "model": "gemini-3.5-flash-lite",
-    "input": 4066,
-    "output": 75,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-07T01:24:50.146Z",
-    "content": "c-yt-36rK3ZLSdN4",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5929,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-07T01:25:30.779Z",
-    "content": "c-yt-oN6PINepJT0",
-    "model": "gemini-3.5-flash-lite",
-    "input": 19351,
-    "output": 1690,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T01:25:38.287Z",
-    "content": "c-yt-oN6PINepJT0",
-    "model": "gemini-3.5-flash-lite",
-    "input": 6485,
-    "output": 234,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T01:25:48.609Z",
-    "content": "c-yt-oN6PINepJT0",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5900,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-07T01:25:57.611Z",
-    "content": "c-riot-dev-the-midscope-process-rell",
-    "model": "gemini-3.5-flash-lite",
-    "input": 6763,
-    "output": 179,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T07:12:14.876Z",
-    "content": "c-yt-czqFQrKahx0",
-    "model": "gemini-3.6-flash",
-    "input": 9637,
-    "output": 8513,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T07:12:23.875Z",
-    "content": "c-yt-czqFQrKahx0",
-    "model": "gemini-3.5-flash-lite",
-    "input": 8315,
-    "output": 480,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T07:12:34.033Z",
-    "content": "c-yt-czqFQrKahx0",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5895,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-07T07:12:43.373Z",
-    "content": "c-yt-czqFQrKahx0",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5973,
-    "output": 74,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-07T07:12:52.662Z",
-    "content": "c-yt-czqFQrKahx0",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5946,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-07T07:13:01.023Z",
-    "content": "c-yt-czqFQrKahx0",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5895,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-07T07:13:10.481Z",
-    "content": "c-yt-czqFQrKahx0",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5908,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-07T07:13:18.602Z",
-    "content": "c-yt-czqFQrKahx0",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5080,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-07T07:13:26.890Z",
-    "content": "c-yt-Smpr9mCNNE0",
-    "model": "gemini-3.5-flash-lite",
-    "input": 4849,
-    "output": 678,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T07:13:33.831Z",
-    "content": "c-yt-Smpr9mCNNE0",
-    "model": "gemini-3.5-flash-lite",
-    "input": 4866,
-    "output": 121,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T07:13:41.961Z",
-    "content": "c-yt-Smpr9mCNNE0",
-    "model": "gemini-3.5-flash-lite",
-    "input": 2535,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-07T07:13:51.389Z",
-    "content": "c-yt-B3xUSVpc97A",
-    "model": "gemini-3.5-flash-lite",
-    "input": 6991,
-    "output": 1153,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T07:13:58.909Z",
-    "content": "c-yt-B3xUSVpc97A",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5873,
-    "output": 305,
-    "usd": 0
-   },
    {
     "at": "2026-11-07T07:14:07.697Z",
     "content": "c-yt-B3xUSVpc97A",
@@ -6046,6 +5888,183 @@
     "model": "gemini-3.6-flash",
     "input": 5884,
     "output": 79,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-07T19:05:55.298Z",
+    "content": "c-yt-yXAmKINOXlI",
+    "model": "gemini-3.5-flash-lite",
+    "input": 12560,
+    "output": 1950,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-07T19:06:02.811Z",
+    "content": "c-yt-yXAmKINOXlI",
+    "model": "gemini-3.5-flash-lite",
+    "input": 6694,
+    "output": 261,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-07T19:06:12.037Z",
+    "content": "c-yt-yXAmKINOXlI",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5889,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-07T19:06:20.284Z",
+    "content": "c-yt-yXAmKINOXlI",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5924,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-07T19:06:28.473Z",
+    "content": "c-yt-yXAmKINOXlI",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5886,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-07T19:06:37.219Z",
+    "content": "c-yt-WnJ8zUdWjp0",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5879,
+    "output": 810,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-07T19:06:44.258Z",
+    "content": "c-yt-WnJ8zUdWjp0",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5384,
+    "output": 88,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-07T19:06:53.198Z",
+    "content": "c-yt-WnJ8zUdWjp0",
+    "model": "gemini-3.5-flash-lite",
+    "input": 5923,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-07T19:07:04.622Z",
+    "content": "c-yt-3cKAqFLi8Nk",
+    "model": "gemini-3.5-flash-lite",
+    "input": 15186,
+    "output": 1981,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-07T19:08:52.028Z",
+    "content": "c-yt-3cKAqFLi8Nk",
+    "model": "gemini-3-flash-preview",
+    "input": 6720,
+    "output": 31110,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-07T19:09:10.241Z",
+    "content": "c-yt-3cKAqFLi8Nk",
+    "model": "gemini-3-flash-preview",
+    "input": 4057,
+    "output": 30,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-07T19:09:25.591Z",
+    "content": "c-yt-3cKAqFLi8Nk",
+    "model": "gemini-3-flash-preview",
+    "input": 4051,
+    "output": 70,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-07T19:09:39.665Z",
+    "content": "c-yt-3cKAqFLi8Nk",
+    "model": "gemini-3-flash-preview",
+    "input": 4105,
+    "output": 74,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-07T19:09:59.886Z",
+    "content": "c-riot-champion-insights-renata-glasc",
+    "model": "gemini-3-flash-preview",
+    "input": 7207,
+    "output": 3068,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-07T19:10:17.381Z",
+    "content": "c-riot-champion-insights-renata-glasc",
+    "model": "gemini-3-flash-preview",
+    "input": 6082,
+    "output": 1609,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-07T19:12:25.146Z",
+    "content": "c-riot-champion-insights-vex",
+    "model": "gemini-3-flash-preview",
+    "input": 7549,
+    "output": 4598,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-07T19:14:13.827Z",
+    "content": "c-riot-champion-insights-vex",
+    "model": "gemini-3-flash-preview",
+    "input": 7038,
+    "output": 9712,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-07T19:17:01.938Z",
+    "content": "c-riot-champion-insights-viego",
+    "model": "gemini-3-flash-preview",
+    "input": 7444,
+    "output": 8653,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-07T19:18:51.172Z",
+    "content": "c-riot-champion-insights-viego",
+    "model": "gemini-3-flash-preview",
+    "input": 7913,
+    "output": 31224,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-07T19:19:10.030Z",
+    "content": "c-yt-fOQBQn0X54M",
+    "model": "gemini-3-flash-preview",
+    "input": 5908,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-07T19:19:32.366Z",
+    "content": "c-yt-ZzKpPJ_BNHM",
+    "model": "gemini-3-flash-preview",
+    "input": 5913,
+    "output": 30,
     "usd": 0,
     "kind": "verification-extrait"
    }

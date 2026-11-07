@@ -1,34 +1,32 @@
-// Tier lists et stratégies, vérifiées le 20/10/2026.
+// Tier lists et stratégies. LoL ranked vérifiée le 07/11/2026, le reste le 20/10/2026.
 // "id" = identifiant d'image (Data Dragon pour LoL). Valorant : images trouvées par nom via valorant-api.com.
 // "roster" : la liste complète est chargée en ligne, les personnages non classés s'affichent en bas.
 
 const TIERLISTS = [
   {
-    game: "lol", title: "Solo queue — patch 26.20", roster: "lol", status: "media",
-    scope: "ranked", patch: "26.20", context: "Solo queue · rang non précisé par la source", sourcesDated: "11–19 oct. 2026", updated: "2026-10-20",
-    basis: "Win rate et pick rate metabot.gg, mis à jour entre le 11 et le 19 octobre. Les champions avec trop peu de parties sont exclus.",
+    game: "lol", title: "Solo queue — patch 26.22", roster: "lol", status: "media",
+    scope: "ranked", patch: "26.22", context: "Solo queue · Émeraude et plus", sourcesDated: "7 nov. 2026", updated: "2026-11-07",
+    basis: "Tiers, win rate et pick rate de MOBA Trainer (Émeraude+, chiffres u.gg et op.gg réunis), relevés le 7 novembre, recoupés avec LoLValue (48 128 parties Émeraude+). Les champions joués dans moins de 1 % des parties à leur poste sont exclus.",
     groups: [
       { name: "Top", tiers: {
-        S: [{ id: "Chogath", name: "Cho'Gath", stat: "53,7 %" }, { id: "Malphite", name: "Malphite" }, { id: "Mordekaiser", name: "Mordekaiser" }],
-        A: [{ id: "Quinn", name: "Quinn", stat: "53,9 %*", note: "Classée 1re par MOBA Trainer seulement" }],
+        S: [{ id: "Kayle", name: "Kayle", stat: "54,1 %", note: "S aussi sur LoLValue" }, { id: "Singed", name: "Singed", stat: "53,6 %" }, { id: "Malphite", name: "Malphite", stat: "53,3 %", note: "1er sur LoLValue" }, { id: "Kled", name: "Kled", stat: "53,1 %" }, { id: "Shen", name: "Shen", stat: "52,9 %" }, { id: "Garen", name: "Garen", stat: "52,7 %" }, { id: "Teemo", name: "Teemo", stat: "52,7 %" }, { id: "Darius", name: "Darius", stat: "52,4 %" }],
       } },
       { name: "Jungle", tiers: {
-        S: [{ id: "Rammus", name: "Rammus", stat: "53,8 %" }, { id: "Shyvana", name: "Shyvana", stat: "54,6 %" }, { id: "Chogath", name: "Cho'Gath", stat: "53,8 %" }, { id: "MonkeyKing", name: "Wukong", stat: "53,0 %" }],
+        S: [{ id: "Chogath", name: "Cho'Gath", stat: "53,8 %" }, { id: "Darius", name: "Darius", stat: "53,8 %", note: "Peu joué en jungle (1,2 %)" }, { id: "Sejuani", name: "Sejuani", stat: "53,7 %" }, { id: "Briar", name: "Briar", stat: "53,6 %" }, { id: "Belveth", name: "Bel'Veth", stat: "53,6 %" }, { id: "Shyvana", name: "Shyvana", stat: "53,5 %", note: "S aussi sur LoLValue" }, { id: "Lillia", name: "Lillia", stat: "53,4 %" }, { id: "MonkeyKing", name: "Wukong", stat: "53,4 %" }],
       } },
       { name: "Mid", tiers: {
-        S: [{ id: "Ekko", name: "Ekko", stat: "52,8 %" }, { id: "Fizz", name: "Fizz", stat: "52,4 %" }, { id: "Lux", name: "Lux", stat: "51,8 %" }, { id: "Yasuo", name: "Yasuo", stat: "51,7 %" }, { id: "Yone", name: "Yone", stat: "51,6 %" }],
+        S: [{ id: "Vex", name: "Vex", stat: "54,2 %", note: "S aussi sur LoLValue" }, { id: "Ekko", name: "Ekko", stat: "53,8 %" }, { id: "Velkoz", name: "Vel'Koz", stat: "53,2 %", note: "S aussi sur LoLValue" }, { id: "Fizz", name: "Fizz", stat: "53,2 %" }, { id: "Ahri", name: "Ahri", stat: "52,9 %" }, { id: "Vladimir", name: "Vladimir", stat: "52,9 %" }, { id: "Katarina", name: "Katarina", stat: "52,8 %", note: "S aussi sur LoLValue" }],
       } },
       { name: "ADC", tiers: {
-        S: [{ id: "Smolder", name: "Smolder", stat: "52,0 %" }, { id: "Jinx", name: "Jinx", stat: "51,7 %" }, { id: "Teemo", name: "Teemo", stat: "51,5 %" }],
-        A: [{ id: "Sivir", name: "Sivir", stat: "52,2 %", note: "Peu jouée (1,4 %)" }],
+        S: [{ id: "Swain", name: "Swain", stat: "54,8 %", note: "Peu joué en bot (1,0 %)" }, { id: "Nilah", name: "Nilah", stat: "54,5 %", note: "Peu jouée (1,0 %)" }, { id: "KogMaw", name: "Kog'Maw", stat: "54,2 %", note: "S aussi sur LoLValue" }],
+        A: [{ id: "Xayah", name: "Xayah", stat: "53,5 %", note: "S sur LoLValue" }, { id: "Jinx", name: "Jinx", stat: "53,0 %" }, { id: "Yasuo", name: "Yasuo", stat: "53,0 %" }],
       } },
       { name: "Support", tiers: {
-        S: [{ id: "Milio", name: "Milio", stat: "53,6 %" }, { id: "Leona", name: "Leona", stat: "52,4 %" }, { id: "Rell", name: "Rell", stat: "52,3 %" }, { id: "Nami", name: "Nami", stat: "52,0 %" }],
+        S: [{ id: "Leona", name: "Leona", stat: "53,6 %", note: "1re aussi sur LoLValue" }, { id: "Zilean", name: "Zilean", stat: "53,5 %" }, { id: "Braum", name: "Braum", stat: "53,3 %", note: "S aussi sur LoLValue" }, { id: "Rell", name: "Rell", stat: "53,3 %", note: "S aussi sur LoLValue" }, { id: "Senna", name: "Senna", stat: "53,2 %" }, { id: "Blitzcrank", name: "Blitzcrank", stat: "53,1 %" }, { id: "Thresh", name: "Thresh", stat: "52,4 %", note: "S aussi sur LoLValue" }],
       } },
     ],
-    warnings: ["Les sites ne sont pas d'accord sur certains chiffres (Rammus : 53,8 % sur metabot, 55,2 % sur MOBA Trainer). Gwen à 57 % sur LoLValue a été exclue : seulement 537 parties."],
+    warnings: ["Les deux sources ne sont pas d'accord sur tout : en ADC, LoLValue met en tête Katarina et Vel'Koz (environ 1 % des parties, moins de 510 parties chacun), exclus ici. Les champions très peu joués (Karthus, Lissandra, Sion, Riven : moins de 1 %) sont exclus."],
     sources: [
-      { name: "metabot.gg", url: "https://metabot.gg/en/league/champions/tier-list", kind: "media" },
       { name: "MOBA Trainer", url: "https://www.mobatrainer.com/lol/tier-list", kind: "media" },
       { name: "LoLValue", url: "https://lolvalue.com/lol-tier-list", kind: "media" },
     ],

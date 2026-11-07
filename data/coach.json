@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T01:26:04.710Z",
+ "generatedAt": "2026-11-07T07:15:35.657Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -179,7 +179,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 105
+    "units": 109
    },
    "support": {
     "champions": [
@@ -1666,17 +1666,18 @@
    },
    "Talon": {
     "role": null,
-    "units": 7,
+    "units": 8,
     "themes": [
      "champion",
      "matchup",
      "vision",
      "lane",
-     "macro"
+     "macro",
+     "vagues"
     ],
-    "actions": 1,
+    "actions": 2,
     "official": 6,
-    "coaching": 1
+    "coaching": 2
    },
    "Taric": {
     "role": null,
@@ -2043,13 +2044,16 @@
    },
    "Bel'Veth": {
     "role": null,
-    "units": 1,
+    "units": 3,
     "themes": [
      "jungle",
-     "matchup"
+     "matchup",
+     "champion",
+     "build",
+     "teamfight"
     ],
-    "actions": 0,
-    "official": 0,
+    "actions": 2,
+    "official": 2,
     "coaching": 1
    },
    "Akshan": {
@@ -2192,19 +2196,33 @@
     "official": 1,
     "coaching": 0,
     "officialOnly": true
+   },
+   "Nilah": {
+    "role": null,
+    "units": 2,
+    "themes": [
+     "champion",
+     "teamfight",
+     "build",
+     "synergie"
+    ],
+    "actions": 2,
+    "official": 2,
+    "coaching": 0,
+    "officialOnly": true
    }
   },
   "themes": {
-   "lane": 119,
+   "lane": 122,
    "survie": 18,
-   "teamfight": 16,
-   "synergie": 4,
+   "teamfight": 18,
+   "synergie": 5,
    "matchup": 16,
-   "methode": 34,
-   "vagues": 63,
+   "methode": 35,
+   "vagues": 66,
    "vision": 23,
-   "macro": 102,
-   "jungle": 76
+   "macro": 103,
+   "jungle": 78
   },
   "partial": [
    "Ashe"
@@ -3067,7 +3085,8 @@
    "u-ai-yt-juO4-AQU8-M-1",
    "u-ai-yt-juO4-AQU8-M-2",
    "u-ai-yt-juO4-AQU8-M-5",
-   "u-ai-yt-oN6PINepJT0-1"
+   "u-ai-yt-oN6PINepJT0-1",
+   "u-ai-yt-czqFQrKahx0-1"
   ]
  },
  "sources": [
@@ -12565,8 +12584,18 @@
     "basis": "page officielle de Riot sur Bel'Veth, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2022-06-08 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Article officiel du 2022-06-08 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Bel'Veth est un champion de jungle orienté vers le late game qui cumule de la vitesse d'attaque de manière infinie en tuant de grands monstres ou des champions, et dont l'ultime déclenche une Forme Véritable augmentant ses statistiques et autorisant les ruées à travers les murs.",
+   "quality": {
+    "level": "élevée",
+    "why": "Article officiel de Riot Games détaillant la conception, le lore et les mécaniques précises du kit de Bel'Veth par ses concepteurs."
+   }
   },
   {
    "id": "c-yt-lZC0QV4N3OU",
@@ -12858,8 +12887,18 @@
     "basis": "page officielle de Riot sur Nilah, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2022-06-22 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Article officiel du 2022-06-22 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Nilah est conçue comme une hypercarry de mêlée en bot lane qui profite de la synergie avec des soutiens disposant de boucliers ou de soins et s'illustre particulièrement lors des combats d'équipe en fin de partie.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu provient directement des notes d'aperçu officielles de Riot Games, détaillant clairement la conception, les mécaniques de kit et la vision de gameplay pour Nilah."
+   }
   },
   {
    "id": "c-yt-6OBgIHyPAJ8",
@@ -15288,11 +15327,11 @@
    "published": "2024-10-13",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "► Twitch :   https://www.twitch.tv/chreak - 14H TOUS LES JOURS sauf lundi\n►  Patreon pour progresser avec du contenu exclusif : https://bit.ly/Chreak-Patreon\n►  Chaîne VOD : https://www.youtube.com/@ChreakVODs\n► SOS Élo Hell (Coaching en live) : https://docs.google.com/forms/d/e/1FAIpQLSeS-h_yhMpw3a",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -15302,6 +15341,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-07",
+    "sha256": "d297725381e7eb552cabc94715110205a5e14df4ab624d09d780960e12a44b2b",
+    "segments": 91,
+    "observations": 40,
+    "duration": "23:52",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 141031
+   },
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Apprends à jouer Zac mid en profitant de la sustain de ses blobs et des trades au niveau 1 avec le Q, tout en choisissant un build tank orienté Désespoir infini et Masque abyssal pour carry.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur détaille précisément ses choix de champions, ses items, sa gestion des vagues de sbires et ses prises de décision macroéconomiques tout au long de la partie en Challenger."
    }
   },
   {
@@ -21614,9 +21676,9 @@
    "retrievedAt": "2026-10-23",
    "patch": null,
    "views": 7613,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "note": "Lue par gemini-3.6-flash : transcription et 8 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "► JUNGLE COURSE - https://sinerias.podia.com/the-complete-climbing-course\n► I ALSO ACCEPT CRYPTO PAYMENTS ► DM me on Discord\n► SOLO COACHING - DM me on Discord\n► Discord - https://discord.gg/we-are-sinerias-664154813453434901\n\n► Business inquiries - [e-mail]\n\n► Str",
    "triage": {
     "score": 7,
@@ -21630,7 +21692,30 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 81
+   "queueRank": 81,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-07",
+    "sha256": "0a21db83023a11ade88333c63ea4f3b5c0d37f626d4f28c72ff496be316b8843",
+    "segments": 6,
+    "observations": 8,
+    "duration": "00:23",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 3925
+   },
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "Le contenu montre une situation pratique et précise sur le positionnement et le timing d'un champion, mais reste très court."
+   }
   },
   {
    "id": "c-yt-dCL_tC1X_Zs",
@@ -28745,13 +28830,13 @@
    "lang": "fr",
    "published": null,
    "retrievedAt": "2026-11-03",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "13.18",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 78,
-   "note": "File de lecture (rang 78) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -28762,7 +28847,30 @@
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
    "videoAttempts": 1,
-   "videoError": "gemini-3-flash-preview : réponse tronquée (2026-11-07)"
+   "videoError": "gemini-3-flash-preview : réponse tronquée (2026-11-07)",
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-11-07",
+    "sha256": "42faa04cd378ac8c7656810d83433c3daa41684182a0a75c96b91466053985ef",
+    "segments": 52,
+    "observations": 40,
+    "duration": "28:37",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 165776
+   },
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 3,
+   "alertes": [],
+   "learn": "Ce contenu enseigne comment optimiser ses timings de rappel en base et sa gestion de vague en tant qu'ADC, tout en apprenant à punir les temps de recharge adverses et à mieux gérer ses sorts d'invocateur.",
+   "quality": {
+    "level": "élevée",
+    "why": "Analyse VOD détaillée par un coach de niveau Master/Challenger avec explications théoriques et pratiques sur les vagues, le trade et l'utilisation des sorts."
+   }
   },
   {
    "id": "c-yt-k36kZ-RTtac",
@@ -33862,13 +33970,13 @@
    "lang": "fr",
    "published": null,
    "retrievedAt": "2026-11-06",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.16",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 83,
-   "note": "File de lecture (rang 83) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 24 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [
@@ -33877,6 +33985,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-11-07",
+    "sha256": "6fd834b047a2d6e8ead25205341e507a707be63169796589a40425a4d3dec764",
+    "segments": 32,
+    "observations": 24,
+    "duration": "04:32",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 196400
+   },
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "L'analyse est basée sur un contenu audiovisuel commenté par un caster professionnel, offrant des observations pertinentes sur la draft et le début de partie mais nécessitant une vérification des actions à l'écran."
    }
   },
   {
@@ -34281,6 +34412,60 @@
      "jungle",
      "guide",
      "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-WnJ8zUdWjp0",
+   "sourceId": "yt-o8todsm2gv",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=WnJ8zUdWjp0",
+   "title": "미드 유저라면 반드시 알아야 할 \"CS 잘 먹는 방법\"【미드 강의】【기본기 강의】",
+   "author": "쭌베 ",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-11-07",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 89,
+   "note": "File de lecture (rang 89) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-j5hXC1m_Iok",
+   "sourceId": "yt-coach-chippys",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=j5hXC1m_Iok",
+   "title": "WAVE CONTROL GUIDE | How To Win Lane With Wave Management | Detailed Challenger Guide",
+   "author": "Coach Chippys",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-07",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 90,
+   "note": "File de lecture (rang 90) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "guide",
+     "how to",
+     "wave"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -97599,6 +97784,614 @@
     {
      "code": "sur-generalisation",
      "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-czqFQrKahx0-1",
+   "claim": "Selon BIZYZE Coaching | League of Legends : erreur fréquente : reculer ou rester passif lorsque le laner adverse a utilisé une compétence clé. L'auteur conseille de punir l'ennemi avec des attaques automatiques ou de prendre de l'ascendant pendant le cooldown de ses sorts.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Émeraude",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "13.18"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "L'adversaire a utilisé ou raté une compétence principale et est sous temps de recharge."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "emeraude",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-czqFQrKahx0",
+     "locator": "02:55",
+     "lang": "fr",
+     "passage": "Yeah, exactly. Auto-attack him or try to walk up on Senna, try to activate Q, whatever. The point is he's on cooldown, I want to punish him.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "155-215s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Tahm Kench (exemple)",
+    "Senna (exemple)"
+   ],
+   "action": "Avancer et attaquer le champion adverse immédiatement après qu'il a raté ou utilisé sa compétence clé.",
+   "observe": "",
+   "use": {
+    "when": "Un champion adverse vient d'utiliser sa compétence principale et se trouve en cooldown.",
+    "why": "L'adversaire n'a plus ses outils principaux pour riposter ou menacer, ce qui permet d'échanger des dégâts à ton avantage sans prendre de risque.",
+    "who": "Tous les laners",
+    "how": [
+     "Identifier la compétence clé utilisée par l'adversaire.",
+     "Avancer immédiatement vers l'ennemi sans reculer.",
+     "Placer une ou plusieurs attaques automatiques ou sorts pour le punir pendant le délai de récupération."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-07",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de date inconnue (patch 13.18) : le jeu a pu changer depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-czqFQrKahx0 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-czqFQrKahx0-3",
+   "claim": "Selon BIZYZE Coaching | League of Legends : erreur fréquente : laisser une wave lente pousser vers l'ennemi sans demander d'aide. Si la wave risque d'être gelée par l'adversaire, l'auteur conseille de pinger le jungler pour l'aider à la pousser rapidement jusqu'à la tourelle.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "mid",
+    "top"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Émeraude",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "13.18"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "La vague pousse vers la tourelle adverse mais ne crash pas d'elle-même."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "emeraude",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-czqFQrKahx0",
+     "locator": "12:44",
+     "lang": "fr",
+     "passage": "Because this wave doesn't crash by itself. The next wave that is here, it's going to freeze your wave, so you need to tell him.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "744-804s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Signaler par des pings d'aide à ton jungler de taper les sbires pour écraser la vague sous la tourelle adverse.",
+   "observe": "",
+   "use": {
+    "when": "Ta wave est plus grande que celle de l'ennemi et s'avance vers sa tourelle, mais la prochaine wave ennemie risque de la bloquer et de créer un freeze.",
+    "why": "Si la wave ne crash pas sous la tour, la wave suivante ennemie va la bloquer et freeze la lane devant leur tourelle, te mettant en danger de gank et te privant de sbires.",
+    "who": "Laners (particulièrement ADC et Top)",
+    "how": [
+     "Évaluer le nombre de sbires des deux côtés pour repérer si la wave pousse vers l'ennemi.",
+     "Pinger d'assistance sur la wave ou le jungler pour qu'il aide à pousser.",
+     "Frapper la wave conjointement jusqu'au crash complet sous la tour."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-07",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-czqFQrKahx0 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-czqFQrKahx0-5",
+   "claim": "Selon BIZYZE Coaching | League of Legends : erreur fréquente en ADC : copier immédiatement un back de son support. L'ADC doit décider de son timing de back en fonction de l'état de la wave et du tempo adverse, car les supports négligent souvent la gestion des waves.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "methode",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Émeraude",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "13.18"
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "emeraude",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-czqFQrKahx0",
+     "locator": "17:03",
+     "lang": "fr",
+     "passage": "And what's sad about this is that your support, my support decides to recall, and I copy it, which is the worst thing you can do as an ADC.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "1003-1063s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Évaluer soi-même l'état de la vague au lieu de rappeler dès que le support commence à canaliser son retour en base.",
+   "observe": "",
+   "use": {
+    "when": "Le support allié enchaîne un back alors que la wave n'est pas dans un état favorable pour un back.",
+    "why": "Les ADCs ont une meilleure compréhension des timings de back et de l'état des waves ; copier un mauvais back de support fait perdre des sbires importants.",
+    "who": "Joueurs ADC (Poste Bottom)",
+    "how": [
+     "Observer un back initié par le support.",
+     "Analyser l'état de la wave (push, freeze ou crash) et le tempo ennemi.",
+     "Décider si la wave nécessite d'être nettoyée avant de rappeler soi-même."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-07",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-czqFQrKahx0 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-x5VFsWHuoC4-2",
+   "claim": "Selon Chreak : face à un assassin comme Talon qui a tendance à décaler (roter), il ne faut pas freeze (freeze) la wave mais au contraire pousser pour l'empêcher d'en profiter ou le forcer à réagir.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "matchup": {
+    "vs": "Talon"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "contre un assassin mobile",
+    "en position de laner au milieu"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-x5VFsWHuoC4",
+     "locator": "03:30",
+     "lang": "fr",
+     "passage": "Je vais donc faire ce que je fais de mieux, c'est-à-dire push décal et je ne vais pas freeze, parce que je ne veux pas freeze face à Talon, n'oubliez pas, un assassin ça ne sert à rien de freeze contre lui au contraire il sera heureux, il va pouvoir faire ça.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "190-250s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse la vague de sbires et décale au lieu de geler face à un assassin.",
+   "observe": "Le joueur pousse rapidement la wave pour punir les déplacements de l'adversaire.",
+   "use": {
+    "when": "sur la mid lane face à un champion assassin comme Talon",
+    "why": "L'assassin serait heureux de voir un freeze pour pouvoir décaler librement sans perdre de sbires.",
+    "who": "Joueurs de midlane face à des assassins",
+    "how": [
+     "Repousser la wave sous la tour adverse",
+     "Chercher à décaler ou prendre des plaques"
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-10-13",
+   "analyzedAt": "2026-11-07",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-x5VFsWHuoC4 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-riot-champion-insights-nilah-1",
+   "claim": "Nilah est conçue comme une hypercarry de mêlée sur la bot lane qui brille particulièrement dans les combats d'équipe en fin de partie grâce à ses dégâts de zone continus.",
+   "champions": [
+    "Nilah"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion",
+    "teamfight",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Jouer Nilah en bot lane",
+    "Atteindre la phase de fin de partie"
+   ],
+   "limits": [
+    "Vulnérable aux sorts des mages support adverses en phase de lissage"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-nilah",
+     "locator": "The Star of the Show",
+     "lang": "en",
+     "passage": "Outside of being an absolute monster-slaying badass possessed by an ancient joy demon, Nilah is designed to be a hypercarry—but she can’t go it alone."
+    },
+    {
+     "content": "c-riot-champion-insights-nilah",
+     "locator": "The Star of the Show",
+     "lang": "en",
+     "passage": "Her sustained area of effect damage is extremely good and should hopefully mean that she’s a top tier team fighter."
+    }
+   ],
+   "mentions": [
+    "Yasuo (exemple)",
+    "Yone (exemple)",
+    "Renata Glasc (exemple)",
+    "Bel’Veth (exemple)",
+    "Samira (exemple)",
+    "Akshan (exemple)",
+    "Zeri (exemple)",
+    "Zyra (exemple)"
+   ],
+   "action": "Prioriser les combats d'équipe en fin de partie avec Nilah pour exploiter ses dégâts de zone et sa capacité à attirer les ennemis avec son ultime.",
+   "observe": "Observer l'efficacité des dégâts de zone de Nilah lors des attroupements d'ennemis en teamfight.",
+   "use": {
+    "when": "Tu es en fin de partie lors d'un regroupement pour un combat d'équipe avec Nilah.",
+    "why": "Ses compétences lui permettent de frapper et d'attirer plusieurs cibles simultanément dans son sillage.",
+    "who": "Joueurs de Nilah en position de carry AD en bot lane.",
+    "how": [
+     "Utiliser le dash pour s'approcher des cibles ennemies",
+     "Déclencher le tourbillon ultime pour regrouper les ennemis",
+     "Frapper avec le sort de ligne et enchaîner les attaques de base en zone"
+    ],
+    "notWhen": ""
+   },
+   "published": "2022-06-22",
+   "analyzedAt": "2026-11-07",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-nilah publié le 2022-06-22 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-nilah publié le 2022-06-22 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-riot-champion-insights-nilah-2",
+   "claim": "Le passif de Nilah amplifie et partage les soins et boucliers reçus ou générés par ses alliés proches tout en octroyant un bonus d'expérience lorsqu'elle tue des sbires.",
+   "champions": [
+    "Nilah"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion",
+    "synergie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Avoir un allié proche",
+    "Réussir le dernier coup sur les sbires pour l'expérience"
+   ],
+   "limits": [
+    "Nécessite des champions alliés disposant de soins ou de boucliers pour maximiser l'effet du passif"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-nilah",
+     "locator": "The Star of the Show",
+     "lang": "en",
+     "passage": "Her passive, for example, allows her to amplify and share healing and shielding that’s done to her or that her nearby allies do to themselves."
+    },
+    {
+     "content": "c-riot-champion-insights-nilah",
+     "locator": "The Star of the Show",
+     "lang": "en",
+     "passage": "Nilah’s passive also includes an XP bonus that she shares with a nearby ally—but she has to last-hit minions to get it."
+    }
+   ],
+   "mentions": [
+    "Zyra (exemple)"
+   ],
+   "action": "Associer Nilah à des champions de type enchanteresse possédant des boucliers ou des soins.",
+   "observe": "Vérifier l'augmentation de l'efficacité des boucliers et des soins prodigués ou reçus à proximité.",
+   "use": {
+    "when": "Tu joues Nilah sur la bot lane en duo avec un champion de type soutien ou enchanteresse.",
+    "why": "Elle bonifie les sorts de protection et de soin tout en profitant d'un partage d'expérience via ses derniers coups.",
+    "who": "Joueurs de Nilah et leurs duos en bot lane.",
+    "how": [
+     "Sélectionner un champion allié doté de soins ou de boucliers",
+     "Assurer les derniers coups sur les sbires pour sécuriser le bonus d'expérience partagé"
+    ],
+    "notWhen": ""
+   },
+   "published": "2022-06-22",
+   "analyzedAt": "2026-11-07",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-nilah publié le 2022-06-22 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-nilah publié le 2022-06-22 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "traduction",
+     "why": "Terme à risque (shield) dans un passage en en sans note de traduction."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-riot-champion-insights-bel-veth-1",
+   "claim": "Bel’Veth empile sa vitesse d’attaque de manière infinie lorsqu’elle tue un grand monstre ou un champion.",
+   "champions": [
+    "Bel'Veth"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "champion",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Tuer un grand monstre de la jungle ou un champion"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-bel-veth",
+     "locator": "Devouring the Jungle",
+     "lang": "en",
+     "passage": "When Bel’Veth consumes (meaning kills) a large monster or champion, she stacks attack speed… infinitely."
+    }
+   ],
+   "mentions": [],
+   "action": "Chasser les grands monstres de la jungle et éliminer des champions pour cumuler définitivement de la vitesse d'attaque.",
+   "observe": "Vérifier l'augmentation de la statistique de vitesse d'attaque après avoir consommé des grands monstres ou des champions.",
+   "use": {
+    "when": "tu élimines un grand monstre de la jungle ou un champion ennemi",
+    "why": "la mécanique de Bel'Veth récompense l'élimination d'objectifs majeurs et de champions pour accroître sa puissance",
+    "who": "Bel'Veth en jungle",
+    "how": [
+     "Sécuriser les grands monstres dans la jungle",
+     "Participer aux éliminations de champions ennemis"
+    ],
+    "notWhen": ""
+   },
+   "published": "2022-06-08",
+   "analyzedAt": "2026-11-07",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-bel-veth publié le 2022-06-08 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-riot-champion-insights-bel-veth-2",
+   "claim": "L'ultime de Bel'Veth déclenche sa Forme Véritable qui augmente ses PV max, sa vitesse de déplacement hors combat, sa portée d'attaque, sa vitesse d'attaque totale et lui permet de traverser les décors avec son A.",
+   "champions": [
+    "Bel'Veth"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "jungle",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Consommer un corps avec l'ultime"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-bel-veth",
+     "locator": "Devouring the Jungle",
+     "lang": "en",
+     "passage": "After eating a body, she temporarily unleashes her True Form, which grants her increased max health, out-of-combat move speed, attack range, and total attack speed. She can also dash through walls while in her True Form by using her Q."
+    }
+   ],
+   "mentions": [],
+   "action": "Activer l'ultime sur un cadavre pour engager en Forme Véritable et utiliser la ruée du sort A à travers les murs.",
+   "observe": "Observer le changement de forme du champion et le bonus de portée ainsi que la capacité à traverser les murs.",
+   "use": {
+    "when": "tu disposes d'un cadavre ennemi après un combat et tu actives ton ultime",
+    "why": "le gain de statistiques et la mobilité accrue permettent de dominer les affrontements et de se déplacer rapidement",
+    "who": "Bel'Veth",
+    "how": [
+     "Activer l'ultime sur un corps",
+     "Profiter du bonus de portée et de vitesse",
+     "Traverser les murs avec le sort A"
+    ],
+    "notWhen": ""
+   },
+   "published": "2022-06-08",
+   "analyzedAt": "2026-11-07",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-bel-veth publié le 2022-06-08 : à confirmer sur le kit et la méta actuels."
     }
    ]
   }

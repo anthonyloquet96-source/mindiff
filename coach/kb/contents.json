@@ -7725,8 +7725,18 @@
     "basis": "page officielle de Riot sur Bel'Veth, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2022-06-08 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Article officiel du 2022-06-08 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Bel'Veth est un champion de jungle orienté vers le late game qui cumule de la vitesse d'attaque de manière infinie en tuant de grands monstres ou des champions, et dont l'ultime déclenche une Forme Véritable augmentant ses statistiques et autorisant les ruées à travers les murs.",
+   "quality": {
+    "level": "élevée",
+    "why": "Article officiel de Riot Games détaillant la conception, le lore et les mécaniques précises du kit de Bel'Veth par ses concepteurs."
+   }
   },
   {
    "id": "c-yt-lZC0QV4N3OU",
@@ -8020,8 +8030,18 @@
     "basis": "page officielle de Riot sur Nilah, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2022-06-22 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Article officiel du 2022-06-22 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Nilah est conçue comme une hypercarry de mêlée en bot lane qui profite de la synergie avec des soutiens disposant de boucliers ou de soins et s'illustre particulièrement lors des combats d'équipe en fin de partie.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu provient directement des notes d'aperçu officielles de Riot Games, détaillant clairement la conception, les mécaniques de kit et la vision de gameplay pour Nilah."
+   }
   },
   {
    "id": "c-yt-6OBgIHyPAJ8",
@@ -10879,11 +10899,11 @@
    "published": "2024-10-13",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "► Twitch :   https://www.twitch.tv/chreak - 14H TOUS LES JOURS sauf lundi\n►  Patreon pour progresser avec du contenu exclusif : https://bit.ly/Chreak-Patreon\n►  Chaîne VOD : https://www.youtube.com/@ChreakVODs\n► SOS Élo Hell (Coaching en live) : https://docs.google.com/forms/d/e/1FAIpQLSeS-h_yhMpw3a",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -10893,6 +10913,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-07",
+    "sha256": "d297725381e7eb552cabc94715110205a5e14df4ab624d09d780960e12a44b2b",
+    "segments": 91,
+    "observations": 40,
+    "duration": "23:52",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 141031
+   },
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Apprends à jouer Zac mid en profitant de la sustain de ses blobs et des trades au niveau 1 avec le Q, tout en choisissant un build tank orienté Désespoir infini et Masque abyssal pour carry.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur détaille précisément ses choix de champions, ses items, sa gestion des vagues de sbires et ses prises de décision macroéconomiques tout au long de la partie en Challenger."
    }
   },
   {
@@ -43216,9 +43259,9 @@
    "retrievedAt": "2026-10-23",
    "patch": null,
    "views": 7613,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "note": "Lue par gemini-3.6-flash : transcription et 8 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "► JUNGLE COURSE - https://sinerias.podia.com/the-complete-climbing-course\n► I ALSO ACCEPT CRYPTO PAYMENTS ► DM me on Discord\n► SOLO COACHING - DM me on Discord\n► Discord - https://discord.gg/we-are-sinerias-664154813453434901\n\n► Business inquiries - [e-mail]\n\n► Str",
    "triage": {
     "score": 7,
@@ -43232,7 +43275,30 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 81
+   "queueRank": 81,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-07",
+    "sha256": "0a21db83023a11ade88333c63ea4f3b5c0d37f626d4f28c72ff496be316b8843",
+    "segments": 6,
+    "observations": 8,
+    "duration": "00:23",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 3925
+   },
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "Le contenu montre une situation pratique et précise sur le positionnement et le timing d'un champion, mais reste très court."
+   }
   },
   {
    "id": "c-yt-EdjgWEBfdMI",
@@ -71761,13 +71827,13 @@
    "lang": "fr",
    "published": null,
    "retrievedAt": "2026-11-03",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "13.18",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 78,
-   "note": "File de lecture (rang 78) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -71778,7 +71844,30 @@
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
    "videoAttempts": 1,
-   "videoError": "gemini-3-flash-preview : réponse tronquée (2026-11-07)"
+   "videoError": "gemini-3-flash-preview : réponse tronquée (2026-11-07)",
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-11-07",
+    "sha256": "42faa04cd378ac8c7656810d83433c3daa41684182a0a75c96b91466053985ef",
+    "segments": 52,
+    "observations": 40,
+    "duration": "28:37",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 165776
+   },
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 3,
+   "alertes": [],
+   "learn": "Ce contenu enseigne comment optimiser ses timings de rappel en base et sa gestion de vague en tant qu'ADC, tout en apprenant à punir les temps de recharge adverses et à mieux gérer ses sorts d'invocateur.",
+   "quality": {
+    "level": "élevée",
+    "why": "Analyse VOD détaillée par un coach de niveau Master/Challenger avec explications théoriques et pratiques sur les vagues, le trade et l'utilisation des sorts."
+   }
   },
   {
    "id": "c-yt-k36kZ-RTtac",
@@ -76878,13 +76967,13 @@
    "lang": "fr",
    "published": null,
    "retrievedAt": "2026-11-06",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.16",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 83,
-   "note": "File de lecture (rang 83) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 24 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [
@@ -76893,6 +76982,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-11-07",
+    "sha256": "6fd834b047a2d6e8ead25205341e507a707be63169796589a40425a4d3dec764",
+    "segments": 32,
+    "observations": 24,
+    "duration": "04:32",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 196400
+   },
+   "analyzedAt": "2026-11-07",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "L'analyse est basée sur un contenu audiovisuel commenté par un caster professionnel, offrant des observations pertinentes sur la draft et le début de partie mais nécessitant une vérification des actions à l'écran."
    }
   },
   {
@@ -79173,6 +79285,60 @@
      "jungle",
      "guide",
      "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-WnJ8zUdWjp0",
+   "sourceId": "yt-o8todsm2gv",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=WnJ8zUdWjp0",
+   "title": "미드 유저라면 반드시 알아야 할 \"CS 잘 먹는 방법\"【미드 강의】【기본기 강의】",
+   "author": "쭌베 ",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-11-07",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 89,
+   "note": "File de lecture (rang 89) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-j5hXC1m_Iok",
+   "sourceId": "yt-coach-chippys",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=j5hXC1m_Iok",
+   "title": "WAVE CONTROL GUIDE | How To Win Lane With Wave Management | Detailed Challenger Guide",
+   "author": "Coach Chippys",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-07",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 90,
+   "note": "File de lecture (rang 90) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "guide",
+     "how to",
+     "wave"
     ],
     "entertainment": [],
     "patchMentioned": null,

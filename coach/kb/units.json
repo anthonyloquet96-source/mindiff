@@ -80298,7 +80298,699 @@
    },
    "version": 1,
    "firstSeen": "2026-11-06"
+  },
+  {
+   "id": "u-ai-yt-juO4-AQU8-M-1",
+   "claim": "Selon 【LOL・ボチカ】青森最高レートが語るアルティメットチャンピオン解説 : utilise LOLalytics comme source principale de statistiques pour sa précision et son volume de données, malgré son interface complexe.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "15.15"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Chercher des données avec un échantillon important"
+   ],
+   "limits": [
+    "Nécessite un ajustement manuel du taux de victoire selon le rang"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-juO4-AQU8-M",
+     "locator": "02:03",
+     "lang": "ja",
+     "passage": "ただこの使い方をするんであれば、結構上位互換のサイトがあって、それがLOLalyticsね。このサイトね、一見すごい複雑そうに見えるんだけど、実は結構シンプルだったりする。しかも試合数が多いんだよね。",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "103-163s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-juO4-AQU8-M",
+     "locator": "05:09",
+     "lang": "ja",
+     "passage": "どの統計サイトが良いのかっていうと、LOLalyticsですね。"
+    }
+   ],
+   "mentions": [],
+   "action": "Privilégier LOLalytics pour l'analyse des builds et des runes.",
+   "observe": "",
+   "use": {
+    "when": "Tu cherches à optimiser ton build ou tes runes via des statistiques.",
+    "why": "Le site offre un volume de données supérieur et des détails plus fins que ses concurrents.",
+    "who": "Tout joueur cherchant une optimisation précise basée sur les données.",
+    "how": [
+     "Ouvre LOLalytics pour le champion souhaité.",
+     "Vérifie le volume de parties (sample size) pour chaque objet.",
+     "Compare les taux de victoire en tenant compte du biais de popularité."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est fidèle aux passages cités, présente une méthode analytique claire pour l'utilisation de LOLalytics et son contexte d'usage est complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-juO4-AQU8-M-2",
+   "claim": "Selon 【LOL・ボチカ】青森最高レートが語るアルティメットチャンピオン解説 : les builds et runes les plus populaires (recommandés) voient leur taux de victoire réduit d'environ 2% car ils sont utilisés par des joueurs débutants sur le champion.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "L'objet ou la rune doit être le choix par défaut/recommandé"
+   ],
+   "limits": [
+    "Estimation basée sur des déclarations de Riot Games"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-juO4-AQU8-M",
+     "locator": "05:27",
+     "lang": "ja",
+     "passage": "一番使われてるビルドルーンの勝率が2%下がるっていうのは、Riotの調整担当の人が言ったことなので、だいぶ信頼度は高いと思います",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "307-367s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Ajoute mentalement 2% au taux de victoire des builds les plus populaires pour évaluer leur force réelle.",
+   "observe": "",
+   "use": {
+    "when": "Tu compares un build très populaire à un build de niche sur un site de statistiques.",
+    "why": "Les joueurs qui ne maîtrisent pas le champion (taux de victoire moyen de 40%) choisissent systématiquement les recommandations, ce qui tire la moyenne vers le bas.",
+    "who": "Joueurs analysant la méta via les statistiques.",
+    "how": [
+     "Identifie le build avec le plus haut taux de sélection.",
+     "Ajoute 2% à son taux de victoire affiché.",
+     "Compare ce score ajusté aux autres options moins populaires."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'affirmation sur le taux de victoire des builds populaires et son explication sont directement tirées de la transcription et appuyées par des éléments logiques."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-juO4-AQU8-M-5",
+   "claim": "Selon 【LOL・ボチカ】青森最高レートが語るアルティメットチャンピオン解説 : adapte ton troisième fragment de rune (PV) selon le matchup : PV par niveau par défaut, ou PV fixes contre des menaces de dive précoce.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-juO4-AQU8-M",
+     "locator": "10:52",
+     "lang": "ja",
+     "passage": "ルーンに関して言うと、1個注意点があって、絶対おすすめ固定であるのね。スケーリングHPになるんだけど、ここはマッチアップによって変えていいんじゃないかなって思います。",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "632-692s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-juO4-AQU8-M",
+     "locator": "11:11",
+     "lang": "ja",
+     "passage": "例えば相手のTopがレネクトンでJungleがエリスとかだったら、ダイブ怖いからフラットHPにするとか、それぐらいの幅はつけてもいいのかなと思いますね。"
+    }
+   ],
+   "mentions": [
+    "Renekton (exemple)",
+    "Elise (exemple)"
+   ],
+   "action": "Change le fragment de PV par niveau pour des PV fixes si tu anticipes une agression forte avant le niveau 6.",
+   "observe": "",
+   "use": {
+    "when": "Tu es en phase de sélection des runes et tu affrontes un duo Top/Jungle agressif.",
+    "why": "Les PV fixes offrent une meilleure survie immédiate contre les dives de début de partie par rapport aux PV par niveau qui ne rentabilisent qu'en milieu de partie.",
+    "who": "Tous les joueurs, particulièrement en Top lane.",
+    "how": [
+     "Identifie si l'adversaire peut te dive tôt (ex: Elise).",
+     "Remplace le fragment 'PV par niveau' par 'PV' (fixes)."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil d'adaptation des fragments de PV en fonction de la menace ennemie (dive) est logique, contextualisé et validé par l'extrait."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-XcGsTzedRRQ-1",
+   "claim": "Selon Chreak : pour estimer précisément la distance d'atterrissage de ta Bulle somnifère (E) à travers un terrain complexe, retire temporairement le smartcast de cette compétence afin d'afficher sa portée maximale exacte.",
+   "champions": [
+    "Zoé"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "15.x"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Zoé/E"
+   ],
+   "conditions": [
+    "Avoir le temps de réfléchir et d'analyser le terrain avant de lancer le sort"
+   ],
+   "limits": [
+    "Moins réactif en combat de mêlée instantané"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-XcGsTzedRRQ",
+     "locator": "[00:26]",
+     "lang": "fr",
+     "passage": "c'est je mets mon E, je ne le mets pas forcément en non-smartcast, c'est juste que j'ai l'option de le mettre en non-smartcast ce qui fait que ça me permet de voir la distance parcourue par la bulle.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "6-66s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Désactiver le smartcast du E de Zoé lorsque tu as du temps pour cibler un obstacle complexe.",
+   "observe": "L'affichage de la zone de portée exacte de la bulle avant de l'envoyer.",
+   "use": {
+    "when": "Tu es en phase de lane ou hors combat et tu veux placer une Bulle somnifère (E) à travers un mur épais avec précision.",
+    "why": "Cela permet de voir exactement où la bulle va atterrir et de s'assurer qu'elle touchera la cible malgré les obstacles du terrain.",
+    "who": "Joueurs de Zoé cherchant à optimiser la précision de leur E.",
+    "how": [
+     "Mettre l'option de la Bulle somnifère (E) sans smartcast pour la voir s'afficher",
+     "Vérifier la distance parcourue sur le décor",
+     "Lancer le sort à travers le terrain"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle à la transcription, son contexte d'usage est complet et décrit une astuce technique mécanique précise pour Zoé."
+   },
+   "published": "2025-02-23",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-XcGsTzedRRQ-2",
+   "claim": "Selon Chreak : maîtrise le combo rapide 'Q -> R -> Q' de Zoé en enchaînant instantanément le saut dimensionnel après le premier lancer de sort, sous peine de manquer de portée ou de lenteur d'exécution.",
+   "champions": [
+    "Zoé"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "15.x"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Zoé/Q",
+    "Zoé/R"
+   ],
+   "conditions": [],
+   "limits": [
+    "Nécessite un bon timing pour ne pas lancer le R trop tôt ou trop tard"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-XcGsTzedRRQ",
+     "locator": "[01:34]",
+     "lang": "fr",
+     "passage": "Donc Q R instantanément, Q à nouveau. Il faut connaître les limites du champion parce que sinon vous allez vous retrouver à faire des trucs et ça va être lent, ou alors ça va tout simplement pas marcher parce que vous allez R trop tard.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "74-134s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Exécuter l'enchaînement Q, puis R immédiatement, puis relancer Q pour infliger des dégâts à distance.",
+   "observe": "Le Q voyage plus loin grâce au déplacement du R sans laisser de temps mort.",
+   "use": {
+    "when": "Tu veux surprendre un adversaire distant avec ton combo de l'Astro-pong couplé à ton Saut dimensionnel.",
+    "why": "Cela permet d'allonger la portée de ton sort et d'infliger de lourds dégâts rapidement sans laisser le temps à l'adversaire de réagir.",
+    "who": "Joueurs de Zoé souhaitant optimiser leurs trades.",
+    "how": [
+     "Lancer ton Q en arrière ou sur le côté",
+     "Activer immédiatement ton R pour avancer",
+     "Relancer ton Q pour rediriger le projectile vers la cible"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'enchaînement du combo Q-R-Q est fidèlement retranscrit et donne des indications pratiques claires pour le joueur."
+   },
+   "published": "2025-02-23",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-XcGsTzedRRQ-3",
+   "claim": "Selon Chreak : place une balise de contrôle (pink ward) semi-agressive dans le buisson haut de la rivière lorsque tu joues Zoé, afin de surprendre l'adversaire avec un E à travers le mur et de push instantanément la vague.",
+   "champions": [
+    "Zoé"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vision",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "15.x"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:Balise de controle"
+   ],
+   "conditions": [
+    "Après avoir échoué un 1v1 ou en cours de phase de lane pour sécuriser sa position"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-XcGsTzedRRQ",
+     "locator": "[06:20]",
+     "lang": "fr",
+     "passage": "Je vais poser une petite pink ici pour défendre ma position, cette pink est super importante quand tu joues Zoé, une pink à moitié agressive qui vous permet si des gens arrivent par ici de les bulle et surprendre votre adversaire avec un Q comme ça par exemple qui permet de push instantanément la wave.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "360-420s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter et poser une balise de contrôle dans le buisson semi-agressant de la rivière.",
+   "observe": "La balise rose plantée dans le buisson de la rivière.",
+   "use": {
+    "when": "Tu es en phase de lane avec Zoé et tu as besoin de sécuriser ta position et d'anticiper les mouvements ennemis.",
+    "why": "Cela te donne de la vision pour placer des bulles surprises à travers le décor si quelqu'un s'approche tout en protégeant ta position.",
+    "who": "Joueurs de Zoé en milieu de terrain.",
+    "how": [
+     "Acheter une balise de contrôle lors d'un retour en base",
+     "La poser dans le buisson de la rivière proche de la midlane"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le placement de la balise de contrôle et son utilité stratégique pour Zoé sont fidèlement rapportés."
+   },
+   "published": "2025-02-23",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-XcGsTzedRRQ-5",
+   "claim": "Selon Chreak : en teamfight ou lors du contrôle d'objectifs neutres avec Zoé, évite les affrontements directs globaux et privilégie le positionnement en amont pour infliger du poke ou trouver un catch rapide.",
+   "champions": [
+    "Zoé"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "teamfight",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "15.x"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avant l'apparition d'un objectif neutre ou lors d'un combat d'équipe"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-XcGsTzedRRQ",
+     "locator": "12:40",
+     "lang": "fr",
+     "passage": "Le teamfight n'est pas ce que vous voulez, vous voulez absolument éviter les teamfights. Vous voulez seulement prendre des catchs puis teamfight, ou poke puis teamfight.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "740-800s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Te positionner en avance autour de l'objectif neutre pour surprendre les ennemis avec un poke ou un catch.",
+   "observe": "Zoé pose de la vision et attend l'adversaire dans les buissons avant l'apparition d'un objectif.",
+   "use": {
+    "when": "Un objectif neutre (dragon, baron ou autre) va bientôt apparaître sur la carte.",
+    "why": "Zoé n'est pas adaptée aux combats d'équipe frontaux directs, mais elle est redoutable pour éliminer une cible isolée ou réduire les PV adverses avant le combat.",
+    "who": "Joueurs de Zoé en milieu de partie et phase de regroupement.",
+    "how": [
+     "Te rendre sur la zone de l'objectif avant l'équipe ennemie",
+     "Installer de la vision avec des balises de contrôle ou des babioles bleues",
+     "Chercher à placer une bulle sur un adversaire imprudent pour créer un avantage numérique"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le comportement de Zoé en teamfight (privilégier les catchs et le poke plutôt que le 5v5 direct) est entièrement fondé sur la source."
+   },
+   "published": "2025-02-23",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-oN6PINepJT0-1",
+   "claim": "Selon Chreak : avant de lancer un 1v1 ou un trade important, pousse toujours ta vague de sbires si possible pour ne pas perdre d'XP et de gold en cas de défaite.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avant d'engager un combat ou un 1v1"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-oN6PINepJT0",
+     "locator": "[06:54]",
+     "lang": "fr",
+     "passage": "si vous pushez la wave avant de faire un fight, et bien vous perdez pas d'XP, vous perdez pas de gold, ce qui fait que même si vous perdez votre 1v1, vous ne perdez pas l'XP et les gold qui vont avec la wave",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-07",
+      "window": "394-454s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse ta vague de sbires sous la tourelle adverse avant de chercher un combat.",
+   "observe": "L'état de la vague avant de s'engager dans un échange risqué.",
+   "use": {
+    "when": "tu t'apprêtes à engager un combat singulier ou un trade d'envergure sur ta lane.",
+    "why": "pour sécuriser les ressources d'XP et de gold même si tu perds le combat.",
+    "who": "Tous les postes",
+    "how": [
+     "Nettoie rapidement les sbires pour faire avancer la vague.",
+     "Vérifie que la vague est sous la tourelle ennemie ou en train d'y aller.",
+     "Engage le combat avec ton vis-à-vis."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe macroéconomique intemporel et correct, parfaitement appuyé par la citation de la transcription."
+   },
+   "published": "2024-10-20",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
   }
  ],
- "updatedAt": "2026-11-06T19:21:02.019Z"
+ "updatedAt": "2026-11-07T01:26:03.751Z"
 }

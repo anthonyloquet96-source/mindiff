@@ -2,6 +2,20 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-07 — tier list Ranked LoL mise à jour (patch 26.22)
+
+Demandée par Anthony le 07/11 (« mets la à jour »). L'ancienne datait du patch 26.20 (relevée le 20/10).
+
+- **Sources** :
+  - MOBA Trainer (mobatrainer.com/lol/tier-list) : Émeraude+, chiffres u.gg et op.gg réunis, « Last updated Nov 7, 2026 » ;
+  - LoLValue (lolvalue.com/lol-tier-list) : 48 128 parties Émeraude+, patch 26.22.
+  - Les robots.txt des deux sites autorisent ces pages.
+- **Vérification** : chiffres relevés dans le texte brut des pages, pas dans un résumé automatique.
+- **metabot.gg** : n'est plus cité, parce que le rang de ses chiffres n'est pas indiqué sur la page.
+- **Règle** : tiers S et S+ de MOBA Trainer par poste (plus le tier A en ADC), en excluant les champions joués dans moins de 1 % des parties à leur poste (Karthus, Lissandra, Sion, Riven…). Une note indique quand LoLValue donne le même tier.
+- **Vérifié** sur une copie locale du site, sans l'API privée, donc comme le voit le public : patch 26.22, « relevé le 7 nov. », 35 images, aucune cassée, aucun « undefined ».
+- Les repères Diamant+ de la clé personnelle (tier list calculée) restent privés : ils ne s'affichent que sur le serveur local.
+
 ## 2026-11-06 — série Top/ADC avec la clé personnelle : quels objectifs hors farm ?
 
 Demandée par Anthony le 06/11 (« Lance la collecte Top/ADC maintenant »).

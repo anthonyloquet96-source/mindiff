@@ -58,7 +58,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Faire démarrer les testeurs : « Je commence » sur l'objectif proposé, puis 5 ranked (2 objectifs proposés pas commencés, 1 en cours sans partie évaluée depuis le 28/10) | 03/11 | constat automatique |
 | Documents RGPD : registre des traitements et durée de conservation | 03/11 | JOURNAL 03/11 |
 | Décision sur le tuteur | 03/11 | JOURNAL 03/11 |
-| Site, avant la relecture de Riot : décider pour la tier list Ranked (patch 26.20, relevée le 20/10 dans `data/meta.js`, saisie à la main, affichée « plus de deux semaines ») : la mettre à jour depuis une source vérifiée, ou la cacher jusqu’à la clé de production. Et pour la tuile Valorant « Bientôt » : la garder ou la cacher | 05/11 | tour du site par Claude le 05/11 |
+| Site, avant la relecture de Riot : tuile Valorant « Bientôt » : la garder ou la cacher. (Tier list Ranked : mise à jour le 07/11 sur le patch 26.22 à la demande d'Anthony, voir JOURNAL 07/11 ; à refaire à chaque patch) | 05/11 | tour du site par Claude le 05/11 |
 | Clé de production : choisir comment Riot pourra essayer le coach (code de démonstration envoyé par message sur le portail, ou vidéo du parcours) | 05/11 | règles Riot lues le 05/11 (developer.riotgames.com/docs/lol) |
 
 ## Ce qui attend Claude

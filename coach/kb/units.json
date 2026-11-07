@@ -81674,7 +81674,459 @@
    },
    "version": 1,
    "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-11e0Vt8QKXw-2",
+   "claim": "Selon Odysseus : lorsque la voie du bas adverse a la priorité et envahit ta jungle inférieure, réponds par une contre-invasion de la jungle haute ennemie si ton toplaner a la priorité de voie.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "La botlane ennemie a la priorité et pénètre dans ta jungle côté bot",
+    "Le toplaner allié a la priorité de voie"
+   ],
+   "limits": [
+    "Nécessite la vision sur le déplacement adverse et la priorité effective sur la voie opposée"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-11e0Vt8QKXw",
+     "locator": "01:52",
+     "lang": "pt",
+     "passage": "[01:52] (image, sûr) Texte à l'écran : « I see their bot move to my Blue ».",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-07",
+      "window": "92-152s",
+      "said": true,
+      "supported": false,
+      "gap": "Le conseil ajoute une condition sur la priorité du toplaner qui n'est pas mentionnée dans la vidéo."
+     }
+    },
+    {
+     "content": "c-yt-11e0Vt8QKXw",
+     "locator": "02:00",
+     "lang": "pt",
+     "passage": "[02:00] (image, sûr) Texte à l'écran : « Counter invade to go ahead in camps » alors que Taliyah remonte vers la jungle haute ennemie.",
+     "mentionOnly": true
+    },
+    {
+     "content": "c-yt-11e0Vt8QKXw",
+     "locator": "02:34",
+     "lang": "pt",
+     "passage": "[02:34] (image, sûr) Texte à l'écran : « My top has prio so I go for more »."
+    }
+   ],
+   "mentions": [
+    "Taliyah (exemple)",
+    "Rengar (exemple)"
+   ],
+   "action": "Contre-envahir la jungle haute adverse immédiatement après avoir repéré l'invasion bot adverse sous priorité.",
+   "observe": "L'avantage en nombre de camps et le soutien possible du toplaner qui a la priorité.",
+   "use": {
+    "when": "En début de partie, lorsque la botlane adverse a la priorité et se dirige vers tes camps de jungle côté bas.",
+    "why": "Pour compenser les camps perdus et prendre l'avantage sur le total de camps sécurisés (« Counter invade to go ahead in camps »).",
+    "who": "Tout jungler confronté à une invasion adverse sous priorité de voie.",
+    "how": [
+     "Constater l'invasion bot ennemie via la vision ou la priorité adverse.",
+     "Se diriger immédiatement dans la jungle haute ennemie pour voler ses camps.",
+     "Poursuivre sur les camps additionnels si le toplaner allié maintient sa priorité."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Cette décision macro est illustrée sur une seule partie de solo queue Challenger, justifiant le maintien en statut provisoire."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt--BZZ3Z8FAdA-4",
+   "claim": "Selon 수라차 : lorsque tu as l'initiative de vague sur la voie du milieu, choisis entre décaler ou maintenir la pression au mid en fonction des compositions : si les décalages sont peu efficaces ou si l'adversaire peut te suivre globalement (comme Twisted Fate), privilégie la pression directe sur la tour adverse.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "macro",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Twisted Fate"
+   },
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "La vague de sbires mid est poussée sous la tour ennemie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--BZZ3Z8FAdA",
+     "locator": "[03:22]-[03:32]",
+     "lang": "ko",
+     "passage": "[03:22] (parole) 자 그리고 라인을 밀었을 때 딱 2가지가 있죠.\n[03:25] (parole) 상대방을 압박하거나 로밍을 가거나. 이거는\n[03:29] (parole) 저희 팀 상태를 보고 선택하시면 되는데\n[03:32] (parole) 우리 팀 서폿이 세라핀이면은 갱 호응이 그렇게 좋진 않거든요?",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-07",
+      "window": "182-242s",
+      "said": true,
+      "supported": true,
+      "gap": "Le pourquoi avance que le décalage fait perdre l'avantage de ligne et punit le vis-à-vis sur le farm, alors que l'auteur explique seulement que Twisted Fate peut suivre avec son ultime."
+     }
+    },
+    {
+     "content": "c-yt--BZZ3Z8FAdA",
+     "locator": "[03:42]-[03:46]",
+     "lang": "ko",
+     "passage": "[03:42] (parole) 그래서 지금 같은 상황에서는 그냥 트페를 압박하는 게 좋아요.\n[03:46] (parole) 어차피 내가 로밍을 간다고 해도 트페가 궁으로 따라오면 되기 때문에 압박하는 게 차라리 나아."
+    }
+   ],
+   "mentions": [
+    "Seraphine (exemple)"
+   ],
+   "action": "Rester sur la voie mid et harceler le vis-à-vis sous sa tour au lieu de forcer un décalage bot inefficace.",
+   "observe": "La perte de PV et de CS du mid laner adverse sous sa tour.",
+   "use": {
+    "when": "Lorsque la vague mid est poussée mais que la lane alliée n'a pas de bon contrôle/setup de gank ou que le mid enfilera une compétence globale.",
+    "why": "",
+    "who": "Joueurs de midlane (particulièrement sur des champions de contrôle/poke comme Hwei).",
+    "how": [
+     "Analyser la composition alliée sur les lignes latérales pour évaluer le potentiel de gank.",
+     "Vérifier si le vis-à-vis adverse peut répliquer par un ultime de téléportation (ex: Twisted Fate).",
+     "Si les conditions de roam sont défavorables, conserver la priorité pour bloquer le mid adverse sous sa tour."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [],
+    "why": "Ce conseil de macro-jeu sur l'arbitrage entre roamer ou maintenir la pression mid ne dépend pas du kit spécifique de Hwei et s'applique à la midlane en général."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-uVUgBSHTFbU-1",
+   "claim": "Selon Chreak : avec Orianna en laning phase, il convient de pousser la vague à l'aide des attaques de base et de conserver ses sorts pour harceler le vis-à-vis dès qu'il tente de contester la priorité.",
+   "champions": [
+    "Orianna"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.19"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Orianna/P",
+    "Orianna/Q"
+   ],
+   "conditions": [
+    "Jouer Orianna en midlane contre un matchup de mages/ranged"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "pro",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uVUgBSHTFbU",
+     "locator": "[04:30]",
+     "lang": "fr",
+     "passage": "C'est pour ça que c'est important d'être en lane pour pouvoir prendre le push sans mettre tes sorts. Mais tu es jamais censé push avec tes sorts genre. Ça n'existe pas, parce que le mec Orianna tu as tellement plus de poke que presque tous les champions du jeu au mid que il est obligé de respecter.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-07",
+      "window": "250-310s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser prioritairement les attaques de base sur les sbires pour garder la portée du A/Ordre : Attaque disponible pour poke l'adversaire.",
+   "observe": "",
+   "use": {
+    "when": "En début de partie sur la midlane au contrôle d'Orianna contre un mage à distance.",
+    "why": "Orianna possède un fort potentiel de poke qui contraint l'adversaire au respect ; dépenser ses sorts sur la vague dissipe cette pression.",
+    "who": "Joueur d'Orianna en midlane.",
+    "how": [
+     "Frapper les sbires avec les attaques de base pour maintenir la pression de vague.",
+     "Garder le A/Ordre : Attaque pour cibler le champion adverse dès qu'il tente d'avancer ou d'utiliser un sort."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil sur la gestion des vagues et le poke d'Orianna au niveau 1 est parfaitement appuyé par la citation de Vetheo et le contexte d'usage est complet."
+   },
+   "published": "2024-10-11",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-uVUgBSHTFbU-3",
+   "claim": "Selon Chreak : il faut éviter de rester collé aux murs de la midlane lors des échanges de sorts, car la proximité du décor supprime une direction d'esquive et rend les compétences adverses presque inesquivables.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.19"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "pro",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uVUgBSHTFbU",
+     "locator": "[10:08]",
+     "lang": "fr",
+     "passage": "C'est très mauvais de rester proche de ce mur parce que ça t'enlève une direction en fait.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-07",
+      "window": "588-648s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Se recentrer dans la lane et maintenir un espace suffisant avec les parois rocheuses lors du laning.",
+   "observe": "",
+   "use": {
+    "when": "Pendant la phase de laning en midlane lors de la gestion des distances et des esquives de compétence.",
+    "why": "Se coller au mur retire une possibilité d'esquive latérale (sidestep), offrant un angle de tir fermé et inratable au laner adverse.",
+    "who": "Tout joueur de midlane.",
+    "how": [
+     "Se placer au centre de la lane ou laisser de l'espace sur les deux côtés de son champion.",
+     "Conserver une liberté de mouvement horizontale pour pouvoir faire un sidestep."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe général et intemporel de placement en midlane pour conserver la mobilité d'esquive, bien justifié."
+   },
+   "published": "2024-10-11",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-uVUgBSHTFbU-5",
+   "claim": "Selon Chreak : erreur fréquente : poser une balise de vision tardive avant l'arrivée des sbires et arriver en retard sur sa lane. L'auteur conseille d'être déjà en place en midlane dès l'arrivée de la première vague pour prendre l'avantage du push.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "vision"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.19"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "emeraude",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-uVUgBSHTFbU",
+     "locator": "[02:51]",
+     "lang": "fr",
+     "passage": "C'est bien de d'avoir la vision mais déjà tu le fais trop tard, parce que tu es en retard en lane.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-07",
+      "window": "151-211s",
+      "said": true,
+      "supported": false,
+      "gap": "L'explication concernant l'avantage du push et la prise de priorité dès le niveau 1 n'est pas énoncée par l'intervenant."
+     }
+    }
+   ],
+   "mentions": [
+    "Hwei (exemple)",
+    "Maokai (exemple)"
+   ],
+   "action": "Prendre position sur la midlane dès 1:00 à 1:05 sans s'attarder pour poser une ward inutile à ce timing.",
+   "observe": "",
+   "use": {
+    "when": "Au tout début de la partie avant la rencontre des vagues de sbires au milieu du terrain.",
+    "why": "",
+    "who": "Tout joueur de midlane.",
+    "how": [
+     "Éviter de poser des balises tardives vers 1:20 qui retardent le placement.",
+     "Être prêt au milieu de la voie pour attaquer la première vague dès sa rencontre."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Correction d'une erreur de timing de warding au niveau 1 en midlane, formulée conformément aux règles v3 sans attribuer de champion à un conseil général."
+   },
+   "published": "2024-10-11",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-07",
+   "validity": {
+    "checkedAt": "2026-11-07",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-07",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-07"
   }
  ],
- "updatedAt": "2026-11-07T07:15:34.486Z"
+ "updatedAt": "2026-11-07T13:38:07.416Z"
 }

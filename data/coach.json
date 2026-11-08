@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-08T01:27:14.339Z",
+ "generatedAt": "2026-11-08T07:23:46.713Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -179,7 +179,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 112
+    "units": 115
    },
    "support": {
     "champions": [
@@ -2239,18 +2239,42 @@
     "official": 2,
     "coaching": 0,
     "officialOnly": true
+   },
+   "Aurora": {
+    "role": null,
+    "units": 1,
+    "themes": [
+     "lane",
+     "build"
+    ],
+    "actions": 1,
+    "official": 0,
+    "coaching": 1
+   },
+   "Seraphine": {
+    "role": null,
+    "units": 2,
+    "themes": [
+     "champion",
+     "teamfight",
+     "survie"
+    ],
+    "actions": 2,
+    "official": 2,
+    "coaching": 0,
+    "officialOnly": true
    }
   },
   "themes": {
-   "lane": 129,
-   "survie": 22,
-   "teamfight": 21,
+   "lane": 136,
+   "survie": 25,
+   "teamfight": 23,
    "synergie": 6,
    "matchup": 17,
    "methode": 37,
-   "vagues": 70,
-   "vision": 24,
-   "macro": 107,
+   "vagues": 72,
+   "vision": 25,
+   "macro": 114,
    "jungle": 81
   },
   "partial": [
@@ -3118,7 +3142,14 @@
    "u-ai-yt-czqFQrKahx0-1",
    "u-ai-yt-WnJ8zUdWjp0-1",
    "u-ai-riot-champion-insights-viego-4",
-   "u-ai-yt-fk245UqdWvU-4"
+   "u-ai-yt-fk245UqdWvU-4",
+   "u-ai-yt-SNVJaaBuDAg-5",
+   "u-ai-yt-YwibbNDg7kM-1",
+   "u-ai-yt-YwibbNDg7kM-2",
+   "u-ai-yt-YwibbNDg7kM-3",
+   "u-ai-yt-YwibbNDg7kM-4",
+   "u-ai-riot-champion-insights-seraphine-1",
+   "u-ai-riot-champion-insights-seraphine-2"
   ]
  },
  "sources": [
@@ -13164,8 +13195,17 @@
     "basis": "page officielle de Riot sur Samira, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2020-09-21 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Écarté : contenu jugé de faible qualité (L'article est un article de présentation narrative et artistique (« Champion Insights ») par les concepteurs de Riot Games. Il décrit la genèse du personnage, son lore et ses intentions de design, mais ne contient aucun guide de jeu, build chiffré, stratégie de matchup ou conseil tactique applicable en partie.).",
+   "analyzedAt": "2026-11-08",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "quality": {
+    "level": "faible",
+    "why": "L'article est un article de présentation narrative et artistique (« Champion Insights ») par les concepteurs de Riot Games. Il décrit la genèse du personnage, son lore et ses intentions de design, mais ne contient aucun guide de jeu, build chiffré, stratégie de matchup ou conseil tactique applicable en partie."
+   },
+   "learn": null,
+   "rejectedForQuality": true
   },
   {
    "id": "c-riot-champion-insights-senna",
@@ -13218,8 +13258,18 @@
     "basis": "page officielle de Riot sur Séraphine, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2020-10-12 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Article officiel du 2020-10-12 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "analyzedAt": "2026-11-08",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Seraphine dispose d'un kit axé sur la collaboration d'équipe, permettant d'étendre la portée de son ultime via ses alliés et de soigner son équipe avec son bouclier si elle est déjà protégée.",
+   "quality": {
+    "level": "élevée",
+    "why": "Article officiel de Riot Games détaillant la conception et les mécaniques du kit de Seraphine directement par les développeurs."
+   }
   },
   {
    "id": "c-yt-hiNN2WKkR3Q",
@@ -13458,8 +13508,18 @@
     "basis": "page officielle de Riot sur Yone, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2020-07-24 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Article officiel du 2020-07-24 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "analyzedAt": "2026-11-08",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "Article de présentation officielle (Champion Insights) par Riot Games décrivant la conception, les thèmes narratifs et les mécaniques globales de Yone lors de sa sortie, sans chiffres précis ni guides de gameplay approfondis."
+   }
   },
   {
    "id": "c-yt-gG09J6Vxbgo",
@@ -15051,12 +15111,12 @@
    "lang": "fr",
    "published": "2024-07-28",
    "retrievedAt": "2026-10-21",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "null",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "► Twitch :   https://www.twitch.tv/chreak - 14H TOUS LES JOURS sauf lundi\n►  Chaîne VOD : https://www.youtube.com/@ChreakVODs\n► SOS Élo Hell (Coaching en live) : https://docs.google.com/forms/d/e/1FAIpQLSeS-h_yhMpw3a53NvGuDx0aVKzgBlbcSn30HhB9tdIumxQ28g/viewform\n► Discord :  https://discord.gg/SndE8u",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -15066,6 +15126,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-08",
+    "sha256": "561e4eed410135faa4281e5196ea5115e7fa49704bf7f8cd039d042b1244d3f8",
+    "segments": 31,
+    "observations": 40,
+    "duration": "38:45",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 229760
+   },
+   "analyzedAt": "2026-11-08",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Apprends à gérer les vagues de sbires avec Aurora au mid, à exploiter le timing des rappels en base et à utiliser l'ultime pour créer des opportunités de gank en coordination avec son équipe.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'analyse détaillée d'une partie de haut niveau par un joueur Challenger apporte des explications claires et structurées sur les concepts fondamentaux de gestion de lane et de prise de décision."
    }
   },
   {
@@ -20519,6 +20602,33 @@
    "queueRank": 72
   },
   {
+   "id": "c-yt-3BejvaYVycw",
+   "sourceId": "yt-fmmwh9er3z",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=3BejvaYVycw",
+   "title": "챌린저 큐에서 스노우볼 극한으로 굴리는 법 (챌린저 뇌를 알아보자)",
+   "author": "유한 U Han",
+   "lang": "ko",
+   "published": "2026-10-14",
+   "retrievedAt": "2026-10-21",
+   "patch": null,
+   "views": 13000,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "descriptionExcerpt": "#Nidalee #니달리 #Leesin #리신 #c1 #Uhan #leagueclips #lol \n\n멤버십 가입 ▶youtube.com/channel/UCfMmWh9ER3zJSIWGbian8Pg/join\n강의 : 유튜브 홈페이지란에 링크 클릭 후 카카오톡 오픈 채팅 (1시간당 3.5 진행)\n\n==============================\n\n타임스태프\n0:00 \n0:10 \n\n==============================\n\nLive\n유튜브만 진행합니다.\n\n===============",
+   "triage": {
+    "score": -3,
+    "matched": [],
+    "entertainment": [
+     "clips"
+    ],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "queueRank": 101
+  },
+  {
    "id": "c-yt---iwcmfCyX4",
    "sourceId": "yt-yamato-natsuna-lol-katarina",
    "type": "video",
@@ -23319,13 +23429,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-10-26",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.1",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 95,
-   "note": "File de lecture (rang 33) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 10 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 15,
     "matched": [
@@ -23336,6 +23446,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-08",
+    "sha256": "b0fb1cb1c6ebb3776ad192845410306aed820b7018bb0bfc11bb4ad45a21297a",
+    "segments": 23,
+    "observations": 10,
+    "duration": "31:55",
+    "videoKind": "guide",
+    "gameplayShown": false,
+    "tokens": 184964
+   },
+   "analyzedAt": "2026-11-08",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Apprendre à aborder le rôle de tireur avec une discipline de décision rigoureuse : refuser les combats suicidaires imposés par ses alliés, sécuriser de l'or garanti en cross-map quand un objectif est contesté, et préserver ses ressources décisives (Saut éclair, présence de zone) en fin de partie.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Guide conceptuel clair et réfléchi sur les fondamentaux macro et mentaux du rôle d'ADC par un ancien joueur professionnel, mais exposé uniquement sous forme de notes écrites sans séquences de gameplay pour illustrer les actions."
    }
   },
   {
@@ -23349,12 +23482,12 @@
    "published": null,
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 96,
-   "note": "File de lecture (rang 34) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 18 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 15,
     "matched": [
@@ -23364,6 +23497,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-08",
+    "sha256": "3ba258ddb9d86ed3ee0277ea763f12c0106a294bfc68c3c13757dbd83aea3f0d",
+    "segments": 15,
+    "observations": 18,
+    "duration": "35:26",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 196202
+   },
+   "analyzedAt": "2026-11-08",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Le guide détaille les principes fondamentaux du placement en sidelane au mid-game, notamment l'importance de pousser en sécurité, d'éviter de partager les ressources et d'utiliser la Téléportation comme condition pour s'isoler.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu pose des règles claires et structurées sur la gestion des sidelanes avec des exemples visuels appuyant les concepts théoriques."
    }
   },
   {
@@ -34774,7 +34930,7 @@
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "videoAttempts": 2,
+   "videoAttempts": 3,
    "videoError": "Unexpected end of JSON input (2026-11-08)"
   },
   {
@@ -35094,6 +35250,31 @@
     "matched": [
      "matchup"
     ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-tx6BJ7rbFoA",
+   "sourceId": "yt-2-8sga9qex",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=tx6BJ7rbFoA",
+   "title": "\"딜,탱,운영 전부 완벽한 챔피언은 비에고 뿐입니다\" 【비에고 강의】",
+   "author": "경희대 챌린저 정글러 [비굿펄]",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-11-08",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 102,
+   "note": "File de lecture (rang 102) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -100982,6 +101163,904 @@
     {
      "code": "contenu-ancien",
      "why": "c-riot-champion-insights-zeri publié le 2022-01-14 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-SNVJaaBuDAg-1",
+   "claim": "Selon Coach Violet : en phase de lane, positionne-toi en parallèle de ton support pour pouvoir riposter immédiatement si l'adversaire l'attaque.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Être en phase de voie en 2v2."
+   ],
+   "limits": [
+    "Ne s'applique pas si le support avance beaucoup trop loin et s'empale."
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-SNVJaaBuDAg",
+     "locator": "[23:25]",
+     "lang": "en",
+     "passage": "positioning in lane, you generally speaking always want to position like kind of parallel to your support so that like if he gets hit, you can hit them as well.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "1385-1445s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Ajuster sa position latérale en permanence pour rester à hauteur de son support en phase de voie.",
+   "observe": "La possibilité d'échanger des dégâts dès que le duo adverse cible ton support.",
+   "use": {
+    "when": "Pendant la phase de lane au poste de tireur, lors des échanges et du positionnement neutre face aux adversaires.",
+    "why": "Pour infliger des dégâts en retour si l'adversaire s'en prend à ton support, tout en restant toi-même hors de danger mortel.",
+    "who": "Tireur (ADC) en bot lane.",
+    "how": [
+     "Repère le placement de ton support sur la largeur de la lane.",
+     "Maintiens une position parallèle à lui sans t'exposer à un contrôle mortel.",
+     "Attaque l'ADC ou le support adverse dès qu'ils lancent une attaque sur ton support."
+    ],
+    "notWhen": "Si ton support s'avance de manière suicidaire beaucoup trop loin."
+   },
+   "published": null,
+   "analyzedAt": "2026-11-08",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de date inconnue (patch 14.1) : le jeu a pu changer depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-SNVJaaBuDAg : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-SNVJaaBuDAg-2",
+   "claim": "Selon Coach Violet : si ton jungler ou ton support engage un combat alors que tu as très peu de points de vie, refuse de le suivre, signale-lui de renoncer et rappelle-toi en base.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "survie",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Être très bas en points de vie lorsqu'un allié force un combat."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-SNVJaaBuDAg",
+     "locator": "[01:50]",
+     "lang": "en",
+     "passage": "if there's a play that your jungler is going for, right, and you're 1 HP, like I want you to just not follow the play, you know, just run away, just base, take a recall, push the wave and let your jungler die. Ping him off, base, let him die, you know.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "90-150s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Envoyer des pings de repli et lancer son rappel en base au lieu de participer à une escarmouche risquée à très bas points de vie.",
+   "observe": "La préservation de ta vie et la sécurisation d'un tempo de rappel au lieu de donner un kill supplémentaire.",
+   "use": {
+    "when": "Tu as très peu de points de vie et un coéquipier (jungler ou support) force un skirmish ou une action perdue d'avance.",
+    "why": "L'ADC est un rôle intrinsèquement égoïste qui a besoin de maximiser son or pour porter la partie ; mourir pour une action perdante anéantit tes chances de victoire.",
+    "who": "Tireur (ADC) en solo queue.",
+    "how": [
+     "Constate que tes points de vie ne te permettent pas de combattre en sécurité.",
+     "Envoie des signaux de repli (ping off) à ton allié.",
+     "Pousse rapidement la wave si c'est sécurisé ou lance immédiatement ton back pour back."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-08",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-SNVJaaBuDAg : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-SNVJaaBuDAg-5",
+   "claim": "Selon Coach Violet : en fin de partie avec une composition de siège à distance (poke), délaisse la wave au milieu pour sécuriser le contrôle de la zone d'un objectif majeur imminent.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vagues",
+    "vision"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Fin de partie (joueurs full build), composition de poke, objectif majeur (Âme de dragon, Dragon Ancestral, Baron Nashor) apparaissant dans les 20 secondes."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-SNVJaaBuDAg",
+     "locator": "[28:55]",
+     "lang": "en",
+     "passage": "let's just say Elder's up um in 20 seconds, and you're running like a full poke comp. Ideally, sacking mid wave is more beneficial in this situation if an important objective is up, like a Soul point, Elder, or Baron, cause you want to keep control of the area and like the mid wave doesn't matter anymore, right?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "1715-1775s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Abandonner le nettoyage d'une vague sur la voie du milieu à 20 secondes de l'apparition du Dragon Ancestral ou du Baron pour s'installer dans la rivière.",
+   "observe": "L'établissement d'un contrôle de terrain et l'affaiblissement des adversaires à distance avant leur entrée dans la fosse.",
+   "use": {
+    "when": "Un objectif crucial (Dragon Ancestral, point d'Âme ou Baron) apparaît dans 20 secondes, tout le monde est full build et ton équipe repose sur le poke.",
+    "why": "À équipement complet, l'or d'une wave n'a plus de valeur, alors que contrôler l'espace et affaiblir l'adversaire avant son arrivée est indispensable pour remporter l'objectif.",
+    "who": "Joueurs jouant une composition axée sur le poke en fin de partie.",
+    "how": [
+     "Repère le compte à rebours de l'objectif neutre (environ 20 secondes avant apparition).",
+     "Ne perds pas de temps à pousser la wave au milieu.",
+     "Prends position dans la rivière pour verrouiller la zone et commencer à poke l'équipe ennemie."
+    ],
+    "notWhen": "Si la wave au milieu menace directement de faire tomber une tour de base ou d'ouvrir le Nexus."
+   },
+   "published": null,
+   "analyzedAt": "2026-11-08",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-SNVJaaBuDAg : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-YwibbNDg7kM-1",
+   "claim": "Selon Shok : ton objectif principal en mid-game en sidelane est de pousser la wave aussi loin que possible sans mourir.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YwibbNDg7kM",
+     "locator": "00:42",
+     "lang": "en",
+     "passage": "our biggest goal in the mid-game is to push the sidelane as far as we can without dying.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "22-82s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse la vague en sidelane jusqu'à la limite de ta sécurité sans te faire surprendre.",
+   "observe": "La position des ennemis sur la carte avant de t'avancer.",
+   "use": {
+    "when": "Tu es en mid-game et tu te diriges vers une sidelane pour farmer.",
+    "why": "Maximiser l'or et l'expérience tout en appliquant de la pression sur la carte.",
+    "who": "Tout joueur gérant une sidelane en mid-game.",
+    "how": [
+     "Identifie la position de la jungle ennemie.",
+     "Avance et pousse la wave le plus loin possible en sécurité."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-08",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-YwibbNDg7kM : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-YwibbNDg7kM-2",
+   "claim": "Selon Shok : en sidelane, tu dois chercher à éviter de partager l'or et l'expérience, en particulier avec les autres carries de ton équipe.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YwibbNDg7kM",
+     "locator": "01:18",
+     "lang": "en",
+     "passage": "you want to try not to share gold and XP, especially with other carries.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "58-118s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Va sur une autre voie ou dans la jungle vide pour ne pas marcher sur les plates-bandes de tes autres carries.",
+   "observe": "La répartition de tes alliés sur les différentes voies.",
+   "use": {
+    "when": "Plusieurs joueurs de ton équipe se trouvent sur la même zone et se disputent les sbires.",
+    "why": "Éviter de diviser les ressources et optimiser le gain d'or et d'expérience global de l'équipe.",
+    "who": "Tout joueur en phase de mid-game.",
+    "how": [
+     "Observe où se trouvent tes coéquipiers qui ont besoin de ressources.",
+     "Choisis une autre lane ou zone pour farmer seul."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-08",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-YwibbNDg7kM : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-YwibbNDg7kM-3",
+   "claim": "Selon Shok : le summoner Téléportation est ce qui te donne la permission d'aller en sidelane.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YwibbNDg7kM",
+     "locator": "01:45",
+     "lang": "en",
+     "passage": "TP is what gives you permission to sidelane.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "85-145s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Vérifie que ta Téléportation est disponible avant de t'isoler loin de ton équipe sur une sidelane.",
+   "observe": "Le délai de récupération de ta Téléportation.",
+   "use": {
+    "when": "Tu veux te rendre sur une sidelane éloignée pendant que les objectifs majeurs sont menaçants.",
+    "why": "Pouvoir rejoindre rapidement un teamfight important de l'autre côté de la carte si nécessaire.",
+    "who": "Tout joueur disposant du sort Téléportation.",
+    "how": [
+     "Regarde si ta Téléportation est prête.",
+     "Va sur la sidelane si c'est le cas, ou reste groupé si elle est en recharge."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-08",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-YwibbNDg7kM : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-YwibbNDg7kM-4",
+   "claim": "Selon Shok : tu devrais avoir l'impression d'agir de façon bizarre si tu restes groupé avec ton équipe alors que ta Téléportation est disponible.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-YwibbNDg7kM",
+     "locator": "02:04",
+     "lang": "en",
+     "passage": "it should feel weird to be grouped if you have TP up.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "104-164s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Quitte ton équipe pour aller prendre une ressource ou une ligne latérale dès que ta Téléportation est disponible.",
+   "observe": "Le statut de ton sort Téléportation et la position de tes coéquipiers.",
+   "use": {
+    "when": "Ta Téléportation est active et ton équipe se regroupe inutilement au mid.",
+    "why": "Profiter de la liberté de mouvement offerte par le sort pour générer de l'or et de l'XP en sidelane tout en restant menaçant pour un retour.",
+    "who": "Tout joueur possédant la Téléportation.",
+    "how": [
+     "Vérifie que la Téléportation est prête.",
+     "Quitte le groupe pour aller pousser une lane éloignée."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-08",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-YwibbNDg7kM : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-eLua2tbTiNc-1",
+   "claim": "Selon Chreak : en match-up de type range contre mêlée ou range contre range sur la midlane, il faut attaquer et lancer ses sorts en permanence sur les sbires pour obtenir et conserver le push de la wave, évitant ainsi de se faire enfermer sous sa propre tourelle.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "jouer un champion à distance sur la voie du milieu"
+   ],
+   "limits": [
+    "dépend de la gestion globale des vagues et de la consommation de mana"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-eLua2tbTiNc",
+     "locator": "[02:48]",
+     "lang": "fr",
+     "passage": "Je vais Q dans la wave pour pouvoir prendre le push, parce que je vous ai toujours dit dans les match-up range versus mêlée, range versus range, on veut vraiment perma auto, perma spell les waves, sinon vous vous retrouvez dans une situation désagréable.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "148-208s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Aurora (exemple)",
+    "Syndra (exemple)"
+   ],
+   "action": "Attaque en permanence les sbires avec des attaques de base et des sorts dès le niveau 1 pour prendre le contrôle de la vague.",
+   "observe": "Le joueur pousse la première vague plus vite que son adversaire et gagne l'initiative (prio) pour placer une vision.",
+   "use": {
+    "when": "tu es au début de la phase de lane sur la mid lane face à un autre champion à distance",
+    "why": "pour ne pas se retrouver à devoir tanker la wave sous sa tourelle et conserver la liberté de mouvement",
+    "who": "joueurs jouant des champions à distance au mid",
+    "how": [
+     "Donne des attaques de base et lance des sorts sur les sbires dès le niveau 1",
+     "Maintiens la pression pour forcer l'adversaire à reculer ou à gérer les sbires sous sa tour"
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-07-28",
+   "analyzedAt": "2026-11-08",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-eLua2tbTiNc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-eLua2tbTiNc-2",
+   "claim": "Selon Chreak : faire un faux mouvement de décalage (fake rotate) vers la rivière ou une autre lane juste avant de back met une énorme pression psychologique sur l'équipe adverse, qui envoie des signaux d'alerte et recule par peur d'un gank.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "avoir poussé sa vague de sbires"
+   ],
+   "limits": [
+    "dépend de la réactivité et de la vision de l'équipe ennemie"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-eLua2tbTiNc",
+     "locator": "[10:37]",
+     "lang": "fr",
+     "passage": "Et là je vais over quand même avant de base, je vais faire semblant d'aller rotate, et donc Syndra met deux pings mid plus deux trois pings dans la rivière. Qu'est-ce qui se passe ? C'est tétanisant pour le reste de la carte.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "617-677s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Aurora (exemple)",
+    "Syndra (exemple)"
+   ],
+   "action": "Fais un pas vers la rivière après avoir poussé ta vague avant d'aller en base pour faire croire à un décalage.",
+   "observe": "L'adversaire ping l'absence de son vis-à-vis et les autres lignes ennemies reculent.",
+   "use": {
+    "when": "tu viens de clear ta wave de sbires au milieu et tu t'apprêtes à back",
+    "why": "pour semer la panique chez l'adversaire et l'empêcher d'entreprendre des actions offensives",
+    "who": "tous les joueurs de la mid lane",
+    "how": [
+     "Pousse la wave sous la tourelle ennemie",
+     "Avance brièvement vers la rivière ou une issue de la lane avant de t'arrêter pour rappeler",
+     "Observe la réaction de l'adversaire qui prévient ses alliés"
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-07-28",
+   "analyzedAt": "2026-11-08",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-eLua2tbTiNc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-eLua2tbTiNc-3",
+   "claim": "Selon Chreak : lorsque l'on joue Aurora sur la mid lane, il faut privilégier l'utilisation des attaques de base et du premier sort pour les échanges de coups de base afin d'éviter de vider instantanément sa barre de mana avec les autres sorts.",
+   "champions": [
+    "Aurora"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "jouer Aurora en début de partie"
+   ],
+   "limits": [
+    "dépend de la quantité de mana disponible et des objets achetés"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-eLua2tbTiNc",
+     "locator": "[06:17]",
+     "lang": "fr",
+     "passage": "Donc si tu veux faire des trades avec Aurora, c'est généralement auto et Q, et éviter les autres spells parce que sinon c'est la merde.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "357-417s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Syndra (exemple)"
+   ],
+   "action": "Utilise principalement tes attaques de base et ton sort Q pour échanger avec ton adversaire avec Aurora.",
+   "observe": "La barre de mana se vide beaucoup moins vite lors des escarmouches en début de partie.",
+   "use": {
+    "when": "tu engages un échange de coups avec ton adversaire sur la lane avec Aurora",
+    "why": "parce que les autres sorts coûtent énormément de mana et vident la ressource trop rapidement",
+    "who": "joueurs d'Aurora mid",
+    "how": [
+     "Place des attaques de base sur l'ennemi",
+     "Utilise le sort Q pour infliger des dégâts sans gaspiller ton mana avec les sorts de déplacement ou de zone"
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-07-28",
+   "analyzedAt": "2026-11-08",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2024 : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-eLua2tbTiNc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-eLua2tbTiNc publié le 2024-07-28 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-riot-champion-insights-seraphine-1",
+   "claim": "Le sort En scène (R) de Seraphine charme les ennemis touchés et sa portée s'étend lorsqu'il touche un champion, qu'il soit ennemi ou allié.",
+   "champions": [
+    "Seraphine"
+   ],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "champion",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "toucher un champion allié ou ennemi pour étendre la portée du sort"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-seraphine",
+     "locator": "Music in Action",
+     "lang": "en",
+     "passage": "Her ultimate, Encore, gives her the chance to hype up her allies and grants her a moment to be performative."
+    },
+    {
+     "content": "c-riot-champion-insights-seraphine",
+     "locator": "Music en Action",
+     "lang": "en",
+     "passage": "She takes this big breath, sings out a really loud high note, and shoots out an AoE charm. Enemies take damage and walk towards her, but the cool thing about this spell is that it extends any time it hits a champion—even allies."
+    }
+   ],
+   "mentions": [
+    "Karthus (exemple)",
+    "Orianna (exemple)",
+    "Lee Sin (exemple)"
+   ],
+   "action": "Utilise l'ultime de Seraphine à travers un allié engagé pour prolonger sa portée et toucher les ennemis en arrière-plan.",
+   "observe": "La portée du sort s'allonge lorsqu'il traverse un champion allié.",
+   "use": {
+    "when": "Ton équipe engage un combat en équipe et un champion allié se trouve en avant, hors de portée directe des ennemis lointains.",
+    "why": "L'ultime prolonge sa portée chaque fois qu'il touche un champion, y compris les alliés.",
+    "who": "Joueurs de Seraphine",
+    "how": [
+     "Cible un allié bien positionné sur la trajectoire",
+     "Lance ton ultime pour qu'il traverse cet allié et atteigne les ennemis"
+    ],
+    "notWhen": ""
+   },
+   "published": "2020-10-12",
+   "analyzedAt": "2026-11-08",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-seraphine publié le 2020-10-12 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-seraphine publié le 2020-10-12 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-riot-champion-insights-seraphine-2",
+   "claim": "Le sort Son ambiant (W) de Seraphine applique un bouclier et un bonus de vitesse de déplacement, et soigne Seraphine et ses alliés si elle bénéficie déjà d'un bouclier au moment de l'activation.",
+   "champions": [
+    "Seraphine"
+   ],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "champion",
+    "teamfight",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "posséder déjà un bouclier avant de lancer le sort pour déclencher le soin"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-seraphine",
+     "locator": "Music in Action",
+     "lang": "en",
+     "passage": "If Seraphine already has a shield on her, then she heals herself and her allies... and they’ll heal themselves and each other. So that means the more people you have in the spell, the more benefit everyone gets."
+    }
+   ],
+   "mentions": [],
+   "action": "Assure-toi d'avoir un bouclier actif (via ton passif ou un autre effet) avant d'utiliser ton Z (Son ambiant) pour soigner tes alliés.",
+   "observe": "Un soin s'applique en plus du bouclier et du bonus de vitesse de déplacement.",
+   "use": {
+    "when": "Tu te trouves groupé avec tes alliés et tu souhaites leur apporter un soin en plus du bouclier de base.",
+    "why": "Le sort se combine avec le passif pour déclencher un soin de zone lorsque Seraphine possède déjà un bouclier.",
+    "who": "Joueurs de Seraphine",
+    "how": [
+     "Utilise tes sorts de base pour accumuler des effets de passif",
+     "Déclenche ton bouclier (W) lorsque tu es déjà protégé pour soigner le groupe"
+    ],
+    "notWhen": ""
+   },
+   "published": "2020-10-12",
+   "analyzedAt": "2026-11-08",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "contenu-ancien",
+     "why": "c-riot-champion-insights-seraphine publié le 2020-10-12 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "traduction",
+     "why": "Terme à risque (shield) dans un passage en en sans note de traduction."
     }
    ]
   }

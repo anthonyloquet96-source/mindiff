@@ -2,6 +2,28 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-08 — tour complet du site public
+
+Demandé par Anthony le 08/11 (« fais un tour de toute l'appli pour voir les bug »).
+
+- **Parcouru** :
+  - LoL, Tous et Valorant : Accueil, Compétitions, Matchs, Coach, Méta et Actus ;
+  - le tournoi Worlds (5 onglets et 2 matchs), une fiche champion, des articles, Favoris, le choix du jeu et la page confidentialité ;
+  - le site en français puis en anglais.
+- **Sans erreur** : aucune erreur JavaScript, aucune image cassée, aucun « undefined » ni « NaN », pas de défilement horizontal.
+- **Corrigé** :
+  1. Accueil, « Prochains matchs » : « Aucun match programmé » s'affichait alors que T1 – BLG était annoncé juste au-dessus. Le match à la une est retiré de la liste, et s'il était le seul, la page dit maintenant « Pas d'autre match programmé pour l'instant ».
+  2. Site anglais, vue d'ensemble du tournoi : la phrase « Taux de sélection… Bilan : victoires–défaites… » restait en français.
+  3. Site anglais : les noms de manches (« Quarts de finale », « Demi-finales », « Finale ») restaient en français.
+  4. Coach, onglet Champions : sans connexion au test privé, « Tes champions » montrait encore les parties et le taux de victoire du dernier compte, gardés dans le navigateur. Ils ne s'affichent plus hors connexion, et « Se déconnecter » efface ce profil.
+- Testé sur une copie locale à jour, en anglais : manches et phrase traduites. Tests : 60/61 (1 ignoré faute de cache).
+- **Non vérifié** :
+  - l'affichage téléphone : la fenêtre du navigateur n'a pas pu être réduite (dernière vérification à 390 px le 05/11) ;
+  - l'espace testeur une fois connecté : Claude ne se connecte pas à la place d'Anthony.
+- **Remarques, sans correction** :
+  - l'ancienne adresse `#/lol/coach/strategies` affiche encore l'ancien menu du coach avec « Pas encore de fiche vérifiée ». Aucun lien du site n'y mène ;
+  - le bandeau du tournoi à la une n'a pas d'image : il affiche « Worlds » en gris.
+
 ## 2026-11-07 — tier list Ranked LoL mise à jour (patch 26.22)
 
 Demandée par Anthony le 07/11 (« mets la à jour »). L'ancienne datait du patch 26.20 (relevée le 20/10).

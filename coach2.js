@@ -1665,7 +1665,9 @@ function c2Champions() {
   const list = c2ChampList().filter(c => !q || c.name.toLowerCase().includes(q));
   // Tes champions d'abord, du plus joué au moins joué (ranked récentes du profil), puis tous les autres (demande d'Anthony, 01/11)
   const played = new Map();
-  for (const g of C2.profile?.games || []) { const id = c2Id(g.champion) || g.champion, s = played.get(id) || { n: 0, w: 0 }; s.n++; s.w += g.win ? 1 : 0; played.set(id, s); }
+  // Sans connexion au service (session du test privé expirée ou absente), pas de « Tes champions » : c'était le profil
+  // gardé dans le navigateur, affiché à côté du formulaire de connexion
+  for (const g of (C2_API != null && C2.profile?.games) || []) { const id = c2Id(g.champion) || g.champion, s = played.get(id) || { n: 0, w: 0 }; s.n++; s.w += g.win ? 1 : 0; played.set(id, s); }
   const mine = list.filter(c => played.has(c.id)).sort((a, b) => played.get(b.id).n - played.get(a.id).n || played.get(b.id).w - played.get(a.id).w);
   const cell = c => { const s = played.get(c.id); return `<a class="c2-champ" href="${c2Href("champions", c.id)}">${c2Img(c.id)}<span>${esc(c.name)}</span>${s ? `<span class="c2-champ-n">${s.n}&nbsp;partie${s.n > 1 ? "s" : ""}<br>${Math.round(100 * s.w / s.n)}&nbsp;%</span>` : ""}</a>`; };
   const rest = list.filter(c => !played.has(c.id));
@@ -2059,7 +2061,8 @@ document.addEventListener("click", e => {
   const a = e.target.closest("[data-action]");
   if (!a) return;
   if (a.dataset.action === "c2-pilot-mode") { c2ui.pilot = { mode: c2ui.pilot?.mode === "signup" ? "login" : "signup" }; render(false); }
-  if (a.dataset.action === "c2-pilot-out") { c2Session = null; c2SessionSave(); C2_API = null; c2ui.pilot = { mode: "login" }; c2ui.v1 = {}; render(false); }
+  // Déconnexion volontaire du test privé : le profil gardé dans le navigateur est oublié aussi (appareil partagé)
+  if (a.dataset.action === "c2-pilot-out") { c2Session = null; c2SessionSave(); C2.account = null; C2.profile = null; C2.reviews = {}; c2Save(); C2_API = null; c2ui.pilot = { mode: "login" }; c2ui.v1 = {}; render(false); }
   if (a.dataset.action === "c2-refresh") c2LoadProfile(true);
   if (a.dataset.action === "c2-logout") { C2.account = null; C2.profile = null; C2.reviews = {}; c2ui.error = null; c2Save(); render(false); }
   if (a.dataset.action === "c2-switch") { c2ui.switching = !c2ui.switching; render(false); if (c2ui.switching) document.querySelector("#c2-connect input")?.focus(); }

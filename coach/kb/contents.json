@@ -7922,8 +7922,18 @@
     "basis": "page officielle de Riot sur Lillia, champion sans conseils officiels dans Data Dragon"
    },
    "access": "texte-integral",
-   "analysis": "en-attente",
-   "note": "Article officiel du 2020-07-07 : les valeurs et intentions décrites peuvent avoir changé depuis."
+   "analysis": "analysee",
+   "note": "Article officiel du 2020-07-07 : les valeurs et intentions décrites peuvent avoir changé depuis.",
+   "analyzedAt": "2026-11-08",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Lillia est un jungler mobile spécialisé dans le hit-and-run, capable d'infliger des dégâts en fonction des PV max et d'endormir des groupes d'ennemis, mais elle reste fragile face aux invasions en début de partie.",
+   "quality": {
+    "level": "élevée",
+    "why": "Source officielle de Riot Games détaillant les intentions de design et les mécaniques fondamentales du kit de Lillia."
+   }
   },
   {
    "id": "c-yt-ynG4T9yLKFs",
@@ -11264,7 +11274,9 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 196074
-   }
+   },
+   "attempts": 1,
+   "lastError": "gemini-3-flash-preview : réponse tronquée (2026-11-08)"
   },
   {
    "id": "c-yt--V4SmNK_tjU",
@@ -80153,7 +80165,7 @@
    "retrievedAt": "2026-11-07",
    "patch": "14.14",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 98,
@@ -80179,6 +80191,21 @@
     "videoKind": "direct",
     "gameplayShown": true,
     "tokens": 187923
+   },
+   "analyzedAt": "2026-11-08",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [
+    {
+     "code": "traduction",
+     "detail": "Termes anglais traduits en compétences et objets officiels fr_FR : W -> Décharge de ki (Z), Q3 -> troisième activation d'Ailes brisées (A3), Sion's Q -> Fracas meurtrier (A), Cleaver -> Couperet noir, Eclipse -> Éclipse, Sundered Sky -> Ciel déchiré."
+    }
+   ],
+   "learn": "Face à Sion, Riven doit annuler la canalisation de son A avec son Z ou son 3e A et privilégier Éclipse et Ciel déchiré ; sur Sett, la priorité d'apprentissage réside dans la maîtrise rigoureuse des niveaux 1 à 4.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Format de direct orienté divertissement et interactions avec le chat, mais contenant des explications claires de l'auteur sur le matchup Riven vs Sion et sur les fondamentaux d'apprentissage de Sett."
    }
   },
   {
@@ -80609,7 +80636,7 @@
    "retrievedAt": "2026-11-08",
    "patch": "14.23",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 99,
@@ -80635,6 +80662,16 @@
     "videoKind": "direct",
     "gameplayShown": true,
     "tokens": 188752
+   },
+   "analyzedAt": "2026-11-08",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "En jouant Teemo top contre Olaf, il vaut mieux laisser pousser la première vague vers sa tourelle, et en duel optimiser son burst avec la séquence auto-Q.",
+   "quality": {
+    "level": "élevée",
+    "why": "Partie de haut niveau Grandmaster expliquée en direct par le joueur, avec des explications précises sur la gestion des vagues et les mécaniques de compétences."
    }
   },
   {
@@ -80648,12 +80685,12 @@
    "published": null,
    "retrievedAt": "2026-11-08",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 100,
-   "note": "File de lecture (rang 100) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [
@@ -80662,6 +80699,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-08",
+    "sha256": "bdd4efe4d13e9ca424a1e0eb519fd4531a99645a1d78e1bb22622b1e57d64813",
+    "segments": 84,
+    "observations": 40,
+    "duration": "22:04",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 133827
+   },
+   "analyzedAt": "2026-11-08",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 5,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "Démonstration pédagogique très claire avec deux parties complètes expliquant la gestion des vagues, la vision, le stuff adaptatif et l'utilisation précise des mécaniques de Swain."
    }
   },
   {
@@ -81016,6 +81076,87 @@
    "backfill": true,
    "queueRank": 104,
    "note": "File de lecture (rang 104) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-286DUdAkRck",
+   "sourceId": "yt-makkro",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=286DUdAkRck",
+   "title": "THIS MATCHUP IS NOT THAT HARD",
+   "author": "Makkro",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-08",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 106,
+   "note": "File de lecture (rang 106) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "matchup"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt--luYm1Bzw1k",
+   "sourceId": "yt-bizyze-coaching-league-of-le",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=-luYm1Bzw1k",
+   "title": "The Laning Phase Blueprint ANY ADC Needs: Aggression, Positioning & Wave Management",
+   "author": "BIZYZE Coaching | League of Legends",
+   "lang": "fr",
+   "published": null,
+   "retrievedAt": "2026-11-08",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 107,
+   "note": "File de lecture (rang 107) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "adc",
+     "wave",
+     "laning"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-mYnSFm2LtrQ",
+   "sourceId": "yt-cq2-jrbuz4",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=mYnSFm2LtrQ",
+   "title": "정글이 말렸을떄 천천히 풀어나가는판 (정글 운영 강의)",
+   "author": "챌린저 정글블루리쉬",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-11-08",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 108,
+   "note": "File de lecture (rang 108) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
     "score": 14,
     "matched": [],

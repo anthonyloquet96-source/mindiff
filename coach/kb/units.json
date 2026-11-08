@@ -84927,7 +84927,608 @@
    },
    "version": 1,
    "firstSeen": "2026-11-08"
+  },
+  {
+   "id": "u-ai-yt-Tjssqv8-spQ-1",
+   "claim": "Selon AloisNL : dans le matchup Riven contre Sion sur la toplane, le duel est favorable à Riven grâce à sa Décharge de ki (Z) et au troisième coup d'Ailes brisées (A3) qui interrompent le Fracas meurtrier (A) de Sion. Face à sa montée en armure et en points de vie au premier retour en base, privilégie le duo Éclipse et Ciel déchiré plutôt qu'un Couperet noir, trop lent à monter.",
+   "champions": [
+    "Riven"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "matchup",
+    "build"
+   ],
+   "matchup": {
+    "vs": "Sion"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.14"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Riven/W",
+    "Riven/Q",
+    "Sion/Q",
+    "item:Éclipse",
+    "item:Ciel déchiré",
+    "item:Couperet noir"
+   ],
+   "conditions": [
+    "Jouer Riven contre Sion en toplane",
+    "Sion devient très résistant après son premier rappel"
+   ],
+   "limits": [
+    "Conseil basé sur l'état des objets et équilibrages du patch 14.14"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Tjssqv8-spQ",
+     "locator": "[16:03]",
+     "lang": "en",
+     "passage": "It is favorable for Riven because my W and my Q3 cancels his Q. However, he's too damn tanky, bro. After first recall he's omega tanky. I don't want to go Cleaver, it's too slow, so you still want to go Eclipse, Sundered Sky.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-08",
+      "window": "943-1003s",
+      "said": true,
+      "supported": false,
+      "gap": "Le résumé ajoute des consignes détaillées sur la gestion des compétences (garder le Z/A3 disponible et annuler avant de subir des dégâts) que l'auteur n'a pas explicitement énoncées dans l'extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Interromps systématiquement la canalisation du A de Sion à l'aide de ton Z ou de ton troisième A, et oriente tes premiers achats vers Éclipse puis Ciel déchiré.",
+   "observe": "Vérifie si Sion parvient à charger son A et si ton pic de puissance avec Éclipse compense sa montée de PV/armure.",
+   "use": {
+    "when": "Durant la phase de laning en toplane face à Sion, notamment lors des échanges et après les premiers rappels en base.",
+    "why": "Le Couperet noir met trop de temps à offrir un pic de puissance exploitable en duel, tandis qu'Éclipse et Ciel déchiré permettent de punir Sion tout en interrompant son sort principal.",
+    "who": "Joueurs de Riven en toplane affrontant Sion.",
+    "how": [
+     "Garde ton Z ou ton troisième A disponible lorsque Sion commence à charger son Fracas meurtrier (A).",
+     "Utilise le contrôle pour annuler immédiatement sa canalisation avant qu'elle n'inflige de lourds dégâts.",
+     "Construis d'abord Éclipse puis enchaîne avec Ciel déchiré au lieu de temporiser sur un Couperet noir."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le conseil de build (Éclipse et Ciel déchiré contre Couperet noir) dépend de l'équilibrage des objets du patch 14.14, bien antérieur au patch courant 26.22."
+   },
+   "published": null,
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-08",
+   "validity": {
+    "checkedAt": "2026-11-08",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-08",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-08"
+  },
+  {
+   "id": "u-ai-yt-Tjssqv8-spQ-2",
+   "claim": "Selon AloisNL, la progression sur Sett repose avant tout sur l'apprentissage des niveaux 1 à 4, le tout début de la phase de laning étant la phase la plus déterminante pour le champion.",
+   "champions": [
+    "Sett"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "methode",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.14"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Prise en main et progression sur le champion Sett"
+   ],
+   "limits": [
+    "Conseil pédagogique général d'AloisNL issu de ses sessions de coaching d'élèves jouant Sett"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Tjssqv8-spQ",
+     "locator": "[12:17]",
+     "lang": "en",
+     "passage": "From all the Sett students I've coached, you really need to learn how to play your level 1 level 4. Early laning phase is the most important thing.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-08",
+      "window": "717-777s",
+      "said": true,
+      "supported": false,
+      "gap": "Les gestes préconisent des méthodes précises (gestion des vagues, révision de replay) qui ne sont pas formulées par le streamer dans l'extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Concentre tes revues de partie et ton entraînement sur Sett spécifiquement sur le déroulement de tes niveaux 1 à 4.",
+   "observe": "Surveille tes prises d'échanges de PV, ta gestion de la première vague et ton passage de niveau 1 à 4 pour poser ton avantage.",
+   "use": {
+    "when": "Dès les premières vagues de la phase de laning, du niveau 1 au niveau 4 en toplane.",
+    "why": "Le début de partie (niveaux 1 à 4) dicte toute la dynamique de Sett et détermine sa capacité à dominer sa voie.",
+    "who": "Joueurs de Sett en phase d'apprentissage ou de perfectionnement.",
+    "how": [
+     "Travaille spécifiquement les timings d'agression et de gestion de vagues aux niveaux 1 et 2.",
+     "Optimise tes échanges de coups pour sécuriser ton avantage avant le niveau 4.",
+     "Revois systématiquement les 4 premières minutes de tes parties pour corriger tes erreurs d'early game."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation",
+     "contexte-manquant"
+    ],
+    "why": "L'auteur mentionne seulement que les niveaux 1 à 4 sont cruciaux pour les élèves jouant Sett, sans donner de gestes tactiques précis dans le passage cité."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-08",
+   "validity": {
+    "checkedAt": "2026-11-08",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-08",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-08"
+  },
+  {
+   "id": "u-ai-yt-48QcnoGE1l8-2",
+   "claim": "Selon RamyAura : le Z (Mur de douleur) de Karthus réduit la résistance magique des cibles qui le traversent.",
+   "champions": [
+    "Karthus"
+   ],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "synergie",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Grandmaster",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.23"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Karthus/W"
+   ],
+   "conditions": [
+    "L'ennemi doit traverser le mur du Z de Karthus"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-48QcnoGE1l8",
+     "locator": "[07:18]",
+     "lang": "en",
+     "passage": "So because he walked through the Karthus W, he had less MR.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-08",
+      "window": "418-478s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Synchroniser tes dégâts magiques au moment où la cible subit le débuff du Z de Karthus.",
+   "observe": "L'application du débuff de résistance magique sur l'ennemi.",
+   "use": {
+    "when": "Pendant un gank ou une escarmouche où Karthus positionne son Z sur un champion adverse.",
+    "why": "La réduction de résistance magique augmente directement les dégâts magiques subis par la cible.",
+    "who": "Tout champion infligeant des dégâts magiques qui joue aux côtés d'un Karthus.",
+    "how": [
+     "Attendre que l'ennemi traverse le Z de Karthus.",
+     "Lancer immédiatement tes compétences magiques sur la cible."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation",
+     "citation-insuffisante"
+    ],
+    "why": "L'auteur observe simplement l'effet de réduction de résistance magique appliqué lors de l'action, sans donner de consigne de synchronisation de burst pour tous les alliés."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-08",
+   "validity": {
+    "checkedAt": "2026-11-08",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-08",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-08"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-lillia-1",
+   "claim": "Lillia doit impérativement appliquer sa poussière de rêve via ses compétences pour pouvoir utiliser son ultime et endormir ses cibles.",
+   "champions": [
+    "Lillia"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "synergie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Lillia/passive",
+    "Lillia/R"
+   ],
+   "conditions": [
+    "Avoir débloqué l'ultime Douce berceuse"
+   ],
+   "limits": [
+    "La poussière de rêve doit être active sur la cible au moment du lancement de l'ultime"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-lillia",
+     "locator": "Don’t Let Your Dreams Be Dreams",
+     "lang": "en",
+     "passage": "Lillia’s passive applies dream dust to anything she hits with her abilities, which allows her to lull enemies to sleep with her ultimate (all the better to harvest your dreams with, my dear)."
+    }
+   ],
+   "mentions": [],
+   "action": "Toucher un ennemi avec une compétence avant d'activer l'ultime.",
+   "observe": "L'icône de la poussière de rêve sur les ennemis avant de lancer l'ultime.",
+   "use": {
+    "when": "Tu souhaites utiliser ton ultime pour neutraliser un ou plusieurs adversaires.",
+    "why": "L'ultime de Lillia ne peut affecter que les cibles marquées par son passif.",
+    "who": "Joueurs de Lillia",
+    "how": [
+     "Touche l'ennemi avec une compétence (A, Z, E)",
+     "Vérifie que la poussière de rêve est appliquée",
+     "Active ton ultime Douce berceuse"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Mécanique de base du champion confirmée par Riot et toujours d'actualité."
+   },
+   "published": "2020-07-07",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-08",
+   "validity": {
+    "checkedAt": "2026-11-08",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-08",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-08"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-lillia-2",
+   "claim": "Lillia utilise un style de combat de type 'hit-and-run' en s'appuyant sur le bonus de vitesse de déplacement cumulable de sa compétence Frappe fleurie.",
+   "champions": [
+    "Lillia"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Lillia/Q"
+   ],
+   "conditions": [],
+   "limits": [
+    "Le bonus de vitesse de déplacement décroît avec le temps"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-lillia",
+     "locator": "A New Kind of Cute",
+     "lang": "en",
+     "passage": "Her Blooming Blows has a passive that applies a stacking movement speed buff that decays over time. This promotes a hit-and-run style of gameplay that lets Lillia scamper in, thwomp her enemies, and hurry out"
+    }
+   ],
+   "mentions": [],
+   "action": "Entrer et sortir de la portée de combat entre chaque utilisation de compétence.",
+   "observe": "Le nombre de charges de vitesse de déplacement sur la barre d'état.",
+   "use": {
+    "when": "Pendant un combat ou une escarmouche où tu ne peux pas rester au corps à corps.",
+    "why": "Sa mobilité lui permet d'infliger des dégâts tout en restant difficile à attraper.",
+    "who": "Joueurs de Lillia",
+    "how": [
+     "Utilise Frappe fleurie (Q) sur un ennemi",
+     "Profite du bonus de vitesse pour te repositionner hors de portée",
+     "Reviens pour frapper à nouveau dès que tes délais sont récupérés"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Style de jeu fondamental de Lillia décrit par ses concepteurs."
+   },
+   "published": "2020-07-07",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-08",
+   "validity": {
+    "checkedAt": "2026-11-08",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-08",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-08"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-lillia-3",
+   "claim": "Lillia est vulnérable aux invasions en début de partie et doit privilégier la fuite grâce à sa vitesse plutôt que le duel direct.",
+   "champions": [
+    "Lillia"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Lillia/Q"
+   ],
+   "conditions": [
+    "Début de partie (early game)"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-lillia",
+     "locator": "A New Kind of Cute",
+     "lang": "en",
+     "passage": "Specifically, I wanted her to be weak against early invades. If you stumble upon this fawn in the forest, she should get scared and have to run away because she can’t fight you yet. And her movement speed gives her the ability to do that."
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser la vitesse de déplacement pour s'enfuir en cas d'invasion adverse.",
+   "observe": "La position du jungler adverse sur la carte en début de partie.",
+   "use": {
+    "when": "Le jungler adverse entre dans ta jungle pour te contester tes camps au niveau 2 ou 3.",
+    "why": "Lillia n'a pas la puissance de duel nécessaire pour gagner des affrontements directs très tôt dans la partie.",
+    "who": "Joueurs de Lillia jungle",
+    "how": [
+     "Identifie l'invasion adverse",
+     "Utilise tes compétences sur les monstres ou l'adversaire pour gagner de la vitesse",
+     "Fuis vers une zone sécurisée ou tes alliés"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Identité de jeu et faiblesse intentionnelle confirmées par la source officielle."
+   },
+   "published": "2020-07-07",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-08",
+   "validity": {
+    "checkedAt": "2026-11-08",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-08",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-08"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-lillia-4",
+   "claim": "Le passif de Lillia inflige des dégâts sur la durée basés sur un pourcentage des PV max de la cible.",
+   "champions": [
+    "Lillia"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "toutes"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Lillia/passive"
+   ],
+   "conditions": [],
+   "limits": [
+    "Les dégâts contre les monstres sont plafonnés"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-lillia",
+     "locator": "Don’t Let Your Dreams Be Dreams",
+     "lang": "en",
+     "passage": "Oh, and her dream dust also applies a percentage of max health damage over time, which had some interesting challenges during development."
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "Affrontement contre des cibles disposant de beaucoup de points de vie (tanks, monstres épiques).",
+    "why": "Cela permet à Lillia de rester menaçante contre les champions robustes tout au long de la partie.",
+    "who": "Joueurs de Lillia",
+    "how": [
+     "Applique une compétence sur la cible",
+     "Laisse le passif infliger ses dégâts sur la durée"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "citation-insuffisante"
+    ],
+    "why": "Le passage mentionne les dégâts en pourcentage de PV max mais ne précise pas qu'ils sont de type magique."
+   },
+   "published": "2020-07-07",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-08",
+   "validity": {
+    "checkedAt": "2026-11-08",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-08",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-08"
   }
  ],
- "updatedAt": "2026-11-08T13:58:11.245Z"
+ "updatedAt": "2026-11-08T19:13:31.747Z"
 }

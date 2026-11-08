@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-08T13:58:12.674Z",
+ "generatedAt": "2026-11-08T19:13:32.717Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -554,7 +554,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-11-08T12:57:23.959Z",
+ "lastDiscovery": "2026-11-08T18:50:34.846Z",
  "failures": [],
  "quarantine": [
   {
@@ -566,83 +566,6 @@
   }
  ],
  "rejected": [
-  {
-   "id": "u-ai-yt-lZ7O7buHWio-2",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-lZ7O7buHWio : « The red side wave is going to slow push into us. So as it sl… »"
-    }
-   ],
-   "at": "2026-10-27",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-lZ7O7buHWio-3",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-lZ7O7buHWio : « At this stage of the game, what do you do? I have 10 kills, … »"
-    }
-   ],
-   "at": "2026-10-27",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-KcCbF_siljM-1",
-   "reasons": [
-    {
-     "code": "mention",
-     "why": "Udyr n'est cité qu'en exemple : ce n'est pas un conseil sur Udyr."
-    }
-   ],
-   "at": "2026-10-27",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-4dnp-4XYmVY-1",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-4dnp-4XYmVY : « Now, what is a little state? A little state is a moment in t… »"
-    }
-   ],
-   "at": "2026-10-27",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-4dnp-4XYmVY-2",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-4dnp-4XYmVY : « So, the question you always ask yourself in these little sta… »"
-    }
-   ],
-   "at": "2026-10-27",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-4dnp-4XYmVY-3",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-4dnp-4XYmVY : « What you need to understand is that tier one turrets in posi… »"
-    }
-   ],
-   "at": "2026-10-27",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-4dnp-4XYmVY-4",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-4dnp-4XYmVY : « The other thing you want to do in the mid-game is force peop… »"
-    }
-   ],
-   "at": "2026-10-27",
-   "origin": "analyse-automatique"
-  },
   {
    "id": "u-ai-yt-4dnp-4XYmVY-5",
    "reasons": [
@@ -2985,17 +2908,91 @@
    ],
    "at": "2026-11-08",
    "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-48QcnoGE1l8-1",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Teemo."
+    }
+   ],
+   "at": "2026-11-08",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-48QcnoGE1l8-3",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Teemo."
+    }
+   ],
+   "at": "2026-11-08",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-RvDulurKZJs-1",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Swain."
+    }
+   ],
+   "at": "2026-11-08",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-RvDulurKZJs-2",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Swain."
+    }
+   ],
+   "at": "2026-11-08",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-RvDulurKZJs-3",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Swain."
+    }
+   ],
+   "at": "2026-11-08",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-RvDulurKZJs-4",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Swain."
+    }
+   ],
+   "at": "2026-11-08",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-RvDulurKZJs-5",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Swain."
+    }
+   ],
+   "at": "2026-11-08",
+   "origin": "analyse-automatique"
   }
  ],
  "pending": [
   "c-riot-dev-the-latest-on-fiddlesticks-vgu",
   "c-riot-fiddlesticks-and-volibear-dev-update-1",
-  "c-riot-champion-insights-lillia",
   "c-riot-champion-insights-senna",
   "c-riot-champion-insights-sett",
-  "c-yt-C1gAFf1_9Os",
-  "c-yt-Tjssqv8-spQ",
-  "c-yt-48QcnoGE1l8"
+  "c-yt-C1gAFf1_9Os"
  ],
  "review": [
   "u-lucian-2620-ad",
@@ -4251,7 +4248,14 @@
   "u-ai-yt-eLua2tbTiNc-2",
   "u-ai-yt-eLua2tbTiNc-3",
   "u-ai-riot-champion-insights-seraphine-1",
-  "u-ai-riot-champion-insights-seraphine-2"
+  "u-ai-riot-champion-insights-seraphine-2",
+  "u-ai-yt-Tjssqv8-spQ-1",
+  "u-ai-yt-Tjssqv8-spQ-2",
+  "u-ai-yt-48QcnoGE1l8-2",
+  "u-ai-riot-champion-insights-lillia-1",
+  "u-ai-riot-champion-insights-lillia-2",
+  "u-ai-riot-champion-insights-lillia-3",
+  "u-ai-riot-champion-insights-lillia-4"
  ],
  "contested": [],
  "retired": [
@@ -5652,157 +5656,6 @@
   "month": 0,
   "calls": [
    {
-    "at": "2026-11-07T19:09:59.886Z",
-    "content": "c-riot-champion-insights-renata-glasc",
-    "model": "gemini-3-flash-preview",
-    "input": 7207,
-    "output": 3068,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T19:10:17.381Z",
-    "content": "c-riot-champion-insights-renata-glasc",
-    "model": "gemini-3-flash-preview",
-    "input": 6082,
-    "output": 1609,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T19:12:25.146Z",
-    "content": "c-riot-champion-insights-vex",
-    "model": "gemini-3-flash-preview",
-    "input": 7549,
-    "output": 4598,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T19:14:13.827Z",
-    "content": "c-riot-champion-insights-vex",
-    "model": "gemini-3-flash-preview",
-    "input": 7038,
-    "output": 9712,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T19:17:01.938Z",
-    "content": "c-riot-champion-insights-viego",
-    "model": "gemini-3-flash-preview",
-    "input": 7444,
-    "output": 8653,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T19:18:51.172Z",
-    "content": "c-riot-champion-insights-viego",
-    "model": "gemini-3-flash-preview",
-    "input": 7913,
-    "output": 31224,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-07T19:19:10.030Z",
-    "content": "c-yt-fOQBQn0X54M",
-    "model": "gemini-3-flash-preview",
-    "input": 5908,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-07T19:19:32.366Z",
-    "content": "c-yt-ZzKpPJ_BNHM",
-    "model": "gemini-3-flash-preview",
-    "input": 5913,
-    "output": 30,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-08T01:24:53.228Z",
-    "content": "c-yt-3WyIAGuy6JM",
-    "model": "gemini-3.7-flash",
-    "input": 6333,
-    "output": 1901,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-08T01:25:23.096Z",
-    "content": "c-yt-a3nywlEatdE",
-    "model": "gemini-3-flash-preview",
-    "input": 26308,
-    "output": 5439,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-08T01:25:30.883Z",
-    "content": "c-yt-a3nywlEatdE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 7540,
-    "output": 388,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-08T01:25:39.109Z",
-    "content": "c-yt-a3nywlEatdE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5896,
-    "output": 63,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-08T01:25:52.209Z",
-    "content": "c-yt-fk245UqdWvU",
-    "model": "gemini-3.5-flash-lite",
-    "input": 17110,
-    "output": 2624,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-08T01:25:59.633Z",
-    "content": "c-yt-fk245UqdWvU",
-    "model": "gemini-3.5-flash-lite",
-    "input": 7285,
-    "output": 327,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-08T01:26:09.117Z",
-    "content": "c-yt-fk245UqdWvU",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5908,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-08T01:26:17.994Z",
-    "content": "c-yt-fk245UqdWvU",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5893,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-08T01:26:26.576Z",
-    "content": "c-yt-fk245UqdWvU",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5902,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-08T01:26:35.406Z",
-    "content": "c-yt-fk245UqdWvU",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5906,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
     "at": "2026-11-08T01:26:44.671Z",
     "content": "c-riot-champion-insights-zeri",
     "model": "gemini-3.5-flash-lite",
@@ -6072,6 +5925,160 @@
     "output": 46,
     "usd": 0,
     "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-08T19:00:56.168Z",
+    "content": "c-yt-Tjssqv8-spQ",
+    "model": "gemini-3.7-flash",
+    "input": 7962,
+    "output": 2465,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-08T19:02:58.870Z",
+    "content": "c-yt-Tjssqv8-spQ",
+    "model": "gemini-3.7-flash",
+    "input": 6264,
+    "output": 1464,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-08T19:03:49.830Z",
+    "content": "c-yt-Tjssqv8-spQ",
+    "model": "gemini-3.6-flash",
+    "input": 6013,
+    "output": 95,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-08T19:04:05.528Z",
+    "content": "c-yt-Tjssqv8-spQ",
+    "model": "gemini-3.6-flash",
+    "input": 5896,
+    "output": 81,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-08T19:05:41.641Z",
+    "content": "c-yt-48QcnoGE1l8",
+    "model": "gemini-3.5-flash",
+    "input": 9905,
+    "output": 3871,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-08T19:06:01.855Z",
+    "content": "c-yt-48QcnoGE1l8",
+    "model": "gemini-3.6-flash",
+    "input": 6639,
+    "output": 2661,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-08T19:06:15.595Z",
+    "content": "c-yt-48QcnoGE1l8",
+    "model": "gemini-3.6-flash",
+    "input": 5812,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-08T19:06:30.851Z",
+    "content": "c-yt-48QcnoGE1l8",
+    "model": "gemini-3.6-flash",
+    "input": 5810,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-08T19:07:16.055Z",
+    "content": "c-yt-48QcnoGE1l8",
+    "model": "gemini-3.6-flash",
+    "input": 5844,
+    "output": 65,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-08T19:08:04.887Z",
+    "content": "c-yt-RvDulurKZJs",
+    "model": "gemini-3.6-flash",
+    "input": 10842,
+    "output": 6480,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-08T19:08:24.213Z",
+    "content": "c-yt-RvDulurKZJs",
+    "model": "gemini-3.6-flash",
+    "input": 8143,
+    "output": 2488,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-08T19:08:36.954Z",
+    "content": "c-yt-RvDulurKZJs",
+    "model": "gemini-3.6-flash",
+    "input": 4811,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-08T19:08:47.910Z",
+    "content": "c-yt-RvDulurKZJs",
+    "model": "gemini-3.6-flash",
+    "input": 5883,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-08T19:09:07.354Z",
+    "content": "c-yt-RvDulurKZJs",
+    "model": "gemini-3-flash-preview",
+    "input": 5884,
+    "output": 84,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-08T19:09:26.430Z",
+    "content": "c-yt-RvDulurKZJs",
+    "model": "gemini-3-flash-preview",
+    "input": 5880,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-08T19:09:45.001Z",
+    "content": "c-yt-RvDulurKZJs",
+    "model": "gemini-3-flash-preview",
+    "input": 5940,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-08T19:11:44.516Z",
+    "content": "c-riot-champion-insights-lillia",
+    "model": "gemini-3-flash-preview",
+    "input": 7721,
+    "output": 3965,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-08T19:13:25.589Z",
+    "content": "c-riot-champion-insights-lillia",
+    "model": "gemini-3-flash-preview",
+    "input": 6943,
+    "output": 30930,
+    "usd": 0
    }
   ],
   "budget": {

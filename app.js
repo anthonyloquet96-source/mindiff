@@ -811,12 +811,12 @@ function viewHome() {
     <a class="qcell" href="${href(g, "coach")}">${icon("target")}<span>Coach</span></a>
   </nav>`;
 
-  // 3. Prochains matchs (2 ou 3)
+  // 3. Prochains matchs (2 ou 3), sans celui déjà affiché à la une : s'il était le seul, on le dit au lieu de « aucun match »
   const heroMatch = lead && nextMatchOf(lead);
   const upcoming = ts.flatMap(t => tMatches(t).map(m => ({ m, t }))).filter(x => (x.m.state === "unstarted" || x.m.state === "inProgress") && x.m.start && known(x.m) && x.m.id !== heroMatch?.id)
     .sort((a, b) => (a.m.state === "inProgress" ? -1 : 0) - (b.m.state === "inProgress" ? -1 : 0) || a.m.start.localeCompare(b.m.start)).slice(0, 3);
   const nextHtml = `<section class="sec">${secHead("Prochains matchs", seeAll(href(g, "competitions", "matchs")))}
-    ${upcoming.length ? `<div class="mlist">${upcoming.map(x => matchCard(x.m, x.t)).join("")}</div>` : `<p class="inline-empty">Aucun match programmé dans les données${g === "val" ? " : le calendrier Valorant n'est pas encore relié à une source automatique" : ""}.</p>`}
+    ${upcoming.length ? `<div class="mlist">${upcoming.map(x => matchCard(x.m, x.t)).join("")}</div>` : heroMatch ? `<p class="inline-empty">Pas d'autre match programmé pour l'instant.</p>` : `<p class="inline-empty">Aucun match programmé dans les données${g === "val" ? " : le calendrier Valorant n'est pas encore relié à une source automatique" : ""}.</p>`}
   </section>`;
 
   // 3 bis. Derniers résultats (29/10, gardé de la refonte) : une ligne par match, gagnant en blanc, perdant en gris ;

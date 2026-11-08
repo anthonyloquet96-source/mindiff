@@ -83399,7 +83399,530 @@
    },
    "version": 1,
    "firstSeen": "2026-11-07"
+  },
+  {
+   "id": "u-ai-yt-a3nywlEatdE-1",
+   "claim": "Selon Zen Coaching : en tant qu'ADC, évite d'acheter des balises de contrôle (Pink wards) en début de partie pour ne pas retarder tes objets principaux.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "build",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master 100LP",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "13.22"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Début de partie (Early game)"
+   ],
+   "limits": [
+    "Sauf contre des champions spécifiques comme Evelynn",
+    "Analyse d'un accès partiel au texte."
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-a3nywlEatdE",
+     "locator": "[25:41]",
+     "lang": "en",
+     "passage": "This pink word buy, never buy pink word like that. ... I'm playing 80 carry, you know? I'm like a like I need uh I need to be greedy with my gold. I cannot afford 75 gold.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "1521-1581s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas la contre-indication concernant les champions invisibles."
+     }
+    }
+   ],
+   "mentions": [
+    "Evelynn (exemple)"
+   ],
+   "action": "Ne pas acheter de Pink ward lors des premiers rappels en tant qu'ADC.",
+   "observe": "L'or économisé permet d'atteindre les composants d'objets plus rapidement.",
+   "use": {
+    "when": "Lors des premiers retours à la base pour acheter des composants.",
+    "why": "L'ADC doit être extrêmement avare de son or ; 75 pièces d'or peuvent faire la différence pour un composant majeur. La vision doit être assurée par le support et les balises jaunes.",
+    "who": "ADC (tous champions).",
+    "how": [
+     "Économiser les 75 pièces d'or.",
+     "Utiliser ses balises jaunes gratuites.",
+     "Se reposer sur le support pour les balises de contrôle."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'avis du coach est clairement sourcé et fournit un conseil stratégique d'ADC valide avec son exception."
+   },
+   "published": "2024-01-21",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-08",
+   "validity": {
+    "checkedAt": "2026-11-08",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-08",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-08"
+  },
+  {
+   "id": "u-ai-yt-fk245UqdWvU-1",
+   "claim": "Selon Chreak : avec un champion mage, consomme ta potion de soin dès que tu descends sous 70% de tes PV pour rester le plus haut possible en points de vie contre les assassins.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger / Grand Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.17"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tu joues un mage",
+    "Tu affrontes un assassin"
+   ],
+   "limits": [
+    "Valable principalement contre des menaces de type burst (assassins)"
+   ],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-fk245UqdWvU",
+     "locator": "03:45",
+     "lang": "fr",
+     "passage": "je mets toujours mes popos avec un mage dès que je descends sous 70 % HP, je la prends parce qu'en fait les mages, les seuls moyens de mourir c'est pas des petits trades petit à petit, c'est quand tu affrontes un assassin, c'est 100 to 0.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "205-265s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Lissandra (exemple)",
+    "Taliyah (exemple)",
+    "Qiyana (exemple)"
+   ],
+   "action": "Consomme une potion de soin dès que tes PV passent sous 70% contre un assassin pour éliminer le risque de 100 à 0.",
+   "observe": "Le joueur utilise sa potion de soin dès que ses points de vie descendent en dessous de 70% en début de partie.",
+   "use": {
+    "when": "tu joues un mage sur ta lane et tes points de vie descendent sous 70% face à un assassin",
+    "why": "les mages ne meurent pas de petits trades successifs mais d'un burst de 100 à 0 infligé par un assassin",
+    "who": "joueurs de mages sur la voie du milieu",
+    "how": [
+     "Surveille ta barre de points de vie en permanence.",
+     "Déclenche l'utilisation de ta potion de soin dès que tu passes sous les 70% de PV."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est fidèle au passage cité, le contexte d'usage est complet et s'applique aux mages face aux assassins."
+   },
+   "published": "2024-09-01",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-08",
+   "validity": {
+    "checkedAt": "2026-11-08",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-08",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-08"
+  },
+  {
+   "id": "u-ai-yt-fk245UqdWvU-2",
+   "claim": "Selon Chreak : en range contre mêlée, slow push les trois premières vagues de sbires pour deny de l'XP et crash la vague sous la tourelle ennemie.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger / Grand Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.17"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tu joues un champion à distance contre un champion corps à corps",
+    "Début de partie (niveau 1 à 3)"
+   ],
+   "limits": [
+    "Nécessite de faire attention à la position du jungler ennémi si tu n'as pas l'information"
+   ],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-fk245UqdWvU",
+     "locator": "02:38",
+     "lang": "fr",
+     "passage": "Donc je vais vouloir crash mon slow push 3 waves. Je sais que je suis pas en danger parce que la Taliyah n'a pas de flash. J'ai ma griffe niveau 3",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "138-198s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Lissandra (exemple)",
+    "Qiyana (exemple)",
+    "Taliyah (exemple)"
+   ],
+   "action": "Réalise un slow push sur les trois premières vagues pour empiler les sbires et les envoyer sous la tourelle ennemie.",
+   "observe": "Le joueur gère ses trois premières vagues de sbires en slow push pour créer une grosse vague sous la tour adverse.",
+   "use": {
+    "when": "la partie commence et tu te trouves face à un adversaire corps à corps avec un champion à distance",
+    "why": "pour priver l'adversaire d'expérience (deny) et préparer un bon timing de retour en base ou de rotation",
+    "who": "champions à distance joués sur les voies solo",
+    "how": [
+     "Ne mets que des derniers coups (last hits) sur les premiers sbires pour laisser la vague s'accumuler.",
+     "Tue les sbires adverses juste assez pour garder l'avantage numérique de ta wave.",
+     "Pousse la grosse vague obtenue sous la tourelle ennemie à la troisième vague."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité décrit correctement la technique du slow push sur les 3 premières vagues avec un champion à distance."
+   },
+   "published": "2024-09-01",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-08",
+   "validity": {
+    "checkedAt": "2026-11-08",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-08",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-08"
+  },
+  {
+   "id": "u-ai-yt-fk245UqdWvU-4",
+   "claim": "Selon Chreak : avec une composition adaptée après l'obtention du Baron Nashor, regrouper toute l'équipe sur la voie du milieu à cinq joueurs permet de surprendre les adversaires et d'éviter les erreurs individuelles en side lane.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger / Grand Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.17"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:baron-nashor"
+   ],
+   "conditions": [
+    "Ton équipe possède le buff du Baron Nashor",
+    "Ta composition s'y prête"
+   ],
+   "limits": [
+    "Moins efficace si la composition d'équipe n'a aucun potentiel de siège"
+   ],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-fk245UqdWvU",
+     "locator": "24:57",
+     "lang": "fr",
+     "passage": "je vous suggère très souvent de de courir à cinq mid sur le Nashor comme ça vous pourrez surprendre les adversaires et surtout éviter que votre team se fasse surprendre ce qui est très fréquent à tous les Elos.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-08",
+      "window": "1477-1537s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Varus (exemple)",
+    "Gnar (exemple)"
+   ],
+   "action": "Rejoins directement la voie du milieu à 5 joueurs dès que ton équipe récupère le Baron Nashor pour lancer un siège groupé.",
+   "observe": "L'équipe se regroupe à cinq sur la voie centrale immédiatement après la récupération du Baron Nashor.",
+   "use": {
+    "when": "ton équipe vient de sécuriser le Baron Nashor",
+    "why": "pour garantir qu'il n'y ait pas d'erreur de placement individuelle de tes coéquipiers et surprendre la défense ennemie",
+    "who": "joueurs en file solo cherchant à conclure une partie",
+    "how": [
+     "Rassemble tous tes alliés sur la voie du milieu dès l'obtention du buff.",
+     "Avance de concert pour mettre la pression sur les tourelles et inhibiteurs centraux.",
+     "Évite de te disperser en side lane si le groupe n'est pas coordonné."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil de macro sur le regroupement au mid après un Nashor est clair, sourcé et utile pour la file solo."
+   },
+   "published": "2024-09-01",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-08",
+   "validity": {
+    "checkedAt": "2026-11-08",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-08",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-08"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-zeri-1",
+   "claim": "Zeri utilise sa compétence Q pour lancer ses attaques de base, apportant une mécanique de tir de précision inspirée des jeux de tir à la première personne.",
+   "champions": [
+    "Zeri"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Zeri/Q"
+   ],
+   "conditions": [
+    "Jouer Zeri sur la bot lane"
+   ],
+   "limits": [
+    "Article promotionnel et de conception du champion par Riot Games"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-zeri",
+     "locator": "Bringing Precision to Bot Lane",
+     "lang": "en",
+     "passage": "Zeri autos with her Q."
+    }
+   ],
+   "mentions": [
+    "Jinx (exemple)",
+    "Kog'Maw (exemple)",
+    "Ezreal (exemple)"
+   ],
+   "use": {
+    "when": "Tu joues Zeri sur la voie du bas et tu souhaites effectuer des attaques de base.",
+    "why": "Pour apporter le sentiment de précision des jeux de tir à la première personne dans League of Legends.",
+    "who": "Zeri",
+    "how": [
+     "Appuie sur la touche de ton sort Q pour effectuer tes attaques de base."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement fidèle au passage textuel officiel de Riot Games et présente un contexte d'usage complet sans dépendre de la méta."
+   },
+   "published": "2022-01-14",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-08",
+   "validity": {
+    "checkedAt": "2026-11-08",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-08",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-08"
+  },
+  {
+   "id": "u-ai-riot-champion-insights-zeri-2",
+   "claim": "Zeri peut se déplacer le long des murs en les longeant et sa compétence W traverse les murs en s'étendant pour toucher les ennemis de l'autre côté.",
+   "champions": [
+    "Zeri"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Zeri/W"
+   ],
+   "conditions": [
+    "Jouer Zeri à proximité d'un mur"
+   ],
+   "limits": [
+    "Article de présentation officiel"
+   ],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-riot-champion-insights-zeri",
+     "locator": "Bringing Precision to Bot Lane",
+     "lang": "en",
+     "passage": "Zeri can do that. She just grinds over any wall in the game."
+    },
+    {
+     "content": "c-riot-champion-insights-zeri",
+     "locator": "Bringing Precision to Bot Lane",
+     "lang": "en",
+     "passage": "She fires a shot and if it hits a wall, it extends through the wall and hits enemies on the other side."
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "Tu te trouves face à un mur ou tu souhaites toucher un ennemi dissimulé derrière un obstacle avec le W de Zeri.",
+    "why": "Pour simuler une mécanique de tir à travers les murs inspirée des jeux de tir tactiques.",
+    "who": "Zeri",
+    "how": [
+     "Utilise le déplacement de Zeri pour longer ou franchir un mur",
+     "Lance le sort W en direction d'un mur pour que le projectile s'étende de l'autre côté"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Les passages officiels soutiennent correctement les affirmations sur les mécaniques de déplacement et de compétences de Zeri."
+   },
+   "published": "2022-01-14",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3)",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-08",
+   "validity": {
+    "checkedAt": "2026-11-08",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-08",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-08"
   }
  ],
- "updatedAt": "2026-11-07T19:18:57.330Z"
+ "updatedAt": "2026-11-08T01:26:57.951Z"
 }

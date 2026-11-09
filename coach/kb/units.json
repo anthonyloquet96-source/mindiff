@@ -86774,7 +86774,102 @@
    },
    "version": 1,
    "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt-q5axOvFr2s0-2",
+   "claim": "Selon PekinWoof : zoe peut utiliser son ultime Bons baisers de Targon (R) par-dessus les murs pour obtenir de la vision profonde dans la jungle ennemie ou repérer des adversaires sans s'exposer dangereusement.",
+   "champions": [
+    "Zoe"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "vision"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.7"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Zoe/R"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-q5axOvFr2s0",
+     "locator": "[05:44]",
+     "lang": "en",
+     "passage": "I can also use my R to like get some nice deep vision to maybe be able to find the Graves and such.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-09",
+      "window": "324-384s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur n'explique pas le fonctionnement technique de son ultime (le retour automatique) dans le passage cité."
+     }
+    },
+    {
+     "content": "c-yt-q5axOvFr2s0",
+     "locator": "[35:45]",
+     "lang": "en",
+     "passage": "because the thing is that Zoe can see over walls, and I was over this wall, so he actually wouldn't be able to see me from that distance."
+    }
+   ],
+   "mentions": [
+    "Graves (exemple)"
+   ],
+   "action": "Lancer le R de Zoe au-dessus d'un mur pour vérifier les buissons ou les camps ennemis.",
+   "observe": "Vérifier si des ennemis sont cachés derrière le mur.",
+   "use": {
+    "when": "Lorsque tu veux prendre de la vision sur un objectif ou localiser le jungler adverse sans avancer à pied.",
+    "why": "",
+    "who": "Zoe mid",
+    "how": [
+     "Te positionner près du mur.",
+     "Lancer Bons baisers de Targon (R) de l'autre côté du mur.",
+     "Observer la zone avant d'être téléporté en arrière."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Utilisation intemporelle de la mecanique de vision de l'ultime de Zoe, non affectee par les changements de patch mineurs."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
   }
  ],
- "updatedAt": "2026-11-09T14:21:54.762Z"
+ "updatedAt": "2026-11-09T19:44:19.976Z"
 }

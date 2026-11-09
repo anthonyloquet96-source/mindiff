@@ -86331,7 +86331,256 @@
    },
    "version": 1,
    "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt-gpc7HJh4VU0-1",
+   "claim": "Selon Mysteriaslol : avant la réapparition d'un Dragon, utiliser sa Téléportation pour enfoncer la voie latérale opposée (ex. la voie du haut) force un ennemi à s'y déplacer, ce qui crée une pression globale et un avantage numérique au milieu de la carte.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "top"
+   ],
+   "themes": [
+    "macro",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Maître",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "summoner:Teleport"
+   ],
+   "conditions": [
+    "Avoir le sort Téléportation disponible"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-gpc7HJh4VU0",
+     "locator": "[13:01]",
+     "lang": "en",
+     "passage": "So what I'm going to do in preparation for Drake is I'm going to look to push out top with my TP and then I'm going to look to shove and move, so I want to force someone to respond to the top wave, and then I'm going to move and force on mid.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-09",
+      "window": "761-821s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser la Téléportation sur la voie latérale opposée avant l'apparition d'un Dragon pour pousser la vague puis se décaler immédiatement.",
+   "observe": "La réaction de l'équipe adverse et le décalage créant un avantage numérique.",
+   "use": {
+    "when": "Un objectif neutre majeur comme le Dragon va réapparaître et tu possèdes le sort Téléportation disponible.",
+    "why": "Pour forcer l'équipe adverse à envoyer quelqu'un répondre à la vague latérale et créer une supériorité numérique au milieu.",
+    "who": "Joueur de voie latérale ou mid laner disposant de la Téléportation.",
+    "how": [
+     "Pousser rapidement la vague de la voie opposée à l'objectif.",
+     "Se décaler immédiatement vers le milieu dès que la vague est enfoncée sous tourelle."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe de macro-jeu fondamental et intemporel sur l'utilisation de la Téléportation pour créer une pression croisée avant un objectif."
+   },
+   "published": "2026-10-23",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt-gpc7HJh4VU0-2",
+   "claim": "Selon Mysteriaslol : lorsqu'une vague importante pousse d'elle-même vers les tourelles ennemies sans présence alliée, il faut utiliser sa Téléportation pour la pousser jusqu'au bout afin d'éviter d'abandonner des ressources gratuitement.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "top"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Maître",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "summoner:Teleport"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-gpc7HJh4VU0",
+     "locator": "[19:48]",
+     "lang": "en",
+     "passage": "Look at the wave set, right? It's giga hard pushing towards the enemies, so if I don't TP here, what's going to happen is that we're going to lose all these minions for free and we're just going to lose resources.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-09",
+      "window": "1168-1228s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Téléporter sur une voie latérale dont la vague pousse vers l'ennemi pour finir de la crash sous la tourelle.",
+   "observe": "La quantité de ressources récupérées au lieu d'être perdues.",
+   "use": {
+    "when": "Une grande vague de sbires pousse fort vers le camp adverse sur une voie latérale et aucun allié n'est présent pour la récupérer.",
+    "why": "Éviter de perdre une grande quantité d'or et d'expérience si la vague s'éteint d'elle-même.",
+    "who": "Mid laner ou top laner ayant la Téléportation.",
+    "how": [
+     "Utiliser la Téléportation sur la voie latérale.",
+     "Enfoncer la vague jusqu'à la tourelle adverse."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil de gestion de ressources valide pour optimiser l'utilisation de la Téléportation sur des vagues orphelines."
+   },
+   "published": "2026-10-23",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt-gpc7HJh4VU0-3",
+   "claim": "Selon Mysteriaslol : face à un adversaire plus fort en tout début de partie, il faut adopter un style de jeu évitant les combats afin d'accéder aux sbires sans perdre trop de points de vie.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "survie",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Maître",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-gpc7HJh4VU0",
+     "locator": "[00:33]",
+     "lang": "en",
+     "passage": "I'm going to need to respect the Ryze in the early game anyway. I'm going to try to play trade avoidant. I'm going to try to make sure that I can get access to the minions without losing too much HP.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-09",
+      "window": "13-73s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Ryze (exemple)"
+   ],
+   "action": "Refuser les échanges de coups agressifs pendant les premiers niveaux et prioriser le farm à distance sûre.",
+   "observe": "La conservation de ta barre de points de vie avant tes pics de puissance.",
+   "use": {
+    "when": "Aux niveaux 1 à 3 au milieu, lorsque ton champion est plus faible que son vis-à-vis en début de ligne.",
+    "why": "Conserver ses points de vie pour pouvoir farmer sans se faire chasser de la voie avant ses niveaux clés.",
+    "who": "Mid laner affrontant un vis-à-vis avantagé en tout début de partie.",
+    "how": [
+     "Respecter la portée de l'adversaire et refuser les échanges de coups.",
+     "Se concentrer uniquement sur le dernier coup porté aux sbires."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Fondamental de phase de ligne sur la gestion des matchups défavorables en début de partie, bien étayé par le passage."
+   },
+   "published": "2026-10-23",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
   }
  ],
- "updatedAt": "2026-11-09T01:35:21.997Z"
+ "updatedAt": "2026-11-09T07:57:39.917Z"
 }

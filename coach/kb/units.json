@@ -85528,7 +85528,810 @@
    },
    "version": 1,
    "firstSeen": "2026-11-08"
+  },
+  {
+   "id": "u-ai-yt-tx6BJ7rbFoA-2",
+   "claim": "Selon 경희대 챌린저 정글러 [비굿펄] : si le jungler adverse gank une lane alors que vous farmez, envahissez sa jungle opposée pour créer un avantage de niveau.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jungler adverse visible à l'opposé de la carte"
+   ],
+   "limits": [
+    "Nécessite une lecture rapide de la position adverse."
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tx6BJ7rbFoA",
+     "locator": "01:13",
+     "lang": "ko",
+     "passage": "저는 오히려 그 타이밍 때 풀캠프를 돌고 이제 4레벨 대 3레벨 구도를 만들어서 상대방 정글 카정을 갈 생각을 해줘야 돼요.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-09",
+      "window": "53-113s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur précise que pour un jungler de type gank ou tank, il serait préférable d'aider la lane plutôt que d'envahir la jungle adverse."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Entre dans la jungle adverse dès que tu vois le jungler ennemi ganker à l'opposé.",
+   "observe": "Viego envahit les loups et le bleu de Maokai après avoir vu ce dernier au mid.",
+   "use": {
+    "when": "Le jungler adverse apparaît sur une lane éloignée de ta position actuelle.",
+    "why": "Cela permet de punir son gank en lui volant des ressources et en prenant une avance d'XP (ex: niveau 4 contre niveau 3).",
+    "who": "Tout jungler, particulièrement les champions de farm comme Viego.",
+    "how": [
+     "Repère le jungler adverse sur la mini-carte.",
+     "Dirige-toi immédiatement vers ses camps non sécurisés du côté opposé.",
+     "Vole les camps pour creuser l'écart de niveau."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "Ce principe de macro-jeu est universel pour les junglers et ne dépend pas du kit de Viego ; le champ 'champions' doit être vidé conformément aux règles v3."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt-tx6BJ7rbFoA-3",
+   "claim": "Selon 경희대 챌린저 정글러 [비굿펄] : tu peux voler les corbins adverses en toute sécurité si le jungler ennemi vient de gank et doit rentrer à la base, car tu bénéficies d'une fenêtre de 7 secondes correspondant à son rappel.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Le jungler adverse vient de finir une action et doit back"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tx6BJ7rbFoA",
+     "locator": "03:33",
+     "lang": "ko",
+     "passage": "왜냐하면 지금 어 방금 제 위치에서 칼날부리까지하고 마오카이가 집 갔다 하고 칼날부리까지 거리는 똑같지만 7초 리콜 타이밍이 있으니까 제가 7초 동안에 칼날부리를 카정할 수 있어요.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-09",
+      "window": "193-253s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Maokai (exemple)"
+   ],
+   "action": "Vole les corbins adverses dès que le jungler ennemi entame son rappel après un gank.",
+   "observe": "Viego vole les corbins de Maokai juste après que ce dernier a ganké le mid et a dû back.",
+   "use": {
+    "when": "Le jungler adverse est bas en PV ou a fini son action et s'apprête à utiliser son Rappel.",
+    "why": "Le temps de rappel (8s) et le trajet depuis la fontaine te donnent assez de temps pour voler un camp proche sans risque de duel.",
+    "who": "Jungler",
+    "how": [
+     "Surveille l'état de santé et le comportement du jungler adverse après son gank.",
+     "S'il doit back, fonce vers ses corbins (raptors).",
+     "Nettoie le camp avant qu'il ne puisse revenir de sa base."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe de macro-jeu intemporel basé sur une constante du jeu (temps de rappel), indépendant du patch ou du champion."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt-tx6BJ7rbFoA-4",
+   "claim": "Selon 경희대 챌린저 정글러 [비굿펄] : ne force pas la prise des six larves du néant si le top adverse possède son ultime et la priorité de lane. Contente-toi d'en prendre une ou deux pour empêcher le bonus maximal adverse.",
+   "champions": [],
+   "roles": [
+    "jungle",
+    "top"
+   ],
+   "themes": [
+    "macro",
+    "jungle"
+   ],
+   "matchup": {
+    "vs": "Malphite"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "system:larves-du-neant"
+   ],
+   "conditions": [
+    "Top adverse avec ultime disponible et priorité de lane"
+   ],
+   "limits": [
+    "Spécifique au matchup contre un Malphite ou un top à fort impact d'ultime."
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tx6BJ7rbFoA",
+     "locator": "07:52",
+     "lang": "ko",
+     "passage": "그래서 지금 최대한 한 개나 아니면 두 개만 먹은 다음에 빼보도록 할게요. 아까 전에 말파이트가 궁극기가 없는 상태였으면 그냥 대놓고 먹을 수가 있는데 지금은 궁극기가 있는 상황이죠.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-09",
+      "window": "452-512s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Malphite (exemple)"
+   ],
+   "action": "Sécurise seulement 1 ou 2 larves puis quitte la zone si le top adverse menace d'intervenir avec son ultime.",
+   "observe": "Viego s'apprête à ne prendre que quelques larves car Malphite a son ultime disponible.",
+   "use": {
+    "when": "Les larves du néant sont apparues, mais ton top est sous pression et l'adversaire a un ultime de zone dangereux.",
+    "why": "Forcer l'objectif complet risquerait de donner un avantage trop grand à l'adversaire en cas de combat perdu.",
+    "who": "Jungler",
+    "how": [
+     "Vérifie si l'ultime du top adverse est disponible.",
+     "Attaque les larves rapidement.",
+     "Dès que tu en as sécurisé une ou deux, replie-toi si la menace adverse se rapproche."
+    ],
+    "notWhen": "Si l'ultime adverse est en récupération, tu peux forcer l'objectif."
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "L'objectif des larves du néant est un système de jeu dont les mécaniques et l'importance peuvent varier drastiquement entre le patch 14.1 et 26.22."
+   },
+   "published": null,
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt-5CUV0buwZkY-3",
+   "claim": "Selon タン教授のADC講座 : en début de partie, active ton Z (W) entre ton A (Q) et ton auto-attaque pour accélérer l'enchaînement et immobiliser la cible plus vite.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.8"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Xayah/Q",
+    "Xayah/W",
+    "Xayah/E"
+   ],
+   "conditions": [
+    "Vitesse d'attaque de base encore faible"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5CUV0buwZkY",
+     "locator": "02:00",
+     "lang": "ja",
+     "passage": "초반에는 Q 평 E가 공속이 느리기 때문에 Q 하고 W 켜주시면 좋아요. W 켜면 공속이 증가하기 때문에 Q W 평 E 해 주시면 좋고요.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-09",
+      "window": "100-160s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pratiquer le combo Q-W-AA-E",
+   "observe": "Vitesse de déploiement des 3 plumes nécessaires au root",
+   "use": {
+    "when": "Lors d'un échange (trade) en phase de lane",
+    "why": "Le bonus de vitesse d'attaque du Z compense la lenteur du début de partie pour poser les 3 plumes requises pour le root.",
+    "who": "Xayah ADC",
+    "how": [
+     "Lancer le A (Q)",
+     "Activer immédiatement le Z (W)",
+     "Lancer une auto-attaque puis le E"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil d'exécution technique (combo) indépendant de la méta, visant à optimiser le root en début de partie."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt-5aT_CBLOi5Q-1",
+   "claim": "Selon 【LOL・ボチカ】青森最高レートが語るアルティメットチャンピオン解説 : contre LeBlanc au Mid, privilégie la rune Plaque d'os plutôt que le Conditionnement pour mieux encaisser les échanges courts en début de partie.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "build"
+   ],
+   "matchup": {
+    "vs": "LeBlanc"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non-precise",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "rune:Plaque d'os",
+    "rune:Conditionnement"
+   ],
+   "conditions": [
+    "Matchup contre un assassin à burst"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5aT_CBLOi5Q",
+     "locator": "00:46",
+     "lang": "ja",
+     "passage": "さっきの試写、これさ、ボーンアーマー欲しかったなー。心身調整だったから、心身調整にしちゃったけどさ。",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-09",
+      "window": "26-86s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "LeBlanc (exemple)"
+   ],
+   "action": "Sélectionne la rune Plaque d'os dans l'arbre Volonté si tu affrontes LeBlanc.",
+   "observe": "",
+   "use": {
+    "when": "Phase de sélection des runes contre LeBlanc au Mid.",
+    "why": "L'auteur regrette de ne pas l'avoir prise car les échanges de dégâts sont difficiles sans cette protection immédiate.",
+    "who": "Swain Mid",
+    "how": [
+     "Identifier LeBlanc comme adversaire direct",
+     "Remplacer Conditionnement par Plaque d'os dans tes runes"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "L'auteur base ce conseil sur un regret exprimé lors d'une seule partie contre LeBlanc."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt-5aT_CBLOi5Q-2",
+   "claim": "Selon 【LOL・ボチカ】青森最高レートが語るアルティメットチャンピオン解説 : maxer le E (Capture) en deuxième après le Q est une option privilégiée par l'auteur pour réduire le délai de récupération, bien que le W offre une meilleure croissance de dégâts.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non-precise",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Swain/E",
+    "Swain/W"
+   ],
+   "conditions": [],
+   "limits": [
+    "Certains joueurs préfèrent monter le W pour la portée"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5aT_CBLOi5Q",
+     "locator": "04:53",
+     "lang": "ja",
+     "passage": "俺もE、E上げたい、普通に。クールダウン短くなるから。",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-09",
+      "window": "273-333s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-5aT_CBLOi5Q",
+     "locator": "05:00",
+     "lang": "ja",
+     "passage": "ダメージの伸びが確かにEより結構いいんだよな。だいぶ上だった気する。"
+    }
+   ],
+   "mentions": [],
+   "action": "Améliore ton E en deuxième priorité pour avoir ton contrôle plus souvent.",
+   "observe": "",
+   "use": {
+    "when": "Montée en niveau après avoir maxé le Q.",
+    "why": "La réduction du délai de récupération sur le E offre plus d'opportunités de capture que le gain de dégâts ou de portée du W.",
+    "who": "Joueur de Swain cherchant de l'utilité",
+    "how": [
+     "Maxer le Q en premier",
+     "Investir les points suivants dans le E"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [],
+    "why": "L'auteur présente cela comme un choix entre l'utilité du E et les dégâts du W, la formulation originale était trop affirmative."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt-5aT_CBLOi5Q-3",
+   "claim": "Selon 【LOL・ボチカ】青森最高レートが語るアルティメットチャンピオン解説 : l'achat d'un Bouclier de l'égide sans l'améliorer est une option économique pour obtenir de l'armure, de la résistance magique et de l'accélération de compétence.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non-precise",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Bouclier de l'égide"
+   ],
+   "conditions": [
+    "Besoin de statistiques défensives et de Haste à bas prix"
+   ],
+   "limits": [
+    "Retarde la complétion des objets légendaires"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5aT_CBLOi5Q",
+     "locator": "06:17",
+     "lang": "ja",
+     "passage": "このイージスの何がいいかって言うと... アーマーMRが効率よく上がって、あとスキルヘイストがもらえるってのが結構でかい。このゲーム今、スキルヘイストって数値が少なすぎる、全体的に。",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-09",
+      "window": "357-417s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète un Bouclier de l'égide en milieu de partie sans chercher à le transformer immédiatement.",
+   "observe": "",
+   "use": {
+    "when": "Milieu de partie quand les statistiques de résistance et de Haste manquent.",
+    "why": "L'accélération de compétence est devenue rare et chère ; cet objet offre un ratio coût/efficacité intéressant pour ces statistiques.",
+    "who": "Swain (ou tout mage de combat ayant besoin de Haste et de tankiness)",
+    "how": [
+     "Acheter le Bouclier de l'égide",
+     "Le conserver tel quel pour ses statistiques brutes",
+     "Prioriser d'autres objets de dégâts à côté"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "Le passage mentionne 'cet Aegis' au singulier ; l'achat de deux exemplaires n'est pas étayé par la citation."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt-C1gAFf1_9Os-1",
+   "claim": "Selon Chreak : pour utiliser des mages sans téléportation comme Zoé ou LeBlanc face à un adversaire avec TP, il faut impérativement maîtriser la gestion de vague, le contrôle des trades et les timers de rappel pour ne pas perdre d'or et d'XP.",
+   "champions": [
+    "Zoé"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Corki"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "jouer un champion sans téléportation face à un adversaire qui possède une téléportation"
+   ],
+   "limits": [
+    "nécessite une maîtrise des timers et de la structure des vagues"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-C1gAFf1_9Os",
+     "locator": "[00:27]",
+     "lang": "fr",
+     "passage": "vu que quand vous jouez un joueur un champion pardon, qui n'a pas de téléportation comme Zoé, comme la plupart des assassins [...] Bref. Et bien vous devez un être impeccable en gestion de wave, en rotation mais surtout en reset timer et en contrôle de trade.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-09",
+      "window": "7-67s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Zed (exemple)",
+    "Tristana (exemple)",
+    "LeBlanc (exemple)",
+    "Orianna (exemple)",
+    "Syndra (exemple)"
+   ],
+   "action": "Planifier tes vagues et tes retours en base pour empêcher ton vis-à-vis muni d'une TP de revenir en obtenant un avantage permanent.",
+   "observe": "Ta capacité à maintenir un avantage d'or et d'expérience malgré l'absence de téléportation.",
+   "use": {
+    "when": "en phase de laning face à un adversaire qui possède la téléportation alors que tu ne l'as pas",
+    "why": "Si vous faites une erreur, vous êtes baisé. Votre adversaire va base TP, il va revenir, il sera full vie et vous non, tout simplement.",
+    "who": "joueurs de mages sans téléportation ou d'assassins",
+    "how": [
+     "Préparer un slow push pour accumuler une grande vague avant le rappel de l'adversaire",
+     "Cracher la vague rapidement sous la tourelle ennemie juste avant de retourner à la base",
+     "Synchroniser ton retour pour ne perdre aucun sbire ou expérience"
+    ],
+    "notWhen": "si tu joues un champion avec Téléportation et que tu gères tes retours différemment"
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement fidèle à la transcription, son contexte d'usage est complet et met en avant la gestion rigoureuse nécessaire lorsqu'on joue sans téléportation."
+   },
+   "published": "2024-07-14",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt-C1gAFf1_9Os-2",
+   "claim": "Selon Chreak : en tant que mage sans sustain naturel (contrairement aux utilisateurs de bouclier de Doran et Second Souffle), utilise tes potions de soin lorsque tu es au-dessus de 70 % de tes PV pour rester proche des 100 % et survivre aux ganks ou aux agressions.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:Potion de soin"
+   ],
+   "conditions": [
+    "jouer un mage sans Doran's Shield ni Second Souffle"
+   ],
+   "limits": [
+    "ne s'applique pas de la même manière aux champions disposant d'un sustain inné ou d'objets défensifs majeurs"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-C1gAFf1_9Os",
+     "locator": "[04:51]",
+     "lang": "fr",
+     "passage": "Les potions ne sont pas faites pour être utilisées quand vous avez 20 % de vos HP, sauf si vous jouez un champion Doran's Shield Second Wind [...] Lorsque vous êtes un mage, écoutez-moi bien, lorsque vous êtes un mage, vos potions doivent être utilisées au-dessus de 70 % de vos HP pour rester à 100 % de vos HP.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-09",
+      "window": "271-331s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Consomme une potion de soin dès que ta vie descend sous la barre des 70-80% si tu joues un mage.",
+   "observe": "Ton maintien à un niveau de points de vie élevé qui dissuade l'adversaire de tenter un all-in.",
+   "use": {
+    "when": "pendant l'early game lorsque tu prends des dégâts de poke de ton vis-à-vis en jouant un mage",
+    "why": "De sorte à ce que si vous affrontez un assassin de ne jamais mourir, si vous vous faites gank vous ne mourrez pas et ainsi de suite.",
+    "who": "joueurs de mages sur la voie du milieu",
+    "how": [
+     "Vérifie que tes points de vie descendent sous les 70 % suite à un échange",
+     "Active immédiatement ta potion de soin pour remonter à 100 %",
+     "Maintiens cette habitude pour parer aux ganks et aux agressions surprises"
+    ],
+    "notWhen": "si tu joues un tank ou un combattant avec Bouclier de Doran et Second Souffle qui peut rentabiliser les bas PV"
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil correspond exactement aux propos de la source à l'horodatage indiqué et présente un contexte d'usage clair pour les mages sans sustain."
+   },
+   "published": "2024-07-14",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
   }
  ],
- "updatedAt": "2026-11-08T19:13:31.747Z"
+ "updatedAt": "2026-11-09T01:35:21.997Z"
 }

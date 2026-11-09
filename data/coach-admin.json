@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-09T07:57:41.279Z",
+ "generatedAt": "2026-11-09T14:21:56.006Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -554,7 +554,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-11-09T07:33:43.369Z",
+ "lastDiscovery": "2026-11-09T13:19:32.093Z",
  "failures": [],
  "quarantine": [
   {
@@ -566,28 +566,6 @@
   }
  ],
  "rejected": [
-  {
-   "id": "u-ai-yt-4dnp-4XYmVY-2",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-4dnp-4XYmVY : « Now, what I'm going to do is in the mid-game, you basically … »"
-    }
-   ],
-   "at": "2026-10-28",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-4dnp-4XYmVY-3",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-4dnp-4XYmVY : « Mid inni you don't want to take if you can't turn it into a … »"
-    }
-   ],
-   "at": "2026-10-28",
-   "origin": "analyse-automatique"
-  },
   {
    "id": "u-ai-yt-e9SSpRzFwo4-4",
    "reasons": [
@@ -2981,9 +2959,37 @@
    ],
    "at": "2026-11-09",
    "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt--luYm1Bzw1k-1",
+   "reasons": [
+    {
+     "code": "rang-sous-reference",
+     "why": "Contenu tiré de parties de niveau or : utilisable seulement comme erreur à corriger, pas comme référence."
+    }
+   ],
+   "at": "2026-11-09",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt--luYm1Bzw1k-3",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Caitlyn."
+    },
+    {
+     "code": "rang-sous-reference",
+     "why": "Contenu tiré de parties de niveau or : utilisable seulement comme erreur à corriger, pas comme référence."
+    }
+   ],
+   "at": "2026-11-09",
+   "origin": "analyse-automatique"
   }
  ],
- "pending": [],
+ "pending": [
+  "c-yt-mYnSFm2LtrQ"
+ ],
  "review": [
   "u-lucian-2620-ad",
   "u-lucian-2619-vigilance",
@@ -4257,7 +4263,9 @@
   "u-ai-yt-C1gAFf1_9Os-2",
   "u-ai-yt-gpc7HJh4VU0-1",
   "u-ai-yt-gpc7HJh4VU0-2",
-  "u-ai-yt-gpc7HJh4VU0-3"
+  "u-ai-yt-gpc7HJh4VU0-3",
+  "u-ai-yt--luYm1Bzw1k-2",
+  "u-ai-yt--luYm1Bzw1k-4"
  ],
  "contested": [],
  "retired": [
@@ -5658,58 +5666,6 @@
   "month": 0,
   "calls": [
    {
-    "at": "2026-11-08T19:06:30.851Z",
-    "content": "c-yt-48QcnoGE1l8",
-    "model": "gemini-3.6-flash",
-    "input": 5810,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-08T19:07:16.055Z",
-    "content": "c-yt-48QcnoGE1l8",
-    "model": "gemini-3.6-flash",
-    "input": 5844,
-    "output": 65,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-08T19:08:04.887Z",
-    "content": "c-yt-RvDulurKZJs",
-    "model": "gemini-3.6-flash",
-    "input": 10842,
-    "output": 6480,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-08T19:08:24.213Z",
-    "content": "c-yt-RvDulurKZJs",
-    "model": "gemini-3.6-flash",
-    "input": 8143,
-    "output": 2488,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-08T19:08:36.954Z",
-    "content": "c-yt-RvDulurKZJs",
-    "model": "gemini-3.6-flash",
-    "input": 4811,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-08T19:08:47.910Z",
-    "content": "c-yt-RvDulurKZJs",
-    "model": "gemini-3.6-flash",
-    "input": 5883,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
     "at": "2026-11-08T19:09:07.354Z",
     "content": "c-yt-RvDulurKZJs",
     "model": "gemini-3-flash-preview",
@@ -6081,6 +6037,58 @@
     "input": 7353,
     "output": 193,
     "usd": 0
+   },
+   {
+    "at": "2026-11-09T14:04:33.685Z",
+    "content": "c-yt--luYm1Bzw1k",
+    "model": "gemini-3.7-flash",
+    "input": 6821,
+    "output": 4784,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-09T14:13:45.047Z",
+    "content": "c-yt--luYm1Bzw1k",
+    "model": "gemini-3.8-flash",
+    "input": 7331,
+    "output": 2197,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-09T14:19:09.502Z",
+    "content": "c-yt--luYm1Bzw1k",
+    "model": "gemini-3.5-flash",
+    "input": 5936,
+    "output": 71,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-09T14:19:42.998Z",
+    "content": "c-yt--luYm1Bzw1k",
+    "model": "gemini-3.6-flash",
+    "input": 5935,
+    "output": 89,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-09T14:21:12.046Z",
+    "content": "c-yt--luYm1Bzw1k",
+    "model": "gemini-3.6-flash",
+    "input": 5864,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-09T14:21:48.568Z",
+    "content": "c-yt--luYm1Bzw1k",
+    "model": "gemini-3.6-flash",
+    "input": 5969,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
    }
   ],
   "budget": {

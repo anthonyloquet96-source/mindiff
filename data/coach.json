@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-09T07:57:41.279Z",
+ "generatedAt": "2026-11-09T14:21:56.006Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -179,7 +179,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 116
+    "units": 118
    },
    "support": {
     "champions": [
@@ -292,7 +292,7 @@
     ],
     "actions": 0,
     "official": 9,
-    "coaching": 7
+    "coaching": 8
    },
    "Aatrox": {
     "role": null,
@@ -1709,15 +1709,18 @@
    },
    "Thresh": {
     "role": null,
-    "units": 6,
+    "units": 8,
     "themes": [
      "champion",
      "matchup",
-     "build"
+     "build",
+     "lane",
+     "synergie",
+     "vagues"
     ],
-    "actions": 1,
+    "actions": 3,
     "official": 5,
-    "coaching": 1
+    "coaching": 3
    },
    "Tristana": {
     "role": null,
@@ -2286,13 +2289,13 @@
    }
   },
   "themes": {
-   "lane": 141,
+   "lane": 143,
    "survie": 28,
    "teamfight": 23,
-   "synergie": 8,
+   "synergie": 9,
    "matchup": 17,
    "methode": 39,
-   "vagues": 76,
+   "vagues": 77,
    "vision": 25,
    "macro": 119,
    "jungle": 84
@@ -27447,6 +27450,33 @@
    }
   },
   {
+   "id": "c-yt-KAEgn2X5PZo",
+   "sourceId": "yt-bardinette",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=KAEgn2X5PZo",
+   "title": "GOOD MACRO = WIN",
+   "author": "BARDINETTE",
+   "lang": "fr",
+   "published": null,
+   "ageMonths": 12,
+   "retrievedAt": "2026-11-01",
+   "patch": null,
+   "views": 2100,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "triage": {
+    "score": 2,
+    "matched": [
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "queueRank": 116
+  },
+  {
    "id": "c-yt-5Pp4rgbNV5o",
    "sourceId": "yt-sol1xd",
    "type": "video",
@@ -35780,13 +35810,13 @@
    "lang": "fr",
    "published": null,
    "retrievedAt": "2026-11-08",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "25.21",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 107,
-   "note": "File de lecture (rang 107) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.7-flash : transcription et 28 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -35797,6 +35827,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.7-flash",
+    "fps": 1,
+    "at": "2026-11-09",
+    "sha256": "6566eeb06b78af92b5c55c162182d4dc4295d507174f8c0656c1d5fd02e584ec",
+    "segments": 27,
+    "observations": 28,
+    "duration": "28:30",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 159637
+   },
+   "analyzedAt": "2026-11-09",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "En bot lane, synchroniser la poussée de la vague avec les pics de puissance de son support (niveau 2) et exploiter l'avantage numérique pour zoner l'ennemi depuis les buissons.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Revue de partie individuelle (joueur Gold 4) fournissant des principes fondamentaux solides de gestion de vague et de priorité niveau 2, complétés par des illustrations comparatives de haut niveau."
    }
   },
   {
@@ -35809,19 +35862,32 @@
    "lang": "ko",
    "published": null,
    "retrievedAt": "2026-11-08",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "null",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 108,
-   "note": "File de lecture (rang 108) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 27 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-09",
+    "sha256": "0ce83683ef8739281f11651a206391c051103c6ea8679a1483befe365a4822b5",
+    "segments": 34,
+    "observations": 27,
+    "duration": "14:27",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 84289
    }
   },
   {
@@ -36037,6 +36103,34 @@
     "matched": [
      "mid",
      "fundamentals",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-dRu06chIv_0",
+   "sourceId": "yt-gaethan-league-of-legends",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=dRu06chIv_0",
+   "title": "Why are you AFK farming by default in the Jungle and you're still not climbing?",
+   "author": "Gaëthan - League Of Legends",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-09",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 115,
+   "note": "File de lecture (rang 115) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "jungle",
      "climb"
     ],
     "entertainment": [],
@@ -104252,6 +104346,182 @@
     {
      "code": "sur-generalisation",
      "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt--luYm1Bzw1k-2",
+   "claim": "Selon BIZYZE Coaching | League of Legends : erreur fréquente : chercher à échanger des coups directement avec les adversaires au niveau 1 alors qu'on joue avec un support à engage (comme Thresh). L'auteur conseille de se focaliser d'abord sur le push pour sécuriser le niveau 2.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "synergie"
+   ],
+   "synergy": {
+    "with": [
+     "Thresh"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "or",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "25.21"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer en bot lane avec un support à engage dépendant du pic niveau 2"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "or",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt--luYm1Bzw1k",
+     "locator": "[04:24]",
+     "lang": "fr",
+     "passage": "Bottom line is you have a Thresh, he needs level 2, you need to push. You can't just walk up on them and hit them, the most important thing is getting the push.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-09",
+      "window": "244-304s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur indique que Thresh a besoin du niveau 2 et qu'il faut pusher, mais il ne détaille pas explicitement qu'il a besoin de ses deux compétences pour être menaçant."
+     }
+    }
+   ],
+   "mentions": [
+    "Thresh (exemple)"
+   ],
+   "action": "Attaquer continuellement les sbires dès le niveau 1 pour obtenir le niveau 2 avant la bot lane ennemie.",
+   "observe": "Le passage au niveau 2 permet au support d'engager le combat avec l'avantage de compétences.",
+   "use": {
+    "when": "Au niveau 1 sur la bot lane lorsque ton support est Thresh (ou un support à engage dépendant du niveau 2).",
+    "why": "",
+    "who": "ADC jouant avec Thresh ou un support à engage similaire.",
+    "how": [
+     "Prioriser le push de la première et deuxième wave.",
+     "Éviter de t'avancer pour simplement mettre des auto-attaques sur les champions adverses.",
+     "Assurer le passage du niveau 2 avant les ennemis pour permettre à ton support d'initier."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-09",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de date inconnue (patch 25.21) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt--luYm1Bzw1k : le vérificateur note un écart sur l'extrait 244-304s (L'auteur indique que Thresh a besoin du niveau 2 et qu'il faut pusher, mais il ne détaille pas explicitement qu'il a besoin de ses deux compétences pour être menaçant.)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt--luYm1Bzw1k-4",
+   "claim": "Selon BIZYZE Coaching | League of Legends : quand le support adverse est éliminé et qu'un back n'apporte pas d'achat significatif, freeze la wave et placer le support dans le buisson permet de zoner le tireur ennemi isolé.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "matchup": {
+    "vs": "Ashe"
+   },
+   "synergy": {
+    "with": [
+     "Thresh"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "or",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "25.21"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Support ennemi mort (environ 35 secondes de temps de retour estimé)",
+    "Peu d'or en poche (ex: 700 gold, sans achat majeur immédiat)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "or",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt--luYm1Bzw1k",
+     "locator": "[16:32]",
+     "lang": "fr",
+     "passage": "Nami is 10 seconds on death timer plus 25 seconds away of bot lane, so that's 35 seconds away from bot lane. You can stay here and freeze, and Thresh can sit in the brush, and we can just zone Ashe, she will lose minimum four to five minions.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-09",
+      "window": "972-1032s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Nami (exemple)",
+    "Thresh (exemple)",
+    "Ashe (exemple)"
+   ],
+   "action": "Geler la vague et laisser le support zoner le carry adverse en 2 contre 1 pendant l'absence du support ennemi.",
+   "observe": "Le tireur adverse isolé perd l'accès à 4 à 5 sbires sans pouvoir contester.",
+   "use": {
+    "when": "Le support adverse vient de mourir (environ 35 secondes avant son retour sur la bot lane) et tu disposes d'un montant d'or insuffisant pour un pic d'item (ex: 700 gold).",
+    "why": "Un back inutile gâche l'avantage numérique temporaire : freeze la wave permet de dénier au tireur adverse isolé plusieurs sbires grâce à la menace du buisson.",
+    "who": "Duo ADC et support disposant d'un contrôle de buisson.",
+    "how": [
+     "Garder la wave gelée au lieu de pousser ou d'utiliser un back.",
+     "Placer le support dans le buisson pour menacer l'ADC ennemi isolé.",
+     "Zoner le tireur adverse pour lui faire rater 4 à 5 sbires minimum."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-09",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Contrôle critique : La formulation 'erreur fréquente' n'est pas dans la citation et le conseil découle de l'analyse d'une action spécifique dans une seule partie."
     }
    ]
   }

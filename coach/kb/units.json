@@ -86580,7 +86580,201 @@
    },
    "version": 1,
    "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt--luYm1Bzw1k-2",
+   "claim": "Selon BIZYZE Coaching | League of Legends : erreur fréquente : chercher à échanger des coups directement avec les adversaires au niveau 1 alors qu'on joue avec un support à engage (comme Thresh). L'auteur conseille de se focaliser d'abord sur le push pour sécuriser le niveau 2.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "synergie"
+   ],
+   "synergy": {
+    "with": [
+     "Thresh"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "or",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "25.21"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jouer en bot lane avec un support à engage dépendant du pic niveau 2"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "or",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt--luYm1Bzw1k",
+     "locator": "[04:24]",
+     "lang": "fr",
+     "passage": "Bottom line is you have a Thresh, he needs level 2, you need to push. You can't just walk up on them and hit them, the most important thing is getting the push.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-09",
+      "window": "244-304s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur indique que Thresh a besoin du niveau 2 et qu'il faut pusher, mais il ne détaille pas explicitement qu'il a besoin de ses deux compétences pour être menaçant."
+     }
+    }
+   ],
+   "mentions": [
+    "Thresh (exemple)"
+   ],
+   "action": "Attaquer continuellement les sbires dès le niveau 1 pour obtenir le niveau 2 avant la bot lane ennemie.",
+   "observe": "Le passage au niveau 2 permet au support d'engager le combat avec l'avantage de compétences.",
+   "use": {
+    "when": "Au niveau 1 sur la bot lane lorsque ton support est Thresh (ou un support à engage dépendant du niveau 2).",
+    "why": "",
+    "who": "ADC jouant avec Thresh ou un support à engage similaire.",
+    "how": [
+     "Prioriser le push de la première et deuxième vague de sbires.",
+     "Éviter de t'avancer pour simplement mettre des auto-attaques sur les champions adverses.",
+     "Assurer le passage du niveau 2 avant les ennemis pour permettre à ton support d'initier."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil de niveau 1 cohérent et fidèle aux propos du coach pour prioriser le push avec Thresh."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt--luYm1Bzw1k-4",
+   "claim": "Selon BIZYZE Coaching | League of Legends : quand le support adverse est éliminé et qu'un rappel n'apporte pas d'achat significatif, geler la vague et placer le support dans le buisson permet de zoner le tireur ennemi isolé.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "matchup": {
+    "vs": "Ashe"
+   },
+   "synergy": {
+    "with": [
+     "Thresh"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "or",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "25.21"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Support ennemi mort (environ 35 secondes de temps de retour estimé)",
+    "Peu d'or en poche (ex: 700 gold, sans achat majeur immédiat)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "or",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt--luYm1Bzw1k",
+     "locator": "[16:32]",
+     "lang": "fr",
+     "passage": "Nami is 10 seconds on death timer plus 25 seconds away of bot lane, so that's 35 seconds away from bot lane. You can stay here and freeze, and Thresh can sit in the brush, and we can just zone Ashe, she will lose minimum four to five minions.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-09",
+      "window": "972-1032s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Nami (exemple)",
+    "Thresh (exemple)",
+    "Ashe (exemple)"
+   ],
+   "action": "Geler la vague et laisser le support zoner le carry adverse en 2 contre 1 pendant l'absence du support ennemi.",
+   "observe": "Le tireur adverse isolé perd l'accès à 4 à 5 sbires sans pouvoir contester.",
+   "use": {
+    "when": "Le support adverse vient de mourir (environ 35 secondes avant son retour sur la bot lane) et tu disposes d'un montant d'or insuffisant pour un pic d'objet (ex: 700 gold).",
+    "why": "Un rappel inutile gâche l'avantage numérique temporaire : geler la vague permet de dénier au tireur adverse isolé plusieurs sbires grâce à la menace du buisson.",
+    "who": "Duo ADC et support disposant d'un contrôle de buisson.",
+    "how": [
+     "Garder la vague gelée au lieu de pousser ou d'utiliser le rappel.",
+     "Placer le support dans le buisson pour menacer l'ADC ennemi isolé.",
+     "Zoner le tireur adverse pour lui faire rater 4 à 5 sbires minimum."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "une-partie",
+     "sur-generalisation"
+    ],
+    "why": "La formulation 'erreur fréquente' n'est pas dans la citation et le conseil découle de l'analyse d'une action spécifique dans une seule partie."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-09",
+   "validity": {
+    "checkedAt": "2026-11-09",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-09",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-09"
   }
  ],
- "updatedAt": "2026-11-09T07:57:39.917Z"
+ "updatedAt": "2026-11-09T14:21:54.762Z"
 }

@@ -63764,7 +63764,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 116
   },
   {
    "id": "c-yt-joCkXBUNufE",
@@ -81359,13 +81360,13 @@
    "lang": "fr",
    "published": null,
    "retrievedAt": "2026-11-08",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "25.21",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 107,
-   "note": "File de lecture (rang 107) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.7-flash : transcription et 28 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -81376,6 +81377,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.7-flash",
+    "fps": 1,
+    "at": "2026-11-09",
+    "sha256": "6566eeb06b78af92b5c55c162182d4dc4295d507174f8c0656c1d5fd02e584ec",
+    "segments": 27,
+    "observations": 28,
+    "duration": "28:30",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 159637
+   },
+   "analyzedAt": "2026-11-09",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "En bot lane, synchroniser la poussée de la vague avec les pics de puissance de son support (niveau 2) et exploiter l'avantage numérique pour zoner l'ennemi depuis les buissons.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Revue de partie individuelle (joueur Gold 4) fournissant des principes fondamentaux solides de gestion de vague et de priorité niveau 2, complétés par des illustrations comparatives de haut niveau."
    }
   },
   {
@@ -81388,19 +81412,32 @@
    "lang": "ko",
    "published": null,
    "retrievedAt": "2026-11-08",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "null",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 108,
-   "note": "File de lecture (rang 108) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 27 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-09",
+    "sha256": "0ce83683ef8739281f11651a206391c051103c6ea8679a1483befe365a4822b5",
+    "segments": 34,
+    "observations": 27,
+    "duration": "14:27",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 84289
    }
   },
   {
@@ -81992,6 +82029,34 @@
     "matched": [
      "mid",
      "fundamentals",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-dRu06chIv_0",
+   "sourceId": "yt-gaethan-league-of-legends",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=dRu06chIv_0",
+   "title": "Why are you AFK farming by default in the Jungle and you're still not climbing?",
+   "author": "Gaëthan - League Of Legends",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-09",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 115,
+   "note": "File de lecture (rang 115) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "jungle",
      "climb"
     ],
     "entertainment": [],

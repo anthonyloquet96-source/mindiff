@@ -86869,7 +86869,1052 @@
    },
    "version": 1,
    "firstSeen": "2026-11-09"
+  },
+  {
+   "id": "u-ai-yt-hUtJIvbgTIM-1",
+   "claim": "Selon We Teach League : les mécaniques de jeu se définissent par ta capacité à maximiser les dégâts que tu infliges tout en minimisant ceux que tu reçois.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [
+    "Analyse d'un accès partiel au texte."
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-hUtJIvbgTIM",
+     "locator": "[00:38]",
+     "lang": "en",
+     "passage": "mechanics are an all, it's a bit of an all-encompassing term used to describe the skill of maximizing your ability to both avoid and deal damage.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-10",
+      "window": "18-78s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "Tout au long de la partie, lors de chaque échange ou combat.",
+    "why": "Simplifier la définition des mécaniques permet de se concentrer sur l'objectif réel : rester haut en PV tout en étant efficace offensivement.",
+    "who": "Tout joueur souhaitant clarifier ses objectifs de progression mécanique.",
+    "how": [
+     "Évalue chaque action selon le ratio dégâts infligés par rapport aux dégâts subis.",
+     "Priorise la survie (éviter les dégâts) pour pouvoir continuer à infliger des dégâts sur la durée."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Définition fondamentale des mécaniques centrée sur le ratio de dégâts, fidèle à la source."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-hUtJIvbgTIM-2",
+   "claim": "Selon We Teach League : tu dois impérativement cliquer très près de ton champion pour garder un contrôle total et éviter que l'IA ne gère tes déplacements (auto-pathing).",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [
+    "Analyse d'un accès partiel au texte."
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-hUtJIvbgTIM",
+     "locator": "[02:56]",
+     "lang": "en",
+     "passage": "Clicking close to your character. No fat, lazy clicks. Well, because fat, lazy clicks, there's the auto-path feature in League of Legends, so you're just not going to have control of your character. The computer, the AI is going to have to control your character.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-10",
+      "window": "156-216s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Réduire la distance entre ton curseur et ton champion lors de tes déplacements en lane.",
+   "observe": "",
+   "use": {
+    "when": "Lorsque tu te déplaces, particulièrement près des murs ou dans des zones encombrées.",
+    "why": "Les clics éloignés activent l'auto-pathing, ce qui peut rendre tes mouvements prévisibles ou te faire emprunter un chemin inefficace.",
+    "who": "Tous les joueurs, particulièrement ceux qui ont tendance à cliquer loin sur l'écran ou sur la mini-carte.",
+    "how": [
+     "Maintiens ton curseur dans un petit périmètre autour de ton champion.",
+     "Augmente la fréquence de tes clics pour corriger instantanément ta trajectoire.",
+     "Évite de cliquer directement sur la mini-carte pour les déplacements précis."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil technique précis sur la réduction de la distance de clic pour un meilleur contrôle du personnage."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-hUtJIvbgTIM-3",
+   "claim": "Selon We Teach League : l'esquive de sorts repose à 99% sur l'anticipation et la préparation mentale plutôt que sur tes réflexes purs.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [
+    "Analyse d'un accès partiel au texte."
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-hUtJIvbgTIM",
+     "locator": "[07:00]",
+     "lang": "en",
+     "passage": "99% of the time you see someone dodge a skillshot, it is because they were prepared for that skillshot. And that's what situational awareness allows you to do.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-10",
+      "window": "400-460s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "Avant qu'un combat ne s'engage ou pendant une phase de poke.",
+    "why": "Réagir à un sort déjà lancé est physiquement plus difficile que de se préparer à bouger dès que l'animation commence.",
+    "who": "Joueurs qui pensent avoir de mauvais réflexes.",
+    "how": [
+     "Identifie le sort adverse spécifique que tu dois absolument esquiver.",
+     "Visualise la trajectoire probable du sort avant qu'il ne soit lancé.",
+     "Prépare ton clic d'esquive à l'avance pour n'avoir qu'à l'exécuter au signal visuel."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [],
+    "why": "L'auteur cite explicitement 99% pour souligner que l'esquive est presque entièrement une question de préparation mentale."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-hUtJIvbgTIM-5",
+   "claim": "Selon We Teach League : simplifie ta lecture du jeu en considérant chaque champion adverse uniquement par son sort le plus dangereux (Lull State Priming).",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [
+    "Analyse d'un accès partiel au texte."
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-hUtJIvbgTIM",
+     "locator": "[27:26]",
+     "lang": "en",
+     "passage": "instead of looking at the five champions on the enemy team and viewing that as 20 abilities... We want to minimize the amount of variables we need to consider... EQ is the main thing with J4, right?",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-10",
+      "window": "1626-1686s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Jarvan IV (exemple)",
+    "Zac (exemple)",
+    "Ahri (exemple)",
+    "Syndra (exemple)",
+    "Lux (exemple)"
+   ],
+   "action": "Lister mentalement l'unique sort de menace principale pour chaque ennemi pendant les temps morts.",
+   "observe": "",
+   "use": {
+    "when": "Pendant les phases de calme (lull states) ou les déplacements vers un objectif.",
+    "why": "Réduire 20 sorts potentiels à 5 menaces critiques permet de ne pas surcharger ton cerveau et de réagir plus vite.",
+    "who": "Tous les joueurs, particulièrement en teamfight.",
+    "how": [
+     "Identifie le sort de contrôle ou de burst majeur de chaque adversaire (ex: le E-Q de Jarvan).",
+     "Ignore les sorts secondaires qui ne modifieront pas radicalement l'issue du combat.",
+     "Répète-toi ces menaces juste avant que le combat n'éclate."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La méthode de simplification des variables est bien expliquée et les champions sont correctement identifiés comme de simples exemples."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-hUtJIvbgTIM-7",
+   "claim": "Selon We Teach League : la maîtrise mécanique de Rek'Sai repose sur l'utilisation de son ultime ou de son jaillissement pour esquiver des compétences clés au timing exact.",
+   "champions": [
+    "Rek'Sai"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Rek'Sai/R",
+    "Rek'Sai/W"
+   ],
+   "conditions": [],
+   "limits": [
+    "Analyse d'un accès partiel au texte."
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-hUtJIvbgTIM",
+     "locator": "[10:41]",
+     "lang": "en",
+     "passage": "Rek'Sai ulti, Rek'Sai E, your unburrow, you only get one, right? So you have to use it damn well. And you would always dodge things with your ult.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-10",
+      "window": "621-681s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser l'ultime de Rek'Sai pour devenir inciblable au moment où un sort adverse va te toucher.",
+   "observe": "",
+   "use": {
+    "when": "En plein duel ou lors d'un gank où l'adversaire tente de te contrôler.",
+    "why": "Rek'Sai a peu de sorts à sa disposition ; chaque utilisation doit être optimisée pour éviter des dégâts tout en restant au contact.",
+    "who": "Joueurs de Rek'Sai.",
+    "how": [
+     "Conserve ton ultime non pas pour achever, mais pour esquiver un sort de contrôle critique.",
+     "Patiente avant de déclencher ton jaillissement (Z) pour interrompre une canalisation adverse."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Utilisation des frames d'inciblabilité et des contrôles de Rek'Sai pour l'esquive réactive, bien sourcée."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-hUtJIvbgTIM-8",
+   "claim": "Selon We Teach League : pour progresser mécaniquement, analyse tes combats en replay du point de vue de ton adversaire pour comprendre ses intentions.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "tous",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [
+    "Analyse d'un accès partiel au texte."
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-hUtJIvbgTIM",
+     "locator": "[46:57]",
+     "lang": "en",
+     "passage": "In the post-game, go to that fight and look at the fight through their lens: If I was that Blitzcrank, why would I use my hook like that? Why would they do that?",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-10",
+      "window": "2797-2857s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Blitzcrank (exemple)",
+    "Irelia (exemple)"
+   ],
+   "action": "Regarder un replay de combat en verrouillant la caméra sur l'adversaire.",
+   "observe": "",
+   "use": {
+    "when": "Lors de ta session de review après une partie.",
+    "why": "Comprendre pourquoi un adversaire lance un sort à un moment précis permet de mieux anticiper ses futures actions en jeu.",
+    "who": "Tout joueur souhaitant améliorer son anticipation (situational awareness).",
+    "how": [
+     "Sélectionne un moment où tu as été touché par un sort.",
+     "Observe les mouvements de l'adversaire juste avant le lancer.",
+     "Identifie l'élément déclencheur (ex: tu t'es arrêté pour farmer, tu as longé un mur)."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Méthode de review efficace pour comprendre les intentions adverses et améliorer l'anticipation."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-n1KzRj2TaPs-1",
+   "claim": "Selon Coach Mysterias : priorise l'acquisition de ressources (sbires) via le last-hit sur la recherche de kills en phase de lane pour arriver plus fort en milieu de partie.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Phase de lane"
+   ],
+   "limits": [
+    "Ne pas ignorer totalement l'adversaire, mais le punir sur ses propres fenêtres de farm"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-n1KzRj2TaPs",
+     "locator": "00:57",
+     "lang": "en",
+     "passage": "the reason why we lane is to just get strong for the midgame. Get as strong as possible. It's a resource war lane after all. And the goal of the lane is to get as much resources yourself, while denying the enemies as much in return.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-10",
+      "window": "37-97s",
+      "said": true,
+      "supported": false,
+      "gap": "Le conseil de harceler l'adversaire au moment précis où il doit donner un dernier coup sur un sbire n'est pas mentionné dans cet extrait."
+     }
+    },
+    {
+     "content": "c-yt-n1KzRj2TaPs",
+     "locator": "01:13",
+     "lang": "en",
+     "passage": "players actually overforce onto solo killing the enemy lane opponent, which leads to them losing free minions and actually becoming weaker than they otherwise would have gotten."
+    }
+   ],
+   "mentions": [
+    "Syndra (exemple)",
+    "Veigar (exemple)"
+   ],
+   "action": "Frapper tes propres sbires en priorité avant de chercher à échanger des coups.",
+   "observe": "Vérifie si tu perds des sbires pendant que tu tentes de harceler ton adversaire.",
+   "use": {
+    "when": "Tu es en phase de lane et tu hésites entre achever un sbire ou lancer un sort sur l'adversaire.",
+    "why": "Le but de la lane est de devenir le plus fort possible pour le milieu de partie ; forcer des kills fait souvent perdre des ressources garanties.",
+    "who": "Midlaners cherchant à stabiliser leur phase de lane.",
+    "how": [
+     "Concentre-toi d'abord sur tes propres sbires.",
+     "Utilise tes sorts pour punir l'adversaire uniquement quand tes sbires sont déjà morts.",
+     "Harcèle l'adversaire au moment précis où il doit donner un dernier coup sur un sbire."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "traduction"
+    ],
+    "why": "La formulation 'Frapper tes propres sbires' dans l'action est une erreur de traduction du concept de last-hit (donner le coup de grâce) ; on ne peut pas attaquer ses propres sbires dans LoL."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-n1KzRj2TaPs-3",
+   "claim": "Selon Coach Mysterias : en sidelane, synchronise ton push pour que la vague s'écrase sous la tour adverse environ 30 secondes avant l'apparition d'un objectif neutre.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Yone"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Posséder le sort Téléportation ou être sur le côté opposé à l'objectif"
+   ],
+   "limits": [
+    "Nécessite une vision correcte de la jungle adverse"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-n1KzRj2TaPs",
+     "locator": "13:36",
+     "lang": "en",
+     "passage": "I need to play one more wave, okay, which stalls 30 seconds. So 30 seconds, then I have a pushing out wave state 30 seconds before the neutral objective. I can then reset, open up mid, and be right there when the neutral objective spawns.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-10",
+      "window": "796-856s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Viego (exemple)"
+   ],
+   "action": "Slow-push la vague en sidelane jusqu'à 1 minute avant l'objectif, puis accèlère le push.",
+   "observe": "La vague doit être sous la tour ennemie au moment où tu arrives au Dragon/Baron.",
+   "use": {
+    "when": "Tu es en sidelane et un objectif neutre apparaît dans environ 1 minute 30.",
+    "why": "Cela force l'adversaire à choisir entre défendre sa tour (te donnant un avantage numérique sur l'objectif) ou venir au combat (lui faisant perdre de l'or et de l'expérience).",
+    "who": "Midlaners en phase de sidelane.",
+    "how": [
+     "Vérifie le timer de l'objectif (ex: 1:30 restant).",
+     "Ne pousse pas trop vite immédiatement pour éviter que la vague ne revienne vers toi trop tôt.",
+     "Nuke la vague finale 30 à 45 secondes avant l'objectif pour créer la pression."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "La gestion du timing de push en sidelane par rapport aux objectifs est un principe de macro général qui ne dépend pas du champion Vex."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-n1KzRj2TaPs-4",
+   "claim": "Selon Coach Mysterias : si tu ne peux pas gagner le duel ou contester la priorité en sidelane, sacrifie une vague pour décaler plus tôt et sécuriser l'avantage positionnel sur l'objectif.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "macro",
+    "survie"
+   ],
+   "matchup": {
+    "vs": "Veigar"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Adversaire plus fort en 1v1 ou position du jungler adverse inconnue"
+   ],
+   "limits": [
+    "Entraîne une perte d'or et d'expérience sur une vague"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-n1KzRj2TaPs",
+     "locator": "19:21",
+     "lang": "en",
+     "passage": "If I do NOT feel like I can get the priority, what I should do is sacrifice the wave... reset already and then TP mid to contest his mid prio, or walk mid, is also fine, as long as I'm early on the midlane wave.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-10",
+      "window": "1141-1201s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Viego (exemple)"
+   ],
+   "action": "Abandonner la vague en cours pour rejoindre son équipe ou se repositionner si l'adversaire met trop de pression.",
+   "observe": "Vérifie si tu arrives avant ton vis-à-vis sur le lieu de l'objectif.",
+   "use": {
+    "when": "L'adversaire te zone en sidelane juste avant un objectif important.",
+    "why": "L'objectif neutre (surtout un 3ème ou 4ème dragon) a plus de valeur que les quelques sbires sacrifiés.",
+    "who": "Joueurs de mages ou champions fragiles en sidelane.",
+    "how": [
+     "Évalue si tu peux mourir en tentant de push.",
+     "Si le risque est trop élevé, recule immédiatement dans le brouillard de guerre.",
+     "Rappelle-toi ou déplace-toi vers la voie du milieu pour aider ton équipe à prendre la priorité là-bas."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "Le sacrifice d'une vague pour assurer un avantage positionnel sur un objectif est un concept de macro universel, pas une mécanique spécifique à Vex."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-iSpyMH6k9HQ-1",
+   "claim": "Selon Chreak : pour obtenir rapidement l'information sur le départ du jungler adverse, place une balise de vision très tôt aux Raptors ennemis en début de partie quand tu as la priorité sur la midlane, au lieu d'attendre.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vision",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Viktor"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "avoir la priorité sur la midlane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iSpyMH6k9HQ",
+     "locator": "01:02",
+     "lang": "fr",
+     "passage": "parlons de cette ward que j'ai posée très tôt en early game parce que en effet, ce qui s'est passé c'est qu'il y a deux choses à savoir, c'est que quand tu joues à LoL, soit tu vas poser cette ward très tôt en midlane pour avoir l'information sur les Raptors",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-10",
+      "window": "42-102s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Brand (exemple)",
+    "Viktor (exemple)",
+    "Viego (exemple)"
+   ],
+   "action": "Poser une balise aux Raptors ennemis au niveau 1 dès que tu as la priorité mid.",
+   "observe": "La pose de ward aux Raptors au tout début de la partie.",
+   "use": {
+    "when": "tu es au niveau 1 sur la midlane et tu as la priorité sur ton vis-à-vis",
+    "why": "pour savoir immédiatement si le jungler adverse a démarré ses Raptors et donner l'information à tes coéquipiers",
+    "who": "midlaner",
+    "how": [
+     "Pousser la première vague avec ton champion",
+     "Te diriger rapidement vers l'entrée des Raptors ennemis",
+     "Poser ta balise de vision pour repérer le jungler adverse"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est parfaitement soutenu par la transcription, le contexte d'usage est complet et l'avis d'un joueur Challenger est clairement formulé."
+   },
+   "published": "2024-06-23",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-iSpyMH6k9HQ-2",
+   "claim": "Selon Chreak : contre un champion utilisant la rune Premier coup (First Strike) qui cherche à placer son poke dès que le rechargement est prêt, observe son indicateur de rune pour anticiper son attaque et tenter de l'esquiver.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Viktor"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "rune:Premier coup"
+   ],
+   "conditions": [
+    "l'adversaire joue avec la rune Premier coup"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iSpyMH6k9HQ",
+     "locator": "03:23",
+     "lang": "fr",
+     "passage": "quand vous affrontez un joueur avec First Strike, ce que vous voulez faire c'est, enfin je l'ai déjà montré en stream c'est super intéressant, dès que son CD va revenir il va vouloir trade.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-10",
+      "window": "183-243s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Viktor (exemple)",
+    "Brand (exemple)"
+   ],
+   "action": "Surveiller le rechargement de la rune Premier coup de ton adversaire pour esquiver son sort de poke.",
+   "observe": "L'utilisation des sorts de poke par l'adversaire au moment où sa rune se recharge.",
+   "use": {
+    "when": "tu affrontes un adversaire muni de la rune Premier coup sur ta lane",
+    "why": "l'adversaire cherche à optimiser ses gains d'or et ses dégâts dès que le rechargement de sa rune est disponible",
+    "who": "midlaner",
+    "how": [
+     "Repérer le retour de la rune Premier coup sous la barre de vie ennemie",
+     "Anticiper le tir du sort de poke principal de l'adversaire",
+     "Tenter un déplacement latéral pour esquiver"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La situation face à la rune Premier coup est claire, le passage correspond et la consigne d'anticipation est directement applicable."
+   },
+   "published": "2024-06-23",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-iSpyMH6k9HQ-3",
+   "claim": "Selon Chreak : face à un champion qui cherche à te harceler à distance en continu sur la ligne, utilise tes sorts de zone pour repousser la vague de sbires rapidement afin de l'obliger à utiliser ses ressources pour nettoyer.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "matchup": {
+    "vs": "Viktor"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "l'adversaire cherche à infliger des dégâts répétés à distance"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iSpyMH6k9HQ",
+     "locator": "05:16",
+     "lang": "fr",
+     "passage": "ce que je fais c'est que encore une fois la logique quand tu affrontes un champion comme Viktor qui va vouloir te poke ou Xerath c'est : tu me pokes, je te push. Et si je te push tu dois utiliser ta mana et tes points de vie pour récupérer la wave et tu es dans la merde.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-10",
+      "window": "296-356s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Viktor (exemple)",
+    "Xerath (exemple)"
+   ],
+   "action": "Lancer tes sorts sur la vague de sbires dès que l'adversaire essaie de te harceler.",
+   "observe": "L'utilisation immédiate des sorts de nettoyage de vagues en réponse au poke adverse.",
+   "use": {
+    "when": "ton adversaire direct essaie de te harceler régulièrement avec des sorts à distance",
+    "why": "cela l'oblige à gaspiller sa ressource et ses points de vie pour rattraper les sbires sous sa tourelle",
+    "who": "midlaner",
+    "how": [
+     "encaisser ou esquiver le poke",
+     "utiliser tes sorts de zone pour nettoyer les sbires",
+     "mettre la pression sous la tourelle ennemie"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La stratégie de contre-pousse face aux champions de type poke est explicite dans la source et le contexte d'usage est rigoureux."
+   },
+   "published": "2024-06-23",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
   }
  ],
- "updatedAt": "2026-11-09T19:44:19.976Z"
+ "updatedAt": "2026-11-10T01:40:00.957Z"
 }

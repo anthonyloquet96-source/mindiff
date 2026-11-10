@@ -11,7 +11,7 @@ Ce fichier dit ce qui est fait et ce qui reste à faire, pour Anthony comme pour
 ## Vérifié automatiquement
 
 <!-- AUTO:début -->
-_Vérifié automatiquement le 05/11/2026 07:58:34 par `coach/etat.mjs`._
+_Vérifié automatiquement le 10/11/2026 14:44:04 par `coach/etat.mjs`._
 
 | | Point | Constat |
 |---|---|---|
@@ -20,7 +20,7 @@ _Vérifié automatiquement le 05/11/2026 07:58:34 par `coach/etat.mjs`._
 | ✅ | Service en ligne (Worker) | répond ; secrets posés : Riot oui, Supabase oui |
 | ✅ | Testeurs inscrits | 1 actif(s), 0 parti(s) |
 | ⚠️ | Cycles d'objectif terminés | 0 terminé(s) ; en cours : 1 ; proposés pas encore commencés : 2 |
-| ✅ | Clé Riot du Worker (preuve par l'usage) | dernière partie récupérée chez Riot : 04/11 00:23 |
+| ⚠️ | Clé Riot du Worker (preuve par l'usage) | dernière partie récupérée chez Riot : 04/11 00:23 |
 | ✅ | Dernière partie évaluée pour un objectif | 04/11 00:23 |
 | ✅ | Code publié | tout est sur main |
 <!-- AUTO:fin -->
@@ -49,6 +49,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Fait le 05/11 : mention légale Riot en bas de chaque page du site, avec le lien vers la confidentialité (vérifiée sur ordinateur et à 390 px de large, pas cachée par la barre du bas) | 05/11 | JOURNAL 05/11 |
 | Fait le 06/11 : « Veille du coach » réparée (en panne depuis le 04/11, faute de frappe dans `coach/ddragon.mjs` révélée par le patch 16.22) ; relance du 06/11 réussie | 06/11 | JOURNAL 06/11, run GitHub 42224104221 |
 | Fait le 05/11 : tour du site public (13 pages, LoL et Valorant) : aucune erreur, aucune image cassée, aucun texte « undefined » ; mention légale en ligne. Restent 2 points de finition (voir « Ce qui attend Anthony ») | 05/11 | tour du site par Claude |
+| Fait le 08/11 et le 10/11 : tour complet du site public (français et anglais), 4 bugs corrigés ; puis l'ancienne adresse des stratégies LoL renvoyée au nouveau coach. Pas vérifié : affichage sur téléphone, espace testeur connecté | 10/11 | JOURNAL 08/11 et 10/11 |
 
 ## Ce qui attend Anthony
 

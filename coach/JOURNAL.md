@@ -2,6 +2,16 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-10 — ancienne adresse des stratégies LoL renvoyée au nouveau coach
+
+Demandé par Anthony le 10/11 (le second des deux détails laissés après le tour du site du 08/11).
+
+- **Avant** : `#/lol/coach/strategies` affichait l'ancien menu du coach (« Ma session », « Stratégies », « Mes ressources ») et « Pas encore de fiche vérifiée », parce qu'aucune fiche LoL n'est publiée sur le site public.
+- **Maintenant** : tant qu'aucune fiche LoL n'est publiée, cette adresse ouvre le nouveau coach et l'adresse devient `#/lol/coach` (`coach.js`, `viewCoach`).
+- **Inchangé** : les stratégies Valorant (2 fiches), et l'adresse d'une fiche LoL précise si une fiche est publiée un jour.
+- **Vérifié** sur une copie locale de la version publique : renvoi fait, Valorant intact. Tests 60/61 (1 ignoré faute de cache).
+- **Reste** : les anciens écrans `#/lol/coach/ressources` et `#/lol/coach/profil` existent encore à leur adresse directe ; aucun lien n'y mène.
+
 ## 2026-11-08 — tour complet du site public
 
 Demandé par Anthony le 08/11 (« fais un tour de toute l'appli pour voir les bug »).

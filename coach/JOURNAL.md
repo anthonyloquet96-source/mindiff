@@ -2,6 +2,23 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-10 — les trois « chantiers lourds » : état vérifié, documentation remise à jour
+
+Demandé par Anthony le 10/11 (point 3 d'une liste proposée par une autre session : sortir les données privées du Worker, écrire la documentation de référence, rouvrir les objectifs Top et ADC).
+
+- **Données privées hors du Worker : déjà fait le 01/11, vérifié le 10/11.**
+  - Le bucket Supabase `coach-data` est privé et contient les 4 fichiers et le manifeste, tous du 05/11 à 6 h 57 (dernier recalcul).
+  - `worker/index.mjs` n'importe plus aucun fichier de données ; les `worker/*.json` sont hors git.
+  - Rien à faire.
+- **Documentation de référence : elle existait (`docs/`, 6 fichiers) mais datait du 01/11.** Remise à jour :
+  - `PRODUIT.md` : table « Où lire quoi », 50 parties et synchronisation horaire, état au 10/11 ;
+  - `ARCHITECTURE.md` : données privées du service, déploiement automatique, déclencheurs du Worker, base de conseils, `ETAT.md`, tableau des 5 automatisations, 61 tests ;
+  - `DONNEES.md` : règles sur les deux clés Riot depuis le 03/11, jeux servis aux testeurs (8 000 parties, 173 champions, 121 couples), jeux de validation, jeux publics ;
+  - `DECISIONS.md` : décisions du 01/11 au 10/11, liste « À trancher par Anthony » alignée sur `ETAT.md` ;
+  - `LIMITES.md` : preuve d'effet (0 cycle terminé), Top et ADC, veille, lignes périmées retirées (déploiement manuel) ;
+  - `REGLES-COACH.md` : série Top et ADC du 06/11, marche minimale visible, condition des 15 parties, renvoi vers les règles de la base de conseils.
+- **Objectifs Top et ADC : rien à rouvrir.** La décision du 06/11 dit d'attendre les retours des testeurs, et il n'y en a pas : 1 testeur inscrit, 0 cycle terminé (`coach/etat.mjs` du 10/11).
+
 ## 2026-11-10 — série de contrôle des conseils sur texte : 56 conseils de plus exploitables
 
 Demandé par Anthony le 10/11 (« grosses séries de validation » puis « Go » sur la série contrôlable sur texte).

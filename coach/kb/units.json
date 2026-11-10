@@ -88807,7 +88807,538 @@
    },
    "version": 1,
    "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-dRu06chIv_0-1",
+   "claim": "Selon Gaëthan - League Of Legends : erreur fréquente : farmer sa jungle en continu par simple absence de plan d'action. L'auteur conseille de transformer le farming en une décision stratégique consciente plutôt qu'en un comportement par défaut.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:jungle"
+   ],
+   "conditions": [
+    "Avoir identifié si le farming est un choix ou un automatisme"
+   ],
+   "limits": [
+    "Conseil issu d'une analyse de coaching en Solo Queue"
+   ],
+   "nature": "opinion",
+   "levelContext": "emeraude",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-dRu06chIv_0",
+     "locator": "[00:25]",
+     "lang": "en",
+     "passage": "le problème c'est que tu confonds farmer proprement ta jungle avec être AFK, et c'est pour ça que le jungler adverse il te domine.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-10",
+      "window": "5-65s",
+      "said": true,
+      "supported": false,
+      "gap": "L'action de regarder la carte pendant le nettoyage des camps n'est pas mentionnée dans l'extrait."
+     }
+    },
+    {
+     "content": "c-yt-dRu06chIv_0",
+     "locator": "[03:15]",
+     "lang": "en",
+     "passage": "Tu AFK farm et tu full clear par absence de stratégie et du coup tu te dis bah moi je vais juste continuer à farmer parce qu'en fait tu sais pas vraiment ce qu'il faut faire. C'est la décision par défaut, ce n'est pas une vraie stratégie."
+    }
+   ],
+   "mentions": [],
+   "action": "S'interdire de faire plus de deux camps de suite sans regarder l'état des lanes pour prendre une décision active.",
+   "observe": "",
+   "use": {
+    "when": "tu n'as pas de plan d'action défini après ton premier ou deuxième camp",
+    "why": "le farming par défaut laisse l'initiative au jungler adverse qui peut impacter les lanes ou prendre des objectifs",
+    "who": "Junglers qui se sentent dépassés par le rythme adverse en milieu de partie",
+    "how": [
+     "Identifier si on farm par choix ou par défaut",
+     "Regarder la carte pendant le clear des camps",
+     "Prendre une décision active (gank, invade, objectif)"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle à la transcription et propose un conseil de méthode intemporel sur la prise de décision en jungle."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-dRu06chIv_0-2",
+   "claim": "Selon Gaëthan - League Of Legends : évite de jouer Kayn en effectuant uniquement des full clears passifs. Ce champion nécessite d'attaquer les camps adverses ou de chercher des interactions pour obtenir sa transformation rapidement.",
+   "champions": [
+    "Kayn"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "jungle",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Kayn/passive"
+   ],
+   "conditions": [
+    "Jouer Kayn"
+   ],
+   "limits": [
+    "Nécessite de connaître les timings d'invasion sécurisés"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-dRu06chIv_0",
+     "locator": "[05:54]",
+     "lang": "en",
+     "passage": "Kayn sans attaque de camp, bah oui bah t'as pas de forme, connard. Comment tu vas gagner la game ?",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-10",
+      "window": "334-394s",
+      "said": true,
+      "supported": false,
+      "gap": "Les gestes mentionnent l'identification des orbes et la planification d'invasions, des détails techniques absents du discours de l'auteur dans cet extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Envahir un camp adverse (ex: Raptors) pour forcer une interaction et charger la forme avant 10 minutes.",
+   "observe": "",
+   "use": {
+    "when": "tu joues Kayn et tu n'as pas encore obtenu ta transformation",
+    "why": "Kayn a besoin d'interagir avec l'adversaire pour obtenir sa forme et devenir efficace dans la partie",
+    "who": "Joueurs de Kayn ayant tendance à rester uniquement dans leur propre jungle",
+    "how": [
+     "Identifier le type d'orbes nécessaires (mêlée ou distance)",
+     "Planifier une invasion ou un gank tôt",
+     "Prioriser l'obtention de la forme sur le farm pur"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est spécifique à la mécanique de transformation de Kayn et s'appuie correctement sur le passage cité."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-dRu06chIv_0-4",
+   "claim": "Selon Gaëthan - League Of Legends : sur des champions typés \"farmers\" comme Lillia ou Diana, le full clear du premier cycle est une option viable si elle est choisie consciemment pour accumuler des ressources.",
+   "champions": [
+    "Lillia",
+    "Diana"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "champion",
+    "jungle",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Lillia",
+    "Diana"
+   ],
+   "conditions": [
+    "Jouer un champion à forte vitesse de clear"
+   ],
+   "limits": [
+    "Le danger est de rester en mode automatique sans regarder la carte"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-dRu06chIv_0",
+     "locator": "[04:05]",
+     "lang": "en",
+     "passage": "Donc tu vois, tu joues une Lillia, une Diana, tu veux clear full clear sur ton premier cycle pourquoi pas."
+    }
+   ],
+   "mentions": [],
+   "action": "Réaliser un full clear en moins de 3min30 tout en consultant la carte entre chaque camp.",
+   "observe": "",
+   "use": {
+    "when": "tu joues un champion orienté farming comme Lillia ou Diana lors du premier cycle",
+    "why": "ces champions bénéficient de l'accumulation rapide de ressources pour atteindre leurs pics de puissance",
+    "who": "Joueurs de Lillia ou Diana",
+    "how": [
+     "Optimiser son chemin de ronde pour un full clear rapide",
+     "Garder un œil sur la carte pour repérer une opportunité évidente",
+     "Enchaîner sur un second cycle ou un objectif après le premier clear"
+    ],
+    "notWhen": "si tu te contentes de farmer sans regarder ce qui se passe sur la carte"
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité nuance correctement l'usage du full clear sur des champions spécifiques, en accord avec les sources existantes (u-ai-yt-Ex6YzrsAHjg-1)."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-dRu06chIv_0-5",
+   "claim": "Selon Gaëthan - League Of Legends : avant le début de la partie, définis une stratégie précise pour ton premier cycle (full clear, gank ou invasion) en fonction de ton champion au lieu de subir le rythme du jeu.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "macro",
+    "methode",
+    "jungle"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:jungle"
+   ],
+   "conditions": [
+    "Connaître les forces de son champion"
+   ],
+   "limits": [
+    "Nécessite d'anticiper le pathing du jungler adverse"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-dRu06chIv_0",
+     "locator": "[08:18]",
+     "lang": "en",
+     "passage": "Enfin en fait tu vois il y a tout un tas de stratégies que tu peux utiliser en jungle mais en fait le tout c'est de définir ta stratégie avant la game selon ton personnage.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-10",
+      "window": "478-538s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Écrire son plan de jeu dans le chat d'équipe (ex: '3 camps gank bot') avant le spawn des sbires.",
+   "observe": "",
+   "use": {
+    "when": "pendant la phase de chargement ou les premières secondes de la partie",
+    "why": "jouer sans plan mène au farming passif et laisse le jungler adverse dicter le rythme de la partie",
+    "who": "Tous les junglers souhaitant améliorer leur macro-gestion",
+    "how": [
+     "Lister les forces de son champion (1v1, 3v3, objectifs)",
+     "Choisir un chemin de jungle initial adapté",
+     "Adapter le second cycle selon l'état des lanes"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "L'action de 'noter son plan dans le chat' est une interprétation ajoutée ; l'auteur parle de définir sa stratégie mentalement."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-rXVh2wzguwA-1",
+   "claim": "Selon 수라차 : ne te précipite pas systématiquement sur l'objectif dès qu'il apparaît si une autre option plus rentable est disponible.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "all"
+   ],
+   "themes": [
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Un objectif neutre réapparaît sur la carte"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-rXVh2wzguwA",
+     "locator": "[07:04]",
+     "lang": "ko",
+     "passage": "무조건 용이 나왔다고 해서 용을 먹으러 가는 건 아니에요",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-10",
+      "window": "404-464s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Évalue la carte avant d'aller machinalement vers un dragon ou un objectif.",
+   "observe": "L'équipe choisit d'attaquer la tourelle extérieure au lieu de courir au dragon, ce qui sécurise des kills et des objectifs.",
+   "use": {
+    "when": "un dragon réapparaît mais tes vagues ou les opportunités sur les tours éloignées sont meilleures",
+    "why": "pour optimiser la carte et obtenir plus de ressources ou de tours",
+    "who": "tous les joueurs",
+    "how": [
+     "Vérifie la position des ennemis et l'état des vagues avant de lancer un appel au dragon",
+     "Choisis de pousser une tour si la défense ennemie est absente ou désorganisée"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "Le conseil général en macro ne doit porter aucun champion ni rôle spécifique superflu, mais l'unité mentionnait plusieurs rôles alors qu'il s'agit d'une règle macro générale."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-RaTiSOWxiHU-1",
+   "claim": "Selon TaoWB : l'association de l'Arc courbe, des Jambières du berserker et de Tempo mortel confère à Yasuo une forte puissance de duel en 1v1 selon l'auteur.",
+   "champions": [
+    "Yasuo"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "GrandMaître",
+    "region": "TR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Jambières du berserker",
+    "item:Arc courbe",
+    "rune:Tempo mortel"
+   ],
+   "conditions": [
+    "Posséder l'Arc courbe, les Jambières du berserker et la rune Tempo mortel."
+   ],
+   "limits": [
+    "Avis personnel de l'auteur sans statistique formelle à l'appui."
+   ],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-RaTiSOWxiHU",
+     "locator": "02:44",
+     "lang": "tr",
+     "passage": "Savaşçı çizmesi nişancı yayı ölümcül tempo bu üçü varsa oyundaki her karakteri kesiyorsun istisnasız bu arada.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-10",
+      "window": "144-204s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter rapidement l'Arc courbe et les Jambières du berserker avec Tempo mortel pour maximiser les duels.",
+   "observe": "Les dégâts infligés lors des duels avec ces composants.",
+   "use": {
+    "when": "lorsque tu joues Yasuo et disposes de l'Arc courbe, des Jambières du berserker et de la rune Tempo mortel",
+    "why": "cette combinaison offre une vitesse d'attaque suffisante pour dominer n'importe quel adversaire en 1v1",
+    "who": "Yasuo",
+    "how": [
+     "Acheter les Jambières du berserker et l'Arc courbe",
+     "S'assurer d'avoir équipé la rune Tempo mortel"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "L'affirmation selon laquelle cette combinaison permet de battre 'n'importe quel personnage en 1v1 sans exception' est une exagération de l'auteur transformée en certitude absolue."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-10",
+   "validity": {
+    "checkedAt": "2026-11-10",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-10",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-10"
   }
  ],
- "updatedAt": "2026-11-10T17:43:51.021Z"
+ "updatedAt": "2026-11-10T19:26:48.947Z"
 }

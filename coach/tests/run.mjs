@@ -516,6 +516,15 @@ await t("Règles v1.3 : durée de vie, nuance des conseils anciens, sources comm
   // Confirmé par nos données récentes : l'âge ne compte plus
   const ok = checkUnit({ ...base, id: "fx-v13-c", themes: ["survie"], dependsOn: ["system:camps-de-jungle"], dataCheck: { result: "confirme", sample: "640 parties Diamant+", note: "" }, evidence: [{ content: "fx-createur-a", locator: "§1", lang: "fr", passage: "montez Prison aqueuse en premier" }] }, c3);
   assert(!ok.nuance && !ok.flags.some(f => f.code === "contenu-ancien"), "confirmation par nos données ignorée");
+  // Règles v1.4 : kit relu sur Data Dragon → l'âge ne compte plus ; pas pour un conseil lié à un système de jeu ou sans dépendance
+  const kc = { result: "confirme", ddragon: "16.22.1", at: "2026-11-10", by: "fixture" };
+  const kitEv = [{ content: "fx-createur-a", locator: "§1", lang: "fr", passage: "montez Prison aqueuse en premier" }];
+  const kit = checkUnit({ ...base, id: "fx-v14-a", themes: ["champion"], champions: ["Nami"], dependsOn: ["Nami/Q"], kitCheck: kc, evidence: kitEv }, c3);
+  assert(!kit.flags.some(f => f.code === "contenu-ancien"), "kit relu sur la version actuelle ignoré");
+  const kitNo = checkUnit({ ...base, id: "fx-v14-b", themes: ["champion"], champions: ["Nami"], dependsOn: ["Nami/Q"], evidence: kitEv }, c3);
+  assert(kitNo.flags.some(f => f.code === "contenu-ancien"), "conseil ancien lié à un kit accepté sans relecture");
+  const kitSys = checkUnit({ ...base, id: "fx-v14-c", themes: ["survie"], dependsOn: ["system:camps-de-jungle"], kitCheck: kc, evidence: kitEv }, c3);
+  assert(kitSys.flags.some(f => f.code === "contenu-ancien"), "relecture du kit appliquée à un conseil lié à un système de jeu");
   // Contredit par nos données : provisoire, et la nuance donne la mesure
   const ko = checkUnit({ ...base, id: "fx-v13-d", themes: ["survie"], dataCheck: { result: "contredit", sample: "640 parties Diamant+", note: "Aujourd'hui, le premier gank arrive plutôt vers 3:00." }, evidence: [{ content: "fx-createur-a", locator: "§1", lang: "fr", passage: "montez Prison aqueuse en premier" }] }, c3);
   assert(ko.status === "provisoire" && ko.flags.some(f => f.code === "donnees-contredisent") && /3:00/.test(ko.nuance), "contradiction par nos données non signalée");

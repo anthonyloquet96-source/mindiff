@@ -68,6 +68,9 @@ export function checkUnit(u, ctx) {
   const dc = u.dataCheck?.result && (ctx.config.riot?.publish || u.dataCheck.source !== "riot-dev") ? u.dataCheck : null;
   // Contexte d'usage (v2) : un joueur doit savoir quand, pour qui et comment appliquer le conseil
   const useComplete = !!(u.use?.when && u.use?.who && u.use?.how?.length);
+  // Kit relu sur la version actuelle (v1.4) : un conseil qui ne décrit que des compétences d'un champion, comparé à leur
+  // description dans Data Dragon, n'est plus « ancien ». Si une de ces compétences change ensuite, il repasse « à revalider »
+  const kitOk = u.kitCheck?.result === "confirme" && !!u.kitCheck.ddragon && deps.length > 0 && deps.every(d => d.includes("/"));
   for (const e of ev) {
     const c = ctx.contents.get(e.content);
     if (!c) { flag("source-inconnue", `Contenu ${e.content} absent du registre.`, true); continue; }
@@ -87,7 +90,7 @@ export function checkUnit(u, ctx) {
     // Contenu ancien (ex. article de sortie d'un champion) : le kit a pu changer depuis, la date du patch ne suffit pas à le savoir.
     // Un principe général (vagues, vision, jungle), sans champion, objet ni méta, ne vieillit pas avec le kit
     const maxAge = ctx.config.freshness?.maxContentAgeDays;
-    if (maxAge && c.published && !e.humanChecked && lifespan !== "intemporel" && dc?.result !== "confirme" && (Date.now() - Date.parse(c.published)) / 864e5 > maxAge) flag("contenu-ancien", `${e.content} publié le ${c.published} : à confirmer sur le kit et la méta actuels.`, false, "provisoire");
+    if (maxAge && c.published && !e.humanChecked && lifespan !== "intemporel" && dc?.result !== "confirme" && !kitOk && (Date.now() - Date.parse(c.published)) / 864e5 > maxAge) flag("contenu-ancien", `${e.content} publié le ${c.published} : à confirmer sur le kit et la méta actuels.`, false, "provisoire");
     if ((e.passage || "").length > cfg.maxPassageChars) flag("citation-trop-longue", `Passage de plus de ${cfg.maxPassageChars} caractères : résumer plutôt que republier.`, true);
     if (detectInjection(e.passage).length) flag("injection", `Le passage cité contient une instruction : ${detectInjection(e.passage)[0]}`, true);
     const text = ctx.texts.get(e.content);

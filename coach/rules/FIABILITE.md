@@ -1,4 +1,4 @@
-# Règles de fiabilité du coach MINDIFF — v1.3
+# Règles de fiabilité du coach MINDIFF — v1.4
 
 Ces règles s'appliquent à toute connaissance enregistrée, qu'elle vienne d'une personne, de l'agent Analyste LoL (Claude Code) ou du traitement automatique (`coach/analyze.mjs`).
 
@@ -50,6 +50,15 @@ Un conseil ancien n'est pas supprimé : il est **nuancé**. Le contrôle critiqu
 - `meta` : il dépend d'un champion, d'un objet, d'une compétence ou de l'équilibrage.
 
 Un conseil `systeme` ou `meta` dont le contenu a plus d'un an, ou dont le patch est trop ancien, reste visible. Il est accompagné d'une **nuance** qui donne sa date, son patch et ce qui a pu changer depuis. Seul un conseil contredit par un changement officiel est retiré de l'affichage, et il reste gardé dans l'historique.
+
+## Kit relu sur la version actuelle (v1.4)
+
+Un conseil tiré d'un contenu ancien, qui ne décrit que des compétences d'un champion, peut être comparé à la description actuelle de ces compétences dans Data Dragon (`kitCheck` : résultat, version de Data Dragon, date, relecteur, note) :
+- `confirme` : chaque élément du conseil se retrouve dans la description actuelle. Son âge ne le rend plus provisoire.
+- Ce qui ne se lit pas dans la description actuelle (un chiffre, un effet secondaire, une intention de conception, un choix d'objet) n'est pas confirmé : le conseil reste provisoire.
+- Si une de ces compétences est modifiée par un patch ultérieur, le conseil repasse en `a-revalider` (contrôle « patch incompatible »).
+
+Cette relecture ne dit rien de la méta : elle ne s'applique pas aux conseils qui dépendent d'un objet, d'un système de jeu ou de l'équilibrage.
 
 ## Vérification croisée par nos données (v1.3)
 

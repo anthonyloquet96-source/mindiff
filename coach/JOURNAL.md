@@ -2,6 +2,35 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-10 — série de contrôle des conseils sur texte : 56 conseils de plus exploitables
+
+Demandé par Anthony le 10/11 (« grosses séries de validation » puis « Go » sur la série contrôlable sur texte).
+
+**Avant de commencer.** Ma copie locale de la base avait plusieurs jours de retard : la veille écrit sur `main`, pas sur `coach-v1`. Les premiers chiffres donnés à Anthony (1 070 conseils, 204 en attente, 62 contrôlables sur texte) étaient donc faux. Après fusion de `origin/main` : 1 302 conseils, 871 exploitables, 355 provisoires, 61 à revalider ; 296 attendent une réécoute de l'extrait vidéo par un modèle complet de Gemini (la veille en fait 6 par passage) ; 120 étaient contrôlables sur texte.
+
+**Résultat** : 927 exploitables (+56), 330 provisoires, 29 à revalider, 15 retirés (+1). Chaque correction est historisée dans `coach/kb/corrections.json` avec sa raison et sa source.
+
+- **Lot 1, conseils plus catégoriques que leur citation (14 corrigés, 11 exploitables)** :
+  - mots absolus absents de la source retirés (« uniquement », « toujours », « jamais ») ;
+  - gestes et situations inventés retirés (« ne jamais dépasser la moitié de la carte », « 5 à 10 minutes », « 700 gold ») ;
+  - conseils tirés d'une seule partie présentés comme l'exemple de l'auteur, plus comme une règle (Rengar, Lee Sin 3 camps, Thresh et Nami) : ces 3-là restent provisoires, comme proposé par l'analyse ;
+  - Teemo contre Camille ramené à ce matchup (il était étendu à « tout champion à distance »).
+- **Lot 2, conseils officiels de Riot touchés par les patchs 26.21 et 26.22 (29 revalidés, 1 retiré)** :
+  - chaque conseil est toujours mot pour mot dans Data Dragon 16.22.1 ;
+  - les notes de patch ne changent que des chiffres (dégâts, délais, ratios), ce qui ne contredit aucun des 29 conseils ;
+  - retiré : `u-dd-rammus-a3`, qui cite « Secousses », une compétence que Rammus n'a plus.
+- **Lot 3, conseils tirés d'articles officiels anciens, « Champion Insights » (16 exploitables)** : kit comparé à la description actuelle des compétences dans Data Dragon 16.22.1 (Briar, Nilah, Bel'Veth, Renata Glasc, Viego, Zeri, Séraphine, Lillia, Vex). Le conseil sur Zeri disait « longer les murs » : corrigé en « bondir par-dessus », comme la source et le kit actuel.
+
+**Règles v1.4 (verrou signé, délégation du 25/10)** : nouveau champ `kitCheck`. Un conseil ancien qui ne décrit que des compétences d'un champion n'est plus « contenu ancien » quand ces compétences ont été comparées à Data Dragon. Il repasse « à revalider » si une de ces compétences change ensuite. La règle ne s'applique pas aux conseils liés à un objet, à un système de jeu ou à la méta. Test ajouté ; 60/61.
+
+**Laissés tels quels, volontairement** :
+- 4 conseils « à revalider » qui dépendent d'une méta trop ancienne (build de Katarina, larves du Néant, matchup Orianna, premier gank) ;
+- les conseils officiels dont un élément ne se lit pas dans la description actuelle (Briar « ne se soigne qu'en infligeant des dégâts » alors que son E la soigne, Renata R, Bel'Veth R, Yuumi, Vex R, intentions de conception) ;
+- une vingtaine de conseils d'articles Dignitas et note.com de 2020 à 2025 sur les ganks et la jungle : avis d'une seule personne, dépendants de la méta, donc provisoires par règle même une fois relus ;
+- 4 conseils de méthode (`u-methode-*`) sans contexte d'usage complet.
+
+**À retenir pour la suite** : fusionner `origin/main` dans `coach-v1` avant de compter ou de corriger des conseils.
+
 ## 2026-11-10 — ancienne adresse des stratégies LoL renvoyée au nouveau coach
 
 Demandé par Anthony le 10/11 (le second des deux détails laissés après le tour du site du 08/11).

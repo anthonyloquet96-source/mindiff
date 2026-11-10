@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-10T13:58:43.581Z",
+ "generatedAt": "2026-11-10T16:31:11.907Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -459,7 +459,7 @@
    },
    "Caitlyn": {
     "role": null,
-    "units": 8,
+    "units": 9,
     "themes": [
      "champion",
      "matchup",
@@ -468,7 +468,7 @@
      "build"
     ],
     "actions": 4,
-    "official": 4,
+    "official": 5,
     "coaching": 4
    },
    "Camille": {
@@ -510,7 +510,7 @@
    },
    "Corki": {
     "role": null,
-    "units": 5,
+    "units": 6,
     "themes": [
      "champion",
      "matchup",
@@ -519,19 +519,19 @@
      "macro"
     ],
     "actions": 1,
-    "official": 4,
+    "official": 5,
     "coaching": 1
    },
    "Darius": {
     "role": null,
-    "units": 5,
+    "units": 6,
     "themes": [
      "champion",
      "matchup",
      "patch"
     ],
     "actions": 0,
-    "official": 4,
+    "official": 5,
     "coaching": 1
    },
    "Diana": {
@@ -956,7 +956,7 @@
    },
    "Kayle": {
     "role": null,
-    "units": 6,
+    "units": 8,
     "themes": [
      "champion",
      "matchup",
@@ -965,7 +965,7 @@
      "build"
     ],
     "actions": 2,
-    "official": 4,
+    "official": 6,
     "coaching": 2
    },
    "Kayn": {
@@ -1056,14 +1056,14 @@
    },
    "Lee Sin": {
     "role": null,
-    "units": 5,
+    "units": 7,
     "themes": [
      "champion",
      "matchup",
      "survie"
     ],
     "actions": 1,
-    "official": 4,
+    "official": 6,
     "coaching": 1
    },
    "Leona": {
@@ -1284,7 +1284,7 @@
    },
    "Nunu et Willump": {
     "role": null,
-    "units": 3,
+    "units": 7,
     "themes": [
      "champion",
      "matchup",
@@ -1292,7 +1292,7 @@
      "survie"
     ],
     "actions": 0,
-    "official": 2,
+    "official": 6,
     "coaching": 1
    },
    "Olaf": {
@@ -1309,7 +1309,7 @@
    },
    "Orianna": {
     "role": null,
-    "units": 5,
+    "units": 6,
     "themes": [
      "champion",
      "matchup",
@@ -1317,7 +1317,7 @@
      "macro"
     ],
     "actions": 1,
-    "official": 4,
+    "official": 5,
     "coaching": 1
    },
    "Ornn": {
@@ -1397,14 +1397,15 @@
    },
    "Rammus": {
     "role": null,
-    "units": 3,
+    "units": 5,
     "themes": [
      "champion",
+     "matchup",
      "vision",
      "survie"
     ],
     "actions": 0,
-    "official": 2,
+    "official": 4,
     "coaching": 1
    },
    "Rek'Sai": {
@@ -1472,13 +1473,13 @@
    },
    "Ryze": {
     "role": null,
-    "units": 5,
+    "units": 6,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 5,
+    "official": 6,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1546,13 +1547,13 @@
    },
    "Sion": {
     "role": null,
-    "units": 4,
+    "units": 5,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 4,
+    "official": 5,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1657,7 +1658,7 @@
    },
    "Taliyah": {
     "role": null,
-    "units": 4,
+    "units": 6,
     "themes": [
      "champion",
      "matchup",
@@ -1665,7 +1666,7 @@
      "macro"
     ],
     "actions": 1,
-    "official": 3,
+    "official": 5,
     "coaching": 1
    },
    "Talon": {
@@ -1709,7 +1710,7 @@
    },
    "Thresh": {
     "role": null,
-    "units": 8,
+    "units": 9,
     "themes": [
      "champion",
      "matchup",
@@ -1719,12 +1720,12 @@
      "vagues"
     ],
     "actions": 3,
-    "official": 5,
+    "official": 6,
     "coaching": 3
    },
    "Tristana": {
     "role": null,
-    "units": 6,
+    "units": 8,
     "themes": [
      "champion",
      "matchup",
@@ -1734,7 +1735,7 @@
      "build"
     ],
     "actions": 3,
-    "official": 3,
+    "official": 5,
     "coaching": 3
    },
    "Trundle": {
@@ -1763,7 +1764,7 @@
    },
    "Twisted Fate": {
     "role": null,
-    "units": 6,
+    "units": 7,
     "themes": [
      "champion",
      "matchup",
@@ -1772,7 +1773,7 @@
      "vagues"
     ],
     "actions": 2,
-    "official": 4,
+    "official": 5,
     "coaching": 2
    },
    "Twitch": {
@@ -1816,12 +1817,13 @@
    },
    "Varus": {
     "role": null,
-    "units": 3,
+    "units": 6,
     "themes": [
+     "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 3,
+    "official": 6,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1852,13 +1854,13 @@
    },
    "Vel'Koz": {
     "role": null,
-    "units": 5,
+    "units": 6,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 5,
+    "official": 6,
     "coaching": 0,
     "officialOnly": true
    },
@@ -1942,19 +1944,19 @@
    },
    "Xin Zhao": {
     "role": null,
-    "units": 3,
+    "units": 4,
     "themes": [
      "champion",
      "matchup"
     ],
     "actions": 0,
-    "official": 3,
+    "official": 4,
     "coaching": 0,
     "officialOnly": true
    },
    "Yasuo": {
     "role": null,
-    "units": 6,
+    "units": 8,
     "themes": [
      "champion",
      "matchup",
@@ -1962,7 +1964,7 @@
      "vagues"
     ],
     "actions": 1,
-    "official": 5,
+    "official": 7,
     "coaching": 1
    },
    "Yorick": {
@@ -2146,14 +2148,16 @@
    },
    "Vex": {
     "role": null,
-    "units": 1,
+    "units": 3,
     "themes": [
      "build",
      "lane",
-     "champion"
+     "champion",
+     "matchup",
+     "survie"
     ],
-    "actions": 1,
-    "official": 0,
+    "actions": 3,
+    "official": 2,
     "coaching": 1
    },
    "Locke": {
@@ -2169,12 +2173,12 @@
    },
    "Zaahen": {
     "role": null,
-    "units": 5,
+    "units": 3,
     "themes": [
      "champion"
     ],
     "actions": 0,
-    "official": 5,
+    "official": 3,
     "coaching": 0,
     "officialOnly": true
    },
@@ -2303,13 +2307,13 @@
    }
   },
   "themes": {
-   "lane": 147,
-   "survie": 30,
+   "lane": 146,
+   "survie": 31,
    "teamfight": 24,
    "synergie": 9,
-   "matchup": 18,
+   "matchup": 19,
    "methode": 42,
-   "vagues": 80,
+   "vagues": 79,
    "vision": 27,
    "macro": 122,
    "jungle": 84
@@ -2401,6 +2405,7 @@
    "u-dd-caitlyn-a1",
    "u-dd-caitlyn-a2",
    "u-dd-caitlyn-a3",
+   "u-dd-caitlyn-e1",
    "u-dd-caitlyn-e2",
    "u-dd-camille-a1",
    "u-dd-camille-a2",
@@ -2419,7 +2424,9 @@
    "u-dd-corki-a1",
    "u-dd-corki-a2",
    "u-dd-corki-a3",
+   "u-dd-corki-e1",
    "u-dd-corki-e2",
+   "u-dd-darius-a1",
    "u-dd-darius-a2",
    "u-dd-darius-a3",
    "u-dd-darius-e1",
@@ -2609,8 +2616,10 @@
    "u-dd-katarina-a3",
    "u-dd-katarina-e1",
    "u-dd-katarina-e2",
+   "u-dd-kayle-a1",
    "u-dd-kayle-a2",
    "u-dd-kayle-a3",
+   "u-dd-kayle-e1",
    "u-dd-kayle-e2",
    "u-dd-kayle-e3",
    "u-dd-kayn-a1",
@@ -2654,8 +2663,10 @@
    "u-dd-leblanc-e2",
    "u-dd-leblanc-e3",
    "u-dd-leblanc-e4",
+   "u-dd-leesin-a1",
    "u-dd-leesin-a2",
    "u-dd-leesin-a3",
+   "u-dd-leesin-e1",
    "u-dd-leesin-e2",
    "u-dd-leesin-e3",
    "u-dd-leona-a1",
@@ -2759,12 +2770,17 @@
    "u-dd-nocturne-e1",
    "u-dd-nocturne-e2",
    "u-dd-nunu-a1",
+   "u-dd-nunu-a2",
+   "u-dd-nunu-a3",
+   "u-dd-nunu-e1",
+   "u-dd-nunu-e2",
    "u-dd-nunu-e3",
    "u-dd-olaf-a1",
    "u-dd-olaf-a2",
    "u-dd-olaf-e1",
    "u-dd-olaf-e2",
    "u-dd-olaf-e3",
+   "u-dd-orianna-a1",
    "u-dd-orianna-a2",
    "u-dd-orianna-a3",
    "u-dd-orianna-e1",
@@ -2808,6 +2824,8 @@
    "u-dd-rakan-e3",
    "u-dd-rammus-a1",
    "u-dd-rammus-a2",
+   "u-dd-rammus-e1",
+   "u-dd-rammus-e2",
    "u-dd-reksai-a1",
    "u-dd-reksai-a2",
    "u-dd-reksai-a3",
@@ -2836,6 +2854,7 @@
    "u-dd-rumble-e1",
    "u-dd-rumble-e2",
    "u-dd-rumble-e3",
+   "u-dd-ryze-a1",
    "u-dd-ryze-a2",
    "u-dd-ryze-a3",
    "u-dd-ryze-e1",
@@ -2869,6 +2888,7 @@
    "u-dd-singed-e1",
    "u-dd-singed-e2",
    "u-dd-singed-e3",
+   "u-dd-sion-a1",
    "u-dd-sion-a2",
    "u-dd-sion-a3",
    "u-dd-sion-e1",
@@ -2925,8 +2945,10 @@
    "u-dd-tahmkench-a2",
    "u-dd-tahmkench-e1",
    "u-dd-tahmkench-e2",
+   "u-dd-taliyah-a1",
    "u-dd-taliyah-a2",
    "u-dd-taliyah-a3",
+   "u-dd-taliyah-e1",
    "u-dd-taliyah-e2",
    "u-dd-talon-a1",
    "u-dd-talon-a2",
@@ -2947,9 +2969,12 @@
    "u-dd-thresh-a2",
    "u-dd-thresh-a3",
    "u-dd-thresh-e1",
+   "u-dd-thresh-e2",
    "u-dd-thresh-e3",
    "u-dd-tristana-a1",
    "u-dd-tristana-a2",
+   "u-dd-tristana-a3",
+   "u-dd-tristana-e1",
    "u-dd-tristana-e2",
    "u-dd-trundle-a1",
    "u-dd-trundle-a2",
@@ -2964,6 +2989,7 @@
    "u-dd-tryndamere-e3",
    "u-dd-twistedfate-a1",
    "u-dd-twistedfate-a2",
+   "u-dd-twistedfate-a3",
    "u-dd-twistedfate-e1",
    "u-dd-twistedfate-e2",
    "u-dd-twitch-a1",
@@ -2982,6 +3008,9 @@
    "u-dd-urgot-e1",
    "u-dd-urgot-e2",
    "u-dd-urgot-e3",
+   "u-dd-varus-a1",
+   "u-dd-varus-a2",
+   "u-dd-varus-a3",
    "u-dd-varus-e1",
    "u-dd-varus-e2",
    "u-dd-varus-e3",
@@ -2996,6 +3025,7 @@
    "u-dd-veigar-e1",
    "u-dd-veigar-e2",
    "u-dd-veigar-e3",
+   "u-dd-velkoz-a1",
    "u-dd-velkoz-a2",
    "u-dd-velkoz-a3",
    "u-dd-velkoz-e1",
@@ -3037,8 +3067,11 @@
    "u-dd-xinzhao-a1",
    "u-dd-xinzhao-a2",
    "u-dd-xinzhao-e1",
+   "u-dd-xinzhao-e2",
    "u-dd-yasuo-a1",
+   "u-dd-yasuo-a2",
    "u-dd-yasuo-a3",
+   "u-dd-yasuo-e1",
    "u-dd-yasuo-e2",
    "u-dd-yasuo-e3",
    "u-dd-yasuo-e4",
@@ -3138,9 +3171,7 @@
    "u-ai-yt-r10CTY-1VR4-1",
    "u-ai-yt-r10CTY-1VR4-2",
    "u-ai-yt-r10CTY-1VR4-4",
-   "u-ai-yt-Sbt6imQbTSs-1",
    "u-ai-yt-Sbt6imQbTSs-2",
-   "u-ai-yt-Sbt6imQbTSs-3",
    "u-ai-yt-V2_UctNAB4w-1",
    "u-ai-yt--I7iBIabOok-1",
    "u-ai-yt-YJtOWRVdwyc-1",
@@ -41024,17 +41055,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Caitlyn/Q modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-caitlyn-e2",
@@ -41780,17 +41805,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Corki/R modifié au patch 26.22, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-corki-e2",
@@ -41865,17 +41884,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Darius/Q modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-darius-a2",
@@ -49373,17 +49386,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Kayle/R modifié au patch 26.22, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-kayle-a2",
@@ -49497,17 +49504,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Kayle/R modifié au patch 26.22, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-kayle-e2",
@@ -51479,17 +51480,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Lee Sin/R modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-leesin-a2",
@@ -51603,17 +51598,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Lee Sin/R modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-leesin-e2",
@@ -55873,17 +55862,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Nunu et Willump/R modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-nunu-a3",
@@ -55918,17 +55901,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Nunu et Willump/R modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-nunu-e1",
@@ -55964,17 +55941,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Nunu et Willump/R modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-nunu-e2",
@@ -56010,17 +55981,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Nunu et Willump/R modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-nunu-e3",
@@ -56293,17 +56258,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Orianna/Q modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-orianna-a2",
@@ -58034,10 +57993,10 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "retire",
    "lifespan": "meta",
    "review": {
-    "human": "en attente"
+    "human": "retirée"
    },
    "flags": [
     {
@@ -58080,17 +58039,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Rammus/W modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-rammus-e2",
@@ -58126,17 +58079,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Rammus/W modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-reksai-a1",
@@ -59277,17 +59224,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Ryze/Q modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-ryze-a2",
@@ -60625,17 +60566,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Sion/R modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-sion-a2",
@@ -62881,17 +62816,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Taliyah/E modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-taliyah-a2",
@@ -63005,17 +62934,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Taliyah/E modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-taliyah-e2",
@@ -63840,17 +63763,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Thresh/R modifié au patch 26.22, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-thresh-e3",
@@ -64003,17 +63920,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Tristana/Q modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-tristana-e1",
@@ -64049,17 +63960,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Tristana/Q modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-tristana-e2",
@@ -64646,17 +64551,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Twisted Fate/general modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-twistedfate-e1",
@@ -65403,17 +65302,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Varus/W modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-varus-a2",
@@ -65448,17 +65341,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Varus/Q modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-varus-a3",
@@ -65493,17 +65380,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Varus/Q modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-varus-e1",
@@ -66092,17 +65973,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Vel'Koz/passive modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-velkoz-a2",
@@ -67758,17 +67633,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Xin Zhao/Q modifié au patch 26.21, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-yasuo-a1",
@@ -67842,17 +67711,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Yasuo/Q modifié au patch 26.22, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-yasuo-a3",
@@ -67927,17 +67790,11 @@
    "levelContext": "non-precise",
    "usage": "reference",
    "analyzedAt": "2026-10-21",
-   "status": "a-revalider",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "patch-incompatible",
-     "why": "Yasuo/Q modifié au patch 26.22, après 26.20."
-    }
-   ]
+   }
   },
   {
    "id": "u-dd-yasuo-e2",
@@ -72626,11 +72483,11 @@
    "mentions": [
     "Taliyah (exemple)"
    ],
-   "action": "Lance tes ganks et tes incursions uniquement lorsque tu es dans ton 'dead time' après avoir vidé ta jungle.",
+   "action": "Lance de préférence tes ganks et tes incursions pendant ton temps mort, une fois ta jungle vidée.",
    "observe": "L'état de réapparition de tes camps de jungle sur la mini-carte.",
    "use": {
     "when": "Tu viens d'achever le nettoyage complet de tes camps de jungle et tu attends qu'ils réapparaissent.",
-    "why": "Tenter des actions en dehors de ce dead time te fait perdre de l'or et de l'expérience précieux en abandonnant tes camps réapparus.",
+    "why": "Une action tentée pendant ce dead time est beaucoup moins risquée : si elle échoue, tu n'as abandonné aucun camp.",
     "who": "Joueurs jouant le rôle de jungler",
     "how": [
      "Vide l'ensemble de tes camps de jungle pour déclencher ton temps mort.",
@@ -72640,7 +72497,7 @@
    },
    "published": null,
    "analyzedAt": "2026-10-26",
-   "status": "provisoire",
+   "status": "exploitable",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
@@ -72649,10 +72506,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
     }
    ]
   },
@@ -78127,13 +77980,12 @@
     "who": "Mids.",
     "how": [
      "Regarde où est ta wave avant de partir.",
-     "Si elle est sous ta tourelle, farme-la d'abord.",
-     "Roame seulement quand elle repart vers l'adversaire."
+     "Si elle est complètement poussée sous ta tourelle, reste la farmer plutôt que de roamer."
     ],
     "notWhen": ""
    },
    "analyzedAt": "2026-10-26",
-   "status": "provisoire",
+   "status": "exploitable",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
@@ -78142,10 +77994,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
     }
    ]
   },
@@ -78345,7 +78193,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon ISO (Dignitas) : avant de roam, regarde la lane visée avec ta caméra, pas seulement sur la minimap : si ton bot lane prépare un dive, écrase vite ta wave en mid et descends.",
+   "claim": "Selon ISO (Dignitas) : avant de roam, regarde la lane visée en y déplaçant ta caméra, en plus de la minimap : si ton bot lane prépare un dive, écrase vite ta wave en mid et descends.",
    "roles": [
     "mid"
    ],
@@ -78380,7 +78228,7 @@
     "notWhen": ""
    },
    "analyzedAt": "2026-10-26",
-   "status": "provisoire",
+   "status": "exploitable",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
@@ -78389,10 +78237,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
     }
    ]
   },
@@ -79910,7 +79754,7 @@
    "nature": "opinion",
    "levelContext": "non-precise",
    "usage": "reference",
-   "claim": "Selon bagelsen314 (Dignitas) : les wards qui regardent seulement l'entrée de ta lane depuis la rivière ou la jungle sont trop utilisées ; elles préviennent souvent trop tard. Utilise-les quand une ward plus profonde est trop dangereuse, pas à chaque fois.",
+   "claim": "Selon bagelsen314 (Dignitas) : les wards peu profondes, qui regardent l'entrée de ta lane depuis la rivière ou la jungle, sont trop utilisées ; elles préviennent en général trop tard. Utilise-les parfois, quand une ward plus profonde est trop dangereuse, mais pas par habitude.",
    "roles": [
     "top",
     "mid",
@@ -79942,13 +79786,12 @@
     "who": "Laners et supports.",
     "how": [
      "Préfère une ward un peu plus profonde dans la rivière ou la jungle.",
-     "Garde la ward d'entrée de lane pour quand tu ne peux pas avancer sans danger.",
-     "Change d'emplacement d'une ward à l'autre."
+     "Garde la ward d'entrée de lane pour quand tu ne peux pas avancer sans danger."
     ],
     "notWhen": ""
    },
    "analyzedAt": "2026-10-26",
-   "status": "provisoire",
+   "status": "exploitable",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
@@ -79957,10 +79800,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
     }
    ]
   },
@@ -82166,7 +82005,7 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "provisoire",
+   "status": "a-revalider",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
@@ -82175,6 +82014,10 @@
     {
      "code": "verification-legere",
      "why": "c-yt-Sbt6imQbTSs : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-Sbt6imQbTSs : « So there are two main forces that influence wave states: siz… »"
     },
     {
      "code": "source-unique",
@@ -82315,7 +82158,7 @@
    },
    "published": null,
    "analyzedAt": "2026-10-28",
-   "status": "provisoire",
+   "status": "a-revalider",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
@@ -82324,6 +82167,10 @@
     {
      "code": "verification-legere",
      "why": "c-yt-Sbt6imQbTSs : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-Sbt6imQbTSs : « And by slow pushing, we're actually going to generate a mini… »"
     },
     {
      "code": "source-unique",
@@ -83452,7 +83299,7 @@
   },
   {
    "id": "u-ai-yt-IaWNQu9peB8-2",
-   "claim": "Selon Veigar v2 : erreur fréquente sur Ekko : s'avancer trop près pour que le A touche immédiatement le sbire. Il faut viser sur le côté et exploiter l'extension maximale du sort pour sécuriser les sbires à distance sans s'exposer.",
+   "claim": "Selon Veigar v2 : erreur relevée chez son élève sur Ekko : se placer tout près du sbire pour que le A le touche tout de suite. Le A continue sa course après l'impact : tu peux le lancer de plus loin, sur le côté, ce qui sert dans les matchups où tu ne peux pas t'approcher pour farmer.",
    "champions": [
     "Ekko"
    ],
@@ -83506,22 +83353,21 @@
    "mentions": [
     "Cassiopeia (exemple)"
    ],
-   "action": "Lance le A d'Ekko depuis une position reculée et décalée sur le côté pour sécuriser le sbire avec l'extension finale du sort.",
+   "action": "Lance le A d'Ekko de plus loin et sur le côté pour prendre le sbire sans t'approcher.",
    "observe": "Vérifie que les autres sbires ennemis ne sont pas touchés par le projectile afin d'éviter de pousser la vague.",
    "use": {
-    "when": "Sur la lane au niveau 1 ou 2 avec Ekko, quand tu dois sécuriser un sbire précis sans faire pousser la wave vers la tourelle ennemie.",
-    "why": "Toucher tous les sbires pousse la wave vers l'adversaire et te force à t'exposer, alors que lancer le sort à distance maximale sur le flanc permet de farmer sans s'exposer au poke ennemi.",
-    "who": "Joueur d'Ekko sur la mid lane, en particulier face à des champions à distance avec une forte pression.",
+    "when": "Sur la lane avec Ekko, quand tu dois prendre un sbire sans pouvoir t'approcher de la wave.",
+    "why": "Le A continue sa course après avoir touché : tu peux prendre le sbire de plus loin, ce qui compte dans les matchups où tu ne peux pas t'approcher pour farmer.",
+    "who": "Joueur d'Ekko, surtout dans les matchups où il ne peut pas s'approcher de la wave.",
     "how": [
-     "Reste en retrait à distance maximale sans t'aligner directement au contact du sbire.",
-     "Oriente ton A (Rétro-rembobinage) vers le flanc extérieur de la wave pour n'accrocher que le sbire voulu.",
-     "Laisse le projectile voyager jusqu'à son extension maximale pour sécuriser le coup de grâce à distance."
+     "Entraîne-toi à lancer ton A sur le côté.",
+     "Reste plus loin du sbire : le A continue sa course et l'atteint quand même."
     ],
     "notWhen": ""
    },
    "published": null,
    "analyzedAt": "2026-10-29",
-   "status": "provisoire",
+   "status": "exploitable",
    "lifespan": "meta",
    "nuance": "Conseil de date inconnue (patch 13.22) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
    "review": {
@@ -83531,10 +83377,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Contrôle critique : Le coach insiste sur la portée maximale et le lancer décalé pour farmer à distance sans s'exposer au poke, sans mentionner l'évitement du push involontaire de la vague."
     }
    ]
   },
@@ -83885,7 +83727,7 @@
   },
   {
    "id": "u-ai-yt-z4jG-L-H9ms-5",
-   "claim": "Selon DovahNDo : erreur fréquente : splitpusher seul en tant qu'ADC. L'auteur conseille de toujours rester entouré d'alliés pour éviter les assassins.",
+   "claim": "Selon DovahNDo : erreur fréquente : splitpusher seul en tant qu'ADC. L'auteur conseille de rester entouré d'alliés, au moins de ton support, ou placé derrière quelqu'un : sinon l'assassin adverse t'atteint et te tue.",
    "champions": [],
    "roles": [
     "bottom"
@@ -83934,19 +83776,19 @@
    "action": "Rester groupé avec ton support ou ton équipe.",
    "observe": "",
    "use": {
-    "when": "En milieu ou fin de partie, quand les waves sont loin des tours alliées.",
-    "why": "Un ADC seul est une cible facile pour n'importe quel assassin et ne peut pas se défendre seul.",
+    "when": "Quand tu es tenté de partir pousser une lane seul avec ton ADC.",
+    "why": "Seul, l'assassin adverse t'atteint et te tue.",
     "who": "ADC (rôle bottom)",
     "how": [
-     "Ne jamais dépasser la moitié de la carte seul",
-     "Attendre qu'un allié (support ou tank) t'accompagne pour push",
-     "Rester en retrait derrière la lane de front"
+     "Ne pars pas splitpusher seul.",
+     "Reste près d'au moins un allié, ton support par exemple.",
+     "Sinon, place-toi derrière quelqu'un."
     ],
     "notWhen": ""
    },
    "published": null,
    "analyzedAt": "2026-10-29",
-   "status": "provisoire",
+   "status": "exploitable",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
@@ -83955,10 +83797,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
     }
    ]
   },
@@ -89615,7 +89453,7 @@
   },
   {
    "id": "u-ai-yt-wJ9HxFdoY_g-5",
-   "claim": "Selon ScrubNoob : les joueurs de Rengar (notamment sous le rang Diamant) ont tendance à sous-exploiter le split-push ; lorsqu'un regroupement ennemi ne peut pas être défendu en 5v5, pousser une side lane permet de créer une contre-pression efficace.",
+   "claim": "Selon ScrubNoob : beaucoup de joueurs de Rengar, surtout sous le Diamant, ne split-pushent pas assez, voire pas du tout ; c'est l'un des points où ils peuvent le plus progresser. Exemple dans sa partie : son équipe ne peut pas arrêter la pression sur la tourelle du mid en se regroupant, alors il pousse une lane latérale pour attirer les adversaires vers lui.",
    "champions": [
     "Rengar"
    ],
@@ -89668,16 +89506,15 @@
    "mentions": [
     "Fiora (exemple)"
    ],
-   "action": "Pousser une voie latérale seul avec Rengar au lieu de rejoindre un regroupement défavorable au mid",
+   "action": "Avec Rengar, pense au split-push : pousse une lane latérale quand ton équipe ne peut pas arrêter les adversaires en se regroupant.",
    "observe": "Un ou plusieurs adversaires se détachent du siège mid pour venir défendre leur tourelle latérale.",
    "use": {
-    "when": "Quand l'équipe ennemie assiège une tour en groupe et que le combat direct à 5 contre 5 est impossible à défendre.",
-    "why": "Split-pusher attire des adversaires vers soi et soulage la pression sur les tours principales tout en punissant les regroupements ennemis.",
-    "who": "Joueurs de Rengar jungle, en particulier sous le rang Diamant où cette stratégie est sous-exploitée.",
+    "when": "Exemple donné par l'auteur : l'équipe adverse met la pression sur ta tourelle du mid et ton équipe ne peut pas l'arrêter en se regroupant.",
+    "why": "Pousser une autre lane crée une contre-pression et attire des adversaires vers toi.",
+    "who": "Joueurs de Rengar, surtout sous le Diamant.",
     "how": [
-     "Constater que le 5v5 groupé sous la tourelle est intenable",
-     "Partir pousser une side lane opposée pour attaquer les structures ennemies",
-     "Forcer l'adversaire à scinder son groupe pour venir défendre"
+     "Si le regroupement ne peut pas arrêter les adversaires, pars pousser une lane latérale.",
+     "Cherche à les attirer vers toi pour relâcher la pression sur ta tourelle."
     ],
     "notWhen": ""
    },
@@ -89692,10 +89529,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Contrôle critique : La situation s'appuie sur une action issue d'une seule partie (Fiora au mid), alors que le propos général de ScrubNoob cible spécifiquement la tendance des joueurs de Rengar sous Diamant à négliger le split-push."
     }
    ]
   },
@@ -89981,7 +89814,7 @@
   },
   {
    "id": "u-ai-yt--J8fOgYCRbI-6",
-   "claim": "Selon Coach Violet : si le jungler ennemi effectue un 3-camp du côté bot en début de partie, signaler à ses coéquipiers qu'il se dirige vraisemblablement vers le haut de la carte.",
+   "claim": "Selon Coach Violet : dans sa partie, le Lee Sin adverse a fait 3 camps côté bot ; il en déduit qu'il part très probablement vers le haut de la carte, et il ping ses coéquipiers pour les prévenir.",
    "champions": [],
    "roles": [
     "bottom",
@@ -90026,15 +89859,15 @@
    "mentions": [
     "Lee Sin (exemple)"
    ],
-   "action": "Avertir par des pings les coéquipiers des voies solo que le jungler ennemi se dirige vers le haut.",
+   "action": "Quand tu vois le jungler adverse faire 3 camps côté bot, ping tes coéquipiers : il part probablement vers le haut.",
    "observe": "Le mouvement du jungler ennemi qui quitte le bas de la carte après son 3-camp.",
    "use": {
-    "when": "En début de partie après avoir repéré l'intervention initiale du jungler au bot.",
-    "why": "Après avoir vidé ses camps du bas, la suite logique de sa rotation de jungle se situe sur ses camps du haut.",
-    "who": "Tous les joueurs de la partie.",
+    "when": "En début de partie, quand tu as vu le jungler adverse faire 3 camps côté bot.",
+    "why": "D'après l'auteur, un jungler qui a fait 3 camps côté bot part très probablement vers le haut de la carte.",
+    "who": "Le joueur qui a vu le jungler adverse côté bot.",
     "how": [
-     "Identifier que le jungler ennemi a fait 3 camps au bot.",
-     "Transmettre l'information de sa trajectoire vers la partie supérieure de la carte."
+     "Repère que le jungler adverse a fait 3 camps côté bot.",
+     "Ping tes coéquipiers pour leur dire qu'il part probablement vers le haut."
     ],
     "notWhen": ""
    },
@@ -90049,10 +89882,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Contrôle critique : L'auteur commente une action ponctuelle de sa partie avec Lee Sin, transformer cette lecture de jeu instantanée en règle absolue est une sur-généralisation."
     }
    ]
   },
@@ -93383,22 +93212,21 @@
     }
    ],
    "mentions": [],
-   "action": "Recule toujours hors de vue avant de lancer ton rappel.",
+   "action": "Recule hors de vue avant de lancer ton rappel.",
    "observe": "",
    "use": {
     "when": "Tu décides de back après une action ou une wave poussée.",
-    "why": "Si l'ennemi te voit recall, il sait exactement combien de temps il a pour jouer agressivement ou push sans craindre ton intervention.",
-    "who": "Tous les joueurs, particulièrement les supports",
+    "why": "Rappeler à la vue de l'adversaire lui donne l'information que tu pars.",
+    "who": "Supports.",
     "how": [
-     "Éloigne-toi de la zone de vision des sbires ou des champions ennemis",
-     "Trouve un buisson non balisé ou recule derrière un mur",
-     "Lance ton back"
+     "Ne lance pas ton back devant la tourelle, à la vue de l'adversaire.",
+     "Recule dans le brouillard de guerre, puis lance ton back."
     ],
     "notWhen": ""
    },
    "published": null,
    "analyzedAt": "2026-11-02",
-   "status": "provisoire",
+   "status": "exploitable",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
@@ -93407,10 +93235,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
     }
    ]
   },
@@ -95194,22 +95018,22 @@
     }
    ],
    "mentions": [],
-   "action": "Définis un créneau régulier, limite-toi à 2 ou 3 parties et choisis un seul objectif d'apprentissage par session.",
+   "action": "Définis un créneau régulier, joue 2 à 5 parties selon ton temps et choisis une seule compétence à travailler par session.",
    "observe": "Ton focus et ta capacité à analyser la même erreur répétée au fil des parties.",
    "use": {
     "when": "Tu lances ton jeu avec un emploi du temps chargé et tu souhaites rentabiliser ton temps de session.",
     "why": "Pour éviter de te disperser et de te laisser submerger par la complexité du jeu, ce qui permet de repérer et corriger les erreurs plus facilement.",
     "who": "Joueurs disposant de peu de temps libre pour jouer.",
     "how": [
-     "Choisis un nombre fixe de parties par jour ou par semaine.",
-     "Sélectionne un unique point technique à perfectionner (comme l'utilisation d'une compétence ou la gestion des backs).",
-     "Passe 5 à 10 minutes après tes parties à analyser uniquement cet objectif."
+     "Joue 2 à 5 parties sur ton créneau, selon le temps que tu as.",
+     "Joue avec une compétence précise à améliorer en tête.",
+     "Revois cette compétence après ta session, ou avant la suivante."
     ],
     "notWhen": ""
    },
    "published": "2026-10-25",
    "analyzedAt": "2026-11-03",
-   "status": "provisoire",
+   "status": "exploitable",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
@@ -95218,10 +95042,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
     }
    ]
   },
@@ -95416,7 +95236,7 @@
   },
   {
    "id": "u-ai-wtl-3921-1",
-   "claim": "Selon We Teach League : pour progresser efficacement dans League of Legends, il ne faut pas se focaliser uniquement sur l'objectif de rang final, mais viser à acquérir les compétences réelles d'un joueur de ce rang en fixant des objectifs d'apprentissage précis.",
+   "claim": "Selon We Teach League : « vise d'être un joueur du rang, pas le rang ». Plutôt que de viser le résultat (« je veux être Émeraude »), vise les compétences à développer pour y arriver (« je veux avoir les compétences d'un joueur Émeraude »).",
    "champions": [],
    "roles": [
     "all"
@@ -95452,22 +95272,21 @@
     }
    ],
    "mentions": [],
-   "action": "Définir une compétence spécifique d'un rang supérieur à travailler au lieu de regarder uniquement les LP.",
+   "action": "Choisis une compétence d'un joueur du rang visé à travailler, plutôt que de te fixer sur le rang lui-même.",
    "observe": "Suivre l'amélioration de la compétence ciblée plutôt que le gain de LP.",
    "use": {
     "when": "Quand tu planifies ta session de progression et que tu fixes tes objectifs de la semaine.",
     "why": "Transformer un objectif abstrait en compétences mesurables et décomposables.",
     "who": "Tous les joueurs cherchant à progresser en ranked",
     "how": [
-     "Identifier une lacune par rapport aux joueurs du rang visé.",
-     "Traduire cette lacune en un objectif d'apprentissage précis.",
-     "Travailler cet objectif unique pendant plusieurs parties consécutives."
+     "Demande-toi quelles compétences a un joueur du rang que tu vises.",
+     "Choisis-en une et fais-en ton objectif de travail."
     ],
     "notWhen": ""
    },
    "published": "2026-10-15",
    "analyzedAt": "2026-11-03",
-   "status": "provisoire",
+   "status": "exploitable",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
@@ -95476,10 +95295,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
     }
    ]
   },
@@ -96359,7 +96174,7 @@
    },
    "published": "2025-11-10",
    "analyzedAt": "2026-11-03",
-   "status": "provisoire",
+   "status": "a-revalider",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
@@ -96380,6 +96195,10 @@
     {
      "code": "contenu-ancien",
      "why": "c-yt-S3F9CpeiSNE publié le 2025-11-10 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-S3F9CpeiSNE : « as it hits on the initial stab, and again on the drag for do… »"
     }
    ]
   },
@@ -96612,7 +96431,7 @@
    },
    "published": "2025-11-10",
    "analyzedAt": "2026-11-03",
-   "status": "provisoire",
+   "status": "a-revalider",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
@@ -96633,6 +96452,10 @@
     {
      "code": "contenu-ancien",
      "why": "c-yt-S3F9CpeiSNE publié le 2025-11-10 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "citation-introuvable",
+     "why": "Passage introuvable dans c-yt-S3F9CpeiSNE : « and the next time he would die, he instead revives after a f… »"
     }
    ]
   },
@@ -98277,17 +98100,18 @@
    },
    "published": "2023-08-30",
    "analyzedAt": "2026-11-03",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Cri sanglant (E) : « Briar récupère ses esprits, se libère de la Folie sanguinaire »."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-riot-champion-insights-briar-3",
@@ -98338,17 +98162,18 @@
    },
    "published": "2023-08-30",
    "analyzedAt": "2026-11-03",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Vol mortel (R) : projectile lancé à travers la carte ; Briar vole jusqu'au premier champion ennemi touché."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-briar publié le 2023-08-30 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
+   }
   },
   {
    "id": "u-auto-smolder-26-22",
@@ -98959,7 +98784,7 @@
   },
   {
    "id": "u-ai-yt-cgg5XDj4H5k-1",
-   "claim": "Selon RamyAura : pour esquiver le W (Balayage tactique) de Camille en tant que Teemo, utilise les buissons de la lane pour masquer ta position réelle et l'inciter à lancer son sort hors de portée.",
+   "claim": "Selon RamyAura : en Teemo face à Camille, entrer dans le buisson lui fait croire que tu vas être à portée ; c'est ce qui lui a permis d'esquiver son W (Balayage tactique).",
    "champions": [],
    "roles": [
     "top"
@@ -99003,22 +98828,21 @@
     }
    ],
    "mentions": [],
-   "action": "Entrer et sortir des buissons pour perturber la prise de décision de Camille sur son W.",
+   "action": "Entre dans le buisson pour pousser Camille à lancer son W hors de portée.",
    "observe": "Observe si Camille commence son animation de W dès que tu sembles t'approcher.",
    "use": {
     "when": "Camille cherche à te poke avec son W pendant que tu tentes de farmer.",
-    "why": "En perdant la vision sur toi, Camille a plus de mal à ajuster la zone d'effet de son balayage, ce qui facilite l'esquive.",
-    "who": "Tout champion à distance affrontant Camille au Top.",
+    "why": "Elle croit que tu vas être à portée et lance son sort pour rien.",
+    "who": "Teemo face à Camille en top (l'auteur parle de sa propre partie).",
     "how": [
-     "Avancer vers Camille comme pour l'attaquer",
-     "Entrer immédiatement dans un buisson non balisé",
-     "Reculer ou changer de direction pendant qu'elle lance son sort"
+     "Entre dans le buisson pour lui faire croire que tu vas être à portée.",
+     "Laisse-la lancer son W, puis ressors."
     ],
     "notWhen": ""
    },
    "published": null,
    "analyzedAt": "2026-11-06",
-   "status": "provisoire",
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
@@ -99027,10 +98851,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Contrôle critique : L'auteur parle de son action en tant que Teemo ; étendre le 'pour_qui' à tous les champions à distance est une extrapolation non présente dans la source."
     }
    ]
   },
@@ -100385,25 +100205,22 @@
    },
    "published": "2022-06-22",
    "analyzedAt": "2026-11-07",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Joie éternelle (passif) : plus d'expérience en tuant des sbires ; renforce et partage les soins et boucliers des alliés proches."
+   },
+   "translation": {
+    "term": "shield",
+    "note": "« shield » rendu par « bouclier », le terme du jeu en français (glossaire)."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-nilah publié le 2022-06-22 : à confirmer sur le kit et la méta actuels."
-    },
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-nilah publié le 2022-06-22 : à confirmer sur le kit et la méta actuels."
-    },
-    {
-     "code": "traduction",
-     "why": "Terme à risque (shield) dans un passage en en sans note de traduction."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-riot-champion-insights-bel-veth-1",
@@ -100458,17 +100275,18 @@
    },
    "published": "2022-06-08",
    "analyzedAt": "2026-11-07",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Mer de lavande (passif) : bonus cumulables et définitifs en vitesse d'attaque après avoir tué des grands monstres et des champions."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-bel-veth publié le 2022-06-08 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-riot-champion-insights-bel-veth-2",
@@ -101493,21 +101311,22 @@
    },
    "published": "2022-02-17",
    "analyzedAt": "2026-11-07",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Patronage (Z) : retarde la mort d'un champion allié, qui survit s'il participe à une élimination."
+   },
+   "translation": {
+    "term": "shield",
+    "note": "« shield » rendu par « bouclier », le terme du jeu en français (glossaire)."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-renata-glasc publié le 2022-02-17 : à confirmer sur le kit et la méta actuels."
-    },
-    {
-     "code": "traduction",
-     "why": "Terme à risque (shield) dans un passage en en sans note de traduction."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-riot-champion-insights-vex-1",
@@ -101564,17 +101383,18 @@
    },
    "published": "2021-09-07",
    "analyzedAt": "2026-11-07",
-   "status": "a-revalider",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Malheur et Désespoir (passif) : un ennemi proche qui fait une ruée est marqué ; consommer la marque inflige des dégâts supplémentaires et réduit le délai du renforcement."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-vex publié le 2021-09-07 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-riot-champion-insights-vex-2",
@@ -101628,17 +101448,18 @@
    },
    "published": "2021-09-07",
    "analyzedAt": "2026-11-07",
-   "status": "a-revalider",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Malheur et Désespoir (passif) : la prochaine compétence de base de Vex effraie les ennemis et interrompt les ruées."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-vex publié le 2021-09-07 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-riot-champion-insights-vex-3",
@@ -101899,17 +101720,18 @@
    },
    "published": "2021-01-21",
    "analyzedAt": "2026-11-07",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Assujettissement (passif) : Viego prend le contrôle du corps de l'ennemi mort et accède à ses compétences de base."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-viego publié le 2021-01-21 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-riot-champion-insights-viego-3",
@@ -101964,17 +101786,18 @@
    },
    "published": "2021-01-21",
    "analyzedAt": "2026-11-07",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Chemin tourmenté (E) : la Brume noire hante un élément de terrain ; Viego y est camouflé et plus rapide."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-viego publié le 2021-01-21 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-riot-champion-insights-viego-4",
@@ -102424,21 +102247,22 @@
    },
    "published": "2022-01-14",
    "analyzedAt": "2026-11-08",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Rafale (A) : « Cette compétence est traitée comme une attaque »."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-zeri publié le 2022-01-14 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-riot-champion-insights-zeri-2",
-   "claim": "Zeri peut se déplacer le long des murs en les longeant et sa compétence W traverse les murs en s'étendant pour toucher les ennemis de l'autre côté.",
+   "claim": "Zeri franchit les murs avec sa Charge ionique (E) : elle bondit par-dessus les obstacles qu'elle touche. Son Laser électrocuteur (W), s'il touche un mur, le traverse et atteint les ennemis de l'autre côté.",
    "champions": [
     "Zeri"
    ],
@@ -102486,28 +102310,25 @@
     "why": "Pour simuler une mécanique de tir à travers les murs inspirée des jeux de tir tactiques.",
     "who": "Zeri",
     "how": [
-     "Utilise le déplacement de Zeri pour longer ou franchir un mur",
-     "Lance le sort W en direction d'un mur pour que le projectile s'étende de l'autre côté"
+     "Utilise ta Charge ionique (E) contre un mur pour le franchir.",
+     "Lance ton W en direction d'un mur pour qu'il le traverse et touche les ennemis de l'autre côté."
     ],
     "notWhen": ""
    },
    "published": "2022-01-14",
    "analyzedAt": "2026-11-08",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Laser électrocuteur (Z) : devient un laser à longue portée s'il touche un mur. Charge ionique (E) : Zeri bondit par-dessus les obstacles qu'elle touche."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-zeri publié le 2022-01-14 : à confirmer sur le kit et la méta actuels."
-    },
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-zeri publié le 2022-01-14 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-yt-SNVJaaBuDAg-1",
@@ -103322,21 +103143,18 @@
    },
    "published": "2020-10-12",
    "analyzedAt": "2026-11-08",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Bis (R) : charme les ennemis touchés ; « la portée est étendue à chaque champion allié ou ennemi touché »."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-seraphine publié le 2020-10-12 : à confirmer sur le kit et la méta actuels."
-    },
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-seraphine publié le 2020-10-12 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-riot-champion-insights-seraphine-2",
@@ -103391,21 +103209,22 @@
    },
    "published": "2020-10-12",
    "analyzedAt": "2026-11-08",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Son ambiophonique (Z) : hâte et bouclier aux alliés proches ; si Séraphine a déjà un bouclier, elle soigne aussi les alliés proches."
+   },
+   "translation": {
+    "term": "shield",
+    "note": "« shield » rendu par « bouclier », le terme du jeu en français (glossaire)."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-seraphine publié le 2020-10-12 : à confirmer sur le kit et la méta actuels."
-    },
-    {
-     "code": "traduction",
-     "why": "Terme à risque (shield) dans un passage en en sans note de traduction."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-yt-Tjssqv8-spQ-1",
@@ -103718,17 +103537,18 @@
    },
    "published": "2020-07-07",
    "analyzedAt": "2026-11-08",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Douce berceuse (R) : endort les ennemis affectés par Poussière de rêve, appliquée par ses compétences."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-lillia publié le 2020-07-07 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-riot-champion-insights-lillia-2",
@@ -103777,17 +103597,18 @@
    },
    "published": "2020-07-07",
    "analyzedAt": "2026-11-08",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Frappe fleurie (A) : bonus cumulables en vitesse de déplacement quand Lillia touche des ennemis avec ses compétences."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-lillia publié le 2020-07-07 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-riot-champion-insights-lillia-3",
@@ -103893,17 +103714,18 @@
    },
    "published": "2020-07-07",
    "analyzedAt": "2026-11-08",
-   "status": "provisoire",
+   "kitCheck": {
+    "result": "confirme",
+    "ddragon": "16.22.1",
+    "at": "2026-11-10",
+    "by": "Claude Code (relecture du 10/11/2026)",
+    "note": "Bâton chargé de rêves (passif) : dégâts sur la durée équivalents à un pourcentage des PV max."
+   },
+   "status": "exploitable",
    "lifespan": "meta",
    "review": {
     "human": "en attente"
-   },
-   "flags": [
-    {
-     "code": "contenu-ancien",
-     "why": "c-riot-champion-insights-lillia publié le 2020-07-07 : à confirmer sur le kit et la méta actuels."
-    }
-   ]
+   }
   },
   {
    "id": "u-ai-yt-tx6BJ7rbFoA-2",
@@ -104922,7 +104744,7 @@
   },
   {
    "id": "u-ai-yt--luYm1Bzw1k-4",
-   "claim": "Selon BIZYZE Coaching | League of Legends : quand le support adverse est éliminé et qu'un back n'apporte pas d'achat significatif, freeze la wave et placer le support dans le buisson permet de zoner le tireur ennemi isolé.",
+   "claim": "Selon BIZYZE Coaching : exemple tiré d'une partie analysée : la Nami adverse est morte et sera absente de la bot lane environ 35 secondes. L'ADC peut rester et freeze la wave pendant que Thresh se place dans le buisson pour zoner Ashe, qui perd alors au moins 4 à 5 sbires.",
    "champions": [],
    "roles": [
     "bottom"
@@ -104982,13 +104804,13 @@
    "action": "Geler la vague et laisser le support zoner le carry adverse en 2 contre 1 pendant l'absence du support ennemi.",
    "observe": "Le tireur adverse isolé perd l'accès à 4 à 5 sbires sans pouvoir contester.",
    "use": {
-    "when": "Le support adverse vient de mourir (environ 35 secondes avant son retour sur la bot lane) et tu disposes d'un montant d'or insuffisant pour un pic d'item (ex: 700 gold).",
-    "why": "Un back inutile gâche l'avantage numérique temporaire : freeze la wave permet de dénier au tireur adverse isolé plusieurs sbires grâce à la menace du buisson.",
-    "who": "Duo ADC et support disposant d'un contrôle de buisson.",
+    "when": "Le support adverse vient de mourir et sera absent de la bot lane une trentaine de secondes.",
+    "why": "Seul, l'ADC adverse ne peut pas approcher de la wave : dans l'exemple, il perd au moins 4 à 5 sbires.",
+    "who": "Duo ADC et support.",
     "how": [
-     "Garder la wave gelée au lieu de pousser ou d'utiliser un back.",
-     "Placer le support dans le buisson pour menacer l'ADC ennemi isolé.",
-     "Zoner le tireur adverse pour lui faire rater 4 à 5 sbires minimum."
+     "Gèle la wave au lieu de partir.",
+     "Le support se place dans le buisson.",
+     "Zonez l'ADC adverse tant que son support n'est pas revenu."
     ],
     "notWhen": ""
    },
@@ -105003,10 +104825,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Contrôle critique : La formulation 'erreur fréquente' n'est pas dans la citation et le conseil découle de l'analyse d'une action spécifique dans une seule partie."
     }
    ]
   },
@@ -105286,7 +105104,7 @@
   },
   {
    "id": "u-ai-yt-hUtJIvbgTIM-5",
-   "claim": "Selon We Teach League : simplifie ta lecture du jeu en considérant chaque champion adverse uniquement par son sort le plus dangereux (Lull State Priming).",
+   "claim": "Selon We Teach League : simplifie ta lecture du jeu : au lieu de voir 20 sorts dans l'équipe adverse, retiens pour chaque champion son sort principal (par exemple le E-Q de Jarvan IV).",
    "champions": [],
    "roles": [
     "all"
@@ -105327,22 +105145,21 @@
     "Syndra (exemple)",
     "Lux (exemple)"
    ],
-   "action": "Lister mentalement l'unique sort de menace principale pour chaque ennemi pendant les temps morts.",
+   "action": "Pendant les temps calmes, retiens le sort principal de chaque adversaire.",
    "observe": "",
    "use": {
     "when": "Pendant les phases de calme (lull states) ou les déplacements vers un objectif.",
-    "why": "Réduire 20 sorts potentiels à 5 menaces critiques permet de ne pas surcharger ton cerveau et de réagir plus vite.",
+    "why": "Tu as moins de variables à prendre en compte : 5 menaces au lieu de 20 sorts.",
     "who": "Tous les joueurs, particulièrement en teamfight.",
     "how": [
-     "Identifie le sort de contrôle ou de burst majeur de chaque adversaire (ex: le E-Q de Jarvan).",
-     "Ignore les sorts secondaires qui ne modifieront pas radicalement l'issue du combat.",
-     "Répète-toi ces menaces juste avant que le combat n'éclate."
+     "Repère le sort principal de chaque adversaire (par exemple le E-Q de Jarvan IV).",
+     "Réduis ainsi le nombre de choses à surveiller."
     ],
     "notWhen": ""
    },
    "published": null,
    "analyzedAt": "2026-11-10",
-   "status": "provisoire",
+   "status": "exploitable",
    "lifespan": "intemporel",
    "review": {
     "human": "en attente"
@@ -105351,10 +105168,6 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
-    },
-    {
-     "code": "sur-generalisation",
-     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
     }
    ]
   },

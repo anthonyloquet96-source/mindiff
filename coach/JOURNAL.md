@@ -2,6 +2,39 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-10 — chantier « lancement du test privé » : collecte 26.22, RGPD, guide, nouveaux conseils
+
+Validé par Anthony le 10/11 (« Oui », puis « cherche de nouvelles sources de nouveaux conseils »).
+
+- **Collecte Diamant+ sur le patch 26.22** (clé personnelle), lancée à 18 h 35 : `coach/timelines.mjs --dir coach/cache/timelines-perso --tiers DIAMOND,MASTER,GRANDMASTER,CHALLENGER --days 5 --max 11500`.
+  - Pourquoi : les fiches champions et les builds prennent le patch le plus joué de l'échantillon. Le cache avait 5 123 parties Diamant+ en 16.21 contre 2 022 en 16.22 ; le 26.22 a changé des objets (Arc de Doran, Armure sanguine).
+  - 3 500 parties de plus, environ 4 heures. **Pas encore terminée ni recalculée à l'heure où cette entrée est écrite.**
+  - **Texte déclaré à Riot à mettre à jour après la collecte** : l'app 897844 annonce « environ 8 000 parties, collectes ponctuelles entre le 27/10 et le 05/11 ». La série Top et ADC du 06/11 (2 400 parties) et cette collecte n'y sont pas. Attend l'accord d'Anthony pour recoller le texte sur le portail.
+- **RGPD** : brouillon `docs/RGPD.md` (registre des traitements, durées de conservation). Cinq points ouverts avant d'inviter :
+  - la page de confidentialité en ligne dit « ni compte, ni inscription » et « sur nos serveurs : rien », ce qui est faux pour un testeur ;
+  - « Supprimer mes données du coach » n'efface pas le compte (e-mail) ni la ligne de consentement, alors que les conditions disent « efface tout » ;
+  - aucune date de fin de test, alors que les conditions promettent l'effacement à la fin ;
+  - le contact passe par des tickets GitHub publics ;
+  - l'accord de traitement des données de Cloudflare reste à accepter.
+- **Lancement** : brouillon `docs/TEST-PRIVE.md` (points à régler avant l'envoi, qui inviter, message d'invitation, mini-guide, questions de retour, suivi).
+- **État du service vérifié** : la synchronisation automatique tourne ; l'alerte « dernière partie le 04/11 » vient de ce que le compte de test n'a joué aucune ranked depuis (0 partie classée depuis le 04/11 selon Riot).
+
+**Nouvelles sources de conseils.**
+
+- **Où les conseils manquaient** (comptés avec la même sélection que la carte d'objectif) : farm du jungler 3 conseils exploitables, expérience à 10 min 3 (jungle) et 3 (mid), farm entre 15 et 25 min de 1 à 4 selon le poste, sur une seule source. Les autres objectifs en ont de 10 à 17.
+- **Constat sur les sources** : 77 des 95 sources sont des chaînes YouTube, lues au rythme du quota gratuit de Gemini. Les sources écrites, que Claude lit sans quota, sont peu exploitées : 16 articles Dignitas, 3 du blog We Teach League (le blog n'en a que 3).
+- **Sept sites de guides écrits vérifiés le 10/11** (page lue avec notre collecteur, `robots.txt` lu) : tous accessibles et autorisés.
+  - Retenu : Dignitas (déjà suivi), pour ses articles où un joueur professionnel est interrogé.
+  - Pas ajoutés, faute d'auteur dont le niveau de jeu soit établi : wecoach.gg (en français, autrice journaliste, articles de 2023), blog.loltheory.gg, metabot.gg (guides signés par le fondateur du site), dodge.gg (« Dodge.gg Team »), estnn.com (journaliste). wombocombo.gg n'a pas de `robots.txt` lisible. Mobalytics reste bloqué pour notre collecteur.
+- **Lot du 10/11** (`coach/kb/batches/2026-11-10-claude-jungle-mid-pros.mjs`) : 13 conseils, 22 citations exactes, tous acceptés par le contrôle critique, tous exploitables.
+  - eXyu, jungler de LCS (2024), 7 conseils : mal faire ses camps est l'erreur numéro un, s'entraîner dans l'outil d'entraînement, le contrôle de la carte avant le gank, choisir ses lanes, ne pas se montrer, ne pas ganker une lane perdue, « le jungler est un investisseur ».
+  - Akaadian, jungler professionnel (2021), 2 conseils : la première route dépend du champion ; punir les erreurs même quand on farme.
+  - Blue, midlaner professionnel (2022), 4 conseils : le farm d'abord, la minimap après chaque sbire, partir en roam après avoir poussé, toujours ramener quelque chose d'un roam.
+  - Écartés : tout ce qui dépend d'un chiffre, d'un horaire ou d'un camp de la saison de l'article (routes de 2021, valeurs des sbires, horaires du carapateur et du Héraut). Deux articles lus puis écartés en entier : un de 2015, et un guide de 2021 fait surtout de chiffres.
+- **Couverture après le lot** : farm du jungler 3 → 9 ; expérience à 10 min en jungle 3 → 9, en mid 3 → 4 ; sbires à 10 min en mid 12 → 14. Base : 1 315 conseils, 940 exploitables. Tests 60/61.
+- **Limite constatée** : la carte d'objectif montre les 3 premiers conseils, triés par identifiant. Le joueur voit donc toujours les mêmes, et les nouveaux n'apparaissent presque jamais. Proposition : faire tourner les conseils d'un cycle à l'autre.
+- **Reste à couvrir** : le farm entre 15 et 25 min (aucune bonne source écrite trouvée le 10/11).
+
 ## 2026-11-10 — les trois « chantiers lourds » : état vérifié, documentation remise à jour
 
 Demandé par Anthony le 10/11 (point 3 d'une liste proposée par une autre session : sortir les données privées du Worker, écrire la documentation de référence, rouvrir les objectifs Top et ADC).

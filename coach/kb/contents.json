@@ -83142,6 +83142,123 @@
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    }
+  },
+  {
+   "sourceId": "dignitas-articles",
+   "type": "article",
+   "lang": "en",
+   "retrievedAt": "2026-11-10",
+   "patch": null,
+   "access": "texte-integral",
+   "analysis": "analysee",
+   "note": "Ajout ciblé : farm et décisions du jungler, farm et roams du mid (objectifs du coach les moins couverts le 10/11/2026).",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "jungle",
+     "mid"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (Claude Code) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   },
+   "analyzedAt": "2026-11-10",
+   "analyst": "Analyste LoL (Claude Code, session du 2026-11-10)",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "textSha256": "e85473827f1aeafb8343052541c055d0c0b625369a2848eb183ae59465bd34b8",
+   "context": {
+    "queue": "solo",
+    "rank": "pro (joueur interrogé)"
+   },
+   "id": "c-dignitas-jungler-mistakes-exyu",
+   "url": "https://dignitas.gg/articles/identifying-and-fixing-jungler-mistakes-with-dig-exyu",
+   "title": "Identifying and Fixing Jungler Mistakes with DIG eXyu",
+   "author": "Teatones (Dignitas), avec eXyu",
+   "published": "2024-05-11",
+   "learn": "Cinq erreurs de jungler selon eXyu : mal faire ses camps, trop ganker, se montrer sur la carte, ganker une lane perdue.",
+   "unitsAccepted": 7
+  },
+  {
+   "sourceId": "dignitas-articles",
+   "type": "article",
+   "lang": "en",
+   "retrievedAt": "2026-11-10",
+   "patch": null,
+   "access": "texte-integral",
+   "analysis": "analysee",
+   "note": "Ajout ciblé : farm et décisions du jungler, farm et roams du mid (objectifs du coach les moins couverts le 10/11/2026).",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "jungle",
+     "mid"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (Claude Code) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   },
+   "analyzedAt": "2026-11-10",
+   "analyst": "Analyste LoL (Claude Code, session du 2026-11-10)",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "textSha256": "307c29467a73366499637d9ad9373163c3f67fa626f04fc8dc65a7a12dc2565c",
+   "context": {
+    "queue": "solo",
+    "rank": "pro (joueur interrogé)"
+   },
+   "id": "c-dignitas-jungle-routes-akaadian",
+   "url": "https://dignitas.gg/articles/an-overview-of-jungle-routes-and-tips-with-akaadian-for-league-of-legends",
+   "title": "An Overview of Jungle Routes and Tips with Akaadian for League of Legends",
+   "author": "Teatones (Dignitas), avec Akaadian",
+   "published": "2021-09-22",
+   "learn": "Choisir sa première route selon son champion ; punir les erreurs même quand on farme. Les routes détaillées datent de 2021 et ne sont pas reprises.",
+   "unitsAccepted": 2
+  },
+  {
+   "sourceId": "dignitas-articles",
+   "type": "article",
+   "lang": "en",
+   "retrievedAt": "2026-11-10",
+   "patch": null,
+   "access": "texte-integral",
+   "analysis": "analysee",
+   "note": "Ajout ciblé : farm et décisions du jungler, farm et roams du mid (objectifs du coach les moins couverts le 10/11/2026).",
+   "triage": {
+    "score": 12,
+    "matched": [
+     "guide",
+     "jungle",
+     "mid"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "ajout ciblé (Claude Code) ; métadonnées seules : fixe une priorité, ne prouve pas le contenu"
+   },
+   "analyzedAt": "2026-11-10",
+   "analyst": "Analyste LoL (Claude Code, session du 2026-11-10)",
+   "promptVersions": {
+    "extraction": "v2",
+    "critique": "v2"
+   },
+   "textSha256": "c629fef07561c0cc2e9e3698bd63e88d175502d1c07260c6caed52dc49e55307",
+   "context": {
+    "queue": "solo",
+    "rank": "pro (joueur interrogé)"
+   },
+   "id": "c-dignitas-mid-tips-blue",
+   "url": "https://dignitas.gg/articles/fundamental-mid-lane-tips-with-blue",
+   "title": "Fundamental Mid Lane Tips for League of Legends by Dignitas Blue",
+   "author": "Teatones (Dignitas), avec Blue",
+   "published": "2022-02-20",
+   "learn": "Le farm d'abord, regarder la minimap après chaque sbire, partir en roam après avoir poussé et en tirer quelque chose.",
+   "unitsAccepted": 4
   }
  ]
 }

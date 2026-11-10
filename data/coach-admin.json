@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-10T07:28:43.902Z",
+ "generatedAt": "2026-11-10T13:58:43.581Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -554,7 +554,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-11-10T07:16:11.057Z",
+ "lastDiscovery": "2026-11-10T13:08:58.859Z",
  "failures": [],
  "quarantine": [
   {
@@ -566,17 +566,6 @@
   }
  ],
  "rejected": [
-  {
-   "id": "u-ai-yt-uru4vXpDRY0-2",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-uru4vXpDRY0 : « in your regular tempo, this means that you have camps up. Th… »"
-    }
-   ],
-   "at": "2026-10-28",
-   "origin": "analyse-automatique"
-  },
   {
    "id": "u-ai-yt-uru4vXpDRY0-3",
    "reasons": [
@@ -2973,13 +2962,24 @@
    ],
    "at": "2026-11-10",
    "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-KAEgn2X5PZo-1",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Bard."
+    }
+   ],
+   "at": "2026-11-10",
+   "origin": "analyse-automatique"
   }
  ],
  "pending": [
   "c-yt-MFcKy6bEjPU",
-  "c-yt-KAEgn2X5PZo",
   "c-yt-dRu06chIv_0",
-  "c-yt-fee1goLw0dE"
+  "c-yt-fee1goLw0dE",
+  "c-yt-XNakX2BaW8o"
  ],
  "review": [
   "u-lucian-2620-ad",
@@ -5670,31 +5670,6 @@
   "month": 0,
   "calls": [
    {
-    "at": "2026-11-09T07:54:16.595Z",
-    "content": "c-yt-gpc7HJh4VU0",
-    "model": "gemini-3.6-flash",
-    "input": 11045,
-    "output": 5049,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-09T07:54:34.615Z",
-    "content": "c-yt-gpc7HJh4VU0",
-    "model": "gemini-3-flash-preview",
-    "input": 6460,
-    "output": 2531,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-09T07:55:10.896Z",
-    "content": "c-yt-gpc7HJh4VU0",
-    "model": "gemini-3-flash-preview",
-    "input": 5910,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
     "at": "2026-11-09T07:55:36.830Z",
     "content": "c-yt-gpc7HJh4VU0",
     "model": "gemini-3-flash-preview",
@@ -6096,6 +6071,31 @@
     "input": 7806,
     "output": 4496,
     "usd": 0
+   },
+   {
+    "at": "2026-11-10T13:57:08.229Z",
+    "content": "c-yt-KAEgn2X5PZo",
+    "model": "gemini-3.6-flash",
+    "input": 9486,
+    "output": 3358,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-10T13:58:13.981Z",
+    "content": "c-yt-KAEgn2X5PZo",
+    "model": "gemini-3-flash-preview",
+    "input": 5536,
+    "output": 3477,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-10T13:58:35.781Z",
+    "content": "c-yt-KAEgn2X5PZo",
+    "model": "gemini-3-flash-preview",
+    "input": 5851,
+    "output": 80,
+    "usd": 0,
+    "kind": "verification-extrait"
    }
   ],
   "budget": {

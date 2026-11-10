@@ -2,6 +2,21 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-10 (soir) — collecte 26.22 terminée, builds et fiches recalculés
+
+Suite du chantier validé par Anthony le 10/11.
+
+- **Collecte** : terminée à 23 h 11 sans erreur, 3 500 parties de plus (10 785 requêtes). Le cache `coach/cache/timelines-perso` compte 11 500 parties : 5 840 en 16.21, 5 522 en 16.22, 138 plus anciennes.
+- **Recalcul** (clé personnelle seule) :
+  - `perso-sample.mjs` : 10 781 parties Diamant+, **patch principal 16.22** (c'était 16.21), 173 fiches champions avec au moins 30 parties ;
+  - `champ-references.mjs` : 171 couples champion + poste avec au moins 200 parties, sur 690 ;
+  - `references-tiers.mjs --upload` : 730 lignes envoyées à Supabase ;
+  - `worker/put-data.mjs` : les 4 fichiers privés envoyés, manifeste du 10/11 à 22 h 18 UTC.
+- **Tests** : 60/61.
+- **Non vérifié** : l'affichage des builds 26.22 dans l'espace connecté (Claude ne se connecte pas). À regarder pendant le tour d'Anthony.
+- **Texte Riot** : préparé dans `coach/riot-mise-a-jour-2026-11-10.md` (« about 14,000 … between Oct 27 and Nov 10 », série du 06/11 déclarée). **Pas collé sur le portail** : attend l'accord d'Anthony.
+- **À refaire à chaque patch** : cette collecte, puis la même chaîne de recalcul.
+
 ## 2026-11-10 — chantier « lancement du test privé » : collecte 26.22, RGPD, guide, nouveaux conseils
 
 Validé par Anthony le 10/11 (« Oui », puis « cherche de nouvelles sources de nouveaux conseils »).

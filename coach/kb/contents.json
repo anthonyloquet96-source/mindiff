@@ -19135,7 +19135,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 135
   },
   {
    "id": "c-yt-MO9pVVymJtI",
@@ -84033,19 +84034,42 @@
    "lang": "ko",
    "published": null,
    "retrievedAt": "2026-11-11",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.2",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 130,
-   "note": "File de lecture (rang 130) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 39 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 15,
     "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-11",
+    "sha256": "68162d48755bbc5eb3a251f21c78029e52bf6aac71643d572a1be2a79385b57f",
+    "segments": 46,
+    "observations": 39,
+    "duration": "28:01",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 172473
+   },
+   "analyzedAt": "2026-11-11",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 3,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "Démonstration claire et pédagogique par un joueur Challenger (미드김홍주) avec des conseils précis de gestion de vague, de micro-trading et d'itemisation pour Ryze."
    }
   },
   {

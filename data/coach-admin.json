@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-11T07:53:27.433Z",
+ "generatedAt": "2026-11-11T14:11:45.518Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -554,7 +554,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-11-11T07:21:52.650Z",
+ "lastDiscovery": "2026-11-11T13:16:43.972Z",
  "failures": [],
  "quarantine": [
   {
@@ -566,39 +566,6 @@
   }
  ],
  "rejected": [
-  {
-   "id": "u-ai-yt-MVkN8FdiKM8-3",
-   "reasons": [
-    {
-     "code": "rang-sous-reference",
-     "why": "Contenu tiré de parties de niveau emeraude : utilisable seulement comme erreur à corriger, pas comme référence."
-    }
-   ],
-   "at": "2026-10-28",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-kzCt68fV51k-1",
-   "reasons": [
-    {
-     "code": "citation-insuffisante",
-     "why": "Statistique sans chiffre dans les passages cités."
-    }
-   ],
-   "at": "2026-10-28",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-kzCt68fV51k-3",
-   "reasons": [
-    {
-     "code": "citation-introuvable",
-     "why": "Passage introuvable dans c-yt-kzCt68fV51k : « Why do you want the CC to go in first? Because imagine this:… »"
-    }
-   ],
-   "at": "2026-10-28",
-   "origin": "analyse-automatique"
-  },
   {
    "id": "u-ai-yt-2DGVHHI6FLc-1",
    "reasons": [
@@ -2965,6 +2932,39 @@
     {
      "code": "citation-insuffisante",
      "why": "Aucun passage ne porte sur Yone."
+    }
+   ],
+   "at": "2026-11-11",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-84UPu7z2RvE-1",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Ryze."
+    }
+   ],
+   "at": "2026-11-11",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-84UPu7z2RvE-2",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Ryze."
+    }
+   ],
+   "at": "2026-11-11",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-84UPu7z2RvE-3",
+   "reasons": [
+    {
+     "code": "citation-insuffisante",
+     "why": "Aucun passage ne porte sur Ryze."
     }
    ],
    "at": "2026-11-11",
@@ -7222,48 +7222,6 @@
   "month": 0,
   "calls": [
    {
-    "at": "2026-11-10T19:23:14.689Z",
-    "content": "c-yt-fee1goLw0dE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 11852,
-    "output": 1343,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-10T19:23:22.341Z",
-    "content": "c-yt-fee1goLw0dE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 6578,
-    "output": 242,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-10T19:23:33.725Z",
-    "content": "c-yt-fee1goLw0dE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5914,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-10T19:23:43.585Z",
-    "content": "c-yt-fee1goLw0dE",
-    "model": "gemini-3.5-flash-lite",
-    "input": 5871,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-10T19:23:57.744Z",
-    "content": "c-yt-Af_dfcEcxLg",
-    "model": "gemini-3.5-flash-lite",
-    "input": 9024,
-    "output": 188,
-    "usd": 0
-   },
-   {
     "at": "2026-11-10T19:24:11.970Z",
     "content": "c-yt-XNakX2BaW8o",
     "model": "gemini-3.5-flash-lite",
@@ -7642,6 +7600,49 @@
     "content": "c-yt-L5b2uBZMTkE",
     "model": "gemini-3.5-flash-lite",
     "input": 5908,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-11T13:48:23.176Z",
+    "content": "c-yt-84UPu7z2RvE",
+    "model": "gemini-3.6-flash",
+    "input": 12761,
+    "output": 7245,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-11T14:06:04.940Z",
+    "content": "c-yt-84UPu7z2RvE",
+    "model": "gemini-3.6-flash",
+    "input": 6887,
+    "output": 2565,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-11T14:10:57.565Z",
+    "content": "c-yt-84UPu7z2RvE",
+    "model": "gemini-3.6-flash",
+    "input": 5918,
+    "output": 61,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-11T14:11:15.540Z",
+    "content": "c-yt-84UPu7z2RvE",
+    "model": "gemini-3.6-flash",
+    "input": 5944,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-11T14:11:38.222Z",
+    "content": "c-yt-84UPu7z2RvE",
+    "model": "gemini-3.6-flash",
+    "input": 5901,
     "output": 46,
     "usd": 0,
     "kind": "verification-extrait"

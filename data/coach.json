@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-11T01:27:57.425Z",
+ "generatedAt": "2026-11-11T07:53:27.433Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -602,15 +602,16 @@
    },
    "Evelynn": {
     "role": null,
-    "units": 7,
+    "units": 8,
     "themes": [
      "champion",
      "matchup",
-     "jungle"
+     "jungle",
+     "vision"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 6,
-    "coaching": 1
+    "coaching": 2
    },
    "Ezreal": {
     "role": null,
@@ -1622,15 +1623,17 @@
    },
    "Sylas": {
     "role": null,
-    "units": 5,
+    "units": 6,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "jungle",
+     "vision",
+     "macro"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 5,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Syndra": {
     "role": null,
@@ -1659,16 +1662,16 @@
    },
    "Taliyah": {
     "role": null,
-    "units": 6,
+    "units": 7,
     "themes": [
      "champion",
      "matchup",
      "lane",
      "macro"
     ],
-    "actions": 1,
+    "actions": 2,
     "official": 5,
-    "coaching": 1
+    "coaching": 2
    },
    "Talon": {
     "role": null,
@@ -2110,15 +2113,17 @@
    },
    "Yone": {
     "role": null,
-    "units": 3,
+    "units": 6,
     "themes": [
      "vagues",
      "lane",
-     "macro"
+     "macro",
+     "champion",
+     "build"
     ],
-    "actions": 3,
-    "official": 0,
-    "coaching": 3
+    "actions": 6,
+    "official": 2,
+    "coaching": 4
    },
    "Volibear": {
     "role": null,
@@ -2307,19 +2312,30 @@
     "actions": 1,
     "official": 0,
     "coaching": 1
+   },
+   "Qiyana": {
+    "role": null,
+    "units": 1,
+    "themes": [
+     "lane",
+     "champion"
+    ],
+    "actions": 1,
+    "official": 0,
+    "coaching": 1
    }
   },
   "themes": {
-   "lane": 147,
-   "survie": 31,
+   "lane": 152,
+   "survie": 32,
    "teamfight": 24,
    "synergie": 9,
    "matchup": 19,
-   "methode": 45,
-   "vagues": 81,
-   "vision": 27,
-   "macro": 125,
-   "jungle": 88
+   "methode": 46,
+   "vagues": 84,
+   "vision": 29,
+   "macro": 134,
+   "jungle": 91
   },
   "partial": [
    "Ashe"
@@ -3231,7 +3247,9 @@
    "u-ai-yt-hUtJIvbgTIM-3",
    "u-ai-yt-hUtJIvbgTIM-5",
    "u-ai-yt-hUtJIvbgTIM-8",
-   "u-ai-yt-rXVh2wzguwA-1"
+   "u-ai-yt-rXVh2wzguwA-1",
+   "u-ai-yt-QJdfRTlEh9U-3",
+   "u-ai-yt-QJdfRTlEh9U-5"
   ]
  },
  "sources": [
@@ -14157,7 +14175,7 @@
    "retrievedAt": "2026-10-21",
    "patch": "S14",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "Vous voulez une séance de coaching avec Chreak en tête à tête ? C'est possible ! Deux options s'offrent à vous (70€/session de 1h15) : \nPasser par l'abonnement mensuel sur Patreon pour avoir 1 heure de coaching par mois sur ce lien : https://www.patreon.com/c/ChreakLoL\nContacter directement Chreak p",
    "backfill": true,
    "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -14185,6 +14203,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 212340
+   },
+   "analyzedAt": "2026-11-11",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 5,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "Apprends à maîtriser les fondamentaux et le timing du E de Yone, à adapter ton premier objet selon la composition adverse, et à placer tes balises de vision directement dans les camps d'Evelynn après le niveau 6.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le guide détaille précisément les interactions, le positionnement, les choix d'objets et le raisonnement derrière les actions selon les matchups et les situations."
    }
   },
   {
@@ -15648,7 +15676,7 @@
    "retrievedAt": "2026-10-21",
    "patch": "14.7",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "► Twitch :   https://www.twitch.tv/chreak - 14H TOUS LES JOURS sauf lundi\n►  Chaîne VOD : https://www.youtube.com/@ChreakVODs\n► SOS Élo Hell (Coaching en live) : https://docs.google.com/forms/d/e/1FAIpQLSeS-h_yhMpw3a53NvGuDx0aVKzgBlbcSn30HhB9tdIumxQ28g/viewform\n► Discord :  https://discord.gg/SndE8u",
    "backfill": true,
    "note": "Lue par gemini-3-flash-preview : transcription et 35 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -15674,6 +15702,16 @@
     "videoKind": "analyse-de-partie",
     "gameplayShown": true,
     "tokens": 204127
+   },
+   "analyzedAt": "2026-11-11",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur explique de manière détaillée son processus de pensée (thought process) en tant qu'ancien joueur professionnel et Challenger, en analysant ses propres erreurs de macro-jeu et de prise de décision tout au long de la partie."
    }
   },
   {
@@ -15840,7 +15878,7 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "► Twitch :   https://www.twitch.tv/chreak - 14H TOUS LES JOURS sauf lundi\n►  Chaîne VOD : https://www.youtube.com/@ChreakVODs\n► SOS Élo Hell (Coaching en live) : https://docs.google.com/forms/d/e/1FAIpQLSeS-h_yhMpw3a53NvGuDx0aVKzgBlbcSn30HhB9tdIumxQ28g/viewform\n► Discord :  https://discord.gg/SndE8u",
    "backfill": true,
    "note": "Lue par gemini-3.5-flash-lite : transcription et 25 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -15866,6 +15904,16 @@
     "videoKind": "analyse-de-partie",
     "gameplayShown": true,
     "tokens": 193613
+   },
+   "analyzedAt": "2026-11-11",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "En jouant Taliyah mid contre un assassin corps à corps au niveau 1, place-toi devant la vague pour lui refuser des sbires, garde tes PV au-dessus de 70% pour éviter le one-shot, et évite d'acheter simultanément la Larme et le Sceau noir pour ne pas bloquer ton inventaire.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur explique clairement ses choix tactiques en début de partie, ses erreurs commises (comme l'achat simultané de composants ou une mauvaise évaluation de dégâts) et détaille le raisonnement macroéconomique."
    }
   },
   {
@@ -19077,7 +19125,7 @@
    "published": "2026-07-11",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 6600,
+   "views": 6700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20430,7 +20478,7 @@
    "published": "2026-03-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 721,
+   "views": 722,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -23915,12 +23963,12 @@
    "published": null,
    "retrievedAt": "2026-10-27",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 129,
-   "note": "File de lecture (rang 35) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 37 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 15,
     "matched": [
@@ -23929,6 +23977,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-11-11",
+    "sha256": "931ec339f2e0fd34405ef09306459c80cbc93db261a92a46de1b70b8c366152f",
+    "segments": 109,
+    "observations": 37,
+    "duration": "30:14",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 172516
+   },
+   "analyzedAt": "2026-11-11",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Apprends à exploiter les erreurs de positionnement des adversaires dans les side lanes et à adapter ton envahissement de jungle selon les timers de réapparition de l'adversaire.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu présente des parties de haut niveau (Master/GM/Challenger) avec des explications claires et détaillées de la part d'un joueur expert de Rengar sur la gestion des jungles et des punitions de positionnement."
    }
   },
   {
@@ -25387,7 +25458,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 34000,
+   "views": 35000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27085,7 +27156,7 @@
    "ageMonths": 1,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 15000,
+   "views": 16000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28129,7 +28200,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 5600,
+   "views": 5700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -34794,7 +34865,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 8400,
+   "views": 8600,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -34823,7 +34894,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 9400,
+   "views": 9500,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -34877,7 +34948,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 5100,
+   "views": 5200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -34904,7 +34975,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 52000,
+   "views": 54000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -34958,7 +35029,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 334000,
+   "views": 335000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -34986,7 +35057,7 @@
    "ageMonths": 0.1,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 53000,
+   "views": 54000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35378,7 +35449,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-07",
    "patch": null,
-   "views": 5300,
+   "views": 5400,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35564,7 +35635,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-08",
    "patch": null,
-   "views": 8400,
+   "views": 8600,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35592,7 +35663,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-08",
    "patch": null,
-   "views": 6000,
+   "views": 6100,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35621,7 +35692,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-08",
    "patch": null,
-   "views": 140000,
+   "views": 144000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36103,7 +36174,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 12000,
+   "views": 13000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36130,7 +36201,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 394,
+   "views": 456,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36158,7 +36229,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 24000,
+   "views": 25000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36423,7 +36494,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 5400,
+   "views": 5800,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36697,11 +36768,11 @@
    "retrievedAt": "2026-11-10",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 122,
-   "note": "Lue par gemini-3.8-flash : transcription et 24 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
+   "note": "Écarté : contenu jugé de faible qualité (Commentaires fragmentés en direct de partie sans explication structurée ni données statistiques.).",
    "triage": {
     "score": 14,
     "matched": [
@@ -36723,7 +36794,16 @@
     "videoKind": "direct",
     "gameplayShown": true,
     "tokens": 99938
-   }
+   },
+   "analyzedAt": "2026-11-11",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "quality": {
+    "level": "faible",
+    "why": "Commentaires fragmentés en direct de partie sans explication structurée ni données statistiques."
+   },
+   "learn": null,
+   "rejectedForQuality": true
   },
   {
    "id": "c-yt-m8yOZyXzFIQ",
@@ -36904,7 +36984,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-10",
    "patch": null,
-   "views": 1400,
+   "views": 1800,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36932,7 +37012,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-10",
    "patch": null,
-   "views": 1600,
+   "views": 2200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37012,7 +37092,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-11",
    "patch": null,
-   "views": 1000,
+   "views": 2500,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37039,12 +37119,12 @@
    "published": null,
    "retrievedAt": "2026-11-11",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 128,
-   "note": "File de lecture (rang 128) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.7-flash : transcription et 39 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 15,
     "matched": [
@@ -37054,6 +37134,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.7-flash",
+    "fps": 1,
+    "at": "2026-11-11",
+    "sha256": "7d074dab102f53a39e18f9277a582607709a6bc23d9cf46789a4a608d9f9d1e3",
+    "segments": 51,
+    "observations": 39,
+    "duration": "22:28",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 133306
+   },
+   "analyzedAt": "2026-11-11",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 7,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Le tempo est une ressource de temps générée par la gestion des vagues, qui doit être synchronisée avec celle de ses alliés pour maintenir une pression constante et éviter de se faire punir lors des phases de décalage ou de rappel.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le guide définit clairement les concepts, utilise des exemples concrets en jeu pour illustrer les erreurs et les bonnes pratiques, et propose des règles simples (1 vague = 1 action)."
    }
   },
   {
@@ -37076,6 +37179,90 @@
    "triage": {
     "score": 15,
     "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-sNCctJqZ9CY",
+   "sourceId": "yt-aloisnl",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=sNCctJqZ9CY",
+   "title": "EUW FORGOT ABOUT MY FUNDAMENTALS",
+   "author": "AloisNL",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-11",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 131,
+   "note": "File de lecture (rang 131) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "fundamentals"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-uqFnbWGvFLo",
+   "sourceId": "yt-ramyaura",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=uqFnbWGvFLo",
+   "title": "I WENT 6 LEVELS UP VS MY WORST MATCHUP (NEW RECORD)",
+   "author": "RamyAura",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-11",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 132,
+   "note": "File de lecture (rang 132) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "matchup"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-McM8t74QtCc",
+   "sourceId": "yt-coach-violet",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=McM8t74QtCc",
+   "title": "How to CARRY on ADC in LOSING Matchups - League of Legends Guide",
+   "author": "Coach Violet",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-11",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 133,
+   "note": "File de lecture (rang 133) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "adc",
+     "guide",
+     "how to",
+     "matchup"
+    ],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -107620,6 +107807,1299 @@
     {
      "code": "verification-legere",
      "why": "c-yt-FmlfJ6KcAJc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-1",
+   "claim": "Selon Shok : le tempo est le temps dont tu disposes pour agir pendant que ton adversaire est occupé à gérer une wave que tu as poussée.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir poussé la vague de sbires vers l'adversaire"
+   ],
+   "limits": [
+    "Le tempo dure jusqu'à l'arrivée de la prochaine vague"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "00:13",
+     "lang": "en",
+     "passage": "tempo in League of Legends is kind of like time. More specifically, it's kind of like time to do something.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "0-53s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "00:13",
+     "lang": "en",
+     "passage": "when you push a wave, your opponent will have to respond to it. And if they don't, they're going to lose gold and XP. So, most of the time, your opponent will respond, which means that you have tempo or time to do something where you don't have to clear a wave and your opponent does."
+    }
+   ],
+   "mentions": [
+    "LeBlanc (exemple)"
+   ],
+   "action": "Pousser une vague pour libérer une fenêtre d'action",
+   "observe": "Le moment où l'adversaire est forcé de rester sous sa tour pour collecter les sbires",
+   "use": {
+    "when": "Tu viens de finir de tuer les sbires adverses et ta wave avance vers sa tour",
+    "why": "L'adversaire perdrait de l'or et de l'expérience s'il ne restait pas pour clear la wave, ce qui te donne une fenêtre de liberté.",
+    "who": "Mid laner",
+    "how": [
+     "Tue les sbires adverses rapidement",
+     "Utilise le temps gagné pour une action (vision, décalage, back)",
+     "Reviens en lane avant que la wave suivante ne meure sous ta tour"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-QJdfRTlEh9U : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-QJdfRTlEh9U : lu par gemini-3.7-flash (1 image/s) ; passage à vérifier sur la vidéo (00:13)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-2",
+   "claim": "Selon Shok : pour maximiser ton tempo, tu peux intercepter la wave ennemie avant qu'elle ne rencontre la tienne au milieu de la lane.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir assez de dégâts de zone (waveclear)",
+    "Être en sécurité pour s'avancer loin dans la lane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "01:54",
+     "lang": "en",
+     "passage": "rather than waiting for the two waves to meet in the middle, you can actually start killing this wave before your wave is even arrived. And what this allows is again more tempo, because you're clearing the wave quicker.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "94-154s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas explicitement le risque du jungler adverse (collapse) dans ce passage précis."
+     }
+    }
+   ],
+   "mentions": [
+    "Ryze (exemple)"
+   ],
+   "action": "Intercepter la vague ennemie en amont du milieu de la lane",
+   "observe": "La position de la prochaine vague ennemie sur la mini-carte",
+   "use": {
+    "when": "Tu as déjà la priorité et tu veux libérer un maximum de temps pour une action longue (comme un back)",
+    "why": "Tuer les sbires plus tôt permet de déclencher le chronomètre de tempo plus vite par rapport à l'arrivée de la wave suivante.",
+    "who": "Mid laner avec un bon waveclear",
+    "how": [
+     "Avance au-delà du milieu de la lane",
+     "Commence à attaquer les sbires ennemis dès qu'ils arrivent",
+     "Utilise le surplus de temps pour une action complexe"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt-QJdfRTlEh9U : le vérificateur note un écart sur l'extrait 94-154s (L'auteur ne mentionne pas explicitement le risque du jungler adverse (collapse) dans ce passage précis.)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Contrôle critique : Le champion Ryze et les conditions de sécurité liées au jungler ne sont pas présents dans les passages."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-3",
+   "claim": "Selon Shok : décide de l'utilisation de ton tempo (ward, décalage, back) avant d'avoir fini de pousser la wave pour ne pas gaspiller de secondes à hésiter.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "02:51",
+     "lang": "en",
+     "passage": "Ideally, you decide what you're going to do with this wave or with this tempo right about here, because then whatever you're going to do, you can do it very quickly. Whether it's again roaming or basing or warding or whatever, you don't waste time deciding what you're going to do.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "151-211s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Planifier l'action de tempo pendant le push",
+   "observe": "Le temps passé à faire des allers-retours inutiles après avoir tué les sbires",
+   "use": {
+    "when": "Tu es en train de vider une wave",
+    "why": "Chaque seconde d'hésitation réduit la fenêtre d'action avant que tu ne doives revenir pour la wave suivante.",
+    "who": "Tout joueur en phase de lane",
+    "how": [
+     "Analyse la carte pendant que tu tapes les sbires",
+     "Choisis une seule action précise",
+     "Exécute-la immédiatement dès que le dernier sbire meurt"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-QJdfRTlEh9U : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-4",
+   "claim": "Selon Shok : la règle d'or du tempo en phase de lane est : une wave poussée égale une seule action accomplie.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [
+    "Sauf si tu pousses la vague très tôt ou si tu acceptes de perdre des sbires"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "03:21",
+     "lang": "en",
+     "passage": "And that's kind of a rule I've talked about ages ago, is one wave equals one thing, because normally, you only have tempo to do something, to do one thing, before you need to get back mid and get on the next mid wave.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "181-241s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Se limiter à une action par fenêtre de tempo",
+   "observe": "La perte de sbires sous ta propre tour après un décalage trop long",
+   "use": {
+    "when": "Tu as poussé ta wave et tu quittes la lane",
+    "why": "Le temps de trajet aller-retour et l'exécution d'une action consomment généralement toute la fenêtre entre deux waves.",
+    "who": "Mid laner",
+    "how": [
+     "Choisis entre : poser une ward, décaler, OU back",
+     "Ne tente pas de combiner deux actions (ex: warder PUIS décaler)",
+     "Reviens immédiatement après l'action"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-QJdfRTlEh9U : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Contrôle critique : Les exceptions listées dans les limites ne sont pas mentionnées par l'auteur."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-5",
+   "claim": "Selon Shok : ta pression sur la carte est nulle si tes points de vie ou de mana sont trop bas ; se faire lourdement blesser est aussi pénalisant que de mourir car cela force un retrait.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "limits": [
+    "Sauf si tu possèdes énormément de régénération ou de vol de vie"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "09:03",
+     "lang": "en",
+     "passage": "realizing that you can't actually pressure the map when you're low HP or low mana is really important because a lot of the time when I'm reviewing people and they get really fed, what they don't realize is that getting chunked is as bad as dying.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "523-583s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "09:03",
+     "lang": "en",
+     "passage": "Anytime you get chunked, you then have to spend a good minute or so resetting and getting off the map and, you know, coming back and getting your pressure set up again."
+    }
+   ],
+   "mentions": [
+    "Neeko (exemple)"
+   ],
+   "action": "Éviter les échanges de PV inutiles quand on a l'avantage",
+   "observe": "Le temps passé à la base ou en transit sans pouvoir agir",
+   "use": {
+    "when": "Tu as un avantage mais tu prends des dégâts évitables",
+    "why": "Un joueur avec peu de PV ne peut pas contester d'objectifs ou aider ses alliés, il est fonctionnellement absent de la carte.",
+    "who": "Tout joueur, particulièrement ceux qui mènent la partie",
+    "how": [
+     "Priorise ta survie et ton maintien en vie sur la carte",
+     "Ne reste pas sur la carte avec 10% de PV en pensant 'pressurer'",
+     "Rentre à la base pour revenir avec 100% de tes capacités"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-QJdfRTlEh9U : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-QJdfRTlEh9U : lu par gemini-3.7-flash (1 image/s) ; passage à vérifier sur la vidéo (09:03)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Contrôle critique : Le champion Neeko et les exceptions de régénération ne figurent pas dans les passages."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-6",
+   "claim": "Selon Shok : en milieu de partie, synchronise ton agressivité avec celle de tes alliés : si ton équipe n'est pas en position de pressurer, tu dois jouer prudemment sur les côtés.",
+   "champions": [],
+   "roles": [
+    "top",
+    "mid"
+   ],
+   "themes": [
+    "macro",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Phase de mid-game (side-laning)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "12:04",
+     "lang": "en",
+     "passage": "In the mid game, it's really important that you're syncing up with your team. What that means is that if your team is pressuring, you want to be pressuring as well. And if your team is not pressuring, then you either want to base or find something else to do.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "704-764s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Malphite (exemple)",
+    "Viego (exemple)"
+   ],
+   "action": "Ajuster sa position en side lane selon la mini-carte",
+   "observe": "La position et l'état (PV/Mana/Rappel) de tes alliés",
+   "use": {
+    "when": "Tu es seul sur une side lane (side lane)",
+    "why": "Si tu es le seul à avancer alors que tes alliés sont à la base ou dans leur jungle, l'équipe ennemie peut se regrouper sur toi sans perdre d'objectifs ailleurs.",
+    "who": "Side-laners (Top/Mid)",
+    "how": [
+     "Regarde si tes alliés sont proches des tours ennemies ou d'objectifs",
+     "Si tes alliés backent, recule immédiatement",
+     "N'avance au-delà de la rivière que si ton équipe crée une menace ailleurs"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-QJdfRTlEh9U : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-7",
+   "claim": "Selon Shok : utilise la Téléportation pour acheter un item majeur (Power Spike) et revenir instantanément afin de maintenir une pression d'équipe constante.",
+   "champions": [],
+   "roles": [
+    "top",
+    "mid"
+   ],
+   "themes": [
+    "build",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir assez d'or pour un objet complet important (ex: Coiffe de Rabadon)",
+    "Avoir la Téléportation disponible"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "15:01",
+     "lang": "en",
+     "passage": "because I have TP, I'm able to reset and then TP back on the map, right? Because that's going to mean that I can buy my Deathcap and that we can continue pressuring.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "881-941s",
+      "said": true,
+      "supported": true,
+      "gap": "La contre-indication sur la nature mineure de l'objet n'est pas explicitement mentionnée dans le passage retenu."
+     }
+    }
+   ],
+   "mentions": [
+    "Swain (exemple)"
+   ],
+   "action": "Recall-TP pour un Power Spike",
+   "observe": "Le montant d'or en réserve et l'état de la pression sur la carte",
+   "use": {
+    "when": "Ton équipe veut pressurer un objectif mais tu as beaucoup d'or sur toi",
+    "why": "Cela permet de convertir ton avantage financier en puissance réelle sans laisser ton équipe en infériorité numérique pendant ton trajet de retour.",
+    "who": "Utilisateurs de Téléportation",
+    "how": [
+     "Vérifie que tu peux finir un item majeur",
+     "Rappelle-toi dans un endroit sûr",
+     "Téléporte-toi immédiatement sur une unité alliée proche de l'action"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt-QJdfRTlEh9U : le vérificateur note un écart sur l'extrait 881-941s (La contre-indication sur la nature mineure de l'objet n'est pas explicitement mentionnée dans le passage retenu.)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Contrôle critique : Le champion Swain et la restriction sur les objets mineurs ne sont pas dans les passages."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-FFIVkzsJCFA-1",
+   "claim": "Selon ScrubNoob : pour préparer un invade et s'assurer que l'adversaire est de l'autre côté, déduis son point de départ en observant le moment où il pose une ward (comme une ward tardive sur tes corbins qui indique un départ top).",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vision",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Sylas"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Master/GM/Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "L'adversaire ward tardivement tes camps"
+   ],
+   "limits": [
+    "Dépend de la lecture de la mini-carte et du timing des wards"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-FFIVkzsJCFA",
+     "locator": "[00:10]",
+     "lang": "en",
+     "passage": "All right. Well, it's I think it's safe to assume that Sylas started top side since he warded my raptors so late.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "0-50s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Sylas (exemple)"
+   ],
+   "action": "Observe le timing de la pose de ward adverse pour déduire son camp de départ.",
+   "observe": "Le moment où l'adversaire ward un camp",
+   "use": {
+    "when": "en début de partie lors du premier clear dans la jungle",
+    "why": "l'adversaire a posé sa ward tardivement sur tes corbins",
+    "who": "en jouant Rengar en jungle",
+    "how": [
+     "Repère le moment où l'adversaire ward tes corbins.",
+     "Déduis qu'il a commencé de l'autre côté de sa carte (top side)."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-FFIVkzsJCFA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-FFIVkzsJCFA-2",
+   "claim": "Selon ScrubNoob : quand un adversaire est trop avancé en side lane et que tu peux l'éliminer rapidement, utilise ton ult immédiatement pour le punir.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "macro",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master/GM/Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Un adversaire vulnérable est visible dans une side lane"
+   ],
+   "limits": [
+    "Nécessite d'avoir son ultime disponible et de pouvoir l'éliminer en un combo"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-FFIVkzsJCFA",
+     "locator": "[22:05]",
+     "lang": "en",
+     "passage": "The moment you see someone like that that you can just easily one-shot in a side lane, there should be an alarm going off in your brain telling you to press ult and kill him.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "1305-1365s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Karma (exemple)"
+   ],
+   "action": "Appuie sur ton ultime dès qu'un ennemi isolable apparaît dans une side lane.",
+   "observe": "Un champion ennemi fragile visible dans une side lane",
+   "use": {
+    "when": "tu vois un ennemi isolé et fragile dans une side lane sur la mini-carte",
+    "why": "pour le punir instantanément avant qu'il ne puisse pivoter",
+    "who": "en jouant Rengar",
+    "how": [
+     "Repère l'ennemi isolé sur la carte.",
+     "Déclenche ton ult pour l'approcher.",
+     "Élimine-le rapidement."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-FFIVkzsJCFA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-FFIVkzsJCFA-3",
+   "claim": "Selon ScrubNoob : après avoir éliminé le jungler adverse, tu peux exploiter sa top side ou sa bot side restante en fonction de la symétrie des camps.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master/GM/Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Le jungler adverse est mort et ses camps respawnent de son côté"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-FFIVkzsJCFA",
+     "locator": "[07:53]",
+     "lang": "en",
+     "passage": "Okay, after killing Sylas, we know his top side is still up, so we'll go take a look at that.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "453-513s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Sylas (exemple)"
+   ],
+   "action": "Va envahir la partie de jungle adverse dont tu sais qu'elle est active après l'avoir éliminé.",
+   "observe": "Le chronomètre de réapparition des camps et la mort du jungler adverse",
+   "use": {
+    "when": "le jungler adverse vient d'être éliminé et ses camps sont réapparus de son côté",
+    "why": "pour lui voler ses camps en toute sécurité pendant qu'il est mort",
+    "who": "en jouant jungler",
+    "how": [
+     "Tue le jungler adverse.",
+     "Dirige-toi vers son camp le plus proche dont le timer correspond (ex: top side)."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-FFIVkzsJCFA : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-MFcKy6bEjPU-1",
+   "claim": "Selon Chreak : en début de partie avec Taliyah face à un champion au corps à corps faible comme Qiyana, place-toi devant la wave au niveau 1 pour lui refuser des sbires car le niveau 1 de Taliyah est extrêmement fort.",
+   "champions": [
+    "Taliyah",
+    "Qiyana"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "matchup": {
+    "vs": "Qiyana"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer Taliyah mid",
+    "Affronter un champion faible au niveau 1 comme Qiyana"
+   ],
+   "limits": [
+    "Valable uniquement au niveau 1 face à des matchups au corps à corps sans distance"
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-MFcKy6bEjPU",
+     "locator": "00:00",
+     "lang": "fr",
+     "passage": "Donc niveau 1 moi mon objectif est très simple c'est voir pour lui deny un minimum de CS parce que Taliyah niveau 1 c'est extrêmement fort. Donc je vais me mettre devant la wave et Qiyana ce n'est pas un champion niveau 1.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "0-40s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Se placer devant la première vague de sbires au niveau 1 contre un adversaire corps à corps pour l'empêcher de s'approcher et rater des sbires.",
+   "observe": "L'adversaire rate des sbires corps à corps au niveau 1 par peur de s'avancer.",
+   "use": {
+    "when": "Le tout début de la partie (niveau 1) sur la mid lane face à un champion au corps à corps.",
+    "why": "Le kit de Taliyah est très fort au niveau 1 par rapport aux assassins corps à corps qui ne peuvent pas riposter à distance.",
+    "who": "Joueurs de Taliyah mid.",
+    "how": [
+     "Avancer devant la première wave dès son arrivée sur la mid lane.",
+     "Utiliser le sort A (Terre tressée) pour menacer l'adversaire s'il s'approche pour prendre un sbire."
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-04-19",
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2024 : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-MFcKy6bEjPU : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-MFcKy6bEjPU publié le 2024-04-19 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-L5b2uBZMTkE-1",
+   "claim": "Lorsque tu actives le E (Transmigration spirituelle) de Yone, la marque noire au-dessus de la tête de l'adversaire indique que les dégâts cumulés exécuteront la cible au retour de la compétence.",
+   "champions": [
+    "Yone"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir activé le E"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-L5b2uBZMTkE",
+     "locator": "00:06",
+     "lang": "fr",
+     "passage": "Quand tu appuies sur E et que l'adversaire au-dessus de toi a une marque noire, ça veut dire que ton E tue. C'est le plus important avec Yone.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "0-46s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Vérifie la présence de la marque noire au-dessus de l'ennemi pendant ton E pour savoir si le retour le tuera.",
+   "observe": "La marque noire au-dessus de la cible pendant le E.",
+   "use": {
+    "when": "Tu es en plein échange de coups et tu as activé ton E sur un champion ennemi.",
+    "why": "C'est l'indicateur visuel direct que les dégâts de la compétence suffiront à achever la cible.",
+    "who": "Yone",
+    "how": [
+     "Appuie sur E pour engager le combat et marquer l'adversaire.",
+     "Observe la barre de vie et guette l'apparition de la marque noire au-dessus de sa tête."
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-03-31",
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-L5b2uBZMTkE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-L5b2uBZMTkE publié le 2024-03-31 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-L5b2uBZMTkE-2",
+   "claim": "Le E de Yone permet de te repositionner car ta forme spirituelle se dirige légèrement derrière l'endroit où tu orientes ton corps.",
+   "champions": [
+    "Yone"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-L5b2uBZMTkE",
+     "locator": "00:12",
+     "lang": "fr",
+     "passage": "Deuxième point, c'est que ton E te permet de te repositionner vu que quand tu E, ta forme spirituelle va légèrement derrière l'endroit où tu diriges ton corps.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "0-52s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utilise la légère inclinaison de la forme spirituelle vers l'arrière lors du E pour ajuster ton positionnement.",
+   "observe": "Le déplacement du corps spirituel de Yone par rapport à sa direction.",
+   "use": {
+    "when": "Tu lances le sort de E pour te déplacer ou esquiver un sort tout en avançant.",
+    "why": "La forme spirituelle se place légèrement en arrière de ta course, ce qui modifie l'angle d'arrivée.",
+    "who": "Yone",
+    "how": [
+     "Oriente ton corps dans la direction voulue.",
+     "Active le E en tenant compte du décalage vers l'arrière de ta forme spirituelle."
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-03-31",
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-L5b2uBZMTkE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-L5b2uBZMTkE publié le 2024-03-31 : à confirmer sur le kit et la méta actuels."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-L5b2uBZMTkE-3",
+   "claim": "Le combo Q-Flash de Yone doit s'exécuter instantanément, sans quoi il devient inefficace.",
+   "champions": [
+    "Yone"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-L5b2uBZMTkE",
+     "locator": "00:19",
+     "lang": "fr",
+     "passage": "Et le troisième point, c'est que le Q-Flash faut le faire instantanément, tu peux pas le faire en deux temps sinon ça devient un flop.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "0-59s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Exécute la touche de sort Q et le Saut éclair en même temps sans temps mort.",
+   "observe": "L'enchaînement simultané de l'attaque Q et du Flash.",
+   "use": {
+    "when": "Tu souhaites surprendre un adversaire de loin avec le combo Q et Flash.",
+    "why": "Le délai entre les deux actions rate l'effet de surprise et fait rater le sort.",
+    "who": "Yone",
+    "how": [
+     "Appuie sur la touche de ton Q et sur le Flash de manière instantanée et simultanée."
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-03-31",
+   "analyzedAt": "2026-11-11",
+   "status": "a-revalider",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-L5b2uBZMTkE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-L5b2uBZMTkE publié le 2024-03-31 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "patch-incompatible",
+     "why": "Yone/Q modifié au patch 26.21, après S14."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-L5b2uBZMTkE-4",
+   "claim": "Selon Chreak : contre Evelynn à partir du niveau 6, il est conseillé de poser des wards de vision directement sur ses camps dans sa jungle plutôt que dans la rivière.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vision",
+    "jungle"
+   ],
+   "matchup": {
+    "vs": "Evelynn"
+   },
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "L'adversaire est Evelynn",
+    "La partie atteint le niveau 6"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-L5b2uBZMTkE",
+     "locator": "04:54",
+     "lang": "fr",
+     "passage": "Contre Evelynn à partir du niveau 6 vous mettez des wards sur les camps, pas dans la rivière.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "274-334s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Evelynn (exemple)"
+   ],
+   "action": "Place tes balises de vision dans les camps de la jungle d'Evelynn après le niveau 6.",
+   "observe": "L'emplacement des balises posées dans la jungle adverse.",
+   "use": {
+    "when": "Tu joues contre une Evelynn qui a atteint le niveau 6 et dispose de son invisibilité permanente.",
+    "why": "Evelynn contourne les wards de rivière grâce à son camouflage, repérer ses camps permet de suivre sa position.",
+    "who": "Mid laners face à Evelynn",
+    "how": [
+     "Prends une ward de vision.",
+     "Va dans la jungle ennemie et place-la directement sur un camp de monstres."
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-03-31",
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2024 (patch S14) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-L5b2uBZMTkE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-L5b2uBZMTkE publié le 2024-03-31 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-L5b2uBZMTkE-6",
+   "claim": "Selon Chreak : le choix du premier item pour Yone s'adapte à la partie : l'Arc-bouclier immortel est excellent face à des menaces de burst comme Evelynn et Katarina, tandis que le Tueur de kraken convient mieux pour prendre des duels.",
+   "champions": [
+    "Yone"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": true,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-L5b2uBZMTkE",
+     "locator": "06:33",
+     "lang": "fr",
+     "passage": "Dans cette game je vais partir sur un Shieldbow first item. L'itemisation sur Yone dépend de ce qui se passe dans la game, de ton matchup, de tes adversaires.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "373-433s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-L5b2uBZMTkE",
+     "locator": "22:46",
+     "lang": "fr",
+     "passage": "Si vous avez du mal à survivre dans les fights, Shieldbow premier item c'est très bien. Si vous êtes assez fort pour prendre des duels, Kraken."
+    }
+   ],
+   "mentions": [],
+   "action": "Achète l'Arc-bouclier immortel en premier objet défensif contre du burst, ou le Tueur de kraken pour l'offensive en duel.",
+   "observe": "L'objet légendaire acheté en premier par Yone dans la boutique.",
+   "use": {
+    "when": "Tu es dans la boutique après la phase de lane et tu disposes de l'or nécessaire pour ton premier item mythique/légendaire.",
+    "why": "L'Arc-bouclier protège contre les gros dégâts instantanés, alors que le Tueur de kraken optimise les duels prolongés.",
+    "who": "Yone",
+    "how": [
+     "Vérifie la composition ennemie et ta capacité à survivre.",
+     "Sélectionne et achète soit l'Arc-bouclier immortel, soit le Tueur de kraken."
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-03-31",
+   "analyzedAt": "2026-11-11",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2024 (patch S14) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-L5b2uBZMTkE : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-L5b2uBZMTkE publié le 2024-03-31 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-L5b2uBZMTkE : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (22:46)."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-L5b2uBZMTkE publié le 2024-03-31 : à confirmer sur le kit et la méta actuels."
     },
     {
      "code": "source-unique",

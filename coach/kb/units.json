@@ -89422,7 +89422,1417 @@
    },
    "version": 1,
    "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-1",
+   "claim": "Selon Shok : le tempo est le temps dont tu disposes pour agir pendant que ton adversaire est occupé à gérer une vague de sbires que tu as poussée.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir poussé la vague de sbires vers l'adversaire"
+   ],
+   "limits": [
+    "Le tempo dure jusqu'à l'arrivée de la prochaine vague"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "00:13",
+     "lang": "en",
+     "passage": "tempo in League of Legends is kind of like time. More specifically, it's kind of like time to do something.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "0-53s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "00:13",
+     "lang": "en",
+     "passage": "when you push a wave, your opponent will have to respond to it. And if they don't, they're going to lose gold and XP. So, most of the time, your opponent will respond, which means that you have tempo or time to do something where you don't have to clear a wave and your opponent does."
+    }
+   ],
+   "mentions": [
+    "LeBlanc (exemple)"
+   ],
+   "action": "Pousser une vague pour libérer une fenêtre d'action",
+   "observe": "Le moment où l'adversaire est forcé de rester sous sa tour pour collecter les sbires",
+   "use": {
+    "when": "Tu viens de finir de tuer les sbires adverses et ta vague avance vers sa tour",
+    "why": "L'adversaire perdrait de l'or et de l'expérience s'il ne restait pas pour nettoyer la vague, ce qui te donne une fenêtre de liberté.",
+    "who": "Mid laner",
+    "how": [
+     "Tue les sbires adverses rapidement",
+     "Utilise le temps gagné pour une action (vision, décalage, rappel)",
+     "Reviens en lane avant que la vague suivante ne meure sous ta tour"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "citation-insuffisante"
+    ],
+    "why": "Le champion LeBlanc n'est pas mentionné dans les passages cités."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-2",
+   "claim": "Selon Shok : pour maximiser ton tempo, tu peux intercepter la vague ennemie avant qu'elle ne rencontre la tienne au milieu de la lane.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir assez de dégâts de zone (waveclear)",
+    "Être en sécurité pour s'avancer loin dans la lane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "01:54",
+     "lang": "en",
+     "passage": "rather than waiting for the two waves to meet in the middle, you can actually start killing this wave before your wave is even arrived. And what this allows is again more tempo, because you're clearing the wave quicker.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "94-154s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas explicitement le risque du jungler adverse (collapse) dans ce passage précis."
+     }
+    }
+   ],
+   "mentions": [
+    "Ryze (exemple)"
+   ],
+   "action": "Intercepter la vague ennemie en amont du milieu de la lane",
+   "observe": "La position de la prochaine vague ennemie sur la mini-carte",
+   "use": {
+    "when": "Tu as déjà la priorité et tu veux libérer un maximum de temps pour une action longue (comme un rappel)",
+    "why": "Tuer les sbires plus tôt permet de déclencher le chronomètre de tempo plus vite par rapport à l'arrivée de la vague suivante.",
+    "who": "Mid laner avec un bon waveclear",
+    "how": [
+     "Avance au-delà du milieu de la lane",
+     "Commence à attaquer les sbires ennemis dès qu'ils arrivent",
+     "Utilise le surplus de temps pour une action complexe"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "citation-insuffisante",
+     "sur-generalisation"
+    ],
+    "why": "Le champion Ryze et les conditions de sécurité liées au jungler ne sont pas présents dans les passages."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-3",
+   "claim": "Selon Shok : décide de l'utilisation de ton tempo (balise, décalage, rappel) avant d'avoir fini de pousser la vague pour ne pas gaspiller de secondes à hésiter.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "02:51",
+     "lang": "en",
+     "passage": "Ideally, you decide what you're going to do with this wave or with this tempo right about here, because then whatever you're going to do, you can do it very quickly. Whether it's again roaming or basing or warding or whatever, you don't waste time deciding what you're going to do.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "151-211s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Planifier l'action de tempo pendant le push",
+   "observe": "Le temps passé à faire des allers-retours inutiles après avoir tué les sbires",
+   "use": {
+    "when": "Tu es en train de vider une vague de sbires",
+    "why": "Chaque seconde d'hésitation réduit la fenêtre d'action avant que tu ne doives revenir pour la vague suivante.",
+    "who": "Tout joueur en phase de lane",
+    "how": [
+     "Analyse la carte pendant que tu tapes les sbires",
+     "Choisis une seule action précise",
+     "Exécute-la immédiatement dès que le dernier sbire meurt"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle aux passages et son contexte d'usage est complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-4",
+   "claim": "Selon Shok : la règle d'or du tempo en phase de lane est : une vague poussée égale une seule action accomplie.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [
+    "Sauf si tu pousses la vague très tôt ou si tu acceptes de perdre des sbires"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "03:21",
+     "lang": "en",
+     "passage": "And that's kind of a rule I've talked about ages ago, is one wave equals one thing, because normally, you only have tempo to do something, to do one thing, before you need to get back mid and get on the next mid wave.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "181-241s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Se limiter à une action par fenêtre de tempo",
+   "observe": "La perte de sbires sous ta propre tour après un décalage trop long",
+   "use": {
+    "when": "Tu as poussé ta vague et tu quittes la lane",
+    "why": "Le temps de trajet aller-retour et l'exécution d'une action consomment généralement toute la fenêtre entre deux vagues.",
+    "who": "Mid laner",
+    "how": [
+     "Choisis entre : poser une balise, décaler, OU rentrer à la base",
+     "Ne tente pas de combiner deux actions (ex: warder PUIS décaler)",
+     "Reviens immédiatement après l'action"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "Les exceptions listées dans les limites ne sont pas mentionnées par l'auteur."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-5",
+   "claim": "Selon Shok : ta pression sur la carte est nulle si tes points de vie ou de mana sont trop bas ; se faire lourdement blesser est aussi pénalisant que de mourir car cela force un retrait.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [
+    "Sauf si tu possèdes énormément de régénération ou de vol de vie"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "09:03",
+     "lang": "en",
+     "passage": "realizing that you can't actually pressure the map when you're low HP or low mana is really important because a lot of the time when I'm reviewing people and they get really fed, what they don't realize is that getting chunked is as bad as dying.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "523-583s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "09:03",
+     "lang": "en",
+     "passage": "Anytime you get chunked, you then have to spend a good minute or so resetting and getting off the map and, you know, coming back and getting your pressure set up again."
+    }
+   ],
+   "mentions": [
+    "Neeko (exemple)"
+   ],
+   "action": "Éviter les échanges de PV inutiles quand on a l'avantage",
+   "observe": "Le temps passé à la base ou en transit sans pouvoir agir",
+   "use": {
+    "when": "Tu as un avantage mais tu prends des dégâts évitables",
+    "why": "Un joueur avec peu de PV ne peut pas contester d'objectifs ou aider ses alliés, il est fonctionnellement absent de la carte.",
+    "who": "Tout joueur, particulièrement ceux qui mènent la partie",
+    "how": [
+     "Priorise ta survie et ton maintien en vie sur la carte",
+     "Ne reste pas sur la carte avec 10% de PV en pensant 'pressurer'",
+     "Rentre à la base pour revenir avec 100% de tes capacités"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "citation-insuffisante",
+     "sur-generalisation"
+    ],
+    "why": "Le champion Neeko et les exceptions de régénération ne figurent pas dans les passages."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-6",
+   "claim": "Selon Shok : en milieu de partie, synchronise ton agressivité avec celle de tes alliés : si ton équipe n'est pas en position de pressurer, tu dois jouer prudemment sur les côtés.",
+   "champions": [],
+   "roles": [
+    "top",
+    "mid"
+   ],
+   "themes": [
+    "macro",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Phase de mid-game (side-laning)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "12:04",
+     "lang": "en",
+     "passage": "In the mid game, it's really important that you're syncing up with your team. What that means is that if your team is pressuring, you want to be pressuring as well. And if your team is not pressuring, then you either want to base or find something else to do.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "704-764s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Malphite (exemple)",
+    "Viego (exemple)"
+   ],
+   "action": "Ajuster sa position en side lane selon la mini-carte",
+   "observe": "La position et l'état (PV/Mana/Rappel) de tes alliés",
+   "use": {
+    "when": "Tu es seul sur une ligne latérale (side lane)",
+    "why": "Si tu es le seul à avancer alors que tes alliés sont à la base ou dans leur jungle, l'équipe ennemie peut se regrouper sur toi sans perdre d'objectifs ailleurs.",
+    "who": "Side-laners (Top/Mid)",
+    "how": [
+     "Regarde si tes alliés sont proches des tours ennemies ou d'objectifs",
+     "Si tes alliés rentrent à la base, recule immédiatement",
+     "N'avance au-delà de la rivière que si ton équipe crée une menace ailleurs"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "citation-insuffisante"
+    ],
+    "why": "Les champions Malphite et Viego ne sont pas mentionnés dans les passages cités."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-QJdfRTlEh9U-7",
+   "claim": "Selon Shok : utilise la Téléportation pour acheter un objet majeur (Power Spike) et revenir instantanément afin de maintenir une pression d'équipe constante.",
+   "champions": [],
+   "roles": [
+    "top",
+    "mid"
+   ],
+   "themes": [
+    "build",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:Coiffe de Rabadon",
+    "summoner:Téléportation"
+   ],
+   "conditions": [
+    "Avoir assez d'or pour un objet complet important (ex: Coiffe de Rabadon)",
+    "Avoir la Téléportation disponible"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-QJdfRTlEh9U",
+     "locator": "15:01",
+     "lang": "en",
+     "passage": "because I have TP, I'm able to reset and then TP back on the map, right? Because that's going to mean that I can buy my Deathcap and that we can continue pressuring.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "881-941s",
+      "said": true,
+      "supported": true,
+      "gap": "La contre-indication sur la nature mineure de l'objet n'est pas explicitement mentionnée dans le passage retenu."
+     }
+    }
+   ],
+   "mentions": [
+    "Swain (exemple)"
+   ],
+   "action": "Recall-TP pour un Power Spike",
+   "observe": "Le montant d'or en réserve et l'état de la pression sur la carte",
+   "use": {
+    "when": "Ton équipe veut pressurer un objectif mais tu as beaucoup d'or sur toi",
+    "why": "Cela permet de convertir ton avantage financier en puissance réelle sans laisser ton équipe en infériorité numérique pendant ton trajet de retour.",
+    "who": "Utilisateurs de Téléportation",
+    "how": [
+     "Vérifie que tu peux finir un objet majeur",
+     "Rappelle-toi dans un endroit sûr",
+     "Téléporte-toi immédiatement sur une unité alliée proche de l'action"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "citation-insuffisante",
+     "sur-generalisation"
+    ],
+    "why": "Le champion Swain et la restriction sur les objets mineurs ne sont pas dans les passages."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.7-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-FFIVkzsJCFA-1",
+   "claim": "Selon ScrubNoob : pour préparer un invade et s'assurer que l'adversaire est de l'autre côté, déduis son point de départ en observant le moment où il pose une ward (comme une ward tardive sur tes corbins qui indique un départ top).",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vision",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Sylas"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Master/GM/Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "L'adversaire ward tardivement tes camps"
+   ],
+   "limits": [
+    "Dépend de la lecture de la mini-carte et du timing des wards"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-FFIVkzsJCFA",
+     "locator": "[00:10]",
+     "lang": "en",
+     "passage": "All right. Well, it's I think it's safe to assume that Sylas started top side since he warded my raptors so late.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "0-50s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Sylas (exemple)"
+   ],
+   "action": "Observe le timing de la pose de ward adverse pour déduire son camp de départ.",
+   "observe": "Le moment où l'adversaire ward un camp",
+   "use": {
+    "when": "en début de partie lors du premier clear dans la jungle",
+    "why": "l'adversaire a posé sa ward tardivement sur tes corbins",
+    "who": "en jouant Rengar en jungle",
+    "how": [
+     "Repère le moment où l'adversaire ward tes corbins.",
+     "Déduis qu'il a commencé de l'autre côté de sa carte (top side)."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle au passage cité, son contexte d'usage est complet et décrit un principe de déduction d'invasion valable en jungle."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-FFIVkzsJCFA-2",
+   "claim": "Selon ScrubNoob : quand un adversaire est trop avancé en side lane et que tu peux l'éliminer rapidement, utilise ton ultime immédiatement pour le punir.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "macro",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master/GM/Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Rengar/R"
+   ],
+   "conditions": [
+    "Un adversaire vulnérable est visible dans une side lane"
+   ],
+   "limits": [
+    "Nécessite d'avoir son ultime disponible et de pouvoir l'éliminer en un combo"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-FFIVkzsJCFA",
+     "locator": "[22:05]",
+     "lang": "en",
+     "passage": "The moment you see someone like that that you can just easily one-shot in a side lane, there should be an alarm going off in your brain telling you to press ult and kill him.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "1305-1365s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Karma (exemple)"
+   ],
+   "action": "Appuie sur ton ultime dès qu'un ennemi isolable apparaît dans une side lane.",
+   "observe": "Un champion ennemi fragile visible dans une side lane",
+   "use": {
+    "when": "tu vois un ennemi isolé et fragile dans une side lane sur la mini-carte",
+    "why": "pour le punir instantanément avant qu'il ne puisse pivoter",
+    "who": "en jouant Rengar",
+    "how": [
+     "Repère l'ennemi isolé sur la carte.",
+     "Déclenche ton ultime pour l'approcher.",
+     "Élimine-le rapidement."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil correspond exactement au passage, le contexte d'usage précise la situation, la raison et les actions à mener."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-FFIVkzsJCFA-3",
+   "claim": "Selon ScrubNoob : après avoir éliminé le jungler adverse, tu peux exploiter sa top side ou sa bot side restante en fonction de la symétrie des camps.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master/GM/Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Le jungler adverse est mort et ses camps respawnent de son côté"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-FFIVkzsJCFA",
+     "locator": "[07:53]",
+     "lang": "en",
+     "passage": "Okay, after killing Sylas, we know his top side is still up, so we'll go take a look at that.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "453-513s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Sylas (exemple)"
+   ],
+   "action": "Va envahir la partie de jungle adverse dont tu sais qu'elle est active après l'avoir éliminé.",
+   "observe": "Le chronomètre de réapparition des camps et la mort du jungler adverse",
+   "use": {
+    "when": "le jungler adverse vient d'être éliminé et ses camps sont réapparus de son côté",
+    "why": "pour lui voler ses camps en toute sécurité pendant qu'il est mort",
+    "who": "en jouant jungler",
+    "how": [
+     "Tue le jungler adverse.",
+     "Dirige-toi vers son camp le plus proche dont le timer correspond (ex: top side)."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est directement appuyée par la citation, le contexte d'usage est clair et l'action est précisément décrite."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-MFcKy6bEjPU-1",
+   "claim": "Selon Chreak : en début de partie avec Taliyah face à un champion au corps à corps faible comme Qiyana, place-toi devant la vague au niveau 1 pour lui refuser des sbires car le niveau 1 de Taliyah est extrêmement fort.",
+   "champions": [
+    "Taliyah",
+    "Qiyana"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "matchup": {
+    "vs": "Qiyana"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Taliyah/Q"
+   ],
+   "conditions": [
+    "Jouer Taliyah mid",
+    "Affronter un champion faible au niveau 1 comme Qiyana"
+   ],
+   "limits": [
+    "Valable uniquement au niveau 1 face à des matchups au corps à corps sans distance"
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-MFcKy6bEjPU",
+     "locator": "00:00",
+     "lang": "fr",
+     "passage": "Donc niveau 1 moi mon objectif est très simple c'est voir pour lui deny un minimum de CS parce que Taliyah niveau 1 c'est extrêmement fort. Donc je vais me mettre devant la wave et Qiyana ce n'est pas un champion niveau 1.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "0-40s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Se placer devant la première vague de sbires au niveau 1 contre un adversaire corps à corps pour l'empêcher de s'approcher et rater des sbires.",
+   "observe": "L'adversaire rate des sbires corps à corps au niveau 1 par peur de s'avancer.",
+   "use": {
+    "when": "Le tout début de la partie (niveau 1) sur la voie du milieu face à un champion au corps à corps.",
+    "why": "Le kit de Taliyah est très fort au niveau 1 par rapport aux assassins corps à corps qui ne peuvent pas riposter à distance.",
+    "who": "Joueurs de Taliyah mid.",
+    "how": [
+     "Avancer devant la première vague de sbires dès son arrivée sur la voie du milieu.",
+     "Utiliser le sort A (Terre tressée) pour menacer l'adversaire s'il s'approche pour prendre un sbire."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle au passage, le contexte de début de partie niveau 1 face à un corps à corps est clair et le conseil est directement applicable."
+   },
+   "published": "2024-04-19",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-L5b2uBZMTkE-1",
+   "claim": "Lorsque tu actives le E (Transmigration spirituelle) de Yone, la marque noire au-dessus de la tête de l'adversaire indique que les dégâts cumulés exécuteront la cible au retour de la compétence.",
+   "champions": [
+    "Yone"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Yone/E"
+   ],
+   "conditions": [
+    "Avoir activé le E"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-L5b2uBZMTkE",
+     "locator": "00:06",
+     "lang": "fr",
+     "passage": "Quand tu appuies sur E et que l'adversaire au-dessus de toi a une marque noire, ça veut dire que ton E tue. C'est le plus important avec Yone.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "0-46s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Vérifie la présence de la marque noire au-dessus de l'ennemi pendant ton E pour savoir si le retour le tuera.",
+   "observe": "La marque noire au-dessus de la cible pendant le E.",
+   "use": {
+    "when": "Tu es en plein échange de coups et tu as activé ton E sur un champion ennemi.",
+    "why": "C'est l'indicateur visuel direct que les dégâts de la compétence suffiront à achever la cible.",
+    "who": "Yone",
+    "how": [
+     "Appuie sur E pour engager le combat et marquer l'adversaire.",
+     "Observe la barre de vie et guette l'apparition de la marque noire au-dessus de sa tête."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement fidèle au passage cité et décrit correctement le méchanisme officiel de la compétence."
+   },
+   "published": "2024-03-31",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-L5b2uBZMTkE-2",
+   "claim": "Le E de Yone permet de te repositionner car ta forme spirituelle se dirige légèrement derrière l'endroit où tu orientes ton corps.",
+   "champions": [
+    "Yone"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Yone/E"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-L5b2uBZMTkE",
+     "locator": "00:12",
+     "lang": "fr",
+     "passage": "Deuxième point, c'est que ton E te permet de te repositionner vu que quand tu E, ta forme spirituelle va légèrement derrière l'endroit où tu diriges ton corps.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "0-52s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utilise la légère inclinaison de la forme spirituelle vers l'arrière lors du E pour ajuster ton positionnement.",
+   "observe": "Le déplacement du corps spirituel de Yone par rapport à sa direction.",
+   "use": {
+    "when": "Tu lances le sort de E pour te déplacer ou esquiver un sort tout en avançant.",
+    "why": "La forme spirituelle se place légèrement en arrière de ta course, ce qui modifie l'angle d'arrivée.",
+    "who": "Yone",
+    "how": [
+     "Oriente ton corps dans la direction voulue.",
+     "Active le E en tenant compte du décalage vers l'arrière de ta forme spirituelle."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil correspond exactement aux propos tenus par l'auteur à l'horodatage indiqué."
+   },
+   "published": "2024-03-31",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-L5b2uBZMTkE-3",
+   "claim": "Le combo Q-Flash de Yone doit s'exécuter instantanément, sans quoi il devient inefficace.",
+   "champions": [
+    "Yone"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Yone/Q"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-L5b2uBZMTkE",
+     "locator": "00:19",
+     "lang": "fr",
+     "passage": "Et le troisième point, c'est que le Q-Flash faut le faire instantanément, tu peux pas le faire en deux temps sinon ça devient un flop.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "0-59s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Exécute la touche de sort Q et le Saut éclair en même temps sans temps mort.",
+   "observe": "L'enchaînement simultané de l'attaque Q et du Flash.",
+   "use": {
+    "when": "Tu souhaites surprendre un adversaire de loin avec le combo Q et Flash.",
+    "why": "Le délai entre les deux actions rate l'effet de surprise et fait rater le sort.",
+    "who": "Yone",
+    "how": [
+     "Appuie sur la touche de ton Q et sur le Flash de manière instantanée et simultanée."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La formulation de l'unité retranscrit fidèlement le conseil technique de l'auteur sur le Q-Flash."
+   },
+   "published": "2024-03-31",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-L5b2uBZMTkE-4",
+   "claim": "Selon Chreak : contre Evelynn à partir du niveau 6, il est conseillé de poser des balises de vision directement sur ses camps dans sa jungle plutôt que dans la rivière.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vision",
+    "jungle"
+   ],
+   "matchup": {
+    "vs": "Evelynn"
+   },
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:balises",
+    "Evelynn/passif"
+   ],
+   "conditions": [
+    "L'adversaire est Evelynn",
+    "La partie atteint le niveau 6"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-L5b2uBZMTkE",
+     "locator": "04:54",
+     "lang": "fr",
+     "passage": "Contre Evelynn à partir du niveau 6 vous mettez des wards sur les camps, pas dans la rivière.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "274-334s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Evelynn (exemple)"
+   ],
+   "action": "Place tes balises de vision dans les camps de la jungle d'Evelynn après le niveau 6.",
+   "observe": "L'emplacement des balises posées dans la jungle adverse.",
+   "use": {
+    "when": "Tu joues contre une Evelynn qui a atteint le niveau 6 et dispose de son invisibilité permanente.",
+    "why": "Evelynn contourne les balises de rivière grâce à son camouflage, repérer ses camps permet de suivre sa position.",
+    "who": "Mid laners face à Evelynn",
+    "how": [
+     "Prends une balise de vision.",
+     "Va dans la jungle ennemie et place-la directement sur un camp de monstres."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil de vision contre Evelynn est directement appuyé par la transcription et s'applique aux mid laners."
+   },
+   "published": "2024-03-31",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-L5b2uBZMTkE-6",
+   "claim": "Selon Chreak : le choix du premier objet pour Yone s'adapte à la partie : l'Arc-bouclier immortel est excellent face à des menaces de burst comme Evelynn et Katarina, tandis que le Tueur de kraken convient mieux pour prendre des duels.",
+   "champions": [
+    "Yone"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "S14"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Arc-bouclier immortel",
+    "item:Tueur de kraken"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-L5b2uBZMTkE",
+     "locator": "06:33",
+     "lang": "fr",
+     "passage": "Dans cette game je vais partir sur un Shieldbow first item. L'itemisation sur Yone dépend de ce qui se passe dans la game, de ton matchup, de tes adversaires.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "373-433s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-L5b2uBZMTkE",
+     "locator": "22:46",
+     "lang": "fr",
+     "passage": "Si vous avez du mal à survivre dans les fights, Shieldbow premier item c'est très bien. Si vous êtes assez fort pour prendre des duels, Kraken."
+    }
+   ],
+   "mentions": [],
+   "action": "Achète l'Arc-bouclier immortel en premier objet défensif contre du burst, ou le Tueur de kraken pour l'offensive en duel.",
+   "observe": "L'objet légendaire acheté en premier par Yone dans la boutique.",
+   "use": {
+    "when": "Tu es dans la boutique après la phase de lane et tu disposes de l'or nécessaire pour ton premier objet mythique/légendaire.",
+    "why": "L'Arc-bouclier protège contre les gros dégâts instantanés, alors que le Tueur de kraken optimise les duels prolongés.",
+    "who": "Yone",
+    "how": [
+     "Vérifie la composition ennemie et ta capacité à survivre.",
+     "Sélectionne et achète soit l'Arc-bouclier immortel, soit le Tueur de kraken."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'itemisation dépend de la méta et des patchs d'objets, mais l'avis du créateur est fidèlement rapporté en tant qu'opinion."
+   },
+   "published": "2024-03-31",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
   }
  ],
- "updatedAt": "2026-11-11T01:26:28.128Z"
+ "updatedAt": "2026-11-11T07:53:25.992Z"
 }

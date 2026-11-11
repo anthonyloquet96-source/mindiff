@@ -90832,7 +90832,1045 @@
    },
    "version": 1,
    "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-sNCctJqZ9CY-1",
+   "claim": "Selon AloisNL : effectuer un proxy permet d'obtenir un rappel gratuit (reset) sans perdre de sbires ni subir de pression sur la voie.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-sNCctJqZ9CY",
+     "locator": "16:11",
+     "lang": "en",
+     "passage": "By proxying, I don't gain anything short term from this proxy itself, but I do get a free reset, which is always good, right?",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-11",
+      "window": "951-1011s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-sNCctJqZ9CY",
+     "locator": "29:24",
+     "lang": "en",
+     "passage": "You get complete free lane, free recall, you lose nothing from this."
+    }
+   ],
+   "mentions": [],
+   "action": "Intercepter la vague entre les tourelles adverses pour valider un recall sans perte de temps ni de sbires.",
+   "observe": "Présence de la vague poussée sous tourelle adverse permettant un rappel sécurisé.",
+   "use": {
+    "when": "En phase de lane en toplane, lorsque la position des vagues permet d'accéder derrière la tourelle ennemie.",
+    "why": "Cela permet un retour en base gratuit sans concéder de sbires ni de tempo.",
+    "who": "Toplaner jouant un champion capable d'éliminer vite la vague derrière la tourelle.",
+    "how": [
+     "S'installer entre la T1 et la T2 adverse pour intercepter la vague.",
+     "Éliminer la vague rapidement.",
+     "Rappeler immédiatement pour acheter ses composants."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "L'unité restreint indûment le conseil au début de partie alors que les preuves citées montrent une validité tout au long de la partie."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-uqFnbWGvFLo-2",
+   "claim": "Selon RamyAura : si ton adversaire n'a pas de Téléportation, tu peux bloquer son retour sur la lane pour l'empêcher de gagner de l'expérience et creuser un écart massif.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Grandmaster",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "summoner-spell:Teleportation"
+   ],
+   "conditions": [
+    "L'adversaire n'a pas de Téléportation disponible"
+   ],
+   "limits": [
+    "Nécessite de savoir où se trouve le jungler adverse pour ne pas se faire surprendre"
+   ],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uqFnbWGvFLo",
+     "locator": "[01:52]",
+     "lang": "en",
+     "passage": "We just need to stop him entering lane here, the Cassio. We don't want him getting XP.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-11",
+      "window": "92-152s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-uqFnbWGvFLo",
+     "locator": "[03:05]",
+     "lang": "en",
+     "passage": "No XP allowed! We have to find her."
+    }
+   ],
+   "mentions": [
+    "Cassiopeia (exemple)"
+   ],
+   "action": "Se placer entre la tour adverse et l'adversaire qui revient de base",
+   "observe": "La position de l'adversaire sur son chemin de retour de la base",
+   "use": {
+    "when": "Tu as l'avantage, la vague est dans une position favorable et l'adversaire revient de sa base sans TP",
+    "why": "L'empêcher d'atteindre la portée d'expérience des sbires qui meurent est le moyen le plus efficace de le mettre hors-jeu définitivement",
+    "who": "N'importe quel champion dominant sa lane",
+    "how": [
+     "Avancer derrière la vague de sbires adverse",
+     "Intercepter l'adversaire entre sa tour T1 et sa tour T2",
+     "Le forcer à reculer ou à prendre un combat défavorable loin de sa zone de sécurité"
+    ],
+    "notWhen": "Si le jungler adverse est susceptible d'être à proximité pour te prendre en sandwich"
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Principe de macro-jeu sur le déni d'expérience, universel mais basé sur une seule partie."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-uqFnbWGvFLo-3",
+   "claim": "Selon RamyAura : contre Cassiopeia, les Bottes de célérité sont un excellent choix pour annuler l'effet de son Z et faciliter l'esquive de son A.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Cassiopeia"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Grandmaster",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Bottes de célérité",
+    "Cassiopeia/W",
+    "Cassiopeia/Q"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uqFnbWGvFLo",
+     "locator": "[04:30]",
+     "lang": "en",
+     "passage": "Swifties or Sorcs? I'm gonna go... no, I'm gonna go Swifties.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-11",
+      "window": "250-310s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur justifie son choix par la pression exercée et son avance de niveau, tandis que le conseil ajoute des explications techniques sur les sorts de Cassiopeia non mentionnées."
+     }
+    },
+    {
+     "content": "c-yt-uqFnbWGvFLo",
+     "locator": "[05:01]",
+     "lang": "en",
+     "passage": "I have Ignite, so I can kind of just run through her W and Q and I'll just win."
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter les Bottes de célérité au premier ou deuxième rappel",
+   "observe": "La capacité de Cassiopeia à te ralentir avec son Z (Miasmes)",
+   "use": {
+    "when": "Tu affrontes une Cassiopeia et tu as besoin de mobilité pour ne pas rester bloqué dans ses zones",
+    "why": "",
+    "who": "Teemo",
+    "how": [
+     "Privilégier l'achat des Bottes de célérité plutôt que les Chaussures de sorcier",
+     "Utiliser le bonus de vitesse pour bait son A et sortir rapidement de son Z"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible",
+     "une-partie"
+    ],
+    "why": "Recommandation d'objet spécifique au matchup, dépendante de l'équilibrage du patch 14.1."
+   },
+   "published": null,
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-uqFnbWGvFLo-4",
+   "claim": "Selon RamyAura : la priorité du rappel doit être dictée par l'état de la vague de sbires plutôt que par l'optimisation de l'or pour un composant.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Grandmaster",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uqFnbWGvFLo",
+     "locator": "[02:35]",
+     "lang": "en",
+     "passage": "I'm not gonna wait for the Dagger, I need to be there so she can't crash the wave.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-11",
+      "window": "135-195s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Recall immédiatement sans attendre l'or d'un objet si la vague est en danger",
+   "observe": "Le timing de retour de l'adversaire et la position de la vague",
+   "use": {
+    "when": "Tu as besoin de recall mais attendre quelques secondes pour un objet permettrait à l'adversaire de crash la vague sous ta tour",
+    "why": "Perdre une vague sous tour ou laisser l'adversaire reset la lane est plus préjudiciable que de manquer un petit composant",
+    "who": "Tous les joueurs de lane",
+    "how": [
+     "Analyser si l'adversaire peut atteindre la vague avant ton retour",
+     "Lancer le rappel immédiatement même s'il manque 50 ou 100 PO pour un objet",
+     "Revenir sur la lane pour maintenir le gel ou la pression"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Conseil de tempo de rappel et de gestion de vague intemporel, bien que tiré d'une seule source."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-uqFnbWGvFLo-5",
+   "claim": "Selon RamyAura : pour affronter Cassiopeia après le niveau 6, utilise un combo rapide 'Auto-A-Ignite' puis recule immédiatement pour éviter son ultime.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "matchup",
+    "teamfight"
+   ],
+   "matchup": {
+    "vs": "Cassiopeia"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Grandmaster",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Teemo/Q",
+    "Cassiopeia/R"
+   ],
+   "conditions": [
+    "Cassiopeia a son ultime disponible"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uqFnbWGvFLo",
+     "locator": "[13:42]",
+     "lang": "en",
+     "passage": "He has ult, so it's a bit scary for me, but auto-Q-ignite and then back off and then go in again."
+    }
+   ],
+   "mentions": [],
+   "action": "Effectuer un combo court et reculer",
+   "observe": "L'animation de l'ultime de Cassiopeia",
+   "use": {
+    "when": "Tu es en duel contre Cassiopeia et elle cherche à te pétrifier",
+    "why": "En reculant après un court échange, tu réduis les chances d'être face à elle au moment où elle lance son Regard de la Méduse",
+    "who": "Teemo",
+    "how": [
+     "Lancer une auto-attaque suivie immédiatement de ton A (Fléchette aveuglante)",
+     "Appliquer l'Embrasement si nécessaire",
+     "Faire demi-tour instantanément pour ne pas lui faire face"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible",
+     "une-partie"
+    ],
+    "why": "Technique de duel spécifique dépendant de l'équilibrage et des timings du patch 14.1."
+   },
+   "published": null,
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-uqFnbWGvFLo-6",
+   "claim": "Selon RamyAura : lorsque tu possèdes une prime de 1000 PO, ta priorité absolue doit être de ne pas mourir, quitte à abandonner des opportunités offensives.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Grandmaster",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:primes"
+   ],
+   "conditions": [
+    "Tu as une prime de 1000 PO"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uqFnbWGvFLo",
+     "locator": "[22:16]",
+     "lang": "en",
+     "passage": "My priority was choosing to not die, because I have a 1k shutdown even."
+    }
+   ],
+   "mentions": [],
+   "action": "Jouer de manière ultra-prudente pour conserver ta prime",
+   "observe": "Le montant de ta prime sur le tableau des scores",
+   "use": {
+    "when": "Tu domines largement la partie et l'équipe adverse cherche à te tuer pour récupérer les 1000 PO",
+    "why": "Donner 1000 PO à l'adversaire peut relancer totalement leur partie et annuler ton avantage",
+    "who": "Le joueur qui snowball",
+    "how": [
+     "Éviter les dives risqués même si un kill semble possible",
+     "Rester avec ton équipe ou dans des zones protégées par la vision",
+     "Privilégier la survie au-dessus de toute autre statistique"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Gestion de la prime de 1000 PO, principe de macro-jeu universel tiré d'une seule partie."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-Tn7_zcfqnBg-1",
+   "claim": "Selon Chreak : ahri doit être jouée comme un assassin utilitaire qui prépare le terrain pour ses alliés ou punit les erreurs de placement, plutôt que de chercher l'assassinat pur en duel.",
+   "champions": [
+    "Ahri"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master/D1",
+    "region": "non-precise"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [
+    "L'assassinat en 1v1 n'est possible que si tu as une avance significative."
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Tn7_zcfqnBg",
+     "locator": "[00:15]",
+     "lang": "fr",
+     "passage": "Ahri c'est un assassin, mais un assassin qui n'assassine pas en 1v1 généralement sauf si tu es bien devant.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-11",
+      "window": "0-55s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas explicitement que le champion excelle dans la « création de chaos »."
+     }
+    },
+    {
+     "content": "c-yt-Tn7_zcfqnBg",
+     "locator": "[00:28]",
+     "lang": "fr",
+     "passage": "Ahri c'est un champion que tu vas vouloir pick pour setup tes coéquipiers, pour setup tes carries, ou si quelqu'un peut te setup des trucs et tu peux punir."
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "pendant les phases de regroupement ou d'escarmouches",
+    "why": "",
+    "who": "joueurs d'Ahri mid",
+    "how": [
+     "Identifie une cible mal positionnée",
+     "Utilise ton kit pour immobiliser la cible (setup)",
+     "Laisse tes alliés compléter les dégâts si tu n'es pas assez en avance"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle aux propos de l'auteur et définit clairement le rôle d'Ahri dans la méta actuelle."
+   },
+   "published": "2024-03-10",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-Tn7_zcfqnBg-2",
+   "claim": "Selon Chreak : au niveau 1, il est préférable de commencer avec le Z (Lucioles) pour optimiser les échanges de PV, car les attaques de base guident les projectiles.",
+   "champions": [
+    "Ahri"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master/D1",
+    "region": "non-precise"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Ahri/W"
+   ],
+   "conditions": [
+    "Être capable de placer une attaque de base sur l'adversaire."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Tn7_zcfqnBg",
+     "locator": "[01:06]",
+     "lang": "fr",
+     "passage": "Niveau 1, l'Éluciol. Pourquoi on joue l'Éluciol ? Parce que si vous êtes bon en trade, l'auto va automatiquement guider l'Éluciol vers l'adversaire."
+    }
+   ],
+   "mentions": [],
+   "action": "tester le trade auto-attaque + Z au niveau 1",
+   "observe": "",
+   "use": {
+    "when": "au niveau 1 lors de la phase de lane",
+    "why": "L'attaque de base force les projectiles du Z à cibler le champion adverse, garantissant les dégâts.",
+    "who": "joueurs d'Ahri mid",
+    "how": [
+     "Prends le sort Z (Lucioles) au niveau 1",
+     "Lance une attaque de base sur le champion adverse",
+     "Active le Z immédiatement pour que les lucioles le ciblent"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil technique précis sur une mécanique de ciblage du kit d'Ahri, bien sourcé."
+   },
+   "published": "2024-03-10",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-Tn7_zcfqnBg-3",
+   "claim": "Selon Chreak : ahri gagne naturellement ses phases de lane sur la durée grâce au sustain fourni par son passif lors des échanges.",
+   "champions": [
+    "Ahri"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master/D1",
+    "region": "non-precise"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Ahri/passive"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Tn7_zcfqnBg",
+     "locator": "[02:20]",
+     "lang": "fr",
+     "passage": "Tu as du sustain avec ton passif, donc les trades avec Ahri sont généralement gagnants au fil du temps par la régénération.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-11",
+      "window": "120-180s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "lors de phases de trading répétées en lane",
+    "why": "La régénération de PV du passif permet de compenser les dégâts subis contrairement à beaucoup d'adversaires.",
+    "who": "joueurs d'Ahri mid",
+    "how": [
+     "Effectue des échanges de sorts courts",
+     "Utilise ton passif pour remonter tes PV entre deux échanges"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe de gestion de lane basé sur le passif, cohérent avec le kit du champion."
+   },
+   "published": "2024-03-10",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-Tn7_zcfqnBg-4",
+   "claim": "Selon Chreak : la tour T1 du milieu est l'objectif défensif le plus crucial du jeu ; le midlaner doit chercher à la neutraliser ou à la faire tomber le plus vite possible pour ouvrir la carte.",
+   "champions": [
+    "Ahri"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master/D1",
+    "region": "non-precise"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Tn7_zcfqnBg",
+     "locator": "[10:23]",
+     "lang": "fr",
+     "passage": "La T1 Mid c'est le Graal de défense de League of Legends. Si vous pouvez la neutraliser au plus vite vous êtes très content.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-11",
+      "window": "603-663s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur ne mentionne pas explicitement l'ouverture de la carte, le contrôle ou la sécurité, ni l'usage des décalages pour forcer l'adversaire à quitter sa tour."
+     }
+    },
+    {
+     "content": "c-yt-Tn7_zcfqnBg",
+     "locator": "[28:42]",
+     "lang": "fr",
+     "passage": "Je dois taper cette T1 Mid le plus possible car c'est crucial."
+    }
+   ],
+   "mentions": [],
+   "action": "focaliser les dégâts sur la T1 mid dès que l'adversaire décale",
+   "observe": "",
+   "use": {
+    "when": "lorsque tu as la priorité de lane ou que l'adversaire a quitté sa lane",
+    "why": "",
+    "who": "joueurs de midlane",
+    "how": [
+     "Pousse ta vague de sbires sous la tour adverse",
+     "Inflige des dégâts à la tour dès que possible",
+     "Utilise tes décalages pour forcer l'adversaire à abandonner sa tour"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [],
+    "why": "Le conseil est un principe général de macro-jeu qui ne dépend pas spécifiquement d'Ahri, bien qu'elle soit le champion joué ici."
+   },
+   "published": "2024-03-10",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-Tn7_zcfqnBg-5",
+   "claim": "Selon Chreak : une mécanique fondamentale d'Ahri consiste à utiliser les charges de son ultime (R) pour ajuster sa position et garantir que le retour de l'Orbe d'illusion (Q) touche l'adversaire.",
+   "champions": [
+    "Ahri"
+   ],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "champion",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master/D1",
+    "region": "non-precise"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Ahri/Q",
+    "Ahri/R"
+   ],
+   "conditions": [
+    "Avoir l'ultime disponible."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Tn7_zcfqnBg",
+     "locator": "[30:18]",
+     "lang": "fr",
+     "passage": "Le fait de garder son R pour ajuster le retour du Q au bon timing c'est la base sur Ahri.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "1798-1858s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "s'entraîner à dash avec le R pour rediriger le retour du Q",
+   "observe": "",
+   "use": {
+    "when": "pendant un combat où tu as lancé ton Q et que l'adversaire tente de l'esquiver",
+    "why": "Le retour du Q inflige des dégâts bruts et est souvent la partie la plus importante du burst.",
+    "who": "joueurs d'Ahri",
+    "how": [
+     "Lance ton Q vers l'adversaire",
+     "Observe la trajectoire de retour de l'orbe",
+     "Utilise un dash de l'ultime (R) pour te repositionner de sorte que l'orbe traverse l'ennemi en revenant vers toi"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Mécanique fondamentale d'Ahri bien expliquée et illustrée par le passage."
+   },
+   "published": "2024-03-10",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
+  },
+  {
+   "id": "u-ai-yt-Tn7_zcfqnBg-6",
+   "claim": "Selon Chreak : l'objet Malfaisance est le premier achat indispensable sur Ahri en saison 14, suivi du Fléau de Liche pour augmenter les dégâts.",
+   "champions": [
+    "Ahri"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master/D1",
+    "region": "non-precise"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Malfaisance",
+    "item:Fléau de Liche"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Tn7_zcfqnBg",
+     "locator": "[35:19]",
+     "lang": "fr",
+     "passage": "L'itemization c'est Malfaisance obligatoire, puis Fléau de Liche, Liandry ou Shadowflame selon les besoins.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "2099-2159s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "lors de l'achat des premiers objets complets",
+    "why": "Malfaisance offre de l'accélération de compétence sur l'ultime, ce qui est vital pour la mobilité et le setup d'Ahri.",
+    "who": "joueurs d'Ahri mid",
+    "how": [
+     "Achète Malfaisance en premier objet",
+     "Enchaîne avec le Fléau de Liche pour renforcer tes auto-attaques entre les sorts"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le build (Malfaisance/Liche) est très dépendant du patch (S14 début) et peut varier selon les équilibrages d'objets ultérieurs."
+   },
+   "published": "2024-03-10",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
   }
  ],
- "updatedAt": "2026-11-11T14:11:44.432Z"
+ "updatedAt": "2026-11-11T19:36:42.816Z"
 }

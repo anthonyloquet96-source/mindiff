@@ -89338,7 +89338,91 @@
    },
    "version": 1,
    "firstSeen": "2026-11-10"
+  },
+  {
+   "id": "u-ai-yt-FmlfJ6KcAJc-1",
+   "claim": "Selon Jankos : sur Nidalee, l'auteur préfère acheter Flamme-d'ombre en deuxième objet plutôt que Coiffe de Rabadon pour profiter des dégâts d'exécution sur les cibles touchées par une lance.",
+   "champions": [
+    "Nidalee"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Flamme-d'ombre",
+    "item:Coiffe de Rabadon",
+    "Nidalee/Q"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-FmlfJ6KcAJc",
+     "locator": "08:52",
+     "lang": "pl",
+     "passage": "Rabadon's second item I don't like Rabadon's second item. I much rather buy Shadowflame for execution damage. That way when you hit a spear it's gonna be half HP and then when you can jump and cougar them they're gonna die.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-11",
+      "window": "512-572s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète Flamme-d'ombre en deuxième objet sur Nidalee pour renforcer les dégâts d'exécution.",
+   "observe": "Vérifie les dégâts infligés après avoir touché une lance avec Flamme-d'ombre en deuxième item.",
+   "use": {
+    "when": "tu joues Nidalee et tu dois choisir ton deuxième objet après ton premier item mythique ou légendaire",
+    "why": "la Flamme-d'ombre permet de descendre plus facilement les cibles touchées à mi-vie avec une lance avant de sauter en forme de couguar",
+    "who": "Nidalee jungle",
+    "how": [
+     "termine ton premier objet majeur",
+     "achète Flamme-d'ombre en second"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité retranscrit fidèlement l'opinion d'un joueur professionnel reconnu (Jankos) avec une source claire, un contexte d'usage complet et sans sur-généralisation."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-11",
+   "validity": {
+    "checkedAt": "2026-11-11",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-11",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-11"
   }
  ],
- "updatedAt": "2026-11-10T19:26:48.947Z"
+ "updatedAt": "2026-11-11T01:26:28.128Z"
 }

@@ -51148,12 +51148,13 @@
      "lang": "en",
      "passage": "A half roam looks like this: you push to enter dead time, then go halfway, check the state of the nearby lanes, if they're gankable you commit, if not, you head back to lane.",
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-12",
       "window": "622-682s",
       "said": true,
       "supported": true
-     }
+     },
+     "reverifiedAt": "2026-11-12"
     }
    ],
    "mentions": [],
@@ -93408,7 +93409,173 @@
    },
    "version": 1,
    "firstSeen": "2026-11-12"
+  },
+  {
+   "id": "u-ai-yt-uZQtMEYUYbo-2",
+   "claim": "Selon 챌린저 정글블루리쉬 : en jungle, lorsque tu souhaites sécuriser un objectif comme les Larves du Néant sous la menace d'un regroupement adverse, sécurise d'abord le Carapateur.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.4"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "L'équipe adverse risque d'interrompre l'objectif neutre"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uZQtMEYUYbo",
+     "locator": "[02:46]",
+     "lang": "ko",
+     "passage": "이건 상대방이 미드 라인 밀면서 3대3 하려는 거 잘 싸웠던 거 같아요. 이런 거 할 때도 바위게부터! 왜냐면 유충 먹다가 상대방이 오게 되면은 유충을 3개 다 못 먹잖아 그러면. 성장 땡기는 바위게가 기대값이 훨씬 높아가지고 먹고 천천히 치면 됩니다.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-12",
+      "window": "146-206s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Tuer le Carapateur avant d'engager les Larves du Néant si un combat 3v3 menace de se déclencher.",
+   "observe": "",
+   "use": {
+    "when": "Quand tu veux faire les Larves du Néant et que la ligne du milieu adverse pousse pour contester en 3v3.",
+    "why": "Si l'adversaire survient pendant l'objectif, tu ne pourras pas prendre toutes les Larves, alors que le Carapateur garantit de l'expérience et de l'or immédiats avec une meilleure valeur attendue.",
+    "who": "Junglers en phase d'early game.",
+    "how": [
+     "Sécuriser le Carapateur dans la rivière",
+     "Observer la réaction et le placement de l'équipe adverse",
+     "Engager l'objectif neutre seulement après"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe de macro-jeu intemporel sur la gestion de la priorité et de la valeur attendue (XP/Gold garantie du Carapateur vs risque sur les Larves)."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-12",
+   "validity": {
+    "checkedAt": "2026-11-12",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-12",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-12"
+  },
+  {
+   "id": "u-ai-yt-uZQtMEYUYbo-3",
+   "claim": "Selon 챌린저 정글블루리쉬 : lors de la présence d'objectifs majeurs sur la carte, priorise la prise d'objectif et la reprise du rythme de farm plutôt que d'enchaîner des dives risqués sous tour.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.4"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Un objectif neutre majeur est disponible et le rythme de jungle doit être conservé"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uZQtMEYUYbo",
+     "locator": "[05:34]",
+     "lang": "ko",
+     "passage": "오브젝트 있을 때는 킬보다 이 오브젝트 흐름이 더 중요해. 옵젝을 먹고 빠르게 윗캠부터 다시 내리는 게 중요해서 지금 보면 아래캠 썩고 있죠? 그래서 요거는 원래 안 싸우는 게 좋았다 다이브까지는.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "314-374s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Se replier après un kill réussi près d'un objectif pour vider ses camps et enchaîner l'objectif plutôt que de tenter un dive sous tour.",
+   "observe": "",
+   "use": {
+    "when": "Après une escarmouche victorieuse alors qu'un objectif est disponible et que tes camps de jungle réapparaissent.",
+    "why": "Maintenir le rythme d'optimisation des camps et des objectifs apporte plus de valeur stable qu'un dive risqué qui peut faire pourrir tes camps de jungle.",
+    "who": "Tout jungler gérant son tempo de partie.",
+    "how": [
+     "Obtenir le kill ou l'avantage initial",
+     "Se désengager sans forcer le dive sous tourelle",
+     "Reprendre la route de jungle et sécuriser l'objectif"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil de gestion de tempo et de cycle de jungle universel, indépendant de la méta spécifique."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-12",
+   "validity": {
+    "checkedAt": "2026-11-12",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-12",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-12"
   }
  ],
- "updatedAt": "2026-11-12T14:14:52.214Z"
+ "updatedAt": "2026-11-12T19:18:36.913Z"
 }

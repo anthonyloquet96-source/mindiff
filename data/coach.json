@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-12T14:14:53.386Z",
+ "generatedAt": "2026-11-12T19:23:53.591Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -2352,8 +2352,8 @@
    "methode": 50,
    "vagues": 90,
    "vision": 29,
-   "macro": 141,
-   "jungle": 93
+   "macro": 143,
+   "jungle": 95
   },
   "partial": [
    "Ashe"
@@ -15033,12 +15033,12 @@
    "lang": "fr",
    "published": "2024-01-19",
    "retrievedAt": "2026-10-21",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.1",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "Vous voulez une séance de coaching avec Chreak en tête à tête ? C'est possible ! Deux options s'offrent à vous (70€/session de 1h15) : \nPasser par l'abonnement mensuel sur Patreon pour avoir 1 heure de coaching par mois sur ce lien : https://www.patreon.com/c/ChreakLoL\nContacter directement Chreak p",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -15049,6 +15049,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-12",
+    "sha256": "ab4dabba317e33768aff1ba57e419a2859d7360965d29841a9cfa52a06b1e8f1",
+    "segments": 42,
+    "observations": 40,
+    "duration": "09:27",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 62775
    }
   },
   {
@@ -19067,7 +19080,7 @@
    "published": "2026-07-24",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 27000,
+   "views": 28000,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.5-flash-lite le 2026-10-29 : transcription réutilisée depuis le cache de cet ordinateur.",
@@ -19256,7 +19269,7 @@
    "published": "2026-07-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 11000,
+   "views": 12000,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.7-flash : transcription et 35 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -20541,7 +20554,7 @@
    "published": "2026-03-28",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 742,
+   "views": 743,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20599,7 +20612,7 @@
    "published": "2026-03-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 727,
+   "views": 734,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20630,7 +20643,7 @@
    "published": "2025-09-23",
    "retrievedAt": "2026-10-21",
    "patch": "S15",
-   "views": 904,
+   "views": 905,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Écarté : contenu jugé de faible qualité (Le contenu est un commentaire en direct d'une partie par un joueur (gameplay commenté) sans analyse structurée, conseils généraux ou explications techniques précises sur le champion Vladimir.).",
@@ -23771,7 +23784,7 @@
    "published": "2026-10-24",
    "retrievedAt": "2026-10-26",
    "patch": null,
-   "views": 7900,
+   "views": 8000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25750,7 +25763,7 @@
    "published": "2026-10-27",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 514,
+   "views": 515,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26389,7 +26402,7 @@
    "published": "2026-10-29",
    "retrievedAt": "2026-10-30",
    "patch": null,
-   "views": 9300,
+   "views": 9400,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26845,7 +26858,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 21000,
+   "views": 22000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27436,7 +27449,7 @@
    "ageMonths": 1,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 12000,
+   "views": 13000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27520,7 +27533,7 @@
    "ageMonths": 0.7,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 3600,
+   "views": 3700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28116,7 +28129,7 @@
    "ageMonths": 0.3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 2,
+   "views": 3,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28172,7 +28185,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 22000,
+   "views": 23000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28260,7 +28273,7 @@
    "ageMonths": 5,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 7900,
+   "views": 8000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28343,11 +28356,11 @@
    "published": null,
    "ageMonths": 1,
    "retrievedAt": "2026-11-01",
-   "patch": null,
+   "patch": "non spécifié",
    "views": 9900,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.6-flash : transcription et 16 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 2,
     "matched": [
@@ -28357,7 +28370,20 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 140
+   "queueRank": 140,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-12",
+    "sha256": "cf198bdc89b01db121b78fbffda3b5f75b2a3a241252e73993eeebdc8350e02b",
+    "segments": 39,
+    "observations": 16,
+    "duration": "15:13",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 87880
+   }
   },
   {
    "id": "c-yt-nIc8as4PVr0",
@@ -29239,7 +29265,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 15000,
+   "views": 16000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -29495,7 +29521,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 22000,
+   "views": 23000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -29521,7 +29547,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 6500,
+   "views": 6600,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35009,7 +35035,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 59000,
+   "views": 61000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35036,7 +35062,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 9100,
+   "views": 9300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35095,7 +35121,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 5,
+   "views": 6,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35146,7 +35172,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 65000,
+   "views": 69000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35173,7 +35199,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 244000,
+   "views": 246000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35200,7 +35226,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 342000,
+   "views": 344000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35228,7 +35254,7 @@
    "ageMonths": 0.1,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 56000,
+   "views": 57000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35592,7 +35618,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-07",
    "patch": null,
-   "views": 4,
+   "views": 5,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35806,7 +35832,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-08",
    "patch": null,
-   "views": 9500,
+   "views": 9900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35863,7 +35889,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-08",
    "patch": null,
-   "views": 155000,
+   "views": 160000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35889,7 +35915,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-08",
    "patch": null,
-   "views": 8000,
+   "views": 8200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36345,7 +36371,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 19000,
+   "views": 20000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36372,7 +36398,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 577,
+   "views": 659,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36400,7 +36426,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 26000,
+   "views": 27000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36427,7 +36453,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 292,
+   "views": 294,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36665,7 +36691,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 6500,
+   "views": 6700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37155,7 +37181,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-10",
    "patch": null,
-   "views": 3000,
+   "views": 3300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37183,7 +37209,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-10",
    "patch": null,
-   "views": 3800,
+   "views": 4300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37263,7 +37289,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-11",
    "patch": null,
-   "views": 5000,
+   "views": 5600,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37543,7 +37569,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-11",
    "patch": null,
-   "views": 8800,
+   "views": 11000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37569,7 +37595,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-11",
    "patch": null,
-   "views": 4400,
+   "views": 6400,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37755,7 +37781,7 @@
    "retrievedAt": "2026-11-12",
    "patch": "14.4",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 139,
@@ -37779,6 +37805,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 63001
+   },
+   "analyzedAt": "2026-11-12",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "Prioriser le Carapateur avant les Larves en cas de contestation probable, privilégier le tempo de farm et les objectifs sur les dives risqués, et acheter le Phage en premier sur le build Trinity Force de Viego.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Explications d'un joueur Challenger sur des décisions de macro en jungle et le build d'un champion, basées sur un gameplay commenté au patch 14.4."
    }
   },
   {
@@ -37791,13 +37827,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-11-12",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "non mentionné",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 141,
-   "note": "File de lecture (rang 141) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash : transcription et 27 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 17,
     "matched": [
@@ -37810,6 +37846,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash",
+    "fps": 1,
+    "at": "2026-11-12",
+    "sha256": "57f340f433713b256e5fdea7a9a5ba064958008613c14e4b3c88a0529817bf4b",
+    "segments": 89,
+    "observations": 27,
+    "duration": "41:50",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 237447
    }
   },
   {
@@ -37822,19 +37871,32 @@
    "lang": "ja",
    "published": null,
    "retrievedAt": "2026-11-12",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "2025 S1.3",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 142,
-   "note": "File de lecture (rang 142) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 16 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-12",
+    "sha256": "7b6302855a65190f387b5009845b03a745173b4b9871fa679129f5e47388012f",
+    "segments": 181,
+    "observations": 16,
+    "duration": "13:54",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 88241
    }
   },
   {
@@ -37858,6 +37920,89 @@
     "score": 14,
     "matched": [
      "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-4lube1tall8",
+   "sourceId": "yt-coach-leo",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=4lube1tall8",
+   "title": "Peak Jungle Fundamentals Explained By Ex Pro | Agurin vs Canyon Breakdown",
+   "author": "Coach Leo (JungleGap)",
+   "lang": "en",
+   "published": null,
+   "ageMonths": 0,
+   "retrievedAt": "2026-11-12",
+   "patch": null,
+   "views": 1100,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "triage": {
+    "score": 7,
+    "matched": [
+     "jungle",
+     "fundamentals",
+     "explained",
+     "breakdown"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-9vfaX1XgST4",
+   "sourceId": "yt-taowb",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=9vfaX1XgST4",
+   "title": "I Won Without Teamfighting! (Tryndamere Split Push Masterclass)",
+   "author": "TaoWB",
+   "lang": "tr",
+   "published": null,
+   "retrievedAt": "2026-11-12",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 144,
+   "note": "File de lecture (rang 144) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Xpg0fZdaZZc",
+   "sourceId": "yt-titans-coaching",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=Xpg0fZdaZZc",
+   "title": "Farming, Trading, and Wave Control Guide for Carrying 1 vs 9 as an AD Carry",
+   "author": "Titans Coaching",
+   "lang": "es",
+   "published": null,
+   "retrievedAt": "2026-11-12",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 146,
+   "note": "File de lecture (rang 146) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "guide",
+     "wave",
+     "trading"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -73887,12 +74032,13 @@
      "lang": "en",
      "passage": "A half roam looks like this: you push to enter dead time, then go halfway, check the state of the nearby lanes, if they're gankable you commit, if not, you head back to lane.",
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-12",
       "window": "622-682s",
       "said": true,
       "supported": true
-     }
+     },
+     "reverifiedAt": "2026-11-12"
     }
    ],
    "mentions": [],
@@ -73917,10 +74063,6 @@
     "human": "en attente"
    },
    "flags": [
-    {
-     "code": "verification-legere",
-     "why": "c-yt-ZzKpPJ_BNHM : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
-    },
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne : présenté comme tel."
@@ -112093,6 +112235,156 @@
     {
      "code": "lecture-ia",
      "why": "c-yt-qH4drUtSedk : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([13:29])."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-uZQtMEYUYbo-2",
+   "claim": "Selon 챌린저 정글블루리쉬 : en jungle, lorsque tu souhaites sécuriser un objectif comme les Larves du Néant sous la menace d'un regroupement adverse, sécurise d'abord le Scuttle.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.4"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "L'équipe adverse risque d'interrompre l'objectif neutre"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uZQtMEYUYbo",
+     "locator": "[02:46]",
+     "lang": "ko",
+     "passage": "이건 상대방이 미드 라인 밀면서 3대3 하려는 거 잘 싸웠던 거 같아요. 이런 거 할 때도 바위게부터! 왜냐면 유충 먹다가 상대방이 오게 되면은 유충을 3개 다 못 먹잖아 그러면. 성장 땡기는 바위게가 기대값이 훨씬 높아가지고 먹고 천천히 치면 됩니다.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-12",
+      "window": "146-206s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Tuer le Carapateur avant d'engager les Larves du Néant si un combat 3v3 menace de se déclencher.",
+   "observe": "",
+   "use": {
+    "when": "Quand tu veux faire les Larves du Néant et que la lane du milieu adverse pousse pour contester en 3v3.",
+    "why": "Si l'adversaire survient pendant l'objectif, tu ne pourras pas prendre toutes les Larves, alors que le Scuttle garantit de l'expérience et de l'or immédiats avec une meilleure valeur attendue.",
+    "who": "Junglers en phase d'early game.",
+    "how": [
+     "Sécuriser le Scuttle dans la rivière",
+     "Observer la réaction et le placement de l'équipe adverse",
+     "Engager l'objectif neutre seulement après"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-12",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-uZQtMEYUYbo-3",
+   "claim": "Selon 챌린저 정글블루리쉬 : lors de la présence d'objectifs majeurs sur la carte, priorise la prise d'objectif et la reprise du rythme de farm plutôt que d'enchaîner des dives risqués sous tour.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.4"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Un objectif neutre majeur est disponible et le rythme de jungle doit être conservé"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uZQtMEYUYbo",
+     "locator": "[05:34]",
+     "lang": "ko",
+     "passage": "오브젝트 있을 때는 킬보다 이 오브젝트 흐름이 더 중요해. 옵젝을 먹고 빠르게 윗캠부터 다시 내리는 게 중요해서 지금 보면 아래캠 썩고 있죠? 그래서 요거는 원래 안 싸우는 게 좋았다 다이브까지는.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "314-374s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Se replier après un kill réussi près d'un objectif pour vider ses camps et enchaîner l'objectif plutôt que de tenter un dive sous tour.",
+   "observe": "",
+   "use": {
+    "when": "Après un skirmish victorieuse alors qu'un objectif est disponible et que tes camps de jungle réapparaissent.",
+    "why": "Maintenir le rythme d'optimisation des camps et des objectifs apporte plus de valeur stable qu'un dive risqué qui peut faire pourrir tes camps de jungle.",
+    "who": "Tout jungler gérant son tempo de partie.",
+    "how": [
+     "Obtenir le kill ou l'avantage initial",
+     "Se désengager sans forcer le dive sous tourelle",
+     "Reprendre la route de jungle et sécuriser l'objectif"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-12",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-uZQtMEYUYbo : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
     },
     {
      "code": "source-unique",

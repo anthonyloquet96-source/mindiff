@@ -92693,7 +92693,549 @@
    },
    "version": 1,
    "firstSeen": "2026-11-12"
+  },
+  {
+   "id": "u-ai-yt-mqr7mOqHKTw-1",
+   "claim": "Selon hybradge : en tant que jungler fort en début de partie, invader la jungle adverse contre un champion à fort scaling permet de retarder ses spikes d'objets et d'accélérer la prise d'objectifs majeurs avant qu'il ne devienne menaçant.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.12"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mqr7mOqHKTw",
+     "locator": "[00:37]",
+     "lang": "en",
+     "passage": "Now, let's say you're playing Jarvan and the enemy jungler is playing Gwen, okay? When he hits three items, he's Thanos. When you hit three items, you're strong, but you're nowhere near what she is in the game, right?",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "17-77s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-mqr7mOqHKTw",
+     "locator": "[00:58]",
+     "lang": "en",
+     "passage": "Well, what you can do is by invading, you delay her item spikes, right? You make the window she has to impact the game that much smaller."
+    }
+   ],
+   "mentions": [
+    "Jarvan IV (exemple)",
+    "Gwen (exemple)"
+   ],
+   "action": "Invader la jungle adverse pour retarder les camps du jungler adverse à fort scaling et prendre un avantage d'objectifs neutres.",
+   "observe": "",
+   "use": {
+    "when": "Tu joues un jungler puissant en early game face à un jungler adverse axé sur le scaling tardif.",
+    "why": "Retarder les achats d'objets du jungler adverse réduit sa fenêtre d'impact et l'empêche de contester les objectifs majeurs comme les dragons.",
+    "who": "Les junglers ayant l'avantage en début de partie face à des junglers adverses à fort scaling.",
+    "how": [
+     "Invader la jungle adverse pour lui voler ses camps de jungle",
+     "Utiliser le retard de l'adversaire pour sécuriser les dragons avant son pic de puissance"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité présente un conseil macro intemporel sur l'envahissement de la jungle en early game face à un profil de champion à fort scaling, s'appuyant fidèlement sur la transcription."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-12",
+   "validity": {
+    "checkedAt": "2026-11-12",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-12",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-12"
+  },
+  {
+   "id": "u-ai-yt-mqr7mOqHKTw-2",
+   "claim": "Selon hybradge : invader la jungle adverse permet de forcer des escarmouches prévisibles contre une composition adverse axée sur le scaling, les sortant de leur zone de confort avant qu'ils ne deviennent trop forts.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.12"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mqr7mOqHKTw",
+     "locator": "[01:32]",
+     "lang": "en",
+     "passage": "Now, let's imagine enemy mid is a Kassadin. When he hits level 16, he will 1v9 the game, okay?",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "72-132s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-mqr7mOqHKTw",
+     "locator": "[01:51]",
+     "lang": "en",
+     "passage": "By forcing him into this early skirmish, you're taking him out of his comfort zone and you're exploiting him where he's the weakest."
+    }
+   ],
+   "mentions": [
+    "Kassadin (exemple)",
+    "Zeri (exemple)"
+   ],
+   "action": "Provoker des invasions dans la jungle en début de partie lorsque l'équipe adverse possède des laners passifs à fort scaling.",
+   "observe": "",
+   "use": {
+    "when": "L'équipe adverse possède des laners ou des champions à fort scaling qui veulent éviter les combats en début de partie.",
+    "why": "Les laners à scaling veulent fermer passivement ; les forcer à venir en escarmouche précoce exploite leur moment de faiblesse ou force leur jungler à abandonner ses ressources.",
+    "who": "Les junglers jouant contre des équipes adverses passives à fort scaling.",
+    "how": [
+     "Lancer des invasions dans la jungle adverse en début de partie",
+     "Forcer les laners adverses à choisir entre abandonner leur jungler ou se battre alors qu'ils sont faibles"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil concernant la pression et les escarmouches précoces face à un champion passif comme Kassadin est cohérent, bien contextualisé et soutenu par les passages de la transcription."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-12",
+   "validity": {
+    "checkedAt": "2026-11-12",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-12",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-12"
+  },
+  {
+   "id": "u-ai-yt-Fneh5bjrLMY-2",
+   "claim": "Selon BIZYZE Coaching | League of Legends : erreur fréquente : essayer de sauver un allié engagé à 1 contre 3 (comme Briar) en voulant jeter un sort ou un W. L'auteur conseille de fuir immédiatement pour ne pas mourir inutilement avec lui.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "survie",
+    "teamfight"
+   ],
+   "synergy": {
+    "with": [
+     "Briar"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.22"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Kai'Sa/W"
+   ],
+   "conditions": [
+    "Un allié est engagé en infériorité numérique flagrante (1v3)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-Fneh5bjrLMY",
+     "locator": "[01:19]",
+     "lang": "fr",
+     "passage": "And here we let him die. Don't feel forced to follow that, right? Because you're never gonna kill- like look at him. You're never gonna save him like that. Just run. Run, run, run, run. You know, oh but I can throw a W- a W will save Briar with 50 HP 1v3. Just run, just run. Don't die with him.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "59-119s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Briar (exemple)"
+   ],
+   "action": "Fuis sans hésiter lorsqu'un allié fonce dans un combat perdu d'avance.",
+   "observe": "La position et la situation désespérée de ton allié.",
+   "use": {
+    "when": "Ton allié s'engage seul face à plusieurs adversaires et se retrouve à très faible PV.",
+    "why": "Pour éviter de donner un kill supplémentaire gratuit à l'équipe ennemie.",
+    "who": "Kai'Sa",
+    "how": [
+     "Identifie que l'allié est en situation de 1v3 perdue.",
+     "Ne t'arrête pas pour lancer un sort de soutien désespéré.",
+     "Fuis en courant vers la sécurité."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité retranscrit fidèlement le conseil de l'auteur sans sur-généralisation."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-12",
+   "validity": {
+    "checkedAt": "2026-11-12",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-12",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-12"
+  },
+  {
+   "id": "u-ai-yt-Fneh5bjrLMY-4",
+   "claim": "Selon BIZYZE Coaching | League of Legends : erreur fréquente : rappeler en plein milieu de la lane après avoir pris une tourelle. L'auteur conseille de rappeler depuis un buisson pour éviter d'être touché par des compétences de longue portée comme le W de Jhin.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "survie",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Jhin"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.22"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "La tourelle ennemie vient d'être détruite",
+    "L'adversaire possède des outils de longue portée (ex: Jhin)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-Fneh5bjrLMY",
+     "locator": "[07:37]",
+     "lang": "fr",
+     "passage": "After the tower they are still dead on the death timer so you take one more wave and after you take one more wave you recall. Same thing, same mistake here, you recall in the middle of the lane instead of recalling in the brush. Just recall into the brush because Jhin can W you.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "437-497s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Jhin (exemple)"
+   ],
+   "action": "Entre systématiquement dans un buisson pour canaliser ton rappel après avoir détruit une tourelle.",
+   "observe": "La position de l'ennemi et sa capacité à lancer des sorts de loin.",
+   "use": {
+    "when": "Tu nettoies une dernière vague après avoir pris une tourelle et tu t'apprêtes à rappeler.",
+    "why": "Pour empêcher l'ennemi de t'interrompre ou de te punir à distance avec des compétences ciblées ou de zone.",
+    "who": "Kai'Sa",
+    "how": [
+     "Pousse la vague supplémentaire après la destruction de la tourelle.",
+     "Marche vers un buisson proche.",
+     "Lance ton rappel à l'intérieur du buisson."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est précise, s'appuie sur le passage et donne une consigne claire pour le positionnement de rappel."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-12",
+   "validity": {
+    "checkedAt": "2026-11-12",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-12",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-12"
+  },
+  {
+   "id": "u-ai-yt-HY0ZBCnJubg-1",
+   "claim": "Selon Chreak : pour choisir Akali en partie, il faut qu'il y ait peu de contrôles de foule (CC) en face afin de pouvoir aller cibler les champions fragiles (squishies).",
+   "champions": [
+    "Akali"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "matchup"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14"
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "il y a peu de CC en face",
+    "présence de cibles squishies"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-HY0ZBCnJubg",
+     "locator": "00:26",
+     "lang": "fr",
+     "passage": "La véritable raison de piquer Akali généralement c'est quand il y a peu de CC en face et en face tu peux aller chercher des target squishy.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "6-66s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Anivia (exemple)",
+    "Ashe (exemple)"
+   ],
+   "action": "Vérifier la composition ennemie avant de sélectionner Akali pour s'assurer qu'il y a peu de CC et des cibles fragiles.",
+   "observe": "La composition ennemie lors de la sélection des champions.",
+   "use": {
+    "when": "pendant la sélection des champions en file solo",
+    "why": "pour pouvoir cibler les champions fragiles sans être bloqué par les contrôles",
+    "who": "Akali",
+    "how": [
+     "Regarder les choix des champions ennemis",
+     "Compter le nombre de contrôles de foule (CC) en face"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle à la source et présente un contexte d'usage complet."
+   },
+   "published": "2024-01-21",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.1-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-12",
+   "validity": {
+    "checkedAt": "2026-11-12",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-12",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-12"
+  },
+  {
+   "id": "u-ai-yt-HY0ZBCnJubg-2",
+   "claim": "Selon Chreak : jouer Akali avec le Visage glacial (Fleet Footwork) et Second Souffle (Second Wind) avec un bouclier de Doran permet de ne pas perdre sa phase de lane contre les mages.",
+   "champions": [
+    "Akali"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "rune:Jeu de jambes",
+    "rune:Second souffle",
+    "item:Bouclier de Doran"
+   ],
+   "conditions": [
+    "jouer contre un mage sur la voie du milieu"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-HY0ZBCnJubg",
+     "locator": "01:05",
+     "lang": "fr",
+     "passage": "Fleet c'est très bien parce que Akali n'a pas une mauvaise phase de lane, c'est juste que Akali avec Fleet plus Second Wind comme je le dis tout le temps et bouclier de Doran ne peut pas perdre la lane.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "45-105s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Sélectionner les runes Jeu de jambes et Second Souffle ainsi qu'un bouclier de Doran en début de partie face à un mage.",
+   "observe": "La sélection des runes et de l'objet de départ dans la boutique.",
+   "use": {
+    "when": "dans l'écran de sélection des runes et au début de la partie face à un mage",
+    "why": "pour bénéficier d'une régénération de PV suffisante pour tenir la phase de lane",
+    "who": "Akali jouée sur la voie du milieu face à un mage",
+    "how": [
+     "Prendre Jeu de jambes dans l'arbre Précision",
+     "Prendre Second Souffle dans l'arbre Volonté",
+     "Acheter un bouclier de Doran au démarrage"
+    ],
+    "notWhen": "si le matchup est très volatil, auquel cas un autre objet de Doran peut être envisagé"
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil de runes et d'objets est précisément décrit et soutenu par la transcription."
+   },
+   "published": "2024-01-21",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.1-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-12",
+   "validity": {
+    "checkedAt": "2026-11-12",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-12",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-12"
   }
  ],
- "updatedAt": "2026-11-12T01:42:17.057Z"
+ "updatedAt": "2026-11-12T07:58:00.036Z"
 }

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-11T19:36:44.253Z",
+ "generatedAt": "2026-11-12T01:42:18.453Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -179,7 +179,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 118
+    "units": 123
    },
    "support": {
     "champions": [
@@ -226,7 +226,7 @@
    },
    "Smolder": {
     "role": "bottom",
-    "units": 11,
+    "units": 12,
     "themes": [
      "patch",
      "build",
@@ -237,9 +237,9 @@
      "vagues",
      "macro"
     ],
-    "actions": 2,
+    "actions": 3,
     "official": 10,
-    "coaching": 1
+    "coaching": 2
    },
    "Lulu": {
     "role": "support",
@@ -769,15 +769,16 @@
    },
    "Hwei": {
     "role": null,
-    "units": 6,
+    "units": 8,
     "themes": [
      "champion",
      "matchup",
-     "lane"
+     "lane",
+     "vagues"
     ],
-    "actions": 1,
+    "actions": 3,
     "official": 5,
-    "coaching": 1
+    "coaching": 3
    },
    "Illaoi": {
     "role": null,
@@ -817,15 +818,15 @@
    },
    "Janna": {
     "role": null,
-    "units": 6,
+    "units": 7,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "teamfight"
     ],
-    "actions": 0,
+    "actions": 1,
     "official": 6,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 1
    },
    "Jarvan IV": {
     "role": null,
@@ -2326,16 +2327,27 @@
     "actions": 1,
     "official": 0,
     "coaching": 1
+   },
+   "Master Yi": {
+    "role": null,
+    "units": 1,
+    "themes": [
+     "teamfight",
+     "champion"
+    ],
+    "actions": 1,
+    "official": 0,
+    "coaching": 1
    }
   },
   "themes": {
-   "lane": 155,
-   "survie": 33,
-   "teamfight": 24,
+   "lane": 162,
+   "survie": 34,
+   "teamfight": 25,
    "synergie": 9,
-   "matchup": 19,
-   "methode": 48,
-   "vagues": 87,
+   "matchup": 21,
+   "methode": 50,
+   "vagues": 88,
    "vision": 29,
    "macro": 137,
    "jungle": 91
@@ -7443,7 +7455,7 @@
    "published": "2026-10-19",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 185000,
+   "views": 186000,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Écarté : contenu jugé de faible qualité (Le contenu est une vidéo de divertissement/stream de Doublelift en partie classée (Challenger) comportant une longue page publicitaire, des réactions émotionnelles, des critiques personnelles de son propre jeu et aucun enseignement structuré ou reproductible.).",
@@ -14259,12 +14271,12 @@
    "lang": "fr",
    "published": "2024-02-04",
    "retrievedAt": "2026-10-21",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.2",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "Vous voulez une séance de coaching avec Chreak en tête à tête ? C'est possible ! Deux options s'offrent à vous (70€/session de 1h15) : \nPasser par l'abonnement mensuel sur Patreon pour avoir 1 heure de coaching par mois sur ce lien : https://www.patreon.com/c/ChreakLoL\nContacter directement Chreak p",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -14276,6 +14288,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-12",
+    "sha256": "42d87b8bd4f57d890c49af9afc3210f67ee89e9b8b8a60e71b5ec2f7fe94d781",
+    "segments": 23,
+    "observations": 40,
+    "duration": "33:28",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 188662
+   },
+   "analyzedAt": "2026-11-12",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Apprends à jouer Hwei mid en utilisant le poke de la Comète mystique, le double Q au niveau 1 et le perma-push des vagues avec le Q-E dès les niveaux intermédiaires.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Le contenu présente des aspects pratiques clairs (runes, sorts de début de partie, gestion des vagues), mais s'appuie en partie sur des exemples de gameplay sans découpage technique approfondi de chaque matchup."
    }
   },
   {
@@ -18417,7 +18452,7 @@
    "published": "2026-09-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 95000,
+   "views": 96000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19104,7 +19139,7 @@
    "published": "2026-07-14",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 7800,
+   "views": 7900,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 28 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -19248,7 +19283,7 @@
    "published": "2026-07-03",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 7100,
+   "views": 7200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -19696,11 +19731,11 @@
    "lang": "en",
    "published": "2026-10-15",
    "retrievedAt": "2026-10-21",
-   "patch": null,
+   "patch": "null",
    "views": 17221,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "note": "Lue par gemini-3-flash-preview : transcription et 13 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "► JUNGLE COURSE - https://sinerias.podia.com/the-complete-climbing-course\n► I ALSO ACCEPT CRYPTO PAYMENTS ► DM me on Discord\n► SOLO COACHING - DM me on Discord\n► Discord - https://discord.gg/we-are-sinerias-664154813453434901\n\n► Business inquiries - [e-mail]\n\n► Str",
    "triage": {
     "score": 7,
@@ -19714,7 +19749,30 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 135
+   "queueRank": 135,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-11-12",
+    "sha256": "6babae286e2b25b303bfc7b9fc2022729527fbc368a9f52f7a161845743ec3e9",
+    "segments": 10,
+    "observations": 13,
+    "duration": "00:31",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 5209
+   },
+   "analyzedAt": "2026-11-12",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 1,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Apprends à contourner l'ultime de Janna en tant que Master Yi en utilisant ton Saut Éclair pour l'éliminer avant qu'elle ne puisse contrer ton Assaut Éclair.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Le contenu présente une micro-décision précise expliquée par un créateur spécialisé, mais sur un extrait très court et sans contexte statistique global."
+   }
   },
   {
    "id": "c-yt-ucrac-82KSg",
@@ -20513,7 +20571,7 @@
    "published": "2026-03-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 726,
+   "views": 727,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -22353,7 +22411,7 @@
    "published": "2026-10-23",
    "retrievedAt": "2026-10-23",
    "patch": "none",
-   "views": 9700,
+   "views": 9800,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -22487,13 +22545,13 @@
    "lang": "fr",
    "published": null,
    "retrievedAt": "2026-10-23",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "none",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 134,
-   "note": "File de lecture (rang 19) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 34 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [
@@ -22502,6 +22560,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-11-12",
+    "sha256": "a540c2f29d3a6cc212d815fba02fcb0ce6d04c3a0c225d00af3c45fe01dc3fce",
+    "segments": 118,
+    "observations": 34,
+    "duration": "22:20",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 131702
+   },
+   "analyzedAt": "2026-11-12",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu présente un match de très haut niveau commenté en direct avec des explications claires sur la gestion de vague, les choix d'objets et les erreurs commises."
    }
   },
   {
@@ -25612,7 +25693,7 @@
    "published": "2026-10-28",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 9600,
+   "views": 9700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26680,7 +26761,7 @@
    "ageMonths": 9,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 87000,
+   "views": 88000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26819,7 +26900,7 @@
    "ageMonths": 0.7,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 22000,
+   "views": 23000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27028,7 +27109,7 @@
    "ageMonths": 0.3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 2,
+   "views": 3,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27081,7 +27162,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 17000,
+   "views": 18000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27109,7 +27190,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 9800,
+   "views": 9900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27604,7 +27685,7 @@
    "ageMonths": 4,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 6000,
+   "views": 6100,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27631,7 +27712,7 @@
    "ageMonths": 5,
    "retrievedAt": "2026-11-01",
    "patch": "null",
-   "views": 8300,
+   "views": 8400,
    "access": "transcription+visuel",
    "analysis": "analysee",
    "note": "Lue par gemini-3.5-flash-lite : transcription et 17 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -27813,7 +27894,7 @@
    "ageMonths": 2,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 308,
+   "views": 310,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27840,7 +27921,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 4800,
+   "views": 4900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27869,7 +27950,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 1000,
+   "views": 1100,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27926,7 +28007,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 167,
+   "views": 168,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -29412,7 +29493,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-02",
    "patch": null,
-   "views": 25000,
+   "views": 26000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -29655,7 +29736,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-03",
    "patch": null,
-   "views": 11000,
+   "views": 12000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -34873,7 +34954,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 57000,
+   "views": 58000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -34900,7 +34981,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 8800,
+   "views": 9000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -34929,7 +35010,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 9700,
+   "views": 9900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35010,7 +35091,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 59000,
+   "views": 64000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35037,7 +35118,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 241000,
+   "views": 243000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35064,7 +35145,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 340000,
+   "views": 342000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35092,7 +35173,7 @@
    "ageMonths": 0.1,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 55000,
+   "views": 56000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35670,7 +35751,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-08",
    "patch": null,
-   "views": 9100,
+   "views": 9400,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35698,7 +35779,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-08",
    "patch": null,
-   "views": 6100,
+   "views": 6200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35727,7 +35808,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-08",
    "patch": null,
-   "views": 149000,
+   "views": 153000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35753,7 +35834,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-08",
    "patch": null,
-   "views": 7800,
+   "views": 7900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36209,7 +36290,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 16000,
+   "views": 18000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36236,7 +36317,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 511,
+   "views": 549,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36291,7 +36372,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 285,
+   "views": 291,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36529,7 +36610,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 6100,
+   "views": 6300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37019,7 +37100,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-10",
    "patch": null,
-   "views": 2500,
+   "views": 2900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37047,7 +37128,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-10",
    "patch": null,
-   "views": 2900,
+   "views": 3500,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37127,7 +37208,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-11",
    "patch": null,
-   "views": 3800,
+   "views": 4700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37353,12 +37434,12 @@
    "published": null,
    "retrievedAt": "2026-11-11",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 133,
-   "note": "File de lecture (rang 133) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 38 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [
@@ -37370,6 +37451,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-12",
+    "sha256": "36f8313f8c3b61748673d8fb779d5a661d368af1b8690a0b2ee0f9b4d15011d5",
+    "segments": 56,
+    "observations": 38,
+    "duration": "31:08",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 197260
+   },
+   "analyzedAt": "2026-11-12",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 5,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Ce contenu enseigne comment minimiser les pertes dans des matchups ADC défavorables en privilégiant l'expérience sur l'or, en synchronisant ses rappels sur l'adversaire et en utilisant des micro-échanges très courts pour accumuler des ressources sans mourir.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur est un ancien pro/challenger qui explique précisément son raisonnement sur trois exemples concrets, avec une attention particulière au placement et à la gestion des ressources."
    }
   },
   {
@@ -37384,7 +37488,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-11",
    "patch": null,
-   "views": 806,
+   "views": 7000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37410,7 +37514,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-11",
    "patch": null,
-   "views": 291,
+   "views": 2400,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37449,6 +37553,61 @@
     "matched": [
      "jungle",
      "guide"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Fneh5bjrLMY",
+   "sourceId": "yt-bizyze-coaching-league-of-le",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=Fneh5bjrLMY",
+   "title": "When to Group, When to Farm - The Hardest ADC Decision Explained",
+   "author": "BIZYZE Coaching | League of Legends",
+   "lang": "fr",
+   "published": null,
+   "retrievedAt": "2026-11-12",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 137,
+   "note": "File de lecture (rang 137) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "adc",
+     "explained"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-qH4drUtSedk",
+   "sourceId": "yt-husumlol",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=qH4drUtSedk",
+   "title": "Win with Good Late game Macro",
+   "author": "HusumLOL",
+   "lang": "pt",
+   "published": null,
+   "retrievedAt": "2026-11-12",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 138,
+   "note": "File de lecture (rang 138) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "macro"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -110237,6 +110396,791 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-McM8t74QtCc-1",
+   "claim": "Selon Coach Violet : dans un matchup très défavorable où tu es dominé en portée et en échanges, ta priorité absolue est de maximiser tes PV et ton gain d'expérience plutôt que l'or des sbires.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "survie",
+    "matchup"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Matchup avec un désavantage de portée important",
+    "Support absent ou ayant fait une erreur majeure"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-McM8t74QtCc",
+     "locator": "02:34",
+     "lang": "en",
+     "passage": "The reality of the situation is that I need to just try to play and maximize my HP, right? As you guys can see, you know, I'm low HP... I mean, my Braum is in base. I'm trying to just play my spacing, right? I'm trying to get experience.",
+     "mentionOnly": true
+    },
+    {
+     "content": "c-yt-McM8t74QtCc",
+     "locator": "02:58",
+     "lang": "en",
+     "passage": "My goal is to: one, maximize my HP, so if my Braum comes back, I'm still healthy enough to all-in, because that's, you know, my Braum's, my support's win condition. But besides that, I'm just trying to play experience, right? Because I'm in a 1v2 situation.",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Sivir (exemple)",
+    "Braum (exemple)"
+   ],
+   "action": "Accepter de rater des sbires pour rester hors de portée de l'adversaire tout en restant à portée d'expérience.",
+   "observe": "Ta barre de PV doit rester haute pour permettre un retour de ton support ou un gank.",
+   "use": {
+    "when": "Tu es seul sur la lane ou ton support est trop bas en PV pour t'aider contre un duo agressif.",
+    "why": "Rester en vie et gagner de l'expérience est plus rentable que de mourir pour quelques pièces d'or, ce qui donnerait un avantage définitif à l'adversaire.",
+    "who": "ADC jouant un matchup perdant en début de partie.",
+    "how": [
+     "Reculer jusqu'à la limite de la zone d'expérience.",
+     "Utiliser tes sorts de protection uniquement pour mitiger des dégâts inévitables.",
+     "Ne pas tenter de sauver ton support s'il s'est trop avancé."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-12",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-McM8t74QtCc : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (02:34)."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-McM8t74QtCc : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (02:58)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-McM8t74QtCc-2",
+   "claim": "Selon Coach Violet : dans une lane difficile, ne cherche à échanger des coups (trade) que si ton support touche un sort de contrôle ou si l'adversaire rate une compétence clé.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "matchup"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Support disposant de sorts de contrôle (CC)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-McM8t74QtCc",
+     "locator": "04:12",
+     "lang": "en",
+     "passage": "really important that I trade around my Braum Q, right? Without my Braum Q, pretty much I can't really interact with their champions. Ashe outranges me. Bard also beats me in the short trade.",
+     "mentionOnly": true
+    },
+    {
+     "content": "c-yt-McM8t74QtCc",
+     "locator": "03:26",
+     "lang": "en",
+     "passage": "I'm not really trying to force trades right now unless they really miss that Bard Q here. I'm just chilling, as you guys can see, right? I'm playing around the fact that my support, you know, hasn't landed any Qs.",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Sivir (exemple)",
+    "Braum (exemple)",
+    "Ashe (exemple)",
+    "Bard (exemple)"
+   ],
+   "action": "Attendre le signal visuel du sort de ton support avant d'avancer pour une auto-attaque.",
+   "observe": "Le timing où l'adversaire a ses sorts en récupération (cooldown).",
+   "use": {
+    "when": "Tu joues un ADC à courte portée contre un duo qui te domine au poke.",
+    "why": "Sans l'avantage créé par le CC du support ou l'absence de sorts adverses, tu perdras systématiquement l'échange à cause de la différence de portée.",
+    "who": "ADC avec un support à engagement (engage) ou à poke.",
+    "how": [
+     "Rester en retrait tant que les sorts de contrôle alliés sont disponibles.",
+     "Dès qu'un CC touche, placer un combo rapide (Auto + Sort).",
+     "Reculer immédiatement après le combo pour éviter la contre-attaque."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-12",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-McM8t74QtCc : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (04:12)."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-McM8t74QtCc : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (03:26)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-McM8t74QtCc-3",
+   "claim": "Selon Coach Violet : synchronise ton back (recall) sur celui de tes adversaires, même si tu dois forcer la poussée de la wave, pour éviter d'être zoné au retour de la lane.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "PV ou Mana bas",
+    "Adversaires venant de lancer leur rappel"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-McM8t74QtCc",
+     "locator": "15:24",
+     "lang": "en",
+     "passage": "I'm going to look to just hard push this wave and then look to recall, right? ... If I stay much longer, it's going to be very, very dangerous, because they can start to slow push the wave into us, hit level 3, and then now I'm just going to get zoned off the wave, right? So I opt into a base",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "904-964s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Ezreal (exemple)"
+   ],
+   "action": "Utiliser tous tes sorts pour vider la vague de sbires dès que l'adversaire rappelle.",
+   "observe": "Le départ des adversaires vers leur tour ou le brouillard de guerre.",
+   "use": {
+    "when": "Tu as assez d'or pour un item clé ou tu n'as plus de ressources pour tenir la lane.",
+    "why": "Si tu restes alors qu'ils reviennent avec des items neufs et toute leur vie, ils pourront bloquer la wave (freeze) et t'empêcher de farmer.",
+    "who": "Tout ADC en phase de laning.",
+    "how": [
+     "Identifier le moment où l'adversaire quitte la lane.",
+     "Pousser la wave le plus rapidement possible sous la tour adverse.",
+     "Lancer ton back immédiatement sans être gourmand pour une plaque de tour."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-12",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-McM8t74QtCc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-McM8t74QtCc-4",
+   "claim": "Selon Coach Violet : avec Smolder dans un matchup difficile, privilégie des échanges extrêmement courts (A + Auto) et utilise immédiatement ton E pour rompre le combat et maintenir la distance.",
+   "champions": [
+    "Smolder"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Smolder en début de partie (avant les 25 stacks)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-McM8t74QtCc",
+     "locator": "22:50",
+     "lang": "en",
+     "passage": "I get to get a really nice Q auto, and we space this guy really well, and I instantly back off, right? I don't want to go for these long extended trades on Smolder. Insta back off, I just get one more auto attack off because I see her auto attacking my Alistar, right?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "1350-1410s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-McM8t74QtCc",
+     "locator": "26:05",
+     "lang": "en",
+     "passage": "My champion cannot trade into Xayah in long extended trades, so I'm just backing off, taking the short trade, which is honestly great with my champion, as I said.",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Xayah (exemple)"
+   ],
+   "action": "Lancer le A sur l'ADC adverse puis utiliser le E pour reculer dès qu'il tente de répondre.",
+   "observe": "L'animation d'attaque de l'adversaire sur ton support ou un sbire.",
+   "use": {
+    "when": "Phase de laning contre un duo à fort potentiel de combat prolongé (all-in).",
+    "why": "Smolder est très faible dans les combats longs en début de partie ; son kit est conçu pour accumuler des stacks via des interactions brèves.",
+    "who": "Joueurs de Smolder ADC.",
+    "how": [
+     "Attendre que l'adversaire soit occupé à achever un sbire.",
+     "Lancer le A (Souffle de feu) suivi d'une auto-attaque rapide.",
+     "Activer le E (Vol piqué) pour sortir de la portée d'attaque adverse instantanément."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-12",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-McM8t74QtCc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-McM8t74QtCc : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (26:05)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-McM8t74QtCc-5",
+   "claim": "Selon Coach Violet : dans une lane où tu ne peux pas gagner le combat direct, avance pour appâter (bait) les sorts clés de l'adversaire sans t'engager, afin de réduire sa pression de zone.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Adversaire disposant d'un sort de boost ou de contrôle majeur"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-McM8t74QtCc",
+     "locator": "29:30",
+     "lang": "en",
+     "passage": "I space this guy extremely well in this situation, right? I'm trying to bait him to use W, so I walk up and I instantly click back, right... my intention is not to trade, I'm just trying to bait out spells. So walk up, bait out the spell, and just instantly back off right here.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "1750-1810s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Xayah (exemple)",
+    "Smolder (exemple)"
+   ],
+   "action": "Faire un mouvement d'aller-retour rapide à la limite de la portée d'attaque adverse.",
+   "observe": "Le déclenchement de l'animation ou du son du sort adverse (ex: Z de Xayah).",
+   "use": {
+    "when": "L'adversaire cherche à te zoner avec un sort puissant disponible.",
+    "why": "Une fois le sort gaspillé, l'adversaire perd une grande partie de sa menace, te permettant de farmer plus sereinement pendant le temps de récupération.",
+    "who": "ADC cherchant à stabiliser une lane difficile.",
+    "how": [
+     "Avancer vers l'adversaire comme si tu allais l'attaquer.",
+     "Cliquer immédiatement en arrière avant d'entrer dans sa portée effective.",
+     "Attendre que le sort adverse expire avant de reprendre une position normale."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-12",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-McM8t74QtCc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-fLecYbOSmEI-1",
+   "claim": "Selon Sinerias : contre un champion à repoussement comme Janna, évite d'utiliser l'Assaut Éclair (Q) en engageant car elle t'utilisera son ult juste après. Saisis l'occasion d'utiliser ton Saut Éclair pour la tuer directement aux attaques de base avant qu'elle ne puisse réagir.",
+   "champions": [
+    "Master Yi"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "teamfight",
+    "champion"
+   ],
+   "matchup": {
+    "vs": "Janna"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Rank 1",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Janna dispose de son ultime"
+   ],
+   "limits": [
+    "Exemple unique basé sur une situation spécifique"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-fLecYbOSmEI",
+     "locator": "00:02",
+     "lang": "en",
+     "passage": "I can never engage on Janna because she will always ult. Look what I do.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "0-42s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-fLecYbOSmEI",
+     "locator": "00:15",
+     "lang": "en",
+     "passage": "If I Q her she's gonna ult me right after my Q."
+    },
+    {
+     "content": "c-yt-fLecYbOSmEI",
+     "locator": "00:08",
+     "lang": "en",
+     "passage": "Master Yi utilise le sort d'invocateur Saut Éclair (Flash) vers Janna."
+    }
+   ],
+   "mentions": [
+    "Jhin (exemple)"
+   ],
+   "action": "Ne lance pas ton Assaut Éclair (Q) en premier sur une Janna qui attend de lancer son ultime ; utilise ton Saut Éclair pour la surprendre et l'abattre.",
+   "observe": "Le timing de l'utilisation du Saut Éclair par rapport au sort ultime de Janna.",
+   "use": {
+    "when": "tu t'apprêtes à engager un teamfight face à Janna qui garde son ult pour contrer ton Assaut Éclair",
+    "why": "pour l'éliminer avant qu'elle ne puisse t'empêcher d'agir avec son ult",
+    "who": "joueurs de Master Yi",
+    "how": [
+     "Identifie que Janna attend ton Assaut Éclair pour lancer son ult.",
+     "Utilise ton Saut Éclair directement sur elle.",
+     "Tue-la rapidement avec tes attaques de base."
+    ],
+    "notWhen": ""
+   },
+   "published": "2026-10-15",
+   "analyzedAt": "2026-11-12",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-fLecYbOSmEI : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-fLecYbOSmEI : lu par gemini-3-flash-preview (1 image/s) ; passage à vérifier sur la vidéo (00:15)."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-fLecYbOSmEI : lu par gemini-3-flash-preview (1 image/s) ; passage à vérifier sur la vidéo (00:08)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-i56hNoffnbY-1",
+   "claim": "Selon Chreak : pour maximiser le poke et tenir la lane en early game avec Hwei, utilise la page de runes Sorcellerie avec Comète mystique, Ruban de mana, Transcendance et Brûlure.",
+   "champions": [
+    "Hwei"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.2"
+   },
+   "metaDependent": true,
+   "conditions": [
+    "jouer Hwei sur la voie du milieu"
+   ],
+   "limits": [
+    "basé sur l'avis de l'auteur Chreak"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-i56hNoffnbY",
+     "locator": "[00:18]",
+     "lang": "fr",
+     "passage": "Alors comète c'est normal parce que tu es un champion qui adore poke au Q-Q, mais bon les spells ça va être dur à expliquer. Évidemment les runes sont basées sur un champion qui a quand même assez de scaling. Mon but en early c'est de proc la comète.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "0-58s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Équipe tes runes de Sorcellerie avec Comète mystique, Ruban de mana, Transcendance et Brûlure sur Hwei.",
+   "observe": "Le déclenchement régulier de la comète et du ruban de mana sur les sorts de poke en early game.",
+   "use": {
+    "when": "en début de partie sur la mid lane face à un adversaire",
+    "why": "pour abuser du poke et bien tenir la lane grâce au scaling",
+    "who": "joueurs de Hwei mid",
+    "how": [
+     "Sélectionner l'arbre Sorcellerie avec Comète mystique",
+     "Ajouter Ruban de mana, Transcendance et Brûlure"
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-02-04",
+   "analyzedAt": "2026-11-12",
+   "status": "a-revalider",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2024 (patch 14.2) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-i56hNoffnbY : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-i56hNoffnbY publié le 2024-02-04 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    },
+    {
+     "code": "patch-incompatible",
+     "why": "Dépend de la méta, patch 14.2 : 308 patchs de retard."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-i56hNoffnbY-2",
+   "claim": "Selon Chreak : au niveau 1 avec Hwei, lance un double Q pour infliger des dégâts, proc la Brûlure et la Comète mystique.",
+   "champions": [
+    "Hwei"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.2"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "être au niveau 1 de la partie"
+   ],
+   "limits": [
+    "conseil d'auteur pour le premier niveau"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-i56hNoffnbY",
+     "locator": "[01:11]",
+     "lang": "fr",
+     "passage": "Au niveau 1, la plupart du temps, traditionnellement que ce soit mêlée ou range, ce que vous allez vouloir faire c'est lancer un double Q tout simplement.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "51-111s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-i56hNoffnbY",
+     "locator": "[01:32]",
+     "lang": "fr",
+     "passage": "C'est facile à proc, ça proc le Scorch et la Comète, ça fait beaucoup de dégâts et c'est la meilleure façon de jouer."
+    }
+   ],
+   "mentions": [],
+   "action": "Utilise le double Q dès le niveau 1 pour toucher l'adversaire.",
+   "observe": "Le déclenchement des runes de dégâts (Comète et Brûlure) sur la cible ennemie.",
+   "use": {
+    "when": "au niveau 1 sur la mid lane",
+    "why": "pour faire beaucoup de dégâts et activer facilement le Scorch et la Comète",
+    "who": "joueurs de Hwei",
+    "how": [
+     "Lancer la compétence Sujet : Désastres (Q-Q) sur l'adversaire"
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-02-04",
+   "analyzedAt": "2026-11-12",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2024 (patch 14.2) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-i56hNoffnbY : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-i56hNoffnbY publié le 2024-02-04 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-i56hNoffnbY : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([01:32])."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-i56hNoffnbY publié le 2024-02-04 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-i56hNoffnbY-3",
+   "claim": "Selon Chreak : utilise le sort Champ de lave (Q-E) de Hwei pour nettoyer et perma-push les waves à partir du niveau 5-9.",
+   "champions": [
+    "Hwei"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.2"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "atteindre le niveau 5, 7 ou 9"
+   ],
+   "limits": [
+    "le très early de Hwei est mauvais pour push"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-i56hNoffnbY",
+     "locator": "[01:46]",
+     "lang": "fr",
+     "passage": "Le Q-E est très fort pour push. Ce spell est utilisé pour push tout le temps, sinon vous ne l'utilisez très rarement dans les autres situations sauf en teamfight.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-12",
+      "window": "86-146s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Lance ton Q-E sur les vagues de sbires en milieu de partie pour maintenir la pression.",
+   "observe": "La vitesse à laquelle la vague adverse est éliminée par le sort de zone.",
+   "use": {
+    "when": "dès que tu arrives aux niveaux 5, 7 ou 9 sur la mid lane",
+    "why": "pour perma-push les waves et empêcher l'adversaire de réagir",
+    "who": "joueurs de Hwei",
+    "how": [
+     "Viser la wave avec Champ de lave (Q-E)"
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-02-04",
+   "analyzedAt": "2026-11-12",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2024 (patch 14.2) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-i56hNoffnbY : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-i56hNoffnbY publié le 2024-02-04 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
     }
    ]
   }

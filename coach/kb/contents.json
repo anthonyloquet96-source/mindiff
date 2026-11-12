@@ -84981,13 +84981,13 @@
    "lang": "pt",
    "published": null,
    "retrievedAt": "2026-11-12",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.13",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 138,
-   "note": "File de lecture (rang 138) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 29 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [
@@ -84996,6 +84996,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-12",
+    "sha256": "c1a3939b566accb035acb8181d9b7c3a806a9797d011bf7fa2481076d8bfbca4",
+    "segments": 52,
+    "observations": 29,
+    "duration": "13:51",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 85293
+   },
+   "analyzedAt": "2026-11-12",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Ce contenu apprend l'importance d'adapter son placement pour ne manquer aucune vague de sbires et comment exploiter la pression de trois inhibiteurs détruits pour clore la partie.",
+   "quality": {
+    "level": "élevée",
+    "why": "Démonstration claire de la gestion de vagues au fil de la partie et explications précises sur la macro-stratégie de fin de partie."
    }
   },
   {
@@ -85058,19 +85081,32 @@
    "lang": "ko",
    "published": null,
    "retrievedAt": "2026-11-12",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.4",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 139,
-   "note": "File de lecture (rang 139) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 24 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-12",
+    "sha256": "a26d98f3814a317616d787354e5c282fa73a719185afd01e22558301309e1c8e",
+    "segments": 43,
+    "observations": 24,
+    "duration": "02:58",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 63001
    }
   },
   {
@@ -85098,6 +85134,58 @@
      "how to",
      "fundamentals",
      "explained"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-zwohJtLmPis",
+   "sourceId": "yt-guy1cnuajr",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=zwohJtLmPis",
+   "title": "基礎から核心まで全部教えます！KR元プロによる今シーズンティア１MF最強解説Vol.3【KRチャレ】【ミスフォーチュン】【タン教授】",
+   "author": "タン教授のADC講座",
+   "lang": "ja",
+   "published": null,
+   "retrievedAt": "2026-11-12",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 142,
+   "note": "File de lecture (rang 142) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-3fio1U9GafY",
+   "sourceId": "yt-bardinette",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=3fio1U9GafY",
+   "title": "I AM A MACRO GOD",
+   "author": "BARDINETTE",
+   "lang": "fr",
+   "published": null,
+   "retrievedAt": "2026-11-12",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 143,
+   "note": "File de lecture (rang 143) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "macro"
     ],
     "entertainment": [],
     "patchMentioned": null,

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-12T07:58:01.541Z",
+ "generatedAt": "2026-11-12T14:14:53.386Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -2344,15 +2344,15 @@
    }
   },
   "themes": {
-   "lane": 164,
+   "lane": 165,
    "survie": 36,
-   "teamfight": 27,
+   "teamfight": 28,
    "synergie": 9,
    "matchup": 22,
    "methode": 50,
-   "vagues": 88,
+   "vagues": 90,
    "vision": 29,
-   "macro": 139,
+   "macro": 141,
    "jungle": 93
   },
   "partial": [
@@ -3270,7 +3270,9 @@
    "u-ai-yt-QJdfRTlEh9U-5",
    "u-ai-yt-uqFnbWGvFLo-4",
    "u-ai-yt-uqFnbWGvFLo-6",
-   "u-ai-yt-Tn7_zcfqnBg-5"
+   "u-ai-yt-Tn7_zcfqnBg-5",
+   "u-ai-yt-qH4drUtSedk-2",
+   "u-ai-yt-qH4drUtSedk-4"
   ]
  },
  "sources": [
@@ -37701,13 +37703,13 @@
    "lang": "pt",
    "published": null,
    "retrievedAt": "2026-11-12",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.13",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 138,
-   "note": "File de lecture (rang 138) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 29 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [
@@ -37716,6 +37718,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-12",
+    "sha256": "c1a3939b566accb035acb8181d9b7c3a806a9797d011bf7fa2481076d8bfbca4",
+    "segments": 52,
+    "observations": 29,
+    "duration": "13:51",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 85293
+   },
+   "analyzedAt": "2026-11-12",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Ce contenu apprend l'importance d'adapter son placement pour ne manquer aucune vague de sbires et comment exploiter la pression de trois inhibiteurs détruits pour clore la partie.",
+   "quality": {
+    "level": "élevée",
+    "why": "Démonstration claire de la gestion de vagues au fil de la partie et explications précises sur la macro-stratégie de fin de partie."
    }
   },
   {
@@ -37728,19 +37753,32 @@
    "lang": "ko",
    "published": null,
    "retrievedAt": "2026-11-12",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.4",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 139,
-   "note": "File de lecture (rang 139) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 24 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-12",
+    "sha256": "a26d98f3814a317616d787354e5c282fa73a719185afd01e22558301309e1c8e",
+    "segments": 43,
+    "observations": 24,
+    "duration": "02:58",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 63001
    }
   },
   {
@@ -37768,6 +37806,58 @@
      "how to",
      "fundamentals",
      "explained"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-zwohJtLmPis",
+   "sourceId": "yt-guy1cnuajr",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=zwohJtLmPis",
+   "title": "基礎から核心まで全部教えます！KR元プロによる今シーズンティア１MF最強解説Vol.3【KRチャレ】【ミスフォーチュン】【タン教授】",
+   "author": "タン教授のADC講座",
+   "lang": "ja",
+   "published": null,
+   "retrievedAt": "2026-11-12",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 142,
+   "note": "File de lecture (rang 142) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-3fio1U9GafY",
+   "sourceId": "yt-bardinette",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=3fio1U9GafY",
+   "title": "I AM A MACRO GOD",
+   "author": "BARDINETTE",
+   "lang": "fr",
+   "published": null,
+   "retrievedAt": "2026-11-12",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 143,
+   "note": "File de lecture (rang 143) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 14,
+    "matched": [
+     "macro"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -111851,6 +111941,162 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-qH4drUtSedk-2",
+   "claim": "Selon HusumLOL : il est essentiel de s'adapter aux rotations et d'aller récupérer les waves sur les lanes inoccupées pour ne pas perdre d'or et d'expérience.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "macro",
+    "lane"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.13"
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-qH4drUtSedk",
+     "locator": "[2:54]",
+     "lang": "pt",
+     "passage": "League of Legends is a game about balancing out the waves. Waves is everything. Waves is gold, XP, it's how you progress in the game. It's very important. You don't just let one lane bleed CS because you're persistent on going mid lane because you're a mid laner. Be flexible.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-12",
+      "window": "154-214s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Remplacer ses coéquipiers sur une voie latérale ou au milieu pour collecter une vague avant qu'elle ne soit détruite par une tour.",
+   "observe": "Maintien d'un niveau élevé d'or et d'expérience par minute sans gaspiller de sbires.",
+   "use": {
+    "when": "Lorsqu'une lane est abandonnée par un allié et qu'une wave s'y accumule.",
+    "why": "Les sbires constituent la source principale d'or et d'expérience, il faut éviter qu'une lane perde ses ressources sans personne pour les ramasser.",
+    "who": "Tous les joueurs quel que soit leur poste",
+    "how": [
+     "Observer la carte pour repérer les lanes inoccupées",
+     "Se déplacer vers la lane abandonnée où les sbires arrivent",
+     "Nettoyer la wave avant de réévaluer son placement sur la carte"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-12",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-qH4drUtSedk-4",
+   "claim": "Selon HusumLOL : obtenir trois inhibiteurs simultanément crée une pression de waves permanente qui empêche l'ennemi de disputer les objectifs neutres sans risquer de perdre sa base.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "vagues",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.13"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Avoir détruit les 3 inhibiteurs adverses"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-qH4drUtSedk",
+     "locator": "[10:37]",
+     "lang": "pt",
+     "passage": "once you get 3 inhibitors at the same time, it's pretty much unlosable.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-12",
+      "window": "617-677s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur indique qu'il expliquera plus tard pourquoi trois inhibiteurs rendent la partie quasi ingagnable pour l'adversaire ; il n'évoque pas le contrôle des objectifs neutres ni le comportement des super-sbires dans cet extrait."
+     }
+    },
+    {
+     "content": "c-yt-qH4drUtSedk",
+     "locator": "[13:29]",
+     "lang": "pt",
+     "passage": "So once you get triple inhib, you really need to play the map, make sure all the sides are pushing, and you can really punish the enemies if stuff like Baron or Elder Drake is up, since it's going to be impossible for them to contest the objectives without them losing their entire base."
+    }
+   ],
+   "mentions": [],
+   "action": "Pousser les trois voies et utiliser la pression des supers-sbires pour sécuriser le Baron Nashor ou le Dragon Aîné.",
+   "observe": "L'équipe adverse est bloquée dans sa base pour défendre et ne peut pas contester l'objectif neutre.",
+   "use": {
+    "when": "En fin de partie après la destruction des trois inhibiteurs ennemis, notamment lorsqu'un objectif neutre est disponible.",
+    "why": "",
+    "who": "Toute équipe en fin de partie",
+    "how": [
+     "Assurer la poussée des waves sur les trois lanes",
+     "Engager ou menacer un objectif majeur comme le Dragon Aîné ou le Baron Nashor",
+     "Laisser les sbires détruire les structures si les adversaires viennent disputer l'objectif"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-12",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "sur-generalisation",
+     "why": "c-yt-qH4drUtSedk : l'extrait 617-677s ne dit pas exactement cela (L'auteur indique qu'il expliquera plus tard pourquoi trois inhibiteurs rendent la partie quasi ingagnable pour l'adversaire ; il n'évoque pas le contrôle des objectifs neutres ni le comportement des super-sbires dans cet extrait.)."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-qH4drUtSedk : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([13:29])."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
     }
    ]
   }

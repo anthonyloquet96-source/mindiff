@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-13T07:33:36.910Z",
+ "generatedAt": "2026-11-13T14:01:08.723Z",
  "rulesLock": {
   "ok": true,
   "changed": [],
@@ -554,7 +554,7 @@
    "lastCount": 15
   }
  },
- "lastDiscovery": "2026-11-13T07:24:07.571Z",
+ "lastDiscovery": "2026-11-13T13:15:35.123Z",
  "failures": [],
  "quarantine": [
   {
@@ -566,28 +566,6 @@
   }
  ],
  "rejected": [
-  {
-   "id": "u-ai-yt-iO5vR1UtJSE-4",
-   "reasons": [
-    {
-     "code": "citation-non-entendue",
-     "why": "c-yt-iO5vR1UtJSE : passage absent de l'extrait 216-276s relu par gemini-3.5-flash-lite."
-    }
-   ],
-   "at": "2026-10-28",
-   "origin": "analyse-automatique"
-  },
-  {
-   "id": "u-ai-yt-7iuuWs0CX0s-1",
-   "reasons": [
-    {
-     "code": "rang-sous-reference",
-     "why": "Contenu tiré de parties de niveau emeraude : utilisable seulement comme erreur à corriger, pas comme référence."
-    }
-   ],
-   "at": "2026-10-29",
-   "origin": "analyse-automatique"
-  },
   {
    "id": "u-ai-yt-7iuuWs0CX0s-2",
    "reasons": [
@@ -2981,9 +2959,33 @@
    ],
    "at": "2026-11-13",
    "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-tEJx0Dh-rBw-3",
+   "reasons": [
+    {
+     "code": "citation-non-entendue",
+     "why": "c-yt-tEJx0Dh-rBw : passage absent de l'extrait 836-896s relu par gemini-3.6-flash."
+    }
+   ],
+   "at": "2026-11-13",
+   "origin": "analyse-automatique"
+  },
+  {
+   "id": "u-ai-yt-tEJx0Dh-rBw-4",
+   "reasons": [
+    {
+     "code": "citation-non-entendue",
+     "why": "c-yt-tEJx0Dh-rBw : passage absent de l'extrait 918-978s relu par gemini-3.6-flash."
+    }
+   ],
+   "at": "2026-11-13",
+   "origin": "analyse-automatique"
   }
  ],
- "pending": [],
+ "pending": [
+  "c-yt-HexPQv8R_Oc"
+ ],
  "review": [
   "u-lucian-2620-ad",
   "u-lucian-2619-vigilance",
@@ -4354,7 +4356,9 @@
   "u-ai-yt-qhoYUHuDBik-2",
   "u-ai-yt-qhoYUHuDBik-3",
   "u-ai-yt-KWQigZArF60-1",
-  "u-ai-yt-KWQigZArF60-2"
+  "u-ai-yt-KWQigZArF60-2",
+  "u-ai-yt-tEJx0Dh-rBw-1",
+  "u-ai-yt-tEJx0Dh-rBw-2"
  ],
  "contested": [],
  "retired": [
@@ -7281,58 +7285,6 @@
   "month": 0,
   "calls": [
    {
-    "at": "2026-11-12T14:11:49.862Z",
-    "content": "c-yt-qH4drUtSedk",
-    "model": "gemini-3.6-flash",
-    "input": 7345,
-    "output": 2545,
-    "usd": 0
-   },
-   {
-    "at": "2026-11-12T14:12:16.910Z",
-    "content": "c-yt-qH4drUtSedk",
-    "model": "gemini-3.6-flash",
-    "input": 5832,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-12T14:12:38.126Z",
-    "content": "c-yt-qH4drUtSedk",
-    "model": "gemini-3.6-flash",
-    "input": 5892,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-12T14:13:35.696Z",
-    "content": "c-yt-qH4drUtSedk",
-    "model": "gemini-3.6-flash",
-    "input": 5865,
-    "output": 46,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-12T14:14:45.993Z",
-    "content": "c-yt-qH4drUtSedk",
-    "model": "gemini-3.6-flash",
-    "input": 5845,
-    "output": 100,
-    "usd": 0,
-    "kind": "verification-extrait"
-   },
-   {
-    "at": "2026-11-12T19:13:10.390Z",
-    "content": "c-yt-uZQtMEYUYbo",
-    "model": "gemini-3.6-flash",
-    "input": 7169,
-    "output": 3203,
-    "usd": 0
-   },
-   {
     "at": "2026-11-12T19:13:54.356Z",
     "content": "c-yt-uZQtMEYUYbo",
     "model": "gemini-3-flash-preview",
@@ -7703,6 +7655,58 @@
     "model": "gemini-3.5-flash-lite",
     "input": 5900,
     "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-13T13:40:33.919Z",
+    "content": "c-yt-tEJx0Dh-rBw",
+    "model": "gemini-3.7-flash",
+    "input": 10470,
+    "output": 8256,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-13T13:49:53.994Z",
+    "content": "c-yt-tEJx0Dh-rBw",
+    "model": "gemini-3.5-flash",
+    "input": 8088,
+    "output": 1996,
+    "usd": 0
+   },
+   {
+    "at": "2026-11-13T13:53:23.600Z",
+    "content": "c-yt-tEJx0Dh-rBw",
+    "model": "gemini-3.6-flash",
+    "input": 6036,
+    "output": 46,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-13T13:57:31.222Z",
+    "content": "c-yt-tEJx0Dh-rBw",
+    "model": "gemini-3.6-flash",
+    "input": 5934,
+    "output": 93,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-13T13:57:45.823Z",
+    "content": "c-yt-tEJx0Dh-rBw",
+    "model": "gemini-3.6-flash",
+    "input": 5966,
+    "output": 108,
+    "usd": 0,
+    "kind": "verification-extrait"
+   },
+   {
+    "at": "2026-11-13T14:01:00.936Z",
+    "content": "c-yt-tEJx0Dh-rBw",
+    "model": "gemini-3.6-flash",
+    "input": 3327,
+    "output": 91,
     "usd": 0,
     "kind": "verification-extrait"
    }

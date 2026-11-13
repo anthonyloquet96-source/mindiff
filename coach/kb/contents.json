@@ -10340,11 +10340,11 @@
    "published": "2023-05-28",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "En live TOUS LES JOURS à 15h sur : https://www.twitch.tv/chreak\nRejoignez le discord : https://discord.gg/4CXfNynYEa\nPATREON : https://www.patreon.com/ChreakLoL\nTwitter - https://www.twitter.com/Chreak_Lol\n\n\nMONTAGE : \n\nTwitter : Aiko_ADC",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 28 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -10355,6 +10355,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-13",
+    "sha256": "324b1aa27f50b0d159eae070659b6623ba13a6741a33b787689c274f5837d6f8",
+    "segments": 22,
+    "observations": 28,
+    "duration": "16:57",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 107483
    }
   },
   {
@@ -14613,7 +14626,9 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 150
+   "queueRank": 150,
+   "videoSkipped": "environ 173 min : au-delà de 90 min (vidéo pédagogique trop longue)",
+   "videoAttempts": 3
   },
   {
    "id": "c-yt-2hj-c_Bypa8",
@@ -86167,12 +86182,12 @@
    "published": null,
    "retrievedAt": "2026-11-13",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 151,
-   "note": "File de lecture (rang 151) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -86183,6 +86198,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-13",
+    "sha256": "853150f852f2b3a8fcca7ce684ec691c184727f39d3d5728b900b3cb38a3606d",
+    "segments": 59,
+    "observations": 40,
+    "duration": "15:49",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 101044
+   },
+   "analyzedAt": "2026-11-13",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Un joueur de toplane peut apprendre à aborder tout matchup en identifiant son statut d'échanges courts ou longs pour guider son contrôle de vague, en visant des paliers d'élimination des sbires mages, et en concédant prudemment le niveau 1 lors d'un matchup inconnu pour jouer le rebond de vague.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Guide méthodologique clair et pertinent sur la gestion des matchups en toplane, mais le contenu sert d'introduction promotionnelle à un cours payant et aucun patch précis n'est mentionné."
    }
   },
   {
@@ -86208,6 +86246,87 @@
      "top",
      "fundamentals"
     ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Ob0IXGsdK6I",
+   "sourceId": "yt-coach-mysterias",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=Ob0IXGsdK6I",
+   "title": "Why Wave 5 is Losing Your Lane | Mid Lane Fundamentals",
+   "author": "Coach Mysterias",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-13",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 153,
+   "note": "File de lecture (rang 153) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "mid",
+     "fundamentals",
+     "wave"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-bctkeODBuT8",
+   "sourceId": "yt-que-aula",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=bctkeODBuT8",
+   "title": "DO OURO AO ESMERALDA DANDO AULA DE MACRO! - ANÁLISE",
+   "author": "QUE AULA!",
+   "lang": "pt",
+   "published": null,
+   "retrievedAt": "2026-11-13",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 154,
+   "note": "File de lecture (rang 154) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 13,
+    "matched": [
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-v2vOno_36zs",
+   "sourceId": "yt-fl7vob_qbs",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=v2vOno_36zs",
+   "title": "이 빌드로 마스터에서 승률 84퍼 찍었습니다 스킬 두 방에 한타 끝내는 극딜 빅토르 강의",
+   "author": "챌린저 미드김홍주",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-11-13",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 155,
+   "note": "File de lecture (rang 155) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"

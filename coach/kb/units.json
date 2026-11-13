@@ -95071,7 +95071,199 @@
    },
    "version": 1,
    "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-tEJx0Dh-rBw-1",
+   "claim": "Selon Skill Capped : identifie au départ si ton champion gagne les échanges courts ou longs face à l'opposant pour fixer ta gestion de vague. En profil d'échanges longs, garde tes PV élevés et maintiens la vague près de ta tour pour courir sur l'adversaire ; en profil d'échanges courts, trade sous ta tour ou derrière une vague lente pour exploiter ton burst et reculer.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "tous rangs",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "S'applique à la majorité des confrontations en toplane où l'un des deux champions dispose d'un DPS supérieur en combat prolongé et l'autre d'un burst initial supérieur"
+   ],
+   "limits": [
+    "L'auteur signale qu'il existe des exceptions à cette règle générale"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tEJx0Dh-rBw",
+     "locator": "[04:08]",
+     "lang": "en",
+     "passage": "if you're the side that wants to all-in with a long trade, 1) you want to be as close to 100% HP as possible, giving you the most time to ramp up your damage in the fight, and 2) you want the wave closer to your side of the lane so you have plenty of space to run your opponent down.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-13",
+      "window": "228-288s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-tEJx0Dh-rBw",
+     "locator": "[04:24]",
+     "lang": "en",
+     "passage": "On the other hand, if you're the short trader side of the matchup, you also want to keep the wave close to your side of the lane, but for a different reason. You want to be able to get a quick trade in and then retreat back to your tower, or you also really benefit from having a slow push going"
+    }
+   ],
+   "mentions": [
+    "Sett (exemple)",
+    "Dr. Mundo (exemple)",
+    "Darius (exemple)",
+    "Camille (exemple)",
+    "Kled (exemple)"
+   ],
+   "action": "En début de partie, détermine si ton kit gagne sur la durée ou en burst face au champion adverse, et positionne la vague en conséquence.",
+   "observe": "L'espace disponible pour poursuivre l'adversaire ou la facilité à rompre l'échange sans subir de dégâts en retour.",
+   "use": {
+    "when": "En phase de voie, dès les premiers niveaux, pour établir ton plan d'échange et ton placement de vague face à ton opposant direct.",
+    "why": "Le champion d'échanges longs a besoin de temps et d'espace pour monter en puissance sans mourir trop vite, tandis que le champion d'échanges courts inflige son burst d'un coup et doit se mettre à l'abri immédiatement.",
+    "who": "Tout toplaner cherchant une ligne directrice claire pour aborder ses affrontements.",
+    "how": [
+     "Compare ton kit à celui de l'adversaire pour savoir qui l'emporte sur un affrontement prolongé.",
+     "Si tu privilégies l'échange long, conserve un maximum de PV et stabilise la vague près de ta tour pour créer une longue ligne de poursuite.",
+     "Si tu privilégies l'échange court, déclenche ton burst puis replie-toi immédiatement sous ta tourelle ou derrière ta vague en push lent."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité retranscrit fidèlement les conseils de l'auteur sur la gestion de voie selon le profil d'échange (court ou long), avec un contexte d'usage clair et sans sur-généralisation."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-tEJx0Dh-rBw-2",
+   "claim": "Selon Skill Capped : connaître les paliers de niveau ou d'équipement permettant d'éliminer instantanément les sbires mages confère un contrôle immédiat de la vague et empêche l'adversaire de riposter efficacement.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "tous rangs",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jouer un champion possédant un sort de zone ou une combinaison capable d'exécuter la ligne arrière de sbires à un palier donné"
+   ],
+   "limits": [
+    "Nécessite de connaître les rangs de sort ou achats spécifiques à son pool de champions"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tEJx0Dh-rBw",
+     "locator": "[09:17]",
+     "lang": "en",
+     "passage": "In general, the most important wave clear breakpoints you should learn about your own champion are around caster minions. This is because if you can quickly kill the caster minions, you can get lane control very reliably.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-13",
+      "window": "537-597s",
+      "said": true,
+      "supported": true,
+      "gap": "Le passage cité figure dans la vidéo et l'ensemble du conseil est soutenu, mais la raison avancée ajoute une précision non mentionnée par l'auteur (la suppression du potentiel de dégâts de la vague ennemie)."
+     }
+    },
+    {
+     "content": "c-yt-tEJx0Dh-rBw",
+     "locator": "[09:36]",
+     "lang": "en",
+     "passage": "By killing the casters quickly, you make it so you get instant wave control, making it harder for your opponent to trade back, regardless of their champion."
+    }
+   ],
+   "mentions": [
+    "Renekton (exemple)",
+    "Jax (exemple)",
+    "Irelia (exemple)"
+   ],
+   "action": "Teste sur ton champion à quel palier de sort ou d'objet tu élimines les sbires mages en un coup, et déclenche une poussée rapide à cet instant précis.",
+   "observe": "La disparition instantanée de la ligne arrière adverse qui supprime les dégâts de sbires et libère l'initiative de trade.",
+   "use": {
+    "when": "Au moment où tu atteins le rang de compétence ou l'objet composant clé qui permet d'anéantir les sbires mages en une rotation.",
+    "why": "",
+    "who": "Toplaners s'appuyant sur des compétences de zone pour la gestion de vague.",
+    "how": [
+     "Identifie le niveau de compétence ou le composant d'objet qui permet d'exécuter les sbires mages.",
+     "Utilise ta compétence clé sur la ligne arrière dès son arrivée pour la tuer d'un coup.",
+     "Profite de l'avantage numérique pour enfoncer la vague ou imposer un échange sans riposte possible."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil sur l'importance de connaître les paliers d'élimination des sbires mages pour obtenir le contrôle de voie est fidèlement étayé par les citations."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
   }
  ],
- "updatedAt": "2026-11-13T07:33:35.411Z"
+ "updatedAt": "2026-11-13T14:01:07.222Z"
 }

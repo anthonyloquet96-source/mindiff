@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-13T07:33:36.910Z",
+ "generatedAt": "2026-11-13T14:01:08.723Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -2356,13 +2356,13 @@
    }
   },
   "themes": {
-   "lane": 171,
+   "lane": 173,
    "survie": 36,
    "teamfight": 29,
    "synergie": 9,
    "matchup": 23,
-   "methode": 55,
-   "vagues": 93,
+   "methode": 56,
+   "vagues": 95,
    "vision": 29,
    "macro": 147,
    "jungle": 98
@@ -14967,11 +14967,11 @@
    "published": "2023-05-28",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "En live TOUS LES JOURS à 15h sur : https://www.twitch.tv/chreak\nRejoignez le discord : https://discord.gg/4CXfNynYEa\nPATREON : https://www.patreon.com/ChreakLoL\nTwitter - https://www.twitter.com/Chreak_Lol\n\n\nMONTAGE : \n\nTwitter : Aiko_ADC",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 28 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -14982,6 +14982,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-13",
+    "sha256": "324b1aa27f50b0d159eae070659b6623ba13a6741a33b787689c274f5837d6f8",
+    "segments": 22,
+    "observations": 28,
+    "duration": "16:57",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 107483
    }
   },
   {
@@ -17695,7 +17708,9 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 150
+   "queueRank": 150,
+   "videoSkipped": "environ 173 min : au-delà de 90 min (vidéo pédagogique trop longue)",
+   "videoAttempts": 3
   },
   {
    "id": "c-yt-I5_tQSvM__s",
@@ -38347,12 +38362,12 @@
    "published": null,
    "retrievedAt": "2026-11-13",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 151,
-   "note": "File de lecture (rang 151) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -38363,6 +38378,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-13",
+    "sha256": "853150f852f2b3a8fcca7ce684ec691c184727f39d3d5728b900b3cb38a3606d",
+    "segments": 59,
+    "observations": 40,
+    "duration": "15:49",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 101044
+   },
+   "analyzedAt": "2026-11-13",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": "Un joueur de toplane peut apprendre à aborder tout matchup en identifiant son statut d'échanges courts ou longs pour guider son contrôle de vague, en visant des paliers d'élimination des sbires mages, et en concédant prudemment le niveau 1 lors d'un matchup inconnu pour jouer le rebond de vague.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Guide méthodologique clair et pertinent sur la gestion des matchups en toplane, mais le contenu sert d'introduction promotionnelle à un cours payant et aucun patch précis n'est mentionné."
    }
   },
   {
@@ -38388,6 +38426,87 @@
      "top",
      "fundamentals"
     ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Ob0IXGsdK6I",
+   "sourceId": "yt-coach-mysterias",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=Ob0IXGsdK6I",
+   "title": "Why Wave 5 is Losing Your Lane | Mid Lane Fundamentals",
+   "author": "Coach Mysterias",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-13",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 153,
+   "note": "File de lecture (rang 153) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [
+     "mid",
+     "fundamentals",
+     "wave"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-bctkeODBuT8",
+   "sourceId": "yt-que-aula",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=bctkeODBuT8",
+   "title": "DO OURO AO ESMERALDA DANDO AULA DE MACRO! - ANÁLISE",
+   "author": "QUE AULA!",
+   "lang": "pt",
+   "published": null,
+   "retrievedAt": "2026-11-13",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 154,
+   "note": "File de lecture (rang 154) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 13,
+    "matched": [
+     "macro"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-v2vOno_36zs",
+   "sourceId": "yt-fl7vob_qbs",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=v2vOno_36zs",
+   "title": "이 빌드로 마스터에서 승률 84퍼 찍었습니다 스킬 두 방에 한타 끝내는 극딜 빅토르 강의",
+   "author": "챌린저 미드김홍주",
+   "lang": "ko",
+   "published": null,
+   "retrievedAt": "2026-11-13",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 155,
+   "note": "File de lecture (rang 155) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 15,
+    "matched": [],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -114197,6 +114316,182 @@
     {
      "code": "contenu-ancien",
      "why": "c-yt-KWQigZArF60 publié le 2023-06-11 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-tEJx0Dh-rBw-1",
+   "claim": "Selon Skill Capped : identifie au départ si ton champion gagne les échanges courts ou longs face à l'opposant pour fixer ta gestion de wave. En profil d'échanges longs, garde tes PV élevés et maintiens la wave près de ta tour pour courir sur l'adversaire ; en profil d'échanges courts, trade sous ta tour ou derrière une wave lente pour exploiter ton burst et reculer.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "tous rangs",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "S'applique à la majorité des confrontations en toplane où l'un des deux champions dispose d'un DPS supérieur en combat prolongé et l'autre d'un burst initial supérieur"
+   ],
+   "limits": [
+    "L'auteur signale qu'il existe des exceptions à cette règle générale"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tEJx0Dh-rBw",
+     "locator": "[04:08]",
+     "lang": "en",
+     "passage": "if you're the side that wants to all-in with a long trade, 1) you want to be as close to 100% HP as possible, giving you the most time to ramp up your damage in the fight, and 2) you want the wave closer to your side of the lane so you have plenty of space to run your opponent down.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-13",
+      "window": "228-288s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-tEJx0Dh-rBw",
+     "locator": "[04:24]",
+     "lang": "en",
+     "passage": "On the other hand, if you're the short trader side of the matchup, you also want to keep the wave close to your side of the lane, but for a different reason. You want to be able to get a quick trade in and then retreat back to your tower, or you also really benefit from having a slow push going"
+    }
+   ],
+   "mentions": [
+    "Sett (exemple)",
+    "Dr. Mundo (exemple)",
+    "Darius (exemple)",
+    "Camille (exemple)",
+    "Kled (exemple)"
+   ],
+   "action": "En début de partie, détermine si ton kit gagne sur la durée ou en burst face au champion adverse, et positionne la vague en conséquence.",
+   "observe": "L'espace disponible pour poursuivre l'adversaire ou la facilité à rompre l'échange sans subir de dégâts en retour.",
+   "use": {
+    "when": "En phase de lane, dès les premiers niveaux, pour établir ton plan d'échange et ton placement de wave face à ton opposant direct.",
+    "why": "Le champion d'échanges longs a besoin de temps et d'espace pour monter en puissance sans mourir trop vite, tandis que le champion d'échanges courts inflige son burst d'un coup et doit se mettre à l'abri immédiatement.",
+    "who": "Tout toplaner cherchant une lane directrice claire pour aborder ses affrontements.",
+    "how": [
+     "Compare ton kit à celui de l'adversaire pour savoir qui l'emporte sur un affrontement prolongé.",
+     "Si tu privilégies l'échange long, conserve un maximum de PV et stabilise la wave près de ta tour pour créer une longue ligne de poursuite.",
+     "Si tu privilégies l'échange court, déclenche ton burst puis replie-toi immédiatement sous ta tourelle ou derrière ta wave en push lent."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-13",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-tEJx0Dh-rBw-2",
+   "claim": "Selon Skill Capped : connaître les paliers de niveau ou d'équipement permettant d'éliminer instantanément les sbires mages confère un contrôle immédiat de la wave et empêche l'adversaire de riposter efficacement.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "tous rangs",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer un champion possédant un sort de zone ou une combinaison capable d'exécuter la ligne arrière de sbires à un palier donné"
+   ],
+   "limits": [
+    "Nécessite de connaître les rangs de sort ou achats spécifiques à son pool de champions"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-tEJx0Dh-rBw",
+     "locator": "[09:17]",
+     "lang": "en",
+     "passage": "In general, the most important wave clear breakpoints you should learn about your own champion are around caster minions. This is because if you can quickly kill the caster minions, you can get lane control very reliably.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-13",
+      "window": "537-597s",
+      "said": true,
+      "supported": true,
+      "gap": "Le passage cité figure dans la vidéo et l'ensemble du conseil est soutenu, mais la raison avancée ajoute une précision non mentionnée par l'auteur (la suppression du potentiel de dégâts de la vague ennemie)."
+     }
+    },
+    {
+     "content": "c-yt-tEJx0Dh-rBw",
+     "locator": "[09:36]",
+     "lang": "en",
+     "passage": "By killing the casters quickly, you make it so you get instant wave control, making it harder for your opponent to trade back, regardless of their champion."
+    }
+   ],
+   "mentions": [
+    "Renekton (exemple)",
+    "Jax (exemple)",
+    "Irelia (exemple)"
+   ],
+   "action": "Teste sur ton champion à quel palier de sort ou d'objet tu élimines les sbires mages en un coup, et déclenche une poussée rapide à cet instant précis.",
+   "observe": "La disparition instantanée de la ligne arrière adverse qui supprime les dégâts de sbires et libère l'initiative de trade.",
+   "use": {
+    "when": "Au moment où tu atteins le rang de compétence ou l'item composant clé qui permet d'anéantir les sbires mages en une rotation.",
+    "why": "",
+    "who": "Toplaners s'appuyant sur des compétences de zone pour la gestion de wave.",
+    "how": [
+     "Identifie le niveau de compétence ou le composant d'item qui permet d'exécuter les sbires mages.",
+     "Utilise ta compétence clé sur la lane arrière dès son arrivée pour la tuer d'un coup.",
+     "Profite de l'avantage numérique pour enfoncer la wave ou imposer un échange sans riposte possible."
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-13",
+   "status": "provisoire",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "ecart-signale",
+     "why": "c-yt-tEJx0Dh-rBw : le vérificateur note un écart sur l'extrait 537-597s (Le passage cité figure dans la vidéo et l'ensemble du conseil est soutenu, mais la raison avancée ajoute une précision non mentionnée par l'auteur (la suppression du potentiel de dégâts de la vague ennemie).)."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-tEJx0Dh-rBw : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo ([09:36])."
     },
     {
      "code": "source-unique",

@@ -94600,7 +94600,478 @@
    },
    "version": 1,
    "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-qhoYUHuDBik-1",
+   "claim": "Selon Chreak : le secret pour progresser et gagner des LP est de jouer peu de champions et de privilégier des champions qui vous amusent plutôt que d'être un esclave de la méta.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "vouloir gagner des LP et être compétitif"
+   ],
+   "limits": [
+    "conseil général sur la psychologie de progression"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-qhoYUHuDBik",
+     "locator": "00:58",
+     "lang": "fr",
+     "passage": "Et le secret pour ça, c'est de jouer peu de champions et surtout de jouer des champions qui t'amusent. C'est ça le plus opti.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "38-98s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Réduire son champion pool à un petit nombre de champions plaisants à jouer.",
+   "observe": "Le plaisir de jeu et la constance des performances.",
+   "use": {
+    "when": "Quand tu souhaites organiser ton champion pool pour monter en ranked.",
+    "why": "Parce que c'est en s'amusant qu'on progresse le mieux et qu'on obtient ses meilleures performances.",
+    "who": "Ceux qui veulent gagner des LP, être compétitif et progresser.",
+    "how": [
+     "Jouer peu de champions.",
+     "Choisir des champions qui vous amusent."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle à la transcription, intemporelle et son contexte d'usage est complet."
+   },
+   "published": "2024-01-19",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-qhoYUHuDBik-2",
+   "claim": "Selon Chreak : être un OTP (One-Trick Pony) permet de se focaliser sur un seul gamestyle et d'oublier les mécaniques pour se concentrer sur la gestion de vagues ou le jungle tracking, mais présente des risques liés aux nerfs, aux bans et aux counterpicks.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "champion",
+    "macro",
+    "vagues",
+    "jungle"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "jouer un seul champion"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-qhoYUHuDBik",
+     "locator": "01:26",
+     "lang": "fr",
+     "passage": "En jouant un seul champion sur lequel tu es excellent, tu seras meilleur que quelqu'un qui joue 8 champions différents à bon niveau.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "66-126s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-qhoYUHuDBik",
+     "locator": "01:56",
+     "lang": "fr",
+     "passage": "Et enfin, tu n'as plus besoin de te focus sur tes mécaniques. Donc tu as la liberté de penser à autre chose, comme par exemple la gestion de wave ou le jungle tracking."
+    }
+   ],
+   "mentions": [
+    "Garen (exemple)",
+    "Yasuo (exemple)",
+    "Akali (exemple)",
+    "Zeri (exemple)",
+    "Orianna (exemple)",
+    "Zed (exemple)"
+   ],
+   "use": {
+    "when": "Quand tu hésites à te spécialiser sur un seul champion pour monter.",
+    "why": "Pour libérer de l'attention mentale en se passant du focus sur les mécaniques de base du champion.",
+    "who": "Les joueurs souhaitant se spécialiser.",
+    "how": [
+     "Se concentrer sur un unique champion pour maîtriser son gamestyle."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle aux passages cités, présente un avis structuré et un contexte d'usage valide."
+   },
+   "published": "2024-01-19",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-qhoYUHuDBik-3",
+   "claim": "Selon Chreak : pour structurer son champion pool de manière optimale, il faut commencer par trouver son gamestyle en éliminant ceux qui ne plaisent pas, puis sélectionner son main en trouvant le juste milieu entre fun et performance, et enfin ajouter un backup similaire.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "créer ou optimiser son champion pool"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-qhoYUHuDBik",
+     "locator": "06:27",
+     "lang": "fr",
+     "passage": "Donc l'étape numéro 1, c'est d'essayer tous les gamestyles du jeu et trouver celui qui te plaît.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "367-427s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-qhoYUHuDBik",
+     "locator": "06:51",
+     "lang": "fr",
+     "passage": "Moi par exemple, je déteste jouer Pyke, mais bordel qu'est-ce que je suis fort dessus ! Ça se voit, il y a tellement de clips avec. Bref, il faut juste trouver le juste milieu entre fun et performance.",
+     "mentionOnly": true
+    },
+    {
+     "content": "c-yt-qhoYUHuDBik",
+     "locator": "07:19",
+     "lang": "fr",
+     "passage": "Troisième étape : trouve un autre champion qui ressemble au premier en gameplay. Ce sera ton ou tes backup."
+    }
+   ],
+   "mentions": [
+    "Pyke (exemple)",
+    "Darius (exemple)",
+    "Olaf (exemple)",
+    "Garen (exemple)"
+   ],
+   "action": "Tester différents gamestyles pour éliminer ce qui ne plaît pas, trouver un main équilibrant fun et performance, puis choisir un backup au gameplay proche.",
+   "observe": "L'adéquation entre le plaisir ressenti en jouant le champion et l'efficacité en partie.",
+   "use": {
+    "when": "Quand tu veux construire ou trier les champions que tu joues en ranked.",
+    "why": "Pour obtenir un champion pool solide avec peu de champions bien maîtrisés et un style similaire.",
+    "who": "Tout joueur souhaitant structurer son pool de champions.",
+    "how": [
+     "Essayer les gamestyles pour identifier ses préférences.",
+     "Trouver le champion main qui combine fun et performance.",
+     "Choisir un champion backup qui ressemble au premier en gameplay."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil méthodologique s'appuie directement sur les passages et fournit un contexte d'usage clair."
+   },
+   "published": "2024-01-19",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-KWQigZArF60-1",
+   "claim": "Selon Chreak : jouer Malphite tank midlane est particulièrement efficace contre les compositions adverses composées majoritairement de champions mêlées et AD auto-attaquants, car le kit de Malphite scale avec son armure.",
+   "champions": [
+    "Malphite"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion",
+    "build"
+   ],
+   "matchup": {
+    "vs": "Zed"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Malphite/armor"
+   ],
+   "conditions": [
+    "Affronter un champion AD mêlé midlane"
+   ],
+   "limits": [
+    "Inefficace si joué full AP contre des mages"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-KWQigZArF60",
+     "locator": "00:39",
+     "lang": "fr",
+     "passage": "C'est extrêmement fort pour simple une simple et bonne raison, c'est que quand vous affrontez des mêlées AD mid, surtout des AD, et bien votre champion scale avec l'armure",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "19-79s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Yoné (exemple)",
+    "Yasuo (exemple)",
+    "Zed (exemple)"
+   ],
+   "action": "Sortir Malphite mid uniquement en réponse à un matchup ennemi AD mêlé.",
+   "observe": "Le choix du champion adverse en midlane avant de lock Malphite.",
+   "use": {
+    "when": "Tu es dans la phase de sélection des champions et tu vois un champion AD mêlé en face de toi sur la midlane.",
+    "why": "Le champion scale avec l'armure et punit naturellement les attaquants physiques au corps à corps.",
+    "who": "Joueur de Malphite sur la midlane face à une composition AD.",
+    "how": [
+     "Vérifie que l'adversaire direct au mid est un champion AD mêlé.",
+     "Sélectionne Malphite.",
+     "Par pars sur un build orienté armure et PV."
+    ],
+    "notWhen": "Ne joue pas Malphite tank midlane si l'adversaire joue un mage AP ou à distance."
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement fidèle au contenu et le contexte d'usage correspond aux passages de la transcription."
+   },
+   "published": "2023-06-11",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-KWQigZArF60-2",
+   "claim": "Selon Chreak : dans le matchup de Malphite face à un champion AD mid, l'auteur conseille de ne pas auto-attaquer les sbires, de laisser la vague au milieu le plus longtemps possible et d'utiliser le sort Q (Fragment sismique) combiné à Comète arcanique pour harceler l'adversaire.",
+   "champions": [
+    "Malphite"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "matchup": {
+    "vs": "Zed"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Malphite/Q",
+    "rune:Comete arcanique"
+   ],
+   "conditions": [
+    "Jouer Malphite contre un AD midlane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-KWQigZArF60",
+     "locator": "00:58",
+     "lang": "fr",
+     "passage": "tu n'auto-attaque pas les creeps, tu laisses la wave au milieu le plus longtemps possible tout en prenant le push.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "38-98s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-KWQigZArF60",
+     "locator": "01:08",
+     "lang": "fr",
+     "passage": "Dès qu'il s'approche, tu mets quoi ? Tu mets ton propre proc tu et voilà proc plus scorce plus comète, on est content"
+    }
+   ],
+   "mentions": [],
+   "action": "Ne pas toucher aux sbires inutilement et lancer le Q sur l'adversaire dès qu'il s'approche avec la comète prête.",
+   "observe": "L'état de la vague de sbires au milieu de la lane et le rechargement du passif/comète.",
+   "use": {
+    "when": "La partie commence sur la midlane et tu fais face à un adversaire au corps à corps.",
+    "why": "Pour garder le contrôle de la ligne et user l'adversaire sans perdre d'avantages.",
+    "who": "Malphite midlane.",
+    "how": [
+     "Ne touche pas aux sbires avec des auto-attaques pour maintenir la vague au centre.",
+     "Attends que ton flux de mana et ta comète soient disponibles.",
+     "Lance ton Q sur l'ennemi dès qu'il s'approche pour CS."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Les consignes de gestion de vague et d'utilisation du sort Q avec la comète sont directement appuyées par les citations."
+   },
+   "published": "2023-06-11",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
   }
  ],
- "updatedAt": "2026-11-13T01:38:06.632Z"
+ "updatedAt": "2026-11-13T07:33:35.411Z"
 }

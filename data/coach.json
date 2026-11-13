@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-13T01:38:07.933Z",
+ "generatedAt": "2026-11-13T07:33:36.910Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -1112,15 +1112,17 @@
    },
    "Malphite": {
     "role": null,
-    "units": 6,
+    "units": 8,
     "themes": [
      "champion",
      "matchup",
-     "lane"
+     "lane",
+     "build",
+     "vagues"
     ],
-    "actions": 2,
+    "actions": 4,
     "official": 4,
-    "coaching": 2
+    "coaching": 4
    },
    "Malzahar": {
     "role": null,
@@ -2009,15 +2011,17 @@
    },
    "Zed": {
     "role": null,
-    "units": 6,
+    "units": 8,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "lane",
+     "build",
+     "vagues"
     ],
-    "actions": 0,
+    "actions": 2,
     "official": 6,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 2
    },
    "Ziggs": {
     "role": null,
@@ -2352,13 +2356,13 @@
    }
   },
   "themes": {
-   "lane": 169,
+   "lane": 171,
    "survie": 36,
    "teamfight": 29,
    "synergie": 9,
    "matchup": 23,
-   "methode": 53,
-   "vagues": 92,
+   "methode": 55,
+   "vagues": 93,
    "vision": 29,
    "macro": 147,
    "jungle": 98
@@ -3282,7 +3286,9 @@
    "u-ai-yt-qH4drUtSedk-2",
    "u-ai-yt-qH4drUtSedk-4",
    "u-ai-yt-vdYxCNzzs7Y-3",
-   "u-ai-yt-vdYxCNzzs7Y-4"
+   "u-ai-yt-vdYxCNzzs7Y-4",
+   "u-ai-yt-qhoYUHuDBik-1",
+   "u-ai-yt-qhoYUHuDBik-3"
   ]
  },
  "sources": [
@@ -7442,7 +7448,7 @@
    "published": "2025-11-20",
    "retrievedAt": "2026-10-20",
    "patch": null,
-   "views": 258000,
+   "views": 259000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -14801,11 +14807,11 @@
    "published": "2023-06-11",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "En live TOUS LES JOURS à 15h sur : https://www.twitch.tv/chreak\nRejoignez le discord : https://discord.gg/4CXfNynYEa\nPATREON : https://www.patreon.com/ChreakLoL\nTwitter - https://www.twitter.com/Chreak_Lol\n\n\nMONTAGE : \n\nTwitter : Aiko_ADC",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 25 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -14818,7 +14824,30 @@
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
    "videoAttempts": 1,
-   "videoError": "gemini-3-flash-preview : réponse tronquée (2026-11-13)"
+   "videoError": "gemini-3-flash-preview : réponse tronquée (2026-11-13)",
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-11-13",
+    "sha256": "84b71e080b486e7a40985348b2cca4c348591fc7e1fe3858e70498f7e779435f",
+    "segments": 230,
+    "observations": 25,
+    "duration": "17:20",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 108044
+   },
+   "analyzedAt": "2026-11-13",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Apprendre à utiliser Malphite tank en midlane spécifiquement en contre-pick des compositions AD mêlées en gérant sa vague et son poke avec le Q.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Le guide donne des explications claires sur le choix du champion et la gestion de la phase de lane, mais contient des digressions et un style familier."
+   }
   },
   {
    "id": "c-yt-fk245UqdWvU",
@@ -15047,7 +15076,7 @@
    "retrievedAt": "2026-10-21",
    "patch": "14.1",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "Vous voulez une séance de coaching avec Chreak en tête à tête ? C'est possible ! Deux options s'offrent à vous (70€/session de 1h15) : \nPasser par l'abonnement mensuel sur Patreon pour avoir 1 heure de coaching par mois sur ce lien : https://www.patreon.com/c/ChreakLoL\nContacter directement Chreak p",
    "backfill": true,
    "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -15074,6 +15103,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 62775
+   },
+   "analyzedAt": "2026-11-13",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "L'auteur explique comment construire et optimiser son champion pool en évitant le piège de la méta, en privilégiant le fun et la performance sur un petit nombre de champions aux gameplays similaires.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le guide est structuré de manière logique, avec des arguments clairs sur les avantages et inconvénients d'être OTP, la définition de la méta et une méthode étape par étape pour construire son champion pool."
    }
   },
   {
@@ -17655,7 +17694,8 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "queueRank": 150
   },
   {
    "id": "c-yt-I5_tQSvM__s",
@@ -25718,7 +25758,7 @@
    "published": "2026-10-27",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 9800,
+   "views": 9900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -25775,7 +25815,7 @@
    "published": "2026-10-27",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 519,
+   "views": 520,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27947,7 +27987,7 @@
    "ageMonths": 2,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 312,
+   "views": 314,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27974,7 +28014,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 4900,
+   "views": 5000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28032,7 +28072,7 @@
    "ageMonths": 3,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 1800,
+   "views": 1900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28341,7 +28381,7 @@
    "ageMonths": 5,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 8100,
+   "views": 8200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35057,7 +35097,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 61000,
+   "views": 62000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35084,7 +35124,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 9400,
+   "views": 9500,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35194,7 +35234,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 71000,
+   "views": 72000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35221,7 +35261,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 246000,
+   "views": 247000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35276,7 +35316,7 @@
    "ageMonths": 0.1,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 58000,
+   "views": 59000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35911,7 +35951,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-08",
    "patch": null,
-   "views": 163000,
+   "views": 165000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36420,7 +36460,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 713,
+   "views": 732,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36448,7 +36488,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 27000,
+   "views": 28000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36475,7 +36515,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 296,
+   "views": 297,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36713,7 +36753,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 6800,
+   "views": 6900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37203,7 +37243,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-10",
    "patch": null,
-   "views": 3400,
+   "views": 3500,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37231,7 +37271,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-10",
    "patch": null,
-   "views": 4500,
+   "views": 4600,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37311,7 +37351,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-11",
    "patch": null,
-   "views": 6000,
+   "views": 6200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37591,7 +37631,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-11",
    "patch": null,
-   "views": 12000,
+   "views": 13000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37617,7 +37657,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-11",
    "patch": null,
-   "views": 6900,
+   "views": 7300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -38002,7 +38042,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-12",
    "patch": null,
-   "views": 2200,
+   "views": 2900,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -38130,12 +38170,12 @@
    "published": null,
    "retrievedAt": "2026-11-13",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 147,
-   "note": "File de lecture (rang 147) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Écarté : contenu jugé de faible qualité (Le contenu ne contient pas de conseils exploitables ou de développements techniques précis, seulement des exclamations, des réactions et des extraits sans explication contextuelle exploitable.).",
    "triage": {
     "score": 13,
     "matched": [
@@ -38144,7 +38184,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-13",
+    "sha256": "3eee47d22114b90d55dbc2f5259ac1b6885ceb61b7a72cc1027e15ffe2488c7c",
+    "segments": 5,
+    "observations": 10,
+    "duration": "07:10",
+    "videoKind": "autre",
+    "gameplayShown": true,
+    "tokens": 73072
+   },
+   "analyzedAt": "2026-11-13",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "quality": {
+    "level": "faible",
+    "why": "Le contenu ne contient pas de conseils exploitables ou de développements techniques précis, seulement des exclamations, des réactions et des extraits sans explication contextuelle exploitable."
+   },
+   "learn": null,
+   "rejectedForQuality": true
   },
   {
    "id": "c-yt-b-F4v51QUf8",
@@ -38156,13 +38218,13 @@
    "lang": "pt",
    "published": null,
    "retrievedAt": "2026-11-13",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "null",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 148,
-   "note": "File de lecture (rang 148) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3-flash-preview : transcription et 36 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 13,
     "matched": [
@@ -38171,6 +38233,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3-flash-preview",
+    "fps": 1,
+    "at": "2026-11-13",
+    "sha256": "f8ad3a80a894cb2cfc7d65325c88c05dafcf76b1f041ed1362756e352069ea20",
+    "segments": 49,
+    "observations": 36,
+    "duration": "26:12",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 154969
+   },
+   "analyzedAt": "2026-11-13",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "La vidéo montre un gameplay Challenger en direct avec des commentaires pertinents sur le matchup Zed et les choix de build, mais l'analyse tactique reste fragmentaire et informelle."
    }
   },
   {
@@ -38183,17 +38268,125 @@
    "lang": "ko",
    "published": null,
    "retrievedAt": "2026-11-13",
+   "patch": "null",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 149,
+   "note": "Lue par gemini-3.5-flash-lite : transcription et 18 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
+   "triage": {
+    "score": 13,
+    "matched": [
+     "matchup"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash-lite",
+    "fps": 1,
+    "at": "2026-11-13",
+    "sha256": "b6f1f5e291f0663dc0a9428d2cb4f0587c258ea39b79475f047457ca6dcb8fe8",
+    "segments": 22,
+    "observations": 18,
+    "duration": "10:07",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 57133
+   },
+   "analyzedAt": "2026-11-13",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "La vidéo fournit des conseils précis pour des matchups spécifiques de Zoé mais la transcription est courte et contient des apartés comiques."
+   }
+  },
+  {
+   "id": "c-yt-dlMGgauQzCc",
+   "sourceId": "yt-o8todsm2gv",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=dlMGgauQzCc",
+   "title": "Viktor Is BACK After Massive Buffs! The ULTIMATE Viktor Guide – From Beginner to Advanced!",
+   "author": "쭌베 ",
+   "lang": "ko",
+   "published": null,
+   "ageMonths": 0,
+   "retrievedAt": "2026-11-13",
+   "patch": null,
+   "views": 3400,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "triage": {
+    "score": 6,
+    "matched": [
+     "Vi",
+     "Viktor",
+     "guide"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-tEJx0Dh-rBw",
+   "sourceId": "yt-skill-capped",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=tEJx0Dh-rBw",
+   "title": "How to WIN EVERY Top Lane Matchup in League of Legends!",
+   "author": "Skill Capped",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-13",
    "patch": null,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 149,
-   "note": "File de lecture (rang 149) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "queueRank": 151,
+   "note": "File de lecture (rang 151) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
-    "score": 13,
+    "score": 16,
     "matched": [
+     "top",
+     "how to",
      "matchup"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-KwbrTusEwrE",
+   "sourceId": "yt-aloisnl",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=KwbrTusEwrE",
+   "title": "The Top King BIN fights my FUNDAMENTALS",
+   "author": "AloisNL",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-13",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 152,
+   "note": "File de lecture (rang 152) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "top",
+     "fundamentals"
     ],
     "entertainment": [],
     "patchMentioned": null,
@@ -113513,6 +113706,497 @@
     {
      "code": "verification-legere",
      "why": "c-yt-Xpg0fZdaZZc : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-qhoYUHuDBik-1",
+   "claim": "Selon Chreak : le secret pour progresser et gagner des LP est de jouer peu de champions et de privilégier des champions qui vous amusent plutôt que d'être un esclave de la méta.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "vouloir gagner des LP et être compétitif"
+   ],
+   "limits": [
+    "conseil général sur la psychologie de progression"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-qhoYUHuDBik",
+     "locator": "00:58",
+     "lang": "fr",
+     "passage": "Et le secret pour ça, c'est de jouer peu de champions et surtout de jouer des champions qui t'amusent. C'est ça le plus opti.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "38-98s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Réduire son champion pool à un petit nombre de champions plaisants à jouer.",
+   "observe": "Le plaisir de jeu et la constance des performances.",
+   "use": {
+    "when": "Quand tu souhaites organiser ton champion pool pour monter en ranked.",
+    "why": "Parce que c'est en s'amusant qu'on progresse le mieux et qu'on obtient ses meilleures performances.",
+    "who": "Ceux qui veulent gagner des LP, être compétitif et progresser.",
+    "how": [
+     "Jouer peu de champions.",
+     "Choisir des champions qui vous amusent."
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-01-19",
+   "analyzedAt": "2026-11-13",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2024 (patch 14.1) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-qhoYUHuDBik : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-qhoYUHuDBik publié le 2024-01-19 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-qhoYUHuDBik-2",
+   "claim": "Selon Chreak : être un OTP (One-Trick Pony) permet de se focaliser sur un seul gamestyle et d'oublier les mécaniques pour se concentrer sur la gestion de waves ou le jungle tracking, mais présente des risques liés aux nerfs, aux bans et aux counterpicks.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "champion",
+    "macro",
+    "vagues",
+    "jungle"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": true,
+   "conditions": [
+    "jouer un seul champion"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-qhoYUHuDBik",
+     "locator": "01:26",
+     "lang": "fr",
+     "passage": "En jouant un seul champion sur lequel tu es excellent, tu seras meilleur que quelqu'un qui joue 8 champions différents à bon niveau.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "66-126s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-qhoYUHuDBik",
+     "locator": "01:56",
+     "lang": "fr",
+     "passage": "Et enfin, tu n'as plus besoin de te focus sur tes mécaniques. Donc tu as la liberté de penser à autre chose, comme par exemple la gestion de wave ou le jungle tracking."
+    }
+   ],
+   "mentions": [
+    "Garen (exemple)",
+    "Yasuo (exemple)",
+    "Akali (exemple)",
+    "Zeri (exemple)",
+    "Orianna (exemple)",
+    "Zed (exemple)"
+   ],
+   "use": {
+    "when": "Quand tu hésites à te spécialiser sur un seul champion pour monter.",
+    "why": "Pour libérer de l'attention mentale en se passant du focus sur les mécaniques de base du champion.",
+    "who": "Les joueurs souhaitant se spécialiser.",
+    "how": [
+     "Se concentrer sur un unique champion pour maîtriser son gamestyle."
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-01-19",
+   "analyzedAt": "2026-11-13",
+   "status": "a-revalider",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2024 (patch 14.1) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-qhoYUHuDBik : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-qhoYUHuDBik publié le 2024-01-19 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-qhoYUHuDBik : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (01:56)."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-qhoYUHuDBik publié le 2024-01-19 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    },
+    {
+     "code": "patch-incompatible",
+     "why": "Dépend de la méta, patch 14.1 : 309 patchs de retard."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-qhoYUHuDBik-3",
+   "claim": "Selon Chreak : pour structurer son champion pool de manière optimale, il faut commencer par trouver son gamestyle en éliminant ceux qui ne plaisent pas, puis sélectionner son main en trouvant le juste milieu entre fun et performance, et enfin ajouter un backup similaire.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "créer ou optimiser son champion pool"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-qhoYUHuDBik",
+     "locator": "06:27",
+     "lang": "fr",
+     "passage": "Donc l'étape numéro 1, c'est d'essayer tous les gamestyles du jeu et trouver celui qui te plaît.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "367-427s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-qhoYUHuDBik",
+     "locator": "06:51",
+     "lang": "fr",
+     "passage": "Moi par exemple, je déteste jouer Pyke, mais bordel qu'est-ce que je suis fort dessus ! Ça se voit, il y a tellement de clips avec. Bref, il faut juste trouver le juste milieu entre fun et performance.",
+     "mentionOnly": true
+    },
+    {
+     "content": "c-yt-qhoYUHuDBik",
+     "locator": "07:19",
+     "lang": "fr",
+     "passage": "Troisième étape : trouve un autre champion qui ressemble au premier en gameplay. Ce sera ton ou tes backup."
+    }
+   ],
+   "mentions": [
+    "Pyke (exemple)",
+    "Darius (exemple)",
+    "Olaf (exemple)",
+    "Garen (exemple)"
+   ],
+   "action": "Tester différents gamestyles pour éliminer ce qui ne plaît pas, trouver un main équilibrant fun et performance, puis choisir un backup au gameplay proche.",
+   "observe": "L'adéquation entre le plaisir ressenti en jouant le champion et l'efficacité en partie.",
+   "use": {
+    "when": "Quand tu veux construire ou trier les champions que tu joues en ranked.",
+    "why": "Pour obtenir un champion pool solide avec peu de champions bien maîtrisés et un style similaire.",
+    "who": "Tout joueur souhaitant structurer son pool de champions.",
+    "how": [
+     "Essayer les gamestyles pour identifier ses préférences.",
+     "Trouver le champion main qui combine fun et performance.",
+     "Choisir un champion backup qui ressemble au premier en gameplay."
+    ],
+    "notWhen": ""
+   },
+   "published": "2024-01-19",
+   "analyzedAt": "2026-11-13",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2024 (patch 14.1) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-qhoYUHuDBik : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-qhoYUHuDBik publié le 2024-01-19 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-qhoYUHuDBik : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (06:51)."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-qhoYUHuDBik publié le 2024-01-19 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-qhoYUHuDBik : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (07:19)."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-qhoYUHuDBik publié le 2024-01-19 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-KWQigZArF60-1",
+   "claim": "Selon Chreak : jouer Malphite tank midlane est particulièrement efficace contre les compositions adverses composées majoritairement de champions mêlées et AD auto-attaquants, car le kit de Malphite scale avec son armure.",
+   "champions": [
+    "Malphite"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion",
+    "build"
+   ],
+   "matchup": {
+    "vs": "Zed"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Affronter un champion AD mêlé midlane"
+   ],
+   "limits": [
+    "Inefficace si joué full AP contre des mages"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-KWQigZArF60",
+     "locator": "00:39",
+     "lang": "fr",
+     "passage": "C'est extrêmement fort pour simple une simple et bonne raison, c'est que quand vous affrontez des mêlées AD mid, surtout des AD, et bien votre champion scale avec l'armure",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "19-79s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Yoné (exemple)",
+    "Yasuo (exemple)",
+    "Zed (exemple)"
+   ],
+   "action": "Sortir Malphite mid uniquement en réponse à un matchup ennemi AD mêlé.",
+   "observe": "Le choix du champion adverse en midlane avant de lock Malphite.",
+   "use": {
+    "when": "Tu es dans la phase de sélection des champions et tu vois un champion AD mêlé en face de toi sur la midlane.",
+    "why": "Le champion scale avec l'armure et punit naturellement les attaquants physiques au corps à corps.",
+    "who": "Joueur de Malphite sur la midlane face à une composition AD.",
+    "how": [
+     "Vérifie que l'adversaire direct au mid est un champion AD mêlé.",
+     "Sélectionne Malphite.",
+     "Par pars sur un build orienté armure et PV."
+    ],
+    "notWhen": "Ne joue pas Malphite tank midlane si l'adversaire joue un mage AP ou à distance."
+   },
+   "published": "2023-06-11",
+   "analyzedAt": "2026-11-13",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2023 : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-KWQigZArF60 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-KWQigZArF60 publié le 2023-06-11 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Formulation absolue (« toujours », « uniquement »…) absente des passages cités."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-KWQigZArF60-2",
+   "claim": "Selon Chreak : dans le matchup de Malphite face à un champion AD mid, l'auteur conseille de ne pas auto-attaquer les sbires, de laisser la wave au milieu le plus longtemps possible et d'utiliser le sort Q (Fragment sismique) combiné à Comète arcanique pour poke l'adversaire.",
+   "champions": [
+    "Malphite"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "matchup": {
+    "vs": "Zed"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer Malphite contre un AD midlane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-KWQigZArF60",
+     "locator": "00:58",
+     "lang": "fr",
+     "passage": "tu n'auto-attaque pas les creeps, tu laisses la wave au milieu le plus longtemps possible tout en prenant le push.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "38-98s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-KWQigZArF60",
+     "locator": "01:08",
+     "lang": "fr",
+     "passage": "Dès qu'il s'approche, tu mets quoi ? Tu mets ton propre proc tu et voilà proc plus scorce plus comète, on est content"
+    }
+   ],
+   "mentions": [],
+   "action": "Ne pas toucher aux sbires inutilement et lancer le Q sur l'adversaire dès qu'il s'approche avec la comète prête.",
+   "observe": "L'état de la vague de sbires au milieu de la lane et le rechargement du passif/comète.",
+   "use": {
+    "when": "La partie commence sur la midlane et tu fais face à un adversaire au corps à corps.",
+    "why": "Pour garder le contrôle de la lane et user l'adversaire sans perdre d'avantages.",
+    "who": "Malphite midlane.",
+    "how": [
+     "Ne touche pas aux sbires avec des auto-attaques pour maintenir la wave au centre.",
+     "Attends que ton flux de mana et ta comète soient disponibles.",
+     "Lance ton Q sur l'ennemi dès qu'il s'approche pour CS."
+    ],
+    "notWhen": ""
+   },
+   "published": "2023-06-11",
+   "analyzedAt": "2026-11-13",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2023 : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-KWQigZArF60 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-KWQigZArF60 publié le 2023-06-11 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-KWQigZArF60 : lu par gemini-3.5-flash-lite (1 image/s) ; passage à vérifier sur la vidéo (01:08)."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-KWQigZArF60 publié le 2023-06-11 : à confirmer sur le kit et la méta actuels."
     },
     {
      "code": "source-unique",

@@ -51057,12 +51057,13 @@
      "lang": "en",
      "passage": "For example, it's why a good recall timing involves pushing the wave first. The time it takes for the next wave to arrive is your dead time as a laner.",
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
       "window": "513-573s",
       "said": true,
       "supported": true
-     }
+     },
+     "reverifiedAt": "2026-11-13"
     },
     {
      "content": "c-yt-ZzKpPJ_BNHM",
@@ -51238,12 +51239,13 @@
      "lang": "en",
      "passage": "At the same time, with Fizz this low, Tristana is under no threat, so she gets to focus on farming perfectly while possibly getting tower plates off pushes.",
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
       "window": "699-759s",
       "said": true,
       "supported": true
-     }
+     },
+     "reverifiedAt": "2026-11-13"
     },
     {
      "content": "c-yt-ZzKpPJ_BNHM",
@@ -51334,12 +51336,13 @@
      "lang": "en",
      "passage": "It is very important to go D-Blade, because this character, to get your Q evo, you're legit getting it by like one point of AD. It's insanely tight, tighter than you, bro.",
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
       "window": "7-67s",
       "said": true,
       "supported": true
-     }
+     },
+     "reverifiedAt": "2026-11-13"
     }
    ],
    "mentions": [],
@@ -51416,12 +51419,14 @@
      "lang": "en",
      "passage": "Triple Long Sword. You don't Shojin doesn't buy build into these Long Swords.",
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
       "window": "365-425s",
       "said": true,
-      "supported": true
-     }
+      "supported": true,
+      "gap": "Le coach mentionne spécifiquement la Lance de Shojin comme premier objet et non l'Éclipse, et le texte du passage contient un mot superflu ('buy') par rapport à l'audio."
+     },
+     "reverifiedAt": "2026-11-13"
     },
     {
      "content": "c-yt-RIro7KcXJP8",
@@ -51505,12 +51510,13 @@
      "lang": "en",
      "passage": "So the three steps we used to completely dominate this game in this live coaching: number one, we actively used our pings; number two, we controlled ourselves, we played for objectives, we forsook our camps to play for objectives; and number three, we worked with our strong teammates to try and win the game.",
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
       "window": "3658-3718s",
       "said": true,
       "supported": true
-     }
+     },
+     "reverifiedAt": "2026-11-13"
     }
    ],
    "mentions": [],
@@ -95263,7 +95269,519 @@
    },
    "version": 1,
    "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-Ob0IXGsdK6I-1",
+   "claim": "Selon Coach Mysterias : la 5e vague de sbires sur la voie du milieu est le moment idéal pour pousser et effectuer un rappel (reset), car elle précède immédiatement la 6e vague qui contient un sbire canon.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "system:vagues-de-sbires"
+   ],
+   "conditions": [
+    "Réussir à pousser la 5e vague sous la tourelle adverse"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Ob0IXGsdK6I",
+     "locator": "[00:29] (parole)",
+     "lang": "en",
+     "passage": "In the new season, Riot changed the cannon spawn timer back from wave four to wave three. In the past, it always used to be wave three as well. And this means that every third wave, there's going to be a cannon spawning. So wave three is a cannon, wave six is a cannon, wave nine is a cannon, wave 12 is a cannon",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
+      "window": "9-69s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousser la 5e vague puis effectuer immédiatement un retour en base avant que la vague 6 avec canon n'arrive.",
+   "observe": "Vérifier si le retour en base permet d'acheter un composant et de revenir sans perdre de sbire sous tourelle.",
+   "use": {
+    "when": "Tu es sur la voie du milieu pendant la 5e vague de sbires (vers 2:50 de jeu).",
+    "why": "Pousser avant une vague canon rend le push de réplique de l'adversaire plus lent et plus difficile pendant ton retour en base.",
+    "who": "Joueurs de la voie du milieu.",
+    "how": [
+     "Pousser rapidement la 5e vague de sbires.",
+     "Initier le rappel en base dès que les sbires sont éliminés.",
+     "Revenir sur la voie pendant l'arrivée de la vague 6."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le principe de tempo basé sur la périodicité des vagues canons est une mécanique structurelle du jeu qui reste valide malgré l'ancienneté du patch."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-Ob0IXGsdK6I-2",
+   "claim": "Selon Coach Mysterias : la technique du « reset trap » consiste à simuler un décalage vers la rivière après avoir poussé la 5e vague, puis rentrer en base afin d'obliger l'adversaire à choisir entre un mauvais rappel ou rester en voie désavantagé.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane",
+    "macro",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir poussé la 5e vague sous la tourelle adverse et ne pas être vu dans le brouillard de guerre"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Ob0IXGsdK6I",
+     "locator": "[02:11] (parole)",
+     "lang": "en",
+     "passage": "What I do is I form a reset trap. And this is going to get you so many leads in games, guys. It's absolutely insane.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
+      "window": "111-171s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Akali (exemple)",
+    "Fizz (exemple)",
+    "Malphite (exemple)"
+   ],
+   "action": "Après le push de la vague 5, marcher vers la rivière sous le brouillard puis lancer le retour en base.",
+   "observe": "Constater si le vis-à-vis reste en voie avec un désavantage d'équipement ou s'il rappelle et perd de l'expérience.",
+   "use": {
+    "when": "Tu viens de pousser la 5e vague sous tourelle et l'adversaire n'a pas de vision sur ton déplacement.",
+    "why": "Fait croire à l'adversaire que tu décale au Carapateur, le forçant à hésiter pendant que tu achètes tes objets.",
+    "who": "Joueurs de la voie du milieu en solo queue.",
+    "how": [
+     "Pousser la 5e vague au bout.",
+     "Entrer dans le brouillard de guerre vers la rivière bot side.",
+     "Déclencher immédiatement ton rappel en base."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Technique de mindgame macro intemporelle en solo queue pour forcer des erreurs de décision chez l'adversaire."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-Ob0IXGsdK6I-3",
+   "claim": "Selon Coach Mysterias : de retour en voie après un rappel sur la 5e vague, il faut affiner la vague adverse sans la détruire totalement afin de maintenir un gel et interdire à l'adversaire de faire son propre rappel sans perdre de sbires.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Être revenu sur sa voie avec un avantage d'objets après un rappel réussi"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Ob0IXGsdK6I",
+     "locator": "[03:49] (parole)",
+     "lang": "en",
+     "passage": "What we do instead is we do not kill the minions. We thin it out so we don't take that much damage, but we keep a few key minions alive so that if he takes the reset, with the new wave state coming in already, he is going to be forced to lose three, four, five creeps.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
+      "window": "209-269s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Fizz (exemple)"
+   ],
+   "action": "Éliminer seulement les sbires nécessaires pour ne pas subir trop de dégâts et maintenir la vague du côté de sa tourelle.",
+   "observe": "Empêcher le laner adverse de pousser ou de rentrer en base sous peine de lui refuser toute une vague sous sa tourelle.",
+   "use": {
+    "when": "Tu reviens en voie avec tes nouveaux objets achetés sur le rappel de la vague 5 et la vague adverse pousse vers toi.",
+    "why": "Piège l'adversaire sur sa voie sans équipement et l'empêche d'avoir un rappel gratuit.",
+    "who": "Joueurs de la voie du milieu.",
+    "how": [
+     "Ne pas balayer la vague de sbires immédiatement à l'arrivée.",
+     "Tuer uniquement le surplus de sbires pour stabiliser le gel de la vague.",
+     "Menacer l'adversaire s'il tente d'approcher ou d'effectuer son rappel."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe fondamental de gestion de vague (thinning) pour maintenir une pression après un avantage d'équipement."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-Ob0IXGsdK6I-4",
+   "claim": "Selon Coach Mysterias : un rappel sur la 5e vague donne environ 750 pièces d'or en moyenne, constituant un palier financier très flexible pour acheter des composants clés (Tome d'amplification, Sceau noir, Larme de la déesse, Bottes, Cristal de mana).",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Ob0IXGsdK6I",
+     "locator": "[06:28] (parole)",
+     "lang": "en",
+     "passage": "So the interesting thing about a wave five reset is actually the amount of gold that you reset on, which is usually around 750 gold on average. And this is a very flexible amount of money, because you can buy a lot of really solid components with it.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
+      "window": "368-428s",
+      "said": true,
+      "supported": false,
+      "gap": "Le conseil ajoute des objets non mentionnés pour le second scénario et interprète la raison de la flexibilité des 750 pièces d'or."
+     }
+    }
+   ],
+   "mentions": [
+    "Ahri (exemple)",
+    "Ryze (exemple)"
+   ],
+   "action": "Vérifier son or accumulé aux alentours de la vague 5 pour optimiser ses achats de composants.",
+   "observe": "S'assurer de dépenser la majorité de son or en rentrant au shop.",
+   "use": {
+    "when": "Lors de la phase de rappel sur la 5e vague de sbires.",
+    "why": "",
+    "who": "Champions de la voie du milieu.",
+    "how": [
+     "Évaluer le nombre de consommables restants.",
+     "Acheter des composants bruts (ex: Amp Tome + Dark Seal) si les potions sont intactes.",
+     "Prendre Bottes + Cristal de mana + Potions rechargeables si la régénération est nécessaire."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'estimation de l'or accumulé est globalement correcte pour un palier de composants, mais peut varier légèrement selon les ajustements mineurs de l'économie des sbires."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-Ob0IXGsdK6I-5",
+   "claim": "Selon Coach Mysterias : le joueur qui revient en premier sur la voie possède le contrôle de l'espace (space control), ce qui lui permet de se placer agressivement et de punir l'adversaire qui doit s'avancer vers lui.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Arriver en premier sur la voie de retour du rappel"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-Ob0IXGsdK6I",
+     "locator": "[12:09] (parole)",
+     "lang": "en",
+     "passage": "What happens when you control the space in lane, when you have first move, Zeka now needs to run into Aurora, and this gives Aurora an opportunity to chunk Zeka whenever he moves in. It's a lot easier to hit someone whenever they're walking into you rather than walking away.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
+      "window": "709-769s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Ahri (exemple)",
+    "Aurora (exemple)"
+   ],
+   "action": "Se positionner en avant de sa vague de sbires lorsque l'adversaire revient du rappel pour le punir à son avance.",
+   "observe": "Constater la facilité à toucher ses compétences lorsque l'adversaire marche vers sa direction.",
+   "use": {
+    "when": "Tu es revenu sur la voie en premier alors que l'adversaire marche depuis sa tourelle pour se replacer.",
+    "why": "Les compétences sont plus faciles à toucher sur un champion qui s'avance vers soi plutôt que sur un champion qui recule.",
+    "who": "Joueurs de la voie du milieu.",
+    "how": [
+     "Se placer de manière agressive à l'entrée de la rivière ou de la voie.",
+     "Lancer ses compétences à portée maximale au moment exact où l'adversaire s'avance."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Observation tactique pertinente sur la géométrie des skillshots et l'avantage psychologique du premier revenu sur la voie."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-bctkeODBuT8-3",
+   "claim": "Selon QUE AULA! : erreur de placement de balise : placer une ward trop profondément dans le buisson de la rivière permet à l'adversaire de passer sur le bord extérieur sans être détecté.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vision"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "Esmeralda",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:Balise de vision"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "emeraude",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-bctkeODBuT8",
+     "locator": "02:55",
+     "lang": "pt",
+     "passage": "Ela estando tão pra dentro assim da moita permite com que o adversário passe pelo cantinho sem ser visto na ward.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
+      "window": "155-215s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Placer la balise plus vers le centre ou l'entrée du buisson pour couvrir tout le passage.",
+   "observe": "La zone de vision révélée par la balise sur la mini-carte.",
+   "use": {
+    "when": "Tu vas poser une balise de vision dans le buisson de la rivière pour te protéger des ganks.",
+    "why": "Un mauvais placement laisse un angle mort que les junglers expérimentés peuvent exploiter pour contourner la vision.",
+    "who": "Tout joueur cherchant à sécuriser ses flancs",
+    "how": [
+     "Évite de coller la balise au mur du fond du buisson",
+     "Place-la de manière à ce que le cercle de vision couvre toute la largeur du passage de la rivière"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Correction de placement de vision intemporelle et bien expliquée."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
   }
  ],
- "updatedAt": "2026-11-13T14:01:07.222Z"
+ "updatedAt": "2026-11-13T19:27:47.975Z"
 }

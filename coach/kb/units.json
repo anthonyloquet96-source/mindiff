@@ -93575,7 +93575,1032 @@
    },
    "version": 1,
    "firstSeen": "2026-11-12"
+  },
+  {
+   "id": "u-ai-yt-vdYxCNzzs7Y-1",
+   "claim": "Selon Yamato Natsuna-LoL Katarina Guide : en commençant la partie avec une Lame de Doran, l'achat d'un Arc courbe au premier rappel permet d'augmenter la vitesse d'attaque tout en conservant la force adaptative en AD (car l'Arc courbe n'apporte pas de puissance), ce qui optimise les échanges de coups au corps à corps tant qu'aucun composant AP n'est acheté.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Lame de Doran",
+    "item:Arc courbe",
+    "system:degats-adaptatifs"
+   ],
+   "conditions": [
+    "Avoir démarré la partie avec une Lame de Doran",
+    "Acheter l'Arc courbe avant tout composant apportant de la puissance (AP)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-vdYxCNzzs7Y",
+     "locator": "[03:40]",
+     "lang": "ja",
+     "passage": "いや、みんなこの買い方いいよ。まあ今回はAPビ...APビルド行きたいじゃん、相手柔らかいしAPいないし。そういう時、序盤勝ったやん、ドラブレ持って。あん時はマジこのリカーブボウだけ買うと、アダプティブフォースADになるから、殴り合い強いんよ。まあ今もうAPになったけど、このダークシールと増魔買ったから。",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
+      "window": "200-260s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-vdYxCNzzs7Y",
+     "locator": "[04:01]",
+     "lang": "ja",
+     "passage": "ドラブレとリカーブボウだけだと、ADのアダプティブになるから、今みたいに殴り合い強いんよね。"
+    }
+   ],
+   "mentions": [],
+   "action": "Si tu démarres à la Lame de Doran et prévois un build AP, achète un Arc courbe au premier retour en base sans objet AP pour conserver ton bonus adaptatif en AD pendant les duels.",
+   "observe": "La force adaptative de tes runes reste orientée AD après ton premier retour en base.",
+   "use": {
+    "when": "Au premier retour en base après un début de partie réussi avec la Lame de Doran.",
+    "why": "L'Arc courbe n'apportant pas de puissance (AP), la force adaptative reste convertie en AD tout en offrant de la vitesse d'attaque, ce qui renforce les échanges de coups.",
+    "who": "Joueurs de la voie médiane utilisant des builds hybrides ou pouvant commencer par une Lame de Doran avant d'évoluer vers un build AP.",
+    "how": [
+     "Commencer la partie avec une Lame de Doran.",
+     "Acheter un Arc courbe lors du premier rappel sans acheter de Sceau noir ni de Tome d'amplification.",
+     "Chercher les duels au corps à corps en tirant parti du bonus AD adaptatif."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le conseil s'appuie sur le fonctionnement des statistiques adaptatives et le coût des composants, qui dépendent du patch non renseigné de la vidéo."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-vdYxCNzzs7Y-2",
+   "claim": "Selon Yamato Natsuna-LoL Katarina Guide : lorsqu'on dispose de 700 gold au retour en base pour des composants offensifs, privilégier l'achat d'un Arc courbe plutôt que deux Épées longues permet d'augmenter son DPS tout en évitant de saturer les emplacements d'inventaire.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Arc courbe",
+    "item:Épée longue"
+   ],
+   "conditions": [
+    "Disposer de 700 gold au retour en base"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-vdYxCNzzs7Y",
+     "locator": "[04:49]",
+     "lang": "ja",
+     "passage": "ADビルドでもロングソードじゃなくてリカーブボウ買う理由は、ロングソードじゃなくリカーブボウ...シンプルにロング...700ゴールドあった時、あっ、ちょっと待ってなんか怪しい。だ、だったら...",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
+      "window": "269-329s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-vdYxCNzzs7Y",
+     "locator": "[05:20]",
+     "lang": "ja",
+     "passage": "それは普通にダメージが上がるから。まあアイテム枠もいっぱいにならないしね。"
+    }
+   ],
+   "mentions": [],
+   "action": "À 700 gold en base, acheter directement l'Arc courbe au lieu de cumuler deux Épées longues.",
+   "observe": "Les emplacements de ton inventaire restent libres pour d'autres consommables ou composants.",
+   "use": {
+    "when": "Au rappel en base avec un budget exact ou supérieur à 700 gold.",
+    "why": "L'Arc courbe augmente efficacement les dégâts par la vitesse d'attaque sans encombrer l'inventaire avec de multiples petits objets.",
+    "who": "Joueurs cherchant à optimiser leur gestion d'inventaire sur des builds basés sur l'attaque auto ou les effets à l'impact.",
+    "how": [
+     "Évaluer son or disponible lors du rappel.",
+     "Sélectionner l'Arc courbe plutôt que deux Épées longues pour préserver ses espaces d'inventaire."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible",
+     "sur-generalisation"
+    ],
+    "why": "L'opportunité d'acheter un Arc courbe plutôt que deux Épées longues dépend des passe-temps/ratios du champion et des prix de patch des composants."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-vdYxCNzzs7Y-3",
+   "claim": "Selon Yamato Natsuna-LoL Katarina Guide : lorsque la partie semble très difficile ou compromise, il convient d'en profiter pour tenter activement des duels et des agressions contre son vis-à-vis afin d'accumuler de l'expérience et de tester les limites du matchup.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "matchup",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Yasuo"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Partie défavorable ou mal engagée"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-vdYxCNzzs7Y",
+     "locator": "[09:07]",
+     "lang": "ja",
+     "passage": "どうせ負けるかもしれないなら尚更のこと、こういう時にヤスオにいっぱいトライしよう。",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-13",
+      "window": "527-587s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-vdYxCNzzs7Y",
+     "locator": "[09:26]",
+     "lang": "ja",
+     "passage": "まあ俺、カタリナ用のメモあるから。あ、これ死んだな。"
+    }
+   ],
+   "mentions": [
+    "Katarina (exemple)"
+   ],
+   "action": "Déclencher régulièrement des affrontements contre ton vis-à-vis en partie difficile pour évaluer précisément tes limites d'exécution.",
+   "observe": "Une meilleure compréhension des opportunités de trade et des erreurs à éviter dans ce matchup.",
+   "use": {
+    "when": "Pendant la phase de voie lorsque la partie s'annonce très compromise pour ton équipe.",
+    "why": "Si la partie risque d'être perdue, c'est le moment idéal pour prendre des risques et accumuler des données de confrontation directes.",
+    "who": "Tout joueur cherchant à améliorer sa maîtrise d'un matchup difficile.",
+    "how": [
+     "Identifier que la situation globale de l'équipe est très défavorable.",
+     "Initier délibérément des duels répétés contre l'adversaire de voie.",
+     "Conserver l'enseignement de ces duels pour tes prochaines parties."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie",
+     "sur-generalisation"
+    ],
+    "why": "Il s'agit d'une réaction ponctuelle du créateur durant une partie difficile face à un Yasuo, généralisée à tort en principe systématique de phase de voie."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-vdYxCNzzs7Y-4",
+   "claim": "Selon Yamato Natsuna-LoL Katarina Guide : même lorsque l'équipe accuse un retard important et que la partie semble perdue, il est essentiel de garder sa concentration car l'équipe adverse finira par commettre une erreur d'exécution qu'il sera possible d'exploiter.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "methode",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Équipe accusant un retard au score ou aux objectifs"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-vdYxCNzzs7Y",
+     "locator": "[11:59]",
+     "lang": "ja",
+     "passage": "相手もミスるよ、絶対。頑張ろう。",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "699-759s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-vdYxCNzzs7Y",
+     "locator": "[14:38]",
+     "lang": "ja",
+     "passage": "うわー！えぐー！いやー、どっかでミスると思ったぜ、相手。"
+    }
+   ],
+   "mentions": [],
+   "action": "Maintenir un niveau d'attention élevé et observer les mouvements adverses pour capitaliser sur la première faute d'inattention.",
+   "observe": "L'obtention d'un kill décisif ou d'un retour dans la partie suite à un mauvais choix adverse.",
+   "use": {
+    "when": "En milieu/fin de partie lorsque ton équipe subit et songe à abandonner.",
+    "why": "L'excès de confiance ou la précipitation pousse inévitablement les adversaires à faire une erreur d'alignement ou de compétence.",
+    "who": "Tous les joueurs de Solo Queue.",
+    "how": [
+     "Ne pas céder au découragement malgré les votes de capitulation.",
+     "Guetter un mauvais positionnement ou un sort manqué par un joueur adverse dominant.",
+     "Engager immédiatement dès que la faute adverse est commise."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Conseil d'attitude général intemporel tiré d'une seule vidéo lue par IA, qui reste provisoire en l'attente d'une validation visuelle/humaine."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-hHR_LhpAn_M-2",
+   "claim": "Selon Coach Leo : avec des champions de jungle lents et immobiles comme Zyra, il est recommandé de privilégier un full clear propre et structuré pour éviter une partie trop volatile, contrairement à des junglers early game comme Rek'Sai qui cherchent des ganks niveau 3.",
+   "champions": [
+    "Zyra"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "methode"
+   ],
+   "matchup": {
+    "vs": "Rek'Sai"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "jouer Zyra ou un champion mage immobile dans la jungle"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-hHR_LhpAn_M",
+     "locator": "[03:25]",
+     "lang": "en",
+     "passage": "On one hand, Zyra's weakness is she's an immobile mage, right? So it makes sense that you're most likely going to full clear, and make sure you're never in a compromised position where you have to be burning Flash",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "185-245s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Rek'Sai (exemple)"
+   ],
+   "action": "Fais ton full clear sans chercher de gank risqué au niveau 3 si tu joues un mage immobile.",
+   "observe": "Le respect du cheminement de jungle complet en début de partie.",
+   "use": {
+    "when": "au lancement de la partie avec un champion mage immobile dans la jungle",
+    "why": "le champion est vulnérable aux duels et aux ganks anticipés des junglers agressifs",
+    "who": "les joueurs de Zyra jungle",
+    "how": [
+     "Effectuer l'intégralité de ses camps de jungle sans s'interrompre pour un gank aléatoire",
+     "Éviter les positions compromises qui forcent l'utilisation de Saut Éclair"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est solidement appuyée par la transcription et décrit clairement le comportement d'un mage immobile en jungle."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-hHR_LhpAn_M-3",
+   "claim": "Selon Coach Leo : l'apparition des Krugs autour de 4:15 sert de repère temporel pour savoir quand effectuer son premier rappel (base) afin de structurer son nouveau tour de jeu (round).",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "jouer un jungler full clear"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-hHR_LhpAn_M",
+     "locator": "[10:14]",
+     "lang": "en",
+     "passage": "This timer is when you should start to think about basing.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "594-654s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-hHR_LhpAn_M",
+     "locator": "[10:38]",
+     "lang": "en",
+     "passage": "If this was a standard game, I clear down, gank bot, kill Scuttle, and think about basing because Krugs spawning indicates when you need to base to start your new round at 4:15."
+    }
+   ],
+   "mentions": [],
+   "action": "Utilise le respawn des Krugs vers 4:15 pour planifier ton premier rappel.",
+   "observe": "Le timing du premier rappel en lien avec la réapparition des camps de pierres.",
+   "use": {
+    "when": "après avoir terminé son premier clear et nettoyé le Scuttle vers 4:10",
+    "why": "cela permet de rester sur le bon tempo et de structurer sa partie en tours de jeu réguliers",
+    "who": "les joueurs de jungle",
+    "how": [
+     "Observer le chronomètre à l'approche de 4:15",
+     "Regrouper son or et planifier son rappel pour commencer un nouveau round"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le timing des Krugs est explicitement donné dans la source comme repère pour le premier rappel."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-hHR_LhpAn_M-4",
+   "claim": "Selon Coach Leo : en mid-game, il faut alterner entre les phases d'Uptime (où l'on rejoint son équipe pour combattre ou envahir en fonction des lignes de tempo) et les phases de Downtime (où l'on farme les camps pour consommer la carte pendant que l'équipe n'est pas prête).",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "partie entrée en phase de milieu de partie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-hHR_LhpAn_M",
+     "locator": "[31:47]",
+     "lang": "en",
+     "passage": "Downtime: farm camps when team isn't ready. When team tempo lines are up, match them—that's Uptime.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "1887-1947s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-hHR_LhpAn_M",
+     "locator": "[32:55]",
+     "lang": "en",
+     "passage": "Uptime: farm camps in proximity to your team's tempo line. Now we invade enemy camps because team is ready to help."
+    }
+   ],
+   "mentions": [],
+   "action": "Farme tes camps quand ton équipe n'est pas prête (Downtime) et rejoins-la pour agir dès qu'elle crée du mouvement (Uptime).",
+   "observe": "L'alternance entre le farm de la jungle et le regroupement avec l'équipe.",
+   "use": {
+    "when": "en milieu de partie lors des phases de transition entre les objectifs",
+    "why": "cela permet d'optimiser ses ressources personnelles tout en étant présent lors des combats importants",
+    "who": "les joueurs de jungle",
+    "how": [
+     "Identifier si les alliés se préparent à se battre ou à prendre une position",
+     "Se positionner près des camps si l'équipe est passive, ou faire route vers elle si elle impulse une action"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La distinction entre Uptime et Downtime est clairement expliquée et directement issue des passages cités."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-9vfaX1XgST4-1",
+   "claim": "Selon TaoWB : en début de partie sur Tryndamere, empile la vitesse d'attaque en achetant des dagues pour infliger un maximum de dégâts avec les attaques de base.",
+   "champions": [
+    "Tryndamere"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "build"
+   ],
+   "matchup": {
+    "vs": "Garen"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.10"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Tryndamere/passive",
+    "rune:OlumculTempo"
+   ],
+   "conditions": [
+    "Jouer Tryndamere sur sa lane en début de partie"
+   ],
+   "limits": [
+    "Valable principalement pour le style de jeu split push de Tryndamere"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-9vfaX1XgST4",
+     "locator": "01:45",
+     "lang": "tr",
+     "passage": "Oyun başında saldırı hızını stack'leyin arkadaşlar.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "85-145s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-9vfaX1XgST4",
+     "locator": "01:45",
+     "lang": "tr",
+     "passage": "Saldırı hızı eşyalarını çektik. Hani karakterimizin 101 AD'si var ya Q'dan dolayı. Saldırı hızı alırsam üzerine ölümcül tempom var. Çat çat vura vura indirirsin."
+    }
+   ],
+   "mentions": [
+    "Garen (exemple)",
+    "Viego (exemple)"
+   ],
+   "action": "Achète des dagues et des objets de vitesse d'attaque dès le début de la partie pour profiter du Tempo Mortel sur Tryndamere.",
+   "observe": "Vérifie que tu stacking bien ta vitesse d'attaque en early game avec Tryndamere.",
+   "use": {
+    "when": "au début de la phase de lane avec Tryndamere face à ton vis-à-vis",
+    "why": "car le personnage possède une forte attaque de base et profite des attaques rapides combinées au Tempo Mortel",
+    "who": "Tryndamere top",
+    "how": [
+     "Achète des dagues au premier retour en base",
+     "Utilise le Tempo Mortel pour enchaîner les attaques automatiques"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le patch 14.10 est ancien par rapport au patch courant et le Tempo Mortel a subi d'importantes modifications de fonctionnement depuis."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-9vfaX1XgST4-2",
+   "claim": "Selon TaoWB : pour optimiser l'élimination des vagues et la pression en split push sur Tryndamere, vise un objectif de 10 sbires par minute (10 CS/min).",
+   "champions": [
+    "Tryndamere"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.10"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jouer un champion axé sur l'or et le split push"
+   ],
+   "limits": [
+    "Demande une bonne maîtrise du last-hit et de la gestion de vagues"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-9vfaX1XgST4",
+     "locator": "06:09",
+     "lang": "tr",
+     "passage": "10 CS per minute yapacağım. Birazcık sabredin arkadaşlar.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "349-409s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-9vfaX1XgST4",
+     "locator": "09:27",
+     "lang": "tr",
+     "passage": "Ayrık ittirme yapan biriysen dakika başına minyon yapman lazım."
+    }
+   ],
+   "mentions": [],
+   "action": "Tue un maximum de sbires pour atteindre l'objectif de 10 sbires par minute lorsque tu fais du split push.",
+   "observe": "Regarde ton compteur de sbires à chaque minute de jeu.",
+   "use": {
+    "when": "pendant la phase de transition et de split push de la partie",
+    "why": "pour accumuler rapidement l'or nécessaire et s'acheter des objets puissants",
+    "who": "joueur faisant du split push",
+    "how": [
+     "Tue tous les sbires de la lane de manière constante",
+     "Prends des camps de jungle neutres si la lane n'est pas accessible"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil macro intemporel sur l'objectif de sbires par minute pour le split push, parfaitement soutenu par les citations."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-Xpg0fZdaZZc-1",
+   "claim": "Selon Titans Coaching : erreur fréquente face à une adversaire seule en bot lane : hésiter entre geler (freeze) ou pousser. L'auteur conseille de geler la vague si l'adversaire est seule pour l'empêcher d'obtenir du répit, ou de pousser si elle est sous sa tourelle pour forcer un rebote (bounce back).",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "matchup": {
+    "vs": "Miss Fortune"
+   },
+   "synergy": {
+    "with": [
+     "Yuumi"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "L'adversaire direct est seul en ligne sans son support"
+   ],
+   "limits": [
+    "Contexte de coaching d'un joueur en système Challenger"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-Xpg0fZdaZZc",
+     "locator": "03:10",
+     "lang": "es",
+     "passage": "Si yo tengo a la Miss Fortune sola en línea sin el Bardo, le pusheo para llevarle la oleada y que la farmee bajo la torre y le dé tiempo para llegar a Bardo y recuperarse o le freezeo y hago un doble poke con la Yumi encima.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "170-230s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Miss Fortune (exemple)",
+    "Yuumi (exemple)",
+    "Bard (exemple)",
+    "Shaco (exemple)"
+   ],
+   "action": "Gèle la vague si l'adversaire est seule en ligne sans son support, ou pousse pour l'envoyer sous sa tourelle si tu veux provoquer un rebote.",
+   "observe": "La position de l'adversaire et de son support sur la carte.",
+   "use": {
+    "when": "Tu es en phase de ligne et le support adverse est absent de la lane.",
+    "why": "Pour empêcher l'adversaire de se reposer ou l'isoler si elle récupère sa vague sous tourelle.",
+    "who": "AD Carry",
+    "how": [
+     "Identifie si le support adverse est absent de la lane.",
+     "Décide de geler la vague pour l'empêcher de toucher les sbires ou pousse pour provoquer un rebote."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle à son passage et décrit correctement le choix entre geler ou pousser lorsque le support adverse est absent."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.1-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-Xpg0fZdaZZc-2",
+   "claim": "Selon Titans Coaching : erreur fréquente en phase de ligne : se contenter de bouger sans agresser l'adversaire lors des opportunités de trade. L'auteur conseille de s'avancer pour placer des attaques de base ou des compétences pour user constamment l'adversaire.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "teamfight"
+   ],
+   "matchup": {
+    "vs": "Miss Fortune"
+   },
+   "synergy": {
+    "with": [
+     "Yuumi"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Les sbires se rentrent dedans et l'adversaire est à portée"
+   ],
+   "limits": [
+    "Contexte de coaching d'un joueur en système Challenger"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-Xpg0fZdaZZc",
+     "locator": "07:37",
+     "lang": "es",
+     "passage": "Y acá es el momento para irse para adelante, pokearla, dar un click largo o varios clicks cortos y después irse para atrás y volver a farmear.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-13",
+      "window": "437-497s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Miss Fortune (exemple)",
+    "Yuumi (exemple)"
+   ],
+   "action": "Avance pour placer un ou plusieurs clics d'attaque sur l'adversaire pendant les temps de trade puis recule pour farmer.",
+   "observe": "Les fenêtres où l'adversaire ne réagit pas à ton approche.",
+   "use": {
+    "when": "Les vagues de sbires se rencontrent et tu disposes d'un tempo de trade.",
+    "why": "Pour infliger un maximum de dégâts et empêcher l'adversaire de garder toute sa vie et son mana.",
+    "who": "AD Carry",
+    "how": [
+     "Avance vers l'adversaire lorsque le tempo de trade est actif.",
+     "Mets des coups de base ou des compétences puis recule immédiatement."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité reprend fidèlement le conseil de l'auteur concernant l'agressivité lors des temps de trade en bot lane."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.1-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-13",
+   "validity": {
+    "checkedAt": "2026-11-13",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-13",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-13"
   }
  ],
- "updatedAt": "2026-11-12T19:18:36.913Z"
+ "updatedAt": "2026-11-13T01:38:06.632Z"
 }

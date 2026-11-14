@@ -95781,7 +95781,448 @@
    },
    "version": 1,
    "firstSeen": "2026-11-13"
+  },
+  {
+   "id": "u-ai-yt-v2vOno_36zs-3",
+   "claim": "Selon 챌린저 미드김홍주 : lorsque tu domines le 1v1 au mid et qu'aucun décalage n'est avantageux, ne pousse pas la vague au centre avec tes sorts : garde ton E pour harceler l'adversaire dès qu'il avance pour farmer afin de lui refuser les sbires et préparer une élimination.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.10"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Viktor/E"
+   ],
+   "conditions": [
+    "Avoir l'avantage du 1v1 sur la lane",
+    "Aucune opportunité de décalage ou de roaming intéressante sur les voies latérales"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-v2vOno_36zs",
+     "locator": "[06:25]",
+     "lang": "ko",
+     "passage": "그러면 제가 계속 1대 1 라인전을 요구를 하면 되거든요. 라인을 밀 필요가 없는 게 지금 로밍 갈 라인 썩 좋은 게 아니에요.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-14",
+      "window": "365-425s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-v2vOno_36zs",
+     "locator": "[06:41]",
+     "lang": "ko",
+     "passage": "상대가 사거리를 줄 때마다 이제 E 스킬을 계속 맞춰가지고 압박을 주는 거예요. 이제 이렇게 되면은 상대편이 E 스킬의 압박을 느껴서 CS를 다 먹지 못할 뿐더러"
+    }
+   ],
+   "mentions": [],
+   "action": "Conserver son E au milieu de la voie pour toucher l'adversaire à chaque fois qu'il tente de s'approcher d'un sbire.",
+   "observe": "L'adversaire perd trop de points de vie pour contester les sbires et se retrouve à portée de létalité sous une vague plus importante.",
+   "use": {
+    "when": "Avantage pris en phase de lane avec Viktor et vague située au milieu sans décalage pertinent à faire.",
+    "why": "Pousser la vague sans raison permettrait à l'adversaire de farmer sous sa tour, tandis que bloquer la lane et le poke le prive d'or et d'expérience.",
+    "who": "Viktor mid.",
+    "how": [
+     "Garder la vague au milieu sans utiliser ses compétences de zone sur les sbires.",
+     "Attendre que l'adversaire entre à portée pour tenter de récupérer un sbire.",
+     "Envoyer le E (Rayon de la mort) directement sur lui pour réduire progressivement sa barre de vie."
+    ],
+    "notWhen": "S'il existe une opportunité claire de décalage sur une autre lane, où pousser rapidement la vague devient alors préférable."
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité retranscrit fidèlement le conseil de l'auteur sur le gel de la ligne et l'utilisation du E pour punir l'adversaire."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-ociSzXWTTb4-1",
+   "claim": "Selon えんてぃ / Enty : erreur fréquente : quitter la botlane pour roamer ou aller chercher de la vision alors que la vague n'est pas poussée. L'auteur corrige en expliquant qu'il faut toujours pousser les sbires sous la tourelle ennemie avant de roamer ou d'aller placer de la vision.",
+   "champions": [],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "vision",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "fer",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "tu joues support",
+    "tu veux quitter la botlane pour roamer ou placer de la vision"
+   ],
+   "limits": [
+    "Basé sur l'analyse d'une partie de niveau Fer"
+   ],
+   "nature": "opinion",
+   "levelContext": "fer",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-ociSzXWTTb4",
+     "locator": "34:17",
+     "lang": "ja",
+     "passage": "本日のまとめ①ロームをする時はミニオンを押し付けてから！",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-14",
+      "window": "2037-2097s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-ociSzXWTTb4",
+     "locator": "34:23",
+     "lang": "ja",
+     "passage": "本日のまとめ②視界取りに行く時もミニオンを押し付けてから（その時MIDの敵側の中央にレーンワード）"
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse les sbires sous la tourelle adverse avant de quitter ta botlane pour roamer ou poser de la vision.",
+   "observe": "Vérifie que la vague est bien sous la tourelle ennemie avant de bouger vers le milieu ou la rivière.",
+   "use": {
+    "when": "tu es en botlane et tu envisages de quitter ta ligne pour roamer ou poser des balises de vision",
+    "why": "pour empêcher l'adversaire de ganker ou de punir ta liberté de mouvement",
+    "who": "les joueurs jouant le rôle de support",
+    "how": [
+     "Tue les sbires pour faire avancer la vague",
+     "Assure-toi que les sbires entrent sous la tourelle adverse",
+     "Quitte la botlane pour roamer ou placer ta vision"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est intemporel, parfaitement appuyé par la citation de l'auteur et fournit un contexte d'usage complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.1-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-ociSzXWTTb4-2",
+   "claim": "Selon えんてぃ / Enty : recule dans un endroit hors de la vision ennemie pour effectuer ton rappel après un kill ou un roam.",
+   "champions": [],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "fer",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "tu viens de réussir un kill ou un roam en botlane"
+   ],
+   "limits": [
+    "Basé sur une partie de niveau Fer"
+   ],
+   "nature": "opinion",
+   "levelContext": "fer",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-ociSzXWTTb4",
+     "locator": "34:33",
+     "lang": "ja",
+     "passage": "本日のまとめ③BOTでキルした時やロームした時は相手に見えない所でリコール！",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-14",
+      "window": "2053-2113s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Recule dans le ",
+   "observe": "Regarde si l'adversaire sait où tu te trouves au moment où tu canalises ton rappel.",
+   "use": {
+    "when": "tu as obtenu un kill ou fini un roam en botlane et tu veux retourner à la base",
+    "why": "pour éviter que l'adversaire ne repère ton absence et ne tente un dive en infériorité",
+    "who": "les joueurs jouant le rôle de support",
+    "how": [
+     "Éloigne-toi de la vision ennemie après l'action",
+     "Canalise ton rappel hors de la vue de l'adversaire"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "citation-insuffisante"
+    ],
+    "why": "Le champ action est tronqué en fin de phrase."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.1-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-HexPQv8R_Oc-1",
+   "claim": "Selon Chreak : kog'Maw AP en mid lane se joue principalement pour distancer au maximum les adversaires grâce à sa grande portée et son style de jeu axé sur le poke.",
+   "champions": [
+    "Kog'Maw"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Kog'Maw/R"
+   ],
+   "conditions": [
+    "jouer Kog'Maw en AP sur la mid lane"
+   ],
+   "limits": [
+    "faible face aux assassins et à l'hard engage"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-HexPQv8R_Oc",
+     "locator": "00:34",
+     "lang": "fr",
+     "passage": "Pourquoi prendre Kog'Maw ? Kog'Maw ça outrange énormément de gens quand tu pars sur AP. Évidemment, je vais pas partir sur AD mid lane.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-14",
+      "window": "14-74s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Joue Kog'Maw AP au mid en privilégiant le poke de loin et l'outrange.",
+   "observe": "La distance de sécurité maintenue face aux adversaires de corps à corps.",
+   "use": {
+    "when": "en phase de lane sur la mid lane avec Kog'Maw AP",
+    "why": "pour exploiter la grande portée des sorts et dominer le vis-à-vis à distance",
+    "who": "joueurs de Kog'Maw AP mid",
+    "how": [
+     "Garder ses distances face aux assassins et aux champions à fort engagement",
+     "Utiliser la portée des compétences pour harceler l'adversaire"
+    ],
+    "notWhen": "face à une composition ennemie composée d'assassins et d'une forte capacité d'engagement direct sans protection"
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle à la transcription, son contexte d'usage et les limites sont clairement posés."
+   },
+   "published": "2023-05-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-HexPQv8R_Oc-2",
+   "claim": "Le sort Bave caustique (E) de Kog'Maw permet de poke facilement l'adversaire tout en touchant la vague de sbires grâce à son coût en mana réduit à 42 au rang 1.",
+   "champions": [
+    "Kog'Maw"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Kog'Maw/E"
+   ],
+   "conditions": [
+    "jouer Kog'Maw"
+   ],
+   "limits": [],
+   "nature": "officiel",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-HexPQv8R_Oc",
+     "locator": "01:08",
+     "lang": "fr",
+     "passage": "Niveau 1 c'est pas trop difficile de proc Manaflow et votre E coûte 42 de mana. C'est le buff qu'il y a eu sur le E de Kog'Maw qui fait que c'est extrêmement simple de poke votre adversaire sans vous prendre trop de mana",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-14",
+      "window": "48-108s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Lance le E à la fois sur la wave de sbires et sur le champion adverse.",
+   "observe": "Le nombre de sbires touchés et l'activation des runes de mana.",
+   "use": {
+    "when": "quand tu es sur ta lane face à un adversaire mage et que tu veux gérer ta wave tout en le harcelant",
+    "why": "pour infliger des dégâts tout en nettoyant ou préparant la vague sans vider ta barre de mana",
+    "who": "joueurs de Kog'Maw",
+    "how": [
+     "Viser de sorte que le sort touche à la fois le champion adverse et les sbires"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil correspond exactement au passage audio concernant le coût en mana et l'utilisation du sort E."
+   },
+   "published": "2023-05-28",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
   }
  ],
- "updatedAt": "2026-11-13T19:27:47.975Z"
+ "updatedAt": "2026-11-14T06:41:37.816Z"
 }

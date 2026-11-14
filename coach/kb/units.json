@@ -96222,7 +96222,182 @@
    },
    "version": 1,
    "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-KwbrTusEwrE-1",
+   "claim": "Selon AloisNL : en situation de 'weakside', tu dois adopter un style de jeu qui évite les échanges de coups (trade avoidant) et donner la priorité à la gestion de ta vague.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Ton jungler joue vers le bas de la carte",
+    "Le jungler adverse joue vers le haut de la carte"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-KwbrTusEwrE",
+     "locator": "00:21:28",
+     "lang": "en",
+     "passage": "My only job is to try and get this wave in. That's why I prioritize AoE on the wave here so this wave gets to crash so that it will bounce back, and I survive.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-14",
+      "window": "1268-1328s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Riven (exemple)",
+    "Fiora (exemple)"
+   ],
+   "action": "Utilise tes sorts de zone (AoE) pour forcer le crash de la vague sous la tour adverse afin de provoquer un rebond.",
+   "observe": "",
+   "use": {
+    "when": "Ton jungler a commencé au buff haut et descend vers le bas, tandis que le jungler adverse monte vers toi.",
+    "why": "Tu es en situation de 1v2 potentiel pendant les 4 premières minutes ; ton but est de survivre et de ne pas perdre trop de ressources.",
+    "who": "Toplaner jouant le côté faible de la carte.",
+    "how": [
+     "Évite de chercher des affrontements avec ton vis-à-vis.",
+     "Utilise tes compétences de zone pour vider la vague rapidement.",
+     "Fais s'écraser la vague sous la tour adverse pour qu'elle revienne vers toi."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil macro intemporel sur la gestion du côté faible fidèlement extrait des propos de l'auteur."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-KwbrTusEwrE-4",
+   "claim": "Selon AloisNL : si Yorick quitte sa lane pour aider son jungler au Carapateur après avoir crashé une vague, il commet une erreur qui te permet de récupérer un 'bounce' gratuit et un rappel sans utiliser de Téléportation.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "vagues",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Yorick"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Yorick vient de crash la vague 2 ou 3"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-KwbrTusEwrE",
+     "locator": "00:09:46",
+     "lang": "en",
+     "passage": "If Yorick pushes this wave in, recalls and TPs back, I cannot play out the bounce. However, what he does here is he moves to the jungle for the scuttle on top side. So as a result... I'm able to collect this wave, push in the next wave and the next wave.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-14",
+      "window": "566-626s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Riven (exemple)"
+   ],
+   "action": "Pousse les deux vagues suivantes dès que Yorick s'éloigne vers la rivière.",
+   "observe": "",
+   "use": {
+    "when": "Yorick a poussé sa vague sous ta tour et part vers la rivière pour aider son jungler.",
+    "why": "En ne rentrant pas à la base immédiatement pour TP, il te laisse le temps de vider la vague et de crash la tienne, annulant son avantage de pression.",
+    "who": "Toplaner contre un Yorick (ou tout champion à forte pression).",
+    "how": [
+     "Récupère la vague sous ta tour.",
+     "Pousse immédiatement la vague suivante le plus vite possible.",
+     "Prends ton rappel dès que ta vague est sous sa tour."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Déduction tirée de la réaction de l'adversaire observée sur une seule partie."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
   }
  ],
- "updatedAt": "2026-11-14T06:41:37.816Z"
+ "updatedAt": "2026-11-14T18:54:06.352Z"
 }

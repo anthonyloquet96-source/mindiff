@@ -51595,12 +51595,14 @@
      "lang": "fr",
      "passage": "Une wave de sbires, c'est trois mêlées, trois range et un canon de temps en temps. Une wave te donne environ 125 golds et le nombre augmente au fil du temps avec le prix des canons.",
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-14",
       "window": "27-87s",
       "said": true,
-      "supported": true
-     }
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas l'absence de prime de mort (bounty) comme raison de privilégier les sbires."
+     },
+     "reverifiedAt": "2026-11-14"
     },
     {
      "content": "c-yt-Fcb6lbPuclA",
@@ -51616,7 +51618,7 @@
    "observe": "Le nombre de sbires tués par rapport au nombre de kills.",
    "use": {
     "when": "tu as le choix entre aller tenter un kill risqué ou récupérer des vagues de sbires en toute sécurité",
-    "why": "les sbires procurent une source de gold et d'expérience constante et sûre sans offrir de prime de mort (bounty) excessive à l'adversaire",
+    "why": "",
     "who": "tous les postes",
     "how": [
      "Identifie la valeur de la wave sous ta tour ou sur ta lane",
@@ -96397,7 +96399,1127 @@
    },
    "version": 1,
    "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-ttFRbsCyJkU-1",
+   "claim": "Selon Coach Violet : lucian est particulièrement efficace pour déclencher la rune Attaque soutenue (PTA) lors de trades courts grâce au tir double de son passif.",
+   "champions": [
+    "Lucian"
+   ],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "build",
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Lucian/passive",
+    "rune:Press the Attack"
+   ],
+   "conditions": [
+    "Rune Attaque soutenue (PTA) équipée"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ttFRbsCyJkU",
+     "locator": "[08:54]",
+     "lang": "en",
+     "passage": "Senna walked up, used Q, but I know I've my E coming up. So I boom, I E, auto-auto, proc PTA. And we get a super nice short trade here, right. Because that's what my champ wants to do.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-14",
+      "window": "514-574s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-ttFRbsCyJkU",
+     "locator": "[09:14]",
+     "lang": "en",
+     "passage": "Lucian is one of the best PTA prockers in the game because he has his double shot."
+    }
+   ],
+   "mentions": [
+    "Senna (exemple)"
+   ],
+   "action": "Exécuter un combo E auto-auto ou W auto-auto pour déclencher instantanément PTA lors d'un échange court.",
+   "observe": "",
+   "use": {
+    "when": "Sur la botlane en tant que Lucian avec PTA, lorsqu'un ennemi s'isole ou avance de manière vulnérable.",
+    "why": "Le passif de tir double de Lucian permet de proc PTA quasi instantanément, garantissant un gain de dégâts maximal sur un échange très court.",
+    "who": "Joueurs de Lucian botlane avec la rune Attaque soutenue.",
+    "how": [
+     "Attendre le bon espacement de l'adversaire.",
+     "Utiliser E ou W suivi d'une auto-attaque double pour proc PTA.",
+     "Reculer aussitôt pour ne pas prolonger le trade inutilement."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": ""
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-ttFRbsCyJkU-2",
+   "claim": "Selon Coach Violet : lorsqu'un ennemi manque ou utilise un sort clé à long délai de récupération, cela crée une fenêtre d'opportunité pour s'avancer et initier un échange de dégâts à son avantage.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ttFRbsCyJkU",
+     "locator": "[00:59]",
+     "lang": "en",
+     "passage": "So for example, right, if you see the enemy Blitzcrank use his hook, right, it's a very long cooldown. So that opens up a window for you to look for a trade, right. A potential auto attack on the Blitzcrank, you know, you can walk up a little more aggressively.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-14",
+      "window": "39-99s",
+      "said": true,
+      "supported": true,
+      "gap": "La raison (« pourquoi ») n'est pas explicitement formulée ainsi par l'auteur dans cet extrait."
+     }
+    }
+   ],
+   "mentions": [
+    "Blitzcrank (exemple)"
+   ],
+   "action": "Avancer plus agressivement pour placer une auto-attaque ou un sort dès que l'adversaire rate ou consomme sa compétence majeure.",
+   "observe": "",
+   "use": {
+    "when": "Pendant la phase de laning, immédiatement après qu'un adversaire a utilisé un sort important à long rechargement (ex: grappin de Blitzcrank).",
+    "why": "",
+    "who": "Tous les joueurs de la voie du bas (ADC et Support).",
+    "how": [
+     "Repérer visuellement l'utilisation ou le raté du sort clé ennemi.",
+     "Avancer immédiatement pendant la fenêtre de rechargement.",
+     "Infliger des dégâts puis se réaligner en sécurité."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": ""
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-ttFRbsCyJkU-3",
+   "claim": "Selon Coach Violet : face à un support adverse équipé de la rune Après-coup (Aftershock), il convient de temporiser et conserver ses compétences principales de dégâts jusqu'à la fin de la durée d'activation du bonus de résistance.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "build"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "rune:Aftershock"
+   ],
+   "conditions": [
+    "Support ennemi jouant avec la rune Après-coup"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ttFRbsCyJkU",
+     "locator": "[15:45]",
+     "lang": "en",
+     "passage": "If your support is running Aftershock, if the enemy support is running Aftershock, you might want to hold your spells before the Aftershock runs out and then use it, right.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-14",
+      "window": "925-985s",
+      "said": true,
+      "supported": true,
+      "gap": "L'explication de la section « pourquoi » (le gain d'armure et de résistance magique apporté par la rune) n'est pas prononcée par l'auteur dans cet extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Attendre l'expiration du buff Après-coup avant d'envoyer ses sortilèges majeurs sur le support ennemi.",
+   "observe": "",
+   "use": {
+    "when": "Lorsqu'un support ennemi active sa rune Après-coup suite à un contrôle.",
+    "why": "",
+    "who": "Joueurs de botlane affrontant des supports tanky équipés d'Après-coup.",
+    "how": [
+     "Observer le déclenchement d'Après-coup sur l'ennemi.",
+     "Garder ses sorts à burst durant les quelques secondes d'activation.",
+     "Lancer son combo de dégâts dès que le buff Après-coup s'estompe."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": ""
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-ttFRbsCyJkU-4",
+   "claim": "Selon Coach Violet : sur la botlane, l'ADC doit s'efforcer de jouer sur une ligne parallèle à celle de son support pour pouvoir immédiatement attaquer en retour si son support se fait agresser.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ttFRbsCyJkU",
+     "locator": "[17:48]",
+     "lang": "en",
+     "passage": "The basis of this fundamental is you want to be in a triangle where like if your support gets hit, you're also in range to hit them back, right. So you want to play as parallel to your support as much as possible.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-14",
+      "window": "1048-1108s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Ajuster continuellement sa position pour rester aligné de façon parallèle à son support sur la largeur de la voie.",
+   "observe": "",
+   "use": {
+    "when": "En phase de laning botlane lors du positionnement neutre ou agressif.",
+    "why": "Être parallèle au support garantit d'être à portée de frappe dès que l'adversaire s'avance pour toucher le support, empêchant des éradiqueries gratuites.",
+    "who": "ADC et supports sur la voie du bas.",
+    "how": [
+     "Vérifier la position latérale de son support.",
+     "Se déplacer de façon à former une ligne parallèle avec lui face aux deux ennemis.",
+     "Riposter immédiatement si le support adverse tente un échange."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": ""
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-ttFRbsCyJkU-5",
+   "claim": "Selon Coach Violet : il faut éviter de tenter des all-in sur la botlane lorsque son propre jungler effectue son cheminement vers le haut de la carte (top side) alors que le jungler ennemi est côté bas.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "macro",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jungler allié orienté vers le top side de la carte"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ttFRbsCyJkU",
+     "locator": "[16:11]",
+     "lang": "en",
+     "passage": "First of all, you don't want to be all-ining generally speaking if your jungler is pathing top, right. If your jungler is pathing top and the enemy jungler is pathing bot, you have to really keep in mind the way that you're trading.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-14",
+      "window": "951-1011s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Restreindre son agressivité à de petits échanges courts et refuser les all-ins risqués lorsque son jungler est à l'opposé de la carte.",
+   "observe": "",
+   "use": {
+    "when": "Pendant la phase de lane, quand la carte indique que le jungler allié farm ou gank du côté top.",
+    "why": "Un all-in prolongé laisse le temps au jungler adverse présent côté bas d'intervenir et de punir la botlane sans possibilité de soutien allié.",
+    "who": "Joueurs de botlane (ADC et Support).",
+    "how": [
+     "Regarder la mini-carte pour identifier le cheminement du jungler allié.",
+     "Modérer les engagements et s'en tenir à des échanges courts sans sur-engagement.",
+     "Reculer en cas de doute sur la position du jungler ennemi."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": ""
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-iz6elzGKAtw-1",
+   "claim": "Selon ScrubNoob : lorsqu'une partie est mal engagée, il est nécessaire de prendre des risques calculés pour tenter de revenir au score.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Être en situation de défaite"
+   ],
+   "limits": [
+    "Le risque peut entraîner une défaite plus rapide si l'action échoue"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iz6elzGKAtw",
+     "locator": "01:57",
+     "lang": "en",
+     "passage": "When you're losing you kind of just have to take risks.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-14",
+      "window": "97-157s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur n'énonce pas explicitement la raison fournie dans le conseil, à savoir que la prudence ne permet pas de combler l'écart."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Prendre une décision agressive (invade, dive, objectif) même sans certitude de réussite à 100% quand la défaite passive est inévitable.",
+   "observe": "",
+   "use": {
+    "when": "ton équipe est en retard et la partie semble s'échapper lentement sans opportunité évidente",
+    "why": "",
+    "who": "tout joueur en situation de retard",
+    "how": [
+     "identifie une opportunité à haut risque mais haute récompense",
+     "tente l'action malgré l'incertitude",
+     "accepte l'échec potentiel comme faisant partie de la stratégie de remontée"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe de macro-jeu fondamental sur la gestion du retard, bien étayé par la citation."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-iz6elzGKAtw-2",
+   "claim": "Selon ScrubNoob : les Bottes de célérité sont recommandées contre des compositions disposant de nombreux ralentissements pour maintenir la mobilité.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Bottes de célérité"
+   ],
+   "conditions": [
+    "Composition ennemie avec beaucoup de slows"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iz6elzGKAtw",
+     "locator": "04:59",
+     "lang": "en",
+     "passage": "Then we can go Swiftness boots, which is good against their comp. They have a lot of slows.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-14",
+      "window": "279-339s",
+      "said": true,
+      "supported": true,
+      "gap": "La raison invoquée dans le conseil ('ne pas être immobilisé après un saut et rester collé à sa cible') n'est pas explicitement formulée par l'auteur dans l'extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter les Bottes de célérité au lieu des options défensives ou de pénétration habituelles.",
+   "observe": "",
+   "use": {
+    "when": "tu joues Rengar et l'équipe adverse possède de multiples sorts de ralentissement",
+    "why": "",
+    "who": "Rengar jungle",
+    "how": [
+     "analyse la composition adverse lors du premier retour en base",
+     "priorise les Bottes de célérité si les ralentissements sont leur principal outil de contrôle",
+     "utilise la vitesse de déplacement supplémentaire pour naviguer dans le combat"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Conseil d'itemisation situationnel pour Rengar, tiré d'une seule partie et dépendant de la méta."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-iz6elzGKAtw-4",
+   "claim": "Selon ScrubNoob : dans les parties où les combats sont extrêmement rapides, l'Estropieur est plus utile que le vol de vie pour sécuriser les éliminations et s'enfuir.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Estropieur"
+   ],
+   "conditions": [
+    "Combats se décidant en moins de 2 secondes"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iz6elzGKAtw",
+     "locator": "09:37",
+     "lang": "en",
+     "passage": "In this kind of game I'm not really valuing lifesteal because fights are decided in like 2 seconds [...] If I go Stridebreaker and jump in I can slow them all and get out much faster as well.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-14",
+      "window": "557-617s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Choisir l'Estropieur dans son build au lieu d'objets de sustain comme l'Hydre Vorace.",
+   "observe": "",
+   "use": {
+    "when": "tu as déjà assez de dégâts pour tuer une cible instantanément mais les combats sont très brefs",
+    "why": "le vol de vie n'a pas le temps d'être effectif si tu meurs ou tues en 2 secondes ; le ralentissement de zone aide à la survie après l'assassinat",
+    "who": "Rengar jungle",
+    "how": [
+     "évalue la durée des escarmouches",
+     "achète l'Estropieur",
+     "utilise l'actif immédiatement après ton saut pour ralentir les ennemis proches"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Choix d'itemisation spécifique à Rengar basé sur la durée des combats, tiré d'une seule partie et dépendant de la méta."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-iz6elzGKAtw-5",
+   "claim": "Selon ScrubNoob : l'absence du jungler adverse lors d'une action visible sur une voie permet de déduire sa position probable du côté opposé de la carte.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Action ennemie visible sur une lane sans le jungler"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iz6elzGKAtw",
+     "locator": "19:57",
+     "lang": "en",
+     "passage": "Well the fact that Viego isn't showing in that bot play makes me believe that he's top side.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-14",
+      "window": "1177-1237s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne précise pas explicitement que le jungler est en train de sécuriser des ressources pour justifier sa déduction."
+     }
+    }
+   ],
+   "mentions": [
+    "Viego (exemple)"
+   ],
+   "action": "Adapter son agressivité ou ses objectifs du côté opposé à l'action ennemie.",
+   "observe": "",
+   "use": {
+    "when": "une escarmouche a lieu au bot et tu ne vois que le support et l'ADC ennemis",
+    "why": "",
+    "who": "tout jungler",
+    "how": [
+     "observe la minimap dès qu'un combat s'engage",
+     "compte les champions ennemis présents",
+     "si le jungler manque, joue avec prudence du côté opposé ou envahis sa jungle s'il est loin"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Logique de tracking du jungler adverse par déduction, principe fondamental de la jungle."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-iz6elzGKAtw-6",
+   "claim": "Selon ScrubNoob : face à une pression adverse trop forte sur un objectif, il est préférable de 'split la carte' en échangeant des ressources plutôt que de forcer un combat perdu.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Incapacité à contester un objectif frontalement"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-iz6elzGKAtw",
+     "locator": "22:07",
+     "lang": "en",
+     "passage": "I gave my top side because their Nautilus was up there, so we gave the Herald, and then we power pushed bot side with our support.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-14",
+      "window": "1307-1367s",
+      "said": true,
+      "supported": true,
+      "gap": "La raison invoquée par l'analyste est une interprétation des actions et des commentaires de ScrubNoob plutôt qu'une explication explicite de sa part."
+     }
+    }
+   ],
+   "mentions": [
+    "Nautilus (exemple)"
+   ],
+   "action": "Abandonner un objectif pour prendre des tours ou de la vision ailleurs.",
+   "observe": "",
+   "use": {
+    "when": "l'ennemi est regroupé à 4 ou 5 sur le Héraut ou un Dragon et ton équipe est dispersée ou en retard",
+    "why": "",
+    "who": "toute l'équipe",
+    "how": [
+     "identifie l'objectif indéfendable",
+     "déplace-toi immédiatement vers la voie opposée",
+     "pousse la vague et prends des plaques ou une tour pendant que l'ennemi est occupé"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Concept de 'cross-map' ou échange d'objectifs, principe de macro-jeu essentiel."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-GTC4ZTpgEXU-1",
+   "claim": "Selon Chreak : contre un duo Mid/Jungle AD menaçant, l'achat précoce d'un Bras de garde du chercheur est une option viable pour sécuriser la phase de lane grâce à l'armure fournie, malgré le retard sur l'objet principal.",
+   "champions": [
+    "Ziggs"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build",
+    "survie"
+   ],
+   "matchup": {
+    "vs": "Qiyana"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Bras de garde du chercheur"
+   ],
+   "conditions": [
+    "Affronter un assassin AD et un jungler AD"
+   ],
+   "limits": [
+    "Retarde le premier objet mythique (Luden/Liandry)"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-GTC4ZTpgEXU",
+     "locator": "03:22",
+     "lang": "fr",
+     "passage": "je vais prendre le Bras de garde qui me permettra de survivre. Pourquoi je prends ça ici ? Parce que l'item n'est pas mauvais actuellement, 30 d'armure 30 d'AP, surtout face à un double mid-jungle AD.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-14",
+      "window": "182-242s",
+      "said": true,
+      "supported": false,
+      "gap": "Le conseil ajoute des explications techniques non formulées par l'auteur, comme l'impact sur la létalité ou le retard de l'objet principal."
+     }
+    }
+   ],
+   "mentions": [
+    "Kha'Zix (exemple)"
+   ],
+   "action": "Acheter le Bras de garde du chercheur au premier ou deuxième rappel.",
+   "observe": "Réduction notable des dégâts subis lors d'un combo adverse.",
+   "use": {
+    "when": "Premier retour à la base après avoir obtenu un avantage ou si la pression adverse est trop forte.",
+    "why": "",
+    "who": "Mage contrôle face à un burst physique",
+    "how": [
+     "Vérifier si le mid et le jungle adverses sont AD",
+     "Acheter le Bras de garde du chercheur avant de finir l'objet mythique"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Les statistiques (30/30) et le fonctionnement du Bras de garde du chercheur ont été modifiés depuis la saison 13 (ajout d'un actif stasis unique)."
+   },
+   "published": "2023-03-19",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-GTC4ZTpgEXU-2",
+   "claim": "Selon Chreak : pour optimiser ton rappel (base), pousse la vague de sbires qui précède une vague canon. Cela empêche l'adversaire de crash sa propre vague rapidement et te permet de revenir sans perdre de farm.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vagues",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-GTC4ZTpgEXU",
+     "locator": "03:22",
+     "lang": "fr",
+     "passage": "Pourquoi base après une wave canon ? Parce qu'avant une wave canon ce qui fait que la wave ne va pas pouvoir être crash rapidement par ton adversaire, ce qui fait que derrière tu es tranquille.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-14",
+      "window": "182-242s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser ses sorts pour vider la vague de sbires juste avant l'arrivée du canon allié, puis base.",
+   "observe": "Le canon adverse met plus de temps à mourir sous tour, te laissant le temps de revenir.",
+   "use": {
+    "when": "Tu as besoin de base et une vague canon arrive à la vague suivante.",
+    "why": "La vague canon est plus longue à tuer pour l'adversaire, ce qui ralentit son push et protège ta tour pendant ton absence.",
+    "who": "Tout joueur de lane",
+    "how": [
+     "Identifier la vague précédant le canon",
+     "Utiliser ses ressources pour la push rapidement",
+     "Lancer le rappel immédiatement"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe fondamental de gestion de vague (tempo recall) pour minimiser la perte de farm, indépendant du champion."
+   },
+   "published": "2023-03-19",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-GTC4ZTpgEXU-3",
+   "claim": "Selon Chreak : en tant que mage sans Téléportation après 20 minutes, évite de te rendre sur la lane du bas (bot) si le Baron Nashor est disponible, car ton absence laisse le champ libre aux adversaires pour le sécuriser.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:Baron Nashor"
+   ],
+   "conditions": [
+    "Ne pas avoir de Téléportation disponible",
+    "Baron Nashor vivant"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-GTC4ZTpgEXU",
+     "locator": "13:10",
+     "lang": "fr",
+     "passage": "20 minutes de jeu, si tu joues mage contrôle que tu as pas de TP et que tu cours bot, les adversaires peuvent faire le Nashor. Ça c'est une évidence, une évidence que même en professionnel on oublie.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-14",
+      "window": "770-830s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur ne mentionne pas explicitement la distance géographique comme raison, ni les gestes de vérification, et qualifie simplement la situation d'évidence."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Rester mid ou top-side quand le Nashor est l'objectif prioritaire.",
+   "observe": "Présence disponible pour contester ou poke au Nashor.",
+   "use": {
+    "when": "Après 20 minutes de jeu, sans sort de Téléportation.",
+    "why": "",
+    "who": "Mages contrôles sans mobilité globale",
+    "how": [
+     "Vérifier le timer du Nashor",
+     "Vérifier la disponibilité de sa TP",
+     "Privilégier le push mid ou top"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Règle de macro-jeu essentielle concernant la gestion du Baron Nashor pour les mages sans Téléportation."
+   },
+   "published": "2023-03-19",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-14",
+   "validity": {
+    "checkedAt": "2026-11-14",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-14",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-14"
   }
  ],
- "updatedAt": "2026-11-14T18:54:06.352Z"
+ "updatedAt": "2026-11-14T22:44:32.591Z"
 }

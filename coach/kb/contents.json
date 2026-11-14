@@ -10116,11 +10116,11 @@
    "published": "2023-03-19",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "En live TOUS LES JOURS à 15h sur : https://www.twitch.tv/chreak\nRejoignez le discord : https://discord.gg/4CXfNynYEa\nTwitter - https://www.twitter.com/Chreak_Lol\n\n\nMONTAGE : \n\nTwitter : Aiko_ADC",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -10131,6 +10131,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-14",
+    "sha256": "df4b681fba6d33ce7873ed61a4e00aab354dddf09e72a386f1726fa4d3d2e765",
+    "segments": 60,
+    "observations": 40,
+    "duration": "17:15",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 106326
+   },
+   "analyzedAt": "2026-11-14",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 3,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Ce contenu enseigne comment adapter son build (Bras de garde, Chronomètre) et sa gestion de vagues pour survivre à un assassin en midlane tout en maximisant l'impact macro de Ziggs via la destruction de tours.",
+   "quality": {
+    "level": "élevée",
+    "why": "L'auteur explique précisément ses choix de runes et d'items en fonction du matchup, et détaille sa réflexion sur la gestion des vagues et les rotations macro."
    }
   },
   {
@@ -87312,7 +87335,7 @@
    "retrievedAt": "2026-11-14",
    "patch": "none",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 158,
@@ -87341,6 +87364,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 114360
+   },
+   "analyzedAt": "2026-11-14",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 5,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Ce contenu enseigne les 5 fondamentaux du trading en botlane : adapter le type d'échange à son champion, exploiter les fenêtres de rechargement des sorts adverses, adapter son agressivité au pathing des junglers et maintenir un placement parallèle à son support.",
+   "quality": {
+    "level": "élevée",
+    "why": "Présentation très bien structurée par un ancien joueur professionnel/Challenger, s'appuyant sur des explications théoriques et des extraits de gameplay concrets."
    }
   },
   {
@@ -87354,12 +87387,12 @@
    "published": null,
    "retrievedAt": "2026-11-14",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 159,
-   "note": "File de lecture (rang 159) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 36 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [
@@ -87371,7 +87404,22 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
-   }
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-14",
+    "sha256": "572a0ec292a6e8cb18893f186b39dc709c85cf3e7f6611ccbf4518474751d1b4",
+    "segments": 75,
+    "observations": 36,
+    "duration": "27:40",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 163249
+   },
+   "attempts": 1,
+   "lastError": "gemini-3-flash-preview : réponse tronquée (2026-11-14)"
   },
   {
    "id": "c-yt-r3GQ9MMUr80",
@@ -87741,12 +87789,12 @@
    "published": null,
    "retrievedAt": "2026-11-14",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 160,
-   "note": "File de lecture (rang 160) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 14 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 14,
     "matched": [
@@ -87755,6 +87803,34 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-14",
+    "sha256": "b0ace903bd5af6ac5a55ef2b60149ef2a5bf75bf6984d0f96ca66e7faa4f4c87",
+    "segments": 114,
+    "observations": 14,
+    "duration": "22:23",
+    "videoKind": "analyse-de-partie",
+    "gameplayShown": true,
+    "tokens": 131377
+   },
+   "analyzedAt": "2026-11-14",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 5,
+   "unitsRejected": 1,
+   "alertes": [
+    {
+     "code": "traduction",
+     "detail": "Swiftness boots traduit par Bottes de célérité ; Stridebreaker traduit par Estropieur."
+    }
+   ],
+   "learn": "Ce contenu enseigne comment gérer une partie en retard en acceptant de prendre des risques, en adaptant son build (Célérité, Estropieur) et en utilisant la macro pour échanger des objectifs plutôt que de subir passivement.",
+   "quality": {
+    "level": "moyenne",
+    "why": "L'auteur fournit des raisonnements stratégiques pertinents sur le comeback et l'adaptation du build, bien que le ton soit parfois frustré envers ses alliés."
    }
   },
   {
@@ -87768,15 +87844,86 @@
    "published": null,
    "retrievedAt": "2026-11-14",
    "patch": null,
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 161,
+   "note": "Lue par gemini-3.6-flash : transcription et 17 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
+   "triage": {
+    "score": 14,
+    "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-14",
+    "sha256": "029de291e3b477eb95673a916137902e5f121c622dfb1667c31d3336521f20cd",
+    "segments": 87,
+    "observations": 17,
+    "duration": "12:23",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 76928
+   },
+   "attempts": 1,
+   "lastError": "gemini-3-flash-preview : réponse tronquée (2026-11-14)"
+  },
+  {
+   "id": "c-yt-mCPYarWUBv8",
+   "sourceId": "yt-broxah",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=mCPYarWUBv8",
+   "title": "Broxah shows how to turn level 1 invades around...",
+   "author": "Broxah",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-14",
+   "patch": null,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 161,
-   "note": "File de lecture (rang 161) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "queueRank": 163,
+   "note": "File de lecture (rang 163) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
-    "score": 14,
-    "matched": [],
+    "score": 13,
+    "matched": [
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-4SV9WEVkQmU",
+   "sourceId": "yt-asteek",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=4SV9WEVkQmU",
+   "title": "Wave Control Explained by a BOOSTER (Easy ELO Climbing!)",
+   "author": "Asteek",
+   "lang": "pt",
+   "published": null,
+   "retrievedAt": "2026-11-14",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 164,
+   "note": "File de lecture (rang 164) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 13,
+    "matched": [
+     "explained",
+     "wave",
+     "climb"
+    ],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"

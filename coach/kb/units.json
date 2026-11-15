@@ -97519,7 +97519,1293 @@
    },
    "version": 1,
    "firstSeen": "2026-11-14"
+  },
+  {
+   "id": "u-ai-yt-w0I6RgsNiT0-1",
+   "claim": "Selon Mysteriaslol : en début de partie, évite d'investir trop tôt dans une ward de contrôle (75 gold) si tu ne disposes pas d'une garantie de pouvoir la défendre, c'est-à-dire si tu n'es pas en position de force dans ta lane.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "build"
+   ],
+   "matchup": {
+    "vs": "Fizz"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tu joues en début de partie",
+    "Tu ne disposes pas de la certitude de défendre la ward"
+   ],
+   "limits": [
+    "Conseil illustré sur un matchup Viktor contre Fizz"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-w0I6RgsNiT0",
+     "locator": "[00:32]",
+     "lang": "en",
+     "passage": "make sure that you don't invest too early in a control ward. Control wards can be big fucking gold sinks, okay? 75 gold, that's expensive. So I only get a control ward when I know for a fact I'm going to be able to defend it, so when I'm ahead basically.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "12-72s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Attends d'être en position de force et d'avoir la certitude de pouvoir la défendre avant d'acheter une ward de contrôle en early game.",
+   "observe": "L'achat précoce d'une ward de contrôle sans avantage net en gold.",
+   "use": {
+    "when": "Tu es en phase de laning en early game et tu t'apprêtes à effectuer ton premier retour en base.",
+    "why": "Les wards de contrôle coûtent cher (75 pièces d'or) et peuvent constituer un gouffre financier si elles ne sont pas protégées.",
+    "who": "Joueurs de mid lane",
+    "how": [
+     "Évite d'acheter une ward de contrôle lors de ton premier rappel si tu n'es pas nettement en avance dans ton duel.",
+     "Privilégie l'investissement dans des objets de puissance ou de survie immédiate."
+    ],
+    "notWhen": "N'achète pas de ward de contrôle si tu es en difficulté ou si tu ne peux pas contrôler l'espace autour de la ward."
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle au passage cité, le contexte d'usage est complet et le conseil est intemporel (gestion économique de la ward de contrôle)."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-w0I6RgsNiT0-2",
+   "claim": "Selon Mysteriaslol : les potions refillables sont l'un des objets les plus rentables en gold du jeu, ce qui en fait un meilleur choix d'achat que de s'encombrer de potions de soin standards multiples lors d'un retour en base.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:Potion refillable"
+   ],
+   "conditions": [
+    "Tu effectues un retour en base"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-w0I6RgsNiT0",
+     "locator": "[00:32]",
+     "lang": "en",
+     "passage": "Refill is probably one of the most gold efficient items in the game. So I get that one just to get an extra pot going, and then whenever we reset we also just get the extra health back because of just basing.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "12-72s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète une potion refillable à la place de multiples potions de soin standard lors de tes premiers achats.",
+   "observe": "L'achat répété de potions de soin unitaires au lieu de la potion refillable.",
+   "use": {
+    "when": "Tu es dans la boutique lors d'un retour en base et tu souhaites acheter des consommables de soin.",
+    "why": "La potion refillable est extrêmement rentable en gold et récupère ses charges à chaque passage à la base.",
+    "who": "Tous les rôles",
+    "how": [
+     "Vends ou évite d'acheter des potions de soin standard multiples.",
+     "Procure-toi une potion refillable dès que l'occasion se présente."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est directement appuyé par le passage, l'usage et les situations sont clairs et pertinents."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-w0I6RgsNiT0-3",
+   "claim": "Selon Mysteriaslol : en début de partie, combine la vision de ta ward placée sur les rapaces ennemis avec le fait de te positionner (lean) du côté de la route du jungler adverse pour être extrêmement en sécurité.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vision",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tu disposes d'une ward placée sur les camps adverses en early game"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-w0I6RgsNiT0",
+     "locator": "[01:34]",
+     "lang": "en",
+     "passage": "all you need to do is just know how he's pathing, and then place your ward either towards the same side where you can spot the enemies again, and you can just lean towards that side and that's when you're fine. So if you combine the ward with leaning, you're generally extremely safe.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "74-134s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Oriente ton positionnement sur ta lane du même côté que la ward qui repère le cheminement du jungler adverse.",
+   "observe": "Jouer au milieu de la lane sans tenir compte de la position connue du jungler adverse.",
+   "use": {
+    "when": "Tu connais le cheminement de départ du jungler adverse grâce à une ward placée sur ses camps.",
+    "why": "Savoir où se trouve le jungler et se placer du bon côté de la lane permet de neutraliser le risque de gank de manière fiable.",
+    "who": "Joueurs de mid lane",
+    "how": [
+     "Place une première ward sur les rapaces adverses pour identifier le cheminement du jungler.",
+     "Décale ton personnage du côté de la carte où se trouve le danger potentiel pour disposer d'une voie de fuite et d'un temps de réaction suffisant."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil combine correctement la vision et le positionnement (leaning), parfaitement appuyé par la transcription."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-w0I6RgsNiT0-4",
+   "claim": "Selon Mysteriaslol : pour poser une ward en toute sécurité sans te faire gank au moment du crash d'une vague, place-la dans les buissons latéraux juste après avoir nettoyé une vague et au moment où la nouvelle vague ennemie approche.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vision",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tu viens de nettoyer une vague de sbires"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-w0I6RgsNiT0",
+     "locator": "[02:09]",
+     "lang": "en",
+     "passage": "Whenever you've just cleared a wave and a new incoming wave is coming in, this is your time to now either duck off into either side, place your yellow ward so that you on the crash actually don't get ganked and you're safe.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "109-169s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utilise la transition entre le nettoyage d'une vague et l'arrivée de la suivante pour placer ta ward jaune dans un buisson latéral.",
+   "observe": "Poser des wards de manière aléatoire en plein milieu d'un échange sans synchronisation avec la vague.",
+   "use": {
+    "when": "Tu viens de finir de tuer la vague ennemie et la nouvelle vague alliée/ennemie est en train d'arriver sur la lane.",
+    "why": "Cela garantit que l'adversaire est occupé ou distrait par la vague, ce qui t'évite de te faire surprendre ou ganker pendant la pose.",
+    "who": "Joueurs de mid lane",
+    "how": [
+     "termine de clear ta vague de sbires.",
+     "file rapidement dans le buisson latéral choisi.",
+     "pose ta ward jaune avant que la nouvelle vague ne nécessite ta présence au centre."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La situation de pose de ward (synchronisation avec le crash de la vague) est précise et soutenue par la source."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-w0I6RgsNiT0-5",
+   "claim": "Selon Mysteriaslol : avant de retourner à la base, assure-toi de pleinement pousser (crash) la vague sous la tourelle adverse pour éviter de perdre des sbires et de l'expérience.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tu prévois de faire un retour en base"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-w0I6RgsNiT0",
+     "locator": "[02:50]",
+     "lang": "en",
+     "passage": "I always want to fully crash the wave before resetting because fully crashing the wave means that I don't lose any minions. If you base right now, you're losing a full wave. That's a lot of minions to lose.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "150-210s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousse entièrement la vague sous la tourelle ennemie avant d'appuyer sur la touche de rappel.",
+   "observe": "Quitter la lane pour base alors que les sbires sont au milieu ou bloqués loin de la tourelle ennemie.",
+   "use": {
+    "when": "Tu as l'intention de faire un retour en base mais la vague de sbires n'est pas encore rentrée sous la tourelle de ton adversaire.",
+    "why": "Pousser la vague force les sbires alliés à mourir sous la tourelle adverse, ce qui fait perdre de l'or et de l'expérience à l'adversaire tout en protégeant les tiennes.",
+    "who": "Joueurs de mid lane",
+    "how": [
+     "Attaque les sbires restants pour accélérer le push.",
+     "Assure-toi que les sbires touchent la tourelle ennemie.",
+     "Declenche ton rappel immédiatement après."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe fondamental de gestion des vagues avant un rappel correctement retranscrit."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-w0I6RgsNiT0-7",
+   "claim": "Selon Mysteriaslol : lorsque tu disposes d'un pécule d'environ 600 gold en début de partie, privilégie l'achat de bottes simples plutôt que de les diviser dans des composants mineurs comme une gemme pourante ou un cristal de saphir, afin d'obtenir un impact immédiat.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:Bottes de vitesse"
+   ],
+   "conditions": [
+    "Tu disposes d'environ 600 gold lors d'un retour en base en early game"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-w0I6RgsNiT0",
+     "locator": "[06:23]",
+     "lang": "en",
+     "passage": "if I got 600 gold, I'm just buying my boots, because boots is way stronger than Glowing Mote plus Mana Crystal. You want to invest in the now, because League is a snowballing game and if you can be strong now, you can then translate that into advantages.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "363-423s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète des bottes en priorité par rapport à des petits composants d'objets lors de ton premier ou second rappel si tu as le montant adéquat.",
+   "observe": "Acheter des composants mineurs dispersés qui n'apportent pas de mobilité immédiate.",
+   "use": {
+    "when": "Tu es dans la boutique avec environ 600 pièces d'or en poche en début de partie.",
+    "why": "League of Legends est un jeu basé sur le snowball, et la mobilité immédiate des bottes offre un avantage de duel et de placement plus fort que des petits composants isolés.",
+    "who": "Joueurs de mid lane",
+    "how": [
+     "Vérifie ton or disponible à la base.",
+     "Sélectionne les bottes simples si tu disposes d'environ 600 gold au lieu d'acheter des cristaux ou composants mineurs."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil d'optimisation d'achat en early game bien sourcé et contextualisé."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-w0I6RgsNiT0-8",
+   "claim": "Selon Mysteriaslol : face à un champion corps à corps qui repousse les vagues rapidement, tu peux geler la vague (freeze) en conservant un seul sbire en vie de la vague ennemie pour l'empêcher de s'approcher et de prendre des trades.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "top"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tu affrontes un champion corps à corps"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-w0I6RgsNiT0",
+     "locator": "[08:04]",
+     "lang": "en",
+     "passage": "One thing you can do versus melee champs, or just any champion in general, when they push the wave this fast, don't kill this full minion wave, keep it stacked up right here so that the next wave stacks up here and it's way harder for them to nuke the next wave. Very powerful wave state.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "464-524s",
+      "said": true,
+      "supported": false,
+      "gap": "Le conseil soutient qu'il faut garder un sbire pour geler, alors que le passage suggère de garder toute la vague empilée pour la rendre plus difficile à nettoyer par la suite."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Laisse un sbire adverse en vie pour bloquer la vague de ton côté et créer un gel de vague (freeze).",
+   "observe": "Tuer l'intégralité des sbires adverses par réflexe, ce qui réinitialise la position de la vague au centre.",
+   "use": {
+    "when": "Un champion corps à corps vient de pousser rapidement ta vague de sbires vers ton camp.",
+    "why": "Conserver un sbire empêche la vague de repartir vers l'adversaire et maintient les sbires de ton côté, privant le champion corps à corps d'une approche sécurisée.",
+    "who": "Joueurs de lanes (Mid/Top)",
+    "how": [
+     "Ne porte pas le coup de grace au dernier sbire caster ou melee de la vague adverse si tu veux geler.",
+     "Laisse ce sbire tanker les dégâts pour stabiliser la ligne de front des sbires de ton côté de la rivière."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La gestion de wave state (freeze partiel face au corps à corps) est fidèle au passage."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-6R3m8AfIfvQ-1",
+   "claim": "Selon 쿨쿨 : avant de lancer ta partie, analyse les matchups de toutes les lignes pour anticiper où le jeu va se bloquer ou s'enflammer, et planifie ton cheminement de jungle en conséquence.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir les informations sur les champions de son équipe et de l'équipe ennemie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-6R3m8AfIfvQ",
+     "locator": "[00:47]",
+     "lang": "ko",
+     "passage": "항상 게임 시작 전에 아군 픽과 적군 픽을 보고 라인전 구도를 예상, 동선 설계를 하시면 좋습니다.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "27-87s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Irelia (exemple)",
+    "Rumble (exemple)",
+    "Rammus (exemple)",
+    "Hecarim (exemple)",
+    "Azir (exemple)",
+    "Qiyana (exemple)",
+    "Lucian (exemple)",
+    "Nautilus (exemple)",
+    "Varus (exemple)",
+    "Renata (exemple)"
+   ],
+   "action": "Prévoir son premier cheminement de jungle en fonction des matchups visibles avant le début de la partie.",
+   "observe": "La prise en compte des matchups de lanes pour planifier le pathing.",
+   "use": {
+    "when": "Avant que la partie ne commence, lors de la phase de sélection des champions.",
+    "why": "Pour adapter sa trajectoire aux lignes qui risquent d'avoir le plus d'actions.",
+    "who": "Les joueurs jouant dans le rôle de jungler.",
+    "how": [
+     "Regarder les choix des champions alliés et ennemis.",
+     "Identifier quelle ligne risque de subir ou de créer des actions.",
+     "Tracer son premier parcours de jungle en direction de cette ligne."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil général sur la planification du pathing en fonction des matchups de ligne est intemporel, parfaitement soutenu par le passage cité et présente un contexte d'usage complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-6R3m8AfIfvQ-2",
+   "claim": "Selon 쿨쿨 : ne te précipite pas aveuglément pour aider une ligne sous prétexte qu'il y a un combat à bas PV ; vérifie d'abord la position des balises ennemies, la position du jungler adverse et la faisabilité réelle du gank.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "vision",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Un combat ou une situation critique se produit sur une ligne"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-6R3m8AfIfvQ",
+     "locator": "[03:17]",
+     "lang": "ko",
+     "passage": "이런 식으로 딸피라고 무조건 뛰는 게 아닌 상대 와드 위치, 상대 정글 위치, 상대방 스킬 등을 고려해 합리적인 판단을 해야 합니다.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "177-237s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Lucian (exemple)",
+    "Rammus (exemple)"
+   ],
+   "action": "Vérifier la carte et la position ennemie avant d'intervenir sur une alerte en ligne.",
+   "observe": "L'évaluation des risques avant de se déplacer en aide.",
+   "use": {
+    "when": "Un affrontement ou un échange de coups a lieu sur une ligne et un allié est bas en points de vie.",
+    "why": "Pour éviter de perdre du temps ou de donner un avantage à l'adversaire sur une intervention injouable.",
+    "who": "Les joueurs jouant dans le rôle de jungler.",
+    "how": [
+     "Analyser les mouvements de vision et les balises ennemies sur la carte.",
+     "Repérer où se trouve le jungler adverse.",
+     "Estimer si les compétences disponibles permettent d'aboutir à un succès."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil sur l'évaluation des risques et de la vision avant de répondre à un appel d'aide d'un allié bas en PV est un principe macro intemporel, validé par l'extrait."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-mCPYarWUBv8-1",
+   "claim": "Selon Broxah : en tant que jungler AP solo avec Nidalee ou Elise, Broxah choisit de partir sur le Ceinture-roquette Hextech (Rocketbelt) pour profiter de la pénétration magique fixe puisque les ennemis n'achètent généralement pas de résistance magique.",
+   "champions": [
+    "Nidalee",
+    "Elise"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Ceinture-roquette Hextech"
+   ],
+   "conditions": [
+    "tu joues Nidalee ou Elise",
+    "tu es le seul champion AP de ton équipe"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mCPYarWUBv8",
+     "locator": "16:53",
+     "lang": "en",
+     "passage": "Usually if I'm solo AP with Nidalee or Elise, I go Rocketbelt because we benefit a lot from the flat magic pen, nobody's going to buy magic resist anyways.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "993-1053s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète le Ceinture-roquette Hextech en tant que jungler AP solo si l'équipe adverse ne construit pas de résistance magique.",
+   "observe": "L'achat du Ceinture-roquette Hextech sur Nidalee ou Elise.",
+   "use": {
+    "when": "tu joues Nidalee ou Elise en étant le seul AP de ton équipe et l'ennemi ne achète pas de résistance magique",
+    "why": "tu bénéficies beaucoup de la pénétration magique fixe car personne ne achète de résistance magique",
+    "who": "joueur de Nidalee ou Elise en jungle",
+    "how": [
+     "Vérifie que tu es le seul champion AP de ton équipe",
+     "Observe l'absence d'objets de résistance magique chez l'adversaire",
+     "Achète le Ceinture-roquette Hextech"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle au passage de la transcription, son contexte d'usage est complet et l'avis est clairement présenté comme celui d'un joueur/coach reconnu."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-4SV9WEVkQmU-1",
+   "claim": "Selon Asteek : si l'adversaire te tue en solo, gèle ta wave et attends qu'il parte pour ganker ou give un rappel, puis pousse la wave vers la tourelle ennemie quand l'occasion se présente.",
+   "champions": [],
+   "roles": [
+    "top",
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "Brésil"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "L'ennemi t'a solo kill"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-4SV9WEVkQmU",
+     "locator": "[02:32]",
+     "lang": "pt",
+     "passage": "Inimigo te sola? Me responda: sim ou não. Sim, inimigo me sola. Então você vai freeze a sua wave, vai esperar até ele sair pra gankar ou dar um recall, quando tiver a chance você vai puxar a wave até a torre inimiga.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "132-192s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Geler ta vague après un kill encaissé et attendre l'opportunité de pousser.",
+   "observe": "La position de la vague et les mouvements du vis-à-vis.",
+   "use": {
+    "when": "Tu viens de te faire tuer en solo par ton vis-à-vis en phase de lane.",
+    "why": "Pour stabiliser la ligne et rattraper le désavantage avant de réinitialiser la vague.",
+    "who": "Laner de top ou de mid",
+    "how": [
+     "Gèle ta vague de minions.",
+     "Attends que l'adversaire quitte la zone pour roam ou rappeler.",
+     "Pousse la wave jusqu'à la tourelle ennemie dès que possible."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle à la transcription, son contexte d'usage est complet et elle décrit un principe de gestion de vague classique après un retard."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-4SV9WEVkQmU-2",
+   "claim": "Selon Asteek : si l'adversaire ne te solo pas, pousse systématiquement la wave vers la tourelle ennemie car ce n'est plus la méta de geler.",
+   "champions": [],
+   "roles": [
+    "top",
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "Brésil"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "L'ennemi ne te solo pas"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-4SV9WEVkQmU",
+     "locator": "[02:57]",
+     "lang": "pt",
+     "passage": "o inimigo não me sola na lane. Então você vai puxar a wave até a torre inimiga. Independente, vocês perceberam que você não vai querer me freezer a wave, né? Não é meta mais me freezer a wave, galera. Então você vai puxar a wave",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "157-217s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousser continuellement la vague sous la tour ennemie si tu ne crains pas le duel.",
+   "observe": "La capacité à survivre aux duels contre le vis-à-vis.",
+   "use": {
+    "when": "Ton adversaire direct ne parvient pas à te tuer en solo.",
+    "why": "Pour créer du temps libre sur sa lane et prendre des décisions basées sur cet avantage temporel.",
+    "who": "Laner de top ou de mid",
+    "how": [
+     "Attaque les sbires pour push activement.",
+     "Fais progresser la vague jusqu'à la tourelle ennemie."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "Le conseil dépend explicitement de la méta (« Não é meta mais me freezer a wave »), ce qui le rend sujet à variation selon les patchs."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-4SV9WEVkQmU-3",
+   "claim": "Selon Asteek : si tu réussis un dive (même avec un échange de kills), tu dois pousser une vague supplémentaire de manière égoïste pour créer un avantage et préparer un snowball.",
+   "champions": [],
+   "roles": [
+    "top",
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "Brésil"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tu as réussi à faire un dive"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-4SV9WEVkQmU",
+     "locator": "[03:32]",
+     "lang": "pt",
+     "passage": "Consegui fazer o dive e sair com uma play limpa. Você vai puxar mais uma wave. Mais uma, percebeu? [...] você precisa puxar essa wave de uma forma bem egoísta mesmo. Você tem que criar vantagem na sua lane, e essa wave que você vai puxar a mais vai ser uma wave que você vai tirar do inimigo",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "192-252s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Pousser une vague supplémentaire après un dive réussi.",
+   "observe": "L'état de la vague après avoir réalisé un dive.",
+   "use": {
+    "when": "Tu viens de réussir un dive sous la tourelle ennemie.",
+    "why": "Pour priver l'adversaire de sbires et creuser l'écart pour initier un snowball.",
+    "who": "Laner",
+    "how": [
+     "Exécute le dive.",
+     "Une fois réussi, reste pour éliminer une vague de sbires supplémentaire.",
+     "Retourne ensuite à la base."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'énoncé retranscrit fidèlement le passage sur le push égoïste après un dive réussi."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-zYdXrzpxEw4-1",
+   "claim": "Selon 챌린저 원딜 바밤바 : pour empêcher l'adversaire de rentrer sereinement à la base (rappel) lorsque ta vague s'apprête à crasher ou à geler, tu dois le harceler et menacer sa structure de vagues en restant proche pour lui signifier qu'il ne peut pas partir.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Ashe"
+   },
+   "synergy": {
+    "with": [
+     "Pyke"
+    ],
+    "kind": "avis"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "l'adversaire a un mauvais état de santé ou de mana et souhaite rappeler",
+    "tu imposes une pression sur la vague"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-zYdXrzpxEw4",
+     "locator": "[04:51]",
+     "lang": "ko",
+     "passage": "반대로 그럼 카이사랑 파이크는 1, 2렙 때 힘든 조합임에도 좀 잘해놔서 이렇게 피 상태 잘 됐는데 이렇게 하면 여기서 이제 최대한 비벼서 약간 바짓가랑이 붙잡는 거지 너희 집 가지 마 너희 집 가면 프리징까지 해버릴 거야 하고 시위하는 거죠",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "271-331s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Ashe (exemple)",
+    "Poppy (exemple)",
+    "Pyke (exemple)"
+   ],
+   "action": "Pressionner la bot lane pour empêcher le rappel adverse en cas de vague favorable.",
+   "observe": "L'état de santé et de mana de l'adversaire ainsi que sa volonté de push pour recall.",
+   "use": {
+    "when": "L'adversaire est bas en ressources et cherche à éliminer la vague pour retourner à sa base.",
+    "why": "Pour le priver d'un rappel confortable et garder le contrôle du gel ou de la poussée de sbires.",
+    "who": "Botlaner en situation de duels.",
+    "how": [
+     "Maintenir une présence menaçante aux environs de la vague.",
+     "Empêcher le rappel propre en menaçant de geler la vague."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'énoncé est fidèle au passage extrait et décrit correctement l'intention stratégique d'empêcher un rappel adverse."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-mjMe6O0j59U-1",
+   "claim": "Selon Chreak : contre un adversaire difficile à tuer en midlane avec Annie, utilise ton ultime (Tibbers) dès qu'il revient sur la lane pour lui infliger de lourds dégâts et le forcer à repartir immédiatement en base.",
+   "champions": [
+    "Annie"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Malzahar"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "S13"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Annie/R"
+   ],
+   "conditions": [
+    "Être niveau 6 ou plus",
+    "Affronter un matchup compliqué ou un mage impossible à tuer facilement"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mjMe6O0j59U",
+     "locator": "[03:21]",
+     "lang": "fr",
+     "passage": "La méthode B c'est quoi ? C'est proc ton ultime sur la midlane si tu as un matchup compliqué pour lui enlever 60 % de sa vie sans aucune raison. Juste du fun comme ça.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-15",
+      "window": "181-241s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Malzahar (exemple)"
+   ],
+   "action": "Lance Tibbers sur ton vis-à-vis dès son retour en lane pour vider sa barre de vie s'il est impossible à tuer en duel classique.",
+   "observe": "La position et les points de vie de l'adversaire lorsqu'il revient sur la lane après un rappel.",
+   "use": {
+    "when": "ton adversaire mid revient sur la lane full vie et tu ne peux pas le tuer en un combo classique",
+    "why": "l'ultime d'Annie reste actif longtemps et l'oblige à repartir en base à cause des lourds dégâts subis",
+    "who": "Annie mid",
+    "how": [
+     "Attends le retour de ton adversaire sur la lane.",
+     "Invoque Tibbers directement sur lui pour lui retirer une grande partie de ses points de vie."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'affirmation est fidèle au passage de la vidéo et décrit un conseil contextuel précis d'opinion de joueur."
+   },
+   "published": "2023-03-05",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
   }
  ],
- "updatedAt": "2026-11-14T22:44:32.591Z"
+ "updatedAt": "2026-11-15T06:45:40.099Z"
 }

@@ -98805,7 +98805,96 @@
    },
    "version": 1,
    "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-jWaDRV5Q5eY-1",
+   "claim": "Selon BIZYZE Coaching | League of Legends : erreur fréquente en ADC : quitter sa voie sans pousser la vague pour contester ou aider sur un dragon qui n'est pas urgent alors que les adversaires sont morts ou en base. L'auteur conseille de prendre quelques secondes pour écraser la vague sous la tourelle adverse avant de rejoindre le combat.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "macro",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "emeraude",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.16"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Les adversaires de la voie du bas ou de la zone sont morts ou en base",
+    "Aucune menace immédiate n'impose une intervention dans la seconde sur le dragon"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "emeraude",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-jWaDRV5Q5eY",
+     "locator": "[10:07]",
+     "lang": "fr",
+     "passage": "Why did you leave the the wave to follow for a drake that there is no urgency? Push your wave, which is maybe 7 seconds it lasts, and just go right away, you know?",
+     "autoChecked": {
+      "by": "gemini-3.8-flash",
+      "at": "2026-11-15",
+      "window": "587-647s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne précise pas que cela permet d'éviter de perdre des sbires ou de laisser la vague dans une position défavorable."
+     }
+    }
+   ],
+   "mentions": [
+    "Ahri (exemple)",
+    "Neeko (exemple)"
+   ],
+   "action": "Nettoyer et écraser la vague sous la tourelle adverse avant de décaler sur un objectif neutre non menacé d'urgence.",
+   "observe": "Perte de sbires sous la tourelle ennemie et conservation du tempo sans abandonner de ressources gratuites.",
+   "use": {
+    "when": "Tes vis-à-vis sont morts ou rentrés à la base, ta vague est au milieu de la voie et ton équipe commence un dragon sans menace immédiate adverse.",
+    "why": "",
+    "who": "Joueurs de la voie du bas (ADC).",
+    "how": [
+     "Identifie que les ennemis sur ta voie sont morts ou en base et qu'aucune menace immédiate ne pèse sur le dragon.",
+     "Dépense environ 7 secondes pour achever et écraser rapidement la vague sous la tourelle ennemie.",
+     "Pivote immédiatement après vers l'antre du dragon pour rejoindre ton équipe."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil de gestion de vague précis, fidèle au passage cité et correctement formulé sous forme d'erreur à éviter pour le niveau Émeraude."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-15",
+   "validity": {
+    "checkedAt": "2026-11-15",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-15",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-15"
   }
  ],
- "updatedAt": "2026-11-15T06:45:40.099Z"
+ "updatedAt": "2026-11-15T19:40:30.496Z"
 }

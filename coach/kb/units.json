@@ -99166,7 +99166,113 @@
    },
    "version": 1,
    "firstSeen": "2026-11-16"
+  },
+  {
+   "id": "u-ai-yt-jBLHyKSwWJs-1",
+   "claim": "Selon Coach K : en tant que support, tu peux ganker la top lane en début de partie (minutes 4 à 6) après avoir crashé la vague bot et rappelé avec ton ADC, à condition que le matchup top soit décisif et volatile.",
+   "champions": [],
+   "roles": [
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "macro",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "12.3"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "La vague bot a été crashée sous tour adverse",
+    "L'ADC adverse ne peut pas dive ton ADC"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-jBLHyKSwWJs",
+     "locator": "[02:46]",
+     "lang": "en",
+     "passage": "You crash the bot lane wave, and now, because you are a melee champion like Leona, Rell, or like even with no melee champions like Neeko, but your AD carry wants to reset, right? Your AD carry wants to go to base. And now you are in base as well. So you base together.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-16",
+      "window": "146-206s",
+      "said": true,
+      "supported": false,
+      "gap": "Les exemples de champions spécifiques (Camille, Jax, Malphite, Sion, Ornn) et la comparaison explicite avec les tanks passifs ne sont pas mentionnés dans l'extrait."
+     }
+    },
+    {
+     "content": "c-yt-jBLHyKSwWJs",
+     "locator": "[00:27]",
+     "lang": "en",
+     "passage": "You are not going to go top lane when your top lane is a Malphite, when your top lane is a Sion, when your top lane is an Ornn, and they are playing like these boring matchups, and nothing is going to happen, right?",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Leona (exemple)",
+    "Rell (exemple)",
+    "Neeko (exemple)",
+    "Gnar (exemple)",
+    "Gwen (exemple)",
+    "Malphite (exemple)",
+    "Sion (exemple)",
+    "Ornn (exemple)",
+    "Camille (exemple)",
+    "Jax (exemple)",
+    "Renekton (exemple)"
+   ],
+   "action": "Décale au top après un reset bot simultané si la vague bot revient vers votre tour et que ton top laner joue un match volatile.",
+   "observe": "L'obtention d'une élimination ou d'un avantage décisif sur la top lane sans que ton ADC ne perde trop de sbires.",
+   "use": {
+    "when": "Aux minutes 4 à 6 de la partie, juste après avoir fait crasher la vague bot sous la tour adverse et effectué un rappel simultané avec ton ADC.",
+    "why": "",
+    "who": "Joueurs support évoluant avec un top laner au kit orienté snowball (Camille, Jax, Renekton, Gnar, Gwen).",
+    "how": [
+     "Joue la vague en bot lane pour la crasher sous la tourelle ennemie puis rappelle-toi au même moment que ton ADC.",
+     "Si la vague bot entame un push lent vers ton camp et que ton ADC n'est pas sous menace de dive, monte vers la top lane.",
+     "Effectue le gank pour donner l'avantage à ton top laner avant de réorienter ton parcours vers le bas de la carte."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité décrit correctement l'opportunité de décalage au top en début de partie (min 4-6) conditionnée par le type de matchup et le crash de vague bot. Reste provisoire du fait du niveau d'accès par lecture IA."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-16",
+   "validity": {
+    "checkedAt": "2026-11-16",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-16",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-16"
   }
  ],
- "updatedAt": "2026-11-16T06:49:08.573Z"
+ "updatedAt": "2026-11-16T22:42:20.451Z"
 }

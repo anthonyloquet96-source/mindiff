@@ -51689,12 +51689,13 @@
      "passage": "Toucher un point and click spell comme le Q d'Annie ou une auto-attaque sur un champion adverse te fait prendre l'aggro des minions. C'est quoi l'avantage ? Pendant que la wave adverse te focus toi, la tienne elle va push.",
      "mentionOnly": true,
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-16",
       "window": "154-214s",
       "said": true,
       "supported": true
-     }
+     },
+     "reverifiedAt": "2026-11-16"
     }
    ],
    "mentions": [
@@ -51774,12 +51775,13 @@
      "passage": "Toucher un skillshot comme le Q de Syndra ou le W de Camille ne te fait pas prendre l'aggro des minions. C'est très pratique pour pouvoir trade et push en même temps.",
      "mentionOnly": true,
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-16",
       "window": "172-232s",
       "said": true,
       "supported": true
-     }
+     },
+     "reverifiedAt": "2026-11-16"
     }
    ],
    "mentions": [
@@ -51859,12 +51861,14 @@
      "lang": "fr",
      "passage": "La meilleure façon de freeze, peu importe la lane, c'est d'avoir le maximum de minions possible sur lesquels tu peux garder le contrôle. Plus tu en as, mieux c'est pour plusieurs raisons.",
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-16",
       "window": "232-292s",
       "said": true,
-      "supported": true
-     }
+      "supported": true,
+      "gap": "L'auteur explique que la vague alliée (« ta wave ») meurt plus vite grâce au surplus de sbires ennemis, et non la vague adverse."
+     },
+     "reverifiedAt": "2026-11-16"
     },
     {
      "content": "c-yt-Fcb6lbPuclA",
@@ -51882,7 +51886,7 @@
    "observe": "La position de la ligne de rencontre des vagues proche de ta tourelle.",
    "use": {
     "when": "quand tu souhaites geler la vague pour te mettre en sécurité ou préparer un gank",
-    "why": "avoir plus de sbires accélère la mort de la vague adverse et absorbe les dégâts de zone accidentels sans rompre le freeze",
+    "why": "",
     "who": "les joueurs cherchant à geler leur lane",
     "how": [
      "Équilibre le nombre de sbires adverses et alliés",
@@ -51951,12 +51955,14 @@
      "lang": "fr",
      "passage": "Pour ce faire, il faut last hit le plus tard possible les sbires adverses pour laisser le temps à tes minions de s'accumuler avec la wave d'après.",
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-16",
       "window": "474-534s",
       "said": true,
-      "supported": true
-     }
+      "supported": false,
+      "gap": "Le streamer ne restreint pas la technique aux champions agressifs et ne parle pas de préparer une action sous la tour ennemie dans cet extrait."
+     },
+     "reverifiedAt": "2026-11-16"
     }
    ],
    "mentions": [],
@@ -52033,12 +52039,12 @@
      "passage": "it's important, right? That you focus on not falling any further behind, that's your first goal right now.",
      "autoChecked": {
       "by": "gemini-3.6-flash",
-      "at": "2026-10-26",
+      "at": "2026-11-16",
       "window": "166-226s",
       "said": true,
-      "supported": true,
-      "gap": "La raison indiquée dans le champ 'pourquoi' n'est pas explicitement énoncée par AloisNL dans l'extrait."
-     }
+      "supported": true
+     },
+     "reverifiedAt": "2026-11-16"
     }
    ],
    "mentions": [],
@@ -52112,13 +52118,14 @@
      "lang": "en",
      "passage": "We are natural resource gatherers. We play side wave into turrets, if no turrets, then jungle camps, capiche? We don't join skirmishes unless there's absolutely nothing else to gather.",
      "autoChecked": {
-      "by": "gemini-3-flash-preview",
-      "at": "2026-10-26",
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-16",
       "window": "1284-1344s",
       "said": true,
       "supported": true,
-      "gap": "L'auteur ne mentionne pas explicitement les objectifs majeurs (Baron, Dragon) comme contre-indication dans cet extrait, précisant seulement qu'il ne faut pas rejoindre d'escarmouches sauf s'il n'y a plus rien d'autre à récolter."
-     }
+      "gap": "La raison (pourquoi) n'est pas explicitement énoncée par le joueur dans l'extrait vidéo."
+     },
+     "reverifiedAt": "2026-11-16"
     }
    ],
    "mentions": [],
@@ -52126,7 +52133,7 @@
    "observe": "",
    "use": {
     "when": "Tu es en milieu de partie et tu dois décider de ton prochain mouvement",
-    "why": "Pour garantir un flux constant d'or et d'expérience sans dépendre de l'issue incertaine des combats.",
+    "why": "",
     "who": "Top laners axés sur le split-push ou le scaling",
     "how": [
      "Pousser la vague sur une ligne latérale",
@@ -98894,7 +98901,272 @@
    },
    "version": 1,
    "firstSeen": "2026-11-15"
+  },
+  {
+   "id": "u-ai-yt-oK9mxRHI60M-2",
+   "claim": "Selon RamyAura : lorsqu'un allié s'est engagé dans une mauvaise action et se trouve condamné, ne tente pas de le secourir afin de ne pas concéder une élimination supplémentaire.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "teamfight",
+    "survie",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Un allié est surpris ou piégé dans un combat qu'il ne peut pas gagner."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-oK9mxRHI60M",
+     "locator": "[25:30]",
+     "lang": "en",
+     "passage": "normally, I would say don't follow these stupid plays, right? Like if someone's dead, just let them die. Don't let yourself die as well.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-16",
+      "window": "1510-1570s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Tourne le dos à un allié condamné pour te replier en sécurité.",
+   "observe": "L'ennemi n'obtient qu'un seul kill au lieu d'un doublé.",
+   "use": {
+    "when": "Un coéquipier se fait attraper seul ou plonge dans l'équipe adverse sans soutien possible.",
+    "why": "Essayer de sauver un joueur déjà mort se termine presque toujours par ta propre mort.",
+    "who": "Tous les joueurs.",
+    "how": [
+     "Reconnais rapidement qu'un allié ne peut plus être sauvé.",
+     "Résiste à l'impulsion d'avancer vers le combat.",
+     "Rebrousse chemin ou sécurise une ressource à proximité."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe général de prise de décision et de survie en teamfight, parfaitement soutenu par l'extrait."
+   },
+   "published": "2026-10-17",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-16",
+   "validity": {
+    "checkedAt": "2026-11-16",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-16",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-16"
+  },
+  {
+   "id": "u-ai-yt-oK9mxRHI60M-3",
+   "claim": "Selon RamyAura : dans le matchup sur la voie du haut contre Jax avec Teemo, évite au maximum de te faire toucher par son A (Frappe bondissante) et utilise ta Fléchette aveuglante pour neutraliser l'accumulation de son passif.",
+   "champions": [
+    "Jax"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "matchup",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Jax"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Teemo/Q",
+    "Jax/Q",
+    "Jax/passive"
+   ],
+   "conditions": [
+    "Matchup sur la voie du haut contre Jax."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-oK9mxRHI60M",
+     "locator": "[00:47]",
+     "lang": "en",
+     "passage": "against Jax, what you want to do is you want to just make sure you don't get hit by his Q's often, and then make sure you blind his passive.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-16",
+      "window": "27-87s",
+      "said": true,
+      "supported": false,
+      "gap": "Le geste recommandant de punir Jax avec des attaques automatiques lorsqu'il n'a plus ses compétences n'est pas mentionné par l'auteur dans cet extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Attends que Jax tente d'échanger des coups pour lui infliger l'aveuglement et recule pour hors de portée de son A.",
+   "observe": "Jax perd ses échanges de dégâts sur la voie.",
+   "use": {
+    "when": "Phase de laning au top face à un Jax.",
+    "why": "L'aveuglement neutralise l'accumulation des attaques automatiques et du passif de Jax s'il cherche à engager.",
+    "who": "Joueur de Teemo au top contre Jax.",
+    "how": [
+     "Positionne-toi à distance pour éviter qu'il te saute dessus avec son A.",
+     "Utilise l'aveuglement lorsqu'il s'approche pour attaquer.",
+     "Punis-le avec des attaques automatiques lorsqu'il n'a plus ses compétences."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "citation-insuffisante",
+     "contexte-manquant"
+    ],
+    "why": "La rune PTA (Attaque soutenue) n'apparaît pas dans la citation et le champion joué (Teemo) est omis de la liste des champions."
+   },
+   "published": "2026-10-17",
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-16",
+   "validity": {
+    "checkedAt": "2026-11-16",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-16",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-16"
+  },
+  {
+   "id": "u-ai-yt-oK9mxRHI60M-4",
+   "claim": "Selon RamyAura : lorsqu'un adversaire direct joue sans le sort Téléportation, force-le à rappeler ou élimine-le pour lui faire perdre un maximum de sbires sous sa tour.",
+   "champions": [],
+   "roles": [
+    "top",
+    "mid",
+    "bottom"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:teleport"
+   ],
+   "conditions": [
+    "L'adversaire direct sur la voie n'a pas équipé le sort Téléportation."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-oK9mxRHI60M",
+     "locator": "[02:06]",
+     "lang": "en",
+     "passage": "He's playing no TP, so if we do manage to kill him or force him to recall, he's going to lose a lot.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-16",
+      "window": "106-166s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur n'explicite pas que l'adversaire doit revenir à pied, il indique seulement qu'il va perdre beaucoup s'il doit rappeler ou s'il meurt."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Accentue la pression sur la voie puis enfonce la vague dès que l'adversaire doit rentrer à la base.",
+   "observe": "Création d'un écart significatif en sbires et en niveaux.",
+   "use": {
+    "when": "Sur la voie face à un ennemi dépourvu de Téléportation.",
+    "why": "",
+    "who": "Joueur en voie solo (top ou mid) contre un ennemi sans Téléportation.",
+    "how": [
+     "Constate l'absence de Téléportation chez ton vis-à-vis dès le début de partie.",
+     "Maintiens le harcèlement pour le forcer à rappeler avec peu de PV.",
+     "Pousse rapidement tes sbires sous sa tour dès qu'il disparaît."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil de laning et de gestion de la Téléportation fidèle à la citation et à la situation."
+   },
+   "published": "2026-10-17",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-16",
+   "validity": {
+    "checkedAt": "2026-11-16",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-16",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-16"
   }
  ],
- "updatedAt": "2026-11-15T19:40:30.496Z"
+ "updatedAt": "2026-11-16T06:49:08.573Z"
 }

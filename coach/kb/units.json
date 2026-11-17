@@ -99537,7 +99537,458 @@
    },
    "version": 1,
    "firstSeen": "2026-11-17"
+  },
+  {
+   "id": "u-ai-yt-2SXTMWBoEpY-1",
+   "claim": "Selon Misanthiel - Coach Toplane : avec Garen contre Mordekaiser, applique ton A (silence) avant de tenter un kill ou d'engager un échange décisif pour l'empêcher d'activer le bouclier ou le soin de son Z.",
+   "champions": [
+    "Garen"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "matchup",
+    "lane",
+    "champion"
+   ],
+   "matchup": {
+    "vs": "Mordekaiser"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Garen/Q",
+    "Mordekaiser/W"
+   ],
+   "conditions": [
+    "Mordekaiser est suffisamment bas en PV pour risquer de mourir sur le trade ou le combo"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-2SXTMWBoEpY",
+     "locator": "[00:06]",
+     "lang": "en",
+     "passage": "Euh par contre, en soi, Mordekaiser si tu arrives à un moment à le mettre relativement lourd en HP, il va tu pourras pas enfin sur un bon silence, tu peux le tuer avant même qu'il ait le temps de mettre son W.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-17",
+      "window": "0-46s",
+      "said": true,
+      "supported": false,
+      "gap": "Les gestes ajoutent des précisions techniques (purger un sort, enchaîner E et R) qui ne sont pas explicitement formulées par le coach."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer le A (silence) de Garen avant l'ultime ou le combo pour bloquer le W de Mordekaiser.",
+   "observe": "Mordekaiser ne peut pas déclencher son bouclier ni son soin pendant qu'il subit le burst.",
+   "use": {
+    "when": "Sur la voie du haut, au moment de tenter un échange lourd ou un kill contre Mordekaiser.",
+    "why": "Le silence du A empêche Mordekaiser d'activer son Z pour absorber les dégâts ou se soigner.",
+    "who": "Joueur de Garen en toplane face à Mordekaiser.",
+    "how": [
+     "Purger ou anticiper un sort avec le A de Garen.",
+     "Frapper l'adversaire avec le A pour lui appliquer le silence.",
+     "Enchaîner immédiatement avec le E et l'ultime pendant la durée du silence."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est parfaitement fidèle aux passages cités et fournit un contexte d'application clair et utilisable en jeu."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-17",
+   "validity": {
+    "checkedAt": "2026-11-17",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-17",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-17"
+  },
+  {
+   "id": "u-ai-yt-2SXTMWBoEpY-2",
+   "claim": "Selon Misanthiel - Coach Toplane : au premier retour en base avec Garen contre Mordekaiser, achète des dégâts bruts (Épée longue) plutôt que des bottes simples.",
+   "champions": [
+    "Garen"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Mordekaiser"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Epée longue",
+    "item:Bottes"
+   ],
+   "conditions": [
+    "Premier retour en base avec un budget limité"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-2SXTMWBoEpY",
+     "locator": "[12:31]",
+     "lang": "en",
+     "passage": "Ah non, prends une épée longue nettement.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-17",
+      "window": "731-791s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter une Épée longue au premier rappel en boutique.",
+   "observe": "Augmentation des dégâts sur les échanges de coups face à Mordekaiser.",
+   "use": {
+    "when": "Au premier rappel en boutique en tant que Garen opposé à Mordekaiser.",
+    "why": "L'ultime de Mordekaiser empêche de fuir en courant, rendant la vitesse de déplacement brute peu utile comparée aux statistiques de combat.",
+    "who": "Joueur de Garen toplane contre Mordekaiser (particulièrement avec Rush phasique).",
+    "how": [
+     "Rentrer à la base au premier timing de rappel.",
+     "Acheter une Épée longue au lieu de Bottes pour renforcer le potentiel de trade."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le choix d'équipement au premier retour en base est appuyé par l'argumentation précise du coach concernant l'effet de l'ultime adverse et du Rush phasique."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash-lite",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-17",
+   "validity": {
+    "checkedAt": "2026-11-17",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-17",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-17"
+  },
+  {
+   "id": "u-ai-yt-JYqEt7yD-zE-1",
+   "claim": "Selon HusumLOL : dans un matchup défavorable contre Syndra, Swain doit se concentrer sur la survie, l'achat précoce de bottes de résistance magique et la recherche de décalages (roams).",
+   "champions": [
+    "Swain"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "matchup",
+    "survie",
+    "build"
+   ],
+   "matchup": {
+    "vs": "Syndra"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Diamant 1",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.17"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Swain/passive",
+    "item:Sandales de Mercure"
+   ],
+   "conditions": [
+    "Matchup difficile pour Swain"
+   ],
+   "limits": [
+    "Une bonne Syndra gagnera généralement le duel direct"
+   ],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-JYqEt7yD-zE",
+     "locator": "[02:05]",
+     "lang": "pt",
+     "passage": "It's really bad for Swain, but like, you can survive it. Like you can just kind of try and avoid her, get the Mercs like early, and, and you can like roam.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-17",
+      "window": "105-165s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter les Sandales de Mercure en premier objet de défense contre Syndra.",
+   "observe": "HusumLOL adapte son build pour survivre au burst et aux contrôles de Syndra.",
+   "use": {
+    "when": "Tu joues Swain mid contre une Syndra et tu as du mal à tenir la lane.",
+    "why": "Syndra a l'avantage en duel direct ; les bottes permettent de survivre et de compenser le manque de mobilité pour décaler.",
+    "who": "Joueur de Swain mid",
+    "how": [
+     "Éviter les interactions directes avec Syndra",
+     "Acheter les Sandales de Mercure rapidement",
+     "Chercher des opportunités de décalage sur les autres lanes"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le conseil est cohérent avec le passage cité, mais le patch 14.17 est antérieur à la fenêtre de validité du patch courant (26.22)."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-17",
+   "validity": {
+    "checkedAt": "2026-11-17",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-17",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-17"
+  },
+  {
+   "id": "u-ai-yt-JYqEt7yD-zE-4",
+   "claim": "Selon HusumLOL : contre Syndra, la priorité est de maintenir un farm élevé et de pousser la vague sans chercher l'affrontement direct.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Syndra"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Diamant 1",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.17"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-JYqEt7yD-zE",
+     "locator": "[02:23]",
+     "lang": "pt",
+     "passage": "I feel like Syndra matchup, I usually try to just try stay as high CS as you can, push the wave as, and don't like interact with her much. 'Cause a good Syndra will just beat you.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-17",
+      "window": "123-183s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Se concentrer sur le dernier coup aux sbires et le push plutôt que sur le poke.",
+   "observe": "HusumLOL évite de s'exposer aux combos de Syndra en restant à distance et en gérant ses vagues.",
+   "use": {
+    "when": "Phase de lane contre une Syndra compétente.",
+    "why": "Syndra possède un kit qui punit sévèrement Swain s'il tente d'approcher pour échanger des sorts.",
+    "who": "Joueur de Swain mid",
+    "how": [
+     "Garder un œil sur le compteur de CS",
+     "Utiliser ses sorts pour vider la vague rapidement",
+     "Reculer dès que la vague est poussée pour éviter le poke"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil de gestion de lane et de matchup basé sur la portée respective des kits, considéré comme intemporel."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-17",
+   "validity": {
+    "checkedAt": "2026-11-17",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-17",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-17"
+  },
+  {
+   "id": "u-ai-yt-JYqEt7yD-zE-5",
+   "claim": "Selon HusumLOL : pour éviter d'être projeté en l'air par le saut (E) de Zac, maintenez un mouvement de recul ou latéral constant (kiting) afin de rester hors de sa zone d'impact.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Zac"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Diamant 1",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.17"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Zac est à proximité et cherche à engager"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "diamant",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-JYqEt7yD-zE",
+     "locator": "[08:58]",
+     "lang": "pt",
+     "passage": "Just gonna kite away, look at this. So Zac doesn't get the knock-up here.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-17",
+      "window": "518-578s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Zac (exemple)",
+    "Swain (exemple)"
+   ],
+   "action": "Maintenir un mouvement de recul constant face à la zone d'atterrissage probable de Zac.",
+   "observe": "Le kiting préventif empêche Zac de connecter son contrôle principal.",
+   "use": {
+    "when": "Zac adverse est visible ou suspecté de charger son saut (E) vers toi.",
+    "why": "Éviter le knock-up de Zac est vital pour ne pas se faire enchaîner par le reste de l'équipe adverse.",
+    "who": "Tout joueur faisant face à un Zac",
+    "how": [
+     "Identifier la direction d'approche de Zac",
+     "Se déplacer continuellement vers l'arrière ou le côté",
+     "Ne pas s'arrêter pour lancer des sorts si cela permet à Zac de vous atteindre"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [],
+    "why": "Le conseil est une mécanique générale de kiting contre un skillshot de zone (E de Zac) ; il ne devrait pas être limité à Swain dans 'champions' car il s'applique à tous."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-17",
+   "validity": {
+    "checkedAt": "2026-11-17",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-17",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-17"
   }
  ],
- "updatedAt": "2026-11-17T08:50:45.750Z"
+ "updatedAt": "2026-11-17T21:24:04.259Z"
 }

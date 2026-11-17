@@ -99272,7 +99272,272 @@
    },
    "version": 1,
    "firstSeen": "2026-11-16"
+  },
+  {
+   "id": "u-ai-yt-8DCQ5obAUyM-1",
+   "claim": "Selon Shok : avec Orianna, place ton ultime (Onde de choc) pour attirer l'adversaire vers toi plutôt que de le repousser, facilitant ainsi la poursuite pour sécuriser l'élimination.",
+   "champions": [
+    "Orianna"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Orianna/R"
+   ],
+   "conditions": [
+    "Avoir l'opportunité de placer la sphère derrière ou au niveau de la cible pour l'attirer vers soi"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-8DCQ5obAUyM",
+     "locator": "[06:00]",
+     "lang": "en",
+     "passage": "That's one thing you really want to do with Orianna is if you can bring your opponent towards you, it's really really good. I often see you guys ult people away from you and then you can't chase them down as easy. That's really really key.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-17",
+      "window": "340-400s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer l'ultime d'Orianna en positionnant la sphère de façon à rabattre l'ennemi vers soi plutôt que de le repousser au loin.",
+   "observe": "L'ennemi se retrouve plus proche de toi, ce qui permet d'enchaîner des attaques et sorts supplémentaires pour finir le kill.",
+   "use": {
+    "when": "Tu cherches à tuer ton vis-à-vis en lane dès le niveau 6 et tu t'apprêtes à déclencher l'ultime d'Orianna.",
+    "why": "Attirer l'adversaire vers soi permet de le poursuivre et de le frapper beaucoup plus facilement, alors que le projeter au loin l'aide à s'enfuir.",
+    "who": "Joueurs d'Orianna",
+    "how": [
+     "Positionne la sphère légèrement derrière ou au niveau du centre du modèle adverse.",
+     "Active l'ultime (R) pour aspirer l'ennemi en direction de ta position.",
+     "Poursuis avec tes sorts restants et tes attaques de base."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil mécanique intemporel et précis sur l'orientation de l'ultime d'Orianna, parfaitement appuyé par la citation de l'auteur."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-17",
+   "validity": {
+    "checkedAt": "2026-11-17",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-17",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-17"
+  },
+  {
+   "id": "u-ai-yt-8DCQ5obAUyM-3",
+   "claim": "Selon Shok : en mid lane contre un champion de mêlée en début de partie, il est généralement préférable de faire un slow push en harcelant continuellement avec les attaques de base et le sort principal plutôt que de pousser vite sous la tourelle.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jouer un champion à distance contre un champion de mêlée en début de phase de lane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-8DCQ5obAUyM",
+     "locator": "[01:25]",
+     "lang": "en",
+     "passage": "My main goal here is just to slow push and then harass as much as I can as it goes in. I don't want to fast push cause I don't want to let him farm under turret, I'm just going to slow push it in and then like harass as much as possible on the way."
+    },
+    {
+     "content": "c-yt-8DCQ5obAUyM",
+     "locator": "[03:59]",
+     "lang": "en",
+     "passage": "So like, typically slow pushing is good because it gives you lots of chances to harass on the way in. So yeah, we just look to slow push under the turret. And then once we get some sort of lead, we can let it kind of bounce back out. That way we can look to zone them off when it comes to our side of the lane."
+    }
+   ],
+   "mentions": [],
+   "action": "Ralentir la poussée de la vague tout en frappant l'adversaire de mêlée à chaque fois qu'il s'approche pour last hit.",
+   "observe": "L'adversaire perd beaucoup de points de vie avant même que la vague n'atteigne sa tourelle, facilitant une prise de contrôle ou un gel au rebond.",
+   "use": {
+    "when": "Début de partie en mid lane, à distance face à un champion au corps-à-corps.",
+    "why": "Pousser rapidement permet à l'adversaire de farm tranquillement sous sa tourelle. Le slow push maximise les opportunités de lui infliger des dégâts sur la trajectoire et prépare un rebond de vague favorable pour le zoner.",
+    "who": "Mages ou champions à distance affrontant un corps-à-corps au mid.",
+    "how": [
+     "Last-hit les sbires au dernier moment tout en gardant l'avantage du nombre de sbires.",
+     "Harceler continuellement le champion de mêlée avec des attaques de base et tes compétences à faible coût.",
+     "Laisser la grosse vague s'écraser sous la tourelle adverse, puis attendre qu'elle rebondisse vers toi pour zoner l'ennemi."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe intemporel de gestion des vagues et de pression en début de partie contre les champions de mêlée au mid."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-17",
+   "validity": {
+    "checkedAt": "2026-11-17",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-17",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-17"
+  },
+  {
+   "id": "u-ai-yt-8DCQ5obAUyM-4",
+   "claim": "Selon Shok : il faut éviter d'engager des combats d'équipe ou de contester des escarmouches avec d'importantes sommes d'or non dépensées en poche.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.1"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir accumulé beaucoup d'or (ex. 1800 à 2700 gold) avant un combat d'objectif majeur"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-8DCQ5obAUyM",
+     "locator": "[16:03]",
+     "lang": "en",
+     "passage": "I want to make sure I spend my gold before this third dragon. Like third dragon will be the most important thing for winning the game probably, and so I want to make sure I get Cryptbloom before that.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-17",
+      "window": "943-1003s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur exprime une intention personnelle pour cette partie précise, que le conseil généralise à tous les joueurs, et il n'explicite pas que l'or non dépensé ne donne pas de statistiques."
+     }
+    },
+    {
+     "content": "c-yt-8DCQ5obAUyM",
+     "locator": "[23:55]",
+     "lang": "en",
+     "passage": "Okay, let me let me back off here and spend my money. I don't want to... I really don't want to die with 1800 gold just because, yeah, it's kind of cringe to fight with this much money."
+    },
+    {
+     "content": "c-yt-8DCQ5obAUyM",
+     "locator": "[26:08]",
+     "lang": "en",
+     "passage": "Fighting again guys, like really be careful how much gold you fight on. I see this in coaching all the time, but fighting with 2700 gold, that's like... yeah, it's a sin, like look at that, I'm about to go from 392 AP to 594."
+    }
+   ],
+   "mentions": [],
+   "action": "Reculer et effectuer un rappel en base pour convertir son or en puissance brute avant l'apparition d'un objectif majeur ou d'un combat d'équipe.",
+   "observe": "Un gain immédiat de puissance et de statistiques évitant de perdre un combat à armes inégales malgré un avantage théorique aux golds.",
+   "use": {
+    "when": "Tu possèdes une grosse somme d'or non dépensée et un combat d'objectif important (dragon, baron) se profile.",
+    "why": "",
+    "who": "Tous les rôles et champions en mid/late game.",
+    "how": [
+     "Pousser rapidement sa vague sur une voie latérale ou au milieu.",
+     "Rappeler à la base au moins 45 secondes à 1 minute avant l'apparition de l'objectif.",
+     "Acheter les composants ou objets complétés et revenir sur la carte avec l'avantage de puissance réel."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Règle fondamentale et intemporelle de macro invitant à dépenser son or avant les combats d'objectifs majeurs."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-17",
+   "validity": {
+    "checkedAt": "2026-11-17",
+    "checkedPatch": "26.22"
+   },
+   "verified": {
+    "at": "2026-11-17",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-17"
   }
  ],
- "updatedAt": "2026-11-16T22:42:20.451Z"
+ "updatedAt": "2026-11-17T08:50:45.750Z"
 }

@@ -965,6 +965,195 @@
    "from": "provisoire",
    "to": "exploitable",
    "why": "Avis d'une seule personne : présenté comme tel."
+  },
+  {
+   "at": "2026-11-22T20:04:05.764Z",
+   "unit": "u-lucian-2620-ad",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.764Z",
+   "unit": "u-smolder-2620",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.764Z",
+   "unit": "u-ashe-2620",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.764Z",
+   "unit": "u-runaan-2620",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.764Z",
+   "unit": "u-dd-galio-a1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Galio/W modifié au patch 26.23, après 26.20."
+  },
+  {
+   "at": "2026-11-22T20:04:05.764Z",
+   "unit": "u-dd-galio-e1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Galio/W modifié au patch 26.23, après 26.20."
+  },
+  {
+   "at": "2026-11-22T20:04:05.764Z",
+   "unit": "u-dd-leblanc-a3",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "LeBlanc/Q modifié au patch 26.23, après 26.20."
+  },
+  {
+   "at": "2026-11-22T20:04:05.764Z",
+   "unit": "u-dd-masteryi-a3",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Maître Yi/Q modifié au patch 26.23, après 26.20."
+  },
+  {
+   "at": "2026-11-22T20:04:05.764Z",
+   "unit": "u-dd-masteryi-e2",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Maître Yi/Q modifié au patch 26.23, après 26.20."
+  },
+  {
+   "at": "2026-11-22T20:04:05.764Z",
+   "unit": "u-dd-mel-a1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Mel/W modifié au patch 26.23, après 26.22."
+  },
+  {
+   "at": "2026-11-22T20:04:05.764Z",
+   "unit": "u-dd-mel-e1",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Mel/W modifié au patch 26.23, après 26.22."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-dd-syndra-e2",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Syndra/E modifié au patch 26.23, après 26.20."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-dd-velkoz-a3",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Vel'Koz/R modifié au patch 26.23, après 26.20."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-dd-velkoz-e3",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Vel'Koz/R modifié au patch 26.23, après 26.20."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-dd-vi-a2",
+   "from": "exploitable",
+   "to": "a-revalider",
+   "why": "Vi/E modifié au patch 26.23, après 26.20."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-ai-yt-5un5rVpQpf8-1",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-5un5rVpQpf8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. c-yt-5un5rVpQpf8 : lu par gemini-3.8-flash (1 image/s) ; passage à vérifier sur la vidéo ([00:44]). Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta. Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-ai-yt-5un5rVpQpf8-4",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-5un5rVpQpf8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta. Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-ai-yt-5un5rVpQpf8-7",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-5un5rVpQpf8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta. Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-ai-yt-5un5rVpQpf8-8",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-5un5rVpQpf8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta. Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-ai-yt-5un5rVpQpf8-10",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-5un5rVpQpf8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta. Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-ai-yt-5un5rVpQpf8-11",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-5un5rVpQpf8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta. Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-ai-yt-5un5rVpQpf8-12",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-5un5rVpQpf8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta. Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-ai-yt-5un5rVpQpf8-13",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-5un5rVpQpf8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta. Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-ai-yt-5un5rVpQpf8-14",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-5un5rVpQpf8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta. Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-ai-yt-5un5rVpQpf8-15",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-5un5rVpQpf8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta. Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-ai-yt-5un5rVpQpf8-16",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-5un5rVpQpf8 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta. Dépend de la méta, patch 26.20 : 3 patchs de retard."
+  },
+  {
+   "at": "2026-11-22T20:04:05.765Z",
+   "unit": "u-ai-yt-mjMe6O0j59U-1",
+   "from": "provisoire",
+   "to": "a-revalider",
+   "why": "c-yt-mjMe6O0j59U : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet. c-yt-mjMe6O0j59U publié le 2023-03-05 : à confirmer sur le kit et la méta actuels. Avis d'une seule personne : présenté comme tel. Annie/R modifié au patch 26.23, après S13."
   }
  ]
 }

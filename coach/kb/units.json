@@ -99988,7 +99988,387 @@
    },
    "version": 1,
    "firstSeen": "2026-11-17"
+  },
+  {
+   "id": "u-ai-yt-5Pp4rgbNV5o-1",
+   "claim": "Selon Sol1XD : l'animation de l'ultime de Gwen peut te rendre vulnérable face à Cassiopeia, car elle facilite le déclenchement de son étourdissement.",
+   "champions": [
+    "Gwen"
+   ],
+   "roles": [
+    "mid",
+    "top"
+   ],
+   "themes": [
+    "matchup",
+    "teamfight"
+   ],
+   "matchup": {
+    "vs": "Cassiopeia"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Master",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Gwen/R",
+    "Cassiopeia/R"
+   ],
+   "conditions": [
+    "Gwen utilise son R face à Cassiopeia"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-5Pp4rgbNV5o",
+     "locator": "21:10",
+     "lang": "es",
+     "passage": "La R de Gwen te turnea. Siempre se me olvida eso contra Cassio. Quizá era pelearlo en Nashor, ¿no?",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-22",
+      "window": "1250-1310s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Cassiopeia (exemple)"
+   ],
+   "action": "Fais attention à ton orientation quand tu lances ton ultime face à Cassiopeia pour ne pas te faire étourdir.",
+   "observe": "Le timing de l'ultime de Cassiopeia pendant ton animation de R",
+   "use": {
+    "when": "En duel ou teamfight contre une Cassiopeia qui a son ultime disponible.",
+    "why": "L'animation de Gwen peut forcer une direction de regard que Cassiopeia peut exploiter avec son Regard de la Méduse.",
+    "who": "Joueurs de Gwen",
+    "how": [
+     "Attendre que Cassiopeia utilise son R avant de lancer le tien",
+     "Tenter de lancer ton R tout en te détournant rapidement si possible"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Interaction mécanique pertinente notée lors d'une action de jeu unique."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-22",
+   "validity": {
+    "checkedAt": "2026-11-22",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-22",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-22"
+  },
+  {
+   "id": "u-ai-yt-fmySRSrfp0o-1",
+   "claim": "Selon PowerOfEvil : la compétence principale de Sion est son A (Fracassement meurtrier). Il faut maintenir la touche pour charger la compétence : plus le canal est long, plus les dégâts sont importants.",
+   "champions": [
+    "Sion"
+   ],
+   "roles": [
+    "top",
+    "all"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.6"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Sion/Q"
+   ],
+   "conditions": [
+    "Jouer Sion"
+   ],
+   "limits": [
+    "Conseil de base pour débutant",
+    "Contexte de partie Ultimate Bravery (builds aléatoires)"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-fmySRSrfp0o",
+     "locator": "00:38",
+     "lang": "de",
+     "passage": "Sions Hauptfertigkeit ist sein Q. Die musst du praktisch so halten.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-22",
+      "window": "18-78s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-fmySRSrfp0o",
+     "locator": "00:44",
+     "lang": "de",
+     "passage": "Und die lädt sich auf. Das macht immer mehr Damage. Desto länger du den Channel machst, desto mehr Damage."
+    }
+   ],
+   "mentions": [],
+   "action": "Maintenir le A de Sion jusqu'au bout du canal pour maximiser les dégâts.",
+   "observe": "La barre de chargement de la compétence A de Sion.",
+   "use": {
+    "when": "Tu veux infliger un maximum de dégâts avec le A de Sion, par exemple depuis un buisson ou sur une vague de sbires.",
+    "why": "Les dégâts de la compétence augmentent proportionnellement à la durée de la canalisation.",
+    "who": "Joueur de Sion débutant.",
+    "how": [
+     "Se placer si possible dans un buisson pour ne pas être vu.",
+     "Maintenir la touche A enfoncée.",
+     "Attendre la fin du canal avant de relâcher."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "La mécanique de charge du A est un fait du kit, mais le patch 14.6 est trop ancien par rapport au patch courant (26.23), ce qui nécessite une revalidation des valeurs."
+   },
+   "published": null,
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-22",
+   "validity": {
+    "checkedAt": "2026-11-22",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-22",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-22"
+  },
+  {
+   "id": "u-ai-yt-fmySRSrfp0o-2",
+   "claim": "Selon PowerOfEvil : pour un joueur débutant sur Sion, il est recommandé d'utiliser le passif (Gloire posthume) pour se concentrer sur le farm des sbires après une mort afin de limiter la perte de ressources.",
+   "champions": [
+    "Sion"
+   ],
+   "roles": [
+    "top",
+    "all"
+   ],
+   "themes": [
+    "champion",
+    "vagues"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.6"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Sion/passive"
+   ],
+   "conditions": [
+    "Passif de Sion activé"
+   ],
+   "limits": [
+    "Contexte de partie Ultimate Bravery"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-fmySRSrfp0o",
+     "locator": "00:34",
+     "lang": "de",
+     "passage": "Kann einer von euch ganz kurz 'nen Crashkurs in How to play Sion for Noobs?",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-22",
+      "window": "14-74s",
+      "said": true,
+      "supported": false,
+      "gap": "L'extrait explique comment charger le sort Q (A) de Sion depuis un buisson pour maximiser les dégâts sur les sbires, et non comment utiliser son passif après la mort."
+     }
+    },
+    {
+     "content": "c-yt-fmySRSrfp0o",
+     "locator": "02:03",
+     "lang": "de",
+     "passage": "Mit der Passiven nimm die Minions, nimm die Minions, nimm die Minions! Einfach nur die Minions farmen."
+    }
+   ],
+   "mentions": [],
+   "action": "Attaquer les sbires avec le passif de Sion après une mort.",
+   "observe": "La présence de sbires proches au moment de la mort.",
+   "use": {
+    "when": "Tu viens de mourir avec Sion et ton passif est actif alors qu'une vague de sbires est proche.",
+    "why": "",
+    "who": "Joueur de Sion.",
+    "how": [
+     "Ignorer les champions adverses si le kill n'est pas garanti.",
+     "Cibler les sbires avec les attaques de base du passif.",
+     "Récupérer un maximum de farm avant la fin de la durée du passif."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "patch-incompatible",
+     "une-partie",
+     "contexte-manquant"
+    ],
+    "why": "Le conseil est spécifiquement adressé à un débutant ('for Noobs') dans la source et le patch est trop ancien pour garantir l'efficacité actuelle du farm sous passif."
+   },
+   "published": null,
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-22",
+   "validity": {
+    "checkedAt": "2026-11-22",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-22",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-22"
+  },
+  {
+   "id": "u-ai-yt-fmySRSrfp0o-3",
+   "claim": "Selon PowerOfEvil : pour réussir un plongeon sous tourelle (dive), le joueur qui possède le plus de résistance doit initier l'action en prenant l'agression de la tour pour permettre à ses alliés d'éliminer la cible.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.6"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Tentative de dive sous tourelle adverse"
+   ],
+   "limits": [
+    "Nécessite une coordination avec l'équipe"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-fmySRSrfp0o",
+     "locator": "02:24",
+     "lang": "de",
+     "passage": "Toplane Dive, Toplane Dive! Wenn du tankst, killen wir. Tank, tank, tank, tank, tank!",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-22",
+      "window": "124-184s",
+      "said": true,
+      "supported": true,
+      "gap": "L'explication technique sur la résistance du tank n'est pas verbalisée."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Prendre l'agression de la tourelle en premier si tu es le plus résistant du groupe.",
+   "observe": "La position de l'adversaire sous sa tour et les PV des alliés.",
+   "use": {
+    "when": "Ton équipe est prête à attaquer un adversaire sous sa tourelle.",
+    "why": "",
+    "who": "Joueurs jouant des champions résistants (tanks).",
+    "how": [
+     "Entrer dans la portée de la tourelle en premier.",
+     "Attaquer le champion adverse pour attirer l'agression de la tour.",
+     "Sortir de la portée de la tour avant de mourir."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Il s'agit d'un principe fondamental du dive, mais il est ici extrait d'une seule action dans un contexte de partie de divertissement (Ultimate Bravery)."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-22",
+   "validity": {
+    "checkedAt": "2026-11-22",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-22",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-22"
   }
  ],
- "updatedAt": "2026-11-17T21:24:04.259Z"
+ "updatedAt": "2026-11-22T20:02:20.991Z"
 }

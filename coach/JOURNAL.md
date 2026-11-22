@@ -7,8 +7,9 @@ Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et c
 Constaté par Claude le 22/11 pendant un contrôle de routine (`gh run list`).
 
 - **Constat** : 9 échecs de suite de « Veille du coach », du 18/11 à 7 h 23 au 22/11 à 6 h 42 (UTC). Dernier succès le 17/11 à 20 h 52. La base publiée n'a pas bougé depuis le 17/11.
-- **Cause** : le patch 26.23 est sorti et modifie Lucian. Le conseil `u-lucian-2620-ad` passe « à revalider », ce que veut la règle. Mais le test « 1. Source récente compatible avec le patch » exigeait « exploitable » sans condition : il échouait, et la veille ne publie rien quand un test échoue.
-- **Correction** (`coach/tests/run.mjs`) : le test attend « exploitable » tant qu'aucun patch suivant ne touche ce dont dépend le conseil, et « à revalider » dès qu'un patch le touche. Vérifié dans les deux cas (patch 26.22 réel, puis 26.23 simulé touchant Lucian). Aucune règle ni aucun conseil modifié.
+- **Cause** : le patch 26.23 est sorti. Le conseil `u-lucian-2620-ad` (patch 26.20, dépendant de la méta) a désormais 3 patchs de retard, plus que les 2 autorisés : il passe « à revalider », ce que veut la règle. Mais le test « 1. Source récente compatible avec le patch » exigeait « exploitable » sans condition : il échouait, et la veille ne publie rien quand un test échoue.
+- **Correction** (`coach/tests/run.mjs`) : le test attend « exploitable » tant que le conseil est à 2 patchs ou moins et qu'aucun patch suivant ne touche ce dont il dépend, « à revalider » sinon. Vérifié dans les deux cas (patch 26.22 réel, puis 26.23 simulé). Aucune règle ni aucun conseil modifié.
+  - **Erreur de Claude** : une première correction, publiée à 19 h 58, supposait à tort que le 26.23 modifiait Lucian et ne traitait que ce cas. La veille relancée a échoué de nouveau ; la seconde correction traite la vraie cause.
 - **Conséquences du patch 26.23, à traiter** :
   - les builds et fiches champions sont calculés sur le 26.22 : la collecte Diamant+ est à refaire (environ 4 h, clé personnelle). Pas lancée : le texte en ligne chez Riot annonce encore des collectes jusqu'au 05/11, l'accord d'Anthony pour le texte à jour est toujours attendu ;
   - d'après le journal de la veille du 22/11 : 61 conseils « à revalider » après le 26.23.

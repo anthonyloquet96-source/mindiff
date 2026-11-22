@@ -51,13 +51,16 @@ await t("1. Source récente compatible avec le patch", "réel", () => {
   const num = v => { const [x, y] = String(v).split(".").map(Number); return x * 100 + y; };
   const p = u.patch.value;
   assert(num(p) <= num(ctx.current), `patch ${p} postérieur au patch courant ${ctx.current}`);
-  // Le conseil date du 26.20 : exploitable tant qu'aucun patch suivant ne touche ce dont il dépend, « à revalider » dès qu'un patch le touche
+  // Conseil du 26.20 qui dépend de la méta : exploitable tant que le patch courant est assez proche et qu'aucun patch suivant
+  // ne touche ce dont il dépend ; « à revalider » ensuite. Les deux issues sont justes, selon le patch courant.
   const since = num(u.validity?.checkedPatch || p);
   const touched = Object.entries(ctx.changes).filter(([v, list]) => num(v) > since && num(v) <= num(ctx.current) && u.dependsOn.some(d => list.includes(d))).map(([v]) => v);
-  const want = touched.length ? "a-revalider" : "exploitable";
-  assert(r.status === want, `statut ${r.status}, attendu ${want}${touched.length ? ` (touché par ${touched.join(", ")})` : ""}`);
-  return touched.length
-    ? `u-lucian-2620-ad : patch ${p} (courant ${ctx.current}), touché par ${touched.join(", ")} : à revalider, comme le veut la règle.`
+  const tooFar = u.metaDependent && num(ctx.current) - num(p) > ctx.config.freshness.metaDependentMaxPatches;
+  const why = touched.length ? `touché par ${touched.join(", ")}` : tooFar ? `plus de ${ctx.config.freshness.metaDependentMaxPatches} patchs de retard` : null;
+  const want = why ? "a-revalider" : "exploitable";
+  assert(r.status === want, `statut ${r.status}, attendu ${want}${why ? ` (${why})` : ""}`);
+  return why
+    ? `u-lucian-2620-ad : patch ${p} (courant ${ctx.current}), ${why} : à revalider, comme le veut la règle.`
     : `u-lucian-2620-ad : patch ${p} (courant ${ctx.current}), exploitable, passages retrouvés dans les notes officielles.`;
 });
 await t("2. Source ancienne devenue incompatible", "réel + patch simulé", () => {

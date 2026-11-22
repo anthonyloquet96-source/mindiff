@@ -11,7 +11,7 @@ Ce fichier dit ce qui est fait et ce qui reste à faire, pour Anthony comme pour
 ## Vérifié automatiquement
 
 <!-- AUTO:début -->
-_Vérifié automatiquement le 10/11/2026 18:16:37 par `coach/etat.mjs`._
+_Vérifié automatiquement le 22/11/2026 19:56:25 par `coach/etat.mjs`._
 
 | | Point | Constat |
 |---|---|---|
@@ -19,9 +19,9 @@ _Vérifié automatiquement le 10/11/2026 18:16:37 par `coach/etat.mjs`._
 | ✅ | Clé Riot (.env) | acceptée par Riot |
 | ✅ | Service en ligne (Worker) | répond ; secrets posés : Riot oui, Supabase oui |
 | ✅ | Testeurs inscrits | 1 actif(s), 0 parti(s) |
-| ⚠️ | Cycles d'objectif terminés | 0 terminé(s) ; en cours : 1 ; proposés pas encore commencés : 2 |
-| ⚠️ | Clé Riot du Worker (preuve par l'usage) | dernière partie récupérée chez Riot : 04/11 00:23 |
-| ✅ | Dernière partie évaluée pour un objectif | 04/11 00:23 |
+| ⚠️ | Cycles d'objectif terminés | 0 terminé(s) ; en cours : 0 ; proposés pas encore commencés : 3 |
+| ⚠️ | Clé Riot du Worker (preuve par l'usage) | dernière partie récupérée chez Riot : 13/11 09:23 |
+| ✅ | Dernière partie évaluée pour un objectif | 13/11 09:23 |
 | ✅ | Code publié | tout est sur main |
 <!-- AUTO:fin -->
 
@@ -65,6 +65,7 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Décision sur le tuteur | 03/11 | JOURNAL 03/11 |
 | Site, avant la relecture de Riot : tuile Valorant « Bientôt » : la garder ou la cacher. (Tier list Ranked : mise à jour le 07/11 sur le patch 26.22 à la demande d'Anthony, voir JOURNAL 07/11 ; à refaire à chaque patch) | 05/11 | tour du site par Claude le 05/11 |
 | Avant d'inviter les testeurs : faire le tour de l'espace connecté sur téléphone (jamais vérifié par Claude), et trancher les 5 points de `docs/RGPD.md` § 5 (page de confidentialité fausse pour un testeur, suppression du compte, date de fin du test, adresse de contact, accord Cloudflare). Relire `docs/TEST-PRIVE.md` (message d'invitation, guide) | 10/11 | JOURNAL 10/11 |
+| Patch 26.23 sorti (vers le 18/11) : les builds et fiches champions sont encore sur le 26.22. Donner l'accord pour relancer la collecte Diamant+ (environ 4 h), de préférence après avoir mis à jour le texte Riot | 22/11 | JOURNAL 22/11 |
 | Texte déclaré à Riot (app 897844) : le texte en ligne annonce « environ 8 000 parties, du 27/10 au 05/11 » ; il y en a environ 13 900 au 10/11. Le texte à jour est prêt dans `coach/riot-mise-a-jour-2026-11-10.md`. Donner l'accord pour le coller, ou le coller soi-même | 10/11 | JOURNAL 10/11 (soir) |
 | Clé de production : choisir comment Riot pourra essayer le coach (code de démonstration envoyé par message sur le portail, ou vidéo du parcours) | 05/11 | règles Riot lues le 05/11 (developer.riotgames.com/docs/lol) |
 

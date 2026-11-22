@@ -47,13 +47,18 @@ const fxCtx = { ...ctx, contents: new Map([...ctx.contents, ...fx.contents.map(c
 
 // ---------- Les dix cas demandés
 await t("1. Source récente compatible avec le patch", "réel", () => {
-  const r = ev(unit("u-lucian-2620-ad"));
-  assert(r.status === "exploitable", `statut ${r.status}`);
-  // Le conseil date du 26.20 : il doit rester exploitable au patch courant tant qu'aucun patch suivant ne touche Lucian
+  const u = unit("u-lucian-2620-ad"), r = ev(u);
   const num = v => { const [x, y] = String(v).split(".").map(Number); return x * 100 + y; };
-  const p = unit("u-lucian-2620-ad").patch.value;
+  const p = u.patch.value;
   assert(num(p) <= num(ctx.current), `patch ${p} postérieur au patch courant ${ctx.current}`);
-  return `u-lucian-2620-ad : patch ${p} (courant ${ctx.current}), exploitable, passages retrouvés dans les notes officielles.`;
+  // Le conseil date du 26.20 : exploitable tant qu'aucun patch suivant ne touche ce dont il dépend, « à revalider » dès qu'un patch le touche
+  const since = num(u.validity?.checkedPatch || p);
+  const touched = Object.entries(ctx.changes).filter(([v, list]) => num(v) > since && num(v) <= num(ctx.current) && u.dependsOn.some(d => list.includes(d))).map(([v]) => v);
+  const want = touched.length ? "a-revalider" : "exploitable";
+  assert(r.status === want, `statut ${r.status}, attendu ${want}${touched.length ? ` (touché par ${touched.join(", ")})` : ""}`);
+  return touched.length
+    ? `u-lucian-2620-ad : patch ${p} (courant ${ctx.current}), touché par ${touched.join(", ")} : à revalider, comme le veut la règle.`
+    : `u-lucian-2620-ad : patch ${p} (courant ${ctx.current}), exploitable, passages retrouvés dans les notes officielles.`;
 });
 await t("2. Source ancienne devenue incompatible", "réel + patch simulé", () => {
   const old = ev(unit("u-lucian-vigilance-avant-2619"));

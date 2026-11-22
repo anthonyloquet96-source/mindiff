@@ -2,6 +2,19 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
+## 2026-11-22 — veille du coach en panne depuis le 18/11 : test trop rigide corrigé
+
+Constaté par Claude le 22/11 pendant un contrôle de routine (`gh run list`).
+
+- **Constat** : 9 échecs de suite de « Veille du coach », du 18/11 à 7 h 23 au 22/11 à 6 h 42 (UTC). Dernier succès le 17/11 à 20 h 52. La base publiée n'a pas bougé depuis le 17/11.
+- **Cause** : le patch 26.23 est sorti et modifie Lucian. Le conseil `u-lucian-2620-ad` passe « à revalider », ce que veut la règle. Mais le test « 1. Source récente compatible avec le patch » exigeait « exploitable » sans condition : il échouait, et la veille ne publie rien quand un test échoue.
+- **Correction** (`coach/tests/run.mjs`) : le test attend « exploitable » tant qu'aucun patch suivant ne touche ce dont dépend le conseil, et « à revalider » dès qu'un patch le touche. Vérifié dans les deux cas (patch 26.22 réel, puis 26.23 simulé touchant Lucian). Aucune règle ni aucun conseil modifié.
+- **Conséquences du patch 26.23, à traiter** :
+  - les builds et fiches champions sont calculés sur le 26.22 : la collecte Diamant+ est à refaire (environ 4 h, clé personnelle). Pas lancée : le texte en ligne chez Riot annonce encore des collectes jusqu'au 05/11, l'accord d'Anthony pour le texte à jour est toujours attendu ;
+  - d'après le journal de la veille du 22/11 : 61 conseils « à revalider » après le 26.23.
+- **Autre** : un échec isolé de « Collecte et publication » le 22/11 à 16 h 56 (étape de déploiement des pages), après des succès toute la journée. Pas touché ; à regarder s'il se répète.
+- **Service** (`coach/etat.mjs` du 22/11) : 1 testeur, 0 cycle terminé, 0 en cours, 3 objectifs proposés non commencés ; dernière partie récupérée le 13/11.
+
 ## 2026-11-10 (soir) — collecte 26.22 terminée, builds et fiches recalculés
 
 Suite du chantier validé par Anthony le 10/11.

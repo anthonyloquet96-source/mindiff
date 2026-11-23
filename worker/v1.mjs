@@ -103,6 +103,15 @@ export function createV1Worker({ fetchImpl = fetch, now = () => Date.now(), sb =
       if (!t) await rest.rest("POST", "pilot_testers", { body: { user_id: uid, invited_by: "code", consent_at: new Date(now()).toISOString(), consent_version: CONSENT_VERSION, age_confirmed: true } });
       return json(200, { tester: true }, cors);
     }
+    // Suppression du compte (RGPD), ouverte à tout compte connecté, même sorti du test : les données de jeu de chaque Riot ID lié
+    // (parties partagées nettoyées), puis le compte lui-même. La base retire en cascade l'inscription au test et l'accord donné.
+    if (url.pathname === "/api/v1/account" && request.method === "DELETE") {
+      const own = createSupabaseStore(rest);
+      for (const p of await rest.rest("GET", `players?user_id=eq.${encodeURIComponent(uid)}&select=id`)) await own.deletePlayer(p.id);
+      const r = await fetchImpl(`${env.SUPABASE_URL}/auth/v1/admin/users/${encodeURIComponent(uid)}`, { method: "DELETE", headers: { apikey: env.SUPABASE_SERVICE_KEY, Authorization: `Bearer ${env.SUPABASE_SERVICE_KEY}` } }).catch(() => null);
+      if (!r?.ok) return err(502, "suppression-compte", "Tes données de jeu sont effacées, mais le compte n'a pas pu être supprimé. Réessaie plus tard.", cors);
+      return new Response(null, { status: 204, headers: cors });
+    }
     if (env.COACH_ACCESS !== "public") {
       const t = await tester(rest, uid);
       if (!t || t.revoked_at) return err(403, "test-prive", "Le coach est en test privé, sur invitation.", cors);

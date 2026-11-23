@@ -1306,10 +1306,17 @@ await t("COACH-004 Worker : jeton vérifié, joueurs d'un autre compte invisible
   };
   // Faux Supabase Auth et faux Riot derrière le même fetch ; la clé Riot ne doit jamais apparaître dans une réponse
   const tokens = { "jeton-a": A, "jeton-b": B, "jeton-c": C };
+  let authDown = false;
   const fetchImpl = async (url, o = {}) => {
     const ok = body => ({ ok: true, status: 200, json: async () => body, text: async () => JSON.stringify(body), headers: { get: () => null } });
     if (url.includes("/auth/v1/user")) { const id = tokens[(o.headers?.Authorization || "").replace("Bearer ", "")]; return id ? ok({ id }) : { ok: false, status: 401, json: async () => ({}) }; }
     if (url.includes("/riot/account/v1/")) return ok({ puuid: "puuid-a", gameName: "Testeur", tagLine: "EUW" });
+    // Faux Supabase Auth (administration) : supprime le compte, la base fait le reste en cascade ; en panne sur demande
+    if (url.includes("/auth/v1/admin/users/") && o.method === "DELETE") {
+      if (authDown || o.headers?.Authorization !== "Bearer service") return { ok: false, status: 500, json: async () => ({}) };
+      await db.query("delete from auth.users where id = $1", [url.split("/").pop()]);
+      return ok({});
+    }
     return ok([]);
   };
   const worker = createV1Worker({ fetchImpl, sb: { rest }, log: () => {} });
@@ -1358,8 +1365,22 @@ await t("COACH-004 Worker : jeton vérifié, joueurs d'un autre compte invisible
   assert(last.status === 429 && last.body.error.code === "quota-sync", "quota de synchronisations absent");
   assert((await call("/api/v1/health", { origin: "https://pirate.example" })).headers.get("Access-Control-Allow-Origin") === "https://anthonyloquet96-source.github.io", "CORS ouvert à tous");
   await Promise.all(waits);
+  // Suppression du compte : sans jeton refusée ; le compte, l'inscription au test et les données de jeu partent, les autres comptes restent
+  const count = async (table, col, v) => Number((await db.query(`select count(*) n from ${table} where ${col} = $1`, [v])).rows[0].n);
+  assert((await call("/api/v1/account", { method: "DELETE" })).status === 401, "suppression de compte sans jeton");
+  authDown = true;
+  const ko = await call("/api/v1/account", { token: "jeton-c", method: "DELETE" });
+  assert(ko.status === 502 && ko.body.error.code === "suppression-compte" && (await count("auth.users", "id", C)) === 1, "panne d'authentification non signalée");
+  authDown = false;
+  assert((await call("/api/v1/account", { token: "jeton-c", method: "DELETE" })).status === 204, "suppression du compte C refusée");
+  assert((await count("auth.users", "id", C)) === 0 && (await count("public.pilot_testers", "user_id", C)) === 0, "compte ou inscription de C encore là");
+  assert((await count("public.players", "user_id", A)) === 1 && (await count("public.pilot_testers", "user_id", A)) === 1, "la suppression de C a touché A");
+  assert((await call("/api/v1/account", { token: "jeton-a", method: "DELETE" })).status === 204, "suppression du compte A refusée");
+  assert((await count("auth.users", "id", A)) === 0 && (await count("public.players", "user_id", A)) === 0 && (await count("public.pilot_testers", "user_id", A)) === 0, "données de A encore là");
+  assert((await count("public.match_metrics", "player_id", pid)) === 0 && (await count("public.coaching_goals", "player_id", pid)) === 0, "mesures ou objectifs de A encore là");
+  assert((await count("auth.users", "id", B)) === 1, "la suppression de A a touché B");
   await db.close();
-  return "jeton vérifié par Supabase ; un autre compte ne voit, ne synchronise ni ne supprime le joueur ; compte Riot lié une seule fois ; synchronisation après la réponse ; quota quotidien ; CORS limité ; aucun secret dans les réponses.";
+  return "jeton vérifié par Supabase ; un autre compte ne voit, ne synchronise ni ne supprime le joueur ; compte Riot lié une seule fois ; synchronisation après la réponse ; quota quotidien ; CORS limité ; aucun secret dans les réponses ; suppression du compte : e-mail, inscription et données de jeu effacés, les autres comptes intacts.";
 });
 
 await t("COACH-002 Normaliseur sur de vraies parties anonymisées (cache privé)", "réel", async () => {

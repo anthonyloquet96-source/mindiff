@@ -243,7 +243,7 @@ function c2PilotGate() {
         <li>Test privé d'environ deux semaines, réservé aux personnes majeures invitées.</li>
         <li>À partir de ton Riot ID, le coach lit tes parties classées via l'API de Riot Games et les garde pour te proposer un objectif et le suivre sur tes parties suivantes.</li>
         <li>Données gardées : ton e-mail (pour te connecter), ton Riot ID, tes parties, tes objectifs et tes avis. Hébergées en Europe (Supabase, Irlande), visibles par toi seul, jamais vendues ni partagées, sans publicité, et aucune n'est envoyée à un service d'IA.</li>
-        <li>Le bouton « Supprimer mes données du coach » efface tout à tout moment. Tout est effacé à la fin du test.</li>
+        <li>À tout moment, « Supprimer mes données du coach » efface tes données de jeu, et « Supprimer mon compte » efface tout, adresse e-mail comprise. Tout est effacé à la fin du test.</li>
         <li>MINDIFF n'est ni approuvé ni soutenu par Riot Games.</li>
       </ul></details>
       <label class="check"><input type="checkbox" name="age"> J'ai 18 ans ou plus</label>
@@ -791,7 +791,9 @@ function c2V1Verdict(g, evs) {
 function c2V1Erase() {
   const V = c2ui.v1 || {};
   if (!V.pid) return "";
-  if (!V.erase) return `<button class="btn ghost sm c2-v1-erase" data-action="c2-v1-erase">Supprimer mes données du coach</button>`;
+  if (V.eraseAccount) return `<div class="c2-v1-erase-confirm"><p class="fine">Tout sera effacé définitivement : tes parties, mesures, objectifs et avis, ton inscription au test et ton compte (adresse e-mail). Tu seras déconnecté.</p>
+    <button class="btn primary sm" data-action="c2-v1-account-yes">Oui, supprimer mon compte</button> <button class="btn ghost sm" data-action="c2-v1-account-no">Annuler</button></div>`;
+  if (!V.erase) return `<button class="btn ghost sm c2-v1-erase" data-action="c2-v1-erase">Supprimer mes données du coach</button>${C2_PILOT ? ` <button class="btn ghost sm c2-v1-erase" data-action="c2-v1-account">Supprimer mon compte</button>` : ""}`;
   return `<div class="c2-v1-erase-confirm"><p class="fine">Tes parties, mesures, objectifs et avis seront effacés définitivement. Ton Riot ID reste enregistré sur cet appareil.</p>
     <button class="btn primary sm" data-action="c2-v1-erase-yes">Oui, tout supprimer</button> <button class="btn ghost sm" data-action="c2-v1-erase-no">Annuler</button></div>`;
 }
@@ -2173,6 +2175,15 @@ document.addEventListener("click", async e => {
   if (a.dataset.action === "c2-v1-erase" || a.dataset.action === "c2-v1-erase-no") { V.erase = a.dataset.action === "c2-v1-erase"; render(false); }
   if (a.dataset.action === "c2-v1-erase-yes" && V.pid && !V.busy) {
     try { await c2V1(`/players/${V.pid}`, "DELETE"); c2ui.v1 = { deleted: C2.account?.riotId }; } catch (err) { V.error = err.message; V.erase = false; }
+    render(false);
+  }
+  if (a.dataset.action === "c2-v1-account" || a.dataset.action === "c2-v1-account-no") { V.eraseAccount = a.dataset.action === "c2-v1-account"; render(false); }
+  if (a.dataset.action === "c2-v1-account-yes" && !V.busy) {
+    try {
+      await c2V1("/account", "DELETE");
+      // Compte supprimé : plus rien à garder sur cet appareil non plus
+      c2Session = null; c2SessionSave(); C2.account = null; C2.profile = null; C2.reviews = {}; c2Save(); C2_API = null; c2ui.pilot = { mode: "login" }; c2ui.v1 = {};
+    } catch (err) { V.error = err.message; V.eraseAccount = false; }
     render(false);
   }
   if (a.dataset.action === "c2-v1-restart") { c2ui.v1 = {}; c2V1Load(true); }

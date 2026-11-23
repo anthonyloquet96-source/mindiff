@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Confidentialité et conditions · MINDIFF</title>
-  <meta name="description" content="Quelles données MINDIFF lit chez Riot Games, ce qui est conservé (rien sur nos serveurs) et les conditions d'utilisation.">
+  <meta name="description" content="Quelles données MINDIFF lit chez Riot Games, ce qui est conservé, et les conditions d'utilisation.">
   <script>try{var t=JSON.parse(localStorage.getItem("tm-prefs-v1")||"{}").theme;if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
   <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
@@ -25,12 +25,12 @@
   <main class="legal">
     <a class="back" href="./#/lol" style="color: var(--text-2)">← Retour à MINDIFF</a>
     <h1 class="page-title">Confidentialité et conditions</h1>
-    <p class="fine">Dernière mise à jour : 23 octobre 2026.</p>
+    <p class="fine">Dernière mise à jour : 23 novembre 2026.</p>
 
     <section>
       <h2>Ce qu'est MINDIFF</h2>
       <p>MINDIFF est un site gratuit de suivi esport et d'aide à la progression pour League of Legends. Le coach relit tes parties classées à partir des données officielles de Riot Games et te montre ce qui t'a coûté des parties, comparé aux joueurs Diamant et plus.</p>
-      <p>Il n'y a ni compte, ni inscription, ni publicité, ni abonnement.</p>
+      <p>Il n'y a ni publicité, ni abonnement. Le site se consulte sans compte. Seul le test privé du coach, sur invitation, demande un compte : voir « Test privé du coach » plus bas.</p>
     </section>
 
     <section>
@@ -47,12 +47,25 @@
     <section>
       <h2>Ce qui est conservé</h2>
       <ul>
-        <li><b>Sur nos serveurs : rien.</b> Le service du coach relaie tes demandes vers Riot Games et garde les réponses quelques minutes en mémoire pour ne pas interroger Riot deux fois. Aucune base de données, aucun journal de joueurs.</li>
+        <li><b>Sur nos serveurs, hors test privé : rien.</b> Le service du coach relaie tes demandes vers Riot Games et garde les réponses quelques minutes en mémoire pour ne pas interroger Riot deux fois. Aucune base de données, aucun journal de joueurs.</li>
         <li><b>Dans ton navigateur :</b> ton Riot ID, tes bilans de partie et tes objectifs, pour les retrouver à ta prochaine visite. Tu peux tout effacer en changeant de compte dans le coach ou en vidant les données du site dans ton navigateur.</li>
         <li><b>Notifications, si tu les actives :</b> l'adresse technique de notification de ton appareil (fournie par ton navigateur, chiffrée de bout en bout), tes choix (matchs suivis, équipes favorites, rappels du coach) et, si les rappels sont activés, le résumé de ton objectif : intitulé, poste, cible et games restantes. Ni e-mail, ni compte Riot. Le tout est supprimé quand tu désactives les notifications, ou automatiquement quand ton navigateur les révoque.</li>
         <li><b>Statistiques de référence :</b> les comparaisons « joueurs Diamant et plus » sont des moyennes calculées sur des parties classées, sans aucun identifiant de joueur.</li>
       </ul>
       <p>Aucun traceur publicitaire ni outil de mesure d'audience n'est utilisé. Rien n'est vendu ni partagé avec des tiers.</p>
+    </section>
+
+    <section>
+      <h2>Test privé du coach</h2>
+      <p>Le coach est en test privé, réservé à des personnes majeures invitées. Pour elles seulement, et avec leur accord donné à l'inscription, MINDIFF garde sur ses serveurs :</p>
+      <ul>
+        <li>l'adresse e-mail du compte, qui sert uniquement à se connecter ;</li>
+        <li>le Riot ID lié au compte ;</li>
+        <li>les parties classées lues chez Riot Games, les mesures qui en sont tirées, les objectifs proposés et leur suivi ;</li>
+        <li>les avis donnés sur les objectifs, et la date de l'accord.</li>
+      </ul>
+      <p>Ces données sont hébergées en Europe (Supabase, Irlande) et passent par le service du coach (Cloudflare). Elles ne servent qu'au coaching de la personne concernée, ne sont visibles que par elle, ne sont ni vendues ni partagées, et aucune n'est envoyée à un service d'IA.</p>
+      <p>Dans le coach, « Supprimer mes données du coach » efface les données de jeu, et « Supprimer mon compte » efface tout, adresse e-mail comprise. Tout est effacé à la fin du test.</p>
     </section>
 
     <section>
@@ -71,7 +84,7 @@
 
     <section>
       <h2>In English</h2>
-      <p>MINDIFF is a free League of Legends esports tracker and improvement coach. It only calls the official Riot Games API when you enter your Riot ID, to read your account, ranked match history and timelines, and whether you are currently in game. MINDIFF stores no player data on its servers (responses are cached in memory for a few minutes only); your Riot ID and reviews are kept in your own browser and can be deleted at any time. No ads, no tracking, no data sold or shared. MINDIFF never gives information hidden by the game during a match. Optional notifications: if you turn them on, we keep your device's push address, your choices (followed matches, favourite teams, coach reminders) and, for coach reminders, a summary of your current goal; no email and no Riot account. Turning notifications off deletes it. Contact: <a href="https://github.com/anthonyloquet96-source/mindiff/issues" rel="noopener">project issues page</a>.</p>
+      <p>MINDIFF is a free League of Legends esports tracker and improvement coach. It only calls the official Riot Games API when you enter your Riot ID, to read your account, ranked match history and timelines, and whether you are currently in game. Outside the private test, MINDIFF stores no player data on its servers (responses are cached in memory for a few minutes only); your Riot ID and reviews are kept in your own browser and can be deleted at any time. Private coach test (invited adults only, with their consent): we store the account email (sign-in only), the linked Riot ID, ranked matches read from Riot Games with the derived metrics, goals and feedback, hosted in the EU (Supabase, Ireland) behind our Cloudflare service; visible only to the tester, never sold or shared, never sent to AI services; testers can delete their game data or their whole account from the coach at any time, and everything is deleted at the end of the test. No ads, no tracking, no data sold or shared. MINDIFF never gives information hidden by the game during a match. Optional notifications: if you turn them on, we keep your device's push address, your choices (followed matches, favourite teams, coach reminders) and, for coach reminders, a summary of your current goal; no email and no Riot account. Turning notifications off deletes it. Contact: <a href="https://github.com/anthonyloquet96-source/mindiff/issues" rel="noopener">project issues page</a>.</p>
       <p class="fine en">MINDIFF isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.</p>
     </section>
   </main>

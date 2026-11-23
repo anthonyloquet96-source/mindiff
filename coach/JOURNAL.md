@@ -2,7 +2,22 @@
 
 Chaque passage d'amélioration y est consigné : ce qui a été lu, ajouté et corrigé, ce qui reste incertain, et les changements de règles proposés (jamais appliqués sans votre relecture).
 
-## 2026-11-22 — veille du coach en panne depuis le 18/11 : test trop rigide corrigé
+## 2026-11-23 — suppression du compte, page de confidentialité, collecte 26.23 lancée
+
+Demandé par Anthony le 23/11 (« Fais ce que t'as à faire », en réponse à la liste des points en attente).
+
+- **« Supprimer mon compte »** (point 2 de `docs/RGPD.md` § 5) :
+  - service : `DELETE /api/v1/account`, ouvert à tout compte connecté, même sorti du test. Il efface les données de jeu de chaque Riot ID lié (même nettoyage des parties partagées que la suppression existante), puis le compte chez Supabase. La base retire en cascade l'inscription au test et l'accord ;
+  - appli : bouton à côté de « Supprimer mes données du coach », avec confirmation ; l'appareil est déconnecté et vidé ensuite ;
+  - conditions du test : la phrase « efface tout » est précisée (données de jeu d'un côté, compte de l'autre). La version de l'accord n'a pas changé : le texte donne un droit de plus, il n'en retire aucun ;
+  - test ajouté (Worker, base embarquée) : refus sans jeton, panne de l'authentification signalée, compte, inscription et données effacés, autres comptes intacts ;
+  - **non vérifié sur un vrai compte** : Claude ne se connecte pas et ne supprime pas de compte réel.
+- **Page de confidentialité** (point 1) : section « Test privé du coach » ajoutée, phrases « ni compte, ni inscription » et « sur nos serveurs : rien » corrigées, résumé anglais mis à jour. Le contact reste le lien vers les tickets GitHub tant qu'Anthony n'a pas donné d'adresse.
+- **Collecte Diamant+ du patch 26.23** : lancée le 23/11 (`--max 15000`, 3 500 parties de plus, environ 4 h). Recalcul à faire à la fin.
+- **Texte Riot** : toujours pas collé. Le portail demande une connexion (page « Connexion » le 23/11) ; Claude ne se connecte pas à la place d'Anthony. Le total à déclarer sera d'environ 17 400 parties après cette collecte : le texte préparé (« about 14,000 … Nov 10 ») est à ajuster avant de le coller.
+- Tests : 59/61, 2 ignorés faute de cache.
+
+ depuis le 18/11 : test trop rigide corrigé
 
 Constaté par Claude le 22/11 pendant un contrôle de routine (`gh run list`).
 

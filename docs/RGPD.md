@@ -70,8 +70,8 @@ Aucun compte, aucun traceur, aucune mesure d'audience. Le Riot ID saisi, les fav
 - Réclamation : CNIL (cnil.fr).
 
 ## 5. Ce qui manque avant d'inviter les testeurs
-1. **Page de confidentialité en ligne fausse pour les testeurs.** `confidentialite.html` (mise à jour le 23/10) dit « Il n'y a ni compte, ni inscription » et « Sur nos serveurs : rien. […] Aucune base de données ». C'est vrai pour un visiteur, faux pour un testeur. Les conditions du test, elles, sont justes, mais elles ne sont visibles qu'au moment de rejoindre. Proposition : ajouter à la page une section « Test privé du coach ».
-2. **Le bouton de suppression n'efface pas le compte.** Les conditions disent qu'il « efface tout » : il efface les données de jeu, pas l'adresse e-mail ni la ligne de consentement. Proposition : ajouter « Supprimer mon compte », ou corriger la phrase.
+1. **Page de confidentialité : corrigée le 23/11.** `confidentialite.html` a une section « Test privé du coach » (données gardées, hébergement, suppression) et ne dit plus « ni compte, ni inscription ». À relire par Anthony.
+2. **Suppression du compte : ajoutée le 23/11.** Bouton « Supprimer mon compte » dans le coach (`DELETE /api/v1/account`) : données de jeu, inscription au test, accord et compte (e-mail). Vérifié sur la base de test, **pas sur un vrai compte** : à essayer une fois par Anthony avec un compte jetable.
 3. **Fin du test.** Les conditions annoncent « environ deux semaines » et « tout est effacé à la fin du test ». Il faut une date de fin, et un script d'effacement qu'Anthony lance (la suppression en masse est bloquée pour Claude). Si le test doit durer plus longtemps pour mesurer une progression, il faut changer le texte, ce qui redemande l'accord de chaque testeur.
 4. **Adresse de contact privée**, à la place des tickets GitHub.
 5. **Accord de traitement des données de Cloudflare** : à accepter dans le compte Cloudflare, et à vérifier pour l'offre gratuite (`coach/CONFORMITE.md`). Celui de Supabase fait partie de ses conditions d'utilisation.

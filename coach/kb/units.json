@@ -100368,7 +100368,603 @@
    },
    "version": 1,
    "firstSeen": "2026-11-22"
+  },
+  {
+   "id": "u-ai-yt-r5NZuRzqP8c-1",
+   "claim": "Selon 수라차 : le passif d'Hwei s'active uniquement en infligeant des dégâts avec deux compétences distinctes. L'explosion n'est pas ciblée et peut être esquivée par l'adversaire.",
+   "champions": [
+    "Hwei"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "Challenger / Master",
+    "region": ""
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Hwei/passive"
+   ],
+   "conditions": [
+    "Toucher un ennemi avec deux compétences différentes"
+   ],
+   "limits": [
+    "L'explosion du passif n'est pas un sort ciblé et peut être esquivée"
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-r5NZuRzqP8c",
+     "locator": "[00:23]",
+     "lang": "ko",
+     "passage": "2개의 스킬로 피해만 입히면 돼요",
+     "autoChecked": {
+      "by": "gemini-3.5-flash",
+      "at": "2026-11-23",
+      "window": "3-63s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "Lors d'un échange de sorts contre un champion ennemi",
+    "why": "Toucher avec deux compétences différentes applique les deux marques nécessaires à l'explosion du passif",
+    "who": "Joueurs de Hwei au mid",
+    "how": [
+     "Enchaîner deux compétences distinctes sur le même champion",
+     "Anticiper le déplacement ennemi car la zone d'explosion peut être esquivée"
+    ],
+    "notWhen": "Essayer d'activer le passif en utilisant deux attaques renforcées par le seul sort WE"
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Explication exacte et fidèle du fonctionnement du passif d'Hwei et de sa possibilité d'esquive."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-23",
+   "validity": {
+    "checkedAt": "2026-11-23",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-23",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-23"
+  },
+  {
+   "id": "u-ai-yt-p7rFFR77dRM-4",
+   "claim": "Selon Veigar v2 : erreur fréquente : lancer ses sorts au hasard niveau 1 contre Tryndamere. Il faut privilégier les auto-attaques et attendre de voir s'il utilise son E (dash) avant de réagir.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Tryndamere"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "emeraude",
+    "region": "non précisée"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.6"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Tryndamere/E"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "emeraude",
+   "usage": "correction",
+   "evidence": [
+    {
+     "content": "c-yt-p7rFFR77dRM",
+     "locator": "08:47",
+     "lang": "en",
+     "passage": "You should be autoing him this entire time and try to like trigger him. ... If he's good here and he sees this, he's E-ing forward right now. ... So I should have waited to see what his ability is?",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-23",
+      "window": "507-567s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Tryndamere (exemple)"
+   ],
+   "action": "Attendre que Tryndamere utilise son dash avant de lancer ton sort principal.",
+   "observe": "",
+   "use": {
+    "when": "Niveau 1, au milieu de la lane, lors du premier contact avec l'adversaire.",
+    "why": "Tryndamere peut dash en avant pour esquiver ton sort et te forcer à un échange au corps à corps qu'il gagnera grâce à son sustain.",
+    "who": "Mage à distance (ici Neeko) contre un Tryndamere agressif.",
+    "how": [
+     "Harceler Tryndamere uniquement avec des auto-attaques au début",
+     "Garder son point de compétence ou son sort prêt sans le lancer",
+     "Lancer le sort seulement après que Tryndamere a utilisé son E ou s'il est mal positionné"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe de gestion de matchup basé sur le respect des temps de récupération et de la mobilité adverse, applicable indépendamment du patch."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-23",
+   "validity": {
+    "checkedAt": "2026-11-23",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-23",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-23"
+  },
+  {
+   "id": "u-ai-yt-We1WLmi6eDU-2",
+   "claim": "Selon Chreak : pour optimiser la phase de lane avec Xerath, lance ton sort Rayon arcanique (Q) dans la vague de sbires tout en essayant de toucher le champion adverse par la même occasion.",
+   "champions": [
+    "Xerath"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Xerath/Q"
+   ],
+   "conditions": [
+    "pendant la phase de lane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-We1WLmi6eDU",
+     "locator": "01:09",
+     "lang": "fr",
+     "passage": "Le secret strat c'est de mettre le Q dans la wave et si elle est dans elle se prend le Q c'est tant mieux, si elle se le prend pas je push et c'est tant pis.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-23",
+      "window": "49-109s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Vise à la fois les sbires et l'adversaire avec ton sort Q en voulant pousser la vague.",
+   "observe": "Le positionnement de ton sort pour nettoyer les sbires et mettre la pression.",
+   "use": {
+    "when": "tu es sur ta lane et tu fais face à la vague en même temps que ton vis-à-vis",
+    "why": "si le sort ne touche pas l'adversaire, il sert au moins à repousser la vague de sbires",
+    "who": "joueur de Xerath",
+    "how": [
+     "Charge ton sort Q vers la vague en alignant l'adversaire si possible.",
+     "Laisse le sort toucher les sbires pour conserver le contrôle de la poussée."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'utilisation du sort Q sur la vague et le champion est directement tirée du passage et donne une consigne claire."
+   },
+   "published": "2023-01-29",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-23",
+   "validity": {
+    "checkedAt": "2026-11-23",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-23",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-23"
+  },
+  {
+   "id": "u-ai-yt-We1WLmi6eDU-3",
+   "claim": "Selon Chreak : en jouant un mage de contrôle comme Xerath, lance tes sorts au moment des derniers coups (last hits) des sbires adverses pour punir ton vis-à-vis, et pose ta balise de vision après la première ou la deuxième vague.",
+   "champions": [
+    "Xerath"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vision"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "en début de partie sur la voie du milieu"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-We1WLmi6eDU",
+     "locator": "01:39",
+     "lang": "fr",
+     "passage": "W au moment du last hit, règle essentielle quand on joue un mage contrôle, lancer des spells au moment des last hits adverses, c'est pas de l'autre diable et poser sa ward après la première ou deuxième wave.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-23",
+      "window": "79-139s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Observe les sbires alliés bas PV et lance tes sorts sur l'adversaire quand il s'avance pour tuer un sbire.",
+   "observe": "Le moment précis où le sbire allié est sur le point de mourir et l'action de l'adversaire.",
+   "use": {
+    "when": "l'adversaire s'approche pour last hit un sbire en début de partie",
+    "why": "l'adversaire est immobile ou concentré sur son coup de grâce, ce qui le rend vulnérable",
+    "who": "joueur de mage de contrôle",
+    "how": [
+     "Surveille tes sbires bas en points de vie.",
+     "Lance un sort sur l'ennemi au moment exact où il tente de sécuriser le sbire.",
+     "Pose une balise de vision dans la rivière après la première ou deuxième vague."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le timing des sorts sur les last hits et la pose de la ward sont explicitement mentionnés dans la source."
+   },
+   "published": "2023-01-29",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-23",
+   "validity": {
+    "checkedAt": "2026-11-23",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-23",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-23"
+  },
+  {
+   "id": "u-ai-yt-We1WLmi6eDU-4",
+   "claim": "Selon Chreak : achète le Sceau noir et une Potion rechargeable en premier sur Xerath pour accumuler de la puissance sans mourir, et transforme le Sceau noir en Mejai après le premier objet ou le Chapitre perdu selon ta confiance.",
+   "champions": [
+    "Xerath"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Sceau noir",
+    "item:Potion rechargeable"
+   ],
+   "conditions": [
+    "lors de ton premier retour à la boutique"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-We1WLmi6eDU",
+     "locator": "02:42",
+     "lang": "fr",
+     "passage": "Je vais crash cette wave et je vais prendre les meilleurs items sur Xerath aka le Dark Seal, la potion rechargeable qui sont les deux meilleurs items. Pourquoi ce sont les deux meilleurs items ? Xerath est un champion qui ne meurt pas, qui ne veut pas mourir et qui joue bien correctement.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-23",
+      "window": "142-202s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète Sceau noir et Potion rechargeable lors de ton premier rappel.",
+   "observe": "Ton inventaire et ton montant d'or lors du premier achat.",
+   "use": {
+    "when": "tu viens de pousser la vague et tu rentres à la base avec assez d'or",
+    "why": "Xerath est un champion qui cherche à ne pas mourir pour accumuler des charges de puissance en toute sécurité",
+    "who": "joueur de Xerath",
+    "how": [
+     "Pousse la vague avant de baser.",
+     "Achète le Sceau noir et la Potion rechargeable.",
+     "Améliore en Mejai plus tard après le Chapitre perdu ou ton premier objet si tu es confiant."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'achat du Sceau noir et de la potion rechargeable est fidèle aux dires de l'auteur dans la transcription."
+   },
+   "published": "2023-01-29",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-23",
+   "validity": {
+    "checkedAt": "2026-11-23",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-23",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-23"
+  },
+  {
+   "id": "u-ai-yt-We1WLmi6eDU-5",
+   "claim": "Selon Chreak : choisis Xerath lorsque tes adversaires ont peu de mobilité, qu'ils n'ont pas d'engagement brutal (hard engage), et que tu as besoin de porter des coups à distance (outrange) avec une composition orientée poke.",
+   "champions": [
+    "Xerath"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "champion",
+    "matchup"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "lors du choix de ton champion en champion select"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-We1WLmi6eDU",
+     "locator": "03:07",
+     "lang": "fr",
+     "passage": "Xerath tu le prends quand tu as besoin d'outrange tes adversaires, tu n'as pas d'engage en face et dans ta team tu veux poke. Et aussi quand les adversaires n'ont pas beaucoup de mobilité.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-23",
+      "window": "167-227s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Vérifie la composition ennemie avant de sélectionner Xerath pour t'assurer qu'ils manquent de mobilité et d'engage.",
+   "observe": "La liste des champions ennemis choisis dans la partie.",
+   "use": {
+    "when": "tu es dans l'écran de sélection des champions et tu hésites à prendre Xerath",
+    "why": "le champion est vulnérable aux assassins et aux champions à forte mobilité dotés d'un bon engagement",
+    "who": "joueur souhaitant jouer Xerath",
+    "how": [
+     "Regarde si l'équipe adverse possède des champions peu mobiles.",
+     "Vérifie l'absence excessive de sorts d'engagement en face.",
+     "Confirme ton choix si ces conditions sont réunies."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Les conditions pour choisir Xerath (outrange, absence de mobilité et d'engage en face) correspondent exactement à la source."
+   },
+   "published": "2023-01-29",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-23",
+   "validity": {
+    "checkedAt": "2026-11-23",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-23",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-23"
+  },
+  {
+   "id": "u-ai-yt-We1WLmi6eDU-6",
+   "claim": "Selon Chreak : ne pousse pas tes vagues de sbires et ne te déplace pas seul sans information : assure-toi d'avoir la proximité de ton jungler, de ton support ou de connaître la position du jungler adverse pour éviter de mourir.",
+   "champions": [],
+   "roles": [
+    "mid",
+    "jungle",
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "vision",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "avant d'avancer pour pousser une vague ou de te déplacer en solo"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-We1WLmi6eDU",
+     "locator": "03:55",
+     "lang": "fr",
+     "passage": "Quand est-ce que tu push alors ? Et bah tu push quand tu as ton jungle proximité pas loin ou quand ton support est là ou quand tu sais où est le jungle adverse. Une fois cette règle respectée tu mourras moins.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-23",
+      "window": "215-275s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Vérifie la mini-carte pour localiser le jungler adverse ou assure-toi que ton allié est proche avant d'avancer.",
+   "observe": "La position de ton jungler, de ton support et de l'ennemi sur la mini-carte.",
+   "use": {
+    "when": "tu t'apprêtes à avancer pour pousser la vague de sbires au milieu ou à te promener",
+    "why": "les mages de contrôle manquent de mobilité et sont vulnérables aux embuscades en solitaire",
+    "who": "joueur de mage de contrôle",
+    "how": [
+     "Regarde la mini-carte pour repérer le jungler ennemi.",
+     "Vérifie que ton propre jungler ou ton support est à proximité.",
+     "Avance pour pousser uniquement si ces conditions sont remplies."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil sur les conditions pour pousser la vague est parfaitement appuyé par l'extrait cité."
+   },
+   "published": "2023-01-29",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-23",
+   "validity": {
+    "checkedAt": "2026-11-23",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-23",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-23"
   }
  ],
- "updatedAt": "2026-11-22T20:02:20.991Z"
+ "updatedAt": "2026-11-23T07:58:09.460Z"
 }

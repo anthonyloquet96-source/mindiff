@@ -15,6 +15,8 @@ Demandé par Anthony le 23/11 (« Fais ce que t'as à faire », en réponse à l
 - **Page de confidentialité** (point 1) : section « Test privé du coach » ajoutée, phrases « ni compte, ni inscription » et « sur nos serveurs : rien » corrigées, résumé anglais mis à jour. Le contact reste le lien vers les tickets GitHub tant qu'Anthony n'a pas donné d'adresse.
 - **Collecte Diamant+ du patch 26.23** : lancée le 23/11 (`--max 15000`, 3 500 parties de plus, environ 4 h). Recalcul à faire à la fin.
 - **Texte Riot** : toujours pas collé. Le portail demande une connexion (page « Connexion » le 23/11) ; Claude ne se connecte pas à la place d'Anthony. Le total à déclarer sera d'environ 17 400 parties après cette collecte : le texte préparé (« about 14,000 … Nov 10 ») est à ajuster avant de le coller.
+- **Rotation des conseils sous l'objectif** (proposée le 10/11) : la carte montrait toujours les 2 mêmes conseils, les premiers par identifiant. Désormais, parmi les conseils de même rang que le premier (même poste, même statut), le point de départ dépend de l'objectif : il change à chaque nouveau cycle et reste fixe pendant le cycle. Un conseil d'un rang inférieur ne passe jamais devant. Test ajouté (stabilité, couverture, ordre habituel quand il n'y a pas de choix). Le tuteur IA, désactivé, n'est pas touché.
+  - Correction d'une erreur du journal du 10/11 : la carte affiche 2 conseils, pas 3.
 - Tests : 59/61, 2 ignorés faute de cache.
 
  depuis le 18/11 : test trop rigide corrigé

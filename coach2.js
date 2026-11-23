@@ -841,11 +841,19 @@ function c2V1Tips(g) {
   const L = C2_V1_TIPS[g.metric], role = { TOP: "top", JUNGLE: "jungle", MIDDLE: "mid", BOTTOM: "bottom", UTILITY: "support" }[g.role];
   if (!L || !COACH) return [];
   const match = L.matchRole?.[g.role] || L.match;
-  return COACH.units.filter(u => ["exploitable", "provisoire"].includes(u.status) && u.usage !== "correction" && u.nature !== "officiel" && !u.champions?.length && u.use?.when
+  const ranked = COACH.units.filter(u => ["exploitable", "provisoire"].includes(u.status) && u.usage !== "correction" && u.nature !== "officiel" && !u.champions?.length && u.use?.when
       && u.context?.queue !== "competition" && u.themes?.some(t => (L.themesRole?.[g.role] || L.themes).includes(t)) && (u.roles?.includes("all") || u.roles?.includes(role))
       && !L.avoid?.test(`${u.claim} ${u.use.when}`) && match.test(u.claim))
     .map(u => ({ u, score: 2 + (u.roles?.includes(role) ? 1 : 0) }))
-    .sort((a, b) => b.score - a.score || (a.u.status !== "exploitable") - (b.u.status !== "exploitable") || a.u.id.localeCompare(b.u.id)).slice(0, 2).map(x => x.u);
+    .sort((a, b) => b.score - a.score || (a.u.status !== "exploitable") - (b.u.status !== "exploitable") || a.u.id.localeCompare(b.u.id));
+  if (!ranked.length) return [];
+  // Rotation (23/11) : parmi les conseils de même rang que le premier (même poste, même statut), le point de départ dépend
+  // de l'objectif. Il change donc à chaque nouveau cycle et reste fixe pendant le cycle. Les rangs inférieurs ne passent jamais devant.
+  const top = ranked.filter(x => x.score === ranked[0].score && x.u.status === ranked[0].u.status);
+  let h = 0;
+  for (const ch of String(g.id || "")) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  const start = top.length > 2 ? h % top.length : 0;
+  return [...top.slice(start), ...top.slice(0, start), ...ranked.slice(top.length)].slice(0, 2).map(x => x.u);
 }
 // Gestes travaillés (métrique + poste) : niveau de départ, niveau récent et écart en écart-type personnel ;
 // partagé par « Ta progression » et « Ta semaine »

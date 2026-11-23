@@ -77,6 +77,6 @@ Les testeurs n'ont **pas** besoin de clé Riot. Ils ont besoin du **code d'invit
 | Filtrer les articles de paris dans les actus (proposé, sans réponse d'Anthony). Vérifié le 05/11 : aucun article de paris, seulement l'équipe « Betclic Apogee » | 03/11 | conversation |
 | Clé de production : après la décision d’Anthony, préparer l’accès de Riot, ajouter le lien du site à la description de l’app 895430 et la recoller | 05/11 | règles Riot lues le 05/11 |
 | À chaque nouveau patch : relancer la collecte Diamant+ (`coach/timelines.mjs`, environ 4 h) puis la chaîne de recalcul, et mettre à jour le texte Riot si le total change | 10/11 | JOURNAL 10/11 (soir) |
-| Conseils : faire tourner les 3 conseils affichés sous un objectif (aujourd'hui toujours les mêmes) ; trouver une source pour le farm entre 15 et 25 min | 10/11 | JOURNAL 10/11 |
+| Conseils : trouver une source pour le farm entre 15 et 25 min (la rotation des conseils affichés est faite le 23/11) | 23/11 | JOURNAL 10/11 et 23/11 |
 | Construire le bilan chiffré automatique (avant et après l'objectif, par testeur) pour qu'il tourne dès les premiers cycles | 10/11 | conversation du 10/11 |
 | Après les premiers cycles terminés : bilan chiffré « le coach aide-t-il à progresser ? » (critère de Riot : aider les joueurs de façon mesurable) | 05/11 | developer.riotgames.com/docs/portal |

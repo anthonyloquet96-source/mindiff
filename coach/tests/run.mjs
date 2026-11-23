@@ -1118,7 +1118,24 @@ await t("COACH-009/010 Conseils de l'objectif : geste mesuré, pas de fin de par
     const f = ctx.T[k];
     assert(f && f.match.source === c.kbMatch.source && (f.avoid?.source ?? null) === (c.kbAvoid?.source ?? null) && f.themes.join() === c.kbThemes.join() && (f.matchRole?.JUNGLE?.source ?? null) === (c.kbMatchRole?.JUNGLE?.source ?? null) && (f.themesRole?.JUNGLE?.join() ?? null) === (c.kbThemesRole?.JUNGLE?.join() ?? null), `motifs différents sur le site pour ${k}`);
   }
-  return "farm : seul le conseil de last hit (camps en jungle) ; ward, Baron et « pousse ta vague » écartés ; motifs identiques site/tuteur.";
+  // Rotation sur le site : même objectif → mêmes conseils ; d'un objectif à l'autre, tous les conseils de premier rang finissent par sortir ;
+  // un conseil d'un autre rang (tous postes, ou provisoire) ne passe jamais devant ceux du poste
+  const fn = src.match(/function c2V1Tips\(g\) \{[\s\S]*?\n\}\n/)[0];
+  const pool = [1, 2, 3, 4, 5].map(i => u(`u-mid-${i}`, `Selon X : last hit n° ${i} sous tourelle.`, ["lane"], ["mid"]));
+  pool.push(u("u-tous", "Selon X : last hit chaque sbire du canon.", ["lane"]), { ...u("u-prov", "Selon X : farm en priorité.", ["lane"], ["mid"]), status: "provisoire" });
+  vm.runInContext(`const COACH = ${JSON.stringify({ units: pool })};\n${fn}\nthis.tips = c2V1Tips;`, ctx);
+  const shown = id => [...ctx.tips({ id, metric: "cs_at_10", role: "MIDDLE" })].map(x => x.id);
+  const seen = new Set();
+  for (let i = 0; i < 40; i++) {
+    const a = shown(`objectif-${i}`), b = shown(`objectif-${i}`);
+    assert(a.length === 2 && a.join() === b.join(), "conseils instables pour un même objectif");
+    assert(a.every(id => id.startsWith("u-mid-")), `conseil d'un autre rang affiché : ${a}`);
+    a.forEach(id => seen.add(id));
+  }
+  assert(seen.size === 5, `rotation incomplète : ${[...seen]}`);
+  vm.runInContext(`COACH.units.splice(2, 3)`, ctx);
+  assert(shown("x").join() === "u-mid-1,u-mid-2", `sans choix, l'ordre habituel : ${shown("x")}`);
+  return "farm : seul le conseil de last hit (camps en jungle) ; ward, Baron et « pousse ta vague » écartés ; motifs identiques site/tuteur ; rotation des conseils d'un objectif à l'autre, stable pendant un cycle.";
 });
 
 await t("File de lecture : les vidéos qui comblent un manque des objectifs V1 passent devant, les saisons périmées reculent", "fixture", async () => {

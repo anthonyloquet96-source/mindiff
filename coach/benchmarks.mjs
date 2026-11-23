@@ -14,6 +14,13 @@ import { metricsOf, POS, METRICS } from "./review.mjs";
 const wait = ms => new Promise(r => setTimeout(r, ms));
 const arg = (k, d) => { const i = process.argv.indexOf(`--${k}`); return i > 0 ? Number(process.argv[i + 1]) : d; };
 const SAMPLE = "coach/cache/riot-sample.json";
+export const PATCH_MIN = 3000; // parties Diamant+ qu'il faut sur un patch pour qu'il porte les fiches champions et les builds
+// patches : { "16.23": nombre de parties } → patch retenu
+export function pickPatch(patches, min = PATCH_MIN) {
+  const num = v => { const [x, y] = String(v).split(".").map(Number); return x * 100 + y; };
+  const all = Object.entries(patches || {});
+  return all.filter(([, n]) => n >= min).sort((a, b) => num(b[0]) - num(a[0]))[0]?.[0] || all.sort((a, b) => b[1] - a[1])[0]?.[0] || null;
+}
 const DAYS = 30; // au-delà, la partie sort de l'échantillon (méta et patchs ont changé)
 let used = 0;
 async function riot(url) {
@@ -58,10 +65,12 @@ export function compute(sample) {
     roles[role] = {};
     for (const [k, vals] of Object.entries(ms)) { const s = vals.sort((a, b) => a - b); roles[role][k] = { n: s.length, p25: q(s, 0.25), p50: q(s, 0.5), p75: q(s, 0.75) }; }
   }
-  const patch = Object.entries(patches).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
+  // Patch des fiches et des builds : le plus récent qui a au moins PATCH_MIN parties, sinon le plus joué. Sans cette règle,
+  // un nouveau patch attend d'avoir dépassé l'ancien en nombre de parties, alors que ses objets ont déjà changé.
+  const patch = pickPatch(patches);
   const bench = { level: "Diamant et plus", platform: sample.platform, queue: "classée solo", games: recent.length, patches, patch, at: new Date().toISOString(), days: DAYS, roles,
     method: `Joueurs tirés au hasard en Challenger, Grandmaster, Master et Diamant I à IV ; parties classées solo de plus de 15 min des ${DAYS} derniers jours ; les 10 joueurs de chaque partie, classés par rôle.` };
-  // Fiches champions : uniquement le patch le plus joué de l'échantillon (les objets et runes changent d'un patch à l'autre)
+  // Fiches champions : uniquement le patch retenu par pickPatch (les objets et runes changent d'un patch à l'autre)
   const champs = {};
   const top = (obj, n) => Object.entries(obj).sort((a, b) => b[1].g - a[1].g).slice(0, n).map(([k, v]) => ({ id: k, games: v.g, wins: v.w }));
   for (const m of recent) {

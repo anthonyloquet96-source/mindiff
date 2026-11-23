@@ -250,7 +250,13 @@ await t("Partie en cours : rôles estimés, fiches Diamant+ par champion", "fixt
   const cs = { champions: { 5: { rolesAll: { top: 40, jungle: 2 } }, 1: { rolesAll: { top: 30 } } } };
   const r = assignRoles([1, 2, 3, 4, 5].map(id => ({ championId: id, spells: id === 5 ? [4, 11] : [4, 14] })), cs, dd);
   assert(r.map(x => x.role).join() === "top,mid,bottom,support,jungle", r.map(x => x.role).join());
-  // Fiches : patch le plus joué seulement, aucune donnée de joueur
+  // Patch retenu : le plus récent qui a assez de parties, sinon le plus joué
+  const { pickPatch, PATCH_MIN } = await import("../benchmarks.mjs");
+  assert(pickPatch({ "16.21": 5840, "16.22": 5546, "16.23": PATCH_MIN }) === "16.23", "patch récent et suffisant non retenu");
+  assert(pickPatch({ "16.22": 5546, "16.23": PATCH_MIN - 1 }) === "16.22", "patch récent retenu sans assez de parties");
+  assert(pickPatch({ "16.9": PATCH_MIN, "16.10": PATCH_MIN }) === "16.10", "16.10 classé avant 16.9");
+  assert(pickPatch({ "16.22": 40, "16.23": 12 }) === "16.22" && pickPatch({}) === null, "repli sur le patch le plus joué");
+  // Fiches : patch retenu seulement, aucune donnée de joueur
   const row = (c, role, win, items) => ({ role, c, n: `C${c}`, win, m: { deaths30: 5 }, items, ks: 8005, prim: 8000, sec: 8400, spells: [4, 14] });
   const now = Date.now();
   const sample = { platform: "euw1", matches: [{ at: now, patch: "16.20", rows: [row(1, "top", 1, [3031]), row(2, "mid", 0, [3089])] }, { at: now, patch: "16.20", rows: [row(1, "top", 0, [3031, 3071])] }, { at: now, patch: "16.19", rows: [row(1, "jungle", 1, [9999])] }, { at: now - 40 * 864e5, patch: "16.20", rows: [row(1, "top", 1, [1])] }] };

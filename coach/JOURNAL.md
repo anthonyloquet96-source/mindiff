@@ -17,6 +17,13 @@ Demandé par Anthony le 23/11 (« Fais ce que t'as à faire », en réponse à l
 - **Texte Riot** : toujours pas collé. Le portail demande une connexion (page « Connexion » le 23/11) ; Claude ne se connecte pas à la place d'Anthony. Le total à déclarer sera d'environ 17 400 parties après cette collecte : le texte préparé (« about 14,000 … Nov 10 ») est à ajuster avant de le coller.
 - **Rotation des conseils sous l'objectif** (proposée le 10/11) : la carte montrait toujours les 2 mêmes conseils, les premiers par identifiant. Désormais, parmi les conseils de même rang que le premier (même poste, même statut), le point de départ dépend de l'objectif : il change à chaque nouveau cycle et reste fixe pendant le cycle. Un conseil d'un rang inférieur ne passe jamais devant. Test ajouté (stabilité, couverture, ordre habituel quand il n'y a pas de choix). Le tuteur IA, désactivé, n'est pas touché.
   - Correction d'une erreur du journal du 10/11 : la carte affiche 2 conseils, pas 3.
+- **Collecte 26.23 terminée** à 5 h 32, sans erreur : 15 000 parties en cache, dont 3 476 du patch 16.23, 5 546 du 16.22 et 5 840 du 16.21.
+- **Règle du patch retenu changée** (`coach/benchmarks.mjs`, `pickPatch`) : les fiches champions et les builds prenaient le patch le plus joué de l'échantillon. Après la collecte, c'était encore le 16.22, alors que le 26.23 est en jeu. Nouvelle règle : le patch le plus récent qui a au moins 3 000 parties, sinon le plus joué. Test ajouté.
+  - Effet mesuré : patch 16.23, 172 fiches champions avec au moins 30 parties (173 sur le 16.22), 143 avec au moins 100, builds pour 138 champions.
+  - Les repères (sbires à 10 min, etc.) restent calculés sur les 30 derniers jours, tous patchs : 14 281 parties Diamant+, 194 couples champion + poste avec au moins 200 parties (171 le 10/11).
+- **Recalcul envoyé** : `perso-sample.mjs`, `champ-references.mjs`, `references-tiers.mjs --upload` (730 lignes), `worker/put-data.mjs` (manifeste du 23/11 à 4 h 56 UTC).
+- **Texte Riot** (`coach/riot-mise-a-jour-2026-11-10.md`) mis à jour : « about 17,400 … between Oct 27 and Nov 23 ». Toujours pas collé.
+- **Non vérifié** : l'affichage des builds 26.23 dans l'espace connecté.
 - Tests : 59/61, 2 ignorés faute de cache.
 
  depuis le 18/11 : test trop rigide corrigé

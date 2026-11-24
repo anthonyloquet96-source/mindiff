@@ -101875,7 +101875,980 @@
    },
    "version": 1,
    "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-I-qjploNiTM-1",
+   "claim": "Selon Makkro : la Potion rechargeable en toplane est conseillée contre les champions passifs ou peu agressifs au niveau 1, mais doit être évitée contre les combattants agressifs au niveau 1.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "build",
+    "lane"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.16"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:Potion rechargeable"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-I-qjploNiTM",
+     "locator": "[22:46]",
+     "lang": "en",
+     "passage": "a refill would probably be done in safe matchups, or matchups that their level one isn't super threatening.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-24",
+      "window": "1346-1406s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur n'explicite pas que la potion rechargeable est un investissement sur le long terme ou qu'elle manque de puissance de combat, il indique simplement de l'éviter si l'on veut se battre tôt."
+     }
+    },
+    {
+     "content": "c-yt-I-qjploNiTM",
+     "locator": "[22:46]",
+     "lang": "en",
+     "passage": "But if they have a level one that is just running at you, like Shen, Sett, Darius, Riven, or if it's a matchup where you really want to contest and fight level one, you can skip it.",
+     "mentionOnly": true
+    }
+   ],
+   "mentions": [
+    "Fiora (exemple)",
+    "Sion (exemple)",
+    "K'Sante (exemple)",
+    "Shen (exemple)",
+    "Sett (exemple)",
+    "Darius (exemple)",
+    "Riven (exemple)"
+   ],
+   "action": "Choisir ou ignorer la Potion rechargeable lors des premiers achats selon l'agressivité du niveau 1 adverse.",
+   "observe": "Régénération et tenue de ligne au niveau 1.",
+   "use": {
+    "when": "Lors de l'achat de départ ou du premier retour en base au top lane.",
+    "why": "",
+    "who": "Joueur de la voie du haut.",
+    "how": [
+     "Acheter la Potion rechargeable si l'adversaire a un niveau 1 peu menaçant.",
+     "Ne pas acheter la Potion rechargeable face à un champion agressif au niveau 1 (Shen, Sett, Darius, Riven)."
+    ],
+    "notWhen": "Face à des champions agressifs au niveau 1 qui cherchent immédiatement le combat."
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil est intemporel car il repose sur la gestion de l'agressivité au niveau 1 plutôt que sur des statistiques d'objets précises."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-I-qjploNiTM-2",
+   "claim": "Selon Makkro (patch 14.16), les Sandales de mercure sont peu rentables par rapport aux Coques en acier et ne devraient être privilégiées que face à une composition très majoritairement magique (4 champions AP).",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "build",
+    "patch"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.16"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Sandales de mercure",
+    "item:Coques en acier"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-I-qjploNiTM",
+     "locator": "[21:05]",
+     "lang": "en",
+     "passage": "Like Merc Treads as a boot generally suck most of the time, and they suck even if you have the shield upgrade.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-24",
+      "window": "1245-1305s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur ne mentionne pas de seuil de 4 champions AP et la contre-indication fournie contredit le conseil."
+     }
+    },
+    {
+     "content": "c-yt-I-qjploNiTM",
+     "locator": "[21:34]",
+     "lang": "en",
+     "passage": "Like the only time Mercs is good is if there are four AP champs and there's one AD champ, and the one AD champ never gets fed."
+    }
+   ],
+   "mentions": [],
+   "action": "Privilégier les Coques en acier ou d'autres bottes sauf si la composition adverse comporte au moins 4 champions AP.",
+   "observe": "Résistance et rentabilité des bottes choisies.",
+   "use": {
+    "when": "Lors du choix de bottes de deuxième niveau dans le magasin d'objets.",
+    "why": "L'apport en résistance magique des Sandales de mercure est jugé trop faible par rapport à l'armure donnée par les Coques en acier.",
+    "who": "Tout joueur hésitant sur le choix de ses bottes contre une équipe mixte.",
+    "how": [
+     "Comparer le nombre de champions AP et AD dans l'équipe adverse.",
+     "Éviter les Sandales de mercure si l'équipe adverse compte 2 ou 3 champions AP et que la menace AD existe."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "patch-incompatible",
+     "sur-generalisation"
+    ],
+    "why": "L'affirmation 'uniquement face à 4 AP' est une hyperbole d'opinion liée à l'équilibrage spécifique du patch 14.16 ; elle est risquée sur le patch 26.23 sans nuance."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-I-qjploNiTM-3",
+   "claim": "Selon Makkro : en toplane du côté bleu contre Fiora, le premier point faible généré est généralement favorable et n'a pas besoin d'être réinitialisé.",
+   "champions": [
+    "Fiora"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "matchup",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Fiora"
+   },
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.16"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Fiora/passive"
+   ],
+   "conditions": [
+    "Côté bleu (Blue side)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-I-qjploNiTM",
+     "locator": "[00:13]",
+     "lang": "en",
+     "passage": "All right, I'm blue side, which means I get a good vital. On the first vital, I don't need to reset it.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-24",
+      "window": "0-53s",
+      "said": true,
+      "supported": true,
+      "gap": "L'explication concernant la difficulté d'accès pour Fiora et son exposition n'est pas formulée par l'auteur dans cet extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Rester sur sa ligne sans sortir du champ de vision pour réinitialiser le point faible au niveau 1 côté bleu.",
+   "observe": "Positionnement du premier point faible généré par Fiora.",
+   "use": {
+    "when": "Au niveau 1 sur la voie du haut en jouant côté bleu contre Fiora.",
+    "why": "",
+    "who": "Top laner jouant du côté bleu contre Fiora.",
+    "how": [
+     "Vérifier l'emplacement du premier point faible généré au niveau 1.",
+     "Garder la ligne si le point faible est favorable du côté bleu au lieu de s'éloigner pour le reset."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Il s'agit d'une mécanique de spawn de la passive de Fiora liée à la géométrie de la carte, ce qui est un conseil intemporel."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-I-qjploNiTM-4",
+   "claim": "Selon Makkro : le Baron Nashor inflige d'importants dégâts magiques basés sur les PV actuels, rendant la résistance magique indispensable pour le combattre sans perdre la moitié de ses PV.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "macro",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.16"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "monster:baron-nashor"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-I-qjploNiTM",
+     "locator": "[22:11]",
+     "lang": "en",
+     "passage": "Baron, which is a really important objective, deals magic damage. Grubs deal magic damage. There are some sources in this game that you need MR. Baron especially.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-24",
+      "window": "1311-1371s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-I-qjploNiTM",
+     "locator": "[22:11]",
+     "lang": "en",
+     "passage": "That's why when you take Baron with zero MR, you'll end up with like half health."
+    }
+   ],
+   "mentions": [],
+   "action": "Prendre en compte les dégâts magiques du Baron lors de l'achat d'équipement de résistance.",
+   "observe": "Perte de PV subie en attaquant le Baron Nashor.",
+   "use": {
+    "when": "Avant d'engager le Baron Nashor ou lors de la préparation des objets de tanking.",
+    "why": "Le Baron inflige des dégâts magiques significatifs sur les PV actuels, ce qui détruit les champions sans résistance magique.",
+    "who": "Tanks et frontline préparant la prise d'objectifs majeurs.",
+    "how": [
+     "Disposer d'un objet de résistance magique avant d'encaisser le Baron Nashor.",
+     "Éviter d'affronter le Baron avec zéro résistance magique sous peine de perdre la moitié de ses PV."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'analyse des types de dégâts des objectifs neutres est une connaissance système stable, utile pour la prise de décision sur le build."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-G7d1NWeeZMM-1",
+   "claim": "Selon 쭌베  : dans un duel de mages à distance, la priorité pour atteindre le niveau 2 en premier est cruciale ; n'hésite pas à utiliser tes runes de protection pour absorber des dégâts tout en frappant les sbires.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "matchup": {
+    "vs": "Orianna"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.3"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "rune:Plaque d'os"
+   ],
+   "conditions": [
+    "Posséder la rune Plaque d'os"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-G7d1NWeeZMM",
+     "locator": "[01:00]",
+     "lang": "ko",
+     "passage": "그리고 메이지 구도는 웬만하면 주도권 있으시면 무조건 밀면 좋아요. 2랩 주도권을 잡는 게 제일 중요하다 보니까 메이지 구도는 둘 다 원거리다 보니까 우리 뼈방패 들었으니까 맞으면서 나갈게요. 이래야지 선 주도권 잡을 수 있습니다.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-24",
+      "window": "40-100s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Orianna (exemple)"
+   ],
+   "action": "Frappe les sbires dès l'arrivée de la première vague pour passer niveau 2 avant ton adversaire.",
+   "observe": "La barre d'expérience et le nombre de sbires restants pour le niveau 2.",
+   "use": {
+    "when": "Tu es au niveau 1 dans un duel de mages à distance au milieu.",
+    "why": "Obtenir la priorité du niveau 2 permet de dicter le rythme de la lane et de mettre l'adversaire sous pression immédiatement.",
+    "who": "Mages à distance (ex: Viktor) jouant avec des runes de durabilité.",
+    "how": [
+     "Avance vers la vague de sbires dès le début.",
+     "Utilise tes attaques de base et sorts sur les sbires malgré le harcèlement adverse.",
+     "Laisse ta rune Plaque d'os absorber les dégâts pendant que tu pousses."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le conseil est général aux mages et ne doit pas être restreint à Viktor ou Orianna dans les champs champions/matchup ; de plus, la dépendance à la rune Plaque d'os rend l'unité sensible au patch (14.3)."
+   },
+   "published": null,
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-G7d1NWeeZMM-2",
+   "claim": "Selon 쭌베  : la phase de lane entre mages repose sur un système de tours : avance pour mettre la pression quand tes sorts sont disponibles ou que l'adversaire a utilisé les siens, et recule lorsqu'il récupère ses délais de récupération.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.3"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-G7d1NWeeZMM",
+     "locator": "[00:31]",
+     "lang": "ko",
+     "passage": "메이지 구도는 제일 중요한 거는 상대방이 스킬 없을 때 압박하는 거, 내 스킬 있을 때 압박하는 거, 이제 턴 제도라고 알면 좋을 것 같죠. 그리고 무빙을 계속 섞어주면 상대방의 스킬을 유도해가지고 피한 다음에 들어가지주는 것도 포인트.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-24",
+      "window": "11-71s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur n'énonce pas explicitement la raison (punir sans risque) ; il décrit simplement le fonctionnement du système de tours."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Avance agressivement dès que l'adversaire rate un sort important.",
+   "observe": "L'utilisation des sorts adverses et leurs animations.",
+   "use": {
+    "when": "Pendant la phase de lane contre un autre champion à distance.",
+    "why": "",
+    "who": "Tout joueur de mid lane jouant un champion à distance.",
+    "how": [
+     "Maintiens un mouvement constant pour appâter les sorts adverses.",
+     "Dès qu'un sort adverse est en recharge, avance pour zoner ou attaquer.",
+     "Recule dès que tes propres sorts sont en recharge ou que l'adversaire récupère les siens."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe fondamental et intemporel de la mid lane, parfaitement documenté par la source."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-G7d1NWeeZMM-3",
+   "claim": "Selon 쭌베  : en tant que champion à distance dominant un champion de mêlée, place ta balise de vision après avoir poussé la première ou la deuxième vague pour sécuriser ta position avancée.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "vision",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Akali"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Master 100LP",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.3"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir la priorité sur la vague"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-G7d1NWeeZMM",
+     "locator": "[05:08]",
+     "lang": "ko",
+     "passage": "내가 주도권이 있는 라인전이면 첫 번째 두 번째 웨이브를 민 다음에 와드를 박으시면 됩니다. 아칼리는 라인전이 밀리니까 무조건 와드를 받고 오는 게 필수인 거죠.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-24",
+      "window": "288-348s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Akali (exemple)"
+   ],
+   "action": "Pose une balise de vision dans la rivière après avoir crashé la 2ème vague.",
+   "observe": "La position du jungler adverse si possible.",
+   "use": {
+    "when": "Tu joues un champion à distance (Vex) contre un mêlée (Akali) et tu pousses la ligne.",
+    "why": "Pousser te rend vulnérable aux ganks ; la vision permet de maintenir la pression en toute sécurité.",
+    "who": "Champions à distance ayant l'avantage en début de partie.",
+    "how": [
+     "Pousse activement les deux premières vagues.",
+     "Profite du moment où tes sbires sont sous la tour adverse.",
+     "Va placer une balise dans un buisson latéral de la rivière."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [],
+    "why": "Conseil de vision macro général qui ne dépend pas spécifiquement de Vex ou d'Akali ; les champs champions et matchup_vs doivent être vidés."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-G7d1NWeeZMM-4",
+   "claim": "Selon 쭌베  : lors du premier rappel en tant que mage, l'achat du Sceau noir et de la Potion rechargeable est indispensable pour maximiser l'efficacité de tes ressources pour un coût réduit.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.3"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Sceau noir",
+    "item:Potion rechargeable"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-G7d1NWeeZMM",
+     "locator": "[07:47]",
+     "lang": "ko",
+     "passage": "무조건 첫 집에는 인장에 충포 필수고요. 인장이 그냥 350원인데 값어치가 진짜 말이 안 돼.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-24",
+      "window": "447-507s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Achète le Sceau noir et la Potion rechargeable dès ton premier retour à la base.",
+   "observe": "Ton montant d'or avant de décider du moment du rappel.",
+   "use": {
+    "when": "Premier retour à la base (Back) lors de la phase de lane.",
+    "why": "Le Sceau noir offre des statistiques très rentables pour son prix (350 po) et la potion assure une régénération durable.",
+    "who": "Mages en mid lane.",
+    "how": [
+     "Accumule au moins 500 à 600 pièces d'or.",
+     "Rentre à la base après avoir poussé ta vague.",
+     "Achète prioritairement le Sceau noir et la Potion rechargeable."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "L'unité est fidèle à la source mais la rentabilité du Sceau noir et de la Potion rechargeable est sensible aux changements d'équilibrage depuis le patch 14.3."
+   },
+   "published": null,
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-G7d1NWeeZMM-5",
+   "claim": "Selon 쭌베  : en jouant un champion de mêlée contre un champion à distance, l'utilisation du Bouclier de Doran combiné à la rune Second souffle est impérative pour survivre au harcèlement.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build",
+    "survie"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.3"
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Bouclier de Doran",
+    "rune:Second souffle"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-G7d1NWeeZMM",
+     "locator": "[11:27]",
+     "lang": "ko",
+     "passage": "그리고 도방 재바 거의 있단 말이야. 요네를 하든 뭐 제드를 하든 다른 걸 해도 상대가 원거리면 도방 재바를 든단 말이죠. 그걸 사용하는 방법을 알려드릴게요.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-24",
+      "window": "667-727s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Sélectionne la rune Second souffle en page secondaire et achète le Bouclier de Doran au départ.",
+   "observe": "Ta régénération de points de vie après avoir reçu un coup.",
+   "use": {
+    "when": "Tu joues un champion de mêlée (ex: Yone, Zed, Akali) contre un mage ou un tireur à distance.",
+    "why": "Cette combinaison permet de régénérer une grande partie des dégâts infligés par les attaques de base et sorts adverses.",
+    "who": "Champions de mêlée au mid subissant du poke.",
+    "how": [
+     "Équipe la rune Second souffle en préparation de partie.",
+     "Achète le Bouclier de Doran comme objet de départ.",
+     "Accepte de prendre quelques coups légers pour activer la régénération si nécessaire pour farmer."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Conseil de survie général pour les mêlées qui ne doit pas être restreint à Yone ou Zed ; la dépendance au Bouclier de Doran et à la rune Second souffle rend l'unité sensible au patch."
+   },
+   "published": null,
+   "proposedStatus": "a-revalider",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-G7d1NWeeZMM-6",
+   "claim": "Selon 쭌베  : dans un duel de mêlée contre un adversaire plus fort au niveau 1, sacrifie des sbires pour conserver tes points de vie et attendre une opportunité d'affrontement ultérieure.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.3"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-G7d1NWeeZMM",
+     "locator": "[18:28]",
+     "lang": "ko",
+     "passage": "이런 거는 cs 그냥 버리면서 피관리가 제일 중요해요. 피관리하세요. 맞다이 구도기 때문에 피관리하면서 cs 먹어주시고 쇼부 각을 한번 보는 거야. 내가 언제 유리한지 언제 쇼부 각을 볼지 보면 돼요 여러분들.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-24",
+      "window": "1088-1148s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Laisse mourir les sbires trop dangereux à récupérer pour rester haut en PV.",
+   "observe": "Ta barre de vie par rapport à celle de l'adversaire.",
+   "use": {
+    "when": "Niveau 1, tu joues un champion de mêlée contre un adversaire dominant (ex: Sylas, Yone, Yasuo).",
+    "why": "Arriver au niveau 3 ou 6 avec toute sa vie permet de gagner un 'all-in', alors qu'être bas en PV rend toute agression impossible.",
+    "who": "Champions de mêlée ayant un pic de puissance après le niveau 1.",
+    "how": [
+     "Reste à distance d'expérience des sbires.",
+     "N'avance pour donner un coup de grâce que si l'adversaire ne peut pas te punir lourdement.",
+     "Priorise l'esquive des sorts sur la récupération de l'or."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [],
+    "why": "Principe de laning universel pour les mêlées qui ne dépend pas de champions spécifiques ; le champ champions doit être vidé."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-G7d1NWeeZMM-7",
+   "claim": "Selon 쭌베  : si tu possèdes la Téléportation contre un adversaire avec un sort de combat, force un échange de ressources puis utilise ton rappel et ta TP pour créer un état de vague qui le punira.",
+   "champions": [],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "matchup": {
+    "vs": "Ryze"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.3"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "summoner:Téléportation"
+   ],
+   "conditions": [
+    "Avoir l'avantage du sort d'invocateur Téléportation"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-G7d1NWeeZMM",
+     "locator": "[14:26]",
+     "lang": "ko",
+     "passage": "상대가 유체화를 들고 왔죠 저마나. 우린 여기서 바로 텔포 찍습니다. 이러면 라이즈 집 갈 수밖에 없죠. 집을 안 가면 그냥 끝나느 거고 집 가면 라인을 태우면 돼. 이러면 우리가 라인을 밀었기 때문에 상대 미니언이 일정사 하게 돼요. 이러면 무조건 라인이 어떻게 된다? 당겨지는 라인이 만들어진다.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-24",
+      "window": "846-906s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Ryze (exemple)"
+   ],
+   "action": "Utilise ta Téléportation pour revenir sur la lane après un crash de vague.",
+   "observe": "Le mana et les PV de l'adversaire, ainsi que ses sorts d'invocateur.",
+   "use": {
+    "when": "L'adversaire n'a pas de Téléportation et a consommé ses ressources (mana/PV).",
+    "why": "Cela force l'adversaire à rester sur la lane avec peu de ressources ou à perdre une vague entière sous sa tour.",
+    "who": "Joueurs utilisant la Téléportation au mid.",
+    "how": [
+     "Pousse la vague rapidement sous la tour adverse.",
+     "Rentre immédiatement à la base pour acheter et régénérer.",
+     "Téléporte-toi sur la vague pour maintenir la pression ou geler la ligne."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [],
+    "why": "Stratégie de gestion de la Téléportation générale qui ne dépend pas d'Akali ou Ryze ; les champs champions et matchup_vs doivent être vidés."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
   }
  ],
- "updatedAt": "2026-11-24T10:28:03.692Z"
+ "updatedAt": "2026-11-24T22:56:43.819Z"
 }

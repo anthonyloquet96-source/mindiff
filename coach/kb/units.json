@@ -100964,7 +100964,566 @@
    },
    "version": 1,
    "firstSeen": "2026-11-23"
+  },
+  {
+   "id": "u-ai-yt-A3KZs1kgacc-2",
+   "claim": "Selon いーえる先生 / ELch : après un gank ou un dive sur la voie du bas, ne t'attarde pas pour continuer à combattre si tu as déjà trop prolongé ton tempo : replie-toi rapidement pour protéger tes camps de jungle réapparus au nord.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "macro",
+    "jungle"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.12"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Une action vient de se terminer sur la botlane",
+    "Les camps de jungle du côté opposé ont réapparu"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-A3KZs1kgacc",
+     "locator": "[07:37]-[07:50]",
+     "lang": "ja",
+     "passage": "またボットがダイブされてダメだからボットに絶対カバー来るよ。でもそこ欲張りすぎてそこでまたファイトするんじゃなくて、まだ早く、今リジェネした自分の上ジャングルを守るように行かないと！",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-24",
+      "window": "437-497s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-A3KZs1kgacc",
+     "locator": "[07:55]",
+     "lang": "ja",
+     "passage": "ボットに今オーバーターン使ってるからここ以上はターン使っちゃダメ。"
+    }
+   ],
+   "mentions": [
+    "Lee Sin (exemple)",
+    "Syndra (exemple)"
+   ],
+   "action": "Quitter la botlane dès l'action terminée pour sécuriser ses propres camps réapparus au top.",
+   "observe": "Le jungler ennemi arrivant en couverture sur la botlane alors que ta jungle haute est sans défense.",
+   "use": {
+    "when": "Tu as réalisé un gank/dive réussi sur la botlane et tes camps de jungle du haut viennent de réapparaître.",
+    "why": "Le jungler adverse va venir couvrir la botlane ; être trop gourmand et prolonger le combat te fait perdre le tempo et tes ressources de jungle au nord.",
+    "who": "Tout jungler ayant terminé une action agressive sur une voie latérale.",
+    "how": [
+     "Conclure l'action au bot sans forcer d'échange supplémentaire.",
+     "Refuser un nouveau combat même si le jungler adverse arrive en couverture.",
+     "Effectuer immédiatement la rotation vers le côté opposé pour récupérer tes camps."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe macro intemporel de gestion du tempo et protection du côté opposé de la jungle, parfaitement justifié par la source."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-A3KZs1kgacc-3",
+   "claim": "Selon いーえる先生 / ELch : lorsque l'équipe adverse a des morts ou n'a pas ses sorts majeurs et que ton support se regroupe avec toi près de l'amphithéâtre, commence par voler les camps de la jungle ennemie avant d'entamer les monstres neutres (comme les Larves du Vide).",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "macro",
+    "jungle"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.12"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "monster:voidgrubs"
+   ],
+   "conditions": [
+    "Le mid adverse est mort ou hors de position",
+    "L'équipe dispose de l'avantage numérique ou de priorité de rotation (support avec toi)"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-A3KZs1kgacc",
+     "locator": "[08:26]-[08:43]",
+     "lang": "ja",
+     "passage": "待ってて、これでヴォイドから食うんじゃなくて相手のジャングルから！なんでかと言うとこのヴォイドはね今から相手のMIDが死んじゃったし相手のリー・シンのウルティもなくなった。じゃあジャングルも主導権もある。そのま相手の内らのサポートだけ来たじゃん。",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-24",
+      "window": "486-546s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-A3KZs1kgacc",
+     "locator": "[08:43]-[08:56]",
+     "lang": "ja",
+     "passage": "で、そして相手がジャングル食うようにもう相手は今から触んないんだよ絶対。このジャングルは俺が食ったら。俺がこのジャングル食ったら相手のリー・シンはあ、このまま食われたから下に行くしかないねってなるじゃん。だからジャングルから食うのが大事。"
+    }
+   ],
+   "mentions": [
+    "Lee Sin (exemple)"
+   ],
+   "action": "Invahir pour voler les camps ennemis avant de lancer l'objectif neutre lorsque la priorité territoriale est acquise.",
+   "observe": "Le jungler ennemi contraint de fuir vers le sud sans pouvoir contester les camps ni l'objectif neutre.",
+   "use": {
+    "when": "Tu as la priorité avec ton support autour du pit du Vide, le mid ennemi est mort et le jungler d'en face n'a plus son ultime.",
+    "why": "Si tu nettoies d'abord sa jungle, le jungler ennemi n'osera pas contester et sera contraint de partir vers le bas de la carte, sécurisant totalement l'objectif neutre dans un second temps.",
+    "who": "Tout jungler en situation de domination territoriale autour d'un objectif d'amphithéâtre.",
+    "how": [
+     "Attendre le regroupement de ton allié qui a la priorité (ex. le support).",
+     "Nettoyer en premier les camps de jungle du côté ennemi.",
+     "Revenir ensuite sécuriser sereinement les Larves du Vide."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Stratégie d'invasion et de sécurisation des objectifs neutres clairement expliquée et directement appuyée par les passages cités."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt--3FbvdUodSY-1",
+   "claim": "Selon hybradge : en teamfight, la règle fondamentale est d'obtenir la supériorité numérique effective : l'équipe qui compte le plus de joueurs capables d'intervenir immédiatement remporte presque systématiquement le combat.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "teamfight",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Les coéquipiers comptabilisés doivent être à portée pour contribuer immédiatement au combat."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--3FbvdUodSY",
+     "locator": "[00:23] (parole)",
+     "lang": "en",
+     "passage": "The rule is very, very simple. It's the numbers advantage rule, meaning the team with more players in the teamfight is almost always going to be the team that wins the teamfight.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-24",
+      "window": "3-63s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt--3FbvdUodSY",
+     "locator": "[02:41] (parole)",
+     "lang": "en",
+     "passage": "So when we say numbers advantage, remember it is the amount of numbers in the actual fight that can contribute immediately."
+    }
+   ],
+   "mentions": [
+    "Rengar (exemple)",
+    "Volibear (exemple)",
+    "Nasus (exemple)",
+    "Garen (exemple)",
+    "Janna (exemple)",
+    "Syndra (exemple)"
+   ],
+   "action": "Compter le nombre de champions alliés et ennemis immédiatement à portée avant d'engager un regroupement.",
+   "observe": "Engager le combat si ton équipe possède la supériorité numérique effective.",
+   "use": {
+    "when": "Avant d'engager ou d'accepter un teamfight ou une escarmouche.",
+    "why": "Depuis le patch de durabilité, les statistiques de base réduisent la capacité à battre plusieurs ennemis en solo ; la supériorité numérique prime sur la mécanique individuelle.",
+    "who": "Tous les joueurs et tous les rôles.",
+    "how": [
+     "Évaluer combien d'ennemis peuvent attaquer immédiatement.",
+     "Vérifier combien d'alliés sont à portée utile pour infliger des dégâts ou des contrôles sans délai.",
+     "N'engager que si votre équipe dispose d'un avantage numérique réel dans la zone."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité retranscrit fidèlement la règle de la supériorité numérique effective expliquée par l'auteur avec une situation d'application claire."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt--3FbvdUodSY-2",
+   "claim": "Selon hybradge : pour teamfight efficacement, il faut appliquer le principe du combat en parallèle en restant toujours aligné sur la portée de son allié le plus proche.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "teamfight",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Rester dans le rayon d'action de l'allié le plus proche sans s'isoler."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--3FbvdUodSY",
+     "locator": "[03:24] (parole)",
+     "lang": "en",
+     "passage": "you always want to be in line with your teammate's range.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-24",
+      "window": "184-244s",
+      "said": true,
+      "supported": true,
+      "gap": "La raison invoquée dans « pourquoi » et la contre-indication mentionnée dans « a_eviter » ne sont pas énoncées par l'auteur dans cet extrait."
+     }
+    },
+    {
+     "content": "c-yt--3FbvdUodSY",
+     "locator": "[04:38] (parole)",
+     "lang": "en",
+     "passage": "Effectively, parallel teamfighting ensures that you don't overextend away from your teammates, whilst still allowing you to be in a position to deal effective damage"
+    }
+   ],
+   "mentions": [
+    "Kha'Zix (exemple)",
+    "Volibear (exemple)",
+    "Zeri (exemple)",
+    "Pyke (exemple)",
+    "Sion (exemple)",
+    "Garen (exemple)",
+    "Soraka (exemple)",
+    "Ahri (exemple)",
+    "Nami (exemple)"
+   ],
+   "action": "Conserver en permanence une ligne virtuelle alignée avec la portée des sorts ou attaques des coéquipiers.",
+   "observe": "Vérifier que les alliés peuvent échanger des dégâts si tu te fais attaquer.",
+   "use": {
+    "when": "Pendant toute la phase de placement et d'échange de dégâts en teamfight.",
+    "why": "",
+    "who": "Tous les rôles, qu'ils soient mêlée ou à distance.",
+    "how": [
+     "Repérer la portée maximale du coéquipier le plus proche.",
+     "Rester aligné à sa hauteur sans s'avancer au-delà de sa zone de soutien.",
+     "Reculer ou réajuster son placement si le coéquipier recule afin de conserver l'alignement."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le principe du combat en parallèle et de l'alignement sur la portée des coéquipiers est bien appuyé par les passages cités."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt--3FbvdUodSY-4",
+   "claim": "Selon hybradge : en teamfight, il faut rythmer son engagement autour de ses délais de récupération : avancer pour lancer ses sorts, se désengager pendant qu'ils rechargent, puis réengager dès qu'ils sont à nouveau disponibles.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "teamfight",
+    "survie"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--3FbvdUodSY",
+     "locator": "[20:24] (parole)",
+     "lang": "en",
+     "passage": "there are three steps, right? You go in, you use all your cooldowns, then you exit, you kite out, then once you have your cooldowns back ready, you go back in.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-24",
+      "window": "1204-1264s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Kha'Zix (exemple)",
+    "Viego (exemple)",
+    "Sylas (exemple)",
+    "Lillia (exemple)",
+    "Zed (exemple)",
+    "Mordekaiser (exemple)"
+   ],
+   "action": "Reculer immédiatement après avoir utilisé sa rotation de compétences pour attendre leur rechargement.",
+   "observe": "Éviter d'échanger des auto-attaques inutilement quand ses sorts sont en recharge.",
+   "use": {
+    "when": "Pendant un teamfight ou une escarmouche prolongée dès que ses compétences principales sont en recharge.",
+    "why": "Continuer à combattre au corps-à-corps sans sorts face à un ennemi qui a ses compétences prêtes revient à lui donner un tour d'attaque gratuit.",
+    "who": "Tous les champions, particulièrement les mages et lanceurs de sorts basés sur leurs compétences.",
+    "how": [
+     "S'avancer et utiliser sa rotation complète de compétences.",
+     "Kiter vers l'arrière et maintenir la distance dès que les sorts sont en rechargement.",
+     "Réengager le combat dès que les compétences clés sont de nouveau prêtes."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le rythme d'échange en 3 étapes articulé autour des cooldowns est fidèle à la transcription de l'auteur."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt--3FbvdUodSY-5",
+   "claim": "Selon hybradge : avant le début d'un teamfight, il faut pré-visualiser le déroulement du combat et garder en mémoire les délais des sort d'invocateur et ultimes adverses clés.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "teamfight",
+    "methode",
+    "macro"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "challenger",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--3FbvdUodSY",
+     "locator": "[23:31] (parole)",
+     "lang": "en",
+     "passage": "remember important cooldowns. I cannot stress how important this is",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-24",
+      "window": "1391-1451s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur ne mentionne pas qu'avoir une intention pré-établie évite de jouer en simple réaction, ni le détail précis des gestes proposés."
+     }
+    },
+    {
+     "content": "c-yt--3FbvdUodSY",
+     "locator": "[23:31] (parole)",
+     "lang": "en",
+     "passage": "visualize visualize the fights beforehand, okay? Think about how the fights are going to play out"
+    }
+   ],
+   "mentions": [
+    "Jarvan IV (exemple)",
+    "Jinx (exemple)"
+   ],
+   "action": "Préparer mentalement son plan de jeu et ciblage avant le déclenchement du teamfight.",
+   "observe": "Vérifier si les cibles prioritaires adverses ont leur Flash disponible avant d'engager.",
+   "use": {
+    "when": "Avant le déclenchement d'un combat d'équipe majeur autour d'un objectif.",
+    "why": "",
+    "who": "Tous les joueurs.",
+    "how": [
+     "Identifier si les cibles prioritaires adverses disposent de leur Flash ou d'un ultime défensif.",
+     "Visualiser sa trajectoire d'entrée et son rôle exact dans le combat à venir.",
+     "Exécuter son plan dès l'engagement sans hésiter."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil méthodologique intemporel sur la pré-visualisation et le suivi des sorts importants avant le déclenchement des combats."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.5-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
   }
  ],
- "updatedAt": "2026-11-23T07:58:09.460Z"
+ "updatedAt": "2026-11-24T00:29:47.024Z"
 }

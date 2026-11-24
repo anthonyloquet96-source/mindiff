@@ -52206,12 +52206,12 @@
      "mentionOnly": true,
      "autoChecked": {
       "by": "gemini-3-flash-preview",
-      "at": "2026-10-26",
+      "at": "2026-11-24",
       "window": "245-305s",
       "said": true,
-      "supported": true,
-      "gap": "L'auteur n'explicite pas la perte de plaques de tourelle comme raison, ni la position du jungler comme contre-indication dans cet extrait."
-     }
+      "supported": true
+     },
+     "reverifiedAt": "2026-11-24"
     }
    ],
    "mentions": [
@@ -52288,12 +52288,12 @@
      "passage": "I might get pinged here. If you get pinged, mute, mute your team. It's not your fault.",
      "autoChecked": {
       "by": "gemini-3-flash-preview",
-      "at": "2026-10-26",
+      "at": "2026-11-24",
       "window": "223-283s",
       "said": true,
-      "supported": false,
-      "gap": "La raison invoquée (préserver le moral et rester concentré sur les fondamentaux) est une interprétation de l'analyste et n'est pas formulée ainsi par l'auteur."
-     }
+      "supported": true
+     },
+     "reverifiedAt": "2026-11-24"
     }
    ],
    "mentions": [],
@@ -52478,12 +52478,13 @@
      "lang": "en",
      "passage": "The importance of pathing towards priority is a little overblown and is not something to consider before your first clear.",
      "autoChecked": {
-      "by": "gemini-3.5-flash-lite",
-      "at": "2026-10-26",
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-24",
       "window": "180-240s",
       "said": true,
       "supported": true
-     }
+     },
+     "reverifiedAt": "2026-11-24"
     },
     {
      "content": "c-yt-zziK5rQefTc",
@@ -101523,7 +101524,358 @@
    },
    "version": 1,
    "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-3faAZp1epIQ-1",
+   "claim": "Selon 【LOL・ボチカ】青森最高レートが語るアルティメットチャンピオン解説 : préparer un combat avec Trundle en utilisant la compétence Q (Morsure) juste avant d'engager permet de commencer l'affrontement en bénéficiant déjà du bonus de dégâts d'attaque.",
+   "champions": [
+    "Trundle"
+   ],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "champion",
+    "lane"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Trundle/Q"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-3faAZp1epIQ",
+     "locator": "01:58",
+     "lang": "ja",
+     "passage": "まずADが20増えます、使うと。自分のADが増えて相手のADが減ります。",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-24",
+      "window": "98-158s",
+      "said": true,
+      "supported": false,
+      "gap": "L'intervenant explique simplement l'effet passif/actif du Q de Trundle (gain d'AD et réduction de celle de l'adversaire) sans conseiller de pré-activer la compétence avant d'engager un combat."
+     }
+    },
+    {
+     "content": "c-yt-3faAZp1epIQ",
+     "locator": "07:49",
+     "lang": "ja",
+     "passage": "先に一回Q使っとくと、そのADが伸びた状態で戦い始められる。"
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser le Q sur un sbire ou un champion juste avant un all-in.",
+   "observe": "Le bonus de dégâts d'attaque reste actif dès le début du combat.",
+   "use": {
+    "when": "Avant d'initier un affrontement direct (all-in) contre ton vis-à-vis sur la voie.",
+    "why": "Le Q de Trundle augmente ton AD tout en réduisant celle de la cible, te donnant un avantage statistique immédiat au déclenchement du trade.",
+    "who": "Joueurs de Trundle sur la voie du haut.",
+    "how": [
+     "Activer la compétence Q une première fois juste avant de sauter sur l'adversaire.",
+     "Engager le combat en profitant immédiatement de la statistique d'AD augmentée."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "Le passage 07:49 indique d'utiliser le Q au préalable pour bénéficier de l'augmentation d'AD au début du combat, mais la réduction d'AD adverse ne s'applique pas avant d'avoir frappé le champion ennemi."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-3faAZp1epIQ-2",
+   "claim": "Selon 【LOL・ボチカ】青森最高レートが語るアルティメットチャンピオン解説 : lancer l'ultime (R) de Trundle pendant qu'il se trouve sur le zone de son W (Royaume maudit) permet de maximiser la quantité de PV récupérée grâce au bonus de soins du W.",
+   "champions": [
+    "Trundle"
+   ],
+   "roles": [
+    "top",
+    "jungle",
+    "all"
+   ],
+   "themes": [
+    "champion",
+    "survie",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Trundle/W",
+    "Trundle/R"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-3faAZp1epIQ",
+     "locator": "05:37",
+     "lang": "ja",
+     "passage": "ちなみにW中にウルト打つと回復量増えるからね。",
+     "autoChecked": {
+      "by": "gemini-3.5-flash",
+      "at": "2026-11-24",
+      "window": "317-377s",
+      "said": true,
+      "supported": true,
+      "gap": "L'explication détaillée sur le fonctionnement du Z amplifiant les soins n'est pas explicitement énoncée dans l'extrait, le streamer mentionne seulement que le soin augmente."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Poser le W au sol sous ses pieds avant de lancer la compétence R sur une cible.",
+   "observe": "La jauge de PV remonte plus rapidement grâce à la synergie de soin du W.",
+   "use": {
+    "when": "En duel ou en combat d'équipe lors de l'activation de l'ultime pour se régénérer.",
+    "why": "",
+    "who": "Joueurs de Trundle à tous les postes.",
+    "how": [
+     "Activer le W (Royaume maudit) sous la position de Trundle.",
+     "Lancer aussitôt le R (Soumission) sur le champion ennemi."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil sur l'amplification du soin du R via le bonus du W est fidèle au passage et le contexte d'usage est complet."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-3faAZp1epIQ-3",
+   "claim": "Selon 【LOL・ボチカ】青森最高レートが語るアルティメットチャンピオン解説 : utiliser l'ultime de Trundle sur un ennemi bénéficiant d'un buff temporaire de résistances (comme le W de Rammus) vole l'armure basée sur la valeur temporairement augmentée, laissant la cible avec une armure fortement réduite voire négative à la fin du buff.",
+   "champions": [
+    "Trundle"
+   ],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "champion",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Rammus"
+   },
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Trundle/R",
+    "Rammus/W"
+   ],
+   "conditions": [
+    "L'adversaire possède un buff d'armure temporaire actif"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-3faAZp1epIQ",
+     "locator": "08:26",
+     "lang": "ja",
+     "passage": "フルビルド、ま、すげぇビルド揃ったラムスのW中にトランドルがウルト使うと、ラムスのW終わった後、ラムスのアーマーマイナスになります。",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-24",
+      "window": "486-546s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-3faAZp1epIQ",
+     "locator": "08:50",
+     "lang": "ja",
+     "passage": "増えた時点のアーマー値を吸い取るんだよね。だから増えた時点のやつを吸うと、減った後過剰に吸い取るから。"
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer le R de Trundle sur Rammus au moment exact où son W est activé.",
+   "observe": "L'armure de Rammus devient extrêmement faible ou négative après l'expiration de son W.",
+   "use": {
+    "when": "Face à un champion (tel que Rammus) qui augmente temporairement ses résistances via un sort.",
+    "why": "L'ultime prend un pourcentage des résistances au moment du lancement ; quand le sort défensif adverse s'arrête, la quantité volée reste inchangée et dépasse l'armure de base de la cible.",
+    "who": "Joueurs de Trundle contre des champions à résistances temporaires.",
+    "how": [
+     "Attendre que l'adversaire active sa compétence d'armure temporaire (ex: W de Rammus).",
+     "Lancer immédiatement l'ultime de Trundle sur lui."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'explication de la mécanique de vol de résistances sur un buff temporaire d'armure (ex: W de Rammus) est exacte et directement appuyée par le passage cité."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-3faAZp1epIQ-4",
+   "claim": "Selon 【LOL・ボチカ】青森最高レートが語るアルティメットチャンピオン解説 : pour geler facilement une vague de sbires devant sa tour, il est possible de bloquer un bref instant le trajet des sbires à distance sans déclencher leur agressivité directe.",
+   "champions": [],
+   "roles": [
+    "top",
+    "mid",
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "lane"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "JP"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-3faAZp1epIQ",
+     "locator": "02:18",
+     "lang": "ja",
+     "passage": "この後衛ミニオンがね、アグロ向かないぐらいで一瞬足を止めるとですね、簡単にフリーズできます。"
+    }
+   ],
+   "mentions": [
+    "Aatrox (exemple)"
+   ],
+   "action": "Arrêter le mouvement des sbires à distance en faisant obstacle brièvement sans se faire cibler par leurs attaques.",
+   "observe": "La vague ralentit et se fige hors de portée de tir de la tour alliée.",
+   "use": {
+    "when": "Lorsque la vague de sbires ennemie s'approche de la tour alliée et risque de s'y écraser.",
+    "why": "Ralentir les sbires à distance sans prendre de dégâts permet de maintenir le point de rencontre des sbires exactement devant la portée de la tour.",
+    "who": "Joueurs de voies individuelles ou duo cherchant à geler leur vague.",
+    "how": [
+     "Se positionner brièvement devant le chemin des sbires à distance.",
+     "S'écarter juste avant qu'ils n'attaquent pour bloquer leur avancée sans prendre leur agressivité."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil de gestion de vague intemporel et bien étayé par le passage cité, avec des conditions et un contexte d'usage clairs."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-24",
+   "validity": {
+    "checkedAt": "2026-11-24",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-24",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-24"
   }
  ],
- "updatedAt": "2026-11-24T00:29:47.024Z"
+ "updatedAt": "2026-11-24T10:28:03.692Z"
 }

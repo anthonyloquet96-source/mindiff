@@ -102848,7 +102848,95 @@
    },
    "version": 1,
    "firstSeen": "2026-11-24"
+  },
+  {
+   "id": "u-ai-yt-DYbwrTpTEXA-1",
+   "claim": "Selon 위트 Witt : avant de rentrer à la base avec peu de vie, prends en compte la disponibilité potentielle de l'ultime d'un Karthus adverse.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "survie",
+    "macro"
+   ],
+   "matchup": {
+    "vs": "Karthus"
+   },
+   "context": {
+    "queue": "non précisé",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "13.14"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "champion:Karthus/Requiem"
+   ],
+   "conditions": [],
+   "limits": [
+    "Conseil basé sur le patch 13.14"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-DYbwrTpTEXA",
+     "locator": "07:51",
+     "lang": "ko",
+     "passage": "카서스 궁 생각하자 집 가야겠다."
+    }
+   ],
+   "mentions": [
+    "Karthus (exemple)",
+    "Ziggs (exemple)"
+   ],
+   "action": "Vérifier le statut de l'ultime de Karthus avant de lancer un rappel à bas PV.",
+   "observe": "L'icône de l'ultime de Karthus sur l'interface ou le tableau des scores.",
+   "use": {
+    "when": "Tu t'apprêtes à rentrer à la base avec peu de points de vie face à un Karthus.",
+    "why": "L'ultime de Karthus peut t'achever pendant que tu canalises ton retour à la base.",
+    "who": "Tout joueur face à un Karthus.",
+    "how": [
+     "Vérifie la disponibilité de l'ultime de Karthus",
+     "Choisis un moment ou un endroit sûr pour ton rappel"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "mention",
+     "une-partie",
+     "sur-generalisation",
+     "citation-insuffisante"
+    ],
+    "why": "Ziggs est absent du passage. L'utilisation de 'toujours' et l'injonction de vérification systématique vont au-delà du simple rappel 'pensons à l'ultime' du passage. L'observation de l'icône d'ultime ennemi est impossible en partie."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-25",
+   "validity": {
+    "checkedAt": "2026-11-25",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-25",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-25"
   }
  ],
- "updatedAt": "2026-11-25T09:07:10.816Z"
+ "updatedAt": "2026-11-25T22:13:26.361Z"
 }

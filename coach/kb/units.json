@@ -102936,7 +102936,291 @@
    },
    "version": 1,
    "firstSeen": "2026-11-25"
+  },
+  {
+   "id": "u-ai-yt-WRxFa_H6TvE-3",
+   "claim": "Selon 유한 U Han : face à Vi, Nidalee doit préparer son plan de jeu avant le niveau 6 en s'appuyant sur sa voie alliée la plus forte pour forcer des escarmouches et retarder le gain d'expérience de Vi.",
+   "champions": [
+    "Nidalee",
+    "Vi"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "matchup",
+    "macro",
+    "jungle"
+   ],
+   "matchup": {
+    "vs": "Vi"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger 1400 LP",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Vi/R"
+   ],
+   "conditions": [
+    "Avant le niveau 6 de Vi"
+   ],
+   "limits": [
+    "Nécessite qu'au moins une voie alliée ait la priorité ou l'avantage du matchup"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-WRxFa_H6TvE",
+     "locator": "[06:17]",
+     "lang": "ko",
+     "passage": "[06:17] (parole) 운영법? 이라고 해도 되겠다 초반에 어떻게 해야 하냐면 6전에 내가 미리 설계를 해야 돼",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-26",
+      "window": "357-417s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas de contre-indication explicite ni de rallonger la durée des escarmouches."
+     }
+    },
+    {
+     "content": "c-yt-WRxFa_H6TvE",
+     "locator": "[06:27]",
+     "lang": "ko",
+     "passage": "[06:27] (parole) 3라인 중 센 라인 1라인이라도 그 라인을 이용해서 교전 유도를 해야 돼"
+    }
+   ],
+   "mentions": [],
+   "action": "Provoquer des escarmouches du côté de la voie la plus forte avant que Vi n'atteigne le niveau 6.",
+   "observe": "Vi prend du retard sur son niveau 6 et sur sa vitesse de nettoyage de jungle.",
+   "use": {
+    "when": "En début de partie avant le niveau 6 du jungler adverse (Vi)",
+    "why": "Vi devient très dangereuse à partir de son niveau 6 ; perturber sa progression tôt réduit fortement sa valeur en milieu de partie.",
+    "who": "Joueur de Nidalee jungle affrontant Vi",
+    "how": [
+     "Repérer la voie alliée qui possède la priorité ou un fort potentiel de combat.",
+     "Provoquer une invasion ou une contestation d'objectif avec l'appui de cette voie.",
+     "Rallonger le temps des escarmouches pour empêcher Vi de vider ses camps confortablement."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": ""
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt-WRxFa_H6TvE-4",
+   "claim": "Selon 유한 U Han : après une séquence d'escarmouche ou d'invasion prolongée en jungle, il est nécessaire d'enchaîner un nettoyage complet de ses camps pour combler le retard d'expérience sur les laners.",
+   "champions": [
+    "Nidalee"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger 1400 LP",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Après un tour prolongé d'escarmouche en jungle"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-WRxFa_H6TvE",
+     "locator": "[09:06]",
+     "lang": "ko",
+     "passage": "[09:06] (parole) 나는 턴 길게 썼으니까 무조건 풀캠 턴",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-26",
+      "window": "526-586s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-WRxFa_H6TvE",
+     "locator": "[09:27]",
+     "lang": "ko",
+     "passage": "[09:27] (parole) 따라서 내가 적 정글과 길게 턴이 늘어졌다면 성장 턴 챙기는 건 필수라 생각하시면 좋을 것 같습니다"
+    }
+   ],
+   "mentions": [],
+   "action": "Enchaîner un nettoyage complet des camps de jungle dès la fin d'un tour d'escarmouche prolongé.",
+   "observe": "Le niveau du jungler rattrape celui des laners qui ont continué à gagner de l'expérience sur les sbires.",
+   "use": {
+    "when": "Immédiatement après une séquence d'invasion ou de combat prolongé sans farm de ses propres camps",
+    "why": "Pendant les affrontements prolongés, les laners prennent l'avantage en expérience via les sbires ; ne pas farmer ensuite rend le jungler incapable d'intervenir par manque de niveau.",
+    "who": "Joueur de jungle après un temps d'escarmouche prolongé",
+    "how": [
+     "Clore la séquence d'action sur la carte.",
+     "Rentrer dans sa propre jungle pour vider l'ensemble des camps disponibles.",
+     "Ne pas tenter de nouveau gank tant que ce tour de farm n'est pas accompli."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "Ce principe de macro-jungle sur la récupération d'expérience après une longue escarmouche est général et ne dépend pas du kit de Nidalee."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt-WRxFa_H6TvE-7",
+   "claim": "Selon 유한 U Han : en très haut niveau (Challenger), Nidalee doit prioriser un build orienté sur la survie et le temporisation (Ceinture roquette, Sablier de Zhonya, Sandales d'Hermès) pour ne pas donner sa prime. Sous le niveau Grand Maître, le build dégâts (Fléau de liche + Flamme-ombre) reste très efficace.",
+   "champions": [
+    "Nidalee"
+   ],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "build",
+    "survie",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger 1400 LP",
+    "region": "KR"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Ceinture roquette Hextech",
+    "item:Sablier de Zhonya",
+    "item:Fléau de liche",
+    "item:Flamme-ombre"
+   ],
+   "conditions": [
+    "Lors du choix du style de build selon l'Elo de la partie"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-WRxFa_H6TvE",
+     "locator": "[12:40]",
+     "lang": "ko",
+     "passage": "[12:40] (parole) 그랜드마스터 밑에까지는 리치베인 그불을 다 가셔도 돼요 왜냐하면 거기는 챌큐만큼 이해도가",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-26",
+      "window": "740-800s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Adapte le build de Nidalee selon l'Elo du salon : survie/temporisation en Challenger, dégâts bruts en dessous de Grand Maître.",
+   "observe": "Moins d'éliminations concédées en haut Elo avec des primes ; potentiel d'assassinat maximal en Elo inférieur.",
+   "use": {
+    "when": "Lors du choix du build d'objets en fonction du niveau moyen du salon",
+    "why": "En Challenger, l'équipe adverse se focalise instantanément sur Nidalee quand elle a une prime ; sous Grand Maître, le manque de coordination permet d'abuser du burst pur.",
+    "who": "Joueur de Nidalee jungle choisissant sa trajectoire d'équipement",
+    "how": [
+     "En Challenger / très haut niveau : choisir Ceinture roquette Hextech + Sablier de Zhonya + Sandales d'Hermès pour temporiser.",
+     "En dessous de Grand Maître : opter pour Fléau de liche + Flamme-ombre pour maximiser l'assassinat.",
+     "Ajuster le style de jeu entre la temporisation/initiation et le burst pur."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible"
+    ],
+    "why": "Le choix des builds d'objets selon le niveau de jeu dépend directement de l'état d'équilibrage du patch non renseigné."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
   }
  ],
- "updatedAt": "2026-11-25T22:13:26.361Z"
+ "updatedAt": "2026-11-26T09:19:44.926Z"
 }

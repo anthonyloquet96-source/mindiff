@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-26T09:19:46.150Z",
+ "generatedAt": "2026-11-26T21:56:25.821Z",
  "rules": {
   "version": "v1",
   "prompts": {
@@ -199,7 +199,7 @@
      "Jinx",
      "Smolder"
     ],
-    "units": 128
+    "units": 133
    },
    "support": {
     "champions": [
@@ -207,7 +207,7 @@
      "Milio",
      "Nami"
     ],
-    "units": 52
+    "units": 57
    }
   },
   "champions": {
@@ -509,15 +509,17 @@
    },
    "Cassiopeia": {
     "role": null,
-    "units": 5,
+    "units": 6,
     "themes": [
      "champion",
      "matchup",
-     "teamfight"
+     "teamfight",
+     "lane",
+     "vagues"
     ],
-    "actions": 1,
+    "actions": 2,
     "official": 4,
-    "coaching": 1
+    "coaching": 2
    },
    "Cho'Gath": {
     "role": null,
@@ -662,29 +664,32 @@
    },
    "Fizz": {
     "role": null,
-    "units": 7,
+    "units": 9,
     "themes": [
      "champion",
      "matchup",
      "lane",
      "macro",
-     "build"
+     "build",
+     "vagues"
     ],
-    "actions": 2,
+    "actions": 4,
     "official": 5,
-    "coaching": 2
+    "coaching": 4
    },
    "Galio": {
     "role": null,
-    "units": 4,
+    "units": 7,
     "themes": [
      "champion",
-     "matchup"
+     "matchup",
+     "lane",
+     "vagues",
+     "teamfight"
     ],
-    "actions": 0,
+    "actions": 3,
     "official": 4,
-    "coaching": 0,
-    "officialOnly": true
+    "coaching": 3
    },
    "Gangplank": {
     "role": null,
@@ -969,16 +974,17 @@
    },
    "Katarina": {
     "role": null,
-    "units": 6,
+    "units": 7,
     "themes": [
      "champion",
      "matchup",
      "macro",
-     "lane"
+     "lane",
+     "vagues"
     ],
-    "actions": 1,
+    "actions": 2,
     "official": 5,
-    "coaching": 1
+    "coaching": 2
    },
    "Kayle": {
     "role": null,
@@ -1715,18 +1721,19 @@
    },
    "Talon": {
     "role": null,
-    "units": 8,
+    "units": 10,
     "themes": [
      "champion",
      "matchup",
      "vision",
      "lane",
      "macro",
-     "vagues"
+     "vagues",
+     "teamfight"
     ],
-    "actions": 2,
+    "actions": 4,
     "official": 6,
-    "coaching": 2
+    "coaching": 4
    },
    "Taric": {
     "role": null,
@@ -2392,15 +2399,15 @@
    }
   },
   "themes": {
-   "lane": 216,
-   "survie": 53,
-   "teamfight": 36,
+   "lane": 224,
+   "survie": 54,
+   "teamfight": 38,
    "synergie": 9,
-   "matchup": 33,
-   "methode": 63,
-   "vagues": 115,
+   "matchup": 39,
+   "methode": 64,
+   "vagues": 121,
    "vision": 37,
-   "macro": 172,
+   "macro": 173,
    "jungle": 103
   },
   "partial": [
@@ -14860,7 +14867,7 @@
    "retrievedAt": "2026-10-21",
    "patch": "12.22",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "En live TOUS LES JOURS à 15h sur : https://www.twitch.tv/chreak\nRejoignez le discord : https://discord.gg/4CXfNynYEa\nTwitter - https://www.twitter.com/Chreak_Lol\n\n\nMONTAGE : \n\nTwitter : @Aiko_adc",
    "backfill": true,
    "note": "Lue par gemini-3.8-flash : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -14888,6 +14895,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 91626
+   },
+   "analyzedAt": "2026-11-26",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Comment jouer Fizz mid en early game contre un champion à distance en gérant la vague, et comment utiliser le sort A pour annuler l'animation de l'ultime.",
+   "quality": {
+    "level": "moyenne",
+    "why": "Le contenu est un guide vidéo de gameplay avec des explications claires et des conseils pratiques sur le kit du champion, bien que basé sur un patch ancien de la saison 13."
    }
   },
   {
@@ -15449,7 +15466,7 @@
    "retrievedAt": "2026-10-21",
    "patch": "S12",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "En live TOUS LES JOURS à 15h sur : https://www.twitch.tv/chreak\nRejoignez le discord : https://discord.gg/4CXfNynYEa\nTwitter - https://www.twitter.com/Chreak_Lol\n\n\nMONTAGE : \n\nTwitter : @Kiratu_ \nMail pro : [e-mail]",
    "backfill": true,
    "note": "Lue par gemini-3-flash-preview : transcription et 40 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -15476,6 +15493,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 95477
+   },
+   "analyzedAt": "2026-11-26",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 4,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Galio se joue principalement en counter-pick pour perma-push, contrôler la carte et aider ses carries grâce à des techniques de clean de wave et des mécaniques de sorts adaptées.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu détaille des mécaniques de kit précises (cancel de mur, E reverse), des choix de runes argumentés et une vision claire du rôle du champion."
    }
   },
   {
@@ -15651,11 +15678,11 @@
    "published": "2022-09-11",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "access": "transcription+visuel",
+   "analysis": "analysee",
    "descriptionExcerpt": "En live TOUS LES JOURS sauf le lundi mardi à 15h sur : https://www.twitch.tv/chreak\nRejoingnez le discord : https://discord.gg/4CXfNynYEa\nTwitter - https://www.twitter.com/Chreak_Lol\n\n\nMONTAGE : \n\nTwitter : @Kiratu_ \nMail pro : [e-mail]",
    "backfill": true,
-   "note": "Ancien guide ajouté à la demande (recherche dans la chaîne) : à lire par Gemini.",
+   "note": "Lue par gemini-3.6-flash : transcription et 34 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 12,
     "matched": [
@@ -15666,6 +15693,29 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "ancien guide de Chreak ciblé à la demande ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-26",
+    "sha256": "49ae68a2a318a51e428e8287274568d6f8527b3108b8419c0c5b98aa85ce756a",
+    "segments": 28,
+    "observations": 34,
+    "duration": "09:58",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 66546
+   },
+   "analyzedAt": "2026-11-26",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 2,
+   "unitsRejected": 0,
+   "alertes": [],
+   "learn": "Comment jouer Talon midlane en saison 12 : gestion des matchups corps à corps, importance du push pour le niveau 2, choix des objets (Griffe du rôdeur) et combos principaux comme le W-R.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le guide est structuré, détaille les choix de runes, les objets, les matchups et fournit des explications claires sur les combos et la prise de décision en jeu."
    }
   },
   {
@@ -15680,7 +15730,7 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "En live TOUS LES JOURS à 15h sur : https://www.twitch.tv/chreak\nRejoignez le discord : https://discord.gg/4CXfNynYEa\nTwitter - https://www.twitter.com/Chreak_Lol\n\n\nMONTAGE : \n\nTwitter : @Kiratu_ \nMail pro : [e-mail]",
    "backfill": true,
    "note": "Lue par gemini-3.6-flash : transcription et 23 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
@@ -15708,6 +15758,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 71196
+   },
+   "analyzedAt": "2026-11-26",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 3,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "moyenne",
+    "why": "Le guide donne des explications pratiques sur le champion, mais l'auteur mentionne lui-même être classé Gold, ce qui relativise la portée experte de certains choix de gameplay."
    }
   },
   {
@@ -20193,7 +20253,7 @@
    "published": "2026-10-06",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 6200,
+   "views": 6300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20892,7 +20952,7 @@
    "published": "2026-03-28",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 776,
+   "views": 778,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -20950,7 +21010,7 @@
    "published": "2026-03-18",
    "retrievedAt": "2026-10-21",
    "patch": null,
-   "views": 912,
+   "views": 924,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -21302,9 +21362,9 @@
    "retrievedAt": "2026-10-21",
    "patch": null,
    "views": 2800,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
-   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
+   "note": "Lue par gemini-3.6-flash : transcription et 29 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "descriptionExcerpt": "CÓMO GANAR con puro MACRO de SUPPORT y sin MECÁNICAS\n\n✅ COACHING GRATIS: https://www.youtube.com/@ElBluLoLCoachings\n\nSTREAMS:\n•Twitch: https://www.twitch.tv/elblulol\n•Kick: https://kick.com/elblulol\n\nMis otras redes:\n•Tiktok: https://www.tiktok.com/@elblulol\n•Instagram: https://w",
    "triage": {
     "score": 2,
@@ -21319,7 +21379,20 @@
     "patchMentioned": null,
     "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
    },
-   "queueRank": 195
+   "queueRank": 195,
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.6-flash",
+    "fps": 1,
+    "at": "2026-11-26",
+    "sha256": "b2bb9c385779792272f2aa080bc500227da2aa5f96ddb16a587713bd31d73431",
+    "segments": 98,
+    "observations": 29,
+    "duration": "25:12",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 153263
+   }
   },
   {
    "id": "c-yt-FviXeRDaRHM",
@@ -25871,7 +25944,7 @@
    "published": "2026-10-28",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 9200,
+   "views": 9300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26045,7 +26118,7 @@
    "published": "2026-10-26",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 44000,
+   "views": 45000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26193,7 +26266,7 @@
    "published": "2026-10-27",
    "retrievedAt": "2026-10-28",
    "patch": null,
-   "views": 566,
+   "views": 568,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -26796,7 +26869,7 @@
    "published": "2026-10-29",
    "retrievedAt": "2026-10-30",
    "patch": null,
-   "views": 25000,
+   "views": 26000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -27341,7 +27414,7 @@
    "ageMonths": 0.5,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 31000,
+   "views": 32000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28156,7 +28229,7 @@
    "ageMonths": 4,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 6300,
+   "views": 6400,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -28389,7 +28462,7 @@
    "ageMonths": 2,
    "retrievedAt": "2026-11-01",
    "patch": null,
-   "views": 370,
+   "views": 373,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -30067,7 +30140,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-03",
    "patch": null,
-   "views": 33000,
+   "views": 34000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35499,7 +35572,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 88000,
+   "views": 89000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -35718,7 +35791,7 @@
    "ageMonths": 0.1,
    "retrievedAt": "2026-11-06",
    "patch": null,
-   "views": 112000,
+   "views": 114000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36353,7 +36426,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-08",
    "patch": null,
-   "views": 207000,
+   "views": 208000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36862,7 +36935,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 2700,
+   "views": 2800,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -36917,7 +36990,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-09",
    "patch": null,
-   "views": 373,
+   "views": 374,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -37673,7 +37746,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-10",
    "patch": null,
-   "views": 6900,
+   "views": 7000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -38722,7 +38795,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-13",
    "patch": null,
-   "views": 31000,
+   "views": 32000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -39010,7 +39083,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-13",
    "patch": null,
-   "views": 106000,
+   "views": 107000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -39037,7 +39110,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-13",
    "patch": null,
-   "views": 9400,
+   "views": 9500,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -39273,7 +39346,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-14",
    "patch": null,
-   "views": 9600,
+   "views": 9700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -39330,7 +39403,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-14",
    "patch": null,
-   "views": 6300,
+   "views": 6400,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -39663,7 +39736,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-15",
    "patch": null,
-   "views": 114000,
+   "views": 118000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -39745,7 +39818,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-15",
    "patch": null,
-   "views": 11000,
+   "views": 12000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -40185,7 +40258,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-17",
    "patch": null,
-   "views": 23000,
+   "views": 24000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -40283,7 +40356,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-17",
    "patch": null,
-   "views": 7400,
+   "views": 7500,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -45502,7 +45575,7 @@
    "ageMonths": 0.1,
    "retrievedAt": "2026-11-23",
    "patch": null,
-   "views": 117000,
+   "views": 120000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -45555,7 +45628,7 @@
    "ageMonths": 0.1,
    "retrievedAt": "2026-11-23",
    "patch": null,
-   "views": 6400,
+   "views": 6500,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -45665,7 +45738,7 @@
    "ageMonths": 0.1,
    "retrievedAt": "2026-11-23",
    "patch": null,
-   "views": 25000,
+   "views": 26000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -45694,7 +45767,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-23",
    "patch": null,
-   "views": 8300,
+   "views": 8700,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -45776,7 +45849,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-23",
    "patch": null,
-   "views": 25000,
+   "views": 28000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -45829,7 +45902,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-23",
    "patch": null,
-   "views": 29000,
+   "views": 31000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -45857,7 +45930,7 @@
    "ageMonths": 0.1,
    "retrievedAt": "2026-11-23",
    "patch": null,
-   "views": 30000,
+   "views": 32000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -45885,7 +45958,7 @@
    "ageMonths": 0.1,
    "retrievedAt": "2026-11-23",
    "patch": null,
-   "views": 71000,
+   "views": 77000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -46117,7 +46190,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-23",
    "patch": null,
-   "views": 7100,
+   "views": 7300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -46143,7 +46216,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-23",
    "patch": null,
-   "views": 7000,
+   "views": 7500,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -46197,7 +46270,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-23",
    "patch": null,
-   "views": 9600,
+   "views": 10000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -46226,7 +46299,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-23",
    "patch": null,
-   "views": 6200,
+   "views": 6400,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -46280,7 +46353,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-23",
    "patch": null,
-   "views": 5700,
+   "views": 6400,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -46458,7 +46531,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-24",
    "patch": null,
-   "views": 42000,
+   "views": 45000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -46486,7 +46559,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-24",
    "patch": null,
-   "views": 6600,
+   "views": 7600,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -46513,7 +46586,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-24",
    "patch": null,
-   "views": 14000,
+   "views": 15000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -46872,7 +46945,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-25",
    "patch": null,
-   "views": 3800,
+   "views": 5200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -46900,7 +46973,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-25",
    "patch": null,
-   "views": 1700,
+   "views": 3200,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -46927,7 +47000,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-25",
    "patch": null,
-   "views": 5000,
+   "views": 6300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -46957,7 +47030,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-25",
    "patch": null,
-   "views": 3300,
+   "views": 5300,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -46986,7 +47059,7 @@
    "retrievedAt": "2026-11-25",
    "patch": "26.11",
    "access": "transcription+visuel",
-   "analysis": "en-attente",
+   "analysis": "analysee",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 193,
@@ -47014,6 +47087,16 @@
     "videoKind": "guide",
     "gameplayShown": true,
     "tokens": 139648
+   },
+   "analyzedAt": "2026-11-26",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 5,
+   "unitsRejected": 1,
+   "alertes": [],
+   "learn": "Tu peux apprendre à adapter ta gestion de vague et ton positionnement horizontal (parallèle) selon que tu joues avec ou contre des supports de mêlée ou à distance pour dicter le rythme de la bot lane.",
+   "quality": {
+    "level": "élevée",
+    "why": "Le guide est structuré par archétypes, utilise des exemples de haut niveau (Masters) pour illustrer les concepts et fournit des règles de décision claires basées sur la gestion de vague."
    }
   },
   {
@@ -47028,7 +47111,7 @@
    "ageMonths": 0,
    "retrievedAt": "2026-11-26",
    "patch": null,
-   "views": 3500,
+   "views": 11000,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
@@ -47053,13 +47136,13 @@
    "lang": "en",
    "published": null,
    "retrievedAt": "2026-11-26",
-   "patch": null,
-   "access": "metadonnees",
-   "analysis": "non-analysee",
+   "patch": "14.23",
+   "access": "transcription+visuel",
+   "analysis": "en-attente",
    "descriptionExcerpt": "",
    "backfill": true,
    "queueRank": 194,
-   "note": "File de lecture (rang 194) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "note": "Lue par gemini-3.8-flash : transcription et 34 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
    "triage": {
     "score": 16,
     "matched": [
@@ -47068,6 +47151,19 @@
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.8-flash",
+    "fps": 1,
+    "at": "2026-11-26",
+    "sha256": "00d8cf23816148aa4b980e147ae183cc309c85331f1c046511df377144c05f11",
+    "segments": 57,
+    "observations": 34,
+    "duration": "32:06",
+    "videoKind": "direct",
+    "gameplayShown": true,
+    "tokens": 184855
    }
   },
   {
@@ -47081,15 +47177,180 @@
    "published": null,
    "retrievedAt": "2026-11-26",
    "patch": null,
+   "access": "transcription+visuel",
+   "analysis": "analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 196,
+   "note": "Lue par gemini-3.5-flash : transcription et 31 observation(s) d'images à 1 image/s. Lecture par IA, à vérifier sur la vidéo grâce aux horodatages.",
+   "triage": {
+    "score": 15,
+    "matched": [],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   },
+   "reader": {
+    "kind": "ia",
+    "tool": "gemini-3.5-flash",
+    "fps": 1,
+    "at": "2026-11-26",
+    "sha256": "ff9d93cb2ad8db2d06526b9bca2fe4589087df540993449dce9719b5d346ee8f",
+    "segments": 56,
+    "observations": 31,
+    "duration": "22:36",
+    "videoKind": "guide",
+    "gameplayShown": true,
+    "tokens": 135266
+   },
+   "analyzedAt": "2026-11-26",
+   "analyst": "gemini-3.8-flash",
+   "unitsAccepted": 0,
+   "unitsRejected": 2,
+   "alertes": [],
+   "learn": null,
+   "quality": {
+    "level": "élevée",
+    "why": "Le contenu montre une partie de niveau Challenger avec des explications claires et détaillées sur les choix de runes, d'objets, de matchups et de gestion de vagues."
+   }
+  },
+  {
+   "id": "c-yt-A4YyVdG4WhA",
+   "sourceId": "yt-wtl",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=A4YyVdG4WhA",
+   "title": "How to Climb with Neeko Support Guide ft. Charlie - BLG ON World Finals Edition",
+   "author": "We Teach League (YouTube)",
+   "lang": "en",
+   "published": null,
+   "ageMonths": 0,
+   "retrievedAt": "2026-11-26",
+   "patch": null,
+   "views": 1700,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "triage": {
+    "score": 9,
+    "matched": [
+     "Neeko",
+     "support",
+     "guide",
+     "how to",
+     "climb"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-Xz883uRW2z8",
+   "sourceId": "yt-hybradge",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=Xz883uRW2z8",
+   "title": "How to ACTUALLY Carry with Jarvan Jungle | Challenger Guide",
+   "author": "hybradge",
+   "lang": "en",
+   "published": null,
+   "ageMonths": 0,
+   "retrievedAt": "2026-11-26",
+   "patch": null,
+   "views": 1100,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "triage": {
+    "score": 5,
+    "matched": [
+     "jungle",
+     "guide",
+     "how to"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-uJ9bgvUI7FU",
+   "sourceId": "yt-bizyze-coaching-league-of-le",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=uJ9bgvUI7FU",
+   "title": "Why Ruler Makes Almost No Mistakes: Worlds Final Breakdown",
+   "author": "BIZYZE Coaching | League of Legends",
+   "lang": "fr",
+   "published": null,
+   "ageMonths": 0,
+   "retrievedAt": "2026-11-26",
+   "patch": null,
+   "views": 18,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "note": "Transcription inaccessible par une voie autorisée : l'API YouTube ne permet de télécharger les sous-titres que pour ses propres vidéos ou avec l'autorisation du propriétaire. Import administrateur possible (coach/import-transcript.mjs).",
+   "triage": {
+    "score": 4,
+    "matched": [
+     "breakdown",
+     "mistakes"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-ckdVPV0olzA",
+   "sourceId": "yt-pekinwoof",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=ckdVPV0olzA",
+   "title": "Enemy Mid had one of the biggest mental breakdowns I've ever seen | Zoe",
+   "author": "PekinWoof",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-26",
+   "patch": null,
    "access": "metadonnees",
    "analysis": "non-analysee",
    "descriptionExcerpt": "",
    "backfill": true,
-   "queueRank": 196,
-   "note": "File de lecture (rang 196) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "queueRank": 197,
+   "note": "File de lecture (rang 197) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
    "triage": {
-    "score": 15,
-    "matched": [],
+    "score": 13,
+    "matched": [
+     "mid",
+     "breakdown"
+    ],
+    "entertainment": [],
+    "patchMentioned": null,
+    "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
+   }
+  },
+  {
+   "id": "c-yt-4_t0goUSOA0",
+   "sourceId": "yt-perryjg",
+   "type": "video",
+   "url": "https://www.youtube.com/watch?v=4_t0goUSOA0",
+   "title": "Why you need GOOD TEMPO to be a Good Jungler - Tempo Fundamentals",
+   "author": "perryjg",
+   "lang": "en",
+   "published": null,
+   "retrievedAt": "2026-11-26",
+   "patch": null,
+   "access": "metadonnees",
+   "analysis": "non-analysee",
+   "descriptionExcerpt": "",
+   "backfill": true,
+   "queueRank": 198,
+   "note": "File de lecture (rang 198) : vidéo pédagogique retenue par l'inventaire des chaînes, à lire par Gemini.",
+   "triage": {
+    "score": 16,
+    "matched": [
+     "jungle",
+     "jungler",
+     "fundamentals"
+    ],
     "entertainment": [],
     "patchMentioned": null,
     "basis": "file de lecture (inventaire du 21/10/2026) ; métadonnées seules (titre et description) : fixe une priorité, ne prouve pas le contenu"
@@ -130360,6 +130621,1090 @@
     {
      "code": "source-unique",
      "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-yXjtkXpkGPA-1",
+   "claim": "Selon Skill Capped : en bot lane, si tu joues avec un support de mêlée contre un support à distance, la première étape est de se concentrer sur la survie aux niveaux 1 à 3 en laissant la wave venir vers toi.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "matchup"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "Masters",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.11"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Support de mêlée contre support à distance"
+   ],
+   "limits": [
+    "Niveaux 1 à 3 uniquement"
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-yXjtkXpkGPA",
+     "locator": "02:04",
+     "lang": "en",
+     "passage": "Step 1 is simple: focus on surviving the first few levels. Because if you're playing with a melee support up against a ranged support, levels 1 through 3 are always going to be the toughest part of your lane."
+    },
+    {
+     "content": "c-yt-yXjtkXpkGPA",
+     "locator": "03:40",
+     "lang": "en",
+     "passage": "For Melee vs Ranged, you kind of have to just be okay with playing patiently and letting the wave push into you. In fact, having the push can in a lot of cases actually be a disadvantage with a melee support."
+    }
+   ],
+   "mentions": [
+    "Alistar (exemple)",
+    "Corki (exemple)",
+    "Senna (exemple)",
+    "Morgana (exemple)"
+   ],
+   "action": "Recule et laisse la vague s'approcher de ta tour lors des trois premiers niveaux si tu as un support de mêlée.",
+   "observe": "Position de la vague et barre de vie",
+   "use": {
+    "when": "Tu es en début de partie (niveaux 1-3) avec un support de mêlée contre un duo à distance.",
+    "why": "Les supports de mêlée ont besoin de leurs compétences (souvent débloquées au niveau 2 ou 3) pour être efficaces, et pousser la wave les expose au poke sans pouvoir riposter.",
+    "who": "ADC et supports de mêlée",
+    "how": [
+     "Recule derrière tes sbires",
+     "Laisse l'adversaire attaquer la wave en premier",
+     "Attends que la wave soit proche de ta tour avant de chercher l'engagement"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-26",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de date inconnue (patch 26.11) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-yXjtkXpkGPA : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (02:04)."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt-yXjtkXpkGPA : lu par gemini-3.6-flash (1 image/s) ; passage à vérifier sur la vidéo (03:40)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Contrôle critique : L'unité transforme une 'étape 1' en 'objectif prioritaire' et omet la nuance 'avec' (incluant l'ADC)."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-yXjtkXpkGPA-2",
+   "claim": "Selon Skill Capped : pour réussir un all-in avec un support de mêlée, il est crucial de préserver ses points de vie même si cela implique de sacrifier des sbires, car un engagement n'est possible que si tu as assez de santé pour le tenir.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "survie",
+    "matchup"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.11"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer un support de mêlée"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-yXjtkXpkGPA",
+     "locator": "07:01",
+     "lang": "en",
+     "passage": "Step 2, which is: preserve your health. Having the wave on your side of the map is great for enabling all-ins, but only if you have the health to do it.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-26",
+      "window": "401-461s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur ne mentionne pas de pourcentage précis de PV (70-80%) ni de consigne spécifique sur les sbires à distance."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Donne la priorité à ta barre de vie plutôt qu'aux sbires difficiles à atteindre.",
+   "observe": "Barre de vie",
+   "use": {
+    "when": "La wave est de ton côté et tu attends une opportunité d'engagement.",
+    "why": "Un support de mêlée qui a perdu trop de vie sous le poke adverse ne peut plus engager sans mourir instantanément.",
+    "who": "Duo bot lane avec support de mêlée",
+    "how": [
+     "Identifie les sbires qui t'exposent trop au poke",
+     "Laisse tomber les sbires à distance (casters) s'ils sont trop dangereux",
+     "Garde au moins 70-80% de tes PV pour l'all-in"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-26",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de date inconnue (patch 26.11) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "sur-generalisation",
+     "why": "c-yt-yXjtkXpkGPA : l'extrait 401-461s ne dit pas exactement cela (L'auteur ne mentionne pas de pourcentage précis de PV (70-80%) ni de consigne spécifique sur les sbires à distance.)."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-yXjtkXpkGPA-4",
+   "claim": "Selon Skill Capped : en jouant un support à distance contre un support de mêlée, tu dois maintenir un avantage numérique de sbires (pousser la wave) pour décourager l'engagement adverse.",
+   "champions": [],
+   "roles": [
+    "support",
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "matchup"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.11"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Support à distance contre support de mêlée"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-yXjtkXpkGPA",
+     "locator": "11:20",
+     "lang": "en",
+     "passage": "Rule number 1: keep a minion advantage. Your goal is to secure the push, so it's harder for them to engage, as they're going to take too much minion damage when doing so.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-26",
+      "window": "660-720s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Attaque les sbires en continu pour garder une vague plus grosse que celle de l'adversaire.",
+   "observe": "Nombre de sbires alliés vs ennemis",
+   "use": {
+    "when": "Tu es en phase de lane avec l'avantage de la portée.",
+    "why": "Une grosse wave alliée infligera d'énormes dégâts au support de mêlée s'il tente de sauter sur toi, rendant son all-in suicidaire.",
+    "who": "Supports à distance et leurs ADC",
+    "how": [
+     "Utilise tes auto-attaques sur les sbires dès le niveau 1",
+     "Garde la wave loin de ta tour",
+     "Utilise cet avantage pour poke l'adversaire en toute sécurité"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-26",
+   "status": "exploitable",
+   "lifespan": "meta",
+   "nuance": "Conseil de date inconnue (patch 26.11) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-yXjtkXpkGPA-5",
+   "claim": "Selon Skill Capped : le positionnement parallèle est essentiel en bot lane : l'ADC et le support doivent rester sur la même lane horizontale pour pouvoir échanger des dégâts de manière coordonnée.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "Masters",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.11"
+   },
+   "metaDependent": false,
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-yXjtkXpkGPA",
+     "locator": "19:00",
+     "lang": "en",
+     "passage": "This is something called parallel positioning. During lane and when looking to trade, you and your ADC should always aim to be side by side.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-26",
+      "window": "1120-1180s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Ashe (exemple)",
+    "Nami (exemple)",
+    "Soraka (exemple)",
+    "Jinx (exemple)"
+   ],
+   "action": "Ajuste ta position pour rester à la même hauteur que ton partenaire de lane.",
+   "observe": "Position relative de ton allié",
+   "use": {
+    "when": "Pendant la phase de lane, lors du farm ou des échanges de coups.",
+    "why": "Si l'un est trop en retrait, l'autre se retrouve seul face aux deux adversaires (situation de 1v2) lors d'un échange.",
+    "who": "Duo bot lane",
+    "how": [
+     "Imagine une lane invisible entre toi et ton allié",
+     "Avance quand ton allié avance pour mettre la pression",
+     "Recule quand ton allié recule pour ne pas rester exposé"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-26",
+   "status": "exploitable",
+   "lifespan": "intemporel",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-yXjtkXpkGPA-6",
+   "claim": "Selon Skill Capped : dans un affrontement entre deux supports de mêlée, la première étape est de lutter pour le push dès le début car ces matchups sont souvent extrêmement explosifs.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "vagues",
+    "matchup"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.11"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Melee vs Melee en bot lane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-yXjtkXpkGPA",
+     "locator": "20:47",
+     "lang": "en",
+     "passage": "Melee vs Melee. The first step is fighting for early push, as these matchups are often extremely explosive.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-26",
+      "window": "1227-1287s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Nautilus (exemple)",
+    "Leona (exemple)"
+   ],
+   "action": "Frappe les sbires dès le niveau 1 pour obtenir le niveau 2 avant l'adversaire.",
+   "observe": "Progression de l'expérience (barre de niveau)",
+   "use": {
+    "when": "Les deux supports sont des champions d'engagement de mêlée.",
+    "why": "Le premier duo à atteindre le niveau 2 peut engager instantanément et gagner la lane sur une seule action.",
+    "who": "Duo bot lane avec support de mêlée",
+    "how": [
+     "Aide ton ADC à tuer les premiers sbires rapidement",
+     "Surveille le nombre de sbires restants pour le niveau 2",
+     "Engage dès que le niveau 2 est acquis si l'adversaire est encore niveau 1"
+    ],
+    "notWhen": ""
+   },
+   "published": null,
+   "analyzedAt": "2026-11-26",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de date inconnue (patch 26.11) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "sur-generalisation",
+     "why": "Contrôle critique : L'unité transforme une 'première étape' en 'priorité absolue' et omet la nuance 'souvent'."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-uVzxtwidra4-1",
+   "claim": "Selon Chreak : en début de partie avec Fizz contre un champion à distance, laisse la wave pousser vers toi et cherche un all-in au niveau 2 ou 3.",
+   "champions": [
+    "Fizz"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "matchup",
+    "vagues"
+   ],
+   "matchup": {
+    "vs": "Cassiopeia"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "12.22"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer Fizz au mid contre un champion à distance"
+   ],
+   "limits": [
+    "Dépend des forces respectives et du sort d'invocateur adverse (ex: Barrière)"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uVzxtwidra4",
+     "locator": "00:58",
+     "lang": "fr",
+     "passage": "Et ici mon but quand tu joues contre un range, c'est de laisser la wave push vers moi, comme dans tous les match-ups mêlée versus range, et d'all-in niveau 2 ou 3 selon les forces de mon adversaire et mes forces.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "38-98s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Cassiopeia (exemple)"
+   ],
+   "action": "Laisser la vague adverse pousser au début contre un champion à distance avec Fizz et chercher un all-in au niveau 2 ou 3.",
+   "observe": "La position de la vague de sbires sur la midlane en early game.",
+   "use": {
+    "when": "tu joues Fizz au mid face à un champion à distance en début de partie",
+    "why": "pour gérer le désavantage du corps à corps en early game avant de chercher l'affrontement",
+    "who": "joueurs de Fizz mid",
+    "how": [
+     "Laisser la wave pousser vers ta tourelle",
+     "Attendre le niveau 2 ou 3",
+     "Chercher l'affrontement (all-in) selon les forces en présence"
+    ],
+    "notWhen": ""
+   },
+   "published": "2022-12-04",
+   "analyzedAt": "2026-11-26",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2022 (patch 12.22) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-uVzxtwidra4 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-uVzxtwidra4 publié le 2022-12-04 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-uVzxtwidra4-2",
+   "claim": "Selon Chreak : pour lancer l'ult de Fizz de manière plus imprévisible, tu peux utiliser ton sort A sur un adversaire ou un sbire pour annuler l'animation.",
+   "champions": [
+    "Fizz"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "12.22"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer Fizz et disposer de son ultime et de son sort A"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uVzxtwidra4",
+     "locator": "04:37",
+     "lang": "fr",
+     "passage": "Ce que je vais vouloir faire, c'est si possible cancel l'animation de mon R avec un A. Élément ultra important quand vous jouez Fizz : si vous appuyez sur A sur un adversaire, alors là c'est un peu greedy...",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "257-317s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer ton sort A sur une cible juste après ou pendant ton ultime pour masquer l'animation.",
+   "observe": "L'enchaînement des sorts R et A sur Fizz.",
+   "use": {
+    "when": "tu engages un combat avec Fizz et tu veux lancer ton ult sans laisser le temps à l'adversaire de l'esquiver",
+    "why": "le joueur en face ne sait pas quand est-ce que tu lances le R",
+    "who": "joueurs de Fizz",
+    "how": [
+     "Activer ton sort R",
+     "Utiliser immédiatement ton sort A sur un sbire ou un champion pour annuler l'animation"
+    ],
+    "notWhen": ""
+   },
+   "published": "2022-12-04",
+   "analyzedAt": "2026-11-26",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2022 (patch 12.22) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-uVzxtwidra4 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-uVzxtwidra4 publié le 2022-12-04 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt--QErfgrRnYw-1",
+   "claim": "Selon Chreak : galio se joue préférentiellement en counter-pick contre les mages contrôle et les champions mêlée faciles à gank, car le prendre en blind-pick est risqué si tu ne maîtrises pas le matchup.",
+   "champions": [
+    "Galio"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Vel'Koz"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S12"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "face à un mage contrôle ou un champion mêlée facile à gank"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--QErfgrRnYw",
+     "locator": "00:52",
+     "lang": "fr",
+     "passage": "Galio c'est bien contre les mages contrôle surtout, et les champions mêlée qui sont faciles à gank.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "32-92s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt--QErfgrRnYw",
+     "locator": "00:52",
+     "lang": "fr",
+     "passage": "Moi je vous conseille de prendre Galio seulement en counter-pick, en blind-pick c'est du suicide sauf si vous connaissez super bien le match-up."
+    }
+   ],
+   "mentions": [],
+   "action": "Joue Galio en réponse à un mage contrôle ou un mêlée gankable, évite de le pick en premier sans maîtrise.",
+   "observe": "Le choix de Galio en deuxième phase de draft ou en contre.",
+   "use": {
+    "when": "Tu es dans la phase de sélection des champions sur la mid lane.",
+    "why": "Galio excelle contre ce type de champions et craint les aveugles non maîtrisés.",
+    "who": "Joueur de Galio en milieu de carte",
+    "how": [
+     "Vends-toi le pick Galio uniquement si l'adversaire a révélé un mage contrôle ou un mêlée vulnérable."
+    ],
+    "notWhen": "Ne le prends pas en premier pick si tu ne connais pas le matchup sur le bout des doigts."
+   },
+   "published": "2022-10-02",
+   "analyzedAt": "2026-11-26",
+   "status": "a-revalider",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2022 (patch S12) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt--QErfgrRnYw : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt--QErfgrRnYw publié le 2022-10-02 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "lecture-ia",
+     "why": "c-yt--QErfgrRnYw : lu par gemini-3-flash-preview (1 image/s) ; passage à vérifier sur la vidéo (00:52)."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt--QErfgrRnYw publié le 2022-10-02 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    },
+    {
+     "code": "patch-incompatible",
+     "why": "Galio modifié au patch 26.23, après S12."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt--QErfgrRnYw-2",
+   "claim": "Selon Chreak : pour nettoyer rapidement les waves avec Galio, positionne-toi légèrement sur le côté afin que ton sort Vents de guerre touche simultanément les sbires corps à corps et à distance.",
+   "champions": [
+    "Galio"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S12"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "face à une vague de sbires"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--QErfgrRnYw",
+     "locator": "01:25",
+     "lang": "fr",
+     "passage": "ce que vous voulez faire avec Galio, c'est toujours vous mettre légèrement sur le côté pour que vos Q touchent à la fois les range et les mêlée.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "65-125s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Décale-toi sur le flanc de la vague avant de lancer Vents de guerre.",
+   "observe": "Les deux cercles de dégâts du sort touchent l'intégralité de la vague.",
+   "use": {
+    "when": "Tu arrives face à une wave ennemis au milieu.",
+    "why": "Cela permet de toucher tous les sbires et de sécuriser un push efficace.",
+    "who": "Joueur de Galio",
+    "how": [
+     "Place ton champion sur le côté de la lane de sbires.",
+     "Lance ton A (Vents de guerre) pour inclure les mêlées et les distances."
+    ],
+    "notWhen": ""
+   },
+   "published": "2022-10-02",
+   "analyzedAt": "2026-11-26",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2022 (patch S12) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt--QErfgrRnYw : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt--QErfgrRnYw publié le 2022-10-02 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt--QErfgrRnYw-3",
+   "claim": "Selon Chreak : pour annuler le temps de recul de l'animation de ton E (Horion de la justice) avec Galio, lance le sort en étant collé contre un mur.",
+   "champions": [
+    "Galio"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S12"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "proche d'un mur"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--QErfgrRnYw",
+     "locator": "05:07",
+     "lang": "fr",
+     "passage": "Le premier c'est le E cancel d'animation avec un mur. Tu peux E en étant collé à un mur, ça va cancel le retour de Galio, ça va te faire accélérer tout de suite.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "287-347s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Colle-toi à un décor mural pour lancer ton E sans le temps de recul.",
+   "observe": "L'animation de recul disparaît et le dash part immédiatement.",
+   "use": {
+    "when": "Tu te trouves à proximité d'un mur sur ta lane ou dans la jungle.",
+    "why": "Le décor bloque le mouvement de recul initial de la compétence.",
+    "who": "Joueur de Galio",
+    "how": [
+     "Positionne ton champion collé contre un mur.",
+     "Appuie sur la touche de ton E en visant ta direction."
+    ],
+    "notWhen": ""
+   },
+   "published": "2022-10-02",
+   "analyzedAt": "2026-11-26",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2022 (patch S12) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt--QErfgrRnYw : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt--QErfgrRnYw publié le 2022-10-02 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt--QErfgrRnYw-4",
+   "claim": "Selon Chreak : pour contrer la ténacité ennemie lors de ton combo avec Galio, utilise un E à l'envers après ton contrôle pour toucher la cible sur le retour.",
+   "champions": [
+    "Galio"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S12"
+   },
+   "metaDependent": false,
+   "conditions": [
+    "après avoir placé ton Z"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--QErfgrRnYw",
+     "locator": "05:23",
+     "lang": "fr",
+     "passage": "C'est qu'une fois que t'as CC quelqu'un, tu veux à tout prix E reverse pour avoir le plus de rapidité parce que vu que ton Galio en fait recule légèrement avant de mettre son E, si tu le mets à l'envers, ça veut dire qu'en reculant tu vas faire directement le CC.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "303-363s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Oriente ton E à l'opposé de la cible après ton taunt pour la toucher instantanément avec le mouvement arrière.",
+   "observe": "Le dash touche la cible ennemie sans temps de latence.",
+   "use": {
+    "when": "Tu as immobilisé un adversaire avec ton Bouclier de Durand (Z).",
+    "why": "Le léger recul du E s'effectue directement sur l'ennemi placé dans ton dos.",
+    "who": "Joueur de Galio",
+    "how": [
+     "Mets ton Z sur l'adversaire.",
+     "oriente ton curseur à l'opposé de l'ennemi et lance ton E."
+    ],
+    "notWhen": ""
+   },
+   "published": "2022-10-02",
+   "analyzedAt": "2026-11-26",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2022 (patch S12) : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt--QErfgrRnYw : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt--QErfgrRnYw publié le 2022-10-02 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-mKvJIp08Wb4-1",
+   "claim": "Selon Chreak : contre un champion mêlée en midlane avec Talon, l'objectif est d'obtenir la priorité sur la wave (le push) pour atteindre le niveau 2 en premier et agresser l'adversaire.",
+   "champions": [
+    "Talon"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Katarina"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "conditions": [
+    "Jouer Talon midlane contre un champion corps à corps"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mKvJIp08Wb4",
+     "locator": "[01:08]",
+     "lang": "fr",
+     "passage": "Donc à partir de là, tout ce que tu veux quand tu joues contre un mêlée, c'est prendre le push. Le push est très important parce que si tu as le push, ça veut dire que tu as ton niveau 2 en premier, ce qui veut dire qu'ensuite tu peux la cyberbully avec ton passage de niveau 2.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "48-108s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Katarina (exemple)"
+   ],
+   "action": "Pousse la première vague de sbires plus vite que ton vis-à-vis corps à corps pour sécuriser le niveau 2 en premier.",
+   "observe": "Le niveau de ton champion par rapport à l'adversaire lors de l'arrivée du deuxième sbire du canon ou de la deuxième vague.",
+   "use": {
+    "when": "tu joues Talon en midlane face à un champion corps à corps et la première wave arrive au milieu de la lane",
+    "why": "pour obtenir le niveau 2 en premier et pouvoir imposer une domination agressive (cyberbully) sur l'adversaire",
+    "who": "Talon midlane contre un champion mêlée",
+    "how": [
+     "Frappe les sbires de la première wave pour prendre l'avance sur le push",
+     "Surveille l'expérience pour anticiper ton passage niveau 2",
+     "Agresse l'adversaire dès que tu obtiens le niveau 2 avant lui"
+    ],
+    "notWhen": ""
+   },
+   "published": "2022-09-11",
+   "analyzedAt": "2026-11-26",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2022 : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-mKvJIp08Wb4 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-mKvJIp08Wb4 publié le 2022-09-11 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne, sans contexte d'usage complet ou dépendant de la méta."
+    }
+   ]
+  },
+  {
+   "id": "u-ai-yt-mKvJIp08Wb4-2",
+   "claim": "Selon Chreak : le combo W R de Talon permet de maximiser les dégâts de zone (AoE) tout en sélectionnant une cible précise et en évitant qu'elle ne s'échappe grâce au flash.",
+   "champions": [
+    "Talon"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "teamfight",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "conditions": [
+    "Jouer Talon et engager un combat d'équipe ou un gank"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mKvJIp08Wb4",
+     "locator": "[04:34]",
+     "lang": "fr",
+     "passage": "Mais W R c'est l'un des combos les plus importants avec Talon, c'est quand tu veux faire un maximum de dégâts AoE en même temps que choisir une cible.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "254-314s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Soraka (exemple)",
+    "Zeri (exemple)"
+   ],
+   "action": "Utilise le sort Z suivi de l'ultimate R pour infliger des dégâts de zone et cibler un ennemie prioritaire.",
+   "observe": "Le positionnement des ennemis regroupés pour placer le Z et le R de manière optimale.",
+   "use": {
+    "when": "tu arrives en renfort sur une lane ou en teamfight et les ennemis sont regroupés",
+    "why": "pour infliger un maximum de dégâts de zone (AoE) simultanément et sécuriser l'élimination de la cible",
+    "who": "Talon",
+    "how": [
+     "Lance ton Z (Rétammation)",
+     "Enchaîne immédiatement avec ton R (Assaut ténébreux)",
+     "Attends d'utiliser ton Q pour t'assurer le DPS requis et contrer les sorts de mobilité adverse"
+    ],
+    "notWhen": ""
+   },
+   "published": "2022-09-11",
+   "analyzedAt": "2026-11-26",
+   "status": "provisoire",
+   "lifespan": "meta",
+   "nuance": "Conseil de 2022 : l'équilibrage a changé depuis, vérifie que ça s'applique encore.",
+   "review": {
+    "human": "en attente"
+   },
+   "flags": [
+    {
+     "code": "verification-legere",
+     "why": "c-yt-mKvJIp08Wb4 : extrait relu seulement par gemini-3.5-flash-lite ; à confirmer par un modèle complet."
+    },
+    {
+     "code": "contenu-ancien",
+     "why": "c-yt-mKvJIp08Wb4 publié le 2022-09-11 : à confirmer sur le kit et la méta actuels."
+    },
+    {
+     "code": "source-unique",
+     "why": "Avis d'une seule personne : présenté comme tel."
     }
    ]
   }

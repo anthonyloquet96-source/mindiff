@@ -103220,7 +103220,1165 @@
    },
    "version": 1,
    "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt-yXjtkXpkGPA-1",
+   "claim": "Selon Skill Capped : en bot lane, si tu joues avec un support de mêlée contre un support à distance, la première étape est de se concentrer sur la survie aux niveaux 1 à 3 en laissant la vague de sbires venir vers toi.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "matchup"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "Masters",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.11"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Support de mêlée contre support à distance"
+   ],
+   "limits": [
+    "Niveaux 1 à 3 uniquement"
+   ],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-yXjtkXpkGPA",
+     "locator": "02:04",
+     "lang": "en",
+     "passage": "Step 1 is simple: focus on surviving the first few levels. Because if you're playing with a melee support up against a ranged support, levels 1 through 3 are always going to be the toughest part of your lane."
+    },
+    {
+     "content": "c-yt-yXjtkXpkGPA",
+     "locator": "03:40",
+     "lang": "en",
+     "passage": "For Melee vs Ranged, you kind of have to just be okay with playing patiently and letting the wave push into you. In fact, having the push can in a lot of cases actually be a disadvantage with a melee support."
+    }
+   ],
+   "mentions": [
+    "Alistar (exemple)",
+    "Corki (exemple)",
+    "Senna (exemple)",
+    "Morgana (exemple)"
+   ],
+   "action": "Recule et laisse la vague s'approcher de ta tour lors des trois premiers niveaux si tu as un support de mêlée.",
+   "observe": "Position de la vague et barre de vie",
+   "use": {
+    "when": "Tu es en début de partie (niveaux 1-3) avec un support de mêlée contre un duo à distance.",
+    "why": "Les supports de mêlée ont besoin de leurs compétences (souvent débloquées au niveau 2 ou 3) pour être efficaces, et pousser la vague les expose au poke sans pouvoir riposter.",
+    "who": "ADC et supports de mêlée",
+    "how": [
+     "Recule derrière tes sbires",
+     "Laisse l'adversaire attaquer la vague en premier",
+     "Attends que la vague soit proche de ta tour avant de chercher l'engagement"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "L'unité transforme une 'étape 1' en 'objectif prioritaire' et omet la nuance 'avec' (incluant l'ADC)."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt-yXjtkXpkGPA-2",
+   "claim": "Selon Skill Capped : pour réussir un all-in avec un support de mêlée, il est crucial de préserver ses points de vie même si cela implique de sacrifier des sbires, car un engagement n'est possible que si tu as assez de santé pour le tenir.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "survie",
+    "matchup"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.11"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jouer un support de mêlée"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-yXjtkXpkGPA",
+     "locator": "07:01",
+     "lang": "en",
+     "passage": "Step 2, which is: preserve your health. Having the wave on your side of the map is great for enabling all-ins, but only if you have the health to do it.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-26",
+      "window": "401-461s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur ne mentionne pas de pourcentage précis de PV (70-80%) ni de consigne spécifique sur les sbires à distance."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Donne la priorité à ta barre de vie plutôt qu'aux sbires difficiles à atteindre.",
+   "observe": "Barre de vie",
+   "use": {
+    "when": "La vague est de ton côté et tu attends une opportunité d'engagement.",
+    "why": "Un support de mêlée qui a perdu trop de vie sous le poke adverse ne peut plus engager sans mourir instantanément.",
+    "who": "Duo bot lane avec support de mêlée",
+    "how": [
+     "Identifie les sbires qui t'exposent trop au poke",
+     "Laisse tomber les sbires à distance (casters) s'ils sont trop dangereux",
+     "Garde au moins 70-80% de tes PV pour l'all-in"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe intemporel sur la gestion des ressources (PV vs Gold)."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt-yXjtkXpkGPA-4",
+   "claim": "Selon Skill Capped : en jouant un support à distance contre un support de mêlée, tu dois maintenir un avantage numérique de sbires (pousser la vague) pour décourager l'engagement adverse.",
+   "champions": [],
+   "roles": [
+    "support",
+    "bottom"
+   ],
+   "themes": [
+    "vagues",
+    "matchup"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.11"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Support à distance contre support de mêlée"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-yXjtkXpkGPA",
+     "locator": "11:20",
+     "lang": "en",
+     "passage": "Rule number 1: keep a minion advantage. Your goal is to secure the push, so it's harder for them to engage, as they're going to take too much minion damage when doing so.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-26",
+      "window": "660-720s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Attaque les sbires en continu pour garder une vague plus grosse que celle de l'adversaire.",
+   "observe": "Nombre de sbires alliés vs ennemis",
+   "use": {
+    "when": "Tu es en phase de lane avec l'avantage de la portée.",
+    "why": "Une grosse vague alliée infligera d'énormes dégâts au support de mêlée s'il tente de sauter sur toi, rendant son all-in suicidaire.",
+    "who": "Supports à distance et leurs ADC",
+    "how": [
+     "Utilise tes auto-attaques sur les sbires dès le niveau 1",
+     "Garde la vague loin de ta tour",
+     "Utilise cet avantage pour poke l'adversaire en toute sécurité"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Principe intemporel de dissuasion par la vague de sbires."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt-yXjtkXpkGPA-5",
+   "claim": "Selon Skill Capped : le positionnement parallèle est essentiel en bot lane : l'ADC et le support doivent rester sur la même ligne horizontale pour pouvoir échanger des dégâts de manière coordonnée.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "methode"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "Masters",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.11"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-yXjtkXpkGPA",
+     "locator": "19:00",
+     "lang": "en",
+     "passage": "This is something called parallel positioning. During lane and when looking to trade, you and your ADC should always aim to be side by side.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-26",
+      "window": "1120-1180s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Ashe (exemple)",
+    "Nami (exemple)",
+    "Soraka (exemple)",
+    "Jinx (exemple)"
+   ],
+   "action": "Ajuste ta position pour rester à la même hauteur que ton partenaire de lane.",
+   "observe": "Position relative de ton allié",
+   "use": {
+    "when": "Pendant la phase de lane, lors du farm ou des échanges de coups.",
+    "why": "Si l'un est trop en retrait, l'autre se retrouve seul face aux deux adversaires (situation de 1v2) lors d'un échange.",
+    "who": "Duo bot lane",
+    "how": [
+     "Imagine une ligne invisible entre toi et ton allié",
+     "Avance quand ton allié avance pour mettre la pression",
+     "Recule quand ton allié recule pour ne pas rester exposé"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Mécanique fondamentale de positionnement en duo lane."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt-yXjtkXpkGPA-6",
+   "claim": "Selon Skill Capped : dans un affrontement entre deux supports de mêlée, la première étape est de lutter pour le push dès le début car ces matchups sont souvent extrêmement explosifs.",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "vagues",
+    "matchup"
+   ],
+   "context": {
+    "queue": "tous",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "26.11"
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Melee vs Melee en bot lane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-yXjtkXpkGPA",
+     "locator": "20:47",
+     "lang": "en",
+     "passage": "Melee vs Melee. The first step is fighting for early push, as these matchups are often extremely explosive.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-26",
+      "window": "1227-1287s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Nautilus (exemple)",
+    "Leona (exemple)"
+   ],
+   "action": "Frappe les sbires dès le niveau 1 pour obtenir le niveau 2 avant l'adversaire.",
+   "observe": "Progression de l'expérience (barre de niveau)",
+   "use": {
+    "when": "Les deux supports sont des champions d'engagement de mêlée.",
+    "why": "Le premier duo à atteindre le niveau 2 peut engager instantanément et gagner la lane sur une seule action.",
+    "who": "Duo bot lane avec support de mêlée",
+    "how": [
+     "Aide ton ADC à tuer les premiers sbires rapidement",
+     "Surveille le nombre de sbires restants pour le niveau 2",
+     "Engage dès que le niveau 2 est acquis si l'adversaire est encore niveau 1"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "sur-generalisation"
+    ],
+    "why": "L'unité transforme une 'première étape' en 'priorité absolue' et omet la nuance 'souvent'."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt-uVzxtwidra4-1",
+   "claim": "Selon Chreak : en début de partie avec Fizz contre un champion à distance, laisse la vague de sbires pousser vers toi et cherche un all-in au niveau 2 ou 3.",
+   "champions": [
+    "Fizz"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "matchup",
+    "vagues"
+   ],
+   "matchup": {
+    "vs": "Cassiopeia"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "12.22"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Fizz/Q",
+    "Fizz/E"
+   ],
+   "conditions": [
+    "Jouer Fizz au mid contre un champion à distance"
+   ],
+   "limits": [
+    "Dépend des forces respectives et du sort d'invocateur adverse (ex: Barrière)"
+   ],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uVzxtwidra4",
+     "locator": "00:58",
+     "lang": "fr",
+     "passage": "Et ici mon but quand tu joues contre un range, c'est de laisser la wave push vers moi, comme dans tous les match-ups mêlée versus range, et d'all-in niveau 2 ou 3 selon les forces de mon adversaire et mes forces.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "38-98s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Cassiopeia (exemple)"
+   ],
+   "action": "Laisser la vague adverse pousser au début contre un champion à distance avec Fizz et chercher un all-in au niveau 2 ou 3.",
+   "observe": "La position de la vague de sbires sur la midlane en early game.",
+   "use": {
+    "when": "tu joues Fizz au mid face à un champion à distance en début de partie",
+    "why": "pour gérer le désavantage du corps à corps en early game avant de chercher l'affrontement",
+    "who": "joueurs de Fizz mid",
+    "how": [
+     "Laisser la vague pousser vers ta tourelle",
+     "Attendre le niveau 2 ou 3",
+     "Chercher l'affrontement (all-in) selon les forces en présence"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle à la transcription, son contexte d'usage est complet et le conseil est un classique intemporel de la gestion des match-ups mêlée contre distance sur les voies en solo queue."
+   },
+   "published": "2022-12-04",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt-uVzxtwidra4-2",
+   "claim": "Selon Chreak : pour lancer l'ultime de Fizz de manière plus imprévisible, tu peux utiliser ton sort A sur un adversaire ou un sbire pour annuler l'animation.",
+   "champions": [
+    "Fizz"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": true,
+    "value": "12.22"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Fizz/R",
+    "Fizz/Q"
+   ],
+   "conditions": [
+    "Jouer Fizz et disposer de son ultime et de son sort A"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-uVzxtwidra4",
+     "locator": "04:37",
+     "lang": "fr",
+     "passage": "Ce que je vais vouloir faire, c'est si possible cancel l'animation de mon R avec un A. Élément ultra important quand vous jouez Fizz : si vous appuyez sur A sur un adversaire, alors là c'est un peu greedy...",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "257-317s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Lancer ton sort A sur une cible juste après ou pendant ton ultime pour masquer l'animation.",
+   "observe": "L'enchaînement des sorts R et A sur Fizz.",
+   "use": {
+    "when": "tu engages un combat avec Fizz et tu veux lancer ton ultime sans laisser le temps à l'adversaire de l'esquiver",
+    "why": "le joueur en face ne sait pas quand est-ce que tu lances le R",
+    "who": "joueurs de Fizz",
+    "how": [
+     "Activer ton sort R",
+     "Utiliser immédiatement ton sort A sur un sbire ou un champion pour annuler l'animation"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité retranscrit fidèlement le conseil technique de l'auteur sur le masquage de l'animation de l'ultime avec le sort A, avec un contexte d'usage complet et vérifiable."
+   },
+   "published": "2022-12-04",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt--QErfgrRnYw-1",
+   "claim": "Selon Chreak : galio se joue préférentiellement en counter-pick contre les mages contrôle et les champions mêlée faciles à gank, car le prendre en blind-pick est risqué si tu ne maîtrises pas le matchup.",
+   "champions": [
+    "Galio"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Vel'Koz"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S12"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Galio"
+   ],
+   "conditions": [
+    "face à un mage contrôle ou un champion mêlée facile à gank"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--QErfgrRnYw",
+     "locator": "00:52",
+     "lang": "fr",
+     "passage": "Galio c'est bien contre les mages contrôle surtout, et les champions mêlée qui sont faciles à gank.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "32-92s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt--QErfgrRnYw",
+     "locator": "00:52",
+     "lang": "fr",
+     "passage": "Moi je vous conseille de prendre Galio seulement en counter-pick, en blind-pick c'est du suicide sauf si vous connaissez super bien le match-up."
+    }
+   ],
+   "mentions": [],
+   "action": "Joue Galio en réponse à un mage contrôle ou un mêlée gankable, évite de le pick en premier sans maîtrise.",
+   "observe": "Le choix de Galio en deuxième phase de draft ou en contre.",
+   "use": {
+    "when": "Tu es dans la phase de sélection des champions sur la voie du milieu.",
+    "why": "Galio excelle contre ce type de champions et craint les aveugles non maîtrisés.",
+    "who": "Joueur de Galio en milieu de carte",
+    "how": [
+     "Vends-toi le pick Galio uniquement si l'adversaire a révélé un mage contrôle ou un mêlée vulnérable."
+    ],
+    "notWhen": "Ne le prends pas en premier pick si tu ne connais pas le matchup sur le bout des doigts."
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil correspond exactement aux passages cités, le contexte d'usage est complet et l'avis du créateur est clairement contextualisé."
+   },
+   "published": "2022-10-02",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt--QErfgrRnYw-2",
+   "claim": "Selon Chreak : pour nettoyer rapidement les vagues de sbires avec Galio, positionne-toi légèrement sur le côté afin que ton sort Vents de guerre touche simultanément les sbires corps à corps et à distance.",
+   "champions": [
+    "Galio"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S12"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Galio/A"
+   ],
+   "conditions": [
+    "face à une vague de sbires"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--QErfgrRnYw",
+     "locator": "01:25",
+     "lang": "fr",
+     "passage": "ce que vous voulez faire avec Galio, c'est toujours vous mettre légèrement sur le côté pour que vos Q touchent à la fois les range et les mêlée.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "65-125s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Décale-toi sur le flanc de la vague avant de lancer Vents de guerre.",
+   "observe": "Les deux cercles de dégâts du sort touchent l'intégralité de la vague.",
+   "use": {
+    "when": "Tu arrives face à une vague de sbires ennemis au milieu.",
+    "why": "Cela permet de toucher tous les sbires et de sécuriser un push efficace.",
+    "who": "Joueur de Galio",
+    "how": [
+     "Place ton champion sur le côté de la ligne de sbires.",
+     "Lance ton A (Vents de guerre) pour inclure les mêlées et les distances."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'énoncé est fidèle au passage, le positionnement pour toucher toute la vague avec le A est bien explicité."
+   },
+   "published": "2022-10-02",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt--QErfgrRnYw-3",
+   "claim": "Selon Chreak : pour annuler le temps de recul de l'animation de ton E (Horion de la justice) avec Galio, lance le sort en étant collé contre un mur.",
+   "champions": [
+    "Galio"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S12"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Galio/E"
+   ],
+   "conditions": [
+    "proche d'un mur"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--QErfgrRnYw",
+     "locator": "05:07",
+     "lang": "fr",
+     "passage": "Le premier c'est le E cancel d'animation avec un mur. Tu peux E en étant collé à un mur, ça va cancel le retour de Galio, ça va te faire accélérer tout de suite.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "287-347s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Colle-toi à un décor mural pour lancer ton E sans le temps de recul.",
+   "observe": "L'animation de recul disparaît et le dash part immédiatement.",
+   "use": {
+    "when": "Tu te trouves à proximité d'un mur sur ta lane ou dans la jungle.",
+    "why": "Le décor bloque le mouvement de recul initial de la compétence.",
+    "who": "Joueur de Galio",
+    "how": [
+     "Positionne ton champion collé contre un mur.",
+     "Appuie sur la touche de ton E en visant ta direction."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Le conseil technique sur l'annulation du recul du E contre un mur est parfaitement appuyé par la transcription."
+   },
+   "published": "2022-10-02",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt--QErfgrRnYw-4",
+   "claim": "Selon Chreak : pour contrer la ténacité ennemie lors de ton combo avec Galio, utilise un E à l'envers après ton contrôle pour toucher la cible sur le retour.",
+   "champions": [
+    "Galio"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "",
+    "region": ""
+   },
+   "patch": {
+    "known": true,
+    "value": "S12"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Galio/Z",
+    "Galio/E"
+   ],
+   "conditions": [
+    "après avoir placé ton Z"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "non-precise",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt--QErfgrRnYw",
+     "locator": "05:23",
+     "lang": "fr",
+     "passage": "C'est qu'une fois que t'as CC quelqu'un, tu veux à tout prix E reverse pour avoir le plus de rapidité parce que vu que ton Galio en fait recule légèrement avant de mettre son E, si tu le mets à l'envers, ça veut dire qu'en reculant tu vas faire directement le CC.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "303-363s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Oriente ton E à l'opposé de la cible après ton taunt pour la toucher instantanément avec le mouvement arrière.",
+   "observe": "Le dash touche la cible ennemie sans temps de latence.",
+   "use": {
+    "when": "Tu as immobilisé un adversaire avec ton Bouclier de Durand (Z).",
+    "why": "Le léger recul du E s'effectue directement sur l'ennemi placé dans ton dos.",
+    "who": "Joueur de Galio",
+    "how": [
+     "Mets ton Z sur l'adversaire.",
+     "oriente ton curseur à l'opposé de l'ennemi et lance ton E."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "La mécanique du E inversé après le contrôle est correctement décrite et fidèle au contenu source."
+   },
+   "published": "2022-10-02",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3-flash-preview",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt-mKvJIp08Wb4-1",
+   "claim": "Selon Chreak : contre un champion mêlée en midlane avec Talon, l'objectif est d'obtenir la priorité sur la vague (le push) pour atteindre le niveau 2 en premier et agresser l'adversaire.",
+   "champions": [
+    "Talon"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "lane",
+    "vagues",
+    "matchup"
+   ],
+   "matchup": {
+    "vs": "Katarina"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Talon/W",
+    "Talon/passive"
+   ],
+   "conditions": [
+    "Jouer Talon midlane contre un champion corps à corps"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mKvJIp08Wb4",
+     "locator": "[01:08]",
+     "lang": "fr",
+     "passage": "Donc à partir de là, tout ce que tu veux quand tu joues contre un mêlée, c'est prendre le push. Le push est très important parce que si tu as le push, ça veut dire que tu as ton niveau 2 en premier, ce qui veut dire qu'ensuite tu peux la cyberbully avec ton passage de niveau 2.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "48-108s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Katarina (exemple)"
+   ],
+   "action": "Pousse la première vague de sbires plus vite que ton vis-à-vis corps à corps pour sécuriser le niveau 2 en premier.",
+   "observe": "Le niveau de ton champion par rapport à l'adversaire lors de l'arrivée du deuxième sbire du canon ou de la deuxième vague.",
+   "use": {
+    "when": "tu joues Talon en midlane face à un champion corps à corps et la première vague de sbires arrive au milieu de la lane",
+    "why": "pour obtenir le niveau 2 en premier et pouvoir imposer une domination agressive (cyberbully) sur l'adversaire",
+    "who": "Talon midlane contre un champion mêlée",
+    "how": [
+     "Frappe les sbires de la première vague pour prendre l'avance sur le push",
+     "Surveille l'expérience pour anticiper ton passage niveau 2",
+     "Agresse l'adversaire dès que tu obtiens le niveau 2 avant lui"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité est fidèle au passage cité, le contexte d'usage est complet et le conseil de gestion des vagues pour le niveau 2 est intemporel et correct."
+   },
+   "published": "2022-09-11",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt-mKvJIp08Wb4-2",
+   "claim": "Selon Chreak : le combo W R de Talon permet de maximiser les dégâts de zone (AoE) tout en sélectionnant une cible précise et en évitant qu'elle ne s'échappe grâce au flash.",
+   "champions": [
+    "Talon"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "teamfight",
+    "champion"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger",
+    "region": "EUW"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Talon/W",
+    "Talon/R"
+   ],
+   "conditions": [
+    "Jouer Talon et engager un combat d'équipe ou un gank"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-mKvJIp08Wb4",
+     "locator": "[04:34]",
+     "lang": "fr",
+     "passage": "Mais W R c'est l'un des combos les plus importants avec Talon, c'est quand tu veux faire un maximum de dégâts AoE en même temps que choisir une cible.",
+     "autoChecked": {
+      "by": "gemini-3.5-flash-lite",
+      "at": "2026-11-26",
+      "window": "254-314s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Soraka (exemple)",
+    "Zeri (exemple)"
+   ],
+   "action": "Utilise le sort Z suivi de l'ultimate R pour infliger des dégâts de zone et cibler un ennemie prioritaire.",
+   "observe": "Le positionnement des ennemis regroupés pour placer le Z et le R de manière optimale.",
+   "use": {
+    "when": "tu arrives en renfort sur une ligne ou en combat d'équipe et les ennemis sont regroupés",
+    "why": "pour infliger un maximum de dégâts de zone (AoE) simultanément et sécuriser l'élimination de la cible",
+    "who": "Talon",
+    "how": [
+     "Lance ton Z (Rétammation)",
+     "Enchaîne immédiatement avec ton R (Assaut ténébreux)",
+     "Attends d'utiliser ton Q pour t'assurer le DPS requis et contrer les sorts de mobilité adverse"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "L'unité retranscrit fidèlement l'avis de l'auteur sur l'utilisation du combo WR de Talon pour l'AoE, avec un contexte d'usage bien défini."
+   },
+   "published": "2022-09-11",
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-26",
+   "validity": {
+    "checkedAt": "2026-11-26",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-26",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-26"
   }
  ],
- "updatedAt": "2026-11-26T09:19:44.926Z"
+ "updatedAt": "2026-11-26T21:56:24.099Z"
 }

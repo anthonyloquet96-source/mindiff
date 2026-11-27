@@ -104586,7 +104586,946 @@
    },
    "version": 1,
    "firstSeen": "2026-11-27"
+  },
+  {
+   "id": "u-ai-yt-ckdVPV0olzA-1",
+   "claim": "Selon PekinWoof : dans le matchup de Zoe contre Cho'Gath au mid, la phase de lane est très favorable à Zoe à condition de ne pas se faire toucher par le A (Q) de Cho'Gath.",
+   "champions": [
+    "Zoe",
+    "Cho'Gath"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "matchup",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Cho'Gath"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger / Maître / Diamant",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "Cho'Gath/Q"
+   ],
+   "conditions": [
+    "Jouer Zoe contre Cho'Gath en mid lane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ckdVPV0olzA",
+     "locator": "00:08",
+     "lang": "en",
+     "passage": "Today we're playing some Zoe mid versus a Cho'Gath here. It is going to be a pretty easy matchup if you can do one thing, which is not get hit by Cho'Gath Q.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-27",
+      "window": "0-48s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Esquiver le A (Q) de Cho'Gath pendant la phase de lane.",
+   "observe": "",
+   "use": {
+    "when": "Pendant la phase de lane en mid lane en jouant Zoe contre Cho'Gath.",
+    "why": "Le matchup est très facile pour Zoe tant que Cho'Gath ne parvient pas à toucher sa compétence A.",
+    "who": "Joueur de Zoe au mid contre Cho'Gath.",
+    "how": [
+     "Rester attentif au placement de Cho'Gath",
+     "Esquiver son A (Q) pour maintenir la pression sans danger"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Conseil tiré d'une seule partie et issu d'une transcription IA de vidéo sans vérification de seconde passe."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-27",
+   "validity": {
+    "checkedAt": "2026-11-27",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-27"
+  },
+  {
+   "id": "u-ai-yt-ckdVPV0olzA-2",
+   "claim": "Selon PekinWoof : la rune Moisson noire (Dark Harvest) sur Zoe s'avère particulièrement efficace lors des combats d'équipe en raison de sa réinitialisation après chaque élimination.",
+   "champions": [
+    "Zoe"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "build",
+    "teamfight"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger / Maître / Diamant",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "rune:Dark Harvest"
+   ],
+   "conditions": [
+    "Sélectionner la rune Moisson noire"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ckdVPV0olzA",
+     "locator": "02:12",
+     "lang": "en",
+     "passage": "What's good about Dark Harvest is that it's more of a teamfighting rune. What it does is that every single time we get a kill, it will reset it.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-27",
+      "window": "112-172s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Utiliser Moisson noire sur Zoe pour optimiser les dégâts en enchaînement lors des regroupements et teamfights.",
+   "observe": "",
+   "use": {
+    "when": "Lors du choix de la rune principale de Zoe avant une partie.",
+    "why": "Moisson noire se réinitialise à chaque élimination d'ennemi, ce qui augmente son impact pendant les combats d'équipe.",
+    "who": "Joueur de Zoe au mid cherchant une alternative axée sur les teamfights.",
+    "how": [
+     "Sélectionner la rune Moisson noire dans la branche Domination"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "patch-incompatible",
+     "une-partie"
+    ],
+    "why": "Conseil portant sur l'efficacité d'une rune (dépendant de l'équilibrage) sans patch identifié, tiré d'une seule partie."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-27",
+   "validity": {
+    "checkedAt": "2026-11-27",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-27"
+  },
+  {
+   "id": "u-ai-yt-ckdVPV0olzA-3",
+   "claim": "Selon PekinWoof : face à Kayle au mid, Zoe dispose d'un matchup très avantageux qu'elle peut exploiter en mettant une forte pression, tout en faisant attention aux ganks ennemis.",
+   "champions": [
+    "Zoe",
+    "Kayle"
+   ],
+   "roles": [
+    "mid"
+   ],
+   "themes": [
+    "matchup",
+    "lane"
+   ],
+   "matchup": {
+    "vs": "Kayle"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Challenger / Maître / Diamant",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Jouer Zoe contre Kayle au mid en early game"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ckdVPV0olzA",
+     "locator": "20:08",
+     "lang": "en",
+     "passage": "We are versus a Kayle this game. I mean, basically it's a free matchup unless something really bad happens, like I get ganked or something when I'm trying to pressure hard."
+    }
+   ],
+   "mentions": [],
+   "action": "Pressurer agressivement Kayle en phase de lane tout en surveillant la jungle adverse.",
+   "observe": "",
+   "use": {
+    "when": "En phase de lane au mid avec Zoe face à Kayle au tout début de partie.",
+    "why": "Kayle est extrêmement faible en début de partie et ne devient menaçante qu'après 3 ou 4 objets.",
+    "who": "Joueur de Zoe au mid contre Kayle.",
+    "how": [
+     "Mettre une pression agressive sur Kayle dès le niveau 1",
+     "Garder de la vision pour ne pas se faire surprendre par un gank adverse pendant la poussée"
+    ],
+    "notWhen": "Si un gank adverse survient pendant que l'on tente de pressurer agressivement sous tour."
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "citation-insuffisante",
+     "sur-generalisation",
+     "une-partie"
+    ],
+    "why": "Le passage cité n'évoque pas le pic de puissance à 3-4 objets de Kayle, mais met l'accent sur le danger des ganks lors de la pression."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-27",
+   "validity": {
+    "checkedAt": "2026-11-27",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-27"
+  },
+  {
+   "id": "u-ai-yt-4_t0goUSOA0-1",
+   "claim": "Selon perryjg : le tempo en jungle consiste à accomplir sa tâche principale (vider ses camps) tout en dégageant du temps pour des actions supplémentaires sans prendre de retard sur ses réapparitions.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "methode",
+    "jungle"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Grandmaster",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-4_t0goUSOA0",
+     "locator": "00:01",
+     "lang": "en",
+     "passage": "tempo is all about doing your job and still having time to do more after you're done with your job. So your jungler... your job as a jungler is to farm your camps. Like that is your job. If you are skipping your camps, that means that you are pretty much giving... giving up tempo to do something else.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-27",
+      "window": "0-41s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "use": {
+    "when": "pendant toute la phase de farm initiale",
+    "why": "Sauter des camps pour faire autre chose sans planification fait perdre du tempo et du retard en ressources.",
+    "who": "tout jungler",
+    "how": [
+     "Identifie tes camps comme ta priorité absolue",
+     "Planifie tes actions (ganks, objectifs) pour qu'elles s'insèrent entre deux cycles de farm"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Définition fondamentale et intemporelle du tempo en jungle."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-27",
+   "validity": {
+    "checkedAt": "2026-11-27",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-27"
+  },
+  {
+   "id": "u-ai-yt-4_t0goUSOA0-4",
+   "claim": "Selon perryjg : ne traverse pas la carte pour sécuriser un Carapateur si cela te fait rater le moment de réapparition de tes propres camps de jungle.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Grandmaster",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:Carapateur"
+   ],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-4_t0goUSOA0",
+     "locator": "02:40",
+     "lang": "en",
+     "passage": "Why am I not clearing this Skuttles? Well, one, I'm down here, and it takes a while to walk through... Two, I want to be here on spawn. If I went ahead and I went to the bot crab, I wouldn't be on this camp on spawn, therefore making my tempo worse.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-27",
+      "window": "140-200s",
+      "said": true,
+      "supported": false,
+      "gap": "L'auteur ne mentionne pas de fenêtre précise de 10 à 15 secondes, il insiste simplement sur le fait d'être présent pile au moment de la réapparition (« on spawn »)."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Ignorer un Carapateur éloigné pour respecter le timing de réapparition de ses camps",
+   "observe": "",
+   "use": {
+    "when": "un Carapateur est disponible à l'autre bout de la rivière alors que tes camps vont réapparaître",
+    "why": "Le temps de trajet pour un seul Carapateur ne vaut pas le retard accumulé sur tout ton cycle de jungle suivant.",
+    "who": "tout jungler",
+    "how": [
+     "Évalue le temps de trajet vers le Carapateur",
+     "Vérifie le timer de tes propres camps",
+     "Privilégie tes camps s'ils apparaissent dans les 10-15 secondes"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Arbitrage correct entre la sécurisation d'un Carapateur et le respect des timers de réapparition."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-27",
+   "validity": {
+    "checkedAt": "2026-11-27",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-27"
+  },
+  {
+   "id": "u-ai-yt-4_t0goUSOA0-5",
+   "claim": "Selon perryjg : utilise ton avantage de tempo, souvent matérialisé par une avance de niveau, pour forcer des objectifs neutres (Dragon) que l'adversaire ne peut pas contester.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "macro",
+    "jungle"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Grandmaster",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir une avance de niveau sur le jungler adverse"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-4_t0goUSOA0",
+     "locator": "03:39",
+     "lang": "en",
+     "passage": "I have a level advantage over the Lee Sin. So now I can fight this guy extremely, extremely hard here. Chunk this guy out, and now force the dragon out because I have used my tempo advantage to put myself in a beautiful, beautiful position.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-27",
+      "window": "199-259s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Lee Sin (exemple)"
+   ],
+   "action": "Lancer un Dragon quand tu as 1 ou 2 niveaux d'avance sur le jungler adverse",
+   "observe": "",
+   "use": {
+    "when": "tu es niveau 6 et le jungler adverse est encore niveau 4 ou 5",
+    "why": "L'écart de statistiques et de compétences (ultime) rend la contestation impossible ou suicidaire pour l'adversaire.",
+    "who": "tout jungler",
+    "how": [
+     "Vérifie le niveau du jungler adverse via le tableau des scores",
+     "Engage l'objectif si tu as l'avantage",
+     "Utilise ta puissance supérieure pour chasser l'adversaire s'il s'approche"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Utilisation logique de l'avantage de niveau pour sécuriser les objectifs neutres."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-27",
+   "validity": {
+    "checkedAt": "2026-11-27",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-27"
+  },
+  {
+   "id": "u-ai-yt-4_t0goUSOA0-6",
+   "claim": "Selon perryjg : en milieu de partie (environ 2 objets terminés), le tempo ne se définit plus par le vidage des camps mais par le contrôle de la vision et le placement pour les objectifs majeurs.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "macro",
+    "vision"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Grandmaster",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Avoir au moins 2 objets complétés"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-4_t0goUSOA0",
+     "locator": "13:57",
+     "lang": "en",
+     "passage": "So now camps don't matter anymore, it's all about controlling the... the correct side of the map. What I can do though, one... one time, is clear this one camp quickly... and then I can go and connect with them.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-27",
+      "window": "817-877s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Prioriser le placement en rivière et la vision sur le farm des camps après 20 minutes",
+   "observe": "",
+   "use": {
+    "when": "un objectif majeur (Baron, Dragon) va apparaître et tu as ton pic de puissance",
+    "why": "À ce stade, sécuriser l'objectif et gagner le combat d'équipe est plus rentable que de vider ses propres camps.",
+    "who": "tout jungler",
+    "how": [
+     "Délaisse tes camps secondaires",
+     "Positionne-toi avec ton support pour nettoyer la vision adverse",
+     "Reste à proximité de tes alliés principaux (win conditions)"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Evolution pertinente de la priorité du tempo vers la vision et le placement en milieu de partie."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-27",
+   "validity": {
+    "checkedAt": "2026-11-27",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-27"
+  },
+  {
+   "id": "u-ai-yt-4_t0goUSOA0-7",
+   "claim": "Selon perryjg : il est préférable de sacrifier son tempo de jungle pour récupérer une vague de sbires sur une voie si aucun allié n'est en mesure de le faire.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "macro",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Grandmaster",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [
+    "Aucun allié ne peut récupérer la vague"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-4_t0goUSOA0",
+     "locator": "13:57",
+     "lang": "en",
+     "passage": "I'm going to give my tempo up on the Krugs to catch this mid wave because no one else on my team is here to catch the wave, and I don't trust my Silas to teleport to mid lane to defend the wave, so I will... I will do that.",
+     "mentionOnly": true,
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-27",
+      "window": "817-877s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas explicitement que l'or et l'expérience d'une vague sont supérieurs à un camp de jungle."
+     }
+    }
+   ],
+   "mentions": [
+    "Silas (exemple)"
+   ],
+   "action": "Aller sur une lane pour tuer les sbires sous tour au lieu de faire ses camps",
+   "observe": "",
+   "use": {
+    "when": "une grosse vague de sbires s'écrase sous ta tour et tes alliés sont morts ou occupés ailleurs",
+    "why": "",
+    "who": "tout jungler",
+    "how": [
+     "Identifie une vague non récupérée sur la mini-carte",
+     "Interromps ton cycle de jungle",
+     "Tue les sbires avant qu'ils ne meurent sous la tour"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Priorisation correcte des vagues de sbires orphelines sur les camps de jungle pour maximiser les ressources d'équipe."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-27",
+   "validity": {
+    "checkedAt": "2026-11-27",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-27"
+  },
+  {
+   "id": "u-ai-yt-4_t0goUSOA0-9",
+   "claim": "Selon perryjg : achète systématiquement deux Balises de contrôle pour sécuriser le Baron Nashor lorsque ton équipe dispose d'un avantage permettant de le tenter.",
+   "champions": [],
+   "roles": [
+    "all"
+   ],
+   "themes": [
+    "vision",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Grandmaster",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "item:Balise de contrôle"
+   ],
+   "conditions": [
+    "Avoir l'avantage et vouloir forcer le Baron"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "grand-maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-4_t0goUSOA0",
+     "locator": "18:08",
+     "lang": "en",
+     "passage": "what I want to do is I want to buy two pink wards here so I can control the Baron, because Baron's actually very easy for us to take.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-27",
+      "window": "1068-1128s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas explicitement la prévention d'un vol ou d'une initiation adverse, ni le caractère systématique de l'achat."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Acheter 2 Balises de contrôle lors d'un rappel avant le Baron",
+   "observe": "",
+   "use": {
+    "when": "le Baron Nashor est vivant et ton équipe est en position de le faire ou de le contester",
+    "why": "",
+    "who": "tout joueur, particulièrement le jungler",
+    "how": [
+     "Garde 150 pièces d'or lors de ton rappel",
+     "Achète deux Balises de contrôle",
+     "Pose-les dans l'enclos du Baron ou les buissons d'accès"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil pratique et systématique pour la sécurisation de la vision au Baron Nashor."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-27",
+   "validity": {
+    "checkedAt": "2026-11-27",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-27"
+  },
+  {
+   "id": "u-ai-yt-n0GUIET7N6w-1",
+   "claim": "Selon Coach Violet : dans un affrontement en bot lane opposant deux duos à distance (double range), il est presque toujours impératif de chercher à obtenir la priorité de poussée (le push).",
+   "champions": [],
+   "roles": [
+    "bottom",
+    "support"
+   ],
+   "themes": [
+    "lane",
+    "vagues"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "Diamond 1 / Low Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [],
+   "conditions": [
+    "Affrontement double distance contre double distance en bot lane"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-n0GUIET7N6w",
+     "locator": "01:03",
+     "lang": "en",
+     "passage": "When it's double range vs double range, you almost always want to make sure you play for the push.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-27",
+      "window": "43-103s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [
+    "Miss Fortune (exemple)",
+    "Brand (exemple)",
+    "Smolder (exemple)",
+    "Karma (exemple)"
+   ],
+   "action": "Attaquer les sbires dès le niveau 1 pour obtenir l'avantage numérique et la priorité sur la vague.",
+   "observe": "Vérifier si les deux champions adverses sont à distance.",
+   "use": {
+    "when": "Au début de la phase de lane, lorsque les deux compositions de bot lane sont composées de champions à distance.",
+    "why": "Sécuriser la poussée permet de dicter le rythme de la lane et facilite les échanges de coups ultérieurs.",
+    "who": "ADC et Support jouant un duo à distance.",
+    "how": [
+     "Identifier que l'adversaire joue également un duo à distance",
+     "Utiliser ses attaques de base et sorts sur la vague de sbires dès le niveau 1",
+     "Maintenir une pression constante pour garder les sbires plus proches de la tour adverse"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [],
+    "why": "Conseil fondamental sur la gestion de vague en bot lane, cohérent avec la transcription."
+   },
+   "published": null,
+   "proposedStatus": "exploitable",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-27",
+   "validity": {
+    "checkedAt": "2026-11-27",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-27"
+  },
+  {
+   "id": "u-ai-yt-n0GUIET7N6w-2",
+   "claim": "Selon Coach Violet : contre une Karma au niveau 1, utilisez vos sbires pour intercepter son A (Q) tout en restant à une distance suffisante du point d'impact pour ne pas subir les dégâts de zone de l'explosion.",
+   "champions": [],
+   "roles": [
+    "bottom"
+   ],
+   "themes": [
+    "matchup",
+    "lane",
+    "survie"
+   ],
+   "matchup": {
+    "vs": "Karma"
+   },
+   "context": {
+    "queue": "solo",
+    "rank": "Diamond 1 / Low Master",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "Karma/Q"
+   ],
+   "conditions": [
+    "Karma adverse possède son Mantra (R) et son A (Q) au niveau 1"
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "maitre",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-n0GUIET7N6w",
+     "locator": "01:08",
+     "lang": "en",
+     "passage": "I want to play in the wave, avoid the Mantra Q while playing for push.",
+     "autoChecked": {
+      "by": "gemini-3-flash-preview",
+      "at": "2026-11-27",
+      "window": "48-108s",
+      "said": true,
+      "supported": true,
+      "gap": "L'auteur ne mentionne pas explicitement les dégâts de zone ni la distance de sécurité par rapport à l'impact, se contentant de dire d'éviter le sort en restant dans les sbires."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Se placer derrière ses sbires pour que le A de Karma les touche en premier.",
+   "observe": "Surveiller l'activation du Mantra de Karma (particules visuelles autour d'elle).",
+   "use": {
+    "when": "Phase de lane au niveau 1 face à une Karma support.",
+    "why": "",
+    "who": "ADC (ici Miss Fortune) affrontant Karma.",
+    "how": [
+     "Rester à proximité immédiate de ses sbires",
+     "Utiliser les sbires comme bouclier contre le projectile de Karma",
+     "Continuer de frapper les sbires pour le push tout en restant à l'abri"
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "contexte-manquant"
+    ],
+    "why": "Se positionner 'dans' la vague contre Karma est dangereux car son A (Q) inflige des dégâts de zone à l'impact ; il faut préciser qu'il s'agit de bloquer le projectile tout en restant hors de l'AoE."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-27",
+   "validity": {
+    "checkedAt": "2026-11-27",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-27"
   }
  ],
- "updatedAt": "2026-11-27T09:00:38.932Z"
+ "updatedAt": "2026-11-27T21:33:40.992Z"
 }

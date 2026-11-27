@@ -104378,7 +104378,215 @@
    },
    "version": 1,
    "firstSeen": "2026-11-26"
+  },
+  {
+   "id": "u-ai-yt-rtbDI7noMkU-1",
+   "claim": "Selon AloisNL : lorsqu'un adversaire gèle la vague de sbires sous sa tourelle au top après un crash au niveau 1-2, utiliser un Saut éclair par-dessus le mur ennemi pour intercepter la vague en proxy permet de débloquer la ligne et forcer la vague à rebondir.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "vagues",
+    "lane",
+    "survie"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "Challenger / Master",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.23"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "summoner:Flash",
+    "system:vagues-de-sbires"
+   ],
+   "conditions": [
+    "L'adversaire gèle la vague sous sa tourelle après le crash d'une vague",
+    "Aucun moyen direct n'est disponible pour forcer le crash sans risque extrême"
+   ],
+   "limits": [
+    "Nécessite la dépense du Saut éclair",
+    "Expose à une interception par le jungler ennemi ou à un exécute sous tourelle"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-rtbDI7noMkU",
+     "locator": "[30:36]",
+     "lang": "en",
+     "passage": "If she freezes, I take over this wave, she can't hold it. If she follows, this wave gets into the turret. Bausdamentals! So I Flash over the wall, I freeze, and now this guy is like, was?",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-27",
+      "window": "1816-1876s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-rtbDI7noMkU",
+     "locator": "[30:46]",
+     "lang": "en",
+     "passage": "And then, we catch this wave, and now this Ambessa is like, wait a minute, if I chase, this wave crashes, so she has to leave. So I drag the wave for as long as I can.",
+     "mentionOnly": true
+    },
+    {
+     "content": "c-yt-rtbDI7noMkU",
+     "locator": "[31:22]",
+     "lang": "en",
+     "passage": "That Flash was extremely necessary, and then we got her Flash and then we pretty much went even. If I don't do that Flash, I cannot play the game. Legit Flash for proxy farm."
+    }
+   ],
+   "mentions": [
+    "Ambessa (exemple)"
+   ],
+   "action": "Utiliser le Saut éclair au-dessus du mur de la jungle haute pour intercepter la vague ennemi derrière sa tourelle lorsqu'un gel de vague bloque la lane.",
+   "observe": "",
+   "use": {
+    "when": "Ton vis-à-vis gèle la vague sous sa tourelle au top au niveau 1 ou 2 et tu n'as pas de priorité pour la pousser.",
+    "why": "L'adversaire est forcé d'abandonner son freeze ou de laisser la vague entrer sous sa tourelle, ce qui remet la ligne en mouvement et fait rebondir la vague vers toi.",
+    "who": "Joueurs de la voie du haut confrontés à un freeze précoce",
+    "how": [
+     "Sauter par-dessus le mur de la jungle ennemie avec le Saut éclair pour arriver derrière la tourelle adverse.",
+     "Intercepter la vague de sbires suivante et la retenir en proxy aussi longtemps que possible.",
+     "Laisser la vague rebondir naturellement vers ta tourelle après l'interception."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "L'action de Saut éclair pour proxy et casser un freeze sous tourelle s'appuie sur l'analyse d'un coup spécifique exécuté dans une seule partie."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-27",
+   "validity": {
+    "checkedAt": "2026-11-27",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-27"
+  },
+  {
+   "id": "u-ai-yt-rtbDI7noMkU-2",
+   "claim": "Selon AloisNL : réaliser un proxy dès le niveau 1 sur la voie du haut permet d'obtenir la priorité sur les premières vagues et de créer une opportunité d'envahir le buff rouge du jungler adverse s'il commence de ce côté.",
+   "champions": [],
+   "roles": [
+    "top"
+   ],
+   "themes": [
+    "lane",
+    "jungle",
+    "vagues"
+   ],
+   "context": {
+    "queue": "non précisé",
+    "rank": "Challenger / Master",
+    "region": "KR"
+   },
+   "patch": {
+    "known": true,
+    "value": "14.23"
+   },
+   "metaDependent": false,
+   "dependsOn": [
+    "system:buff-rouge",
+    "system:vagues-de-sbires"
+   ],
+   "conditions": [
+    "L'équipe adverse ne défend pas les accès à la jungle supérieure au niveau 1",
+    "Le jungler adverse démarre son camp au buff rouge"
+   ],
+   "limits": [
+    "Demande une bonne lecture du parcours du jungler ennemi et un timing précis pour ne pas perdre la vague"
+   ],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-rtbDI7noMkU",
+     "locator": "[01:25]",
+     "lang": "en",
+     "passage": "I get first four waves here for free. Although I can make it so their jungler can't play the game. I lost a melee. She's doing Red buff. I'm not gonna allow that to happen.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-27",
+      "window": "65-125s",
+      "said": true,
+      "supported": true
+     }
+    },
+    {
+     "content": "c-yt-rtbDI7noMkU",
+     "locator": "[16:00]",
+     "lang": "en",
+     "passage": "And so then, I act like I go for the wave, we missed the melee, which was a blessing, and then we go here, and take her Red buff, and we take her Red buff. Now, this is not where it ends, by the way."
+    }
+   ],
+   "mentions": [
+    "Lillia (exemple)"
+   ],
+   "action": "Contourner les tourelles au niveau 1 pour récupérer la première vague en proxy, puis se décaler sur le buff rouge adverse.",
+   "observe": "",
+   "use": {
+    "when": "Au tout début de la partie (niveau 1), lorsque la jungle haute ennemie n'est pas surveillée et que le jungler ennemi commence au buff rouge.",
+    "why": "Cela prive le jungler adverse de son buff, ralentit sa progression et sécurise un avantage d'expérience et de vagues au top.",
+    "who": "Top laners capables d'effectuer un proxy précoce au niveau 1",
+    "how": [
+     "Se faufiler entre les tourelles ennemies avant l'arrivée des sbires pour récupérer la première vague en proxy.",
+     "Observer l'avancement du jungler adverse sur son buff rouge à l'aide d'une balise de vision.",
+     "S'introduire dans le camp ennemi pour achever le buff rouge et attaquer le jungler."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "L'enchaînement du proxy niveau 1 vers l'invasion du buff rouge adverse décrit une séquence d'action tirée d'une seule partie spécifique."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.8-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-27",
+   "validity": {
+    "checkedAt": "2026-11-27",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-27",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-27"
   }
  ],
- "updatedAt": "2026-11-26T21:56:24.099Z"
+ "updatedAt": "2026-11-27T09:00:38.932Z"
 }

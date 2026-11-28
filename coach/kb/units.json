@@ -105525,7 +105525,261 @@
    },
    "version": 1,
    "firstSeen": "2026-11-27"
+  },
+  {
+   "id": "u-ai-yt-ITKouKNE7sw-1",
+   "claim": "Selon ScrubNoob : après avoir envahi la jungle ennemie, place une balise de vision dans ta propre jungle pour sécuriser ton clear et prévenir une contre-invasion punitive immédiate.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "vision",
+    "jungle",
+    "survie"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ITKouKNE7sw",
+     "locator": "01:49",
+     "lang": "en",
+     "passage": "I'm going to ward this so that way I can do my blue side safely without having to worry about getting invaded, just in case he rushes straight to me.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-28",
+      "window": "89-149s",
+      "said": true,
+      "supported": true
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Place une ward à l'entrée de ta jungle après avoir volé un camp adverse.",
+   "observe": "Les entrées de ta propre jungle.",
+   "use": {
+    "when": "Tu viens de terminer une invasion réussie et tu t'apprêtes à vider tes propres camps.",
+    "why": "Pour éviter d'être surpris par le jungler adverse qui pourrait tenter de compenser sa perte en t'envahissant à son tour.",
+    "who": "Tout jungler pratiquant l'invasion agressive.",
+    "how": [
+     "Sors de la jungle ennemie après ton action.",
+     "Place une balise de vision à une entrée stratégique de ta propre jungle.",
+     "Termine tes camps en surveillant la mini-carte."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Principe de sécurité après invasion cohérent mais tiré d'une seule session de jeu."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-28",
+   "validity": {
+    "checkedAt": "2026-11-28",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-28"
+  },
+  {
+   "id": "u-ai-yt-ITKouKNE7sw-2",
+   "claim": "Selon ScrubNoob : reconnais les situations où la composition et les objets adverses (comme le Sablier de Zhonya) rendent le 1v9 impossible. Dans ce cas, tu dois attendre que ton équipe absorbe la pression avant d'intervenir.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "teamfight",
+    "methode"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": true,
+   "dependsOn": [
+    "item:Sablier de Zhonya"
+   ],
+   "conditions": [
+    "Présence de nombreux contrôles de foule ou d'objets de temporisation (Zhonya) en face."
+   ],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ITKouKNE7sw",
+     "locator": "07:02",
+     "lang": "en",
+     "passage": "This is not a game I can 1v9 against their champions and their items. It's like physically not possible to 1v9... in team fights against those champs. Um, so I'm going to need my team to actually like pull some of their weights.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-28",
+      "window": "402-462s",
+      "said": true,
+      "supported": true,
+      "gap": "La raison indiquée (« pour éviter de mourir instantanément sans impact ») n'est pas énoncée par l'auteur dans l'extrait."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Attends que tes alliés engagent le combat avant de sauter sur une cible.",
+   "observe": "L'utilisation des sorts de contrôle et des objets actifs (Zhonya) par les adversaires.",
+   "use": {
+    "when": "En milieu ou fin de partie, lors des regroupements pour les objectifs.",
+    "why": "",
+    "who": "Assassins (Rengar) dans des parties serrées ou difficiles.",
+    "how": [
+     "Analyse les menaces et les objets défensifs adverses au tableau des scores.",
+     "Laisse ton équipe initier ou subir le premier assaut.",
+     "Interviens uniquement quand les ressources adverses sont épuisées."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "corriger",
+    "flags": [
+     "une-partie",
+     "sur-generalisation"
+    ],
+    "why": "La temporisation des ressources adverses est un principe général pour les assassins et carrys, pas une spécificité du kit de Rengar. Le conseil est aussi limité à une seule partie."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-28",
+   "validity": {
+    "checkedAt": "2026-11-28",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-28"
+  },
+  {
+   "id": "u-ai-yt-ITKouKNE7sw-3",
+   "claim": "Selon ScrubNoob : il est risqué de lancer le Hérault de la Faille si tes laners (top ou mid) sont absents ou ont besoin de retourner à la base (reset) immédiatement.",
+   "champions": [],
+   "roles": [
+    "jungle"
+   ],
+   "themes": [
+    "jungle",
+    "macro"
+   ],
+   "context": {
+    "queue": "solo",
+    "rank": "non précisé",
+    "region": "non précisé"
+   },
+   "patch": {
+    "known": false
+   },
+   "metaDependent": false,
+   "dependsOn": [],
+   "conditions": [],
+   "limits": [],
+   "nature": "opinion",
+   "levelContext": "challenger",
+   "usage": "reference",
+   "evidence": [
+    {
+     "content": "c-yt-ITKouKNE7sw",
+     "locator": "02:37",
+     "lang": "en",
+     "passage": "doing Herald's a bit risky now because uh... we don't have our top laner and our mid laner wants to reset pretty soon.",
+     "autoChecked": {
+      "by": "gemini-3.6-flash",
+      "at": "2026-11-28",
+      "window": "137-197s",
+      "said": true,
+      "supported": false,
+      "gap": "Le texte ajoute des gestes non mentionnes (regarder la sante et le mana) et explicite une raison de risque que l'auteur ne detaille pas."
+     }
+    }
+   ],
+   "mentions": [],
+   "action": "Vérifie l'état de tes laners avant de commencer le Hérault.",
+   "observe": "Les barres de PV/Mana et la position de tes laners top et mid.",
+   "use": {
+    "when": "Tu es à proximité de l'enclos du Hérault de la Faille et tu envisages de le sécuriser.",
+    "why": "",
+    "who": "Jungler en phase de prise d'objectifs neutres.",
+    "how": [
+     "Regarde l'état de santé et de mana de ton top et de ton mid.",
+     "Vérifie s'ils ont besoin de reset pour acheter des objets.",
+     "Si l'un d'eux n'est pas disponible, privilégie tes propres camps ou la vision."
+    ],
+    "notWhen": ""
+   },
+   "aiReview": {
+    "verdict": "garder",
+    "flags": [
+     "une-partie"
+    ],
+    "why": "Règle de macro-gestion des objectifs neutres classique mais limitée par l'échantillon d'une seule partie."
+   },
+   "published": null,
+   "proposedStatus": "provisoire",
+   "analyst": "gemini-3.8-flash (extraction v3 + critique v3) · vidéo lue par gemini-3.6-flash",
+   "origin": "analyse-automatique",
+   "promptVersions": {
+    "extraction": "v3",
+    "critique": "v3"
+   },
+   "analyzedAt": "2026-11-28",
+   "validity": {
+    "checkedAt": "2026-11-28",
+    "checkedPatch": "26.23"
+   },
+   "verified": {
+    "at": "2026-11-28",
+    "passages": true
+   },
+   "version": 1,
+   "firstSeen": "2026-11-28"
   }
  ],
- "updatedAt": "2026-11-27T21:33:40.992Z"
+ "updatedAt": "2026-11-28T08:14:28.130Z"
 }
